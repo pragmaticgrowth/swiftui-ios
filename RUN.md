@@ -21,15 +21,16 @@ python3 scripts/01_gate.py                           # -> data/01_repos_meta.jso
 
 # 2. Build the SDK reference catalog from symbol graphs (multi-module + stdlib denylist)
 mkdir -p sg sg_std
-SDK="$(xcrun --show-sdk-path --sdk macosx)"
-for m in SwiftUI SwiftUICore Observation SwiftData Charts; do \
-  swift symbolgraph-extract -module-name $m -target arm64-apple-macos14.0 -sdk "$SDK" \
+SDK="$(xcrun --show-sdk-path --sdk iphoneos)"
+for m in SwiftUI SwiftUICore Observation SwiftData Charts WidgetKit ActivityKit AppIntents; do \
+  swift symbolgraph-extract -module-name $m -target arm64-apple-ios17.0 -sdk "$SDK" \
     -minimum-access-level public -emit-extension-block-symbols -output-dir sg/; done
-for m in Swift Combine Foundation; do \
-  swift symbolgraph-extract -module-name $m -target arm64-apple-macos14.0 -sdk "$SDK" \
+for m in Swift Combine Foundation UIKit; do \
+  swift symbolgraph-extract -module-name $m -target arm64-apple-ios17.0 -sdk "$SDK" \
     -minimum-access-level public -output-dir sg_std/; done
-# flatten sg/*.symbols.json -> symbols_all.tsv ; build stdlib_method_names.json from sg_std/
+python3 scripts/02a_flatten.py                       # sg/*.symbols.json -> symbols_all.tsv ; sg_std/* -> stdlib_method_names.json
 python3 scripts/02_build_sdk_catalog.py              # -> sdk_catalog.json
+python3 scripts/02b_availability.py                  # -> merges availability (introduced_ios/deprecated/renamed)
 
 # 3. Build the scanner (one-time)
 ( cd swiftui-scan && swift build -c release )        # -> swiftui-scan/.build/release/swiftui-scan

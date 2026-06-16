@@ -100,14 +100,14 @@ def main():
                 "AppStorage","SceneStorage","FocusState","FocusedBinding","FocusedValue",
                 "FocusedObject","GestureState","Namespace","ScaledMetric","Bindable",
                 "FetchRequest","SectionedFetchRequest","Query","AccessibilityFocusState",
-                "NSApplicationDelegateAdaptor","UIApplicationDelegateAdaptor","Observable","Model",
+                "UIApplicationDelegateAdaptor","Observable","Model",
                 "Attribute","Relationship","Transient","PreviewState"}
 
     style_cats = {name: style_category(style_parent.get(name,"")) for name in style_values}
 
     catalog = {
-        "sdk": "macOS 26.5 SDK",
-        "modules": ["SwiftUI","SwiftUICore","Observation","SwiftData","Charts"],
+        "sdk": "iOS SDK (target floor iOS 17.0)",
+        "modules": ["SwiftUI","SwiftUICore","Observation","SwiftData","Charts","WidgetKit","ActivityKit","AppIntents"],
         "dimensions": {
             "types": pub(types),
             "modifiers": pub(modifiers),

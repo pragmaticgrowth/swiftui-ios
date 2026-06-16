@@ -13,13 +13,14 @@ HERE = os.path.dirname(__file__)
 ROOT = os.path.join(HERE, "..")
 SG = [os.path.join(ROOT,"sg",f) for f in
       ("SwiftUI.symbols.json","SwiftUICore.symbols.json","Observation.symbols.json",
-       "SwiftData.symbols.json","Charts.symbols.json")]
+       "SwiftData.symbols.json","Charts.symbols.json",
+       "WidgetKit.symbols.json","ActivityKit.symbols.json","AppIntents.symbols.json")]
 CAT = os.path.join(ROOT,"sdk_catalog.json")
 
 JQ = r'''
 .symbols[]
 | (.names.title) as $t
-| ([.availability[]? | select(.domain=="macOS")][0]) as $m
+| ([.availability[]? | select(.domain=="iOS")][0]) as $m
 | ([.availability[]? | select((.deprecated!=null) or (.isUnconditionallyDeprecated==true))][0]) as $dep
 | [ $t,
     (if $m.introduced==null then "" else "\($m.introduced.major).\($m.introduced.minor // 0)" end),
@@ -54,7 +55,7 @@ def main():
     avail = {}
     for name, (n_over, n_dep) in dep_all.items():
         rec = {}
-        if name in intro: rec["introduced_macos"] = f"{intro[name][0]}.{intro[name][1]}"
+        if name in intro: rec["introduced_ios"] = f"{intro[name][0]}.{intro[name][1]}"
         # deprecated only if EVERY public overload is deprecated (avoids flagging APIs that
         # merely have one deprecated overload, e.g. foregroundStyle)
         rec["deprecated"] = (n_dep == n_over and n_over > 0)
