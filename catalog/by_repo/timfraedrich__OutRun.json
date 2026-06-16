@@ -1,0 +1,163 @@
+{
+ "repo": "timfraedrich/OutRun",
+ "stars": 858,
+ "categories": [
+  "Fitness"
+ ],
+ "sha": "f2ecb3862ef63c7913e5f1754a47c961fd89dd16",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 2181,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "timfraedrich",
+   "score": 865,
+   "contributions": 188
+  },
+  {
+   "login": "weblate",
+   "score": 0,
+   "contributions": 59
+  },
+  {
+   "login": "lpla",
+   "score": 56067,
+   "contributions": 10
+  }
+ ],
+ "loc": 15144,
+ "custom_components": 68,
+ "imports": [
+  "Cache",
+  "Combine",
+  "CombineExt",
+  "CoreGPX",
+  "CoreGraphics",
+  "CoreLocation",
+  "CoreLocationUI",
+  "CoreMotion",
+  "CoreStore",
+  "Foundation",
+  "HealthKit",
+  "MapKit",
+  "MobileCoreServices",
+  "SnapKit",
+  "SwiftUI",
+  "UIKit",
+  "XCTest"
+ ],
+ "min_ios_inferred": "14",
+ "deprecated_apis_used": [
+  "foregroundColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "animation",
+   "aspectRatio",
+   "background",
+   "bold",
+   "clipShape",
+   "cornerRadius",
+   "disabled",
+   "fixedSize",
+   "font",
+   "foregroundColor",
+   "frame",
+   "ignoresSafeArea",
+   "keyboardType",
+   "lineLimit",
+   "multilineTextAlignment",
+   "offset",
+   "onAppear",
+   "onChange",
+   "onPreferenceChange",
+   "onReceive",
+   "opacity",
+   "padding",
+   "pickerStyle",
+   "preference",
+   "renderingMode",
+   "resizable",
+   "tag",
+   "toggleStyle"
+  ],
+  "types": [
+   "Binding",
+   "Button",
+   "Capsule",
+   "Color",
+   "EmptyView",
+   "ForEach",
+   "GeometryReader",
+   "HStack",
+   "Image",
+   "NavigationLink",
+   "Picker",
+   "ProgressView",
+   "Rectangle",
+   "Spacer",
+   "SwitchToggleStyle",
+   "Text",
+   "TextField",
+   "Toggle",
+   "VStack",
+   "WindowGroup",
+   "ZStack"
+  ],
+  "valueBuilders": [
+   "body",
+   "easeInOut",
+   "easeOut",
+   "footnote",
+   "headline",
+   "subheadline",
+   "system",
+   "title2"
+  ],
+  "macros": [],
+  "styleValues": [
+   "background",
+   "bottom",
+   "center",
+   "clear",
+   "dark",
+   "default",
+   "fill",
+   "foreground",
+   "green",
+   "largeTitle",
+   "leading",
+   "light",
+   "primary",
+   "red",
+   "secondary",
+   "segmented",
+   "title",
+   "top",
+   "trailing",
+   "yellow"
+  ],
+  "propertyWrappers": [
+   "Binding",
+   "Environment",
+   "EnvironmentObject",
+   "ObservedObject",
+   "State",
+   "UIApplicationDelegateAdaptor"
+  ],
+  "environmentKeys": [
+   "colorScheme"
+  ]
+ },
+ "counts": {
+  "modifiers": 28,
+  "types": 21,
+  "valueBuilders": 8,
+  "macros": 0,
+  "styleValues": 20,
+  "propertyWrappers": 6,
+  "environmentKeys": 1
+ },
+ "total_unique_apis": 84
+}

@@ -1,0 +1,129 @@
+{
+ "repo": "techprimate/TPPDF",
+ "stars": 831,
+ "categories": [
+  "PDF"
+ ],
+ "sha": "306d392b88ee8f482b3fdeeae645f2a3b3a8a430",
+ "platform": "cross_platform",
+ "ipad_idioms": [],
+ "author_authority": 108358,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "philprime",
+   "score": 118361,
+   "contributions": 585
+  },
+  {
+   "login": "kf99916",
+   "score": 1472,
+   "contributions": 48
+  },
+  {
+   "login": "yhelyhel",
+   "score": 0,
+   "contributions": 6
+  }
+ ],
+ "loc": 23041,
+ "custom_components": 10,
+ "imports": [
+  "AppKit",
+  "Cocoa",
+  "Combine",
+  "CoreGraphics",
+  "CoreText",
+  "Danger",
+  "Foundation",
+  "Nimble",
+  "PDFKit",
+  "PackageDescription",
+  "Quick",
+  "SwiftUI",
+  "TPPDF",
+  "Testing",
+  "UIKit",
+  "WebKit",
+  "XCTest"
+ ],
+ "min_ios_inferred": "17",
+ "deprecated_apis_used": [
+  "NavigationView",
+  "foregroundColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "animation",
+   "cornerRadius",
+   "fixedSize",
+   "font",
+   "foregroundColor",
+   "frame",
+   "listStyle",
+   "onAppear",
+   "onChange",
+   "opacity",
+   "padding"
+  ],
+  "types": [
+   "Button",
+   "Color",
+   "EdgeInsets",
+   "ForEach",
+   "GeometryReader",
+   "HStack",
+   "Image",
+   "List",
+   "NavigationLink",
+   "NavigationView",
+   "Rectangle",
+   "Section",
+   "SidebarListStyle",
+   "Spacer",
+   "Text",
+   "Toggle",
+   "VStack",
+   "ZStack"
+  ],
+  "valueBuilders": [
+   "center",
+   "custom",
+   "headline",
+   "push",
+   "topLeading"
+  ],
+  "macros": [],
+  "styleValues": [
+   "background",
+   "black",
+   "center",
+   "clear",
+   "default",
+   "green",
+   "leading",
+   "linear",
+   "link",
+   "orange",
+   "purple",
+   "red",
+   "white"
+  ],
+  "propertyWrappers": [
+   "Binding",
+   "ObservedObject",
+   "State"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 11,
+  "types": 18,
+  "valueBuilders": 5,
+  "macros": 0,
+  "styleValues": 13,
+  "propertyWrappers": 3,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 50
+}

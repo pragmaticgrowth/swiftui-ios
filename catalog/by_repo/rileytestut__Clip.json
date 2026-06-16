@@ -1,0 +1,143 @@
+{
+ "repo": "rileytestut/Clip",
+ "stars": 596,
+ "categories": [
+  "Productivity"
+ ],
+ "sha": "fc0c861b82e100656de174a283ce0a649262a034",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 22482,
+ "contributor_count": 1,
+ "top_contributors": [
+  {
+   "login": "rileytestut",
+   "score": 22482,
+   "contributions": 109
+  }
+ ],
+ "loc": 3209,
+ "custom_components": 19,
+ "imports": [
+  "AVFoundation",
+  "AudioToolbox",
+  "ClipKit",
+  "Combine",
+  "Contacts",
+  "CoreData",
+  "CoreFoundation",
+  "CoreLocation",
+  "Foundation",
+  "MapKit",
+  "MobileCoreServices",
+  "Roxas",
+  "SwiftUI",
+  "UIKit",
+  "UserNotifications",
+  "UserNotificationsUI"
+ ],
+ "min_ios_inferred": "16.04",
+ "deprecated_apis_used": [
+  "edgesIgnoringSafeArea",
+  "foregroundColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "background",
+   "buttonStyle",
+   "clipShape",
+   "colorScheme",
+   "cornerRadius",
+   "edgesIgnoringSafeArea",
+   "environment",
+   "fixedSize",
+   "font",
+   "foregroundColor",
+   "foregroundStyle",
+   "frame",
+   "lineLimit",
+   "listRowBackground",
+   "listRowInsets",
+   "listRowSeparator",
+   "offset",
+   "onAppear",
+   "padding",
+   "presentationBackground",
+   "presentationDetents",
+   "previewLayout",
+   "scrollBounceBehavior",
+   "scrollContentBackground",
+   "sheet",
+   "tint",
+   "toolbar"
+  ],
+  "types": [
+   "AnyView",
+   "Button",
+   "Circle",
+   "Color",
+   "EdgeInsets",
+   "Font",
+   "ForEach",
+   "Group",
+   "HStack",
+   "List",
+   "NavigationStack",
+   "Spacer",
+   "Text",
+   "ToolbarItem",
+   "UIHostingController",
+   "VStack",
+   "ZStack"
+  ],
+  "valueBuilders": [
+   "body",
+   "bottomLeading",
+   "caption",
+   "headline",
+   "regular",
+   "subheadline",
+   "system",
+   "title2",
+   "title3"
+  ],
+  "macros": [],
+  "styleValues": [
+   "background",
+   "cancel",
+   "cancellationAction",
+   "clear",
+   "confirmationAction",
+   "dark",
+   "default",
+   "leading",
+   "light",
+   "plain",
+   "primary",
+   "title",
+   "top",
+   "white"
+  ],
+  "propertyWrappers": [
+   "Environment",
+   "FetchRequest",
+   "ObservedObject",
+   "State"
+  ],
+  "environmentKeys": [
+   "dismiss",
+   "horizontalSizeClass",
+   "managedObjectContext"
+  ]
+ },
+ "counts": {
+  "modifiers": 27,
+  "types": 17,
+  "valueBuilders": 9,
+  "macros": 0,
+  "styleValues": 14,
+  "propertyWrappers": 4,
+  "environmentKeys": 3
+ },
+ "total_unique_apis": 74
+}

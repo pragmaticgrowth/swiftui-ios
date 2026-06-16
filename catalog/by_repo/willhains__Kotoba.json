@@ -1,0 +1,135 @@
+{
+ "repo": "willhains/Kotoba",
+ "stars": 678,
+ "categories": [
+  "Education"
+ ],
+ "sha": "2496e2cdb0945c5e5e11ed9e15a67e51eed1d78e",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 898,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "willhains",
+   "score": 684,
+   "contributions": 223
+  },
+  {
+   "login": "chockenberry",
+   "score": 3667,
+   "contributions": 73
+  },
+  {
+   "login": "scelis",
+   "score": 3203,
+   "contributions": 2
+  }
+ ],
+ "loc": 2219,
+ "custom_components": 13,
+ "imports": [
+  "CoreServices",
+  "Foundation",
+  "Kotoba",
+  "LinkPresentation",
+  "MobileCoreServices",
+  "Social",
+  "SwiftUI",
+  "Testing",
+  "UIKit",
+  "XCTest"
+ ],
+ "min_ios_inferred": "18",
+ "deprecated_apis_used": [
+  "navigationBarLeading",
+  "navigationBarTrailing"
+ ],
+ "unique": {
+  "modifiers": [
+   "accessibilityLabel",
+   "alert",
+   "background",
+   "buttonStyle",
+   "disabled",
+   "focused",
+   "font",
+   "frame",
+   "ignoresSafeArea",
+   "listStyle",
+   "minimumScaleFactor",
+   "modifier",
+   "multilineTextAlignment",
+   "navigationBarTitleDisplayMode",
+   "navigationTitle",
+   "onAppear",
+   "onDisappear",
+   "onReceive",
+   "onScrollGeometryChange",
+   "onSubmit",
+   "opacity",
+   "padding",
+   "rotationEffect",
+   "sheet",
+   "textCase",
+   "textInputAutocapitalization",
+   "tint",
+   "toolbar"
+  ],
+  "types": [
+   "Binding",
+   "Button",
+   "Color",
+   "ForEach",
+   "HStack",
+   "Image",
+   "List",
+   "NavigationStack",
+   "ProgressView",
+   "Spacer",
+   "Text",
+   "TextField",
+   "ToolbarItem",
+   "UIHostingController",
+   "VStack"
+  ],
+  "valueBuilders": [
+   "clear",
+   "custom",
+   "degrees",
+   "headline"
+  ],
+  "macros": [
+   "Preview"
+  ],
+  "styleValues": [
+   "automatic",
+   "bottom",
+   "center",
+   "default",
+   "inline",
+   "navigationBarLeading",
+   "navigationBarTrailing",
+   "plain",
+   "principal"
+  ],
+  "propertyWrappers": [
+   "Bindable",
+   "Environment",
+   "FocusState",
+   "Observable",
+   "State"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 28,
+  "types": 15,
+  "valueBuilders": 4,
+  "macros": 1,
+  "styleValues": 9,
+  "propertyWrappers": 5,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 62
+}

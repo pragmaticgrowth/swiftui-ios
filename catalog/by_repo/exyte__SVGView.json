@@ -1,0 +1,112 @@
+{
+ "repo": "exyte/SVGView",
+ "stars": 847,
+ "categories": [
+  "Other Parsing"
+ ],
+ "sha": "86f6d742cccf5b64844b303d80ed1f75d02fbcce",
+ "platform": "macos",
+ "ipad_idioms": [],
+ "author_authority": 5818,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "f3dm76",
+   "score": 9945,
+   "contributions": 55
+  },
+  {
+   "login": "ystrot",
+   "score": 65,
+   "contributions": 37
+  },
+  {
+   "login": "ba01ei",
+   "score": 45,
+   "contributions": 2
+  }
+ ],
+ "loc": 6006,
+ "custom_components": 53,
+ "imports": [
+  "AppKit",
+  "Combine",
+  "CoreGraphics",
+  "Foundation",
+  "PackageDescription",
+  "SVGView",
+  "SwiftUI",
+  "XCTest"
+ ],
+ "min_ios_inferred": "13",
+ "deprecated_apis_used": [
+  "foregroundColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "alignmentGuide",
+   "clipped",
+   "compositingGroup",
+   "font",
+   "foregroundColor",
+   "frame",
+   "gesture",
+   "lineLimit",
+   "mask",
+   "offset",
+   "onEnded",
+   "opacity",
+   "overlay",
+   "scaleEffect",
+   "transformEffect"
+  ],
+  "types": [
+   "AnyGesture",
+   "Circle",
+   "Color",
+   "Ellipse",
+   "FillStyle",
+   "ForEach",
+   "GeometryReader",
+   "Gradient",
+   "Image",
+   "LinearGradient",
+   "Path",
+   "RadialGradient",
+   "RoundedRectangle",
+   "SimultaneousGesture",
+   "StrokeStyle",
+   "TapGesture",
+   "Text",
+   "UnitPoint",
+   "ZStack"
+  ],
+  "valueBuilders": [
+   "custom",
+   "topLeading"
+  ],
+  "macros": [],
+  "styleValues": [
+   "center",
+   "clear",
+   "default",
+   "identity",
+   "leading",
+   "trailing"
+  ],
+  "propertyWrappers": [
+   "ObservedObject"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 15,
+  "types": 19,
+  "valueBuilders": 2,
+  "macros": 0,
+  "styleValues": 6,
+  "propertyWrappers": 1,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 43
+}

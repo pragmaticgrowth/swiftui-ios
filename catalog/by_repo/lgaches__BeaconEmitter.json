@@ -1,0 +1,78 @@
+{
+ "repo": "lgaches/BeaconEmitter",
+ "stars": 999,
+ "categories": [
+  "iBeacon"
+ ],
+ "sha": "b1b161e94e9f012b9941947034240fc17aa579dc",
+ "platform": "macos",
+ "ipad_idioms": [],
+ "author_authority": 1439,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "lgaches",
+   "score": 1031,
+   "contributions": 59
+  },
+  {
+   "login": "paolorotolo",
+   "score": 8942,
+   "contributions": 1
+  },
+  {
+   "login": "ScottG489",
+   "score": 87813,
+   "contributions": 1
+  }
+ ],
+ "loc": 289,
+ "custom_components": 6,
+ "imports": [
+  "AppKit",
+  "CoreBluetooth",
+  "CoreLocation",
+  "Foundation",
+  "SwiftUI"
+ ],
+ "min_ios_inferred": "14",
+ "deprecated_apis_used": [],
+ "unique": {
+  "modifiers": [
+   "commands",
+   "disabled",
+   "onAppear",
+   "onDisappear",
+   "padding"
+  ],
+  "types": [
+   "Button",
+   "CommandGroup",
+   "Form",
+   "HStack",
+   "Image",
+   "Spacer",
+   "Text",
+   "TextField",
+   "WindowGroup"
+  ],
+  "valueBuilders": [],
+  "macros": [],
+  "styleValues": [],
+  "propertyWrappers": [
+   "AppStorage",
+   "StateObject"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 5,
+  "types": 9,
+  "valueBuilders": 0,
+  "macros": 0,
+  "styleValues": 0,
+  "propertyWrappers": 2,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 16
+}

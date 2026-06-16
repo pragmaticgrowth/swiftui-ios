@@ -1,0 +1,90 @@
+{
+ "repo": "DenTelezhkin/DTTableViewManager",
+ "stars": 452,
+ "categories": [
+  "Table View"
+ ],
+ "sha": "ebb417e4dc3024baf6eca53fc580c84b63b77453",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 8605,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "DenTelezhkin",
+   "score": 8605,
+   "contributions": 807
+  },
+  {
+   "login": "atermenji",
+   "score": 453,
+   "contributions": 1
+  },
+  {
+   "login": "bitdeli-chef",
+   "score": 24,
+   "contributions": 1
+  }
+ ],
+ "loc": 8434,
+ "custom_components": 2,
+ "imports": [
+  "Changeset",
+  "CoreData",
+  "DTModelStorage",
+  "DTTableViewManager",
+  "Foundation",
+  "PackageDescription",
+  "SwiftUI",
+  "UIKit",
+  "XCTest"
+ ],
+ "min_ios_inferred": "16",
+ "deprecated_apis_used": [
+  "foregroundColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "bold",
+   "font",
+   "foregroundColor"
+  ],
+  "types": [
+   "Color",
+   "HStack",
+   "Image",
+   "Spacer",
+   "Text",
+   "UIHostingConfiguration",
+   "UIHostingController",
+   "View"
+  ],
+  "valueBuilders": [
+   "footnote",
+   "system"
+  ],
+  "macros": [],
+  "styleValues": [
+   "automatic",
+   "cancel",
+   "clear",
+   "default",
+   "destructive",
+   "plain",
+   "title",
+   "white"
+  ],
+  "propertyWrappers": [],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 3,
+  "types": 8,
+  "valueBuilders": 2,
+  "macros": 0,
+  "styleValues": 8,
+  "propertyWrappers": 0,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 21
+}

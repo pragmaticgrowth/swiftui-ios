@@ -1,0 +1,78 @@
+{
+ "repo": "AnthonyH93/HexaCalc",
+ "stars": 56,
+ "categories": [
+  "Calculator",
+  "Core Data"
+ ],
+ "sha": "3d95c8e53249151853ea53d2ed0c145cf00aea5b",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 374,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "AnthonyH93",
+   "score": 253,
+   "contributions": 513
+  },
+  {
+   "login": "FilippoZazzeroni",
+   "score": 12982,
+   "contributions": 7
+  },
+  {
+   "login": "nishantpurohit04",
+   "score": 195317,
+   "contributions": 1
+  }
+ ],
+ "loc": 8380,
+ "custom_components": 0,
+ "imports": [
+  "CoreData",
+  "Foundation",
+  "HexaCalc",
+  "MessageUI",
+  "StoreKit",
+  "SwiftUI",
+  "TelemetryDeck",
+  "UIKit",
+  "XCTest",
+  "os"
+ ],
+ "min_ios_inferred": "14",
+ "deprecated_apis_used": [],
+ "unique": {
+  "modifiers": [],
+  "types": [],
+  "valueBuilders": [
+   "clear",
+   "semibold",
+   "system"
+  ],
+  "macros": [],
+  "styleValues": [
+   "compact",
+   "dark",
+   "default",
+   "destructive",
+   "grouped",
+   "light",
+   "plain",
+   "white"
+  ],
+  "propertyWrappers": [],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 0,
+  "types": 0,
+  "valueBuilders": 3,
+  "macros": 0,
+  "styleValues": 8,
+  "propertyWrappers": 0,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 11
+}

@@ -1,0 +1,80 @@
+{
+ "repo": "Alamofire/Alamofire",
+ "stars": 42385,
+ "categories": [
+  "Networking"
+ ],
+ "sha": "7595cbcf59809f9977c5f6378500de2ad73b7ddb",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 34738,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "cnoon",
+   "score": 543,
+   "contributions": 769
+  },
+  {
+   "login": "jshier",
+   "score": 58057,
+   "contributions": 311
+  },
+  {
+   "login": "mattt",
+   "score": 196451,
+   "contributions": 232
+  }
+ ],
+ "loc": 43664,
+ "custom_components": 4,
+ "imports": [
+  "Alamofire",
+  "Combine",
+  "CoreServices",
+  "Dispatch",
+  "Foundation",
+  "FoundationNetworking",
+  "MobileCoreServices",
+  "Network",
+  "PackageDescription",
+  "Security",
+  "SwiftUI",
+  "SystemConfiguration",
+  "Testing",
+  "UIKit",
+  "UniformTypeIdentifiers",
+  "WatchKit",
+  "XCTest",
+  "zlib"
+ ],
+ "min_ios_inferred": "13",
+ "deprecated_apis_used": [],
+ "unique": {
+  "modifiers": [],
+  "types": [
+   "Button",
+   "Text",
+   "VStack"
+  ],
+  "valueBuilders": [
+   "body"
+  ],
+  "macros": [],
+  "styleValues": [],
+  "propertyWrappers": [
+   "ObservedObject"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 0,
+  "types": 3,
+  "valueBuilders": 1,
+  "macros": 0,
+  "styleValues": 0,
+  "propertyWrappers": 1,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 5
+}

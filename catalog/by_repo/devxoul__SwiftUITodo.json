@@ -1,0 +1,96 @@
+{
+ "repo": "devxoul/SwiftUITodo",
+ "stars": 820,
+ "categories": [
+  "SwiftUI",
+  "Tasks"
+ ],
+ "sha": "907eb95832cc7fe247398da6efd22a53331ea905",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 14,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "devxoul",
+   "score": 0,
+   "contributions": 19
+  },
+  {
+   "login": "kemchenj",
+   "score": 162,
+   "contributions": 2
+  },
+  {
+   "login": "antranapp",
+   "score": 198,
+   "contributions": 1
+  }
+ ],
+ "loc": 327,
+ "custom_components": 6,
+ "imports": [
+  "Combine",
+  "Foundation",
+  "SwiftUI",
+  "UIKit"
+ ],
+ "min_ios_inferred": "13",
+ "deprecated_apis_used": [
+  "NavigationView",
+  "foregroundColor",
+  "navigationBarItems",
+  "navigationBarTitle"
+ ],
+ "unique": {
+  "modifiers": [
+   "background",
+   "bold",
+   "border",
+   "environmentObject",
+   "foregroundColor",
+   "navigationBarItems",
+   "navigationBarTitle",
+   "padding"
+  ],
+  "types": [
+   "Button",
+   "Color",
+   "EdgeInsets",
+   "ForEach",
+   "HStack",
+   "Image",
+   "List",
+   "NavigationView",
+   "RoundedRectangle",
+   "Spacer",
+   "Text",
+   "TextField",
+   "UIHostingController",
+   "VStack"
+  ],
+  "valueBuilders": [],
+  "macros": [],
+  "styleValues": [
+   "green",
+   "leading",
+   "red"
+  ],
+  "propertyWrappers": [
+   "Binding",
+   "EnvironmentObject",
+   "State"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 8,
+  "types": 14,
+  "valueBuilders": 0,
+  "macros": 0,
+  "styleValues": 3,
+  "propertyWrappers": 3,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 28
+}

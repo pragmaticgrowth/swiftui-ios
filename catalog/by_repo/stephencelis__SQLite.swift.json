@@ -1,0 +1,71 @@
+{
+ "repo": "stephencelis/SQLite.swift",
+ "stars": 10167,
+ "categories": [
+  "Database"
+ ],
+ "sha": "fb4917fa2515c8351bc01b9d7f612a7f45817228",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 54348,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "jberkel",
+   "score": 3081,
+   "contributions": 537
+  },
+  {
+   "login": "stephencelis",
+   "score": 54348,
+   "contributions": 374
+  },
+  {
+   "login": "nathanfallet",
+   "score": 110930,
+   "contributions": 95
+  }
+ ],
+ "loc": 15778,
+ "custom_components": 2,
+ "imports": [
+  "Dispatch",
+  "Foundation",
+  "PackageDescription",
+  "ProjectDescription",
+  "SQLCipher",
+  "SQLite",
+  "SQLite3",
+  "SQLiteSwiftCSQLite",
+  "SwiftUI",
+  "Testing",
+  "XCTest",
+  "sqlite3"
+ ],
+ "min_ios_inferred": "14",
+ "deprecated_apis_used": [],
+ "unique": {
+  "modifiers": [
+   "padding"
+  ],
+  "types": [
+   "Text",
+   "WindowGroup"
+  ],
+  "valueBuilders": [],
+  "macros": [],
+  "styleValues": [],
+  "propertyWrappers": [],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 1,
+  "types": 2,
+  "valueBuilders": 0,
+  "macros": 0,
+  "styleValues": 0,
+  "propertyWrappers": 0,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 3
+}

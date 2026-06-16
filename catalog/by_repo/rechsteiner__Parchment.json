@@ -1,0 +1,121 @@
+{
+ "repo": "rechsteiner/Parchment",
+ "stars": 3476,
+ "categories": [
+  "Menu"
+ ],
+ "sha": "dfb23ea5118ca8bfbc578065627fccf4ec4a362e",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 3513,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "rechsteiner",
+   "score": 3513,
+   "contributions": 701
+  },
+  {
+   "login": "Naruu",
+   "score": 0,
+   "contributions": 4
+  },
+  {
+   "login": "aiKrice",
+   "score": 1210,
+   "contributions": 3
+  }
+ ],
+ "loc": 13926,
+ "custom_components": 37,
+ "imports": [
+  "CoreGraphics",
+  "Foundation",
+  "PackageDescription",
+  "Parchment",
+  "SwiftUI",
+  "Testing",
+  "UIKit",
+  "XCTest"
+ ],
+ "min_ios_inferred": "17",
+ "deprecated_apis_used": [
+  "NavigationView",
+  "foregroundColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "background",
+   "cornerRadius",
+   "fixedSize",
+   "font",
+   "foregroundColor",
+   "navigationBarTitleDisplayMode",
+   "opacity",
+   "padding",
+   "rotationEffect",
+   "scaleEffect",
+   "tracking",
+   "width"
+  ],
+  "types": [
+   "Angle",
+   "AnyView",
+   "Button",
+   "Color",
+   "ForEach",
+   "Image",
+   "List",
+   "NavigationLink",
+   "NavigationView",
+   "Path",
+   "Rectangle",
+   "Section",
+   "StrokeStyle",
+   "Text",
+   "UIHostingConfiguration",
+   "UIHostingController",
+   "VStack",
+   "WindowGroup"
+  ],
+  "valueBuilders": [
+   "clear"
+  ],
+  "macros": [],
+  "styleValues": [
+   "black",
+   "blue",
+   "bottom",
+   "center",
+   "clear",
+   "gray",
+   "inline",
+   "largeTitle",
+   "leading",
+   "plain",
+   "secondary",
+   "separator",
+   "single",
+   "top",
+   "trailing",
+   "wheel",
+   "white"
+  ],
+  "propertyWrappers": [
+   "Binding",
+   "Environment",
+   "State"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 12,
+  "types": 18,
+  "valueBuilders": 1,
+  "macros": 0,
+  "styleValues": 17,
+  "propertyWrappers": 3,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 51
+}

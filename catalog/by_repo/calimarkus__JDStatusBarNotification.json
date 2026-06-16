@@ -1,0 +1,166 @@
+{
+ "repo": "calimarkus/JDStatusBarNotification",
+ "stars": 4329,
+ "categories": [
+  "Alert & Action Sheet"
+ ],
+ "sha": "42e0fac4f1df2109c914822e6e397216a1348cc4",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 5712,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "calimarkus",
+   "score": 5712,
+   "contributions": 693
+  },
+  {
+   "login": "kevingibbon",
+   "score": 785,
+   "contributions": 17
+  },
+  {
+   "login": "ricardopereira",
+   "score": 433,
+   "contributions": 8
+  }
+ ],
+ "loc": 4478,
+ "custom_components": 57,
+ "imports": [
+  "Combine",
+  "Foundation",
+  "JDStatusBarNotification",
+  "PackageDescription",
+  "SwiftUI",
+  "UIKit",
+  "XCTest"
+ ],
+ "min_ios_inferred": "18",
+ "deprecated_apis_used": [
+  "NavigationView",
+  "accentColor",
+  "foregroundColor",
+  "navigationBarTitle",
+  "presentationMode"
+ ],
+ "unique": {
+  "modifiers": [
+   "accentColor",
+   "background",
+   "bold",
+   "buttonStyle",
+   "disabled",
+   "fixedSize",
+   "focused",
+   "font",
+   "foregroundColor",
+   "foregroundStyle",
+   "frame",
+   "ignoresSafeArea",
+   "lineLimit",
+   "minimumScaleFactor",
+   "multilineTextAlignment",
+   "navigationBarTitle",
+   "navigationBarTitleDisplayMode",
+   "navigationTitle",
+   "onAppear",
+   "onChange",
+   "opacity",
+   "padding",
+   "pickerStyle",
+   "tag",
+   "textFieldStyle"
+  ],
+  "types": [
+   "Binding",
+   "Button",
+   "Color",
+   "ColorPicker",
+   "DisclosureGroup",
+   "EmptyView",
+   "Form",
+   "Gradient",
+   "Group",
+   "HStack",
+   "Image",
+   "List",
+   "NavigationLink",
+   "NavigationView",
+   "Picker",
+   "PlainButtonStyle",
+   "SafeAreaRegions",
+   "Section",
+   "Slider",
+   "Spacer",
+   "Stepper",
+   "Tab",
+   "TabView",
+   "Text",
+   "TextField",
+   "Toggle",
+   "UIHostingController",
+   "VStack",
+   "WindowGroup"
+  ],
+  "valueBuilders": [
+   "caption",
+   "caption2",
+   "footnote",
+   "subheadline",
+   "system"
+  ],
+  "macros": [
+   "Preview"
+  ],
+  "styleValues": [
+   "black",
+   "blue",
+   "bottom",
+   "center",
+   "clear",
+   "cyan",
+   "dark",
+   "default",
+   "gray",
+   "green",
+   "identity",
+   "inline",
+   "leading",
+   "light",
+   "linear",
+   "orange",
+   "primary",
+   "red",
+   "roundedBorder",
+   "secondary",
+   "segmented",
+   "teal",
+   "top",
+   "trailing",
+   "white"
+  ],
+  "propertyWrappers": [
+   "Binding",
+   "Environment",
+   "FocusState",
+   "ObservedObject",
+   "State",
+   "StateObject"
+  ],
+  "environmentKeys": [
+   "presentationMode"
+  ]
+ },
+ "counts": {
+  "modifiers": 25,
+  "types": 29,
+  "valueBuilders": 5,
+  "macros": 1,
+  "styleValues": 25,
+  "propertyWrappers": 6,
+  "environmentKeys": 1
+ },
+ "total_unique_apis": 92
+}

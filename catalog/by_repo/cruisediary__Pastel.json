@@ -1,0 +1,111 @@
+{
+ "repo": "cruisediary/Pastel",
+ "stars": 3513,
+ "categories": [
+  "Animation"
+ ],
+ "sha": "0a95e19436e2138e1cac0267dd9afdd6da1f64a8",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 1,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "cruisediary",
+   "score": 0,
+   "contributions": 92
+  },
+  {
+   "login": "sxcore",
+   "score": 1,
+   "contributions": 14
+  },
+  {
+   "login": "iBluemind",
+   "score": 68,
+   "contributions": 3
+  }
+ ],
+ "loc": 1363,
+ "custom_components": 13,
+ "imports": [
+  "Nimble",
+  "PackageDescription",
+  "Pastel",
+  "Quick",
+  "SwiftUI",
+  "UIKit",
+  "XCTest"
+ ],
+ "min_ios_inferred": "16",
+ "deprecated_apis_used": [],
+ "unique": {
+  "modifiers": [
+   "background",
+   "cornerRadius",
+   "font",
+   "foregroundStyle",
+   "frame",
+   "navigationTitle",
+   "onChange",
+   "padding",
+   "renderingMode",
+   "resizable",
+   "scaledToFit",
+   "toolbar"
+  ],
+  "types": [
+   "Button",
+   "Color",
+   "Image",
+   "LinearGradient",
+   "NavigationStack",
+   "ScrollView",
+   "Text",
+   "TimelineView",
+   "ToolbarItem",
+   "UIHostingController",
+   "UnitPoint",
+   "VStack"
+  ],
+  "valueBuilders": [
+   "body",
+   "easeIn",
+   "easeInOut",
+   "easeOut",
+   "headline",
+   "linear",
+   "semibold",
+   "system"
+  ],
+  "macros": [],
+  "styleValues": [
+   "bottom",
+   "center",
+   "largeTitle",
+   "leading",
+   "linear",
+   "top",
+   "topBarTrailing",
+   "white"
+  ],
+  "propertyWrappers": [
+   "Environment",
+   "ObservedObject",
+   "State"
+  ],
+  "environmentKeys": [
+   "dismiss"
+  ]
+ },
+ "counts": {
+  "modifiers": 12,
+  "types": 12,
+  "valueBuilders": 8,
+  "macros": 0,
+  "styleValues": 8,
+  "propertyWrappers": 3,
+  "environmentKeys": 1
+ },
+ "total_unique_apis": 44
+}

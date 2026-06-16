@@ -1,0 +1,84 @@
+{
+ "repo": "hanton/Fisheye",
+ "stars": 2148,
+ "categories": [
+  "VR"
+ ],
+ "sha": "71e8e9394a0af3b340ed8e0a59fa2d5a2852a9b8",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 2793,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "hanton",
+   "score": 2793,
+   "contributions": 55
+  },
+  {
+   "login": "monkeywithacupcake",
+   "score": 24218,
+   "contributions": 1
+  },
+  {
+   "login": "MarkWarriors",
+   "score": 15,
+   "contributions": 1
+  }
+ ],
+ "loc": 1653,
+ "custom_components": 5,
+ "imports": [
+  "AVFoundation",
+  "CoreVideo",
+  "Fisheye",
+  "FisheyeExample",
+  "Foundation",
+  "Metal",
+  "MetalKit",
+  "PackageDescription",
+  "SwiftUI",
+  "Testing",
+  "UIKit",
+  "XCTest",
+  "simd"
+ ],
+ "min_ios_inferred": "14",
+ "deprecated_apis_used": [
+  "foregroundColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "foregroundColor",
+   "ignoresSafeArea"
+  ],
+  "types": [
+   "Text",
+   "WindowGroup"
+  ],
+  "valueBuilders": [
+   "medium"
+  ],
+  "macros": [
+   "Preview"
+  ],
+  "styleValues": [
+   "default",
+   "red"
+  ],
+  "propertyWrappers": [
+   "Binding"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 2,
+  "types": 2,
+  "valueBuilders": 1,
+  "macros": 1,
+  "styleValues": 2,
+  "propertyWrappers": 1,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 9
+}

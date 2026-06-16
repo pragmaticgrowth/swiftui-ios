@@ -1,0 +1,115 @@
+{
+ "repo": "VAnsimov/MVI-SwiftUI",
+ "stars": 82,
+ "categories": [
+  "SwiftUI"
+ ],
+ "sha": "b17180b72be1820adf952832d2af16171e2f8e20",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 91,
+ "contributor_count": 1,
+ "top_contributors": [
+  {
+   "login": "VAnsimov",
+   "score": 91,
+   "contributions": 16
+  }
+ ],
+ "loc": 2369,
+ "custom_components": 64,
+ "imports": [
+  "AVKit",
+  "Combine",
+  "Foundation",
+  "PackageDescription",
+  "RouterModifier",
+  "SwiftUI",
+  "XCTest"
+ ],
+ "min_ios_inferred": "16",
+ "deprecated_apis_used": [
+  "NavigationView",
+  "foregroundColor",
+  "navigationBarTitle",
+  "presentationMode"
+ ],
+ "unique": {
+  "modifiers": [
+   "alert",
+   "background",
+   "clipShape",
+   "cornerRadius",
+   "disabled",
+   "foregroundColor",
+   "frame",
+   "fullScreenCover",
+   "ignoresSafeArea",
+   "lineLimit",
+   "minimumScaleFactor",
+   "modifier",
+   "navigationBarTitle",
+   "navigationDestination",
+   "navigationTitle",
+   "onAppear",
+   "onDisappear",
+   "onReceive",
+   "overlay",
+   "padding",
+   "shadow",
+   "sheet",
+   "tint"
+  ],
+  "types": [
+   "Binding",
+   "Button",
+   "Color",
+   "EmptyModifier",
+   "EmptyView",
+   "ForEach",
+   "LazyVStack",
+   "NavigationLink",
+   "NavigationView",
+   "ProgressView",
+   "RoundedRectangle",
+   "ScrollView",
+   "Spacer",
+   "StateObject",
+   "Text",
+   "Toggle",
+   "VStack",
+   "WindowGroup",
+   "ZStack"
+  ],
+  "valueBuilders": [],
+  "macros": [
+   "Preview"
+  ],
+  "styleValues": [
+   "black",
+   "cancel",
+   "gray",
+   "inline",
+   "navigationLink",
+   "white"
+  ],
+  "propertyWrappers": [
+   "Environment",
+   "State",
+   "StateObject"
+  ],
+  "environmentKeys": [
+   "presentationMode"
+  ]
+ },
+ "counts": {
+  "modifiers": 23,
+  "types": 19,
+  "valueBuilders": 0,
+  "macros": 1,
+  "styleValues": 6,
+  "propertyWrappers": 3,
+  "environmentKeys": 1
+ },
+ "total_unique_apis": 53
+}

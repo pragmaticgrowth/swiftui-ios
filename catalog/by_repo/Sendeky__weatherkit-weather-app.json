@@ -1,0 +1,133 @@
+{
+ "repo": "Sendeky/weatherkit-weather-app",
+ "stars": 19,
+ "categories": [
+  "Weather"
+ ],
+ "sha": "d969f592fcc11b42e8db4abc90b27625adc83045",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 31,
+ "contributor_count": 1,
+ "top_contributors": [
+  {
+   "login": "Sendeky",
+   "score": 31,
+   "contributions": 156
+  }
+ ],
+ "loc": 4938,
+ "custom_components": 39,
+ "imports": [
+  "BackgroundTasks",
+  "Charts",
+  "CoreLocation",
+  "Foundation",
+  "SwiftUI",
+  "UIKit",
+  "WeatherKit",
+  "WidgetKit",
+  "XCTest",
+  "weatherkit_weather_app"
+ ],
+ "min_ios_inferred": "17",
+ "deprecated_apis_used": [
+  "edgesIgnoringSafeArea",
+  "foregroundColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "background",
+   "chartXAxisLabel",
+   "chartXScale",
+   "chartYAxis",
+   "chartYAxisLabel",
+   "chartYScale",
+   "edgesIgnoringSafeArea",
+   "font",
+   "foregroundColor",
+   "foregroundStyle",
+   "frame",
+   "listStyle",
+   "onAppear",
+   "opacity",
+   "overlay",
+   "padding",
+   "previewContext",
+   "renderingMode"
+  ],
+  "types": [
+   "AreaMark",
+   "AxisMarks",
+   "BarMark",
+   "Chart",
+   "Color",
+   "ContainerRelativeShape",
+   "ForEach",
+   "HStack",
+   "Image",
+   "LineMark",
+   "LinearGradient",
+   "List",
+   "Spacer",
+   "StaticConfiguration",
+   "StrokeStyle",
+   "TabView",
+   "Text",
+   "Timeline",
+   "UIHostingController",
+   "VStack",
+   "WidgetPreviewContext",
+   "WindowGroup",
+   "ZStack"
+  ],
+  "valueBuilders": [
+   "body",
+   "bottomLeading",
+   "custom",
+   "degrees",
+   "medium",
+   "system",
+   "title2",
+   "title3"
+  ],
+  "macros": [],
+  "styleValues": [
+   "bottom",
+   "center",
+   "clear",
+   "cyan",
+   "firstTextBaseline",
+   "gray",
+   "indigo",
+   "largeTitle",
+   "leading",
+   "light",
+   "link",
+   "orange",
+   "primary",
+   "title",
+   "top",
+   "white",
+   "yellow"
+  ],
+  "propertyWrappers": [
+   "AppStorage",
+   "Environment",
+   "State"
+  ],
+  "environmentKeys": [
+   "widgetFamily"
+  ]
+ },
+ "counts": {
+  "modifiers": 18,
+  "types": 23,
+  "valueBuilders": 8,
+  "macros": 0,
+  "styleValues": 17,
+  "propertyWrappers": 3,
+  "environmentKeys": 1
+ },
+ "total_unique_apis": 70
+}

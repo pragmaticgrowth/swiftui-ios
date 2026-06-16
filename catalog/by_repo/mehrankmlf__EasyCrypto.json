@@ -1,0 +1,147 @@
+{
+ "repo": "mehrankmlf/EasyCrypto",
+ "stars": 92,
+ "categories": [
+  "SwiftUI"
+ ],
+ "sha": "befca355402723af02d7ba250edc37c85b3dcf72",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 281,
+ "contributor_count": 1,
+ "top_contributors": [
+  {
+   "login": "mehrankmlf",
+   "score": 281,
+   "contributions": 83
+  }
+ ],
+ "loc": 5410,
+ "custom_components": 94,
+ "imports": [
+  "Combine",
+  "CoreData",
+  "EasyCrypto",
+  "Foundation",
+  "SafariServices",
+  "SwiftUI",
+  "UIKit",
+  "XCTest",
+  "os"
+ ],
+ "min_ios_inferred": "16",
+ "deprecated_apis_used": [
+  "NavigationView",
+  "accentColor",
+  "edgesIgnoringSafeArea",
+  "foregroundColor",
+  "navigationBarHidden",
+  "navigationBarTitle"
+ ],
+ "unique": {
+  "modifiers": [
+   "accentColor",
+   "animation",
+   "aspectRatio",
+   "background",
+   "cornerRadius",
+   "disabled",
+   "edgesIgnoringSafeArea",
+   "environment",
+   "font",
+   "foregroundColor",
+   "frame",
+   "listRowBackground",
+   "listRowSeparator",
+   "modifier",
+   "multilineTextAlignment",
+   "navigationBarHidden",
+   "navigationBarTitle",
+   "onAppear",
+   "onChange",
+   "onReceive",
+   "onTapGesture",
+   "opacity",
+   "overlay",
+   "padding",
+   "previewLayout",
+   "resizable",
+   "scaledToFit",
+   "shadow",
+   "sheet",
+   "tabViewStyle",
+   "zIndex"
+  ],
+  "types": [
+   "Binding",
+   "Button",
+   "Color",
+   "Divider",
+   "EmptyView",
+   "ForEach",
+   "GeometryReader",
+   "Group",
+   "HStack",
+   "Image",
+   "LazyVStack",
+   "NavigationLink",
+   "NavigationStack",
+   "NavigationView",
+   "PageTabViewStyle",
+   "Rectangle",
+   "RoundedRectangle",
+   "ScrollView",
+   "ScrollViewReader",
+   "Spacer",
+   "TabView",
+   "Text",
+   "TextField",
+   "VStack",
+   "WindowGroup",
+   "ZStack"
+  ],
+  "valueBuilders": [
+   "custom",
+   "easeInOut",
+   "headline",
+   "medium",
+   "push",
+   "subheadline",
+   "topLeading"
+  ],
+  "macros": [],
+  "styleValues": [
+   "black",
+   "blue",
+   "bottom",
+   "center",
+   "clear",
+   "gray",
+   "inline",
+   "leading",
+   "title",
+   "top",
+   "trailing",
+   "white"
+  ],
+  "propertyWrappers": [
+   "Binding",
+   "ObservedObject",
+   "State",
+   "StateObject"
+  ],
+  "environmentKeys": [
+   "managedObjectContext"
+  ]
+ },
+ "counts": {
+  "modifiers": 31,
+  "types": 26,
+  "valueBuilders": 7,
+  "macros": 0,
+  "styleValues": 12,
+  "propertyWrappers": 4,
+  "environmentKeys": 1
+ },
+ "total_unique_apis": 81
+}

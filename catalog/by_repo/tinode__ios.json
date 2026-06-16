@@ -1,0 +1,131 @@
+{
+ "repo": "tinode/ios",
+ "stars": 286,
+ "categories": [
+  "Communication"
+ ],
+ "sha": "a4db1251549c40b7aa4f269cd79234eb4c07baff",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 13767,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "or-else",
+   "score": 14490,
+   "contributions": 1124
+  },
+  {
+   "login": "aforge",
+   "score": 0,
+   "contributions": 55
+  },
+  {
+   "login": "ztimc",
+   "score": 0,
+   "contributions": 4
+  }
+ ],
+ "loc": 34344,
+ "custom_components": 2,
+ "imports": [
+  "AVFAudio",
+  "AVFoundation",
+  "CallKit",
+  "Contacts",
+  "Firebase",
+  "Foundation",
+  "Kingfisher",
+  "MessageUI",
+  "MobileCoreServices",
+  "MobileVLCKit",
+  "Network",
+  "PhoneNumberKit",
+  "PushKit",
+  "SQLite",
+  "SQLite3",
+  "SwiftKeychainWrapper",
+  "SwiftUI",
+  "TinodeSDK",
+  "TinodiosDB",
+  "UIKit",
+  "UserNotifications",
+  "WebRTC",
+  "XCTest",
+  "os"
+ ],
+ "min_ios_inferred": "17",
+ "deprecated_apis_used": [
+  "foregroundColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "aspectRatio",
+   "background",
+   "font",
+   "foregroundColor",
+   "frame",
+   "padding",
+   "resizable",
+   "width"
+  ],
+  "types": [
+   "Image",
+   "ProgressView",
+   "Text",
+   "UIHostingController",
+   "VStack"
+  ],
+  "valueBuilders": [
+   "body",
+   "caption2",
+   "custom",
+   "headline",
+   "medium",
+   "regular",
+   "semibold",
+   "subheadline",
+   "title2",
+   "title3"
+  ],
+  "macros": [
+   "Preview"
+  ],
+  "styleValues": [
+   "automatic",
+   "background",
+   "black",
+   "button",
+   "cancel",
+   "center",
+   "clear",
+   "dark",
+   "default",
+   "destructive",
+   "gray",
+   "interactive",
+   "light",
+   "linear",
+   "link",
+   "plain",
+   "secondary",
+   "single",
+   "top",
+   "white"
+  ],
+  "propertyWrappers": [
+   "State"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 8,
+  "types": 5,
+  "valueBuilders": 10,
+  "macros": 1,
+  "styleValues": 20,
+  "propertyWrappers": 1,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 45
+}

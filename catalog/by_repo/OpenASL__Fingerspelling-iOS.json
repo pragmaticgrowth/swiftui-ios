@@ -1,0 +1,160 @@
+{
+ "repo": "OpenASL/Fingerspelling-iOS",
+ "stars": 24,
+ "categories": [
+  "Education",
+  "SwiftUI"
+ ],
+ "sha": "64f62460a630f9918e98669b66a7d347c05002a2",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 54816,
+ "contributor_count": 2,
+ "top_contributors": [
+  {
+   "login": "sloria",
+   "score": 55738,
+   "contributions": 119
+  },
+  {
+   "login": "laurenbarker",
+   "score": 60,
+   "contributions": 2
+  }
+ ],
+ "loc": 2231,
+ "custom_components": 98,
+ "imports": [
+  "Combine",
+  "Foundation",
+  "SwiftUI",
+  "UIKit",
+  "XCTest"
+ ],
+ "min_ios_inferred": "17",
+ "deprecated_apis_used": [
+  "NavigationView",
+  "edgesIgnoringSafeArea",
+  "foregroundColor",
+  "navigationBarItems",
+  "navigationBarTitle",
+  "statusBar"
+ ],
+ "unique": {
+  "modifiers": [
+   "animation",
+   "background",
+   "clipped",
+   "cornerRadius",
+   "disabled",
+   "edgesIgnoringSafeArea",
+   "environment",
+   "environmentObject",
+   "font",
+   "foregroundColor",
+   "frame",
+   "gesture",
+   "imageScale",
+   "listRowInsets",
+   "minimumScaleFactor",
+   "modifier",
+   "navigationBarItems",
+   "navigationBarTitle",
+   "offset",
+   "onAppear",
+   "onDisappear",
+   "onEnded",
+   "onReceive",
+   "onSubmit",
+   "onTapGesture",
+   "opacity",
+   "overlay",
+   "padding",
+   "pickerStyle",
+   "resizable",
+   "scaleEffect",
+   "scaledToFill",
+   "scaledToFit",
+   "sheet",
+   "statusBar",
+   "tag",
+   "weight"
+  ],
+  "types": [
+   "AnyView",
+   "Button",
+   "Color",
+   "Divider",
+   "DragGesture",
+   "EmptyView",
+   "ForEach",
+   "Form",
+   "GeometryReader",
+   "Group",
+   "HStack",
+   "Image",
+   "List",
+   "NavigationLink",
+   "NavigationView",
+   "Picker",
+   "RoundedRectangle",
+   "ScrollView",
+   "Section",
+   "SegmentedPickerStyle",
+   "Slider",
+   "Spacer",
+   "Text",
+   "Toggle",
+   "UIHostingController",
+   "VStack",
+   "ZStack"
+  ],
+  "valueBuilders": [
+   "callout",
+   "easeIn",
+   "easeOut",
+   "heavy",
+   "regular",
+   "semibold",
+   "spring",
+   "system",
+   "title3"
+  ],
+  "macros": [],
+  "styleValues": [
+   "bottom",
+   "dark",
+   "default",
+   "gray",
+   "green",
+   "inline",
+   "leading",
+   "light",
+   "link",
+   "primary",
+   "title",
+   "top",
+   "trailing"
+  ],
+  "propertyWrappers": [
+   "Binding",
+   "Environment",
+   "EnvironmentObject",
+   "ObservedObject",
+   "State"
+  ],
+  "environmentKeys": [
+   "colorScheme"
+  ]
+ },
+ "counts": {
+  "modifiers": 37,
+  "types": 27,
+  "valueBuilders": 9,
+  "macros": 0,
+  "styleValues": 13,
+  "propertyWrappers": 5,
+  "environmentKeys": 1
+ },
+ "total_unique_apis": 92
+}

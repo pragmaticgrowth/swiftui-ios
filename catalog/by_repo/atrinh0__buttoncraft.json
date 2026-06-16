@@ -1,0 +1,109 @@
+{
+ "repo": "atrinh0/buttoncraft",
+ "stars": 447,
+ "categories": [
+  "SwiftUI"
+ ],
+ "sha": "fe0bbb84bc62fdf84f3f3ed97ba1bf194e4e13b8",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 953,
+ "contributor_count": 2,
+ "top_contributors": [
+  {
+   "login": "atrinh0",
+   "score": 953,
+   "contributions": 39
+  },
+  {
+   "login": "NuPlay",
+   "score": 546,
+   "contributions": 1
+  }
+ ],
+ "loc": 567,
+ "custom_components": 16,
+ "imports": [
+  "Foundation",
+  "SwiftUI"
+ ],
+ "min_ios_inferred": "14",
+ "deprecated_apis_used": [
+  "accentColor",
+  "foregroundColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "accentColor",
+   "animation",
+   "background",
+   "blur",
+   "bold",
+   "buttonStyle",
+   "colorInvert",
+   "font",
+   "foregroundColor",
+   "frame",
+   "id",
+   "imageScale",
+   "modifier",
+   "opacity",
+   "overlay",
+   "padding",
+   "resizable",
+   "rotationEffect",
+   "scaleEffect",
+   "scaledToFit",
+   "toggleStyle",
+   "zIndex"
+  ],
+  "types": [
+   "Button",
+   "Capsule",
+   "Color",
+   "ColorPicker",
+   "HStack",
+   "Image",
+   "RoundedRectangle",
+   "ScrollView",
+   "ScrollViewReader",
+   "Slider",
+   "Spacer",
+   "SwitchToggleStyle",
+   "Text",
+   "Toggle",
+   "VStack",
+   "WindowGroup",
+   "ZStack"
+  ],
+  "valueBuilders": [
+   "bottomTrailing",
+   "custom",
+   "degrees",
+   "spring"
+  ],
+  "macros": [],
+  "styleValues": [
+   "bottom",
+   "leading",
+   "top"
+  ],
+  "propertyWrappers": [
+   "Environment",
+   "State"
+  ],
+  "environmentKeys": [
+   "openURL"
+  ]
+ },
+ "counts": {
+  "modifiers": 22,
+  "types": 17,
+  "valueBuilders": 4,
+  "macros": 0,
+  "styleValues": 3,
+  "propertyWrappers": 2,
+  "environmentKeys": 1
+ },
+ "total_unique_apis": 49
+}

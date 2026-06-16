@@ -18,18 +18,18 @@ on top of the lookup layer sits a complete **iOS swiftui audit suite** — skill
 
 ## the numbers
 
-<!-- corpus numbers filled after harvest (Task 10) -->
-
 | | |
 |---|---|
-| repos analyzed | **TBD** open-source iOS & iPadOS SwiftUI apps |
+| repos analyzed | **319** open-source iOS & iPadOS SwiftUI apps (2,474 candidates → 614 gated → 319 with real SwiftUI content) |
 | parser | **swiftsyntax** — exact attributes, modifiers, property wrappers, call shapes; not regex |
-| sdk surface | iOS `.swiftinterface` + `swift symbolgraph-extract` |
-| api coverage | TBD modifiers · TBD types · property wrappers · env keys · whole-pattern recipes |
-| audit rules | **TBD** total |
-| skills | **TBD** — write/lookup + audit |
-| commands | **4** — `/swiftui` · `/swiftui-review` · `/swiftui-audit` · `/swiftui-settings` |
+| sdk surface | iOS 17 target · iPhoneOS 26.5 SDK `swift symbolgraph-extract` (incl. WidgetKit · ActivityKit · AppIntents) |
+| api coverage | 375 modifiers · 325 types · 25 property wrappers · 66 env keys · 13 whole-pattern recipes |
+| platform mix | 229 iOS · 85 cross-platform · 5 macOS (cross-listed) |
+| audit suite | _in progress — sub-project 3_ |
+| commands | _in progress — sub-project 4_ |
 | quality ranking | composite score: author authority (aggregate stars) + repo stars + api modernity + recency |
+
+> **Status:** sub-project 1 (data foundation) is complete. The skills table, pipeline diagram, and caveats below are carried over from the macOS plugin and are retargeted to iOS in sub-projects 3–4.
 
 ---
 

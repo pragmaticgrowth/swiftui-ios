@@ -1,0 +1,136 @@
+{
+ "repo": "billp/TermiNetwork",
+ "stars": 105,
+ "categories": [
+  "Networking"
+ ],
+ "sha": "e142d379de59f31d47f391021e79d76a852acce6",
+ "platform": "cross_platform",
+ "ipad_idioms": [],
+ "author_authority": 163,
+ "contributor_count": 2,
+ "top_contributors": [
+  {
+   "login": "billp",
+   "score": 163,
+   "contributions": 467
+  },
+  {
+   "login": "voynovia",
+   "score": 9,
+   "contributions": 1
+  }
+ ],
+ "loc": 11682,
+ "custom_components": 32,
+ "imports": [
+  "AppKit",
+  "Combine",
+  "CommonCrypto",
+  "CryptoSwift",
+  "Foundation",
+  "MobileCoreServices",
+  "PackageDescription",
+  "SwiftUI",
+  "SystemConfiguration",
+  "TermiNetwork",
+  "UIKit",
+  "WatchKit",
+  "XCTest"
+ ],
+ "min_ios_inferred": "15",
+ "deprecated_apis_used": [
+  "NavigationView",
+  "accentColor",
+  "foregroundColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "accentColor",
+   "aspectRatio",
+   "background",
+   "bold",
+   "clipped",
+   "cornerRadius",
+   "disabled",
+   "font",
+   "foregroundColor",
+   "frame",
+   "multilineTextAlignment",
+   "navigationBarTitleDisplayMode",
+   "navigationTitle",
+   "onAppear",
+   "onDisappear",
+   "onReceive",
+   "overlay",
+   "padding",
+   "resizable",
+   "task",
+   "toolbar"
+  ],
+  "types": [
+   "AnyView",
+   "Button",
+   "Color",
+   "EdgeInsets",
+   "HStack",
+   "Image",
+   "List",
+   "NavigationLink",
+   "NavigationView",
+   "ProgressView",
+   "ScrollView",
+   "Spacer",
+   "Text",
+   "TextEditor",
+   "TextField",
+   "Toggle",
+   "VStack",
+   "WindowGroup",
+   "ZStack"
+  ],
+  "valueBuilders": [
+   "body",
+   "caption",
+   "footnote",
+   "headline",
+   "system"
+  ],
+  "macros": [],
+  "styleValues": [
+   "background",
+   "bottom",
+   "cancel",
+   "center",
+   "clear",
+   "default",
+   "fill",
+   "green",
+   "inline",
+   "leading",
+   "principal",
+   "red",
+   "top",
+   "trailing",
+   "white"
+  ],
+  "propertyWrappers": [
+   "Binding",
+   "ObservedObject",
+   "State",
+   "StateObject",
+   "UIApplicationDelegateAdaptor"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 21,
+  "types": 19,
+  "valueBuilders": 5,
+  "macros": 0,
+  "styleValues": 15,
+  "propertyWrappers": 5,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 65
+}

@@ -1,0 +1,146 @@
+{
+ "repo": "venkatasg/DeTeXt",
+ "stars": 172,
+ "categories": [
+  "Education",
+  "SwiftUI",
+  "macOS"
+ ],
+ "sha": "b36e77f7da3987bcfc6b383e494af84166c30c2b",
+ "platform": "cross_platform",
+ "ipad_idioms": [],
+ "author_authority": 3291,
+ "contributor_count": 1,
+ "top_contributors": [
+  {
+   "login": "venkatasg",
+   "score": 3291,
+   "contributions": 230
+  }
+ ],
+ "loc": 1022,
+ "custom_components": 38,
+ "imports": [
+  "CoreML",
+  "Foundation",
+  "PencilKit",
+  "SwiftUI",
+  "UIKit"
+ ],
+ "min_ios_inferred": "26",
+ "deprecated_apis_used": [
+  "foregroundColor",
+  "navigationBarLeading",
+  "navigationBarTrailing"
+ ],
+ "unique": {
+  "modifiers": [
+   "accessibility",
+   "aspectRatio",
+   "autocorrectionDisabled",
+   "background",
+   "commands",
+   "containerShape",
+   "contentShape",
+   "contextMenu",
+   "cornerRadius",
+   "defaultSize",
+   "disabled",
+   "font",
+   "fontDesign",
+   "foregroundColor",
+   "frame",
+   "glassEffect",
+   "id",
+   "keyboardShortcut",
+   "listStyle",
+   "navigationBarTitleDisplayMode",
+   "navigationTitle",
+   "onDrag",
+   "onTapGesture",
+   "opacity",
+   "overlay",
+   "padding",
+   "searchable",
+   "shadow",
+   "sheet",
+   "tabBarMinimizeBehavior",
+   "textInputAutocapitalization",
+   "tint",
+   "toolbar",
+   "windowResizability"
+  ],
+  "types": [
+   "Button",
+   "CommandGroup",
+   "ConcentricRectangle",
+   "Divider",
+   "ForEach",
+   "Group",
+   "HStack",
+   "Image",
+   "InsetGroupedListStyle",
+   "InsetListStyle",
+   "Label",
+   "Link",
+   "List",
+   "NavigationStack",
+   "Rectangle",
+   "RoundedRectangle",
+   "Section",
+   "Spacer",
+   "Tab",
+   "TabView",
+   "Text",
+   "ToolbarItem",
+   "VStack",
+   "WindowGroup",
+   "ZStack"
+  ],
+  "valueBuilders": [
+   "body",
+   "custom",
+   "semibold",
+   "system",
+   "title3",
+   "topTrailing"
+  ],
+  "macros": [
+   "Preview"
+  ],
+  "styleValues": [
+   "black",
+   "blue",
+   "inline",
+   "largeTitle",
+   "leading",
+   "navigationBarLeading",
+   "navigationBarTrailing",
+   "pink",
+   "red",
+   "thickMaterial",
+   "title",
+   "top",
+   "white"
+  ],
+  "propertyWrappers": [
+   "Binding",
+   "Environment",
+   "Observable",
+   "State"
+  ],
+  "environmentKeys": [
+   "dismiss"
+  ]
+ },
+ "counts": {
+  "modifiers": 34,
+  "types": 25,
+  "valueBuilders": 6,
+  "macros": 1,
+  "styleValues": 13,
+  "propertyWrappers": 4,
+  "environmentKeys": 1
+ },
+ "total_unique_apis": 84
+}

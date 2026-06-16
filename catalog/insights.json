@@ -1,292 +1,1035 @@
 {
   "modern_stack_adoption_pct": {
-    "repos": 5,
-    "Observable_macro": 40.0,
-    "StateObject": 80.0,
-    "ObservedObject": 60.0,
-    "NavigationStack_or_Split": 40.0,
-    "NavigationView(legacy)": 60.0,
-    "SwiftData(@Model)": 40.0,
+    "repos": 319,
+    "Observable_macro": 18.8,
+    "StateObject": 43.6,
+    "ObservedObject": 43.3,
+    "NavigationStack_or_Split": 45.5,
+    "NavigationView(legacy)": 42.6,
+    "SwiftData(@Model)": 9.1,
     "MenuBarExtra": 0.0,
     "Settings_scene": 0.0,
-    "searchable": 20.0,
-    "AppKit_bridging": 0.0,
-    "Charts_imported": 20.0,
-    "uses_deprecated_api": 100.0
+    "searchable": 22.3,
+    "AppKit_bridging": 27.6,
+    "Charts_imported": 8.2,
+    "uses_deprecated_api": 81.2
   },
   "deprecated_api_usage": [
     {
       "sym": "foregroundColor",
       "renamed": "foregroundStyle",
-      "repos": 5,
+      "repos": 235,
       "top_repos": [
         [
-          "Dimillian/ACHNBrowserUI",
-          272
+          "duckduckgo/apple-browsers",
+          1033
         ],
         [
-          "Dimillian/MovieSwiftUI",
-          84
+          "zzanehip/The-OldOS-Project",
+          686
         ],
         [
-          "Dimillian/IceCubesApp",
-          75
+          "simplex-chat/simplex-chat",
+          631
         ],
         [
-          "Dimillian/MortyUI",
-          11
+          "woocommerce/woocommerce-ios",
+          603
         ],
         [
-          "Dimillian/IcySky",
-          5
+          "gematik/E-Rezept-App-iOS",
+          600
+        ],
+        [
+          "rafsoh/dimeApp",
+          532
+        ],
+        [
+          "walktalkmeditate/pilgrim-ios",
+          513
+        ],
+        [
+          "Root-Down-Digital/DragonSync-iOS",
+          505
         ]
       ]
     },
     {
       "sym": "NavigationView",
       "renamed": "NavigationStack",
-      "repos": 3,
+      "repos": 136,
       "top_repos": [
+        [
+          "bitwarden/ios",
+          187
+        ],
+        [
+          "home-assistant/iOS",
+          82
+        ],
+        [
+          "woocommerce/woocommerce-ios",
+          73
+        ],
         [
           "Dimillian/ACHNBrowserUI",
           48
         ],
         [
-          "Dimillian/MovieSwiftUI",
-          17
+          "kean/Pulse",
+          48
         ],
         [
-          "Dimillian/MortyUI",
-          5
-        ]
-      ]
-    },
-    {
-      "sym": "tabItem",
-      "renamed": "Tab",
-      "repos": 3,
-      "top_repos": [
-        [
-          "Dimillian/ACHNBrowserUI",
-          8
+          "threema-ch/threema-ios",
+          45
         ],
         [
-          "Dimillian/MovieSwiftUI",
-          5
+          "wordpress-mobile/WordPress-iOS",
+          43
         ],
         [
-          "Dimillian/MortyUI",
-          4
-        ]
-      ]
-    },
-    {
-      "sym": "navigationBarTrailing",
-      "renamed": "",
-      "repos": 3,
-      "top_repos": [
-        [
-          "Dimillian/IceCubesApp",
-          23
-        ],
-        [
-          "Dimillian/ACHNBrowserUI",
-          1
-        ],
-        [
-          "Dimillian/IcySky",
-          1
+          "EhPanda-Team/EhPanda",
+          42
         ]
       ]
     },
     {
       "sym": "edgesIgnoringSafeArea",
       "renamed": "ignoresSafeArea",
-      "repos": 3,
+      "repos": 90,
       "top_repos": [
         [
-          "Dimillian/ACHNBrowserUI",
-          4
+          "zzanehip/The-OldOS-Project",
+          77
         ],
+        [
+          "jasudev/FabulaItemsProvider",
+          59
+        ],
+        [
+          "mikelikesdesign/SwiftUI-experiments",
+          33
+        ],
+        [
+          "ProtonDriveApps/ios-drive",
+          24
+        ],
+        [
+          "molcik/swiftui-elements",
+          19
+        ],
+        [
+          "duckduckgo/apple-browsers",
+          15
+        ],
+        [
+          "simplex-chat/simplex-chat",
+          13
+        ],
+        [
+          "woocommerce/woocommerce-ios",
+          13
+        ]
+      ]
+    },
+    {
+      "sym": "navigationBarTrailing",
+      "renamed": "",
+      "repos": 83,
+      "top_repos": [
         [
           "Dimillian/IceCubesApp",
-          4
+          23
         ],
         [
-          "Dimillian/MovieSwiftUI",
-          3
+          "gematik/E-Rezept-App-iOS",
+          18
+        ],
+        [
+          "woocommerce/woocommerce-ios",
+          15
+        ],
+        [
+          "miataru/miataru-ios-client",
+          14
+        ],
+        [
+          "simplex-chat/simplex-chat",
+          14
+        ],
+        [
+          "wordpress-mobile/WordPress-iOS",
+          14
+        ],
+        [
+          "Root-Down-Digital/DragonSync-iOS",
+          13
+        ],
+        [
+          "stripe/stripe-ios",
+          11
+        ]
+      ]
+    },
+    {
+      "sym": "tabItem",
+      "renamed": "Tab",
+      "repos": 73,
+      "top_repos": [
+        [
+          "yattee/yattee",
+          25
+        ],
+        [
+          "jasudev/FabulaItemsProvider",
+          24
+        ],
+        [
+          "pointfreeco/swift-composable-architecture",
+          20
+        ],
+        [
+          "nalexn/ViewInspector",
+          19
+        ],
+        [
+          "molcik/swiftui-elements",
+          13
+        ],
+        [
+          "miataru/miataru-ios-client",
+          9
+        ],
+        [
+          "Dimillian/ACHNBrowserUI",
+          8
+        ],
+        [
+          "bigjermaine/SwiftTracker",
+          7
         ]
       ]
     },
     {
       "sym": "presentationMode",
       "renamed": "dismiss",
-      "repos": 2,
+      "repos": 67,
       "top_repos": [
+        [
+          "horizontalsystems/unstoppable-wallet-ios",
+          36
+        ],
+        [
+          "woocommerce/woocommerce-ios",
+          22
+        ],
+        [
+          "utmapp/UTM",
+          20
+        ],
+        [
+          "rafsoh/dimeApp",
+          17
+        ],
         [
           "Dimillian/ACHNBrowserUI",
           16
         ],
         [
-          "Dimillian/MovieSwiftUI",
-          3
-        ]
-      ]
-    },
-    {
-      "sym": "navigationViewStyle",
-      "renamed": "",
-      "repos": 2,
-      "top_repos": [
-        [
-          "Dimillian/ACHNBrowserUI",
+          "duckduckgo/apple-browsers",
           14
         ],
         [
-          "Dimillian/MovieSwiftUI",
-          4
-        ]
-      ]
-    },
-    {
-      "sym": "navigationBarItems",
-      "renamed": "toolbar",
-      "repos": 2,
-      "top_repos": [
-        [
-          "Dimillian/ACHNBrowserUI",
-          23
+          "amikhaylin/pompaddo",
+          13
         ],
         [
-          "Dimillian/MovieSwiftUI",
-          7
+          "Thomvis/Construct",
+          12
         ]
       ]
     },
     {
       "sym": "navigationBarTitle",
       "renamed": "navigationTitle",
-      "repos": 2,
+      "repos": 67,
       "top_repos": [
         [
           "Dimillian/ACHNBrowserUI",
           37
         ],
         [
-          "Dimillian/MovieSwiftUI",
-          17
-        ]
-      ]
-    },
-    {
-      "sym": "StackNavigationViewStyle",
-      "renamed": "",
-      "repos": 2,
-      "top_repos": [
+          "algolia/instantsearch-ios",
+          26
+        ],
         [
-          "Dimillian/ACHNBrowserUI",
-          14
+          "gematik/E-Rezept-App-iOS",
+          24
+        ],
+        [
+          "jordibruin/Swift-Charts-Examples",
+          24
+        ],
+        [
+          "molcik/swiftui-elements",
+          22
+        ],
+        [
+          "blinksh/blink",
+          19
         ],
         [
           "Dimillian/MovieSwiftUI",
-          4
+          17
+        ],
+        [
+          "simplex-chat/simplex-chat",
+          17
         ]
       ]
     },
     {
       "sym": "Alert",
       "renamed": "alert",
-      "repos": 2,
+      "repos": 64,
       "top_repos": [
         [
-          "Dimillian/ACHNBrowserUI",
-          8
+          "simplex-chat/simplex-chat",
+          153
         ],
         [
-          "Dimillian/IceCubesApp",
-          1
+          "duckduckgo/apple-browsers",
+          36
+        ],
+        [
+          "utmapp/UTM",
+          34
+        ],
+        [
+          "stripe/stripe-ios",
+          26
+        ],
+        [
+          "bitwarden/ios",
+          25
+        ],
+        [
+          "yattee/yattee",
+          24
+        ],
+        [
+          "nalexn/ViewInspector",
+          23
+        ],
+        [
+          "XcodesOrg/XcodesApp",
+          12
         ]
       ]
     },
     {
       "sym": "accentColor",
       "renamed": "tint",
-      "repos": 2,
+      "repos": 63,
       "top_repos": [
         [
           "Dimillian/ACHNBrowserUI",
           40
         ],
         [
-          "Dimillian/MovieSwiftUI",
-          2
-        ]
-      ]
-    },
-    {
-      "sym": "ActionSheet",
-      "renamed": "",
-      "repos": 2,
-      "top_repos": [
-        [
-          "Dimillian/ACHNBrowserUI",
-          3
+          "element-hq/element-ios",
+          40
         ],
         [
-          "Dimillian/MovieSwiftUI",
-          2
+          "Swiftgram/Telegram-iOS",
+          26
+        ],
+        [
+          "TelegramMessenger/Telegram-iOS",
+          26
+        ],
+        [
+          "nightscout/nightguard",
+          20
+        ],
+        [
+          "EhPanda-Team/EhPanda",
+          19
+        ],
+        [
+          "simple-login/Simple-Login-iOS",
+          14
+        ],
+        [
+          "niochat/nio",
+          12
         ]
       ]
     },
     {
       "sym": "navigationBarLeading",
       "renamed": "",
-      "repos": 2,
+      "repos": 61,
       "top_repos": [
+        [
+          "schmidtwmark/BetterBlue",
+          14
+        ],
+        [
+          "Automattic/pocket-casts-ios",
+          12
+        ],
+        [
+          "bitwarden/ios",
+          9
+        ],
+        [
+          "duckduckgo/apple-browsers",
+          9
+        ],
+        [
+          "eugenepyvovarov/CodeAgentsMobile",
+          8
+        ],
+        [
+          "wordpress-mobile/WordPress-iOS",
+          8
+        ],
         [
           "Dimillian/IceCubesApp",
           7
         ],
         [
-          "Dimillian/IcySky",
-          1
-        ]
-      ]
-    },
-    {
-      "sym": "sizeCategory",
-      "renamed": "dynamicTypeSize",
-      "repos": 2,
-      "top_repos": [
-        [
-          "Dimillian/IceCubesApp",
-          1
-        ],
-        [
-          "Dimillian/IcySky",
-          1
+          "ldakhoa/GistHub",
+          7
         ]
       ]
     },
     {
       "sym": "autocapitalization",
       "renamed": "textInputAutocapitalization",
-      "repos": 1,
+      "repos": 57,
+      "top_repos": [
+        [
+          "stripe/stripe-ios",
+          22
+        ],
+        [
+          "Root-Down-Digital/DragonSync-iOS",
+          21
+        ],
+        [
+          "eugenepyvovarov/CodeAgentsMobile",
+          16
+        ],
+        [
+          "horizontalsystems/unstoppable-wallet-ios",
+          11
+        ],
+        [
+          "simple-login/Simple-Login-iOS",
+          10
+        ],
+        [
+          "bigjermaine/SwiftTracker",
+          8
+        ],
+        [
+          "element-hq/element-ios",
+          8
+        ],
+        [
+          "home-assistant/iOS",
+          6
+        ]
+      ]
+    },
+    {
+      "sym": "navigationBarItems",
+      "renamed": "toolbar",
+      "repos": 54,
       "top_repos": [
         [
           "Dimillian/ACHNBrowserUI",
-          2
+          23
+        ],
+        [
+          "gematik/E-Rezept-App-iOS",
+          22
+        ],
+        [
+          "molcik/swiftui-elements",
+          21
+        ],
+        [
+          "blinksh/blink",
+          16
+        ],
+        [
+          "realm/realm-swift",
+          15
+        ],
+        [
+          "nalexn/ViewInspector",
+          13
+        ],
+        [
+          "Thomvis/Construct",
+          11
+        ],
+        [
+          "joeldavidw/Chronos",
+          11
+        ]
+      ]
+    },
+    {
+      "sym": "navigationViewStyle",
+      "renamed": "",
+      "repos": 54,
+      "top_repos": [
+        [
+          "home-assistant/iOS",
+          48
+        ],
+        [
+          "element-hq/element-ios",
+          40
+        ],
+        [
+          "woocommerce/woocommerce-ios",
+          29
+        ],
+        [
+          "gematik/E-Rezept-App-iOS",
+          20
+        ],
+        [
+          "Dimillian/ACHNBrowserUI",
+          14
+        ],
+        [
+          "EhPanda-Team/EhPanda",
+          13
+        ],
+        [
+          "duckduckgo/apple-browsers",
+          13
+        ],
+        [
+          "nightscout/nightguard",
+          8
+        ]
+      ]
+    },
+    {
+      "sym": "disableAutocorrection",
+      "renamed": "autocorrectionDisabled",
+      "repos": 52,
+      "top_repos": [
+        [
+          "eerimoq/moblin",
+          42
+        ],
+        [
+          "zzanehip/The-OldOS-Project",
+          13
+        ],
+        [
+          "simple-login/Simple-Login-iOS",
+          11
+        ],
+        [
+          "utmapp/UTM",
+          8
+        ],
+        [
+          "element-hq/element-ios",
+          6
+        ],
+        [
+          "element-hq/element-x-ios",
+          6
+        ],
+        [
+          "gematik/E-Rezept-App-iOS",
+          6
+        ],
+        [
+          "joeldavidw/Chronos",
+          6
         ]
       ]
     },
     {
       "sym": "navigationBarHidden",
       "renamed": "",
+      "repos": 40,
+      "top_repos": [
+        [
+          "simplex-chat/simplex-chat",
+          14
+        ],
+        [
+          "element-hq/element-ios",
+          10
+        ],
+        [
+          "nextcloud/talk-ios",
+          7
+        ],
+        [
+          "pointfreeco/isowords",
+          7
+        ],
+        [
+          "rafsoh/dimeApp",
+          7
+        ],
+        [
+          "sobri909/ArcMini",
+          7
+        ],
+        [
+          "woocommerce/woocommerce-ios",
+          7
+        ],
+        [
+          "cranci1/Sora",
+          5
+        ]
+      ]
+    },
+    {
+      "sym": "stack",
+      "renamed": "",
+      "repos": 38,
+      "top_repos": [
+        [
+          "home-assistant/iOS",
+          47
+        ],
+        [
+          "element-hq/element-ios",
+          36
+        ],
+        [
+          "woocommerce/woocommerce-ios",
+          25
+        ],
+        [
+          "EhPanda-Team/EhPanda",
+          13
+        ],
+        [
+          "duckduckgo/apple-browsers",
+          13
+        ],
+        [
+          "kean/Pulse",
+          7
+        ],
+        [
+          "threema-ch/threema-ios",
+          7
+        ],
+        [
+          "gematik/E-Rezept-App-iOS",
+          6
+        ]
+      ]
+    },
+    {
+      "sym": "sizeCategory",
+      "renamed": "dynamicTypeSize",
+      "repos": 28,
+      "top_repos": [
+        [
+          "woocommerce/woocommerce-ios",
+          48
+        ],
+        [
+          "pia-foss/mobile-ios",
+          12
+        ],
+        [
+          "Automattic/pocket-casts-ios",
+          11
+        ],
+        [
+          "gematik/E-Rezept-App-iOS",
+          10
+        ],
+        [
+          "mozilla-mobile/firefox-ios",
+          9
+        ],
+        [
+          "carekit-apple/CareKit",
+          8
+        ],
+        [
+          "niochat/nio",
+          8
+        ],
+        [
+          "wikimedia/wikipedia-ios",
+          8
+        ]
+      ]
+    },
+    {
+      "sym": "StackNavigationViewStyle",
+      "renamed": "",
+      "repos": 26,
+      "top_repos": [
+        [
+          "gematik/E-Rezept-App-iOS",
+          20
+        ],
+        [
+          "Dimillian/ACHNBrowserUI",
+          14
+        ],
+        [
+          "nightscout/nightguard",
+          8
+        ],
+        [
+          "Automattic/pocket-casts-ios",
+          6
+        ],
+        [
+          "Dimillian/MovieSwiftUI",
+          4
+        ],
+        [
+          "ProtonDriveApps/ios-drive",
+          4
+        ],
+        [
+          "element-hq/element-ios",
+          4
+        ],
+        [
+          "woocommerce/woocommerce-ios",
+          4
+        ]
+      ]
+    },
+    {
+      "sym": "ActionSheet",
+      "renamed": "",
+      "repos": 23,
+      "top_repos": [
+        [
+          "nalexn/ViewInspector",
+          17
+        ],
+        [
+          "simplex-chat/simplex-chat",
+          5
+        ],
+        [
+          "Dimillian/ACHNBrowserUI",
+          3
+        ],
+        [
+          "ProtonDriveApps/ios-drive",
+          3
+        ],
+        [
+          "element-hq/element-ios",
+          3
+        ],
+        [
+          "woocommerce/woocommerce-ios",
+          3
+        ],
+        [
+          "Automattic/pocket-casts-ios",
+          2
+        ],
+        [
+          "Dimillian/MovieSwiftUI",
+          2
+        ]
+      ]
+    },
+    {
+      "sym": "statusBar",
+      "renamed": "statusBarHidden",
+      "repos": 12,
+      "top_repos": [
+        [
+          "EFPrefix/EFQRCode",
+          29
+        ],
+        [
+          "nightscout/nightguard",
+          3
+        ],
+        [
+          "OpenASL/Fingerspelling-iOS",
+          2
+        ],
+        [
+          "gematik/E-Rezept-App-iOS",
+          2
+        ],
+        [
+          "nalexn/ViewInspector",
+          2
+        ],
+        [
+          "EhPanda-Team/EhPanda",
+          1
+        ],
+        [
+          "cranci1/Sora",
+          1
+        ],
+        [
+          "emrepbu/CosmicDaily",
+          1
+        ]
+      ]
+    },
+    {
+      "sym": "MagnificationGesture",
+      "renamed": "MagnifyGesture",
+      "repos": 12,
+      "top_repos": [
+        [
+          "nalexn/ViewInspector",
+          15
+        ],
+        [
+          "miataru/miataru-ios-client",
+          6
+        ],
+        [
+          "jasudev/FabulaItemsProvider",
+          4
+        ],
+        [
+          "Root-Down-Digital/DragonSync-iOS",
+          2
+        ],
+        [
+          "eerimoq/moblin",
+          2
+        ],
+        [
+          "emrepbu/CosmicDaily",
+          2
+        ],
+        [
+          "mikelikesdesign/SwiftUI-experiments",
+          2
+        ],
+        [
+          "zzanehip/The-OldOS-Project",
+          2
+        ]
+      ]
+    },
+    {
+      "sym": "colorMultiply",
+      "renamed": "foregroundStyle",
+      "repos": 11,
+      "top_repos": [
+        [
+          "nalexn/ViewInspector",
+          3
+        ],
+        [
+          "pointfreeco/isowords",
+          3
+        ],
+        [
+          "woocommerce/woocommerce-ios",
+          3
+        ],
+        [
+          "openhab/openhab-ios",
+          2
+        ],
+        [
+          "simplex-chat/simplex-chat",
+          2
+        ],
+        [
+          "XKCDY/app",
+          1
+        ],
+        [
+          "apps-fab/exercism-app",
+          1
+        ],
+        [
+          "firebase/quickstart-ios",
+          1
+        ]
+      ]
+    },
+    {
+      "sym": "ContextMenu",
+      "renamed": "",
+      "repos": 9,
+      "top_repos": [
+        [
+          "gematik/E-Rezept-App-iOS",
+          6
+        ],
+        [
+          "niochat/nio",
+          4
+        ],
+        [
+          "signalapp/Signal-iOS",
+          4
+        ],
+        [
+          "duckduckgo/apple-browsers",
+          2
+        ],
+        [
+          "strongbox-password-safe/Strongbox",
+          2
+        ],
+        [
+          "gluonfield/enchanted",
+          1
+        ],
+        [
+          "pointfreeco/isowords",
+          1
+        ],
+        [
+          "threema-ch/threema-ios",
+          1
+        ]
+      ]
+    },
+    {
+      "sym": "borderlessButton",
+      "renamed": "borderless",
+      "repos": 8,
+      "top_repos": [
+        [
+          "Thomvis/Construct",
+          5
+        ],
+        [
+          "jellyfin/Swiftfin",
+          4
+        ],
+        [
+          "kean/Pulse",
+          3
+        ],
+        [
+          "utmapp/UTM",
+          2
+        ],
+        [
+          "cinderella-project/iMast",
+          1
+        ],
+        [
+          "vincode-io/Zavala",
+          1
+        ],
+        [
+          "wordpress-mobile/WordPress-iOS",
+          1
+        ],
+        [
+          "yattee/yattee",
+          1
+        ]
+      ]
+    },
+    {
+      "sym": "RotationGesture",
+      "renamed": "RotateGesture",
+      "repos": 3,
+      "top_repos": [
+        [
+          "nalexn/ViewInspector",
+          18
+        ],
+        [
+          "miataru/miataru-ios-client",
+          6
+        ],
+        [
+          "jasudev/FabulaItemsProvider",
+          3
+        ]
+      ]
+    },
+    {
+      "sym": "accessibilityShowButtonShapes",
+      "renamed": "accessibilityShowBorders",
+      "repos": 2,
+      "top_repos": [
+        [
+          "element-hq/element-x-ios",
+          2
+        ],
+        [
+          "Automattic/pocket-casts-ios",
+          1
+        ]
+      ]
+    },
+    {
+      "sym": "BorderlessButtonMenuStyle",
+      "renamed": "",
+      "repos": 2,
+      "top_repos": [
+        [
+          "duckduckgo/apple-browsers",
+          1
+        ],
+        [
+          "jasudev/FabulaItemsProvider",
+          1
+        ]
+      ]
+    },
+    {
+      "sym": "DoubleColumnNavigationViewStyle",
+      "renamed": "",
       "repos": 1,
       "top_repos": [
         [
-          "Dimillian/IcySky",
+          "JohnEstropia/CoreStore",
           1
+        ]
+      ]
+    },
+    {
+      "sym": "ContentSizeCategory",
+      "renamed": "DynamicTypeSize",
+      "repos": 1,
+      "top_repos": [
+        [
+          "mastodon/mastodon-ios",
+          1
+        ]
+      ]
+    },
+    {
+      "sym": "DefaultNavigationViewStyle",
+      "renamed": "",
+      "repos": 1,
+      "top_repos": [
+        [
+          "nalexn/ViewInspector",
+          2
         ]
       ]
     }
@@ -294,320 +1037,745 @@
   "discovered_external_api": {
     "modifier": [
       {
-        "sym": "map",
-        "uses": 129,
-        "repos": 5
+        "sym": "append",
+        "uses": 33808,
+        "repos": 374
+      },
+      {
+        "sym": "constraint",
+        "uses": 30123,
+        "repos": 208
+      },
+      {
+        "sym": "addSubview",
+        "uses": 18998,
+        "repos": 298
       },
       {
         "sym": "contains",
-        "uses": 127,
-        "repos": 4
+        "uses": 17150,
+        "repos": 336
       },
       {
-        "sym": "append",
-        "uses": 112,
-        "repos": 5
+        "sym": "map",
+        "uses": 13617,
+        "repos": 353
       },
       {
-        "sym": "fontWeight",
-        "uses": 107,
-        "repos": 5
+        "sym": "update",
+        "uses": 11969,
+        "repos": 160
       },
       {
-        "sym": "get",
-        "uses": 97,
-        "repos": 3
+        "sym": "set",
+        "uses": 9702,
+        "repos": 201
       },
       {
-        "sym": "constant",
-        "uses": 79,
-        "repos": 4
-      },
-      {
-        "sym": "filter",
-        "uses": 70,
-        "repos": 5
-      },
-      {
-        "sym": "toggle",
-        "uses": 52,
-        "repos": 4
-      },
-      {
-        "sym": "fill",
-        "uses": 51,
-        "repos": 3
-      },
-      {
-        "sym": "firstIndex",
-        "uses": 49,
-        "repos": 3
-      },
-      {
-        "sym": "compactMap",
-        "uses": 49,
-        "repos": 5
-      },
-      {
-        "sym": "first",
-        "uses": 43,
-        "repos": 4
-      },
-      {
-        "sym": "stroke",
-        "uses": 34,
-        "repos": 4
+        "sym": "start",
+        "uses": 8182,
+        "repos": 165
       },
       {
         "sym": "async",
-        "uses": 33,
-        "repos": 4
+        "uses": 8065,
+        "repos": 301
+      },
+      {
+        "sym": "present",
+        "uses": 8056,
+        "repos": 230
       },
       {
         "sym": "dismiss",
-        "uses": 32,
-        "repos": 3
+        "uses": 8012,
+        "repos": 221
       },
       {
-        "sym": "cancel",
-        "uses": 31,
-        "repos": 4
+        "sym": "single",
+        "uses": 6640,
+        "repos": 17
       },
       {
-        "sym": "transition",
-        "uses": 28,
-        "repos": 4
+        "sym": "send",
+        "uses": 6359,
+        "repos": 126
       },
       {
-        "sym": "prefix",
-        "uses": 27,
-        "repos": 5
+        "sym": "addLine",
+        "uses": 6182,
+        "repos": 128
       },
       {
-        "sym": "delete",
-        "uses": 27,
-        "repos": 3
+        "sym": "get",
+        "uses": 6066,
+        "repos": 96
       },
       {
-        "sym": "data",
-        "uses": 27,
-        "repos": 3
+        "sym": "updateFrame",
+        "uses": 5758,
+        "repos": 8
       },
       {
-        "sym": "default",
-        "uses": 26,
-        "repos": 3
-      },
-      {
-        "sym": "success",
-        "uses": 26,
-        "repos": 3
+        "sym": "equalTo",
+        "uses": 5684,
+        "repos": 52
       },
       {
         "sym": "insert",
-        "uses": 25,
-        "repos": 4
+        "uses": 5497,
+        "repos": 232
+      },
+      {
+        "sym": "fill",
+        "uses": 5488,
+        "repos": 231
+      },
+      {
+        "sym": "add",
+        "uses": 5420,
+        "repos": 231
+      },
+      {
+        "sym": "filter",
+        "uses": 5356,
+        "repos": 283
+      },
+      {
+        "sym": "removeFromSuperview",
+        "uses": 5332,
+        "repos": 209
+      },
+      {
+        "sym": "activate",
+        "uses": 5241,
+        "repos": 179
+      },
+      {
+        "sym": "with",
+        "uses": 5041,
+        "repos": 41
+      },
+      {
+        "sym": "addTarget",
+        "uses": 4954,
+        "repos": 208
+      },
+      {
+        "sym": "viewDidLoad",
+        "uses": 4822,
+        "repos": 346
+      },
+      {
+        "sym": "makeConstraints",
+        "uses": 4810,
+        "repos": 25
+      },
+      {
+        "sym": "equalToSuperview",
+        "uses": 4790,
+        "repos": 18
+      },
+      {
+        "sym": "setFrame",
+        "uses": 4470,
+        "repos": 8
+      },
+      {
+        "sym": "dispose",
+        "uses": 4448,
+        "repos": 10
+      },
+      {
+        "sym": "addAction",
+        "uses": 4067,
+        "repos": 189
+      },
+      {
+        "sym": "forEach",
+        "uses": 4019,
+        "repos": 268
+      },
+      {
+        "sym": "addCurve",
+        "uses": 3850,
+        "repos": 37
+      },
+      {
+        "sym": "first",
+        "uses": 3818,
+        "repos": 238
+      },
+      {
+        "sym": "flatMap",
+        "uses": 3761,
+        "repos": 188
+      },
+      {
+        "sym": "error",
+        "uses": 3687,
+        "repos": 146
+      },
+      {
+        "sym": "image",
+        "uses": 3659,
+        "repos": 159
       }
     ],
     "attribute": [
       {
-        "sym": "ViewBuilder",
-        "uses": 143,
-        "repos": 4
+        "sym": "objc",
+        "uses": 19631,
+        "repos": 335
+      },
+      {
+        "sym": "IBOutlet",
+        "uses": 12052,
+        "repos": 215
+      },
+      {
+        "sym": "MainActor",
+        "uses": 7870,
+        "repos": 206
       },
       {
         "sym": "Published",
-        "uses": 73,
-        "repos": 3
+        "uses": 6275,
+        "repos": 165
+      },
+      {
+        "sym": "ViewBuilder",
+        "uses": 5836,
+        "repos": 170
+      },
+      {
+        "sym": "available",
+        "uses": 5547,
+        "repos": 240
+      },
+      {
+        "sym": "IBAction",
+        "uses": 3093,
+        "repos": 190
+      },
+      {
+        "sym": "Test",
+        "uses": 2512,
+        "repos": 46
+      },
+      {
+        "sym": "discardableResult",
+        "uses": 2325,
+        "repos": 166
+      },
+      {
+        "sym": "IBInspectable",
+        "uses": 946,
+        "repos": 90
+      },
+      {
+        "sym": "Dependency",
+        "uses": 785,
+        "repos": 10
       },
       {
         "sym": "main",
-        "uses": 7,
+        "uses": 751,
+        "repos": 291
+      },
+      {
+        "sym": "Default",
+        "uses": 527,
         "repos": 5
+      },
+      {
+        "sym": "Reducer",
+        "uses": 522,
+        "repos": 9
+      },
+      {
+        "sym": "UIApplicationMain",
+        "uses": 342,
+        "repos": 244
+      },
+      {
+        "sym": "ObservableState",
+        "uses": 310,
+        "repos": 8
+      },
+      {
+        "sym": "Previewable",
+        "uses": 299,
+        "repos": 31
+      },
+      {
+        "sym": "Persisted",
+        "uses": 266,
+        "repos": 7
+      },
+      {
+        "sym": "Shared",
+        "uses": 245,
+        "repos": 6
+      },
+      {
+        "sym": "objcMembers",
+        "uses": 232,
+        "repos": 19
+      },
+      {
+        "sym": "inlinable",
+        "uses": 212,
+        "repos": 19
+      },
+      {
+        "sym": "nonobjc",
+        "uses": 210,
+        "repos": 26
+      },
+      {
+        "sym": "Suite",
+        "uses": 208,
+        "repos": 30
+      },
+      {
+        "sym": "Presents",
+        "uses": 165,
+        "repos": 6
+      },
+      {
+        "sym": "inline",
+        "uses": 163,
+        "repos": 22
+      },
+      {
+        "sym": "ObservationIgnored",
+        "uses": 148,
+        "repos": 19
+      },
+      {
+        "sym": "NSManaged",
+        "uses": 146,
+        "repos": 10
+      },
+      {
+        "sym": "UserDefault",
+        "uses": 145,
+        "repos": 7
+      },
+      {
+        "sym": "ToolbarContentBuilder",
+        "uses": 136,
+        "repos": 33
+      },
+      {
+        "sym": "IBDesignable",
+        "uses": 136,
+        "repos": 64
+      },
+      {
+        "sym": "CasePathable",
+        "uses": 118,
+        "repos": 9
+      },
+      {
+        "sym": "propertyWrapper",
+        "uses": 116,
+        "repos": 37
+      },
+      {
+        "sym": "Entry",
+        "uses": 109,
+        "repos": 23
+      },
+      {
+        "sym": "Parameter",
+        "uses": 88,
+        "repos": 15
+      },
+      {
+        "sym": "preconcurrency",
+        "uses": 84,
+        "repos": 10
       }
     ],
     "type": [
       {
-        "sym": "URL",
-        "uses": 61,
-        "repos": 5
+        "sym": "CGPoint",
+        "uses": 58471,
+        "repos": 268
       },
       {
-        "sym": "Date",
-        "uses": 59,
-        "repos": 4
-      },
-      {
-        "sym": "String",
-        "uses": 49,
-        "repos": 4
-      },
-      {
-        "sym": "Int",
-        "uses": 47,
-        "repos": 3
-      },
-      {
-        "sym": "CGFloat",
-        "uses": 41,
-        "repos": 4
-      },
-      {
-        "sym": "UUID",
-        "uses": 38,
-        "repos": 4
-      },
-      {
-        "sym": "Double",
-        "uses": 31,
-        "repos": 4
-      },
-      {
-        "sym": "Array",
-        "uses": 30,
-        "repos": 5
+        "sym": "CGRect",
+        "uses": 35536,
+        "repos": 320
       },
       {
         "sym": "CGSize",
-        "uses": 21,
-        "repos": 4
+        "uses": 29925,
+        "repos": 307
       },
       {
-        "sym": "UIImage",
-        "uses": 20,
-        "repos": 4
+        "sym": "NSLocalizedString",
+        "uses": 18132,
+        "repos": 106
       },
       {
         "sym": "UIColor",
-        "uses": 17,
-        "repos": 4
+        "uses": 14654,
+        "repos": 271
+      },
+      {
+        "sym": "String",
+        "uses": 12806,
+        "repos": 364
+      },
+      {
+        "sym": "UIImage",
+        "uses": 12551,
+        "repos": 322
+      },
+      {
+        "sym": "CGFloat",
+        "uses": 10879,
+        "repos": 317
+      },
+      {
+        "sym": "NSAttributedString",
+        "uses": 8613,
+        "repos": 164
+      },
+      {
+        "sym": "XCTAssertEqual",
+        "uses": 8520,
+        "repos": 74
+      },
+      {
+        "sym": "Task",
+        "uses": 8171,
+        "repos": 208
+      },
+      {
+        "sym": "AnyComponent",
+        "uses": 8157,
+        "repos": 3
+      },
+      {
+        "sym": "Int",
+        "uses": 8154,
+        "repos": 299
+      },
+      {
+        "sym": "URL",
+        "uses": 6289,
+        "repos": 311
+      },
+      {
+        "sym": "UIEdgeInsets",
+        "uses": 5474,
+        "repos": 184
+      },
+      {
+        "sym": "UIView",
+        "uses": 5463,
+        "repos": 226
+      },
+      {
+        "sym": "Double",
+        "uses": 4787,
+        "repos": 246
+      },
+      {
+        "sym": "Date",
+        "uses": 4704,
+        "repos": 254
+      },
+      {
+        "sym": "Int32",
+        "uses": 4142,
+        "repos": 44
+      },
+      {
+        "sym": "UILabel",
+        "uses": 4077,
+        "repos": 210
+      },
+      {
+        "sym": "Set",
+        "uses": 3786,
+        "repos": 191
+      },
+      {
+        "sym": "ComponentView",
+        "uses": 3435,
+        "repos": 3
+      },
+      {
+        "sym": "UIAlertAction",
+        "uses": 3357,
+        "repos": 173
+      },
+      {
+        "sym": "NSRange",
+        "uses": 2949,
+        "repos": 141
+      },
+      {
+        "sym": "UIImageView",
+        "uses": 2896,
+        "repos": 181
+      },
+      {
+        "sym": "Float",
+        "uses": 2617,
+        "repos": 196
+      },
+      {
+        "sym": "UIBarButtonItem",
+        "uses": 2610,
+        "repos": 150
+      },
+      {
+        "sym": "XCTAssertTrue",
+        "uses": 2602,
+        "repos": 51
+      },
+      {
+        "sym": "Array",
+        "uses": 2371,
+        "repos": 219
+      },
+      {
+        "sym": "ImageAsset",
+        "uses": 2330,
+        "repos": 14
+      },
+      {
+        "sym": "UIBezierPath",
+        "uses": 2136,
+        "repos": 145
+      },
+      {
+        "sym": "UIStackView",
+        "uses": 2100,
+        "repos": 104
+      },
+      {
+        "sym": "UUID",
+        "uses": 2083,
+        "repos": 205
+      },
+      {
+        "sym": "NSMutableAttributedString",
+        "uses": 2074,
+        "repos": 125
+      },
+      {
+        "sym": "Data",
+        "uses": 1941,
+        "repos": 184
+      },
+      {
+        "sym": "UIAlertController",
+        "uses": 1938,
+        "repos": 180
       }
     ],
     "member": [
       {
-        "sym": "id",
-        "uses": 476,
-        "repos": 5
-      },
-      {
-        "sym": "shared",
-        "uses": 453,
-        "repos": 5
-      },
-      {
-        "sym": "isEmpty",
-        "uses": 288,
-        "repos": 5
-      },
-      {
-        "sym": "count",
-        "uses": 184,
-        "repos": 5
-      },
-      {
-        "sym": "status",
-        "uses": 144,
-        "repos": 3
-      },
-      {
-        "sym": "rawValue",
-        "uses": 124,
-        "repos": 4
-      },
-      {
-        "sym": "first",
-        "uses": 123,
-        "repos": 4
-      },
-      {
-        "sym": "title",
-        "uses": 114,
-        "repos": 4
-      },
-      {
-        "sym": "name",
-        "uses": 112,
-        "repos": 5
-      },
-      {
-        "sym": "horizontal",
-        "uses": 106,
-        "repos": 4
-      },
-      {
-        "sym": "main",
-        "uses": 89,
-        "repos": 5
-      },
-      {
-        "sym": "url",
-        "uses": 89,
-        "repos": 3
-      },
-      {
-        "sym": "vertical",
-        "uses": 89,
-        "repos": 4
-      },
-      {
-        "sym": "tintColor",
-        "uses": 86,
-        "repos": 3
-      },
-      {
-        "sym": "presentedSheet",
-        "uses": 84,
-        "repos": 3
-      },
-      {
-        "sym": "image",
-        "uses": 74,
-        "repos": 5
-      },
-      {
         "sym": "width",
-        "uses": 72,
-        "repos": 4
-      },
-      {
-        "sym": "allCases",
-        "uses": 72,
-        "repos": 4
-      },
-      {
-        "sym": "content",
-        "uses": 69,
-        "repos": 4
-      },
-      {
-        "sym": "infinity",
-        "uses": 67,
-        "repos": 3
-      },
-      {
-        "sym": "bold",
-        "uses": 61,
-        "repos": 4
-      },
-      {
-        "sym": "wrappedValue",
-        "uses": 59,
-        "repos": 4
-      },
-      {
-        "sym": "large",
-        "uses": 57,
-        "repos": 4
-      },
-      {
-        "sym": "none",
-        "uses": 55,
-        "repos": 3
+        "uses": 60455,
+        "repos": 390
       },
       {
         "sym": "height",
-        "uses": 52,
-        "repos": 4
+        "uses": 53639,
+        "repos": 392
+      },
+      {
+        "sym": "size",
+        "uses": 40216,
+        "repos": 369
+      },
+      {
+        "sym": "view",
+        "uses": 32828,
+        "repos": 303
+      },
+      {
+        "sym": "theme",
+        "uses": 32071,
+        "repos": 52
+      },
+      {
+        "sym": "frame",
+        "uses": 31726,
+        "repos": 311
+      },
+      {
+        "sym": "strings",
+        "uses": 30955,
+        "repos": 12
+      },
+      {
+        "sym": "count",
+        "uses": 29968,
+        "repos": 433
+      },
+      {
+        "sym": "shared",
+        "uses": 28303,
+        "repos": 359
+      },
+      {
+        "sym": "id",
+        "uses": 27868,
+        "repos": 221
+      },
+      {
+        "sym": "text",
+        "uses": 27558,
+        "repos": 375
+      },
+      {
+        "sym": "layer",
+        "uses": 27006,
+        "repos": 254
+      },
+      {
+        "sym": "context",
+        "uses": 23752,
+        "repos": 81
+      },
+      {
+        "sym": "isEmpty",
+        "uses": 23564,
+        "repos": 358
+      },
+      {
+        "sym": "backgroundColor",
+        "uses": 18071,
+        "repos": 341
+      },
+      {
+        "sym": "isHidden",
+        "uses": 18010,
+        "repos": 228
+      },
+      {
+        "sym": "title",
+        "uses": 17500,
+        "repos": 329
+      },
+      {
+        "sym": "bounds",
+        "uses": 17129,
+        "repos": 332
+      },
+      {
+        "sym": "main",
+        "uses": 15127,
+        "repos": 433
+      },
+      {
+        "sym": "image",
+        "uses": 15107,
+        "repos": 302
+      },
+      {
+        "sym": "y",
+        "uses": 14772,
+        "repos": 289
+      },
+      {
+        "sym": "state",
+        "uses": 14407,
+        "repos": 226
+      },
+      {
+        "sym": "x",
+        "uses": 13925,
+        "repos": 276
+      },
+      {
+        "sym": "zero",
+        "uses": 13609,
+        "repos": 362
+      },
+      {
+        "sym": "rawValue",
+        "uses": 13492,
+        "repos": 329
+      },
+      {
+        "sym": "none",
+        "uses": 13250,
+        "repos": 312
+      },
+      {
+        "sym": "value",
+        "uses": 11674,
+        "repos": 287
+      },
+      {
+        "sym": "list",
+        "uses": 11586,
+        "repos": 72
+      },
+      {
+        "sym": "font",
+        "uses": 11263,
+        "repos": 286
+      },
+      {
+        "sym": "delegate",
+        "uses": 10789,
+        "repos": 352
+      },
+      {
+        "sym": "string",
+        "uses": 10249,
+        "repos": 209
+      },
+      {
+        "sym": "name",
+        "uses": 10208,
+        "repos": 300
+      },
+      {
+        "sym": "alpha",
+        "uses": 9936,
+        "repos": 201
+      },
+      {
+        "sym": "leadingAnchor",
+        "uses": 9722,
+        "repos": 176
+      },
+      {
+        "sym": "horizontal",
+        "uses": 9613,
+        "repos": 284
+      },
+      {
+        "sym": "trailingAnchor",
+        "uses": 9527,
+        "repos": 175
+      },
+      {
+        "sym": "first",
+        "uses": 9316,
+        "repos": 357
+      },
+      {
+        "sym": "topAnchor",
+        "uses": 9290,
+        "repos": 195
+      },
+      {
+        "sym": "default",
+        "uses": 9283,
+        "repos": 328
       }
     ]
   },
@@ -619,81 +1787,389 @@
     },
     {
       "anchor": "searchable",
-      "anchor_repos": 1,
+      "anchor_repos": 71,
       "co_modifiers": [
         {
-          "sym": "onHover",
-          "repos": 1
+          "sym": "searchable",
+          "repos": 71
         },
         {
-          "sym": "clipped",
-          "repos": 1
+          "sym": "font",
+          "repos": 71
         },
         {
-          "sym": "sheet",
-          "repos": 1
+          "sym": "frame",
+          "repos": 71
         },
         {
-          "sym": "fileImporter",
-          "repos": 1
+          "sym": "padding",
+          "repos": 71
         },
         {
-          "sym": "alignmentGuide",
-          "repos": 1
+          "sym": "onChange",
+          "repos": 69
         },
         {
-          "sym": "foregroundStyle",
-          "repos": 1
+          "sym": "background",
+          "repos": 69
         },
         {
-          "sym": "chartXScale",
-          "repos": 1
+          "sym": "onAppear",
+          "repos": 68
+        },
+        {
+          "sym": "navigationTitle",
+          "repos": 68
+        },
+        {
+          "sym": "buttonStyle",
+          "repos": 68
         },
         {
           "sym": "toolbar",
-          "repos": 1
+          "repos": 68
         },
         {
-          "sym": "containerBackground",
-          "repos": 1
+          "sym": "disabled",
+          "repos": 68
         },
         {
-          "sym": "rotationEffect",
-          "repos": 1
-        },
-        {
-          "sym": "mask",
-          "repos": 1
-        },
-        {
-          "sym": "allowsHitTesting",
-          "repos": 1
+          "sym": "sheet",
+          "repos": 68
         }
       ]
     },
     {
       "anchor": "NavigationSplitView",
-      "anchor_repos": 0,
-      "co_modifiers": []
+      "anchor_repos": 26,
+      "co_modifiers": [
+        {
+          "sym": "font",
+          "repos": 26
+        },
+        {
+          "sym": "frame",
+          "repos": 26
+        },
+        {
+          "sym": "padding",
+          "repos": 26
+        },
+        {
+          "sym": "opacity",
+          "repos": 25
+        },
+        {
+          "sym": "tag",
+          "repos": 25
+        },
+        {
+          "sym": "foregroundStyle",
+          "repos": 25
+        },
+        {
+          "sym": "onChange",
+          "repos": 25
+        },
+        {
+          "sym": "onAppear",
+          "repos": 25
+        },
+        {
+          "sym": "background",
+          "repos": 25
+        },
+        {
+          "sym": "navigationTitle",
+          "repos": 25
+        },
+        {
+          "sym": "toolbar",
+          "repos": 25
+        },
+        {
+          "sym": "sheet",
+          "repos": 25
+        }
+      ]
     }
   ],
   "custom_components_by_kind": {
-    "app": 5,
-    "layout": 3,
-    "preview": 151,
-    "shape": 5,
-    "style": 2,
-    "toolbarcontent": 17,
-    "transferable": 4,
-    "uikit_bridge": 11,
-    "view": 395,
-    "viewbuilder": 1117,
-    "viewmodifier": 16
+    "app": 445,
+    "appkit_bridge": 76,
+    "commands": 13,
+    "layout": 33,
+    "preview": 3017,
+    "scene": 5,
+    "shape": 227,
+    "style": 688,
+    "toolbarcontent": 35,
+    "transferable": 18,
+    "uikit_bridge": 931,
+    "view": 17280,
+    "viewbuilder": 37815,
+    "viewmodifier": 1209
   },
   "category_fingerprint": {
-    "SwiftUI": {
+    "Home": {
+      "repos": 2,
+      "avg_unique_modifiers": 115.0
+    },
+    "Mastodon": {
+      "repos": 2,
+      "avg_unique_modifiers": 106.0
+    },
+    "Media": {
+      "repos": 3,
+      "avg_unique_modifiers": 102.7
+    },
+    "Hacker News": {
+      "repos": 3,
+      "avg_unique_modifiers": 84.0
+    },
+    "Health": {
+      "repos": 8,
+      "avg_unique_modifiers": 78.0
+    },
+    "Communication": {
+      "repos": 18,
+      "avg_unique_modifiers": 76.9
+    },
+    "Password": {
       "repos": 4,
-      "avg_unique_modifiers": 56.2
+      "avg_unique_modifiers": 76.8
+    },
+    "Official": {
+      "repos": 22,
+      "avg_unique_modifiers": 71.2
+    },
+    "Productivity": {
+      "repos": 3,
+      "avg_unique_modifiers": 70.7
+    },
+    "Finance": {
+      "repos": 4,
+      "avg_unique_modifiers": 69.5
+    },
+    "File": {
+      "repos": 3,
+      "avg_unique_modifiers": 68.3
+    },
+    "Security": {
+      "repos": 9,
+      "avg_unique_modifiers": 68.1
+    },
+    "Location": {
+      "repos": 4,
+      "avg_unique_modifiers": 68.0
+    },
+    "Video": {
+      "repos": 6,
+      "avg_unique_modifiers": 66.2
+    },
+    "Developer": {
+      "repos": 15,
+      "avg_unique_modifiers": 65.1
+    },
+    "Content": {
+      "repos": 7,
+      "avg_unique_modifiers": 64.4
+    },
+    "Tasks": {
+      "repos": 2,
+      "avg_unique_modifiers": 62.0
+    },
+    "Misc": {
+      "repos": 9,
+      "avg_unique_modifiers": 56.9
+    },
+    "Apple TV": {
+      "repos": 4,
+      "avg_unique_modifiers": 53.0
+    },
+    "macOS": {
+      "repos": 10,
+      "avg_unique_modifiers": 52.7
+    },
+    "Terminal": {
+      "repos": 2,
+      "avg_unique_modifiers": 51.0
+    },
+    "Architecture Patterns": {
+      "repos": 3,
+      "avg_unique_modifiers": 50.7
+    },
+    "Cryptocurrency": {
+      "repos": 3,
+      "avg_unique_modifiers": 50.3
+    },
+    "Logging": {
+      "repos": 2,
+      "avg_unique_modifiers": 48.5
+    },
+    "Widget": {
+      "repos": 5,
+      "avg_unique_modifiers": 47.6
+    },
+    "Audio": {
+      "repos": 5,
+      "avg_unique_modifiers": 44.8
+    },
+    "Debugging": {
+      "repos": 5,
+      "avg_unique_modifiers": 44.4
+    },
+    "SwiftUI": {
+      "repos": 35,
+      "avg_unique_modifiers": 43.9
+    },
+    "Notes": {
+      "repos": 3,
+      "avg_unique_modifiers": 42.0
+    },
+    "Apple Watch": {
+      "repos": 5,
+      "avg_unique_modifiers": 41.2
+    },
+    "Scan": {
+      "repos": 2,
+      "avg_unique_modifiers": 41.0
+    },
+    "Calendar": {
+      "repos": 2,
+      "avg_unique_modifiers": 40.5
+    },
+    "Weather": {
+      "repos": 3,
+      "avg_unique_modifiers": 40.0
+    },
+    "Photo": {
+      "repos": 7,
+      "avg_unique_modifiers": 39.0
+    },
+    "Education": {
+      "repos": 14,
+      "avg_unique_modifiers": 37.9
+    },
+    "Camera": {
+      "repos": 2,
+      "avg_unique_modifiers": 35.5
+    },
+    "Safari Extension": {
+      "repos": 2,
+      "avg_unique_modifiers": 34.5
+    },
+    "GitHub": {
+      "repos": 4,
+      "avg_unique_modifiers": 34.0
+    },
+    "Popup": {
+      "repos": 2,
+      "avg_unique_modifiers": 34.0
+    },
+    "Messaging": {
+      "repos": 3,
+      "avg_unique_modifiers": 29.0
+    },
+    "Other Parsing": {
+      "repos": 3,
+      "avg_unique_modifiers": 27.0
+    },
+    "Image": {
+      "repos": 4,
+      "avg_unique_modifiers": 26.8
+    },
+    "Sample": {
+      "repos": 8,
+      "avg_unique_modifiers": 25.8
+    },
+    "Content Blocking": {
+      "repos": 4,
+      "avg_unique_modifiers": 24.0
+    },
+    "Core Data": {
+      "repos": 4,
+      "avg_unique_modifiers": 23.2
+    },
+    "Project setup": {
+      "repos": 3,
+      "avg_unique_modifiers": 21.7
+    },
+    "TextField & TextView": {
+      "repos": 2,
+      "avg_unique_modifiers": 21.0
+    },
+    "Walkthrough / Intro / Tutorial": {
+      "repos": 2,
+      "avg_unique_modifiers": 18.5
+    },
+    "Tools": {
+      "repos": 7,
+      "avg_unique_modifiers": 17.9
+    },
+    "Utility": {
+      "repos": 2,
+      "avg_unique_modifiers": 16.5
+    },
+    "Activity Indicator": {
+      "repos": 5,
+      "avg_unique_modifiers": 15.8
+    },
+    "Keyboard": {
+      "repos": 3,
+      "avg_unique_modifiers": 15.7
+    },
+    "Animation": {
+      "repos": 2,
+      "avg_unique_modifiers": 14.0
+    },
+    "Layout": {
+      "repos": 2,
+      "avg_unique_modifiers": 14.0
+    },
+    "Transition": {
+      "repos": 3,
+      "avg_unique_modifiers": 13.7
+    },
+    "Apple Vision": {
+      "repos": 2,
+      "avg_unique_modifiers": 12.5
+    },
+    "Alert & Action Sheet": {
+      "repos": 3,
+      "avg_unique_modifiers": 12.0
+    },
+    "Database": {
+      "repos": 4,
+      "avg_unique_modifiers": 11.8
+    },
+    "Networking": {
+      "repos": 2,
+      "avg_unique_modifiers": 10.5
+    },
+    "Text": {
+      "repos": 4,
+      "avg_unique_modifiers": 10.0
+    },
+    "Calculator": {
+      "repos": 2,
+      "avg_unique_modifiers": 6.5
+    },
+    "Reactive Programming": {
+      "repos": 2,
+      "avg_unique_modifiers": 6.0
+    },
+    "Dependency Injection": {
+      "repos": 2,
+      "avg_unique_modifiers": 6.0
+    },
+    "Collection View": {
+      "repos": 2,
+      "avg_unique_modifiers": 2.5
+    },
+    "Other Testing": {
+      "repos": 2,
+      "avg_unique_modifiers": 1.5
     }
   }
 }

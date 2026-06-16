@@ -1,0 +1,103 @@
+{
+ "repo": "airbnb/HorizonCalendar",
+ "stars": 3139,
+ "categories": [
+  "Calendar"
+ ],
+ "sha": "cf15e05d8c3a3545678fdce07ec150dfa3a21e99",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 11141,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "bryankeller",
+   "score": 11596,
+   "contributions": 147
+  },
+  {
+   "login": "fdiaz",
+   "score": 5744,
+   "contributions": 3
+  },
+  {
+   "login": "calda",
+   "score": 136314,
+   "contributions": 3
+  }
+ ],
+ "loc": 16027,
+ "custom_components": 9,
+ "imports": [
+  "CoreGraphics",
+  "Foundation",
+  "HorizonCalendar",
+  "PackageDescription",
+  "SwiftUI",
+  "UIKit",
+  "XCTest",
+  "os"
+ ],
+ "min_ios_inferred": "17",
+ "deprecated_apis_used": [
+  "foregroundColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "accessibilityAddTraits",
+   "aspectRatio",
+   "background",
+   "font",
+   "foregroundColor",
+   "frame",
+   "offset",
+   "onAppear",
+   "opacity",
+   "padding",
+   "strokeBorder"
+  ],
+  "types": [
+   "Circle",
+   "Color",
+   "Group",
+   "HStack",
+   "Spacer",
+   "Text",
+   "UIHostingController",
+   "ZStack"
+  ],
+  "valueBuilders": [
+   "easeOut",
+   "headline",
+   "title2"
+  ],
+  "macros": [],
+  "styleValues": [
+   "black",
+   "blue",
+   "button",
+   "center",
+   "clear",
+   "default",
+   "fill",
+   "identity",
+   "separator",
+   "white"
+  ],
+  "propertyWrappers": [
+   "State",
+   "StateObject"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 11,
+  "types": 8,
+  "valueBuilders": 3,
+  "macros": 0,
+  "styleValues": 10,
+  "propertyWrappers": 2,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 34
+}

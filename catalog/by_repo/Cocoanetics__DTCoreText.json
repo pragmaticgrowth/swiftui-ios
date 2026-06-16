@@ -1,0 +1,84 @@
+{
+ "repo": "Cocoanetics/DTCoreText",
+ "stars": 6393,
+ "categories": [
+  "Text"
+ ],
+ "sha": "870447c2378846c518fc72341059abcc103eea57",
+ "platform": "cross_platform",
+ "ipad_idioms": [],
+ "author_authority": 391771,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "odrobnik",
+   "score": 401985,
+   "contributions": 2455
+  },
+  {
+   "login": "amro",
+   "score": 1159,
+   "contributions": 35
+  },
+  {
+   "login": "xuzhe",
+   "score": 67,
+   "contributions": 29
+  }
+ ],
+ "loc": 27602,
+ "custom_components": 0,
+ "imports": [
+  "AppKit",
+  "CoreGraphics",
+  "CoreText",
+  "DTCoreText",
+  "Foundation",
+  "HTMLParser",
+  "ImageIO",
+  "PackageDescription",
+  "QuartzCore",
+  "SwiftUI",
+  "Testing",
+  "UIKit",
+  "os"
+ ],
+ "min_ios_inferred": "17",
+ "deprecated_apis_used": [],
+ "unique": {
+  "modifiers": [
+   "font",
+   "listStyle",
+   "width"
+  ],
+  "types": [
+   "State"
+  ],
+  "valueBuilders": [],
+  "macros": [],
+  "styleValues": [
+   "bottom",
+   "center",
+   "clear",
+   "default",
+   "identity",
+   "inline",
+   "link",
+   "single",
+   "top",
+   "white"
+  ],
+  "propertyWrappers": [],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 3,
+  "types": 1,
+  "valueBuilders": 0,
+  "macros": 0,
+  "styleValues": 10,
+  "propertyWrappers": 0,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 14
+}

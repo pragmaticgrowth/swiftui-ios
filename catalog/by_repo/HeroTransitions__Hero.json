@@ -1,0 +1,102 @@
+{
+ "repo": "HeroTransitions/Hero",
+ "stars": 22461,
+ "categories": [
+  "Transition"
+ ],
+ "sha": "d7a72e13b034599ff694e6907f770e6bcb83f59d",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 2868,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "lkzhao",
+   "score": 3593,
+   "contributions": 368
+  },
+  {
+   "login": "JoeMatt",
+   "score": 10895,
+   "contributions": 88
+  },
+  {
+   "login": "nick-potts",
+   "score": 220856,
+   "contributions": 5
+  }
+ ],
+ "loc": 8846,
+ "custom_components": 7,
+ "imports": [
+  "AVFoundation",
+  "AVKit",
+  "ChameleonFramework",
+  "CollectionKit",
+  "CoreGraphics",
+  "CoreMedia",
+  "Foundation",
+  "Hero",
+  "PackageConfig",
+  "PackageDescription",
+  "QuartzCore",
+  "SwiftUI",
+  "UIKit",
+  "XCTest"
+ ],
+ "min_ios_inferred": "16",
+ "deprecated_apis_used": [],
+ "unique": {
+  "modifiers": [
+   "animation",
+   "onTapGesture",
+   "opacity",
+   "overlay",
+   "padding",
+   "scale"
+  ],
+  "types": [
+   "Button",
+   "HStack",
+   "List",
+   "Spacer",
+   "Text",
+   "UIHostingController",
+   "VStack"
+  ],
+  "valueBuilders": [
+   "push",
+   "slide",
+   "spring",
+   "system"
+  ],
+  "macros": [],
+  "styleValues": [
+   "black",
+   "bottom",
+   "center",
+   "clear",
+   "fill",
+   "leading",
+   "light",
+   "linear",
+   "top",
+   "trailing",
+   "white"
+  ],
+  "propertyWrappers": [
+   "State"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 6,
+  "types": 7,
+  "valueBuilders": 4,
+  "macros": 0,
+  "styleValues": 11,
+  "propertyWrappers": 1,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 29
+}

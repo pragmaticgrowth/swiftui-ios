@@ -1,0 +1,110 @@
+{
+ "repo": "crowdin/mobile-sdk-ios",
+ "stars": 131,
+ "categories": [
+  "Localization"
+ ],
+ "sha": "0a350a546d0ecb1469d373f3d0aca5f291914a78",
+ "platform": "cross_platform",
+ "ipad_idioms": [],
+ "author_authority": 38834,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "serhii-londar",
+   "score": 49632,
+   "contributions": 838
+  },
+  {
+   "login": "andrii-bodnar",
+   "score": 61032,
+   "contributions": 178
+  },
+  {
+   "login": "NazarYavornytskyy",
+   "score": 0,
+   "contributions": 55
+  }
+ ],
+ "loc": 26301,
+ "custom_components": 6,
+ "imports": [
+  "AppKit",
+  "BaseAPI",
+  "Contacts",
+  "ContactsUI",
+  "CoreGraphics",
+  "CrowdinSDK",
+  "CrowdinXCTestScreenshots",
+  "Danger",
+  "Foundation",
+  "PackageDescription",
+  "Realm",
+  "RealmSwift",
+  "SafariServices",
+  "Starscream",
+  "SwiftDate",
+  "SwiftUI",
+  "UIKit",
+  "WatchKit",
+  "XCTest"
+ ],
+ "min_ios_inferred": "17",
+ "deprecated_apis_used": [
+  "edgesIgnoringSafeArea"
+ ],
+ "unique": {
+  "modifiers": [
+   "alert",
+   "edgesIgnoringSafeArea",
+   "id",
+   "scale"
+  ],
+  "types": [],
+  "valueBuilders": [
+   "clear",
+   "custom",
+   "medium",
+   "regular",
+   "semibold",
+   "system"
+  ],
+  "macros": [],
+  "styleValues": [
+   "automatic",
+   "black",
+   "bottom",
+   "cancel",
+   "center",
+   "clear",
+   "dark",
+   "date",
+   "default",
+   "destructive",
+   "fill",
+   "grouped",
+   "identity",
+   "insetGrouped",
+   "leading",
+   "light",
+   "plain",
+   "red",
+   "separator",
+   "subtitle",
+   "top",
+   "white"
+  ],
+  "propertyWrappers": [],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 4,
+  "types": 0,
+  "valueBuilders": 6,
+  "macros": 0,
+  "styleValues": 22,
+  "propertyWrappers": 0,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 32
+}

@@ -1,0 +1,98 @@
+{
+ "repo": "johnmahlon/Coffee-Ratio",
+ "stars": 91,
+ "categories": [
+  "Calculator"
+ ],
+ "sha": "213dba80018b12b5eb2dd23ccc9a9e16afbdeb35",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 102,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "johnmahlon",
+   "score": 102,
+   "contributions": 92
+  },
+  {
+   "login": "Ravneet5911",
+   "score": 0,
+   "contributions": 2
+  },
+  {
+   "login": "bigjermaine",
+   "score": 930,
+   "contributions": 1
+  }
+ ],
+ "loc": 637,
+ "custom_components": 14,
+ "imports": [
+  "Combine",
+  "CoreData",
+  "Foundation",
+  "Ratios",
+  "SwiftUI",
+  "UIKit",
+  "XCTest"
+ ],
+ "min_ios_inferred": "13",
+ "deprecated_apis_used": [
+  "foregroundColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "background",
+   "bold",
+   "cornerRadius",
+   "environment",
+   "fixedSize",
+   "font",
+   "foregroundColor",
+   "frame",
+   "keyboardType",
+   "multilineTextAlignment",
+   "onReceive",
+   "overlay",
+   "padding"
+  ],
+  "types": [
+   "Button",
+   "Color",
+   "Divider",
+   "HStack",
+   "RoundedRectangle",
+   "ScrollView",
+   "Spacer",
+   "Text",
+   "TextField",
+   "UIHostingController",
+   "VStack"
+  ],
+  "valueBuilders": [
+   "system"
+  ],
+  "macros": [],
+  "styleValues": [
+   "center"
+  ],
+  "propertyWrappers": [
+   "Binding",
+   "State"
+  ],
+  "environmentKeys": [
+   "managedObjectContext"
+  ]
+ },
+ "counts": {
+  "modifiers": 13,
+  "types": 11,
+  "valueBuilders": 1,
+  "macros": 0,
+  "styleValues": 1,
+  "propertyWrappers": 2,
+  "environmentKeys": 1
+ },
+ "total_unique_apis": 29
+}

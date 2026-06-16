@@ -1,0 +1,87 @@
+{
+ "repo": "ra1028/Carbon",
+ "stars": 1356,
+ "categories": [
+  "Collection View"
+ ],
+ "sha": "9e572593e02ce77e54932d46d130054a13e2a056",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 12826,
+ "contributor_count": 2,
+ "top_contributors": [
+  {
+   "login": "ra1028",
+   "score": 12826,
+   "contributions": 162
+  },
+  {
+   "login": "popeyelau",
+   "score": 494,
+   "contributions": 1
+  }
+ ],
+ "loc": 8227,
+ "custom_components": 15,
+ "imports": [
+  "Carbon",
+  "DifferenceKit",
+  "Foundation",
+  "MagazineLayout",
+  "ObjectiveC",
+  "PackageDescription",
+  "PlaygroundSupport",
+  "SwiftUI",
+  "SwipeCellKit",
+  "UIKit",
+  "XCTest"
+ ],
+ "min_ios_inferred": "16",
+ "deprecated_apis_used": [
+  "navigationBarTitle"
+ ],
+ "unique": {
+  "modifiers": [
+   "frame",
+   "navigationBarTitle",
+   "onAppear",
+   "onDisappear",
+   "padding"
+  ],
+  "types": [
+   "AnyView",
+   "EmptyView",
+   "Group",
+   "HStack",
+   "Label",
+   "ScrollView",
+   "Section",
+   "State",
+   "UIHostingController",
+   "VStack"
+  ],
+  "valueBuilders": [
+   "push"
+  ],
+  "macros": [],
+  "styleValues": [
+   "center",
+   "clear",
+   "default",
+   "destructive",
+   "grouped"
+  ],
+  "propertyWrappers": [],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 5,
+  "types": 10,
+  "valueBuilders": 1,
+  "macros": 0,
+  "styleValues": 5,
+  "propertyWrappers": 0,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 21
+}

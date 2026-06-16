@@ -1,0 +1,82 @@
+{
+ "repo": "AvdLee/Diagnostics",
+ "stars": 1177,
+ "categories": [
+  "Logging"
+ ],
+ "sha": "574b3f4e07ca5451b9d4e0f2188152aad32085f6",
+ "platform": "cross_platform",
+ "ipad_idioms": [],
+ "author_authority": 34801,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "AvdLee",
+   "score": 34801,
+   "contributions": 230
+  },
+  {
+   "login": "raphkoebraam",
+   "score": 802,
+   "contributions": 21
+  },
+  {
+   "login": "wetransferplatform",
+   "score": 0,
+   "contributions": 13
+  }
+ ],
+ "loc": 3761,
+ "custom_components": 10,
+ "imports": [
+  "AppKit",
+  "Combine",
+  "CoreTelephony",
+  "Diagnostics",
+  "ExceptionCatcher",
+  "Foundation",
+  "MessageUI",
+  "MetricKit",
+  "PackageDescription",
+  "SwiftUI",
+  "SystemConfiguration",
+  "UIKit",
+  "XCTest"
+ ],
+ "min_ios_inferred": "14",
+ "deprecated_apis_used": [],
+ "unique": {
+  "modifiers": [
+   "sheet"
+  ],
+  "types": [
+   "Button",
+   "Form",
+   "Toggle",
+   "WindowGroup"
+  ],
+  "valueBuilders": [],
+  "macros": [
+   "Preview"
+  ],
+  "styleValues": [],
+  "propertyWrappers": [
+   "Binding",
+   "Environment",
+   "State"
+  ],
+  "environmentKeys": [
+   "dismiss"
+  ]
+ },
+ "counts": {
+  "modifiers": 1,
+  "types": 4,
+  "valueBuilders": 0,
+  "macros": 1,
+  "styleValues": 0,
+  "propertyWrappers": 3,
+  "environmentKeys": 1
+ },
+ "total_unique_apis": 10
+}

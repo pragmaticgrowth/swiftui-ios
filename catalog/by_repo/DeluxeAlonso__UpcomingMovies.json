@@ -1,0 +1,112 @@
+{
+ "repo": "DeluxeAlonso/UpcomingMovies",
+ "stars": 592,
+ "categories": [
+  "Content"
+ ],
+ "sha": "d07c8853630c853d4d4cb8f3defb783bb664e48a",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 695,
+ "contributor_count": 1,
+ "top_contributors": [
+  {
+   "login": "DeluxeAlonso",
+   "score": 695,
+   "contributions": 4504
+  }
+ ],
+ "loc": 34492,
+ "custom_components": 8,
+ "imports": [
+  "CollectionViewSlantedLayout",
+  "CoreData",
+  "CoreDataInfrastructure",
+  "DLProgressHUD",
+  "Dispatch",
+  "Foundation",
+  "KeychainSwift",
+  "Kingfisher",
+  "NetworkInfrastructure",
+  "SwiftUI",
+  "Swinject",
+  "UIKit",
+  "UpcomingMovies",
+  "UpcomingMoviesData",
+  "UpcomingMoviesDomain",
+  "WebKit",
+  "WidgetKit",
+  "XCTest"
+ ],
+ "min_ios_inferred": "16",
+ "deprecated_apis_used": [
+  "foregroundColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "animation",
+   "aspectRatio",
+   "background",
+   "bold",
+   "font",
+   "foregroundColor",
+   "frame",
+   "padding",
+   "previewContext",
+   "resizable",
+   "widgetURL"
+  ],
+  "types": [
+   "Color",
+   "GeometryReader",
+   "Gradient",
+   "Group",
+   "Image",
+   "LinearGradient",
+   "StaticConfiguration",
+   "Text",
+   "Timeline",
+   "VStack",
+   "WidgetPreviewContext"
+  ],
+  "valueBuilders": [
+   "bottomTrailing",
+   "custom",
+   "easeIn",
+   "light",
+   "push",
+   "regular",
+   "system",
+   "topLeading"
+  ],
+  "macros": [],
+  "styleValues": [
+   "automatic",
+   "black",
+   "cancel",
+   "center",
+   "clear",
+   "default",
+   "destructive",
+   "gray",
+   "identity",
+   "linear",
+   "plain",
+   "red",
+   "subtitle",
+   "white"
+  ],
+  "propertyWrappers": [],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 11,
+  "types": 11,
+  "valueBuilders": 8,
+  "macros": 0,
+  "styleValues": 14,
+  "propertyWrappers": 0,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 44
+}

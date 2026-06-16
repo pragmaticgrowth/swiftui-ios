@@ -1,0 +1,93 @@
+{
+ "repo": "heart/CarBode-Barcode-Scanner-For-SwiftUI",
+ "stars": 304,
+ "categories": [
+  "SwiftUI"
+ ],
+ "sha": "aa66b507d65b3c8d0877e690d3ee510e251b38f5",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 414,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "heart",
+   "score": 414,
+   "contributions": 153
+  },
+  {
+   "login": "darko55555",
+   "score": 0,
+   "contributions": 8
+  },
+  {
+   "login": "jlanatta",
+   "score": 1,
+   "contributions": 3
+  }
+ ],
+ "loc": 1142,
+ "custom_components": 15,
+ "imports": [
+  "AVFoundation",
+  "CarBode",
+  "Foundation",
+  "MyLibraryTests",
+  "PackageDescription",
+  "SwiftUI",
+  "UIKit",
+  "XCTest"
+ ],
+ "min_ios_inferred": "13",
+ "deprecated_apis_used": [
+  "Alert",
+  "foregroundColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "alert",
+   "foregroundColor",
+   "frame",
+   "overlay",
+   "padding",
+   "pickerStyle",
+   "sheet",
+   "tag"
+  ],
+  "types": [
+   "Alert",
+   "Button",
+   "HStack",
+   "Path",
+   "Picker",
+   "Spacer",
+   "Text",
+   "UIHostingController",
+   "VStack"
+  ],
+  "valueBuilders": [
+   "topLeading"
+  ],
+  "macros": [],
+  "styleValues": [
+   "blue",
+   "center",
+   "segmented"
+  ],
+  "propertyWrappers": [
+   "Binding",
+   "State"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 8,
+  "types": 9,
+  "valueBuilders": 1,
+  "macros": 0,
+  "styleValues": 3,
+  "propertyWrappers": 2,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 23
+}

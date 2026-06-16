@@ -1,0 +1,119 @@
+{
+ "repo": "Mijick/Camera",
+ "stars": 629,
+ "categories": [
+  "Camera"
+ ],
+ "sha": "0f02348fcc8fbbc9224c7fbf444f182dc25d0b40",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 105,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "FulcrumOne",
+   "score": 1,
+   "contributions": 18
+  },
+  {
+   "login": "FutureSeth",
+   "score": 1,
+   "contributions": 1
+  },
+  {
+   "login": "guytepper",
+   "score": 2107,
+   "contributions": 1
+  }
+ ],
+ "loc": 4507,
+ "custom_components": 62,
+ "imports": [
+  "AVFoundation",
+  "AVKit",
+  "CoreMotion",
+  "Foundation",
+  "MetalKit",
+  "MijickCamera",
+  "MijickTimer",
+  "PackageDescription",
+  "SwiftUI",
+  "Testing"
+ ],
+ "min_ios_inferred": "14",
+ "deprecated_apis_used": [
+  "foregroundColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "animation",
+   "aspectRatio",
+   "background",
+   "buttonStyle",
+   "equatable",
+   "fixedSize",
+   "font",
+   "foregroundColor",
+   "frame",
+   "ignoresSafeArea",
+   "lineSpacing",
+   "mask",
+   "multilineTextAlignment",
+   "offset",
+   "onAppear",
+   "onChange",
+   "onDisappear",
+   "padding",
+   "resizable",
+   "rotationEffect",
+   "scale",
+   "scaleEffect",
+   "statusBarHidden"
+  ],
+  "types": [
+   "Button",
+   "Capsule",
+   "Circle",
+   "Color",
+   "HStack",
+   "Image",
+   "RoundedRectangle",
+   "Spacer",
+   "Text",
+   "VStack",
+   "ZStack"
+  ],
+  "valueBuilders": [
+   "custom",
+   "degrees",
+   "medium",
+   "regular",
+   "spring",
+   "system"
+  ],
+  "macros": [],
+  "styleValues": [
+   "bottom",
+   "center",
+   "leading",
+   "top",
+   "trailing"
+  ],
+  "propertyWrappers": [
+   "Namespace",
+   "ObservedObject",
+   "State"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 23,
+  "types": 11,
+  "valueBuilders": 6,
+  "macros": 0,
+  "styleValues": 5,
+  "propertyWrappers": 3,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 48
+}

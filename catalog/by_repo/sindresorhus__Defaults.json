@@ -1,0 +1,95 @@
+{
+ "repo": "sindresorhus/Defaults",
+ "stars": 2471,
+ "categories": [
+  "Database"
+ ],
+ "sha": "5bfac4928f000fabdbef7e4ed0251399bb0841c9",
+ "platform": "cross_platform",
+ "ipad_idioms": [],
+ "author_authority": 1017003,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "sindresorhus",
+   "score": 1017003,
+   "contributions": 126
+  },
+  {
+   "login": "hank121314",
+   "score": 2484,
+   "contributions": 15
+  },
+  {
+   "login": "kitwtnb",
+   "score": 12,
+   "contributions": 4
+  }
+ ],
+ "loc": 9885,
+ "custom_components": 4,
+ "imports": [
+  "AppKit",
+  "Combine",
+  "CompilerPluginSupport",
+  "CoreData",
+  "CoreGraphics",
+  "Defaults",
+  "DefaultsMacros",
+  "DefaultsMacrosDeclarations",
+  "Foundation",
+  "OSLog",
+  "Observation",
+  "PackageDescription",
+  "SwiftCompilerPlugin",
+  "SwiftDiagnostics",
+  "SwiftSyntax",
+  "SwiftSyntaxBuilder",
+  "SwiftSyntaxMacros",
+  "SwiftSyntaxMacrosTestSupport",
+  "SwiftUI",
+  "Testing",
+  "UIKit",
+  "WatchKit",
+  "XCTest",
+  "os"
+ ],
+ "min_ios_inferred": "14",
+ "deprecated_apis_used": [
+  "foregroundColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "disabled",
+   "foregroundColor",
+   "onChange"
+  ],
+  "types": [
+   "Color",
+   "Label",
+   "Text",
+   "Toggle"
+  ],
+  "valueBuilders": [],
+  "macros": [],
+  "styleValues": [
+   "black"
+  ],
+  "propertyWrappers": [
+   "ObservedObject",
+   "State",
+   "StateObject"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 3,
+  "types": 4,
+  "valueBuilders": 0,
+  "macros": 0,
+  "styleValues": 1,
+  "propertyWrappers": 3,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 11
+}

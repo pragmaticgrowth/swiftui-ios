@@ -1,0 +1,75 @@
+{
+ "repo": "kudoleh/iOS-Modular-Architecture",
+ "stars": 827,
+ "categories": [
+  "Sample"
+ ],
+ "sha": "8359aa84011c1d43ba824bb6002d1669e7f77a9b",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 5439,
+ "contributor_count": 2,
+ "top_contributors": [
+  {
+   "login": "kudoleh",
+   "score": 5439,
+   "contributions": 201
+  },
+  {
+   "login": "olehkudinovolx",
+   "score": 0,
+   "contributions": 9
+  }
+ ],
+ "loc": 4318,
+ "custom_components": 4,
+ "imports": [
+  "Alamofire",
+  "Authentication",
+  "CoreData",
+  "FBSnapshotTestCase",
+  "Foundation",
+  "MoviesSearch",
+  "Networking",
+  "SwiftUI",
+  "UIKit",
+  "XCTest"
+ ],
+ "min_ios_inferred": "13",
+ "deprecated_apis_used": [],
+ "unique": {
+  "modifiers": [
+   "onAppear"
+  ],
+  "types": [
+   "Button",
+   "List",
+   "Text",
+   "UIHostingController"
+  ],
+  "valueBuilders": [],
+  "macros": [],
+  "styleValues": [
+   "black",
+   "clear",
+   "dark",
+   "gray",
+   "plain",
+   "white"
+  ],
+  "propertyWrappers": [
+   "ObservedObject"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 1,
+  "types": 4,
+  "valueBuilders": 0,
+  "macros": 0,
+  "styleValues": 6,
+  "propertyWrappers": 1,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 12
+}

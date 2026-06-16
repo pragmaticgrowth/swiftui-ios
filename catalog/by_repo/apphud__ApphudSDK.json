@@ -1,0 +1,136 @@
+{
+ "repo": "apphud/ApphudSDK",
+ "stars": 235,
+ "categories": [
+  "Official"
+ ],
+ "sha": "23c0de964ed7d2f6f9cda83efaa1a40acfb84359",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 328,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "ren6",
+   "score": 490,
+   "contributions": 361
+  },
+  {
+   "login": "vlr-code",
+   "score": 47,
+   "contributions": 175
+  },
+  {
+   "login": "ftp27",
+   "score": 789,
+   "contributions": 2
+  }
+ ],
+ "loc": 12994,
+ "custom_components": 18,
+ "imports": [
+  "AdServices",
+  "AdSupport",
+  "AppTrackingTransparency",
+  "ApphudSDK",
+  "Foundation",
+  "ObjectiveC",
+  "PackageDescription",
+  "SafariServices",
+  "Security",
+  "StoreKit",
+  "StoreKitTest",
+  "SwiftUI",
+  "SystemConfiguration",
+  "UIKit",
+  "UserNotifications",
+  "WatchKit",
+  "WebKit",
+  "XCTest"
+ ],
+ "min_ios_inferred": "16",
+ "deprecated_apis_used": [
+  "NavigationView",
+  "foregroundColor",
+  "navigationBarHidden",
+  "navigationBarItems",
+  "presentationMode"
+ ],
+ "unique": {
+  "modifiers": [
+   "alert",
+   "aspectRatio",
+   "background",
+   "buttonStyle",
+   "cornerRadius",
+   "disabled",
+   "font",
+   "foregroundColor",
+   "frame",
+   "hidden",
+   "ignoresSafeArea",
+   "interactiveDismissDisabled",
+   "navigationBarHidden",
+   "navigationBarItems",
+   "onReceive",
+   "opacity",
+   "padding",
+   "presentationDetents",
+   "presentationDragIndicator",
+   "resizable",
+   "sheet",
+   "task"
+  ],
+  "types": [
+   "Button",
+   "Color",
+   "ForEach",
+   "HStack",
+   "Image",
+   "LinearGradient",
+   "NavigationView",
+   "RoundedRectangle",
+   "Spacer",
+   "Text",
+   "VStack",
+   "WindowGroup"
+  ],
+  "valueBuilders": [
+   "headline",
+   "medium",
+   "regular",
+   "system"
+  ],
+  "macros": [],
+  "styleValues": [
+   "background",
+   "blue",
+   "bordered",
+   "cancel",
+   "cyan",
+   "default",
+   "largeTitle",
+   "leading",
+   "trailing",
+   "white"
+  ],
+  "propertyWrappers": [
+   "Environment",
+   "State",
+   "UIApplicationDelegateAdaptor"
+  ],
+  "environmentKeys": [
+   "presentationMode"
+  ]
+ },
+ "counts": {
+  "modifiers": 22,
+  "types": 12,
+  "valueBuilders": 4,
+  "macros": 0,
+  "styleValues": 10,
+  "propertyWrappers": 3,
+  "environmentKeys": 1
+ },
+ "total_unique_apis": 52
+}

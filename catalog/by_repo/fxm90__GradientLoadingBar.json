@@ -1,0 +1,114 @@
+{
+ "repo": "fxm90/GradientLoadingBar",
+ "stars": 894,
+ "categories": [
+  "Activity Indicator"
+ ],
+ "sha": "87d8a1deda37385f6fecdc062afb38896548a1a3",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 2898,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "fxm90",
+   "score": 2898,
+   "contributions": 511
+  },
+  {
+   "login": "TwoDollarsEsq",
+   "score": 6,
+   "contributions": 2
+  },
+  {
+   "login": "emilrb",
+   "score": 4,
+   "contributions": 1
+  }
+ ],
+ "loc": 3016,
+ "custom_components": 15,
+ "imports": [
+  "Combine",
+  "CoreGraphics",
+  "Foundation",
+  "GradientLoadingBar",
+  "Observation",
+  "PackageDescription",
+  "SnapshotTesting",
+  "SwiftUI",
+  "Testing",
+  "UIKit"
+ ],
+ "min_ios_inferred": "18",
+ "deprecated_apis_used": [],
+ "unique": {
+  "modifiers": [
+   "accessibilityHidden",
+   "buttonStyle",
+   "clipShape",
+   "clipped",
+   "font",
+   "frame",
+   "multilineTextAlignment",
+   "navigationTitle",
+   "offset",
+   "onDisappear",
+   "onGeometryChange",
+   "overlay",
+   "padding"
+  ],
+  "types": [
+   "Button",
+   "HStack",
+   "Label",
+   "LinearGradient",
+   "NavigationStack",
+   "RoundedRectangle",
+   "Tab",
+   "TabView",
+   "Text",
+   "VStack",
+   "WindowGroup"
+  ],
+  "valueBuilders": [
+   "callout",
+   "caption",
+   "footnote",
+   "headline",
+   "linear"
+  ],
+  "macros": [
+   "Preview"
+  ],
+  "styleValues": [
+   "borderedProminent",
+   "bottom",
+   "center",
+   "default",
+   "fill",
+   "green",
+   "identity",
+   "leading",
+   "red",
+   "top",
+   "trailing",
+   "yellow"
+  ],
+  "propertyWrappers": [
+   "Observable",
+   "State"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 13,
+  "types": 11,
+  "valueBuilders": 5,
+  "macros": 1,
+  "styleValues": 12,
+  "propertyWrappers": 2,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 44
+}

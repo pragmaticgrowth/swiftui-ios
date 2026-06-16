@@ -1,0 +1,111 @@
+{
+ "repo": "sahilsatralkar/ContextComposer",
+ "stars": 3,
+ "categories": [
+  "Communication"
+ ],
+ "sha": "c088da8ec449590fb14fe6a8259df816443f362f",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 456427,
+ "contributor_count": 2,
+ "top_contributors": [
+  {
+   "login": "sahilsatralkar",
+   "score": 456427,
+   "contributions": 26
+  },
+  {
+   "login": "claude",
+   "score": 0,
+   "contributions": 1
+  }
+ ],
+ "loc": 551,
+ "custom_components": 6,
+ "imports": [
+  "ContextComposer",
+  "Foundation",
+  "FoundationModels",
+  "Observation",
+  "SwiftUI",
+  "UIKit",
+  "XCTest"
+ ],
+ "min_ios_inferred": "17",
+ "deprecated_apis_used": [
+  "foregroundColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "alert",
+   "background",
+   "buttonStyle",
+   "cornerRadius",
+   "disabled",
+   "focused",
+   "font",
+   "foregroundColor",
+   "frame",
+   "navigationTitle",
+   "opacity",
+   "overlay",
+   "padding",
+   "pickerStyle",
+   "scrollDismissesKeyboard",
+   "shadow",
+   "tag",
+   "task"
+  ],
+  "types": [
+   "Button",
+   "Color",
+   "ForEach",
+   "HStack",
+   "Label",
+   "NavigationStack",
+   "Picker",
+   "ProgressView",
+   "RoundedRectangle",
+   "ScrollView",
+   "Spacer",
+   "Text",
+   "TextEditor",
+   "VStack",
+   "WindowGroup"
+  ],
+  "valueBuilders": [
+   "body",
+   "caption",
+   "caption2",
+   "headline"
+  ],
+  "macros": [
+   "Preview"
+  ],
+  "styleValues": [
+   "bordered",
+   "borderedProminent",
+   "green",
+   "leading",
+   "menu",
+   "secondary"
+  ],
+  "propertyWrappers": [
+   "FocusState",
+   "Observable",
+   "State"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 18,
+  "types": 15,
+  "valueBuilders": 4,
+  "macros": 1,
+  "styleValues": 6,
+  "propertyWrappers": 3,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 47
+}

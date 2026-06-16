@@ -1,0 +1,76 @@
+{
+ "repo": "sparrowcode/AlertKit",
+ "stars": 2636,
+ "categories": [
+  "Alert & Action Sheet"
+ ],
+ "sha": "e8a0208c1af3e0fc1393eb3d58381d517811c0d8",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 12988,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "ivanvorobei",
+   "score": 13196,
+   "contributions": 313
+  },
+  {
+   "login": "RomanPodymov",
+   "score": 26143,
+   "contributions": 3
+  },
+  {
+   "login": "tijme",
+   "score": 1999,
+   "contributions": 2
+  }
+ ],
+ "loc": 1060,
+ "custom_components": 3,
+ "imports": [
+  "Foundation",
+  "PackageDescription",
+  "SwiftUI",
+  "UIKit"
+ ],
+ "min_ios_inferred": "14",
+ "deprecated_apis_used": [],
+ "unique": {
+  "modifiers": [
+   "opacity"
+  ],
+  "types": [
+   "UIHostingController",
+   "ZStack"
+  ],
+  "valueBuilders": [
+   "body",
+   "custom",
+   "footnote",
+   "medium",
+   "semibold",
+   "title2"
+  ],
+  "macros": [],
+  "styleValues": [
+   "center",
+   "clear",
+   "dark",
+   "identity",
+   "light"
+  ],
+  "propertyWrappers": [],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 1,
+  "types": 2,
+  "valueBuilders": 6,
+  "macros": 0,
+  "styleValues": 5,
+  "propertyWrappers": 0,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 14
+}

@@ -1,0 +1,125 @@
+{
+ "repo": "exyte/AnimatedTabBar",
+ "stars": 540,
+ "categories": [
+  "Tab Bar"
+ ],
+ "sha": "e958616dcaf725dea1dedeb61ba1e52c8f6a79f7",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 8898,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "f3dm76",
+   "score": 9945,
+   "contributions": 34
+  },
+  {
+   "login": "nikita-afonasov",
+   "score": 0,
+   "contributions": 2
+  },
+  {
+   "login": "amirsaam",
+   "score": 55315,
+   "contributions": 2
+  }
+ ],
+ "loc": 1623,
+ "custom_components": 47,
+ "imports": [
+  "AnimatedTabBar",
+  "PackageDescription",
+  "SwiftUI"
+ ],
+ "min_ios_inferred": "17",
+ "deprecated_apis_used": [
+  "edgesIgnoringSafeArea",
+  "foregroundColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "animation",
+   "aspectRatio",
+   "background",
+   "coordinateSpace",
+   "cornerRadius",
+   "edgesIgnoringSafeArea",
+   "fixedSize",
+   "foregroundColor",
+   "foregroundStyle",
+   "frame",
+   "keyframeAnimator",
+   "mask",
+   "modifier",
+   "offset",
+   "onAppear",
+   "onChange",
+   "onPreferenceChange",
+   "onReceive",
+   "onTapGesture",
+   "opacity",
+   "padding",
+   "preference",
+   "resizable",
+   "rotationEffect",
+   "scaleEffect"
+  ],
+  "types": [
+   "Angle",
+   "AnyView",
+   "Circle",
+   "Color",
+   "CubicKeyframe",
+   "EmptyView",
+   "ForEach",
+   "GeometryReader",
+   "HStack",
+   "Image",
+   "KeyframeTrack",
+   "Path",
+   "ProjectionTransform",
+   "Rectangle",
+   "Spacer",
+   "SpringKeyframe",
+   "UnitPoint",
+   "VStack",
+   "WindowGroup",
+   "ZStack"
+  ],
+  "valueBuilders": [
+   "easeIn",
+   "easeOut",
+   "interpolatingSpring",
+   "linear",
+   "topLeading"
+  ],
+  "macros": [],
+  "styleValues": [
+   "black",
+   "bottom",
+   "linear",
+   "red",
+   "white"
+  ],
+  "propertyWrappers": [
+   "Binding",
+   "Environment",
+   "State"
+  ],
+  "environmentKeys": [
+   "layoutDirection"
+  ]
+ },
+ "counts": {
+  "modifiers": 25,
+  "types": 20,
+  "valueBuilders": 5,
+  "macros": 0,
+  "styleValues": 5,
+  "propertyWrappers": 3,
+  "environmentKeys": 1
+ },
+ "total_unique_apis": 59
+}

@@ -6,9 +6,26 @@
  ],
  "sha": "7bcb4e383a740fd81ae3ef6498a3f1757de24460",
  "platform": "ios",
- "author_authority": 0,
- "contributor_count": 0,
- "top_contributors": [],
+ "ipad_idioms": [],
+ "author_authority": 48160,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "Dimillian",
+   "score": 48160,
+   "contributions": 675
+  },
+  {
+   "login": "TheVaan",
+   "score": 17062,
+   "contributions": 100
+  },
+  {
+   "login": "ericlewis",
+   "score": 5904,
+   "contributions": 87
+  }
+ ],
  "loc": 16954,
  "custom_components": 582,
  "imports": [

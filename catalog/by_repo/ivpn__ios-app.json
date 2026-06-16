@@ -1,0 +1,156 @@
+{
+ "repo": "ivpn/ios-app",
+ "stars": 556,
+ "categories": [
+  "Official",
+  "Security"
+ ],
+ "sha": "ab2b20975a419209ace2fbc058cae2ab3b8b5f2f",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 1729,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "jurajhilje",
+   "score": 1746,
+   "contributions": 3019
+  },
+  {
+   "login": "codewithtamim",
+   "score": 0,
+   "contributions": 28
+  },
+  {
+   "login": "ante-ivpn",
+   "score": 732,
+   "contributions": 1
+  }
+ ],
+ "loc": 29011,
+ "custom_components": 20,
+ "imports": [
+  "AVFoundation",
+  "ActiveLabel",
+  "AppIntents",
+  "CommonCrypto",
+  "CoreData",
+  "CoreGraphics",
+  "CoreLocation",
+  "CryptoKit",
+  "Darwin",
+  "FloatingPanel",
+  "Foundation",
+  "IVPNClient",
+  "JGProgressHUD",
+  "KeychainAccess",
+  "LocalAuthentication",
+  "MessageUI",
+  "Network",
+  "NetworkExtension",
+  "Reachability",
+  "SnapKit",
+  "StoreKit",
+  "SwiftUI",
+  "SystemConfiguration",
+  "TunnelKitCore",
+  "TunnelKitManager",
+  "TunnelKitOpenVPN",
+  "TunnelKitOpenVPNAppExtension",
+  "UIKit",
+  "WebKit",
+  "WidgetKit",
+  "WireGuardKit",
+  "XCTest",
+  "os"
+ ],
+ "min_ios_inferred": "14",
+ "deprecated_apis_used": [
+  "foregroundColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "background",
+   "bold",
+   "cornerRadius",
+   "fixedSize",
+   "font",
+   "foregroundColor",
+   "frame",
+   "labelStyle",
+   "minimumScaleFactor",
+   "offset",
+   "onReceive",
+   "padding",
+   "previewContext",
+   "resizable",
+   "scaledToFit",
+   "trim",
+   "widgetURL"
+  ],
+  "types": [
+   "Color",
+   "ContainerRelativeShape",
+   "Divider",
+   "HStack",
+   "Image",
+   "Label",
+   "Link",
+   "Spacer",
+   "StateObject",
+   "StaticConfiguration",
+   "Text",
+   "Timeline",
+   "VStack",
+   "WidgetPreviewContext",
+   "ZStack"
+  ],
+  "valueBuilders": [
+   "clear",
+   "custom",
+   "footnote",
+   "medium",
+   "regular",
+   "system",
+   "topLeading"
+  ],
+  "macros": [],
+  "styleValues": [
+   "automatic",
+   "background",
+   "bottom",
+   "cancel",
+   "center",
+   "clear",
+   "dark",
+   "default",
+   "destructive",
+   "leading",
+   "light",
+   "linear",
+   "plain",
+   "secondary",
+   "titleOnly",
+   "top",
+   "trailing",
+   "white"
+  ],
+  "propertyWrappers": [
+   "Environment",
+   "StateObject"
+  ],
+  "environmentKeys": [
+   "widgetFamily"
+  ]
+ },
+ "counts": {
+  "modifiers": 17,
+  "types": 15,
+  "valueBuilders": 7,
+  "macros": 0,
+  "styleValues": 18,
+  "propertyWrappers": 2,
+  "environmentKeys": 1
+ },
+ "total_unique_apis": 60
+}

@@ -1,0 +1,149 @@
+{
+ "repo": "Jaennaet/pISSStream",
+ "stars": 1911,
+ "categories": [
+  "Apple Vision"
+ ],
+ "sha": "11f73f186d1d611c9c74f4558007dd9a62593a2b",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 62340,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "durul",
+   "score": 102416,
+   "contributions": 42
+  },
+  {
+   "login": "Jaennaet",
+   "score": 0,
+   "contributions": 19
+  },
+  {
+   "login": "mrclsu",
+   "score": 26897,
+   "contributions": 8
+  }
+ ],
+ "loc": 1511,
+ "custom_components": 28,
+ "imports": [
+  "AppIntents",
+  "BackgroundTasks",
+  "Foundation",
+  "LightstreamerClient",
+  "RealityKit",
+  "SwiftUI",
+  "Testing",
+  "WidgetKit",
+  "XCTest",
+  "os",
+  "pISSStream",
+  "pISSStreamWatchApp_Watch_App"
+ ],
+ "min_ios_inferred": "17",
+ "deprecated_apis_used": [
+  "foregroundColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "background",
+   "buttonStyle",
+   "clipShape",
+   "containerBackground",
+   "defaultSize",
+   "environmentObject",
+   "font",
+   "foregroundColor",
+   "frame",
+   "gaugeStyle",
+   "gesture",
+   "lineLimit",
+   "minimumScaleFactor",
+   "multilineTextAlignment",
+   "onChanged",
+   "onEnded",
+   "opacity",
+   "padding",
+   "simultaneously",
+   "tint",
+   "updating",
+   "widgetLabel"
+  ],
+  "types": [
+   "AccessoryWidgetBackground",
+   "AppIntentConfiguration",
+   "AppIntentRecommendation",
+   "Button",
+   "Circle",
+   "Color",
+   "Divider",
+   "DragGesture",
+   "ForEach",
+   "Gauge",
+   "GeometryReader",
+   "HStack",
+   "Label",
+   "LinearGradient",
+   "MagnifyGesture",
+   "RoundedRectangle",
+   "Spacer",
+   "Text",
+   "Timeline",
+   "VStack",
+   "WindowGroup",
+   "ZStack"
+  ],
+  "valueBuilders": [
+   "bottomLeading",
+   "caption2",
+   "footnote",
+   "headline",
+   "system",
+   "title2",
+   "title3",
+   "topTrailing"
+  ],
+  "macros": [
+   "Preview"
+  ],
+  "styleValues": [
+   "accessoryCircular",
+   "background",
+   "black",
+   "borderedProminent",
+   "center",
+   "default",
+   "gray",
+   "green",
+   "leading",
+   "orange",
+   "red",
+   "time",
+   "top",
+   "trailing",
+   "yellow"
+  ],
+  "propertyWrappers": [
+   "Environment",
+   "EnvironmentObject",
+   "GestureState",
+   "State",
+   "StateObject"
+  ],
+  "environmentKeys": [
+   "widgetFamily"
+  ]
+ },
+ "counts": {
+  "modifiers": 22,
+  "types": 22,
+  "valueBuilders": 8,
+  "macros": 1,
+  "styleValues": 15,
+  "propertyWrappers": 5,
+  "environmentKeys": 1
+ },
+ "total_unique_apis": 74
+}

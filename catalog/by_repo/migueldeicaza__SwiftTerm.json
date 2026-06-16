@@ -1,0 +1,159 @@
+{
+ "repo": "migueldeicaza/SwiftTerm",
+ "stars": 1576,
+ "categories": [
+  "SwiftUI",
+  "Terminal"
+ ],
+ "sha": "6e5dcf293186032c4938e0966ccb6f110e281ce2",
+ "platform": "cross_platform",
+ "ipad_idioms": [],
+ "author_authority": 131523,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "migueldeicaza",
+   "score": 131523,
+   "contributions": 847
+  },
+  {
+   "login": "krzyzanowskim",
+   "score": 56344,
+   "contributions": 75
+  },
+  {
+   "login": "evertjr",
+   "score": 30662,
+   "contributions": 16
+  }
+ ],
+ "loc": 44349,
+ "custom_components": 16,
+ "imports": [
+  "AppKit",
+  "ArgumentParser",
+  "Benchmark",
+  "Carbon",
+  "Cocoa",
+  "Compression",
+  "CoreGraphics",
+  "CoreText",
+  "Darwin",
+  "Dispatch",
+  "Foundation",
+  "Glibc",
+  "ImageIO",
+  "Metal",
+  "MetalKit",
+  "NIOCore",
+  "NIOPosix",
+  "NIOSSH",
+  "PackageDescription",
+  "QuartzCore",
+  "Subprocess",
+  "SwiftTerm",
+  "SwiftUI",
+  "System",
+  "Testing",
+  "UIKit",
+  "UniformTypeIdentifiers",
+  "WinSDK",
+  "XCTest",
+  "os"
+ ],
+ "min_ios_inferred": "15",
+ "deprecated_apis_used": [
+  "autocapitalization",
+  "disableAutocorrection",
+  "edgesIgnoringSafeArea",
+  "foregroundColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "autocapitalization",
+   "background",
+   "buttonStyle",
+   "disableAutocorrection",
+   "disabled",
+   "edgesIgnoringSafeArea",
+   "font",
+   "foregroundColor",
+   "frame",
+   "offset",
+   "onAppear",
+   "opacity",
+   "overlay",
+   "padding",
+   "rotationEffect",
+   "shadow",
+   "textContentType",
+   "tracking"
+  ],
+  "types": [
+   "Button",
+   "Capsule",
+   "Circle",
+   "Color",
+   "HStack",
+   "Image",
+   "LinearGradient",
+   "RadialGradient",
+   "RoundedRectangle",
+   "SecureField",
+   "Spacer",
+   "Text",
+   "TextField",
+   "UIHostingController",
+   "VStack",
+   "ZStack"
+  ],
+  "valueBuilders": [
+   "bottomTrailing",
+   "degrees",
+   "easeInOut",
+   "heavy",
+   "medium",
+   "regular",
+   "semibold",
+   "system",
+   "topLeading",
+   "topTrailing"
+  ],
+  "macros": [
+   "Preview"
+  ],
+  "styleValues": [
+   "black",
+   "center",
+   "clear",
+   "dark",
+   "default",
+   "keyboard",
+   "leading",
+   "light",
+   "linear",
+   "menu",
+   "plain",
+   "single",
+   "top",
+   "trailing",
+   "white"
+  ],
+  "propertyWrappers": [
+   "AppStorage",
+   "Binding",
+   "State"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 18,
+  "types": 16,
+  "valueBuilders": 10,
+  "macros": 1,
+  "styleValues": 15,
+  "propertyWrappers": 3,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 63
+}

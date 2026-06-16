@@ -1,0 +1,158 @@
+{
+ "repo": "JohnEstropia/CoreStore",
+ "stars": 4055,
+ "categories": [
+  "Core Data"
+ ],
+ "sha": "104def4611b8f8c2067903b589d01d198d51e6d6",
+ "platform": "cross_platform",
+ "ipad_idioms": [],
+ "author_authority": 5038,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "JohnEstropia",
+   "score": 5038,
+   "contributions": 1122
+  },
+  {
+   "login": "ruslanskorb",
+   "score": 4952,
+   "contributions": 6
+  },
+  {
+   "login": "DavidTiimo",
+   "score": 0,
+   "contributions": 3
+  }
+ ],
+ "loc": 65317,
+ "custom_components": 90,
+ "imports": [
+  "AppKit",
+  "Combine",
+  "Contacts",
+  "CoreData",
+  "CoreGraphics",
+  "CoreLocation",
+  "CoreStore",
+  "Foundation",
+  "MapKit",
+  "ObjectiveC",
+  "PackageDescription",
+  "PlaygroundSupport",
+  "QuartzCore",
+  "SwiftUI",
+  "UIKit",
+  "XCTest"
+ ],
+ "min_ios_inferred": "17",
+ "deprecated_apis_used": [
+  "DoubleColumnNavigationViewStyle",
+  "NavigationView",
+  "edgesIgnoringSafeArea",
+  "foregroundColor",
+  "navigationBarItems",
+  "navigationBarTitle",
+  "navigationViewStyle"
+ ],
+ "unique": {
+  "modifiers": [
+   "animation",
+   "buttonStyle",
+   "disabled",
+   "edgesIgnoringSafeArea",
+   "fixedSize",
+   "font",
+   "foregroundColor",
+   "frame",
+   "listRowInsets",
+   "listStyle",
+   "multilineTextAlignment",
+   "navigationBarItems",
+   "navigationBarTitle",
+   "navigationViewStyle",
+   "opacity",
+   "overlay",
+   "padding",
+   "pickerStyle",
+   "shadow",
+   "tag"
+  ],
+  "types": [
+   "AnyView",
+   "Binding",
+   "Button",
+   "Color",
+   "DoubleColumnNavigationViewStyle",
+   "EditButton",
+   "EmptyView",
+   "ForEach",
+   "GeometryReader",
+   "Group",
+   "GroupedListStyle",
+   "HStack",
+   "List",
+   "NavigationLink",
+   "NavigationView",
+   "Picker",
+   "PlainButtonStyle",
+   "PlainListStyle",
+   "RoundedRectangle",
+   "Section",
+   "SegmentedPickerStyle",
+   "Slider",
+   "Spacer",
+   "Text",
+   "UIHostingController",
+   "VStack",
+   "ZStack"
+  ],
+  "valueBuilders": [
+   "bottomLeading",
+   "callout",
+   "footnote",
+   "headline",
+   "heavy",
+   "subheadline"
+  ],
+  "macros": [],
+  "styleValues": [
+   "automatic",
+   "black",
+   "bottom",
+   "center",
+   "clear",
+   "dark",
+   "default",
+   "fill",
+   "firstTextBaseline",
+   "leading",
+   "orange",
+   "plain",
+   "primary",
+   "secondary",
+   "top",
+   "trailing",
+   "white",
+   "yellow"
+  ],
+  "propertyWrappers": [
+   "Binding",
+   "ObservedObject",
+   "Relationship",
+   "State"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 20,
+  "types": 27,
+  "valueBuilders": 6,
+  "macros": 0,
+  "styleValues": 18,
+  "propertyWrappers": 4,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 75
+}

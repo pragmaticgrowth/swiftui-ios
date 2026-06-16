@@ -1,0 +1,150 @@
+{
+ "repo": "relatedcode/ProgressHUD",
+ "stars": 2963,
+ "categories": [
+  "Activity Indicator"
+ ],
+ "sha": "e6f7339d70d793a12dbccb008d374e153f2b98b5",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 9404,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "relatedcode",
+   "score": 9404,
+   "contributions": 77
+  },
+  {
+   "login": "massimobio",
+   "score": 22,
+   "contributions": 2
+  },
+  {
+   "login": "robinkunde",
+   "score": 59930,
+   "contributions": 2
+  }
+ ],
+ "loc": 6077,
+ "custom_components": 87,
+ "imports": [
+  "Foundation",
+  "PackageDescription",
+  "SwiftUI",
+  "UIKit"
+ ],
+ "min_ios_inferred": "17",
+ "deprecated_apis_used": [],
+ "unique": {
+  "modifiers": [
+   "allowsHitTesting",
+   "animation",
+   "background",
+   "clipShape",
+   "controlSize",
+   "fixedSize",
+   "font",
+   "foregroundStyle",
+   "frame",
+   "id",
+   "ignoresSafeArea",
+   "lineLimit",
+   "multilineTextAlignment",
+   "navigationTitle",
+   "offset",
+   "onAppear",
+   "onDisappear",
+   "onReceive",
+   "onTapGesture",
+   "opacity",
+   "overlay",
+   "padding",
+   "resizable",
+   "rotationEffect",
+   "scaleEffect",
+   "scaledToFit",
+   "symbolEffect",
+   "symbolRenderingMode",
+   "task",
+   "tint",
+   "trim",
+   "zIndex"
+  ],
+  "types": [
+   "AnimatablePair",
+   "Button",
+   "Capsule",
+   "Circle",
+   "Color",
+   "CubicKeyframe",
+   "EmptyView",
+   "ForEach",
+   "GeometryReader",
+   "HStack",
+   "Image",
+   "KeyframeAnimator",
+   "KeyframeTrack",
+   "LinearKeyframe",
+   "List",
+   "NavigationStack",
+   "Path",
+   "ProgressView",
+   "RoundedRectangle",
+   "Section",
+   "Spacer",
+   "StrokeStyle",
+   "Text",
+   "TextField",
+   "TimelineView",
+   "VStack",
+   "WindowGroup",
+   "ZStack"
+  ],
+  "valueBuilders": [
+   "degrees",
+   "easeIn",
+   "easeInOut",
+   "easeOut",
+   "linear",
+   "radians",
+   "semibold",
+   "system",
+   "timingCurve"
+  ],
+  "macros": [
+   "Preview"
+  ],
+  "styleValues": [
+   "blue",
+   "center",
+   "clear",
+   "default",
+   "gray",
+   "green",
+   "leading",
+   "linear",
+   "palette",
+   "red",
+   "regularMaterial",
+   "top",
+   "ultraThinMaterial",
+   "white"
+  ],
+  "propertyWrappers": [
+   "Observable",
+   "State"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 32,
+  "types": 28,
+  "valueBuilders": 9,
+  "macros": 1,
+  "styleValues": 14,
+  "propertyWrappers": 2,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 86
+}

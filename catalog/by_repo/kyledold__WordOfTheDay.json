@@ -1,0 +1,139 @@
+{
+ "repo": "kyledold/WordOfTheDay",
+ "stars": 92,
+ "categories": [
+  "Apple Watch",
+  "SwiftUI",
+  "Widget"
+ ],
+ "sha": "e7409b3d40acee4faf3b790b59b4abc8702f8daa",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 98,
+ "contributor_count": 2,
+ "top_contributors": [
+  {
+   "login": "kyledold",
+   "score": 98,
+   "contributions": 103
+  },
+  {
+   "login": "bigjermaine",
+   "score": 930,
+   "contributions": 1
+  }
+ ],
+ "loc": 1459,
+ "custom_components": 49,
+ "imports": [
+  "AVFoundation",
+  "Alamofire",
+  "ClockKit",
+  "Foundation",
+  "Intents",
+  "NetworkKit",
+  "SwiftUI",
+  "UserNotifications",
+  "WatchKit",
+  "WidgetKit"
+ ],
+ "min_ios_inferred": "14",
+ "deprecated_apis_used": [
+  "NavigationView",
+  "colorMultiply",
+  "foregroundColor",
+  "navigationBarItems",
+  "navigationBarTitle",
+  "sizeCategory"
+ ],
+ "unique": {
+  "modifiers": [
+   "accessibility",
+   "aspectRatio",
+   "background",
+   "clipShape",
+   "colorMultiply",
+   "disabled",
+   "environment",
+   "fixedSize",
+   "font",
+   "foregroundColor",
+   "frame",
+   "italic",
+   "lineLimit",
+   "listRowInsets",
+   "listStyle",
+   "minimumScaleFactor",
+   "modifier",
+   "multilineTextAlignment",
+   "navigationBarItems",
+   "navigationBarTitle",
+   "onAppear",
+   "onReceive",
+   "padding",
+   "previewContext",
+   "resizable",
+   "sheet"
+  ],
+  "types": [
+   "Button",
+   "EdgeInsets",
+   "ForEach",
+   "HStack",
+   "Image",
+   "InsetGroupedListStyle",
+   "IntentConfiguration",
+   "List",
+   "LocalizedStringKey",
+   "NavigationView",
+   "ProgressView",
+   "RoundedRectangle",
+   "ScrollView",
+   "Section",
+   "Spacer",
+   "Text",
+   "Timeline",
+   "VStack",
+   "WidgetPreviewContext",
+   "WindowGroup"
+  ],
+  "valueBuilders": [
+   "body",
+   "footnote"
+  ],
+  "macros": [],
+  "styleValues": [
+   "center",
+   "default",
+   "firstTextBaseline",
+   "green",
+   "inline",
+   "leading",
+   "orange",
+   "primary",
+   "secondary",
+   "title",
+   "white"
+  ],
+  "propertyWrappers": [
+   "Binding",
+   "Environment",
+   "ObservedObject",
+   "State"
+  ],
+  "environmentKeys": [
+   "sizeCategory",
+   "widgetFamily"
+  ]
+ },
+ "counts": {
+  "modifiers": 26,
+  "types": 20,
+  "valueBuilders": 2,
+  "macros": 0,
+  "styleValues": 11,
+  "propertyWrappers": 4,
+  "environmentKeys": 2
+ },
+ "total_unique_apis": 65
+}

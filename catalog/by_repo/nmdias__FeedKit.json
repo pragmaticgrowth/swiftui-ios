@@ -1,0 +1,87 @@
+{
+ "repo": "nmdias/FeedKit",
+ "stars": 1334,
+ "categories": [
+  "Other Parsing"
+ ],
+ "sha": "e55b2cafaf67370092c91193cfb8a8b008e05888",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 3069,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "nmdias",
+   "score": 3069,
+   "contributions": 945
+  },
+  {
+   "login": "bamurph",
+   "score": 3,
+   "contributions": 18
+  },
+  {
+   "login": "sebj",
+   "score": 6313,
+   "contributions": 10
+  }
+ ],
+ "loc": 17186,
+ "custom_components": 10,
+ "imports": [
+  "FeedKit",
+  "Foundation",
+  "FoundationNetworking",
+  "FoundationXML",
+  "PackageDescription",
+  "SwiftUI",
+  "Testing",
+  "XMLKit"
+ ],
+ "min_ios_inferred": "15",
+ "deprecated_apis_used": [
+  "NavigationView",
+  "tabItem"
+ ],
+ "unique": {
+  "modifiers": [
+   "animation",
+   "listStyle",
+   "navigationTitle",
+   "onAppear",
+   "refreshable",
+   "tabItem"
+  ],
+  "types": [
+   "ForEach",
+   "Label",
+   "List",
+   "NavigationLink",
+   "NavigationView",
+   "Section",
+   "TabView",
+   "Text",
+   "WindowGroup"
+  ],
+  "valueBuilders": [],
+  "macros": [],
+  "styleValues": [
+   "automatic",
+   "default"
+  ],
+  "propertyWrappers": [
+   "State"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 6,
+  "types": 9,
+  "valueBuilders": 0,
+  "macros": 0,
+  "styleValues": 2,
+  "propertyWrappers": 1,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 18
+}

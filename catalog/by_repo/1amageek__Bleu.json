@@ -1,0 +1,135 @@
+{
+ "repo": "1amageek/Bleu",
+ "stars": 510,
+ "categories": [
+  "Bluetooth"
+ ],
+ "sha": "214c4ae9b5e72cd950042f20f233aae95ed0537d",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 34805,
+ "contributor_count": 2,
+ "top_contributors": [
+  {
+   "login": "1amageek",
+   "score": 34805,
+   "contributions": 94
+  },
+  {
+   "login": "kiliankoe",
+   "score": 39366,
+   "contributions": 1
+  }
+ ],
+ "loc": 13555,
+ "custom_components": 40,
+ "imports": [
+  "ActorRuntime",
+  "Bleu",
+  "BleuCommon",
+  "CoreBluetooth",
+  "CoreBluetoothEmulator",
+  "CryptoKit",
+  "Distributed",
+  "Foundation",
+  "Logging",
+  "PackageDescription",
+  "SwiftUI",
+  "Synchronization",
+  "Testing",
+  "os"
+ ],
+ "min_ios_inferred": "16",
+ "deprecated_apis_used": [
+  "NavigationView",
+  "foregroundColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "background",
+   "buttonStyle",
+   "clipShape",
+   "cornerRadius",
+   "disabled",
+   "font",
+   "foregroundColor",
+   "foregroundStyle",
+   "frame",
+   "lineLimit",
+   "minimumScaleFactor",
+   "monospacedDigit",
+   "navigationBarTitleDisplayMode",
+   "navigationTitle",
+   "opacity",
+   "padding",
+   "pickerStyle",
+   "scaleEffect",
+   "tag",
+   "task"
+  ],
+  "types": [
+   "Button",
+   "Circle",
+   "ForEach",
+   "HStack",
+   "Image",
+   "Label",
+   "NavigationLink",
+   "NavigationStack",
+   "NavigationView",
+   "Picker",
+   "ProgressView",
+   "RoundedRectangle",
+   "ScrollView",
+   "Spacer",
+   "StateObject",
+   "Text",
+   "VStack",
+   "WindowGroup"
+  ],
+  "valueBuilders": [
+   "caption",
+   "caption2",
+   "headline",
+   "medium",
+   "subheadline",
+   "title2"
+  ],
+  "macros": [
+   "Preview"
+  ],
+  "styleValues": [
+   "blue",
+   "bordered",
+   "borderedProminent",
+   "firstTextBaseline",
+   "green",
+   "inline",
+   "leading",
+   "menu",
+   "red",
+   "regularMaterial",
+   "secondary",
+   "segmented",
+   "thinMaterial",
+   "time",
+   "top",
+   "trailing"
+  ],
+  "propertyWrappers": [
+   "ObservedObject",
+   "StateObject"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 20,
+  "types": 18,
+  "valueBuilders": 6,
+  "macros": 1,
+  "styleValues": 16,
+  "propertyWrappers": 2,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 63
+}

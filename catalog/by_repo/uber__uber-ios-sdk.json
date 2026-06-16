@@ -1,0 +1,139 @@
+{
+ "repo": "uber/uber-ios-sdk",
+ "stars": 376,
+ "categories": [
+  "Official"
+ ],
+ "sha": "081f952d938df128462a00229fb0296532b7be01",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 289,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "mohssenfathi",
+   "score": 418,
+   "contributions": 111
+  },
+  {
+   "login": "edjiang",
+   "score": 32,
+   "contributions": 35
+  },
+  {
+   "login": "luizgustavo09",
+   "score": 1263,
+   "contributions": 14
+  }
+ ],
+ "loc": 19328,
+ "custom_components": 31,
+ "imports": [
+  "AuthenticationServices",
+  "CommonCrypto",
+  "CoreLocation",
+  "Foundation",
+  "MapKit",
+  "OHHTTPStubs",
+  "OHHTTPStubsSwift",
+  "PackageDescription",
+  "SwiftUI",
+  "UIKit",
+  "UberAuth",
+  "UberCore",
+  "UberRides",
+  "WebKit",
+  "XCTest"
+ ],
+ "min_ios_inferred": "17",
+ "deprecated_apis_used": [
+  "foregroundColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "buttonStyle",
+   "disabled",
+   "environmentObject",
+   "font",
+   "foregroundColor",
+   "foregroundStyle",
+   "frame",
+   "listRowInsets",
+   "navigationBarTitleDisplayMode",
+   "navigationDestination",
+   "navigationTitle",
+   "onOpenURL",
+   "onTapGesture",
+   "padding",
+   "presentationDetents",
+   "resizable",
+   "sheet",
+   "tint"
+  ],
+  "types": [
+   "Button",
+   "Divider",
+   "EdgeInsets",
+   "EmptyView",
+   "ForEach",
+   "Form",
+   "HStack",
+   "Image",
+   "List",
+   "NavigationStack",
+   "ScrollView",
+   "Spacer",
+   "Text",
+   "TextField",
+   "Toggle",
+   "VStack",
+   "WindowGroup"
+  ],
+  "valueBuilders": [
+   "custom",
+   "footnote"
+  ],
+  "macros": [
+   "Preview"
+  ],
+  "styleValues": [
+   "black",
+   "borderedProminent",
+   "cancel",
+   "center",
+   "dark",
+   "default",
+   "fill",
+   "gray",
+   "inline",
+   "leading",
+   "light",
+   "plain",
+   "primary",
+   "secondary",
+   "trailing"
+  ],
+  "propertyWrappers": [
+   "Bindable",
+   "Binding",
+   "Environment",
+   "EnvironmentObject",
+   "Observable",
+   "State",
+   "StateObject"
+  ],
+  "environmentKeys": [
+   "dismiss"
+  ]
+ },
+ "counts": {
+  "modifiers": 18,
+  "types": 17,
+  "valueBuilders": 2,
+  "macros": 1,
+  "styleValues": 15,
+  "propertyWrappers": 7,
+  "environmentKeys": 1
+ },
+ "total_unique_apis": 61
+}

@@ -1,0 +1,146 @@
+{
+ "repo": "leathalman/Jotify",
+ "stars": 175,
+ "categories": [
+  "Notes"
+ ],
+ "sha": "219ed7ee020558cf505494a345ef7c82d3f1f441",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 179,
+ "contributor_count": 1,
+ "top_contributors": [
+  {
+   "login": "leathalman",
+   "score": 179,
+   "contributions": 135
+  }
+ ],
+ "loc": 6883,
+ "custom_components": 45,
+ "imports": [
+  "AudioToolbox",
+  "AuthenticationServices",
+  "Blueprints",
+  "CoreData",
+  "CryptoKit",
+  "Firebase",
+  "FirebaseAnalytics",
+  "FirebaseAuth",
+  "FirebaseDynamicLinks",
+  "FirebaseFirestore",
+  "Foundation",
+  "LocalAuthentication",
+  "MessageUI",
+  "Pageboy",
+  "SPIndicator",
+  "SPPermissions",
+  "StoreKit",
+  "SwiftMessages",
+  "SwiftUI",
+  "UIKit",
+  "UserNotifications",
+  "ViewAnimator",
+  "WidgetKit"
+ ],
+ "min_ios_inferred": "17",
+ "deprecated_apis_used": [
+  "foregroundColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "background",
+   "blur",
+   "cornerRadius",
+   "font",
+   "foregroundColor",
+   "frame",
+   "gesture",
+   "ignoresSafeArea",
+   "multilineTextAlignment",
+   "offset",
+   "onEnded",
+   "onTapGesture",
+   "opacity",
+   "overlay",
+   "padding",
+   "preferredColorScheme",
+   "previewContext",
+   "previewDevice",
+   "previewDisplayName",
+   "widgetURL"
+  ],
+  "types": [
+   "Button",
+   "Color",
+   "EdgeInsets",
+   "ForEach",
+   "Group",
+   "HStack",
+   "Link",
+   "PreviewDevice",
+   "SecureField",
+   "Spacer",
+   "StaticConfiguration",
+   "TapGesture",
+   "Text",
+   "TextField",
+   "Timeline",
+   "Transition",
+   "UIHostingController",
+   "VStack",
+   "WidgetPreviewContext",
+   "ZStack"
+  ],
+  "valueBuilders": [
+   "headline",
+   "medium",
+   "push",
+   "regular",
+   "semibold",
+   "subheadline",
+   "system"
+  ],
+  "macros": [],
+  "styleValues": [
+   "black",
+   "bottom",
+   "cancel",
+   "center",
+   "clear",
+   "compact",
+   "dark",
+   "date",
+   "default",
+   "destructive",
+   "inline",
+   "insetGrouped",
+   "leading",
+   "light",
+   "plain",
+   "subtitle",
+   "time",
+   "top",
+   "white"
+  ],
+  "propertyWrappers": [
+   "Binding",
+   "Environment",
+   "State"
+  ],
+  "environmentKeys": [
+   "colorScheme",
+   "widgetFamily"
+  ]
+ },
+ "counts": {
+  "modifiers": 20,
+  "types": 20,
+  "valueBuilders": 7,
+  "macros": 0,
+  "styleValues": 19,
+  "propertyWrappers": 3,
+  "environmentKeys": 2
+ },
+ "total_unique_apis": 71
+}

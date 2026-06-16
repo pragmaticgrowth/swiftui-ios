@@ -1,0 +1,142 @@
+{
+ "repo": "realm/realm-swift",
+ "stars": 16609,
+ "categories": [
+  "Database"
+ ],
+ "sha": "ca03df491ec5e4bb8af0bca1e9957d08c10ec2da",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 25166,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "tgoyne",
+   "score": 52899,
+   "contributions": 3059
+  },
+  {
+   "login": "jpsim",
+   "score": 62136,
+   "contributions": 2371
+  },
+  {
+   "login": "alazier",
+   "score": 1,
+   "contributions": 1000
+  }
+ ],
+ "loc": 82246,
+ "custom_components": 99,
+ "imports": [
+  "Combine",
+  "CoreLocation",
+  "Foundation",
+  "PackageDescription",
+  "Realm",
+  "RealmSwift",
+  "RealmSwiftTestSupport",
+  "RealmTestSupport",
+  "Security",
+  "SubRealm",
+  "SwiftUI",
+  "UIKit",
+  "XCTest",
+  "os"
+ ],
+ "min_ios_inferred": "16",
+ "deprecated_apis_used": [
+  "NavigationView",
+  "foregroundColor",
+  "navigationBarItems",
+  "presentationMode"
+ ],
+ "unique": {
+  "modifiers": [
+   "accessibility",
+   "accessibilityActivationPoint",
+   "accessibilityIdentifier",
+   "background",
+   "buttonStyle",
+   "disabled",
+   "environment",
+   "fixedSize",
+   "font",
+   "foregroundColor",
+   "frame",
+   "navigationBarItems",
+   "navigationTitle",
+   "onAppear",
+   "onChange",
+   "padding",
+   "searchCompletion",
+   "searchable",
+   "sheet",
+   "tag",
+   "textCase"
+  ],
+  "types": [
+   "AnyView",
+   "Binding",
+   "BorderlessButtonStyle",
+   "Button",
+   "Color",
+   "DatePicker",
+   "EditButton",
+   "EmptyView",
+   "ForEach",
+   "Form",
+   "HStack",
+   "Image",
+   "List",
+   "NavigationLink",
+   "NavigationStack",
+   "NavigationView",
+   "ObservedObject",
+   "Picker",
+   "Query",
+   "RoundedRectangle",
+   "Section",
+   "Spacer",
+   "StateObject",
+   "Text",
+   "TextField",
+   "VStack",
+   "WindowGroup"
+  ],
+  "valueBuilders": [
+   "footnote",
+   "medium"
+  ],
+  "macros": [],
+  "styleValues": [
+   "automatic",
+   "bottom",
+   "gray",
+   "leading",
+   "plain",
+   "subtitle",
+   "top"
+  ],
+  "propertyWrappers": [
+   "Binding",
+   "Environment",
+   "ObservedObject",
+   "State",
+   "StateObject"
+  ],
+  "environmentKeys": [
+   "presentationMode"
+  ]
+ },
+ "counts": {
+  "modifiers": 21,
+  "types": 27,
+  "valueBuilders": 2,
+  "macros": 0,
+  "styleValues": 7,
+  "propertyWrappers": 5,
+  "environmentKeys": 1
+ },
+ "total_unique_apis": 63
+}

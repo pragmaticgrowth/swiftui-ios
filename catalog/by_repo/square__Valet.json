@@ -1,0 +1,69 @@
+{
+ "repo": "square/Valet",
+ "stars": 4162,
+ "categories": [
+  "Keychain"
+ ],
+ "sha": "a69e31e8732a123ec7891b8b77761e613df325e5",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 24769,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "dfed",
+   "score": 27288,
+   "contributions": 354
+  },
+  {
+   "login": "EricMuller22",
+   "score": 2,
+   "contributions": 30
+  },
+  {
+   "login": "eliperkins",
+   "score": 201,
+   "contributions": 6
+  }
+ ],
+ "loc": 6657,
+ "custom_components": 4,
+ "imports": [
+  "Cocoa",
+  "Foundation",
+  "LocalAuthentication",
+  "PackageDescription",
+  "SwiftUI",
+  "UIKit",
+  "Valet",
+  "WatchKit",
+  "XCTest"
+ ],
+ "min_ios_inferred": "14",
+ "deprecated_apis_used": [],
+ "unique": {
+  "modifiers": [
+   "padding"
+  ],
+  "types": [
+   "Text",
+   "VStack",
+   "WindowGroup"
+  ],
+  "valueBuilders": [],
+  "macros": [],
+  "styleValues": [],
+  "propertyWrappers": [],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 1,
+  "types": 3,
+  "valueBuilders": 0,
+  "macros": 0,
+  "styleValues": 0,
+  "propertyWrappers": 0,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 4
+}

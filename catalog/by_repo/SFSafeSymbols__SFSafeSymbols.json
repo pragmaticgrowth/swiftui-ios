@@ -1,0 +1,76 @@
+{
+ "repo": "SFSafeSymbols/SFSafeSymbols",
+ "stars": 1891,
+ "categories": [
+  "Image"
+ ],
+ "sha": "cb2e670a213ff42ae08528ee2c401bfb1d799675",
+ "platform": "cross_platform",
+ "ipad_idioms": [],
+ "author_authority": 3067,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "fredpi",
+   "score": 4,
+   "contributions": 194
+  },
+  {
+   "login": "StevenSorial",
+   "score": 10315,
+   "contributions": 91
+  },
+  {
+   "login": "knothed",
+   "score": 11,
+   "contributions": 21
+  }
+ ],
+ "loc": 92213,
+ "custom_components": 0,
+ "imports": [
+  "AppIntents",
+  "AppKit",
+  "ArgumentParser",
+  "Foundation",
+  "OrderedCollections",
+  "PackageDescription",
+  "SFSafeSymbols",
+  "SwiftUI",
+  "Synchronization",
+  "UIKit",
+  "UniformTypeIdentifiers",
+  "Version",
+  "XCTest"
+ ],
+ "min_ios_inferred": "18",
+ "deprecated_apis_used": [],
+ "unique": {
+  "modifiers": [],
+  "types": [
+   "Button",
+   "ContentUnavailableView",
+   "Image",
+   "Label",
+   "Tab",
+   "Text"
+  ],
+  "valueBuilders": [],
+  "macros": [],
+  "styleValues": [
+   "cancel"
+  ],
+  "propertyWrappers": [],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 0,
+  "types": 6,
+  "valueBuilders": 0,
+  "macros": 0,
+  "styleValues": 1,
+  "propertyWrappers": 0,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 7
+}

@@ -1,0 +1,182 @@
+{
+ "repo": "willowtreeapps/vocable-ios",
+ "stars": 87,
+ "categories": [
+  "Misc"
+ ],
+ "sha": "58ba45a978e1ebaeae71d9e88509703a9bd67bd6",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 5361,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "Clstroud",
+   "score": 0,
+   "contributions": 842
+  },
+  {
+   "login": "stevefosterwta",
+   "score": 0,
+   "contributions": 200
+  },
+  {
+   "login": "pg8wood",
+   "score": 49699,
+   "contributions": 126
+  }
+ ],
+ "loc": 25126,
+ "custom_components": 42,
+ "imports": [
+  "ARKit",
+  "AVFoundation",
+  "Algorithms",
+  "AudioToolbox",
+  "Collections",
+  "Combine",
+  "CoreData",
+  "CoreGraphics",
+  "Firebase",
+  "FirebaseAuth",
+  "Foundation",
+  "MessageUI",
+  "Mixpanel",
+  "OrderedCollections",
+  "SceneKit",
+  "Speech",
+  "SpriteKit",
+  "SwiftUI",
+  "UIKit",
+  "Vocable",
+  "VocableListenCore",
+  "XCTest",
+  "simd"
+ ],
+ "min_ios_inferred": "17",
+ "deprecated_apis_used": [
+  "NavigationView",
+  "StackNavigationViewStyle",
+  "edgesIgnoringSafeArea",
+  "foregroundColor",
+  "navigationBarHidden",
+  "navigationBarItems",
+  "navigationBarTitle",
+  "navigationViewStyle"
+ ],
+ "unique": {
+  "modifiers": [
+   "background",
+   "bold",
+   "cornerRadius",
+   "disabled",
+   "edgesIgnoringSafeArea",
+   "font",
+   "foregroundColor",
+   "frame",
+   "ignoresSafeArea",
+   "listStyle",
+   "navigationBarHidden",
+   "navigationBarItems",
+   "navigationBarTitle",
+   "navigationTitle",
+   "navigationViewStyle",
+   "opacity",
+   "overlay",
+   "padding",
+   "safeAreaPadding",
+   "scaleEffect"
+  ],
+  "types": [
+   "AnyView",
+   "Binding",
+   "Button",
+   "Color",
+   "EmptyView",
+   "FetchRequest",
+   "ForEach",
+   "GeometryReader",
+   "HStack",
+   "Image",
+   "InsetGroupedListStyle",
+   "Label",
+   "LazyVGrid",
+   "List",
+   "NavigationLink",
+   "NavigationView",
+   "Query",
+   "RoundedRectangle",
+   "ScrollView",
+   "Section",
+   "Spacer",
+   "StackNavigationViewStyle",
+   "Text",
+   "Toggle",
+   "ToolbarItem",
+   "UIHostingController",
+   "VStack",
+   "ZStack"
+  ],
+  "valueBuilders": [
+   "clear",
+   "custom",
+   "easeIn",
+   "easeOut",
+   "medium",
+   "regular",
+   "semibold",
+   "subheadline",
+   "system",
+   "title2"
+  ],
+  "macros": [
+   "Preview"
+  ],
+  "styleValues": [
+   "automatic",
+   "black",
+   "bottom",
+   "bottomBar",
+   "center",
+   "clear",
+   "compact",
+   "default",
+   "destructive",
+   "fill",
+   "identity",
+   "inline",
+   "leading",
+   "primary",
+   "red",
+   "secondary",
+   "title",
+   "top",
+   "trailing",
+   "white"
+  ],
+  "propertyWrappers": [
+   "Binding",
+   "Environment",
+   "FetchRequest",
+   "ObservedObject",
+   "State"
+  ],
+  "environmentKeys": [
+   "dismiss",
+   "horizontalSizeClass",
+   "isEnabled",
+   "managedObjectContext",
+   "verticalSizeClass"
+  ]
+ },
+ "counts": {
+  "modifiers": 20,
+  "types": 28,
+  "valueBuilders": 10,
+  "macros": 1,
+  "styleValues": 20,
+  "propertyWrappers": 5,
+  "environmentKeys": 5
+ },
+ "total_unique_apis": 89
+}

@@ -1,0 +1,145 @@
+{
+ "repo": "basememara/ZamzamKit",
+ "stars": 274,
+ "categories": [
+  "Utility"
+ ],
+ "sha": "21ab1eeadad560265dc21990bee7bb0e3269f9f8",
+ "platform": "cross_platform",
+ "ipad_idioms": [],
+ "author_authority": 613,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "basememara",
+   "score": 613,
+   "contributions": 1182
+  },
+  {
+   "login": "kant",
+   "score": 96409,
+   "contributions": 1
+  },
+  {
+   "login": "olcayertas",
+   "score": 4,
+   "contributions": 1
+  }
+ ],
+ "loc": 13795,
+ "custom_components": 61,
+ "imports": [
+  "AVFoundation",
+  "AppKit",
+  "ClockKit",
+  "Combine",
+  "CoreLocation",
+  "CryptoKit",
+  "Darwin",
+  "Foundation",
+  "MessageUI",
+  "PackageDescription",
+  "SafariServices",
+  "Security",
+  "StoreKit",
+  "SwiftUI",
+  "SystemConfiguration",
+  "UIKit",
+  "UserNotifications",
+  "WatchKit",
+  "XCTest",
+  "ZamzamCore",
+  "___VARIABLE_moduleName",
+  "os"
+ ],
+ "min_ios_inferred": "16",
+ "deprecated_apis_used": [
+  "Alert",
+  "foregroundColor",
+  "sizeCategory"
+ ],
+ "unique": {
+  "modifiers": [
+   "alert",
+   "background",
+   "clipShape",
+   "environment",
+   "font",
+   "foregroundColor",
+   "frame",
+   "hidden",
+   "ignoresSafeArea",
+   "imageScale",
+   "modifier",
+   "onAppear",
+   "onChange",
+   "onReceive",
+   "overlay",
+   "padding",
+   "presentationDetents",
+   "presentationDragIndicator",
+   "previewDisplayName",
+   "previewLayout",
+   "progressViewStyle",
+   "redacted",
+   "scrollDismissesKeyboard",
+   "sheet",
+   "task",
+   "toolbar",
+   "unredacted"
+  ],
+  "types": [
+   "Alert",
+   "AnyView",
+   "BackgroundTask",
+   "Binding",
+   "Button",
+   "CircularProgressViewStyle",
+   "GeometryReader",
+   "Group",
+   "Image",
+   "Label",
+   "List",
+   "NavigationLink",
+   "Path",
+   "ProgressView",
+   "RoundedRectangle",
+   "Text",
+   "UIHostingController",
+   "VStack"
+  ],
+  "valueBuilders": [
+   "medium"
+  ],
+  "macros": [],
+  "styleValues": [
+   "automatic",
+   "background",
+   "center",
+   "clear",
+   "default",
+   "placeholder",
+   "title"
+  ],
+  "propertyWrappers": [
+   "Binding",
+   "Environment",
+   "State",
+   "StateObject"
+  ],
+  "environmentKeys": [
+   "scenePhase",
+   "sizeCategory"
+  ]
+ },
+ "counts": {
+  "modifiers": 27,
+  "types": 18,
+  "valueBuilders": 1,
+  "macros": 0,
+  "styleValues": 7,
+  "propertyWrappers": 4,
+  "environmentKeys": 2
+ },
+ "total_unique_apis": 59
+}

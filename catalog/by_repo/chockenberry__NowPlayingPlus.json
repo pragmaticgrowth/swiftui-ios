@@ -1,0 +1,112 @@
+{
+ "repo": "chockenberry/NowPlayingPlus",
+ "stars": 29,
+ "categories": [
+  "Apple Watch"
+ ],
+ "sha": "e741a953779d822d2552f302856e620595e5e560",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 3667,
+ "contributor_count": 1,
+ "top_contributors": [
+  {
+   "login": "chockenberry",
+   "score": 3667,
+   "contributions": 21
+  }
+ ],
+ "loc": 263,
+ "custom_components": 12,
+ "imports": [
+  "SwiftUI",
+  "WatchKit",
+  "WidgetKit"
+ ],
+ "min_ios_inferred": "17",
+ "deprecated_apis_used": [
+  "foregroundColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "aspectRatio",
+   "containerBackground",
+   "font",
+   "foregroundColor",
+   "frame",
+   "ignoresSafeArea",
+   "multilineTextAlignment",
+   "navigationBarTitleDisplayMode",
+   "navigationDestination",
+   "navigationTitle",
+   "onChange",
+   "onLongPressGesture",
+   "opacity",
+   "padding",
+   "resizable",
+   "strokeBorder",
+   "toolbarBackground",
+   "unredacted",
+   "widgetAccentable",
+   "widgetLabel"
+  ],
+  "types": [
+   "AccessoryWidgetBackground",
+   "Button",
+   "Circle",
+   "Color",
+   "GeometryReader",
+   "HStack",
+   "Image",
+   "NavigationPath",
+   "NavigationStack",
+   "Rectangle",
+   "ScrollView",
+   "Spacer",
+   "StaticConfiguration",
+   "Text",
+   "Timeline",
+   "VStack",
+   "WindowGroup",
+   "ZStack"
+  ],
+  "valueBuilders": [
+   "footnote",
+   "semibold"
+  ],
+  "macros": [
+   "Preview"
+  ],
+  "styleValues": [
+   "accessoryCircular",
+   "background",
+   "center",
+   "clear",
+   "inline",
+   "leading",
+   "trailing",
+   "white"
+  ],
+  "propertyWrappers": [
+   "AppStorage",
+   "Binding",
+   "Environment",
+   "State"
+  ],
+  "environmentKeys": [
+   "scenePhase",
+   "widgetFamily",
+   "widgetRenderingMode"
+  ]
+ },
+ "counts": {
+  "modifiers": 20,
+  "types": 18,
+  "valueBuilders": 2,
+  "macros": 1,
+  "styleValues": 8,
+  "propertyWrappers": 4,
+  "environmentKeys": 3
+ },
+ "total_unique_apis": 56
+}

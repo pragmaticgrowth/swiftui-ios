@@ -1,0 +1,127 @@
+{
+ "repo": "c-villain/SneakerShop",
+ "stars": 9,
+ "categories": [
+  "Sample"
+ ],
+ "sha": "07391adc615b9663fbf6aefc6b200cbc340dd5f1",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 41362,
+ "contributor_count": 1,
+ "top_contributors": [
+  {
+   "login": "c-villain",
+   "score": 41362,
+   "contributions": 5
+  }
+ ],
+ "loc": 497,
+ "custom_components": 12,
+ "imports": [
+  "Foundation",
+  "OSLog",
+  "PackageDescription",
+  "SkipTest",
+  "SneakerShopDemo",
+  "SwiftUI",
+  "XCTest"
+ ],
+ "min_ios_inferred": "16",
+ "deprecated_apis_used": [
+  "foregroundColor",
+  "tabItem"
+ ],
+ "unique": {
+  "modifiers": [
+   "aspectRatio",
+   "background",
+   "buttonStyle",
+   "cornerRadius",
+   "font",
+   "foregroundColor",
+   "foregroundStyle",
+   "frame",
+   "ignoresSafeArea",
+   "lineLimit",
+   "navigationDestination",
+   "navigationTitle",
+   "offset",
+   "onTapGesture",
+   "opacity",
+   "padding",
+   "preferredColorScheme",
+   "resizable",
+   "rotationEffect",
+   "scrollIndicators",
+   "tabItem",
+   "tag",
+   "task",
+   "textFieldStyle"
+  ],
+  "types": [
+   "Button",
+   "Circle",
+   "ForEach",
+   "Form",
+   "HStack",
+   "Image",
+   "Label",
+   "List",
+   "NavigationLink",
+   "NavigationStack",
+   "Picker",
+   "Rectangle",
+   "RoundedRectangle",
+   "ScrollView",
+   "Spacer",
+   "TabView",
+   "Text",
+   "TextField",
+   "VStack",
+   "WindowGroup",
+   "ZStack"
+  ],
+  "valueBuilders": [
+   "caption",
+   "caption2",
+   "degrees",
+   "heavy",
+   "medium",
+   "subheadline"
+  ],
+  "macros": [
+   "Preview"
+  ],
+  "styleValues": [
+   "black",
+   "dark",
+   "gray",
+   "largeTitle",
+   "leading",
+   "light",
+   "linear",
+   "plain",
+   "title",
+   "trailing",
+   "white",
+   "yellow"
+  ],
+  "propertyWrappers": [
+   "AppStorage",
+   "Binding",
+   "State"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 24,
+  "types": 21,
+  "valueBuilders": 6,
+  "macros": 1,
+  "styleValues": 12,
+  "propertyWrappers": 3,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 67
+}

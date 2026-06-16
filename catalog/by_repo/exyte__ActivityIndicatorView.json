@@ -1,0 +1,96 @@
+{
+ "repo": "exyte/ActivityIndicatorView",
+ "stars": 1656,
+ "categories": [
+  "Activity Indicator"
+ ],
+ "sha": "15384b0f9ca3a9b072e12ab779d545e9717adba4",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 7863,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "f3dm76",
+   "score": 9945,
+   "contributions": 34
+  },
+  {
+   "login": "shipinev",
+   "score": 0,
+   "contributions": 5
+  },
+  {
+   "login": "mnndnl",
+   "score": 29,
+   "contributions": 4
+  }
+ ],
+ "loc": 734,
+ "custom_components": 43,
+ "imports": [
+  "ActivityIndicatorView",
+  "PackageDescription",
+  "SwiftUI"
+ ],
+ "min_ios_inferred": "14",
+ "deprecated_apis_used": [
+  "foregroundColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "foregroundColor",
+   "frame",
+   "offset",
+   "onAppear",
+   "opacity",
+   "rotationEffect",
+   "scaleEffect",
+   "trim"
+  ],
+  "types": [
+   "Angle",
+   "AngularGradient",
+   "Circle",
+   "ForEach",
+   "GeometryReader",
+   "Gradient",
+   "Group",
+   "HStack",
+   "Path",
+   "RoundedRectangle",
+   "Spacer",
+   "StrokeStyle",
+   "VStack",
+   "WindowGroup",
+   "ZStack"
+  ],
+  "valueBuilders": [
+   "degrees",
+   "easeIn",
+   "linear",
+   "timingCurve"
+  ],
+  "macros": [],
+  "styleValues": [
+   "black",
+   "center",
+   "red",
+   "white"
+  ],
+  "propertyWrappers": [
+   "State"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 8,
+  "types": 15,
+  "valueBuilders": 4,
+  "macros": 0,
+  "styleValues": 4,
+  "propertyWrappers": 1,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 32
+}

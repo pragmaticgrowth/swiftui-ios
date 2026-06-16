@@ -1,0 +1,108 @@
+{
+ "repo": "infinitepower18/Homepage-MobileSafari",
+ "stars": 66,
+ "categories": [
+  "Safari Extension"
+ ],
+ "sha": "659a781be65c37d81e7c92bf55cf74e9aca3ff15",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 42353,
+ "contributor_count": 1,
+ "top_contributors": [
+  {
+   "login": "infinitepower18",
+   "score": 42353,
+   "contributions": 170
+  }
+ ],
+ "loc": 798,
+ "custom_components": 9,
+ "imports": [
+  "AppIntents",
+  "Foundation",
+  "Homepage",
+  "SafariServices",
+  "SwiftUI",
+  "Testing",
+  "UIKit",
+  "XCTest",
+  "os"
+ ],
+ "min_ios_inferred": "18",
+ "deprecated_apis_used": [
+  "Alert",
+  "NavigationView",
+  "navigationViewStyle",
+  "stack"
+ ],
+ "unique": {
+  "modifiers": [
+   "accessibilityIdentifier",
+   "accessibilityLabel",
+   "alert",
+   "autocorrectionDisabled",
+   "commands",
+   "defaultSize",
+   "disabled",
+   "font",
+   "frame",
+   "keyboardType",
+   "navigationViewStyle",
+   "onAppear",
+   "padding",
+   "resizable",
+   "scrollBounceBehavior",
+   "textFieldStyle",
+   "textInputAutocapitalization",
+   "tint",
+   "toolbar",
+   "writingToolsBehavior"
+  ],
+  "types": [
+   "Alert",
+   "Button",
+   "CommandGroup",
+   "GeometryReader",
+   "Group",
+   "HStack",
+   "Image",
+   "Label",
+   "NavigationView",
+   "ScrollView",
+   "Spacer",
+   "Text",
+   "TextField",
+   "ToolbarItem",
+   "VStack",
+   "WindowGroup"
+  ],
+  "valueBuilders": [],
+  "macros": [
+   "Preview"
+  ],
+  "styleValues": [
+   "roundedBorder",
+   "stack",
+   "title",
+   "topBarTrailing"
+  ],
+  "propertyWrappers": [
+   "Environment",
+   "State"
+  ],
+  "environmentKeys": [
+   "openURL"
+  ]
+ },
+ "counts": {
+  "modifiers": 20,
+  "types": 16,
+  "valueBuilders": 0,
+  "macros": 1,
+  "styleValues": 4,
+  "propertyWrappers": 2,
+  "environmentKeys": 1
+ },
+ "total_unique_apis": 44
+}

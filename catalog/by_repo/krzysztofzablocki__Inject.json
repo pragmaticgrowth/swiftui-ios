@@ -1,0 +1,64 @@
+{
+ "repo": "krzysztofzablocki/Inject",
+ "stars": 3448,
+ "categories": [
+  "Code Injection"
+ ],
+ "sha": "67e3ee9a2b7e40d6af72d07cf1b0d5c04399e809",
+ "platform": "cross_platform",
+ "ipad_idioms": [],
+ "author_authority": 54711,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "krzysztofzablocki",
+   "score": 54711,
+   "contributions": 69
+  },
+  {
+   "login": "iMostfa",
+   "score": 76334,
+   "contributions": 5
+  },
+  {
+   "login": "zenangst",
+   "score": 29856,
+   "contributions": 4
+  }
+ ],
+ "loc": 429,
+ "custom_components": 0,
+ "imports": [
+  "AppKit",
+  "Combine",
+  "Foundation",
+  "PackageDescription",
+  "SwiftUI",
+  "UIKit"
+ ],
+ "min_ios_inferred": "13",
+ "deprecated_apis_used": [],
+ "unique": {
+  "modifiers": [],
+  "types": [
+   "AnyView"
+  ],
+  "valueBuilders": [],
+  "macros": [],
+  "styleValues": [],
+  "propertyWrappers": [
+   "ObservedObject"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 0,
+  "types": 1,
+  "valueBuilders": 0,
+  "macros": 0,
+  "styleValues": 0,
+  "propertyWrappers": 1,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 2
+}

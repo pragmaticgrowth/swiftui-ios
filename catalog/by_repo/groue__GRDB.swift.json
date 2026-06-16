@@ -1,0 +1,153 @@
+{
+ "repo": "groue/GRDB.swift",
+ "stars": 8469,
+ "categories": [
+  "Database"
+ ],
+ "sha": "9ed8c8457e00ff9c7aedb3bf213f20a2cfdf509e",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 12433,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "groue",
+   "score": 12433,
+   "contributions": 10959
+  },
+  {
+   "login": "pakko972",
+   "score": 0,
+   "contributions": 55
+  },
+  {
+   "login": "swiftlyfalling",
+   "score": 82,
+   "contributions": 44
+  }
+ ],
+ "loc": 192443,
+ "custom_components": 37,
+ "imports": [
+  "Android",
+  "Cocoa",
+  "Combine",
+  "CoreData",
+  "CoreGraphics",
+  "CoreLocation",
+  "Darwin",
+  "Dispatch",
+  "Foundation",
+  "GRDB",
+  "GRDBDemo",
+  "GRDBSQLCipher",
+  "GRDBSQLite",
+  "Glibc",
+  "Observation",
+  "PackageDescription",
+  "RealmSwift",
+  "SQLCipher",
+  "SQLite",
+  "SQLite3",
+  "SwiftUI",
+  "Testing",
+  "UIKit",
+  "XCTest",
+  "os",
+  "string_h",
+  "ucrt"
+ ],
+ "min_ios_inferred": "17",
+ "deprecated_apis_used": [],
+ "unique": {
+  "modifiers": [
+   "animation",
+   "autocorrectionDisabled",
+   "buttonStyle",
+   "environment",
+   "focused",
+   "foregroundStyle",
+   "frame",
+   "imageScale",
+   "italic",
+   "keyboardType",
+   "labelsHidden",
+   "listStyle",
+   "monospacedDigit",
+   "navigationTitle",
+   "onAppear",
+   "onChange",
+   "onSubmit",
+   "padding",
+   "sheet",
+   "submitLabel",
+   "textInputAutocapitalization",
+   "toolbar"
+  ],
+  "types": [
+   "Button",
+   "ContentUnavailableView",
+   "EditButton",
+   "EmptyView",
+   "ForEach",
+   "Form",
+   "Group",
+   "HStack",
+   "Image",
+   "Label",
+   "LabeledContent",
+   "List",
+   "NavigationLink",
+   "NavigationStack",
+   "Spacer",
+   "State",
+   "Text",
+   "TextField",
+   "ToolbarItem",
+   "ToolbarItemGroup",
+   "VStack",
+   "WindowGroup"
+  ],
+  "valueBuilders": [
+   "medium"
+  ],
+  "macros": [
+   "Preview"
+  ],
+  "styleValues": [
+   "borderedProminent",
+   "bottomBar",
+   "cancellationAction",
+   "confirmationAction",
+   "default",
+   "leading",
+   "plain",
+   "secondary",
+   "tint",
+   "topBarLeading",
+   "topBarTrailing"
+  ],
+  "propertyWrappers": [
+   "Bindable",
+   "Binding",
+   "Environment",
+   "FocusState",
+   "State"
+  ],
+  "environmentKeys": [
+   "dismiss",
+   "editMode",
+   "isPresented"
+  ]
+ },
+ "counts": {
+  "modifiers": 22,
+  "types": 22,
+  "valueBuilders": 1,
+  "macros": 1,
+  "styleValues": 11,
+  "propertyWrappers": 5,
+  "environmentKeys": 3
+ },
+ "total_unique_apis": 65
+}

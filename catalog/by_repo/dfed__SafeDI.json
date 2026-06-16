@@ -1,0 +1,99 @@
+{
+ "repo": "dfed/SafeDI",
+ "stars": 189,
+ "categories": [
+  "Dependency Injection"
+ ],
+ "sha": "e507053dd9479cc472d89edd91aeb2a622ce65cb",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 27288,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "dfed",
+   "score": 27288,
+   "contributions": 499
+  },
+  {
+   "login": "claude",
+   "score": 0,
+   "contributions": 7
+  },
+  {
+   "login": "MrAdamBoyd",
+   "score": 282,
+   "contributions": 1
+  }
+ ],
+ "loc": 67395,
+ "custom_components": 24,
+ "imports": [
+  "ArgumentParser",
+  "ChildAModule",
+  "ChildBModule",
+  "ChildCModule",
+  "Combine",
+  "CompilerPluginSupport",
+  "Foundation",
+  "GrandchildrenModule",
+  "PackageDescription",
+  "PackagePlugin",
+  "ProjectDescription",
+  "SafeDI",
+  "SafeDICore",
+  "SafeDIMacros",
+  "SafeDITool",
+  "SafeDITuist",
+  "SharedModule",
+  "Subproject",
+  "SwiftCompilerPlugin",
+  "SwiftDiagnostics",
+  "SwiftParser",
+  "SwiftSyntax",
+  "SwiftSyntaxBuilder",
+  "SwiftSyntaxMacroExpansion",
+  "SwiftSyntaxMacros",
+  "SwiftSyntaxMacrosGenericTestSupport",
+  "SwiftUI",
+  "Testing",
+  "XcodeProjectPlugin"
+ ],
+ "min_ios_inferred": "14",
+ "deprecated_apis_used": [],
+ "unique": {
+  "modifiers": [
+   "onChange",
+   "padding"
+  ],
+  "types": [
+   "Button",
+   "State",
+   "Text",
+   "TextEditor",
+   "TextField",
+   "VStack",
+   "WindowGroup"
+  ],
+  "valueBuilders": [],
+  "macros": [
+   "Preview"
+  ],
+  "styleValues": [],
+  "propertyWrappers": [
+   "ObservedObject",
+   "State"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 2,
+  "types": 7,
+  "valueBuilders": 0,
+  "macros": 1,
+  "styleValues": 0,
+  "propertyWrappers": 2,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 12
+}

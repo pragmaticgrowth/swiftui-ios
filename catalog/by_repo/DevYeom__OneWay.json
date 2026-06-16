@@ -1,0 +1,68 @@
+{
+ "repo": "DevYeom/OneWay",
+ "stars": 109,
+ "categories": [
+  "Reactive Programming"
+ ],
+ "sha": "f5b1c0e40deae6619597e49f72acff6f47047dbd",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 779,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "DevYeom",
+   "score": 779,
+   "contributions": 150
+  },
+  {
+   "login": "sobabear",
+   "score": 784,
+   "contributions": 4
+  },
+  {
+   "login": "panini-prnd",
+   "score": 0,
+   "contributions": 1
+  }
+ ],
+ "loc": 4362,
+ "custom_components": 0,
+ "imports": [
+  "Clocks",
+  "Combine",
+  "CoreFoundation",
+  "Darwin",
+  "Foundation",
+  "OSLog",
+  "OneWay",
+  "OneWayTesting",
+  "PackageDescription",
+  "SwiftUI",
+  "Testing",
+  "XCTest"
+ ],
+ "min_ios_inferred": "13",
+ "deprecated_apis_used": [],
+ "unique": {
+  "modifiers": [],
+  "types": [
+   "Binding"
+  ],
+  "valueBuilders": [],
+  "macros": [],
+  "styleValues": [],
+  "propertyWrappers": [],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 0,
+  "types": 1,
+  "valueBuilders": 0,
+  "macros": 0,
+  "styleValues": 0,
+  "propertyWrappers": 0,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 1
+}

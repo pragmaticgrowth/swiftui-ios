@@ -1,0 +1,166 @@
+{
+ "repo": "Finb/Bark",
+ "stars": 8478,
+ "categories": [
+  "Developer"
+ ],
+ "sha": "2a35a5b990415eada5fcc6c95deb9850c239796a",
+ "platform": "cross_platform",
+ "ipad_idioms": [],
+ "author_authority": 101713,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "Finb",
+   "score": 101713,
+   "contributions": 560
+  },
+  {
+   "login": "harryzcy",
+   "score": 299670,
+   "contributions": 4
+  },
+  {
+   "login": "sunvc",
+   "score": 8523,
+   "contributions": 4
+  }
+ ],
+ "loc": 11758,
+ "custom_components": 14,
+ "imports": [
+  "AVFAudio",
+  "AVKit",
+  "Alamofire",
+  "AppIntents",
+  "AppKit",
+  "AudioToolbox",
+  "Bark",
+  "CryptoKit",
+  "CryptoSwift",
+  "DefaultsKit",
+  "Differentiator",
+  "DropDown",
+  "Foundation",
+  "IQKeyboardManagerSwift",
+  "IQKeyboardToolbarManager",
+  "ImageViewer_swift",
+  "Intents",
+  "Kingfisher",
+  "MJRefresh",
+  "Markdown",
+  "Material",
+  "MercariQRScanner",
+  "MobileCoreServices",
+  "Moya",
+  "NSObject_Rx",
+  "ObjectMapper",
+  "Photos",
+  "RealmSwift",
+  "RxCocoa",
+  "RxDataSources",
+  "RxRelay",
+  "RxSwift",
+  "SVProgressHUD",
+  "SafariServices",
+  "SnapKit",
+  "SwiftUI",
+  "SwiftyJSON",
+  "SwiftyStoreKit",
+  "Testing",
+  "UIKit",
+  "UniformTypeIdentifiers",
+  "UserNotifications",
+  "UserNotificationsUI",
+  "WidgetKit",
+  "XCTest"
+ ],
+ "min_ios_inferred": "17",
+ "deprecated_apis_used": [],
+ "unique": {
+  "modifiers": [
+   "background",
+   "bold",
+   "containerBackground",
+   "font",
+   "foregroundStyle",
+   "frame",
+   "italic",
+   "layoutPriority",
+   "lineLimit",
+   "modifier",
+   "offset",
+   "opacity",
+   "padding",
+   "scale",
+   "truncationMode",
+   "widgetURL"
+  ],
+  "types": [
+   "AppIntentConfiguration",
+   "Color",
+   "HStack",
+   "Image",
+   "Spacer",
+   "Text",
+   "TextField",
+   "Timeline",
+   "VStack",
+   "ZStack"
+  ],
+  "valueBuilders": [
+   "clear",
+   "custom",
+   "heavy",
+   "medium",
+   "regular",
+   "semibold",
+   "system",
+   "topLeading"
+  ],
+  "macros": [
+   "Preview"
+  ],
+  "styleValues": [
+   "automatic",
+   "black",
+   "blue",
+   "cancel",
+   "center",
+   "clear",
+   "compact",
+   "dark",
+   "default",
+   "destructive",
+   "gray",
+   "grouped",
+   "identity",
+   "insetGrouped",
+   "leading",
+   "light",
+   "link",
+   "placeholder",
+   "primary",
+   "relative",
+   "secondary",
+   "tint",
+   "top"
+  ],
+  "propertyWrappers": [
+   "Environment"
+  ],
+  "environmentKeys": [
+   "widgetFamily"
+  ]
+ },
+ "counts": {
+  "modifiers": 16,
+  "types": 10,
+  "valueBuilders": 8,
+  "macros": 1,
+  "styleValues": 23,
+  "propertyWrappers": 1,
+  "environmentKeys": 1
+ },
+ "total_unique_apis": 60
+}

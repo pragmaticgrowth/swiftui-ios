@@ -7,9 +7,21 @@
  ],
  "sha": "76fe6db750bf20392e293e977d4edbf7c420c71e",
  "platform": "ios",
- "author_authority": 0,
- "contributor_count": 0,
- "top_contributors": [],
+ "ipad_idioms": [],
+ "author_authority": 48160,
+ "contributor_count": 2,
+ "top_contributors": [
+  {
+   "login": "Dimillian",
+   "score": 48160,
+   "contributions": 16
+  },
+  {
+   "login": "johnno1962",
+   "score": 507690,
+   "contributions": 1
+  }
+ ],
  "loc": 4718,
  "custom_components": 49,
  "imports": [

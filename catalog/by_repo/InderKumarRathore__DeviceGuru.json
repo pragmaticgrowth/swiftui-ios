@@ -1,0 +1,80 @@
+{
+ "repo": "InderKumarRathore/DeviceGuru",
+ "stars": 481,
+ "categories": [
+  "Utility"
+ ],
+ "sha": "0e551a59320f932888513458848021ccc8401881",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 6986,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "InderKumarRathore",
+   "score": 6986,
+   "contributions": 200
+  },
+  {
+   "login": "witekbobrowski",
+   "score": 445,
+   "contributions": 13
+  },
+  {
+   "login": "alpennec",
+   "score": 3317,
+   "contributions": 5
+  }
+ ],
+ "loc": 1379,
+ "custom_components": 6,
+ "imports": [
+  "DeviceGuru",
+  "Foundation",
+  "PackageDescription",
+  "SwiftUI",
+  "XCTest"
+ ],
+ "min_ios_inferred": "14",
+ "deprecated_apis_used": [],
+ "unique": {
+  "modifiers": [
+   "background",
+   "clipShape",
+   "font",
+   "frame",
+   "multilineTextAlignment",
+   "padding"
+  ],
+  "types": [
+   "Color",
+   "HStack",
+   "RoundedRectangle",
+   "Text",
+   "VStack",
+   "WindowGroup"
+  ],
+  "valueBuilders": [
+   "headline",
+   "title3"
+  ],
+  "macros": [],
+  "styleValues": [
+   "bottom",
+   "leading",
+   "trailing"
+  ],
+  "propertyWrappers": [],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 6,
+  "types": 6,
+  "valueBuilders": 2,
+  "macros": 0,
+  "styleValues": 3,
+  "propertyWrappers": 0,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 17
+}

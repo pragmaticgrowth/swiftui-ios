@@ -1,0 +1,125 @@
+{
+ "repo": "jpsim/Milestones",
+ "stars": 203,
+ "categories": [
+  "SwiftUI",
+  "macOS"
+ ],
+ "sha": "55f12be2879b398588af3a462146d048f572e5cb",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 62136,
+ "contributor_count": 1,
+ "top_contributors": [
+  {
+   "login": "jpsim",
+   "score": 62136,
+   "contributions": 49
+  }
+ ],
+ "loc": 1814,
+ "custom_components": 36,
+ "imports": [
+  "Combine",
+  "ComposableArchitecture",
+  "Foundation",
+  "Introspect",
+  "MilestonesCore",
+  "SnapshotTesting",
+  "SwiftUI",
+  "UIKit",
+  "WidgetKit",
+  "XCTest"
+ ],
+ "min_ios_inferred": "14",
+ "deprecated_apis_used": [
+  "NavigationView",
+  "foregroundColor",
+  "navigationBarItems",
+  "navigationBarTitle",
+  "sizeCategory"
+ ],
+ "unique": {
+  "modifiers": [
+   "bold",
+   "contextMenu",
+   "datePickerStyle",
+   "environment",
+   "environmentObject",
+   "font",
+   "foregroundColor",
+   "frame",
+   "labelsHidden",
+   "navigationBarItems",
+   "navigationBarTitle",
+   "onChange",
+   "padding",
+   "popover",
+   "previewDisplayName",
+   "previewLayout"
+  ],
+  "types": [
+   "Button",
+   "DatePicker",
+   "Divider",
+   "EditButton",
+   "EmptyView",
+   "ForEach",
+   "Group",
+   "HStack",
+   "Image",
+   "IntentConfiguration",
+   "List",
+   "NavigationLink",
+   "NavigationView",
+   "ScrollView",
+   "Spacer",
+   "Text",
+   "TextField",
+   "Timeline",
+   "VStack",
+   "WheelDatePickerStyle",
+   "WindowGroup"
+  ],
+  "valueBuilders": [
+   "medium",
+   "system",
+   "thin"
+  ],
+  "macros": [],
+  "styleValues": [
+   "background",
+   "center",
+   "compact",
+   "dark",
+   "date",
+   "gray",
+   "leading",
+   "light",
+   "primary",
+   "title"
+  ],
+  "propertyWrappers": [
+   "Environment",
+   "EnvironmentObject",
+   "UIApplicationDelegateAdaptor"
+  ],
+  "environmentKeys": [
+   "editMode",
+   "scenePhase",
+   "sizeCategory",
+   "timeZone",
+   "widgetFamily"
+  ]
+ },
+ "counts": {
+  "modifiers": 16,
+  "types": 21,
+  "valueBuilders": 3,
+  "macros": 0,
+  "styleValues": 10,
+  "propertyWrappers": 3,
+  "environmentKeys": 5
+ },
+ "total_unique_apis": 58
+}

@@ -1,0 +1,113 @@
+{
+ "repo": "AdguardTeam/AdguardForiOS",
+ "stars": 1666,
+ "categories": [
+  "Content Blocking"
+ ],
+ "sha": "b5d1db80867333ae5e3c42431cf7869d0e7ee7d5",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 347,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "08kovalchuk03",
+   "score": 0,
+   "contributions": 2055
+  },
+  {
+   "login": "IvanIin",
+   "score": 0,
+   "contributions": 966
+  },
+  {
+   "login": "Numci",
+   "score": 1666,
+   "contributions": 797
+  }
+ ],
+ "loc": 85422,
+ "custom_components": 0,
+ "imports": [
+  "AGDnsProxy",
+  "AdGuardSDK_mac",
+  "CommonCrypto",
+  "ContentBlockerConverter",
+  "CoreServices",
+  "CoreTelephony",
+  "DnsAdGuardSDK",
+  "FilterEngine",
+  "Foundation",
+  "Lottie",
+  "MobileCoreServices",
+  "Network",
+  "NetworkExtension",
+  "NotificationCenter",
+  "OrderedCollections",
+  "SQLite",
+  "SafariAdGuardSDK",
+  "SafariServices",
+  "Sentry",
+  "Setapp",
+  "SharedAdGuardSDK",
+  "StoreKit",
+  "SwiftUI",
+  "SystemConfiguration",
+  "SystemLibsResolv",
+  "UIKit",
+  "UserNotifications",
+  "WebKit",
+  "XCTest",
+  "Zip"
+ ],
+ "min_ios_inferred": "14",
+ "deprecated_apis_used": [],
+ "unique": {
+  "modifiers": [
+   "disabled"
+  ],
+  "types": [],
+  "valueBuilders": [
+   "custom",
+   "easeIn",
+   "easeOut",
+   "medium",
+   "regular",
+   "semibold",
+   "system"
+  ],
+  "macros": [],
+  "styleValues": [
+   "automatic",
+   "background",
+   "black",
+   "cancel",
+   "center",
+   "clear",
+   "compact",
+   "dark",
+   "default",
+   "destructive",
+   "fill",
+   "gray",
+   "leading",
+   "light",
+   "plain",
+   "red",
+   "top",
+   "white"
+  ],
+  "propertyWrappers": [],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 1,
+  "types": 0,
+  "valueBuilders": 7,
+  "macros": 0,
+  "styleValues": 18,
+  "propertyWrappers": 0,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 26
+}

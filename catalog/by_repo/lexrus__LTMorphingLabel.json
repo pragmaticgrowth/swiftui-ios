@@ -1,0 +1,88 @@
+{
+ "repo": "lexrus/LTMorphingLabel",
+ "stars": 8144,
+ "categories": [
+  "Label"
+ ],
+ "sha": "bf629bd1ea03d92a1a2673bb2689a4ed2981e7b7",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 130258,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "lexrus",
+   "score": 130258,
+   "contributions": 194
+  },
+  {
+   "login": "Jeehut",
+   "score": 0,
+   "contributions": 5
+  },
+  {
+   "login": "dustfire",
+   "score": 0,
+   "contributions": 2
+  }
+ ],
+ "loc": 2501,
+ "custom_components": 5,
+ "imports": [
+  "Foundation",
+  "MorphingLabel",
+  "PackageDescription",
+  "QuartzCore",
+  "SwiftUI",
+  "UIKit",
+  "XCTest"
+ ],
+ "min_ios_inferred": "13",
+ "deprecated_apis_used": [
+  "foregroundColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "background",
+   "environment",
+   "font",
+   "foregroundColor",
+   "frame",
+   "padding",
+   "previewDevice"
+  ],
+  "types": [
+   "Slider",
+   "Spacer",
+   "Text",
+   "Toggle",
+   "VStack"
+  ],
+  "valueBuilders": [],
+  "macros": [],
+  "styleValues": [
+   "black",
+   "center",
+   "dark",
+   "largeTitle",
+   "title",
+   "white"
+  ],
+  "propertyWrappers": [
+   "State"
+  ],
+  "environmentKeys": [
+   "colorScheme"
+  ]
+ },
+ "counts": {
+  "modifiers": 7,
+  "types": 5,
+  "valueBuilders": 0,
+  "macros": 0,
+  "styleValues": 6,
+  "propertyWrappers": 1,
+  "environmentKeys": 1
+ },
+ "total_unique_apis": 20
+}

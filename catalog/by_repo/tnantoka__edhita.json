@@ -1,0 +1,149 @@
+{
+ "repo": "tnantoka/edhita",
+ "stars": 1395,
+ "categories": [
+  "Text"
+ ],
+ "sha": "7a56507585544f9fc787b2bc905d9a5175c64772",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 2080,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "tnantoka",
+   "score": 2080,
+   "contributions": 93
+  },
+  {
+   "login": "rivera-ernesto",
+   "score": 102,
+   "contributions": 4
+  },
+  {
+   "login": "mdar2-blip",
+   "score": 0,
+   "contributions": 1
+  }
+ ],
+ "loc": 1648,
+ "custom_components": 52,
+ "imports": [
+  "AppTrackingTransparency",
+  "Edhita",
+  "Foundation",
+  "GoogleMobileAds",
+  "Ink",
+  "Introspect",
+  "SafariServices",
+  "SwiftUI",
+  "UIKit",
+  "UserMessagingPlatform",
+  "WebKit",
+  "XCTest"
+ ],
+ "min_ios_inferred": "15",
+ "deprecated_apis_used": [
+  "NavigationView",
+  "autocapitalization",
+  "foregroundColor",
+  "navigationBarLeading",
+  "navigationBarTrailing",
+  "navigationViewStyle",
+  "stack"
+ ],
+ "unique": {
+  "modifiers": [
+   "autocapitalization",
+   "background",
+   "confirmationDialog",
+   "disabled",
+   "environment",
+   "focused",
+   "font",
+   "foregroundColor",
+   "frame",
+   "listStyle",
+   "navigationBarTitleDisplayMode",
+   "navigationTitle",
+   "navigationViewStyle",
+   "onAppear",
+   "onChange",
+   "onDisappear",
+   "opacity",
+   "padding",
+   "pickerStyle",
+   "sheet",
+   "tag",
+   "toolbar"
+  ],
+  "types": [
+   "Button",
+   "Color",
+   "ColorPicker",
+   "ForEach",
+   "Form",
+   "HStack",
+   "Image",
+   "List",
+   "NavigationLink",
+   "NavigationView",
+   "Picker",
+   "ScrollView",
+   "Section",
+   "Spacer",
+   "Text",
+   "TextEditor",
+   "TextField",
+   "Toggle",
+   "ToolbarItem",
+   "VStack",
+   "WindowGroup"
+  ],
+  "valueBuilders": [
+   "caption",
+   "custom",
+   "system",
+   "title2"
+  ],
+  "macros": [],
+  "styleValues": [
+   "bottom",
+   "bottomBar",
+   "clear",
+   "destructive",
+   "inline",
+   "keyboard",
+   "leading",
+   "navigationBarLeading",
+   "navigationBarTrailing",
+   "plain",
+   "segmented",
+   "stack",
+   "top"
+  ],
+  "propertyWrappers": [
+   "Binding",
+   "Environment",
+   "FocusState",
+   "ObservedObject",
+   "State",
+   "UIApplicationDelegateAdaptor"
+  ],
+  "environmentKeys": [
+   "dismiss",
+   "editMode",
+   "scenePhase"
+  ]
+ },
+ "counts": {
+  "modifiers": 22,
+  "types": 21,
+  "valueBuilders": 4,
+  "macros": 0,
+  "styleValues": 13,
+  "propertyWrappers": 6,
+  "environmentKeys": 3
+ },
+ "total_unique_apis": 69
+}

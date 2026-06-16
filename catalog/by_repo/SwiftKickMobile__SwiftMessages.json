@@ -1,0 +1,114 @@
+{
+ "repo": "SwiftKickMobile/SwiftMessages",
+ "stars": 7557,
+ "categories": [
+  "Alert & Action Sheet"
+ ],
+ "sha": "c0ff6c65bfc00e6a707957cb7069988c5cde2a30",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 14108,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "wtmoose",
+   "score": 14492,
+   "contributions": 294
+  },
+  {
+   "login": "mofeejegi",
+   "score": 9071,
+   "contributions": 4
+  },
+  {
+   "login": "defagos",
+   "score": 1843,
+   "contributions": 4
+  }
+ ],
+ "loc": 5781,
+ "custom_components": 15,
+ "imports": [
+  "Foundation",
+  "Messages",
+  "PackageDescription",
+  "QuartzCore",
+  "SwiftMessages",
+  "SwiftUI",
+  "UIKit",
+  "XCTest"
+ ],
+ "min_ios_inferred": "17",
+ "deprecated_apis_used": [
+  "edgesIgnoringSafeArea"
+ ],
+ "unique": {
+  "modifiers": [
+   "background",
+   "blur",
+   "buttonStyle",
+   "edgesIgnoringSafeArea",
+   "font",
+   "frame",
+   "mask",
+   "multilineTextAlignment",
+   "onChange",
+   "padding"
+  ],
+  "types": [
+   "AnimationContext",
+   "Button",
+   "EdgeInsets",
+   "Rectangle",
+   "RoundedRectangle",
+   "State",
+   "Text",
+   "UIHostingController",
+   "UnevenRoundedRectangle",
+   "VStack",
+   "WindowGroup"
+  ],
+  "valueBuilders": [
+   "custom",
+   "gray",
+   "regular",
+   "system"
+  ],
+  "macros": [
+   "Preview"
+  ],
+  "styleValues": [
+   "automatic",
+   "background",
+   "black",
+   "bordered",
+   "bottom",
+   "center",
+   "clear",
+   "dark",
+   "default",
+   "gray",
+   "identity",
+   "leading",
+   "light",
+   "top",
+   "white"
+  ],
+  "propertyWrappers": [
+   "Binding",
+   "Environment",
+   "State"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 10,
+  "types": 11,
+  "valueBuilders": 4,
+  "macros": 1,
+  "styleValues": 15,
+  "propertyWrappers": 3,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 44
+}

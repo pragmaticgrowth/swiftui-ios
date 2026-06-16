@@ -1,0 +1,151 @@
+{
+ "repo": "yuripetrosyan/Controllers",
+ "stars": 10,
+ "categories": [
+  "Audio"
+ ],
+ "sha": "0cd8366af4b0d0b058d70e94378f3b625042531b",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 16,
+ "contributor_count": 1,
+ "top_contributors": [
+  {
+   "login": "yuripetrosyan",
+   "score": 16,
+   "contributions": 25
+  }
+ ],
+ "loc": 966,
+ "custom_components": 33,
+ "imports": [
+  "AVFoundation",
+  "BetterSlider",
+  "Combine",
+  "Foundation",
+  "Pow",
+  "SwiftUI",
+  "UIKit",
+  "UniformTypeIdentifiers"
+ ],
+ "min_ios_inferred": "16.01",
+ "deprecated_apis_used": [
+  "foregroundColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "aspectRatio",
+   "blur",
+   "clipShape",
+   "colorInvert",
+   "contentShape",
+   "cornerRadius",
+   "font",
+   "fontDesign",
+   "foregroundColor",
+   "foregroundStyle",
+   "frame",
+   "gesture",
+   "ignoresSafeArea",
+   "offset",
+   "onAppear",
+   "onChanged",
+   "onDisappear",
+   "onTapGesture",
+   "opacity",
+   "padding",
+   "resizable",
+   "rotationEffect",
+   "scaleEffect",
+   "scrollIndicators",
+   "shadow",
+   "sheet",
+   "symbolRenderingMode",
+   "tint",
+   "toolbar",
+   "toolbarBackground",
+   "trim"
+  ],
+  "types": [
+   "Button",
+   "Circle",
+   "Color",
+   "ColorPicker",
+   "DragGesture",
+   "GeometryReader",
+   "Gradient",
+   "GridItem",
+   "HStack",
+   "Image",
+   "LazyHGrid",
+   "LinearGradient",
+   "NavigationStack",
+   "RadialGradient",
+   "Rectangle",
+   "RoundedRectangle",
+   "ScrollView",
+   "Slider",
+   "Spacer",
+   "StrokeStyle",
+   "Text",
+   "ToolbarItem",
+   "VStack",
+   "WindowGroup",
+   "ZStack"
+  ],
+  "valueBuilders": [
+   "degrees",
+   "headline",
+   "semibold",
+   "title2",
+   "title3"
+  ],
+  "macros": [
+   "Preview"
+  ],
+  "styleValues": [
+   "black",
+   "blue",
+   "bottom",
+   "center",
+   "clear",
+   "dark",
+   "default",
+   "gray",
+   "green",
+   "largeTitle",
+   "orange",
+   "palette",
+   "primary",
+   "purple",
+   "red",
+   "title",
+   "top",
+   "topBarLeading",
+   "topBarTrailing",
+   "ultraThinMaterial",
+   "white",
+   "yellow"
+  ],
+  "propertyWrappers": [
+   "Binding",
+   "Environment",
+   "ObservedObject",
+   "State",
+   "StateObject"
+  ],
+  "environmentKeys": [
+   "colorScheme"
+  ]
+ },
+ "counts": {
+  "modifiers": 31,
+  "types": 25,
+  "valueBuilders": 5,
+  "macros": 1,
+  "styleValues": 22,
+  "propertyWrappers": 5,
+  "environmentKeys": 1
+ },
+ "total_unique_apis": 90
+}

@@ -1,0 +1,160 @@
+{
+ "repo": "nathanfallet/ocaml",
+ "stars": 86,
+ "categories": [
+  "Developer"
+ ],
+ "sha": "871ea233cc2f5a07d6c59ac1c225d2c3f27315f3",
+ "platform": "cross_platform",
+ "ipad_idioms": [],
+ "author_authority": 110930,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "nathanfallet",
+   "score": 110930,
+   "contributions": 168
+  },
+  {
+   "login": "weblate",
+   "score": 0,
+   "contributions": 6
+  },
+  {
+   "login": "code-factor",
+   "score": 0,
+   "contributions": 2
+  }
+ ],
+ "loc": 2278,
+ "custom_components": 45,
+ "imports": [
+  "AppKit",
+  "Combine",
+  "DigiAnalytics",
+  "Foundation",
+  "Sourceful",
+  "StoreKit",
+  "SwiftUI",
+  "UIKit",
+  "UniformTypeIdentifiers",
+  "WebKit"
+ ],
+ "min_ios_inferred": "16",
+ "deprecated_apis_used": [
+  "Alert",
+  "NavigationView",
+  "StackNavigationViewStyle",
+  "autocapitalization",
+  "disableAutocorrection",
+  "foregroundColor",
+  "navigationBarTrailing",
+  "navigationViewStyle",
+  "tabItem"
+ ],
+ "unique": {
+  "modifiers": [
+   "alert",
+   "autocapitalization",
+   "background",
+   "cornerRadius",
+   "disableAutocorrection",
+   "environment",
+   "fixedSize",
+   "font",
+   "foregroundColor",
+   "frame",
+   "fullScreenCover",
+   "id",
+   "ignoresSafeArea",
+   "keyboardShortcut",
+   "listStyle",
+   "navigationTitle",
+   "navigationViewStyle",
+   "onAppear",
+   "onChange",
+   "onTapGesture",
+   "padding",
+   "previewDevice",
+   "progressViewStyle",
+   "resizable",
+   "tabItem",
+   "toolbar",
+   "toolbarRole"
+  ],
+  "types": [
+   "Alert",
+   "AsyncImage",
+   "Binding",
+   "Button",
+   "CircularProgressViewStyle",
+   "Color",
+   "ColorPicker",
+   "DocumentGroup",
+   "ForEach",
+   "Form",
+   "GeometryReader",
+   "Group",
+   "HStack",
+   "Image",
+   "InsetGroupedListStyle",
+   "Label",
+   "List",
+   "NavigationLink",
+   "NavigationView",
+   "ProgressView",
+   "ScrollView",
+   "ScrollViewReader",
+   "Section",
+   "Spacer",
+   "StackNavigationViewStyle",
+   "TabView",
+   "Text",
+   "TextField",
+   "ToolbarItemGroup",
+   "VStack"
+  ],
+  "valueBuilders": [
+   "footnote",
+   "regular",
+   "system"
+  ],
+  "macros": [],
+  "styleValues": [
+   "automatic",
+   "blue",
+   "bottom",
+   "cancellationAction",
+   "clear",
+   "gray",
+   "leading",
+   "navigationBarTrailing",
+   "plain",
+   "primaryAction",
+   "red",
+   "secondary",
+   "top"
+  ],
+  "propertyWrappers": [
+   "AppStorage",
+   "Binding",
+   "Environment",
+   "ObservedObject",
+   "State",
+   "StateObject"
+  ],
+  "environmentKeys": [
+   "openURL"
+  ]
+ },
+ "counts": {
+  "modifiers": 27,
+  "types": 30,
+  "valueBuilders": 3,
+  "macros": 0,
+  "styleValues": 13,
+  "propertyWrappers": 6,
+  "environmentKeys": 1
+ },
+ "total_unique_apis": 80
+}

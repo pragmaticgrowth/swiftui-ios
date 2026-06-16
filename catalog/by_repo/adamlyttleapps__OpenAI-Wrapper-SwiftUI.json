@@ -1,0 +1,147 @@
+{
+ "repo": "adamlyttleapps/OpenAI-Wrapper-SwiftUI",
+ "stars": 326,
+ "categories": [
+  "SwiftUI"
+ ],
+ "sha": "4e7b16483e5528f80b72504a8ce20c2054d34597",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 4237,
+ "contributor_count": 1,
+ "top_contributors": [
+  {
+   "login": "adamlyttleapps",
+   "score": 4237,
+   "contributions": 15
+  }
+ ],
+ "loc": 1660,
+ "custom_components": 20,
+ "imports": [
+  "AVFoundation",
+  "Combine",
+  "CryptoKit",
+  "Foundation",
+  "PhotosUI",
+  "SwiftUI",
+  "Vision"
+ ],
+ "min_ios_inferred": "15",
+ "deprecated_apis_used": [
+  "ActionSheet",
+  "NavigationView",
+  "accentColor",
+  "edgesIgnoringSafeArea",
+  "foregroundColor",
+  "presentationMode"
+ ],
+ "unique": {
+  "modifiers": [
+   "accentColor",
+   "animation",
+   "aspectRatio",
+   "background",
+   "clipShape",
+   "clipped",
+   "contextMenu",
+   "disabled",
+   "edgesIgnoringSafeArea",
+   "focused",
+   "font",
+   "foregroundColor",
+   "frame",
+   "id",
+   "listRowSeparator",
+   "listStyle",
+   "mask",
+   "multilineTextAlignment",
+   "navigationBarTitleDisplayMode",
+   "navigationTitle",
+   "offset",
+   "onAppear",
+   "onChange",
+   "onTapGesture",
+   "opacity",
+   "padding",
+   "progressViewStyle",
+   "resizable",
+   "scaleEffect",
+   "sheet",
+   "toolbar"
+  ],
+  "types": [
+   "ActionSheet",
+   "Button",
+   "Circle",
+   "CircularProgressViewStyle",
+   "Color",
+   "ForEach",
+   "GeometryReader",
+   "HStack",
+   "Image",
+   "List",
+   "NavigationLink",
+   "NavigationView",
+   "PlainListStyle",
+   "ProgressView",
+   "Rectangle",
+   "RoundedRectangle",
+   "ScrollView",
+   "ScrollViewReader",
+   "Spacer",
+   "Text",
+   "TextEditor",
+   "ToolbarItem",
+   "VStack",
+   "WindowGroup",
+   "ZStack"
+  ],
+  "valueBuilders": [
+   "easeInOut",
+   "footnote",
+   "system",
+   "topLeading"
+  ],
+  "macros": [],
+  "styleValues": [
+   "black",
+   "blue",
+   "bottom",
+   "cancellationAction",
+   "center",
+   "clear",
+   "dark",
+   "date",
+   "fill",
+   "inline",
+   "leading",
+   "primaryAction",
+   "title",
+   "top",
+   "trailing",
+   "white"
+  ],
+  "propertyWrappers": [
+   "Binding",
+   "Environment",
+   "FocusState",
+   "ObservedObject",
+   "State"
+  ],
+  "environmentKeys": [
+   "colorScheme",
+   "presentationMode"
+  ]
+ },
+ "counts": {
+  "modifiers": 31,
+  "types": 25,
+  "valueBuilders": 4,
+  "macros": 0,
+  "styleValues": 16,
+  "propertyWrappers": 5,
+  "environmentKeys": 2
+ },
+ "total_unique_apis": 83
+}

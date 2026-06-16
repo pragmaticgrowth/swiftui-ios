@@ -1,0 +1,92 @@
+{
+ "repo": "yonat/MultiSlider",
+ "stars": 538,
+ "categories": [
+  "Slider"
+ ],
+ "sha": "a5dbf58e5b05a55a771607f77547eb2067c601e9",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 1999,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "yonat",
+   "score": 1999,
+   "contributions": 172
+  },
+  {
+   "login": "benjaminfischer",
+   "score": 3,
+   "contributions": 9
+  },
+  {
+   "login": "ataetgi",
+   "score": 4564,
+   "contributions": 3
+  }
+ ],
+ "loc": 1653,
+ "custom_components": 3,
+ "imports": [
+  "MultiSlider",
+  "PackageDescription",
+  "SweeterSwift",
+  "SwiftUI",
+  "UIKit",
+  "XCTest"
+ ],
+ "min_ios_inferred": "13",
+ "deprecated_apis_used": [
+  "accentColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "accentColor",
+   "blur",
+   "frame",
+   "padding",
+   "scaledToFit"
+  ],
+  "types": [
+   "HStack",
+   "UIHostingController",
+   "VStack"
+  ],
+  "valueBuilders": [
+   "bottom",
+   "center",
+   "footnote",
+   "top"
+  ],
+  "macros": [],
+  "styleValues": [
+   "black",
+   "blue",
+   "bottom",
+   "center",
+   "gray",
+   "green",
+   "leading",
+   "purple",
+   "top",
+   "trailing",
+   "white"
+  ],
+  "propertyWrappers": [
+   "Binding",
+   "State"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 5,
+  "types": 3,
+  "valueBuilders": 4,
+  "macros": 0,
+  "styleValues": 11,
+  "propertyWrappers": 2,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 25
+}

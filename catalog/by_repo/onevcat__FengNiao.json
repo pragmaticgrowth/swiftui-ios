@@ -1,0 +1,133 @@
+{
+ "repo": "onevcat/FengNiao",
+ "stars": 3574,
+ "categories": [
+  "Tools"
+ ],
+ "sha": "180af9c3e70f94aae4676312c84e2fad5a8106b4",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 475005,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "onevcat",
+   "score": 475005,
+   "contributions": 122
+  },
+  {
+   "login": "ldakhoa",
+   "score": 214,
+   "contributions": 8
+  },
+  {
+   "login": "voidless",
+   "score": 6243,
+   "contributions": 6
+  }
+ ],
+ "loc": 2718,
+ "custom_components": 20,
+ "imports": [
+  "ArgumentParser",
+  "Cocoa",
+  "Combine",
+  "FengNiao",
+  "FengNiaoKit",
+  "Foundation",
+  "PackageDescription",
+  "PathKit",
+  "QuickLook",
+  "Rainbow",
+  "SwiftUI",
+  "Testing",
+  "UIKit"
+ ],
+ "min_ios_inferred": "16",
+ "deprecated_apis_used": [
+  "foregroundColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "alert",
+   "animation",
+   "bold",
+   "buttonStyle",
+   "contentShape",
+   "contextMenu",
+   "controlSize",
+   "disabled",
+   "focused",
+   "font",
+   "foregroundColor",
+   "frame",
+   "help",
+   "keyboardShortcut",
+   "onAppear",
+   "onChange",
+   "onDisappear",
+   "onTapGesture",
+   "padding",
+   "sheet",
+   "tint",
+   "width"
+  ],
+  "types": [
+   "Button",
+   "Color",
+   "Divider",
+   "ForEach",
+   "HStack",
+   "Image",
+   "Path",
+   "ProgressView",
+   "Rectangle",
+   "Spacer",
+   "StateObject",
+   "Table",
+   "TableColumn",
+   "Text",
+   "TextEditor",
+   "TextField",
+   "Toggle",
+   "VStack",
+   "WindowGroup"
+  ],
+  "valueBuilders": [
+   "body",
+   "headline",
+   "spring",
+   "subheadline",
+   "title2"
+  ],
+  "macros": [],
+  "styleValues": [
+   "blue",
+   "borderedProminent",
+   "cancel",
+   "center",
+   "default",
+   "destructive",
+   "leading"
+  ],
+  "propertyWrappers": [
+   "Environment",
+   "FocusState",
+   "State",
+   "StateObject"
+  ],
+  "environmentKeys": [
+   "dismiss"
+  ]
+ },
+ "counts": {
+  "modifiers": 22,
+  "types": 19,
+  "valueBuilders": 5,
+  "macros": 0,
+  "styleValues": 7,
+  "propertyWrappers": 4,
+  "environmentKeys": 1
+ },
+ "total_unique_apis": 58
+}

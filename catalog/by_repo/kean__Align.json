@@ -1,0 +1,78 @@
+{
+ "repo": "kean/Align",
+ "stars": 355,
+ "categories": [
+  "Layout"
+ ],
+ "sha": "8c129b833af9d876c04212c4bcde85d242f72a95",
+ "platform": "cross_platform",
+ "ipad_idioms": [],
+ "author_authority": 26939,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "kean",
+   "score": 26939,
+   "contributions": 314
+  },
+  {
+   "login": "murselturk",
+   "score": 2,
+   "contributions": 2
+  },
+  {
+   "login": "urouro-net",
+   "score": 6,
+   "contributions": 1
+  }
+ ],
+ "loc": 2213,
+ "custom_components": 0,
+ "imports": [
+  "Align",
+  "AppKit",
+  "Foundation",
+  "PackageDescription",
+  "SwiftUI",
+  "Testing",
+  "UIKit"
+ ],
+ "min_ios_inferred": "13",
+ "deprecated_apis_used": [],
+ "unique": {
+  "modifiers": [],
+  "types": [
+   "Alignment",
+   "Anchor",
+   "EdgeInsets",
+   "View"
+  ],
+  "valueBuilders": [
+   "bottomTrailing",
+   "semibold"
+  ],
+  "macros": [
+   "Preview"
+  ],
+  "styleValues": [
+   "bottom",
+   "center",
+   "fill",
+   "leading",
+   "top",
+   "trailing"
+  ],
+  "propertyWrappers": [],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 0,
+  "types": 4,
+  "valueBuilders": 2,
+  "macros": 1,
+  "styleValues": 6,
+  "propertyWrappers": 0,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 13
+}

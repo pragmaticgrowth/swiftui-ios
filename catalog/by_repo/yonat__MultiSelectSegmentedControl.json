@@ -1,0 +1,89 @@
+{
+ "repo": "yonat/MultiSelectSegmentedControl",
+ "stars": 302,
+ "categories": [
+  "Segmented Control"
+ ],
+ "sha": "f49827b08a80b722526eee8209dc2cf77b8907a3",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 1999,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "yonat",
+   "score": 1999,
+   "contributions": 88
+  },
+  {
+   "login": "jemise111",
+   "score": 2926,
+   "contributions": 5
+  },
+  {
+   "login": "raysarebest",
+   "score": 20,
+   "contributions": 5
+  }
+ ],
+ "loc": 935,
+ "custom_components": 3,
+ "imports": [
+  "MultiSelectSegmentedControl",
+  "PackageDescription",
+  "SweeterSwift",
+  "SwiftUI",
+  "UIKit"
+ ],
+ "min_ios_inferred": "15",
+ "deprecated_apis_used": [
+  "accentColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "accentColor",
+   "fixedSize",
+   "padding"
+  ],
+  "types": [
+   "HStack",
+   "Spacer",
+   "UIHostingController",
+   "VStack"
+  ],
+  "valueBuilders": [
+   "footnote"
+  ],
+  "macros": [],
+  "styleValues": [
+   "background",
+   "bottom",
+   "button",
+   "center",
+   "clear",
+   "fill",
+   "green",
+   "leading",
+   "purple",
+   "red",
+   "top",
+   "trailing",
+   "white"
+  ],
+  "propertyWrappers": [
+   "Binding",
+   "State"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 3,
+  "types": 4,
+  "valueBuilders": 1,
+  "macros": 0,
+  "styleValues": 13,
+  "propertyWrappers": 2,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 23
+}

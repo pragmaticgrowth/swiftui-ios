@@ -1,0 +1,116 @@
+{
+ "repo": "guardianproject/orbot-apple",
+ "stars": 300,
+ "categories": [
+  "Security"
+ ],
+ "sha": "78e76c78f32cfdaffcb23085c5cea8492c2df167",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 6685,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "tladesignz",
+   "score": 6920,
+   "contributions": 628
+  },
+  {
+   "login": "weblate",
+   "score": 0,
+   "contributions": 15
+  },
+  {
+   "login": "conradev",
+   "score": 0,
+   "contributions": 7
+  }
+ ],
+ "loc": 13349,
+ "custom_components": 13,
+ "imports": [
+  "Cocoa",
+  "Eureka",
+  "Foundation",
+  "GCDWebServerExtension",
+  "IPtProxy",
+  "IPtProxyUI",
+  "MessageUI",
+  "MobileCoreServices",
+  "NetworkExtension",
+  "OSLog",
+  "PhotosUI",
+  "ProgressHUD",
+  "SafariServices",
+  "SwiftPortmap",
+  "SwiftUI",
+  "SystemConfiguration",
+  "SystemExtensions",
+  "Tor",
+  "UIKit",
+  "WidgetKit",
+  "XCTest",
+  "os"
+ ],
+ "min_ios_inferred": "16",
+ "deprecated_apis_used": [
+  "foregroundColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "aspectRatio",
+   "background",
+   "cornerRadius",
+   "foregroundColor",
+   "ignoresSafeArea",
+   "onChange",
+   "padding",
+   "previewContext",
+   "resizable"
+  ],
+  "types": [
+   "Button",
+   "Color",
+   "EdgeInsets",
+   "HStack",
+   "Image",
+   "Link",
+   "StaticConfiguration",
+   "Text",
+   "Timeline",
+   "VStack",
+   "WidgetPreviewContext",
+   "ZStack"
+  ],
+  "valueBuilders": [
+   "body",
+   "custom",
+   "semibold"
+  ],
+  "macros": [],
+  "styleValues": [
+   "automatic",
+   "center",
+   "default",
+   "grouped",
+   "subtitle",
+   "white"
+  ],
+  "propertyWrappers": [
+   "Environment"
+  ],
+  "environmentKeys": [
+   "widgetFamily"
+  ]
+ },
+ "counts": {
+  "modifiers": 9,
+  "types": 12,
+  "valueBuilders": 3,
+  "macros": 0,
+  "styleValues": 6,
+  "propertyWrappers": 1,
+  "environmentKeys": 1
+ },
+ "total_unique_apis": 32
+}

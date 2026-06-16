@@ -1,0 +1,71 @@
+{
+ "repo": "isaced/ISEmojiView",
+ "stars": 547,
+ "categories": [
+  "Keyboard"
+ ],
+ "sha": "ff7512fdea9ddd74062a80a5f1bb2180bdfbd3aa",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 9841,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "isaced",
+   "score": 9841,
+   "contributions": 109
+  },
+  {
+   "login": "Beniamiiin",
+   "score": 239,
+   "contributions": 9
+  },
+  {
+   "login": "justinmann",
+   "score": 9,
+   "contributions": 6
+  }
+ ],
+ "loc": 1982,
+ "custom_components": 3,
+ "imports": [
+  "Foundation",
+  "ISEmojiView",
+  "PackageDescription",
+  "SwiftUI",
+  "UIKit"
+ ],
+ "min_ios_inferred": "13",
+ "deprecated_apis_used": [],
+ "unique": {
+  "modifiers": [
+   "border",
+   "frame",
+   "padding",
+   "previewLayout"
+  ],
+  "types": [],
+  "valueBuilders": [
+   "custom"
+  ],
+  "macros": [],
+  "styleValues": [
+   "bottom",
+   "center",
+   "clear",
+   "default"
+  ],
+  "propertyWrappers": [],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 4,
+  "types": 0,
+  "valueBuilders": 1,
+  "macros": 0,
+  "styleValues": 4,
+  "propertyWrappers": 0,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 9
+}

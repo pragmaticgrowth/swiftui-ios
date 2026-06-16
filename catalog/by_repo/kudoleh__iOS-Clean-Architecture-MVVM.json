@@ -1,0 +1,76 @@
+{
+ "repo": "kudoleh/iOS-Clean-Architecture-MVVM",
+ "stars": 4388,
+ "categories": [
+  "Sample"
+ ],
+ "sha": "6535ebeabefd608a0990336f3411796a2fbc19f9",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 5439,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "kudoleh",
+   "score": 5439,
+   "contributions": 321
+  },
+  {
+   "login": "lengocgiang",
+   "score": 17,
+   "contributions": 3
+  },
+  {
+   "login": "Jeon0976",
+   "score": 29,
+   "contributions": 3
+  }
+ ],
+ "loc": 4074,
+ "custom_components": 4,
+ "imports": [
+  "CoreData",
+  "ExampleMVVM",
+  "Foundation",
+  "SwiftUI",
+  "UIKit",
+  "XCTest"
+ ],
+ "min_ios_inferred": "13",
+ "deprecated_apis_used": [],
+ "unique": {
+  "modifiers": [
+   "onAppear"
+  ],
+  "types": [
+   "Button",
+   "List",
+   "Text",
+   "UIHostingController"
+  ],
+  "valueBuilders": [],
+  "macros": [],
+  "styleValues": [
+   "black",
+   "clear",
+   "dark",
+   "gray",
+   "plain",
+   "white"
+  ],
+  "propertyWrappers": [
+   "ObservedObject"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 1,
+  "types": 4,
+  "valueBuilders": 0,
+  "macros": 0,
+  "styleValues": 6,
+  "propertyWrappers": 1,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 12
+}

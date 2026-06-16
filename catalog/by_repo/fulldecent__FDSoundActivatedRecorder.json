@@ -1,0 +1,103 @@
+{
+ "repo": "fulldecent/FDSoundActivatedRecorder",
+ "stars": 297,
+ "categories": [
+  "Audio"
+ ],
+ "sha": "c6db5036bfb6d044a721bb1343154c507ffe4628",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 228307,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "fulldecent",
+   "score": 228307,
+   "contributions": 82
+  },
+  {
+   "login": "leolobato",
+   "score": 15902,
+   "contributions": 12
+  },
+  {
+   "login": "1njected",
+   "score": 5025,
+   "contributions": 5
+  }
+ ],
+ "loc": 787,
+ "custom_components": 7,
+ "imports": [
+  "AVFoundation",
+  "CoreMedia",
+  "Example",
+  "FDSoundActivatedRecorder",
+  "Foundation",
+  "PackageDescription",
+  "SwiftUI",
+  "Testing",
+  "XCTest"
+ ],
+ "min_ios_inferred": "15",
+ "deprecated_apis_used": [
+  "foregroundColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "background",
+   "cornerRadius",
+   "disabled",
+   "environmentObject",
+   "foregroundColor",
+   "frame",
+   "overlay",
+   "padding",
+   "previewLayout"
+  ],
+  "types": [
+   "Button",
+   "ForEach",
+   "GeometryReader",
+   "HStack",
+   "Rectangle",
+   "Spacer",
+   "Text",
+   "VStack",
+   "WindowGroup",
+   "ZStack"
+  ],
+  "valueBuilders": [],
+  "macros": [],
+  "styleValues": [
+   "black",
+   "blue",
+   "clear",
+   "cyan",
+   "default",
+   "gray",
+   "green",
+   "leading",
+   "orange",
+   "purple",
+   "red",
+   "white",
+   "yellow"
+  ],
+  "propertyWrappers": [
+   "EnvironmentObject",
+   "StateObject"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 9,
+  "types": 10,
+  "valueBuilders": 0,
+  "macros": 0,
+  "styleValues": 13,
+  "propertyWrappers": 2,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 34
+}

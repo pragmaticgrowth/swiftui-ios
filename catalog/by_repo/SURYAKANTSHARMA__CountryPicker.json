@@ -1,0 +1,138 @@
+{
+ "repo": "SURYAKANTSHARMA/CountryPicker",
+ "stars": 315,
+ "categories": [
+  "PickerView"
+ ],
+ "sha": "425f88ba4dd22c0af6c3bec9949dc9103f71840f",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 656,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "SURYAKANTSHARMA",
+   "score": 434,
+   "contributions": 370
+  },
+  {
+   "login": "Sharkesm",
+   "score": 4786,
+   "contributions": 63
+  },
+  {
+   "login": "suryaFatbit",
+   "score": 0,
+   "contributions": 26
+  }
+ ],
+ "loc": 1944,
+ "custom_components": 46,
+ "imports": [
+  "Combine",
+  "CountryPicker",
+  "Foundation",
+  "PackageDescription",
+  "SKCountryPicker",
+  "SwiftUI",
+  "UIKit",
+  "XCTest"
+ ],
+ "min_ios_inferred": "15",
+ "deprecated_apis_used": [
+  "NavigationView",
+  "foregroundColor",
+  "presentationMode",
+  "tabItem"
+ ],
+ "unique": {
+  "modifiers": [
+   "accessibilityAddTraits",
+   "accessibilityHint",
+   "accessibilityLabel",
+   "background",
+   "bold",
+   "clipShape",
+   "cornerRadius",
+   "font",
+   "foregroundColor",
+   "frame",
+   "listStyle",
+   "navigationTitle",
+   "onChange",
+   "onDisappear",
+   "padding",
+   "pickerStyle",
+   "resizable",
+   "scaledToFit",
+   "searchable",
+   "sheet",
+   "tabItem",
+   "tag",
+   "toolbar"
+  ],
+  "types": [
+   "Button",
+   "Circle",
+   "ForEach",
+   "HStack",
+   "Image",
+   "List",
+   "NavigationView",
+   "Picker",
+   "ScrollViewReader",
+   "Spacer",
+   "State",
+   "TabView",
+   "Text",
+   "Toggle",
+   "ToolbarItem",
+   "VStack",
+   "WindowGroup",
+   "ZStack"
+  ],
+  "valueBuilders": [
+   "callout",
+   "footnote",
+   "headline",
+   "system",
+   "title2",
+   "title3"
+  ],
+  "macros": [],
+  "styleValues": [
+   "bottom",
+   "cancellationAction",
+   "center",
+   "circular",
+   "green",
+   "grouped",
+   "leading",
+   "primary",
+   "secondary",
+   "title",
+   "trailing",
+   "wheel",
+   "white"
+  ],
+  "propertyWrappers": [
+   "Binding",
+   "Environment",
+   "ObservedObject",
+   "State"
+  ],
+  "environmentKeys": [
+   "presentationMode"
+  ]
+ },
+ "counts": {
+  "modifiers": 23,
+  "types": 18,
+  "valueBuilders": 6,
+  "macros": 0,
+  "styleValues": 13,
+  "propertyWrappers": 4,
+  "environmentKeys": 1
+ },
+ "total_unique_apis": 65
+}

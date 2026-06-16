@@ -1,0 +1,133 @@
+{
+ "repo": "sindresorhus/Blear",
+ "stars": 561,
+ "categories": [
+  "Photo"
+ ],
+ "sha": "2cf4083bf6c79aff11e8b723e39fbb7addb30c4a",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 1017003,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "sindresorhus",
+   "score": 1017003,
+   "contributions": 60
+  },
+  {
+   "login": "serhii-londar",
+   "score": 49632,
+   "contributions": 4
+  },
+  {
+   "login": "ranesr",
+   "score": 821,
+   "contributions": 1
+  }
+ ],
+ "loc": 2214,
+ "custom_components": 48,
+ "imports": [
+  "Combine",
+  "Defaults",
+  "MobileCoreServices",
+  "PhotosUI",
+  "StoreKit",
+  "SwiftUI",
+  "UniformTypeIdentifiers"
+ ],
+ "min_ios_inferred": "26",
+ "deprecated_apis_used": [
+  "sizeCategory"
+ ],
+ "unique": {
+  "modifiers": [
+   "alert",
+   "animation",
+   "buttonBorderShape",
+   "buttonStyle",
+   "disabled",
+   "environment",
+   "foregroundStyle",
+   "frame",
+   "ignoresSafeArea",
+   "imageScale",
+   "labelStyle",
+   "onAppear",
+   "onChange",
+   "onTapGesture",
+   "opacity",
+   "padding",
+   "resizable",
+   "safeAreaInset",
+   "safeAreaPadding",
+   "scaleEffect",
+   "scaledToFill",
+   "scrollIndicators",
+   "statusBarHidden",
+   "task",
+   "tint"
+  ],
+  "types": [
+   "Button",
+   "Divider",
+   "EmptyView",
+   "ForEach",
+   "GeometryReader",
+   "HStack",
+   "Image",
+   "Label",
+   "LabeledContent",
+   "Link",
+   "LocalizedStringKey",
+   "Menu",
+   "NavigationStack",
+   "ScrollView",
+   "ShareLink",
+   "Slider",
+   "Spacer",
+   "Text",
+   "UIHostingController",
+   "VStack",
+   "WindowGroup"
+  ],
+  "valueBuilders": [
+   "easeIn",
+   "regular",
+   "semibold"
+  ],
+  "macros": [],
+  "styleValues": [
+   "bottom",
+   "cancel",
+   "center",
+   "clear",
+   "glass",
+   "iconOnly",
+   "tertiary",
+   "top",
+   "white"
+  ],
+  "propertyWrappers": [
+   "Binding",
+   "Environment",
+   "State"
+  ],
+  "environmentKeys": [
+   "horizontalSizeClass",
+   "isEnabled",
+   "sizeCategory"
+  ]
+ },
+ "counts": {
+  "modifiers": 25,
+  "types": 21,
+  "valueBuilders": 3,
+  "macros": 0,
+  "styleValues": 9,
+  "propertyWrappers": 3,
+  "environmentKeys": 3
+ },
+ "total_unique_apis": 64
+}

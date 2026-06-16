@@ -1,0 +1,132 @@
+{
+ "repo": "sh-khashimov/SwiftFortuneWheel",
+ "stars": 395,
+ "categories": [
+  "Games"
+ ],
+ "sha": "a0646fc23fbd3be8014f3436715b06be665c4016",
+ "platform": "cross_platform",
+ "ipad_idioms": [],
+ "author_authority": 516,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "sh-khashimov",
+   "score": 516,
+   "contributions": 120
+  },
+  {
+   "login": "JohannesBauer97",
+   "score": 32,
+   "contributions": 1
+  },
+  {
+   "login": "M-I-N",
+   "score": 24,
+   "contributions": 1
+  }
+ ],
+ "loc": 10028,
+ "custom_components": 9,
+ "imports": [
+  "AVFoundation",
+  "AppKit",
+  "Cocoa",
+  "Combine",
+  "CoreGraphics",
+  "Foundation",
+  "PackageDescription",
+  "PlaygroundSupport",
+  "SwiftFortuneWheel",
+  "SwiftFortuneWheelDemo_macOS",
+  "SwiftFortuneWheelDemo_tvOS",
+  "SwiftFortuneWheelTests",
+  "SwiftUI",
+  "UIKit",
+  "XCTest"
+ ],
+ "min_ios_inferred": "15",
+ "deprecated_apis_used": [
+  "NavigationView",
+  "foregroundColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "animation",
+   "aspectRatio",
+   "background",
+   "buttonStyle",
+   "cornerRadius",
+   "foregroundColor",
+   "frame",
+   "keyboardType",
+   "navigationBarTitleDisplayMode",
+   "navigationTitle",
+   "padding",
+   "pickerStyle",
+   "tag",
+   "textFieldStyle",
+   "tint",
+   "toggleStyle",
+   "width"
+  ],
+  "types": [
+   "Button",
+   "ControlGroup",
+   "HStack",
+   "NavigationView",
+   "Picker",
+   "RoundedBorderTextFieldStyle",
+   "ScrollView",
+   "SwitchToggleStyle",
+   "Text",
+   "TextField",
+   "Toggle",
+   "VStack",
+   "WindowGroup"
+  ],
+  "valueBuilders": [
+   "semibold"
+  ],
+  "macros": [],
+  "styleValues": [
+   "black",
+   "blue",
+   "bottom",
+   "brown",
+   "center",
+   "clear",
+   "cyan",
+   "default",
+   "fill",
+   "gray",
+   "green",
+   "inline",
+   "light",
+   "linear",
+   "orange",
+   "purple",
+   "red",
+   "segmented",
+   "top",
+   "white",
+   "yellow"
+  ],
+  "propertyWrappers": [
+   "Binding",
+   "ObservedObject",
+   "State"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 17,
+  "types": 13,
+  "valueBuilders": 1,
+  "macros": 0,
+  "styleValues": 21,
+  "propertyWrappers": 3,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 55
+}

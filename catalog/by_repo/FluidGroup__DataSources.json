@@ -1,0 +1,73 @@
+{
+ "repo": "FluidGroup/DataSources",
+ "stars": 574,
+ "categories": [
+  "Collection View"
+ ],
+ "sha": "ad662acf81c077334000a732661afbcca217776a",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 154253,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "muukii",
+   "score": 156984,
+   "contributions": 113
+  },
+  {
+   "login": "fossabot",
+   "score": 0,
+   "contributions": 1
+  },
+  {
+   "login": "tatsuya-yamamoto-nm",
+   "score": 0,
+   "contributions": 1
+  }
+ ],
+ "loc": 1292,
+ "custom_components": 1,
+ "imports": [
+  "AsyncDisplayKit",
+  "DataSources",
+  "DifferenceKit",
+  "Foundation",
+  "PackageDescription",
+  "RxRelay",
+  "RxSwift",
+  "SwiftUI",
+  "SwiftUIHosting",
+  "UIKit",
+  "XCTest",
+  "os"
+ ],
+ "min_ios_inferred": "13",
+ "deprecated_apis_used": [],
+ "unique": {
+  "modifiers": [],
+  "types": [
+   "Button",
+   "HStack"
+  ],
+  "valueBuilders": [],
+  "macros": [],
+  "styleValues": [
+   "automatic",
+   "plain",
+   "white"
+  ],
+  "propertyWrappers": [],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 0,
+  "types": 2,
+  "valueBuilders": 0,
+  "macros": 0,
+  "styleValues": 3,
+  "propertyWrappers": 0,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 5
+}

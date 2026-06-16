@@ -1,0 +1,110 @@
+{
+ "repo": "MessageKit/MessageKit",
+ "stars": 6266,
+ "categories": [
+  "Messaging"
+ ],
+ "sha": "b4493fe468c82f87cd2a533d1abe63d9b698d2b8",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 6524,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "SD10",
+   "score": 357,
+   "contributions": 629
+  },
+  {
+   "login": "Kaspik",
+   "score": 22621,
+   "contributions": 347
+  },
+  {
+   "login": "nathantannar4",
+   "score": 3851,
+   "contributions": 227
+  }
+ ],
+ "loc": 14830,
+ "custom_components": 7,
+ "imports": [
+  "AVFoundation",
+  "ChatExample",
+  "Combine",
+  "CoreGraphics",
+  "CoreLocation",
+  "Foundation",
+  "InputBarAccessoryView",
+  "Kingfisher",
+  "MapKit",
+  "MessageKit",
+  "MessageKitTests",
+  "PackageDescription",
+  "SafariServices",
+  "SwiftUI",
+  "UIKit",
+  "XCTest"
+ ],
+ "min_ios_inferred": "17",
+ "deprecated_apis_used": [
+  "navigationBarTitle"
+ ],
+ "unique": {
+  "modifiers": [
+   "ignoresSafeArea",
+   "modifier",
+   "navigationBarTitle",
+   "onAppear",
+   "onDisappear",
+   "width"
+  ],
+  "types": [
+   "UIHostingController"
+  ],
+  "valueBuilders": [
+   "body",
+   "caption2",
+   "custom",
+   "footnote",
+   "headline",
+   "medium",
+   "semibold"
+  ],
+  "macros": [],
+  "styleValues": [
+   "black",
+   "bottom",
+   "cancel",
+   "center",
+   "clear",
+   "date",
+   "default",
+   "identity",
+   "inline",
+   "insetGrouped",
+   "interactive",
+   "keyboard",
+   "light",
+   "link",
+   "plain",
+   "red",
+   "white"
+  ],
+  "propertyWrappers": [
+   "Binding",
+   "State"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 6,
+  "types": 1,
+  "valueBuilders": 7,
+  "macros": 0,
+  "styleValues": 17,
+  "propertyWrappers": 2,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 33
+}

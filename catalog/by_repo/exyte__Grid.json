@@ -1,0 +1,166 @@
+{
+ "repo": "exyte/Grid",
+ "stars": 2085,
+ "categories": [
+  "Layout"
+ ],
+ "sha": "7c745488d64f63533fd0fe066910777fb4dbdbef",
+ "platform": "cross_platform",
+ "ipad_idioms": [],
+ "author_authority": 213,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "denis-obukhov",
+   "score": 0,
+   "contributions": 270
+  },
+  {
+   "login": "f3dm76",
+   "score": 9945,
+   "contributions": 6
+  },
+  {
+   "login": "ystrot",
+   "score": 65,
+   "contributions": 3
+  }
+ ],
+ "loc": 3914,
+ "custom_components": 73,
+ "imports": [
+  "AppKit",
+  "CoreGraphics",
+  "ExyteGrid",
+  "Foundation",
+  "Grid",
+  "GridMac",
+  "PackageDescription",
+  "SwiftUI",
+  "UIKit",
+  "XCTest"
+ ],
+ "min_ios_inferred": "16",
+ "deprecated_apis_used": [
+  "NavigationView",
+  "edgesIgnoringSafeArea",
+  "foregroundColor",
+  "navigationBarTitle"
+ ],
+ "unique": {
+  "modifiers": [
+   "alignmentGuide",
+   "animation",
+   "aspectRatio",
+   "background",
+   "backgroundPreferenceValue",
+   "clipped",
+   "cornerRadius",
+   "edgesIgnoringSafeArea",
+   "environment",
+   "font",
+   "foregroundColor",
+   "frame",
+   "id",
+   "layoutPriority",
+   "minimumScaleFactor",
+   "navigationBarTitle",
+   "onPreferenceChange",
+   "opacity",
+   "overlay",
+   "overlayPreferenceValue",
+   "padding",
+   "pickerStyle",
+   "resizable",
+   "shadow",
+   "sheet",
+   "strokeBorder",
+   "tag",
+   "transformPreference"
+  ],
+  "types": [
+   "AnyView",
+   "Button",
+   "Capsule",
+   "Color",
+   "EdgeInsets",
+   "EmptyView",
+   "ForEach",
+   "GeometryReader",
+   "Gradient",
+   "Grid",
+   "HStack",
+   "Image",
+   "LinearGradient",
+   "List",
+   "NavigationLink",
+   "NavigationView",
+   "Picker",
+   "RoundedRectangle",
+   "ScrollView",
+   "SegmentedPickerStyle",
+   "Slider",
+   "Spacer",
+   "Text",
+   "VStack",
+   "WindowGroup",
+   "ZStack"
+  ],
+  "valueBuilders": [
+   "bottomLeading",
+   "bottomTrailing",
+   "custom",
+   "easeInOut",
+   "regular",
+   "system",
+   "topLeading",
+   "topTrailing"
+  ],
+  "macros": [],
+  "styleValues": [
+   "black",
+   "blue",
+   "bottom",
+   "brown",
+   "center",
+   "clear",
+   "columns",
+   "compact",
+   "cyan",
+   "dark",
+   "default",
+   "fill",
+   "gray",
+   "green",
+   "inline",
+   "leading",
+   "light",
+   "orange",
+   "purple",
+   "red",
+   "top",
+   "trailing",
+   "white",
+   "yellow"
+  ],
+  "propertyWrappers": [
+   "Environment",
+   "State"
+  ],
+  "environmentKeys": [
+   "colorScheme",
+   "horizontalSizeClass",
+   "verticalSizeClass"
+  ]
+ },
+ "counts": {
+  "modifiers": 28,
+  "types": 26,
+  "valueBuilders": 8,
+  "macros": 0,
+  "styleValues": 24,
+  "propertyWrappers": 2,
+  "environmentKeys": 3
+ },
+ "total_unique_apis": 91
+}

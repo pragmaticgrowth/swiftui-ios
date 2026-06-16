@@ -1,0 +1,77 @@
+{
+ "repo": "Brightify/Cuckoo",
+ "stars": 1744,
+ "categories": [
+  "Other Testing"
+ ],
+ "sha": "8db209b9a5ba58ac6be7d542b07bb72b49baa587",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 1231,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "MatyasKriz",
+   "score": 1771,
+   "contributions": 110
+  },
+  {
+   "login": "TadeasKriz",
+   "score": 3503,
+   "contributions": 103
+  },
+  {
+   "login": "FilipDolnik",
+   "score": 1254,
+   "contributions": 80
+  }
+ ],
+ "loc": 15310,
+ "custom_components": 0,
+ "imports": [
+  "ArgumentParser",
+  "CoreGraphics",
+  "Cuckoo",
+  "CuckooMocks",
+  "FileKit",
+  "Foundation",
+  "OCMock",
+  "PackageDescription",
+  "PackagePlugin",
+  "ProjectDescription",
+  "ProjectDescriptionHelpers",
+  "Rainbow",
+  "Stencil",
+  "SwiftParser",
+  "SwiftSyntax",
+  "SwiftUI",
+  "TOMLKit",
+  "Testing",
+  "UIKit",
+  "WebKit",
+  "XCTest",
+  "XcodeProj",
+  "XcodeProjectPlugin"
+ ],
+ "min_ios_inferred": null,
+ "deprecated_apis_used": [],
+ "unique": {
+  "modifiers": [],
+  "types": [],
+  "valueBuilders": [],
+  "macros": [],
+  "styleValues": [],
+  "propertyWrappers": [],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 0,
+  "types": 0,
+  "valueBuilders": 0,
+  "macros": 0,
+  "styleValues": 0,
+  "propertyWrappers": 0,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 0
+}

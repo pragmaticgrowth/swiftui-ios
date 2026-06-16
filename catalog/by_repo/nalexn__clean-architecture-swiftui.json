@@ -1,0 +1,145 @@
+{
+ "repo": "nalexn/clean-architecture-swiftui",
+ "stars": 6571,
+ "categories": [
+  "Architecture Patterns",
+  "SwiftUI",
+  "macOS"
+ ],
+ "sha": "9eca97b8cfff96a14084b564b1fefd949c93d232",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 9842,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "nalexn",
+   "score": 9842,
+   "contributions": 63
+  },
+  {
+   "login": "quokkaKyu",
+   "score": 0,
+   "contributions": 3
+  },
+  {
+   "login": "schinj",
+   "score": 1,
+   "contributions": 2
+  }
+ ],
+ "loc": 4722,
+ "custom_components": 55,
+ "imports": [
+  "Combine",
+  "CountriesSwiftUI",
+  "EnvironmentOverrides",
+  "Foundation",
+  "PackageDescription",
+  "SwiftData",
+  "SwiftUI",
+  "Testing",
+  "UIKit",
+  "UserNotifications",
+  "ViewInspector"
+ ],
+ "min_ios_inferred": "17",
+ "deprecated_apis_used": [
+  "StackNavigationViewStyle",
+  "navigationBarTitle",
+  "navigationViewStyle"
+ ],
+ "unique": {
+  "modifiers": [
+   "aspectRatio",
+   "blur",
+   "bold",
+   "environment",
+   "equatable",
+   "flipsForRightToLeftLayoutDirection",
+   "font",
+   "frame",
+   "hidden",
+   "ignoresSafeArea",
+   "listStyle",
+   "modelContainer",
+   "modifier",
+   "multilineTextAlignment",
+   "navigationBarTitle",
+   "navigationDestination",
+   "navigationTitle",
+   "navigationViewStyle",
+   "onAppear",
+   "onChange",
+   "onReceive",
+   "onTapGesture",
+   "padding",
+   "progressViewStyle",
+   "refreshable",
+   "resizable",
+   "searchable",
+   "sheet",
+   "toolbar"
+  ],
+  "types": [
+   "Binding",
+   "Button",
+   "CircularProgressViewStyle",
+   "EmptyView",
+   "ForEach",
+   "GroupedListStyle",
+   "HStack",
+   "Image",
+   "List",
+   "NavigationLink",
+   "NavigationPath",
+   "NavigationStack",
+   "ProgressView",
+   "Query",
+   "Rectangle",
+   "Section",
+   "Spacer",
+   "StackNavigationViewStyle",
+   "Text",
+   "ToolbarItem",
+   "VStack",
+   "WindowGroup"
+  ],
+  "valueBuilders": [
+   "callout",
+   "caption",
+   "caption2",
+   "footnote",
+   "headline"
+  ],
+  "macros": [
+   "Preview"
+  ],
+  "styleValues": [
+   "bottom",
+   "center",
+   "leading",
+   "title"
+  ],
+  "propertyWrappers": [
+   "Binding",
+   "Environment",
+   "Query",
+   "State",
+   "UIApplicationDelegateAdaptor"
+  ],
+  "environmentKeys": [
+   "locale"
+  ]
+ },
+ "counts": {
+  "modifiers": 29,
+  "types": 22,
+  "valueBuilders": 5,
+  "macros": 1,
+  "styleValues": 4,
+  "propertyWrappers": 5,
+  "environmentKeys": 1
+ },
+ "total_unique_apis": 67
+}

@@ -1,0 +1,81 @@
+{
+ "repo": "FlineDev/Prayer",
+ "stars": 37,
+ "categories": [
+  "Education"
+ ],
+ "sha": "7965f031ad1796aa36fe6b8bea385d8e399e9fc4",
+ "platform": "cross_platform",
+ "ipad_idioms": [],
+ "author_authority": 0,
+ "contributor_count": 2,
+ "top_contributors": [
+  {
+   "login": "Jeehut",
+   "score": 0,
+   "contributions": 227
+  },
+  {
+   "login": "SamiyeK",
+   "score": 0,
+   "contributions": 1
+  }
+ ],
+ "loc": 5198,
+ "custom_components": 0,
+ "imports": [
+  "AVFoundation",
+  "AVKit",
+  "App",
+  "AppKit",
+  "Eureka",
+  "Foundation",
+  "HandySwift",
+  "HandyUIKit",
+  "Imperio",
+  "MungoHealer",
+  "NotificationToast",
+  "Rainbow",
+  "SafariServices",
+  "SwiftShell",
+  "SwiftUI",
+  "SwiftyBeaver",
+  "SwiftyTimer",
+  "SwiftyUserDefaults",
+  "TranslateKit",
+  "UIKit",
+  "ViewRow",
+  "XCTest"
+ ],
+ "min_ios_inferred": "14",
+ "deprecated_apis_used": [],
+ "unique": {
+  "modifiers": [
+   "onChange"
+  ],
+  "types": [
+   "LocalizedStringKey"
+  ],
+  "valueBuilders": [
+   "regular"
+  ],
+  "macros": [],
+  "styleValues": [
+   "bottom",
+   "grouped",
+   "plain"
+  ],
+  "propertyWrappers": [],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 1,
+  "types": 1,
+  "valueBuilders": 1,
+  "macros": 0,
+  "styleValues": 3,
+  "propertyWrappers": 0,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 6
+}

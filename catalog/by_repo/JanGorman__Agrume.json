@@ -1,0 +1,88 @@
+{
+ "repo": "JanGorman/Agrume",
+ "stars": 891,
+ "categories": [
+  "Image"
+ ],
+ "sha": "1456ea5e4b1f2b10197b9d0b2537e2880eef3949",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 14,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "JanGorman",
+   "score": 0,
+   "contributions": 501
+  },
+  {
+   "login": "hyouuu",
+   "score": 23,
+   "contributions": 32
+  },
+  {
+   "login": "alexookah",
+   "score": 355,
+   "contributions": 23
+  }
+ ],
+ "loc": 2329,
+ "custom_components": 5,
+ "imports": [
+  "Agrume",
+  "Foundation",
+  "ImageIO",
+  "MobileCoreServices",
+  "PackageDescription",
+  "SwiftUI",
+  "SwiftyGif",
+  "UIKit",
+  "VisionKit"
+ ],
+ "min_ios_inferred": "14",
+ "deprecated_apis_used": [],
+ "unique": {
+  "modifiers": [
+   "ignoresSafeArea",
+   "matchedGeometryEffect"
+  ],
+  "types": [
+   "Button",
+   "UIHostingController",
+   "VStack"
+  ],
+  "valueBuilders": [
+   "custom",
+   "medium",
+   "regular"
+  ],
+  "macros": [],
+  "styleValues": [
+   "automatic",
+   "black",
+   "cancel",
+   "clear",
+   "dark",
+   "default",
+   "identity",
+   "plain",
+   "red"
+  ],
+  "propertyWrappers": [
+   "Binding",
+   "Namespace",
+   "State"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 2,
+  "types": 3,
+  "valueBuilders": 3,
+  "macros": 0,
+  "styleValues": 9,
+  "propertyWrappers": 3,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 20
+}

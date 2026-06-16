@@ -1,0 +1,153 @@
+{
+ "repo": "peterfriese/MakeItSo",
+ "stars": 524,
+ "categories": [
+  "Clone",
+  "SwiftUI"
+ ],
+ "sha": "1e089b47b52adc33551eac948bd8c4ff55298632",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 128109,
+ "contributor_count": 1,
+ "top_contributors": [
+  {
+   "login": "peterfriese",
+   "score": 128109,
+   "contributions": 80
+  }
+ ],
+ "loc": 1659,
+ "custom_components": 32,
+ "imports": [
+  "AuthenticationServices",
+  "Combine",
+  "CryptoKit",
+  "Firebase",
+  "FirebaseFirestoreSwift",
+  "Foundation",
+  "Resolver",
+  "Security",
+  "SwiftUI",
+  "os"
+ ],
+ "min_ios_inferred": "15",
+ "deprecated_apis_used": [
+  "NavigationView",
+  "accentColor",
+  "foregroundColor",
+  "navigationBarTrailing"
+ ],
+ "unique": {
+  "modifiers": [
+   "accentColor",
+   "animation",
+   "background",
+   "confirmationDialog",
+   "contentShape",
+   "cornerRadius",
+   "datePickerStyle",
+   "environmentObject",
+   "focused",
+   "font",
+   "foregroundColor",
+   "frame",
+   "interactiveDismissDisabled",
+   "listStyle",
+   "modifier",
+   "navigationBarTitleDisplayMode",
+   "navigationTitle",
+   "onChange",
+   "onSubmit",
+   "onTapGesture",
+   "overlay",
+   "padding",
+   "sheet",
+   "swipeActions",
+   "tint",
+   "toolbar"
+  ],
+  "types": [
+   "Button",
+   "Color",
+   "DatePicker",
+   "ForEach",
+   "Form",
+   "HStack",
+   "Image",
+   "Label",
+   "List",
+   "NavigationView",
+   "Picker",
+   "Rectangle",
+   "Section",
+   "Spacer",
+   "StateObject",
+   "Text",
+   "TextField",
+   "Toggle",
+   "ToolbarItem",
+   "ToolbarItemGroup",
+   "UIHostingController",
+   "VStack",
+   "WindowGroup"
+  ],
+  "valueBuilders": [
+   "body",
+   "caption",
+   "caption2",
+   "headline",
+   "largeTitle",
+   "system",
+   "title3"
+  ],
+  "macros": [],
+  "styleValues": [
+   "blue",
+   "bottomBar",
+   "cancel",
+   "cancellationAction",
+   "center",
+   "confirmationAction",
+   "date",
+   "default",
+   "destructive",
+   "graphical",
+   "gray",
+   "inline",
+   "largeTitle",
+   "leading",
+   "navigationBarTrailing",
+   "orange",
+   "plain",
+   "red",
+   "time",
+   "top",
+   "trailing",
+   "wheel",
+   "white"
+  ],
+  "propertyWrappers": [
+   "Binding",
+   "Environment",
+   "EnvironmentObject",
+   "FocusState",
+   "ObservedObject",
+   "State",
+   "StateObject"
+  ],
+  "environmentKeys": [
+   "dismiss"
+  ]
+ },
+ "counts": {
+  "modifiers": 26,
+  "types": 23,
+  "valueBuilders": 7,
+  "macros": 0,
+  "styleValues": 23,
+  "propertyWrappers": 7,
+  "environmentKeys": 1
+ },
+ "total_unique_apis": 87
+}

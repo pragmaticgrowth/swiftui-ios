@@ -1,0 +1,92 @@
+{
+ "repo": "sebjvidal/Apple-Music-UI-Demo",
+ "stars": 275,
+ "categories": [
+  "Sample"
+ ],
+ "sha": "9d7a0276ed9fd44e7bd261eac5bb3c22fe53ca76",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 820,
+ "contributor_count": 1,
+ "top_contributors": [
+  {
+   "login": "sebjvidal",
+   "score": 820,
+   "contributions": 7
+  }
+ ],
+ "loc": 1543,
+ "custom_components": 10,
+ "imports": [
+  "Foundation",
+  "SwiftUI",
+  "UIKit"
+ ],
+ "min_ios_inferred": "16",
+ "deprecated_apis_used": [],
+ "unique": {
+  "modifiers": [
+   "bold",
+   "clipShape",
+   "font",
+   "foregroundStyle",
+   "frame",
+   "navigationTitle",
+   "opacity",
+   "overlay",
+   "padding",
+   "scrollIndicators",
+   "tint",
+   "toolbar"
+  ],
+  "types": [
+   "Button",
+   "GeometryReader",
+   "HStack",
+   "Image",
+   "LazyVStack",
+   "NavigationStack",
+   "Rectangle",
+   "RoundedRectangle",
+   "ScrollView",
+   "Spacer",
+   "Text",
+   "UIHostingController",
+   "VStack",
+   "ZStack"
+  ],
+  "valueBuilders": [
+   "custom",
+   "semibold",
+   "subheadline",
+   "system",
+   "title2",
+   "title3"
+  ],
+  "macros": [],
+  "styleValues": [
+   "bottom",
+   "circular",
+   "identity",
+   "leading",
+   "red",
+   "secondary",
+   "top",
+   "ultraThinMaterial",
+   "white"
+  ],
+  "propertyWrappers": [],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 12,
+  "types": 14,
+  "valueBuilders": 6,
+  "macros": 0,
+  "styleValues": 9,
+  "propertyWrappers": 0,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 41
+}

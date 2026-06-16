@@ -1,0 +1,866 @@
+{
+ "count": 13,
+ "recipes": [
+  {
+   "name": "tab-bar-app",
+   "kind": "pattern",
+   "apis": [
+    "TabView",
+    "tabItem"
+   ],
+   "description": "A tab-bar iOS app: TabView with .tabItem labels for each root screen.",
+   "template": "@main struct MyApp: App {\n  var body: some Scene {\n    WindowGroup { MainTabs() }\n  }\n}\n\nstruct MainTabs: View {\n  var body: some View {\n    TabView {\n      HomeView().tabItem { Label(\"Home\", systemImage: \"house\") }\n      SearchView().tabItem { Label(\"Search\", systemImage: \"magnifyingglass\") }\n      ProfileView().tabItem { Label(\"Profile\", systemImage: \"person\") }\n    }\n  }\n}",
+   "repos": 108,
+   "examples": [
+    {
+     "id": "ex_2d0696495d",
+     "repo": "fxm90/GradientLoadingBar",
+     "permalink": "https://github.com/fxm90/GradientLoadingBar/blob/87d8a1deda37385f6fecdc062afb38896548a1a3/Example/GradientLoadingBarExample/ContentView.swift#L13",
+     "src": "TabView { \u2026 }",
+     "provenance": {
+      "stars": 894,
+      "author_authority": 2898,
+      "min_ios": "18",
+      "platform": "ios",
+      "score": 0.582
+     }
+    },
+    {
+     "id": "ex_c077e36ba5",
+     "repo": "Dimillian/IceCubesApp",
+     "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/IceCubesApp/App/Main/AppView.swift#L77",
+     "src": "TabView(selection: .init( get: { selectedTab }, set: { newTab in updateTab(with: newTab) }))",
+     "provenance": {
+      "stars": 6998,
+      "author_authority": 48160,
+      "min_ios": "26",
+      "platform": "cross_platform",
+      "score": 0.4889
+     }
+    },
+    {
+     "id": "ex_d7e0be2a22",
+     "repo": "fxm90/GradientProgressBar",
+     "permalink": "https://github.com/fxm90/GradientProgressBar/blob/cca0ea7fcd15fc30833332ca2e8ec735677ca479/Example/GradientProgressBarExample/ContentView.swift#L13",
+     "src": "TabView { \u2026 }",
+     "provenance": {
+      "stars": 541,
+      "author_authority": 2898,
+      "min_ios": "18",
+      "platform": "ios",
+      "score": 0.5569
+     }
+    },
+    {
+     "id": "ex_8ca864ccae",
+     "repo": "utmapp/UTM",
+     "permalink": "https://github.com/utmapp/UTM/blob/fb61bfe86a2cc39bb3bc884636fa55414f317acb/Platform/macOS/SettingsView.swift#L138",
+     "src": "TabView { \u2026 }",
+     "provenance": {
+      "stars": 34405,
+      "author_authority": 53162,
+      "min_ios": "26",
+      "platform": "cross_platform",
+      "score": 0.5326
+     }
+    },
+    {
+     "id": "ex_b3ac3d1b0f",
+     "repo": "claration/Feather",
+     "permalink": "https://github.com/claration/Feather/blob/d308ddd8189198d170eddcf995ab4c33de421629/Feather/Views/TabView/Bars/TabbarView.swift#L14",
+     "src": "TabView(selection: $selectedTab)",
+     "provenance": {
+      "stars": 4212,
+      "author_authority": 61201,
+      "min_ios": "26",
+      "platform": "ios",
+      "score": 0.4809
+     }
+    }
+   ]
+  },
+  {
+   "name": "navigationstack-master-detail",
+   "kind": "pattern",
+   "apis": [
+    "NavigationStack",
+    "navigationDestination"
+   ],
+   "description": "iOS master-detail: NavigationStack with .navigationDestination for type-safe push navigation.",
+   "template": "NavigationStack(path: $path) {\n  List(items) { item in\n    NavigationLink(item.name, value: item)\n  }\n  .navigationDestination(for: Item.self) { item in\n    DetailView(item: item)\n  }\n  .navigationTitle(\"Items\")\n}",
+   "repos": 141,
+   "examples": [
+    {
+     "id": "ex_7682aa6e5f",
+     "repo": "airbnb/lottie-ios",
+     "permalink": "https://github.com/airbnb/lottie-ios/blob/906e79b0648c16f02ad5844e345481ae05a94afe/Example/Example/ExampleApp.swift#L22",
+     "src": "NavigationStack { \u2026 }",
+     "provenance": {
+      "stars": 26763,
+      "author_authority": 52153,
+      "min_ios": "16",
+      "platform": "cross_platform",
+      "score": 0.7102
+     }
+    },
+    {
+     "id": "ex_28ae10fa9a",
+     "repo": "utmapp/UTM",
+     "permalink": "https://github.com/utmapp/UTM/blob/fb61bfe86a2cc39bb3bc884636fa55414f317acb/Platform/iOS/VMWizardView.swift#L140",
+     "src": "NavigationStack(path: $wizardState.pageHistory)",
+     "provenance": {
+      "stars": 34405,
+      "author_authority": 53162,
+      "min_ios": "26",
+      "platform": "cross_platform",
+      "score": 0.5326
+     }
+    },
+    {
+     "id": "ex_d469194142",
+     "repo": "groue/GRDB.swift",
+     "permalink": "https://github.com/groue/GRDB.swift/blob/9ed8c8457e00ff9c7aedb3bf213f20a2cfdf509e/Documentation/DemoApps/GRDBDemo/GRDBDemo/Views/PlayerCreationSheet.swift#L10",
+     "src": "NavigationStack { \u2026 }",
+     "provenance": {
+      "stars": 8469,
+      "author_authority": 12433,
+      "min_ios": "17",
+      "platform": "ios",
+      "score": 0.6606
+     }
+    },
+    {
+     "id": "ex_10ccadbe89",
+     "repo": "3lvis/SwiftSync",
+     "permalink": "https://github.com/3lvis/SwiftSync/blob/375a0d6eeca24cd18619a071b95586d8750e1e85/Demo/Demo/Features/TaskForm/TaskFormSheet.swift#L58",
+     "src": "NavigationStack { \u2026 }",
+     "provenance": {
+      "stars": 2543,
+      "author_authority": 13449,
+      "min_ios": "17",
+      "platform": "ios",
+      "score": 0.631
+     }
+    },
+    {
+     "id": "ex_623a1d9120",
+     "repo": "relatedcode/ProgressHUD",
+     "permalink": "https://github.com/relatedcode/ProgressHUD/blob/e6f7339d70d793a12dbccb008d374e153f2b98b5/SwiftUI/app/ContentView.swift#L66",
+     "src": "NavigationStack { \u2026 }",
+     "provenance": {
+      "stars": 2963,
+      "author_authority": 9404,
+      "min_ios": "17",
+      "platform": "ios",
+      "score": 0.6272
+     }
+    }
+   ]
+  },
+  {
+   "name": "sheet-detents",
+   "kind": "pattern",
+   "apis": [
+    "sheet",
+    "presentationDetents"
+   ],
+   "description": "A bottom sheet with height detents (.medium, .large, or custom fraction/height).",
+   "template": ".sheet(isPresented: $showSheet) {\n  SheetContent()\n    .presentationDetents([.medium, .large])\n    .presentationDragIndicator(.visible)\n}",
+   "repos": 75,
+   "examples": [
+    {
+     "id": "ex_eb49712167",
+     "repo": "3lvis/SwiftSync",
+     "permalink": "https://github.com/3lvis/SwiftSync/blob/375a0d6eeca24cd18619a071b95586d8750e1e85/Demo/Demo/Features/TaskForm/TaskFormSheet.swift#L74",
+     "src": ".presentationDetents([.large])",
+     "provenance": {
+      "stars": 2543,
+      "author_authority": 13449,
+      "min_ios": "17",
+      "platform": "ios",
+      "score": 0.631
+     }
+    },
+    {
+     "id": "ex_89e96c8062",
+     "repo": "Dimillian/IcySky",
+     "permalink": "https://github.com/Dimillian/IcySky/blob/03560c6a30277175ea91a6bfc63b50380542017c/Packages/Features/Sources/ComposerUI/Views/ComposerView.swift#L48",
+     "src": ".presentationDetents([.height(200), .large], selection: $presentationDetent)",
+     "provenance": {
+      "stars": 535,
+      "author_authority": 48160,
+      "min_ios": "26",
+      "platform": "ios",
+      "score": 0.372
+     }
+    },
+    {
+     "id": "ex_9e65769396",
+     "repo": "mainframecomputer/fullmoon-ios",
+     "permalink": "https://github.com/mainframecomputer/fullmoon-ios/blob/cbc3c8206921afaa7fc4fe3dcdf790a18843226f/fullmoon/ContentView.swift#L68",
+     "src": ".presentationDetents([.medium, .large])",
+     "provenance": {
+      "stars": 2258,
+      "author_authority": 2864,
+      "min_ios": "17",
+      "platform": "cross_platform",
+      "score": 0.5443
+     }
+    },
+    {
+     "id": "ex_c00441c838",
+     "repo": "Dimillian/IceCubesApp",
+     "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/Packages/AppAccount/Sources/AppAccount/AppAccountsSelectorView.swift#L79",
+     "src": ".presentationDetents([.height(preferredHeight), .large])",
+     "provenance": {
+      "stars": 6998,
+      "author_authority": 48160,
+      "min_ios": "26",
+      "platform": "cross_platform",
+      "score": 0.4889
+     }
+    },
+    {
+     "id": "ex_9f72dec268",
+     "repo": "claration/Feather",
+     "permalink": "https://github.com/claration/Feather/blob/d308ddd8189198d170eddcf995ab4c33de421629/Feather/Views/Settings/Certificates/CertificatesView.swift#L79",
+     "src": ".presentationDetents([.medium])",
+     "provenance": {
+      "stars": 4212,
+      "author_authority": 61201,
+      "min_ios": "26",
+      "platform": "ios",
+      "score": 0.4809
+     }
+    }
+   ]
+  },
+  {
+   "name": "fullscreen-cover-flow",
+   "kind": "pattern",
+   "apis": [
+    "fullScreenCover"
+   ],
+   "description": "Full-screen modal cover (no drag-to-dismiss; typical for onboarding or immersive flows).",
+   "template": ".fullScreenCover(isPresented: $showOnboarding) {\n  OnboardingView(isPresented: $showOnboarding)\n}",
+   "repos": 50,
+   "examples": [
+    {
+     "id": "ex_939c3f5dfc",
+     "repo": "FluidGroup/Brightroom",
+     "permalink": "https://github.com/FluidGroup/Brightroom/blob/442b873eeddc6c930e5bc209facb62a6548169c7/Dev/Sources/SwiftUIDemo/RenderingDemoView.swift#L271",
+     "src": ".fullScreenCover(item: $fullScreenView, onDismiss: {}, content: { $0 })",
+     "provenance": {
+      "stars": 3643,
+      "author_authority": 147231,
+      "min_ios": "26",
+      "platform": "cross_platform",
+      "score": 0.4962
+     }
+    },
+    {
+     "id": "ex_e3ed421aa4",
+     "repo": "Dimillian/IceCubesApp",
+     "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/Packages/MediaUI/Sources/MediaUI/MediaUIAttachmentVideoView.swift#L135",
+     "src": ".fullScreenCover(isPresented: $isFullScreen)",
+     "provenance": {
+      "stars": 6998,
+      "author_authority": 48160,
+      "min_ios": "26",
+      "platform": "cross_platform",
+      "score": 0.4889
+     }
+    },
+    {
+     "id": "ex_027956db10",
+     "repo": "claration/Feather",
+     "permalink": "https://github.com/claration/Feather/blob/d308ddd8189198d170eddcf995ab4c33de421629/Feather/Views/Library/LibraryView.swift#L167",
+     "src": ".fullScreenCover(item: $_selectedSigningAppPresenting)",
+     "provenance": {
+      "stars": 4212,
+      "author_authority": 61201,
+      "min_ios": "26",
+      "platform": "ios",
+      "score": 0.4809
+     }
+    },
+    {
+     "id": "ex_b990bb3ad2",
+     "repo": "yattee/yattee",
+     "permalink": "https://github.com/yattee/yattee/blob/c0815353d7c8025a376c855159d64eefe16a7a2b/Shared/Playlists/PlaylistsView.swift#L121",
+     "src": ".fullScreenCover(isPresented: $showingEditPlaylist, onDismiss: selectEditedPlaylist)",
+     "provenance": {
+      "stars": 3515,
+      "author_authority": 4906,
+      "min_ios": "26",
+      "platform": "cross_platform",
+      "score": 0.4214
+     }
+    },
+    {
+     "id": "ex_8e05faa07d",
+     "repo": "horizontalsystems/unstoppable-wallet-ios",
+     "permalink": "https://github.com/horizontalsystems/unstoppable-wallet-ios/blob/291e06fd8dd854e46dddc08e911f59a71aba8a8d/UnstoppableWallet/UnstoppableWallet/UserInterface/SwiftUI/Alert/TransparentFullScreenCover.swift#L12",
+     "src": ".fullScreenCover(isPresented: $isPresented, content: { ZStack { fullScreenContent() } .background(FullScreenCoverBackgroundRemovalView()) .onAppear { if !UIView.areAnimationsEnabled { UIView.setAnimationsEnabled(true) } } .onDisappear { if ",
+     "provenance": {
+      "stars": 881,
+      "author_authority": 694,
+      "min_ios": "26",
+      "platform": "ios",
+      "score": 0.3429
+     }
+    }
+   ]
+  },
+  {
+   "name": "widget-scaffold",
+   "kind": "pattern",
+   "apis": [
+    "Widget",
+    "WidgetBundle"
+   ],
+   "description": "WidgetKit home-screen widget: a Widget conformance with a Timeline provider and entry view.",
+   "template": "struct MyWidget: Widget {\n  var body: some WidgetConfiguration {\n    StaticConfiguration(kind: \"com.example.widget\", provider: Provider()) { entry in\n      MyWidgetEntryView(entry: entry)\n    }\n    .configurationDisplayName(\"My Widget\")\n    .description(\"Shows current status.\")\n  }\n}",
+   "repos": 0,
+   "examples": []
+  },
+  {
+   "name": "app-intent",
+   "kind": "pattern",
+   "apis": [
+    "AppIntent",
+    "AppShortcutsProvider"
+   ],
+   "description": "App Intent exposed to Siri / Shortcuts: an AppIntent struct with @Parameter inputs and an AppShortcutsProvider.",
+   "template": "struct OpenItemIntent: AppIntent {\n  static var title: LocalizedStringResource = \"Open Item\"\n  @Parameter(title: \"Item\") var item: ItemEntity\n  func perform() async throws -> some IntentResult {\n    // navigate to item\n    return .result()\n  }\n}\n\nstruct MyShortcuts: AppShortcutsProvider {\n  static var appShortcuts: [AppShortcut] {\n    AppShortcut(intent: OpenItemIntent(), phrases: [\"Open \\(\\.$item) in MyApp\"])\n  }\n}",
+   "repos": 0,
+   "examples": []
+  },
+  {
+   "name": "searchable-list",
+   "kind": "pattern",
+   "apis": [
+    "searchable",
+    "searchScopes"
+   ],
+   "description": "A list with a search field (and optional scopes).",
+   "template": "List(results) { Text($0.title) }\n  .searchable(text: $query)\n  // bind @State private var query = \"\"",
+   "repos": 71,
+   "examples": [
+    {
+     "id": "ex_b672e16d5a",
+     "repo": "mainframecomputer/fullmoon-ios",
+     "permalink": "https://github.com/mainframecomputer/fullmoon-ios/blob/cbc3c8206921afaa7fc4fe3dcdf790a18843226f/fullmoon/Views/Chat/ChatsListView.swift#L84",
+     "src": ".searchable(text: $search, prompt: \"search\")",
+     "provenance": {
+      "stars": 2258,
+      "author_authority": 2864,
+      "min_ios": "17",
+      "platform": "cross_platform",
+      "score": 0.5443
+     }
+    },
+    {
+     "id": "ex_fbbb669e3a",
+     "repo": "Dimillian/IceCubesApp",
+     "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/Packages/Explore/Sources/Explore/ExploreView.swift#L130",
+     "src": ".searchable(text: $searchQuery, isPresented: $isSearchPresented, placement: .navigationBarDrawer(displayMode: .always), prompt: Text(\"explore.search.prompt\"))",
+     "provenance": {
+      "stars": 6998,
+      "author_authority": 48160,
+      "min_ios": "26",
+      "platform": "cross_platform",
+      "score": 0.4889
+     }
+    },
+    {
+     "id": "ex_1619b3287f",
+     "repo": "claration/Feather",
+     "permalink": "https://github.com/claration/Feather/blob/d308ddd8189198d170eddcf995ab4c33de421629/Feather/Views/Library/LibraryView.swift#L108",
+     "src": ".searchable(text: $_searchText, placement: .platform())",
+     "provenance": {
+      "stars": 4212,
+      "author_authority": 61201,
+      "min_ios": "26",
+      "platform": "ios",
+      "score": 0.4809
+     }
+    },
+    {
+     "id": "ex_c3163492d1",
+     "repo": "kean/Pulse",
+     "permalink": "https://github.com/kean/Pulse/blob/00ea2b0f7b619f4cf3c268d190aa549f9df85ef7/Demo/Sources/Integrations/IntegrationsExamples/DebugAnalyticsView.swift#L31",
+     "src": ".searchable(text: $searchText)",
+     "provenance": {
+      "stars": 7051,
+      "author_authority": 26939,
+      "min_ios": "26",
+      "platform": "cross_platform",
+      "score": 0.4765
+     }
+    },
+    {
+     "id": "ex_ec3975bb11",
+     "repo": "jellyfin/Swiftfin",
+     "permalink": "https://github.com/jellyfin/Swiftfin/blob/b30c30e23b174d043ce1b667e4290570a2131436/Swiftfin/Views/SearchView.swift#L224",
+     "src": ".searchable(text: $searchQuery, placement: .navigationBarDrawer(displayMode: .always), prompt: L10n.search)",
+     "provenance": {
+      "stars": 3945,
+      "author_authority": 49485,
+      "min_ios": "26",
+      "platform": "ios",
+      "score": 0.4746
+     }
+    }
+   ]
+  },
+  {
+   "name": "settings-form",
+   "kind": "pattern",
+   "apis": [
+    "Form",
+    "Section",
+    "Toggle",
+    "Picker",
+    "LabeledContent"
+   ],
+   "description": "A grouped settings/preferences Form (Toggle/Picker/LabeledContent).",
+   "template": "Form {\n  Section(\"General\") {\n    Toggle(\"Enable\", isOn: $on)\n    Picker(\"Theme\", selection: $theme) { /* \u2026 */ }\n    LabeledContent(\"Version\", value: appVersion)\n  }\n}",
+   "repos": 114,
+   "examples": [
+    {
+     "id": "ex_32da9c5869",
+     "repo": "groue/GRDB.swift",
+     "permalink": "https://github.com/groue/GRDB.swift/blob/9ed8c8457e00ff9c7aedb3bf213f20a2cfdf509e/Documentation/DemoApps/GRDBDemo/GRDBDemo/Views/PlayerCreationSheet.swift#L11",
+     "src": "Form { \u2026 }",
+     "provenance": {
+      "stars": 8469,
+      "author_authority": 12433,
+      "min_ios": "17",
+      "platform": "ios",
+      "score": 0.6606
+     }
+    },
+    {
+     "id": "ex_0ca2ae3619",
+     "repo": "AvdLee/Diagnostics",
+     "permalink": "https://github.com/AvdLee/Diagnostics/blob/574b3f4e07ca5451b9d4e0f2188152aad32085f6/Example/Diagnostics-Example/ContentView+iOS.swift#L20",
+     "src": "Form { \u2026 }",
+     "provenance": {
+      "stars": 1177,
+      "author_authority": 34801,
+      "min_ios": "14",
+      "platform": "cross_platform",
+      "score": 0.597
+     }
+    },
+    {
+     "id": "ex_447ebcad82",
+     "repo": "kylebrowning/drupal-ios-sdk",
+     "permalink": "https://github.com/kylebrowning/drupal-ios-sdk/blob/0276f4c12064697c0a6e41fe3d3fa2a4c79ef09e/Sources/DrupalIOSSDKUI/DrupalLoginView.swift#L36",
+     "src": "Form { \u2026 }",
+     "provenance": {
+      "stars": 409,
+      "author_authority": 28055,
+      "min_ios": "16",
+      "platform": "ios",
+      "score": 0.5879
+     }
+    },
+    {
+     "id": "ex_4dc0856977",
+     "repo": "mainframecomputer/fullmoon-ios",
+     "permalink": "https://github.com/mainframecomputer/fullmoon-ios/blob/cbc3c8206921afaa7fc4fe3dcdf790a18843226f/fullmoon/Views/Settings/SettingsView.swift#L18",
+     "src": "Form { \u2026 }",
+     "provenance": {
+      "stars": 2258,
+      "author_authority": 2864,
+      "min_ios": "17",
+      "platform": "cross_platform",
+      "score": 0.5443
+     }
+    },
+    {
+     "id": "ex_ea3a8ad868",
+     "repo": "utmapp/UTM",
+     "permalink": "https://github.com/utmapp/UTM/blob/fb61bfe86a2cc39bb3bc884636fa55414f317acb/Platform/macOS/VMConfigAppleVirtualizationView.swift#L24",
+     "src": "Form { \u2026 }",
+     "provenance": {
+      "stars": 34405,
+      "author_authority": 53162,
+      "min_ios": "26",
+      "platform": "cross_platform",
+      "score": 0.5326
+     }
+    }
+   ]
+  },
+  {
+   "name": "observable-model",
+   "kind": "pattern",
+   "apis": [
+    "Observable",
+    "State",
+    "Bindable"
+   ],
+   "description": "Modern Observation state: an @Observable model owned by a view.",
+   "template": "@Observable final class Model { var count = 0 }\n\nstruct V: View {\n  @State private var model = Model()\n  var body: some View { Stepper(\"\\(model.count)\", value: $model.count) }\n}",
+   "repos": 62,
+   "examples": [
+    {
+     "id": "ex_8a9e39b23c",
+     "repo": "rrroyal/Harbour",
+     "permalink": "https://github.com/rrroyal/Harbour/blob/e56c10cb376baaa3ada49b29b8396e1ab9293942/Harbour/UI/Views/ContainerLogsView/ContainerLogsView+ViewModel.swift#L20",
+     "src": "@Observable @MainActor",
+     "provenance": {
+      "stars": 749,
+      "author_authority": 62718,
+      "min_ios": "26",
+      "platform": "cross_platform",
+      "score": 0.4315
+     }
+    },
+    {
+     "id": "ex_3a6b10ed41",
+     "repo": "partout-io/passepartout",
+     "permalink": "https://github.com/partout-io/passepartout/blob/bdfce646f41619c6abcc95b5038acf0b310b71e1/app-apple/Sources/AppLibrary/Observables/UserPreferencesObservable.swift#L9",
+     "src": "@MainActor @Observable",
+     "provenance": {
+      "stars": 1308,
+      "author_authority": 43850,
+      "min_ios": "18",
+      "platform": "cross_platform",
+      "score": 0.3509
+     }
+    },
+    {
+     "id": "ex_4c291fc74a",
+     "repo": "EmergeTools/hackernews",
+     "permalink": "https://github.com/EmergeTools/hackernews/blob/5baa699e096b070d4139840211313fcacd4c3491/ios/HackerNews/AppViewModel.swift#L109",
+     "src": "@Observable @MainActor",
+     "provenance": {
+      "stars": 217,
+      "author_authority": 56063,
+      "min_ios": "17",
+      "platform": "ios",
+      "score": 0.298
+     }
+    },
+    {
+     "id": "ex_fd82500050",
+     "repo": "venkatasg/DeTeXt",
+     "permalink": "https://github.com/venkatasg/DeTeXt/blob/b36e77f7da3987bcfc6b383e494af84166c30c2b/Shared/DeTeXtApp.swift#L11",
+     "src": "@Observable @MainActor",
+     "provenance": {
+      "stars": 172,
+      "author_authority": 3291,
+      "min_ios": "26",
+      "platform": "cross_platform",
+      "score": 0.2722
+     }
+    },
+    {
+     "id": "ex_66c53919b2",
+     "repo": "threema-ch/threema-ios",
+     "permalink": "https://github.com/threema-ch/threema-ios/blob/0a1b07418f085de9e64872a3dc93923b7a7ad28c/Threema/MyProfile/ThreemaSafe/Dashboard/ThreemaSafeDashboardViewModel.swift#L7",
+     "src": "@Observable @MainActor",
+     "provenance": {
+      "stars": 415,
+      "author_authority": 0,
+      "min_ios": "26",
+      "platform": "ios",
+      "score": 0.1571
+     }
+    }
+   ]
+  },
+  {
+   "name": "charts-bar",
+   "kind": "pattern",
+   "apis": [
+    "Chart",
+    "BarMark",
+    "chartXAxis"
+   ],
+   "description": "A Swift Charts bar chart with axis configuration.",
+   "template": "Chart(data) { row in\n  BarMark(x: .value(\"Day\", row.day), y: .value(\"Total\", row.total))\n}\n.chartXAxis { AxisMarks() }",
+   "repos": 13,
+   "examples": [
+    {
+     "id": "ex_ca8fea84bc",
+     "repo": "kean/Pulse",
+     "permalink": "https://github.com/kean/Pulse/blob/00ea2b0f7b619f4cf3c268d190aa549f9df85ef7/Sources/PulseUI/Views/LoggerStoreSizeChart.swift#L45",
+     "src": "BarMark(x: .value(\"Data Size\", $0.bytes), stacking: .normalized)",
+     "provenance": {
+      "stars": 7051,
+      "author_authority": 26939,
+      "min_ios": "26",
+      "platform": "cross_platform",
+      "score": 0.4765
+     }
+    },
+    {
+     "id": "ex_ced684c9b3",
+     "repo": "awaseem/foqos",
+     "permalink": "https://github.com/awaseem/foqos/blob/837f2b1bbb7e5c2cae4f40bf3ab02dae7f402519/Foqos/Components/Insights/WeeklySessionChart.swift#L15",
+     "src": "BarMark(x: .value(\"Day\", day.displayLabel), y: .value(\"Duration\", day.totalSessionTime))",
+     "provenance": {
+      "stars": 549,
+      "author_authority": 105071,
+      "min_ios": "26",
+      "platform": "ios",
+      "score": 0.4396
+     }
+    },
+    {
+     "id": "ex_503be6db76",
+     "repo": "wordpress-mobile/WordPress-iOS",
+     "permalink": "https://github.com/wordpress-mobile/WordPress-iOS/blob/bb2fd35b587bfc7f4e866e792a83009f960fc7f9/Modules/Sources/JetpackStats/Charts/SimpleBarChartView.swift#L48",
+     "src": "BarMark(x: .value(\"Date\", point.date, unit: data.granularity.component), y: .value(\"Value\", point.value), width: barWidth)",
+     "provenance": {
+      "stars": 3899,
+      "author_authority": 2037,
+      "min_ios": "26",
+      "platform": "ios",
+      "score": 0.405
+     }
+    },
+    {
+     "id": "ex_3a386f0d9a",
+     "repo": "daneden/Solstice",
+     "permalink": "https://github.com/daneden/Solstice/blob/4198e61147a6689fcb755d96d6ce61c91f8f2d4f/Solstice/Charts/AnnualDaylightChart.swift#L37",
+     "src": "BarMark(x: .value(\"Current month\", timeMachine.date, unit: .month))",
+     "provenance": {
+      "stars": 106,
+      "author_authority": 5306,
+      "min_ios": "26",
+      "platform": "cross_platform",
+      "score": 0.3321
+     }
+    },
+    {
+     "id": "ex_036d1ae985",
+     "repo": "eugenepyvovarov/CodeAgentsMobile",
+     "permalink": "https://github.com/eugenepyvovarov/CodeAgentsMobile/blob/85105d95c1acd6aacc15d03350c87595f17902f5/MobileCode/Views/Chat/CodeAgentsUIRendererView.swift#L642",
+     "src": "BarMark(x: .value(\"X\", label), y: .value(\"Value\", value))",
+     "provenance": {
+      "stars": 136,
+      "author_authority": 143128,
+      "min_ios": "26",
+      "platform": "ios",
+      "score": 0.398
+     }
+    }
+   ]
+  },
+  {
+   "name": "draggable-reorder",
+   "kind": "pattern",
+   "apis": [
+    "draggable",
+    "dropDestination",
+    "onDrag"
+   ],
+   "description": "Reorderable list via .draggable/.dropDestination with drag-and-drop.",
+   "template": "List {\n  ForEach(items) { Text($0.name) }\n    .onMove { from, to in items.move(fromOffsets: from, toOffset: to) }\n}",
+   "repos": 7,
+   "examples": [
+    {
+     "id": "ex_aa1a7b363e",
+     "repo": "Dimillian/IceCubesApp",
+     "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/Packages/MediaUI/Sources/MediaUI/MediaUIAttachmentImageView.swift#L27",
+     "src": ".draggable(MediaUIImageTransferable(url: url))",
+     "provenance": {
+      "stars": 6998,
+      "author_authority": 48160,
+      "min_ios": "26",
+      "platform": "cross_platform",
+      "score": 0.4889
+     }
+    },
+    {
+     "id": "ex_960e60affa",
+     "repo": "zzanehip/The-OldOS-Project",
+     "permalink": "https://github.com/zzanehip/The-OldOS-Project/blob/7877b019b9c38e91e1029075cddb1f516437fbb5/OldOS/OldOS/LockScreen.swift#L159",
+     "src": ".draggable(offset: $offset, current_view: $current_view, out_slides: $out_slides, apps_scale: $apps_scale, dock_offset: $dock_offset, apps_scale_height: $apps_scale_height, width: geometry.size.width)",
+     "provenance": {
+      "stars": 3485,
+      "author_authority": 3831,
+      "min_ios": "17",
+      "platform": "ios",
+      "score": 0.3119
+     }
+    },
+    {
+     "id": "ex_cdafbc36e8",
+     "repo": "amikhaylin/pompaddo",
+     "permalink": "https://github.com/amikhaylin/pompaddo/blob/7a8a52dbfce60b2d7381209e61507bce52f5df46/Shared/Activities/Tasks/TaskRowModifier.swift#L33",
+     "src": ".draggable(task)",
+     "provenance": {
+      "stars": 35,
+      "author_authority": 35,
+      "min_ios": "26",
+      "platform": "ios",
+      "score": 0.1638
+     }
+    },
+    {
+     "id": "ex_53c80eb3e0",
+     "repo": "miataru/miataru-ios-client",
+     "permalink": "https://github.com/miataru/miataru-ios-client/blob/f4dbba9d5a76c1d9b2499555156d065799248eb0/miataru/miataru/views/iPad/iPad_DevicesView.swift#L126",
+     "src": ".draggable(device.DeviceID)",
+     "provenance": {
+      "stars": 18,
+      "author_authority": 234,
+      "min_ios": "26",
+      "platform": "cross_platform",
+      "score": 0.1441
+     }
+    },
+    {
+     "id": "ex_dee2b2ab43",
+     "repo": "Visual-Studio-Coder/QR-Share-Pro",
+     "permalink": "https://github.com/Visual-Studio-Coder/QR-Share-Pro/blob/a6a411468b5096c6d17a6d415c37674572e57e4f/QRSharePro/HistoryDetailInfo.swift#L106",
+     "src": ".draggable(Image(uiImage: qrCodeImage))",
+     "provenance": {
+      "stars": 41,
+      "author_authority": 9853,
+      "min_ios": "18",
+      "platform": "ios",
+      "score": 0.1369
+     }
+    }
+   ]
+  },
+  {
+   "name": "cached-async-image",
+   "kind": "pattern",
+   "apis": [
+    "AsyncImage"
+   ],
+   "description": "Remote image with placeholder. AsyncImage is built-in (no cache); for lists/grids real apps add a cache (custom @Observable loader or a library).",
+   "template": "AsyncImage(url: url) { phase in\n  switch phase {\n  case .success(let img): img.resizable().scaledToFit()\n  case .failure: Image(systemName: \"photo\")\n  case .empty: ProgressView()\n  @unknown default: EmptyView()\n  }\n}",
+   "repos": 45,
+   "examples": [
+    {
+     "id": "ex_35d0626806",
+     "repo": "1amageek/Toolbar",
+     "permalink": "https://github.com/1amageek/Toolbar/blob/651c24079698401734dbca70c00632ef1498b295/Sources/Toolbar/Attachments/AttachmentChip.swift#L150",
+     "src": "AsyncImage(url: url)",
+     "provenance": {
+      "stars": 460,
+      "author_authority": 34805,
+      "min_ios": "26",
+      "platform": "cross_platform",
+      "score": 0.6989
+     }
+    },
+    {
+     "id": "ex_ba41ee9fc1",
+     "repo": "Dimillian/IceCubesApp",
+     "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/Packages/StatusKit/Sources/StatusKit/Editor/Components/MediaEditView.swift#L63",
+     "src": "AsyncImage(url: url, content: { image in image .resizable() .aspectRatio(contentMode: .fill) .cornerRadius(8) .padding(8) }, placeholder: { RoundedRectangle(cornerRadius: 8) .fill(Color.gray) .frame(height: 200) })",
+     "provenance": {
+      "stars": 6998,
+      "author_authority": 48160,
+      "min_ios": "26",
+      "platform": "cross_platform",
+      "score": 0.4889
+     }
+    },
+    {
+     "id": "ex_38df066cba",
+     "repo": "nalexn/ViewInspector",
+     "permalink": "https://github.com/nalexn/ViewInspector/blob/4785ee635cc39196fecc7787015e74d523f0d334/Tests/ViewInspectorTests/SwiftUI/AsyncImageTests.swift#L14",
+     "src": "AsyncImage(url: testURL, content: { phase in switch phase { case .success(let image): AnyView(image) case .failure(let error): Text(error.localizedDescription) case .empty: ProgressView() @unknown default: EmptyView() } })",
+     "provenance": {
+      "stars": 2612,
+      "author_authority": 9842,
+      "min_ios": "26",
+      "platform": "cross_platform",
+      "score": 0.4288
+     }
+    },
+    {
+     "id": "ex_8f292b5a9d",
+     "repo": "eerimoq/moblin",
+     "permalink": "https://github.com/eerimoq/moblin/blob/17e995985961139cdbbad7fccb8c96b2c6f13bcd/Moblin/Various/CacheAsyncImage.swift#L50",
+     "src": "AsyncImage(url: url, scale: scale, content: { cacheAndRender(image: $0) }, placeholder: placeholder)",
+     "provenance": {
+      "stars": 671,
+      "author_authority": 6219,
+      "min_ios": "26",
+      "platform": "ios",
+      "score": 0.3834
+     }
+    },
+    {
+     "id": "ex_c9e4755975",
+     "repo": "daneden/Zeitgeist",
+     "permalink": "https://github.com/daneden/Zeitgeist/blob/56c776cbb75248a3dcb49b73ba4260b283e7923b/Shared/Helper Views/VercelUserAvatarView.swift#L23",
+     "src": "AsyncImage(url: URL(string: url), scale: 2)",
+     "provenance": {
+      "stars": 204,
+      "author_authority": 5306,
+      "min_ios": "26",
+      "platform": "cross_platform",
+      "score": 0.349
+     }
+    }
+   ]
+  },
+  {
+   "name": "uiview-bridge",
+   "kind": "bridge",
+   "apis": [
+    "UIViewRepresentable",
+    "UIViewControllerRepresentable"
+   ],
+   "description": "Wrap a UIKit UIView or UIViewController in SwiftUI (931 real bridges across 182 repos).",
+   "template": "struct MyUIKitView: UIViewRepresentable {\n  func makeUIView(context: Context) -> UIScrollView { UIScrollView() }\n  func updateUIView(_ uiView: UIScrollView, context: Context) { }\n}",
+   "repos": 182,
+   "examples": [
+    {
+     "repo": "1amageek/Toolbar",
+     "permalink": "https://github.com/1amageek/Toolbar/blob/651c24079698401734dbca70c00632ef1498b295/Sources/Toolbar/Editor/EditorBacking+iOS.swift#L5",
+     "name": "EditorBacking"
+    },
+    {
+     "repo": "3lvis/SwiftSync",
+     "permalink": "https://github.com/3lvis/SwiftSync/blob/375a0d6eeca24cd18619a071b95586d8750e1e85/Demo/Demo/Features/Projects/ProjectsView.swift#L5",
+     "name": "ProjectsRepresentable"
+    },
+    {
+     "repo": "5calls/ios",
+     "permalink": "https://github.com/5calls/ios/blob/f3e34a71af9ed2c0ac50d86e17114dcbaaeadd63/FiveCalls/FiveCalls/DashboardFeature/AcknowListView.swift#L6",
+     "name": "AcknowListView"
+    },
+    {
+     "repo": "5calls/ios",
+     "permalink": "https://github.com/5calls/ios/blob/f3e34a71af9ed2c0ac50d86e17114dcbaaeadd63/FiveCalls/FiveCalls/DashboardFeature/EmailComposerView.swift#L6",
+     "name": "EmailComposerView"
+    },
+    {
+     "repo": "5calls/ios",
+     "permalink": "https://github.com/5calls/ios/blob/f3e34a71af9ed2c0ac50d86e17114dcbaaeadd63/FiveCalls/FiveCalls/DashboardFeature/WebView.swift#L20",
+     "name": "WebView"
+    },
+    {
+     "repo": "AndrewBennet/ReadingListV1",
+     "permalink": "https://github.com/AndrewBennet/ReadingListV1/blob/46b32b5b223df7f5a9acb14f4eec0c121eb05ed9/ReadingList/ViewControllers/Settings/ViewControllerRepresentable/ActivityView.swift#L4",
+     "name": "ActivityView"
+    },
+    {
+     "repo": "AndrewBennet/ReadingListV1",
+     "permalink": "https://github.com/AndrewBennet/ReadingListV1/blob/46b32b5b223df7f5a9acb14f4eec0c121eb05ed9/ReadingList/ViewControllers/Settings/DebugSettings.swift#L111",
+     "name": "ActivityViewController"
+    },
+    {
+     "repo": "AndrewBennet/ReadingListV1",
+     "permalink": "https://github.com/AndrewBennet/ReadingListV1/blob/46b32b5b223df7f5a9acb14f4eec0c121eb05ed9/ReadingList/ViewControllers/Settings/ViewControllerRepresentable/ChangeListWrapper.swift#L5",
+     "name": "ChangeListWrapper"
+    }
+   ]
+  }
+ ]
+}

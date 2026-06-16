@@ -1,0 +1,99 @@
+{
+ "repo": "GEOSwift/GEOSwift",
+ "stars": 1499,
+ "categories": [
+  "Maps"
+ ],
+ "sha": "fcb79a9d072209605dcfcce61a4267fe6f4163a3",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 2274,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "macdrevx",
+   "score": 5308,
+   "contributions": 144
+  },
+  {
+   "login": "scottrhoyt",
+   "score": 4556,
+   "contributions": 109
+  },
+  {
+   "login": "vfn",
+   "score": 40,
+   "contributions": 83
+  }
+ ],
+ "loc": 22371,
+ "custom_components": 30,
+ "imports": [
+  "Example",
+  "Foundation",
+  "GEOSwift",
+  "PackageDescription",
+  "SwiftUI",
+  "UniformTypeIdentifiers",
+  "XCTest",
+  "geos"
+ ],
+ "min_ios_inferred": "14",
+ "deprecated_apis_used": [
+  "Alert",
+  "foregroundColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "alert",
+   "border",
+   "fileImporter",
+   "font",
+   "foregroundColor",
+   "frame",
+   "onTapGesture",
+   "opacity",
+   "sheet"
+  ],
+  "types": [
+   "Alert",
+   "Button",
+   "Color",
+   "ForEach",
+   "GeometryReader",
+   "Group",
+   "HStack",
+   "List",
+   "Path",
+   "Rectangle",
+   "Text",
+   "VStack",
+   "WindowGroup",
+   "ZStack"
+  ],
+  "valueBuilders": [
+   "caption",
+   "clear"
+  ],
+  "macros": [],
+  "styleValues": [
+   "gray"
+  ],
+  "propertyWrappers": [
+   "Binding",
+   "ObservedObject",
+   "State"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 9,
+  "types": 14,
+  "valueBuilders": 2,
+  "macros": 0,
+  "styleValues": 1,
+  "propertyWrappers": 3,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 29
+}

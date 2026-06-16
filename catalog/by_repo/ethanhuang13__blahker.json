@@ -1,0 +1,124 @@
+{
+ "repo": "ethanhuang13/blahker",
+ "stars": 133,
+ "categories": [
+  "Content Blocking"
+ ],
+ "sha": "f467a93bfc0dfec3ff2f2cbdfbdffa85839b1bdd",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 4874,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "ethanhuang13",
+   "score": 4874,
+   "contributions": 305
+  },
+  {
+   "login": "hansbobby",
+   "score": 1,
+   "contributions": 4
+  },
+  {
+   "login": "hanstzou",
+   "score": 8,
+   "contributions": 3
+  }
+ ],
+ "loc": 2201,
+ "custom_components": 19,
+ "imports": [
+  "Blahker",
+  "Cocoa",
+  "ComposableArchitecture",
+  "ContentBlockerService",
+  "CoreServices",
+  "Dependencies",
+  "DependenciesMacros",
+  "Features",
+  "Foundation",
+  "MessageUI",
+  "MobileCoreServices",
+  "Models",
+  "PackageDescription",
+  "SafariServices",
+  "StoreKit",
+  "SwiftUI",
+  "UIKit",
+  "XCTest"
+ ],
+ "min_ios_inferred": "17",
+ "deprecated_apis_used": [],
+ "unique": {
+  "modifiers": [
+   "alert",
+   "disabled",
+   "font",
+   "foregroundStyle",
+   "lineLimit",
+   "navigationBarTitleDisplayMode",
+   "navigationTitle",
+   "onChange",
+   "padding",
+   "preferredColorScheme",
+   "refreshable",
+   "task",
+   "tint",
+   "toolbar"
+  ],
+  "types": [
+   "Button",
+   "ForEach",
+   "Image",
+   "List",
+   "NavigationStack",
+   "Section",
+   "ShareLink",
+   "Spacer",
+   "Text",
+   "ToolbarItem",
+   "VStack",
+   "WindowGroup"
+  ],
+  "valueBuilders": [
+   "footnote",
+   "headline",
+   "subheadline"
+  ],
+  "macros": [
+   "Preview"
+  ],
+  "styleValues": [
+   "background",
+   "cancel",
+   "dark",
+   "default",
+   "inline",
+   "leading",
+   "secondary",
+   "title",
+   "topBarLeading",
+   "topBarTrailing",
+   "white"
+  ],
+  "propertyWrappers": [
+   "Bindable",
+   "Environment",
+   "UIApplicationDelegateAdaptor"
+  ],
+  "environmentKeys": [
+   "scenePhase"
+  ]
+ },
+ "counts": {
+  "modifiers": 14,
+  "types": 12,
+  "valueBuilders": 3,
+  "macros": 1,
+  "styleValues": 11,
+  "propertyWrappers": 3,
+  "environmentKeys": 1
+ },
+ "total_unique_apis": 45
+}

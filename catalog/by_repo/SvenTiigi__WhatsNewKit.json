@@ -1,0 +1,136 @@
+{
+ "repo": "SvenTiigi/WhatsNewKit",
+ "stars": 4379,
+ "categories": [
+  "Walkthrough / Intro / Tutorial"
+ ],
+ "sha": "6157c77e8be9b3d2310bc680681b61a8d9e290ac",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 16292,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "SvenTiigi",
+   "score": 16292,
+   "contributions": 620
+  },
+  {
+   "login": "AndrewBennet",
+   "score": 443,
+   "contributions": 4
+  },
+  {
+   "login": "TimAEllis",
+   "score": 13,
+   "contributions": 4
+  }
+ ],
+ "loc": 2993,
+ "custom_components": 26,
+ "imports": [
+  "Foundation",
+  "PackageDescription",
+  "SwiftUI",
+  "UIKit",
+  "WhatsNewKit",
+  "XCTest"
+ ],
+ "min_ios_inferred": "16",
+ "deprecated_apis_used": [
+  "edgesIgnoringSafeArea",
+  "foregroundColor",
+  "presentationMode"
+ ],
+ "unique": {
+  "modifiers": [
+   "background",
+   "bold",
+   "buttonStyle",
+   "cornerRadius",
+   "edgesIgnoringSafeArea",
+   "environment",
+   "fixedSize",
+   "font",
+   "foregroundColor",
+   "frame",
+   "imageScale",
+   "keyboardShortcut",
+   "modifier",
+   "multilineTextAlignment",
+   "navigationTitle",
+   "onDisappear",
+   "opacity",
+   "overlay",
+   "padding",
+   "renderingMode",
+   "sheet",
+   "symbolRenderingMode",
+   "weight"
+  ],
+  "types": [
+   "Button",
+   "ForEach",
+   "Group",
+   "HStack",
+   "Image",
+   "List",
+   "NavigationStack",
+   "PlainButtonStyle",
+   "ScrollView",
+   "Section",
+   "Spacer",
+   "Text",
+   "VStack",
+   "WindowGroup",
+   "ZStack"
+  ],
+  "valueBuilders": [
+   "custom",
+   "headline",
+   "regular",
+   "semibold",
+   "subheadline"
+  ],
+  "macros": [],
+  "styleValues": [
+   "blue",
+   "bottom",
+   "center",
+   "compact",
+   "cyan",
+   "default",
+   "gray",
+   "green",
+   "largeTitle",
+   "leading",
+   "orange",
+   "pink",
+   "primary",
+   "red",
+   "secondary",
+   "selection",
+   "title",
+   "white"
+  ],
+  "propertyWrappers": [
+   "Environment",
+   "State"
+  ],
+  "environmentKeys": [
+   "horizontalSizeClass",
+   "presentationMode",
+   "verticalSizeClass"
+  ]
+ },
+ "counts": {
+  "modifiers": 23,
+  "types": 15,
+  "valueBuilders": 5,
+  "macros": 0,
+  "styleValues": 18,
+  "propertyWrappers": 2,
+  "environmentKeys": 3
+ },
+ "total_unique_apis": 66
+}

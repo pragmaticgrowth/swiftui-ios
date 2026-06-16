@@ -1,0 +1,112 @@
+{
+ "repo": "WezSieTato/ScanNow",
+ "stars": 63,
+ "categories": [
+  "Scan"
+ ],
+ "sha": "fa22ee3934dc3a6d535cd289bcb60689002bf8e2",
+ "platform": "cross_platform",
+ "ipad_idioms": [],
+ "author_authority": 1188,
+ "contributor_count": 2,
+ "top_contributors": [
+  {
+   "login": "WezSieTato",
+   "score": 1188,
+   "contributions": 90
+  },
+  {
+   "login": "Copilot",
+   "score": 0,
+   "contributions": 6
+  }
+ ],
+ "loc": 2486,
+ "custom_components": 31,
+ "imports": [
+  "AVFoundation",
+  "AVKit",
+  "AppKit",
+  "Foundation",
+  "MessageUI",
+  "PDFKit",
+  "PackageDescription",
+  "ScanNow",
+  "ScanNowCore",
+  "SnapshotTesting",
+  "StoreKit",
+  "SwiftUI",
+  "Testing",
+  "UIKit",
+  "VisionKit",
+  "XCTest"
+ ],
+ "min_ios_inferred": "14",
+ "deprecated_apis_used": [
+  "foregroundColor",
+  "presentationMode"
+ ],
+ "unique": {
+  "modifiers": [
+   "background",
+   "buttonStyle",
+   "clipShape",
+   "defaultAppStorage",
+   "disabled",
+   "fixedSize",
+   "font",
+   "foregroundColor",
+   "frame",
+   "onTapGesture",
+   "overlay",
+   "padding",
+   "sheet"
+  ],
+  "types": [
+   "Button",
+   "Color",
+   "ForEach",
+   "Form",
+   "HStack",
+   "Image",
+   "Picker",
+   "RoundedRectangle",
+   "Section",
+   "Spacer",
+   "Text",
+   "TextField",
+   "UIHostingController",
+   "VStack"
+  ],
+  "valueBuilders": [
+   "system"
+  ],
+  "macros": [],
+  "styleValues": [
+   "dark",
+   "plain",
+   "title"
+  ],
+  "propertyWrappers": [
+   "AppStorage",
+   "Binding",
+   "Environment",
+   "State",
+   "StateObject"
+  ],
+  "environmentKeys": [
+   "openURL",
+   "presentationMode"
+  ]
+ },
+ "counts": {
+  "modifiers": 13,
+  "types": 14,
+  "valueBuilders": 1,
+  "macros": 0,
+  "styleValues": 3,
+  "propertyWrappers": 5,
+  "environmentKeys": 2
+ },
+ "total_unique_apis": 38
+}

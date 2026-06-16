@@ -1,0 +1,82 @@
+{
+ "repo": "mizadi/iOSImageGenerator",
+ "stars": 8,
+ "categories": [
+  "Photo"
+ ],
+ "sha": "3bfbdb11df8275caba8c4469c02711c26a6d5ca7",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 50765,
+ "contributor_count": 1,
+ "top_contributors": [
+  {
+   "login": "mizadi",
+   "score": 50765,
+   "contributions": 6
+  }
+ ],
+ "loc": 122,
+ "custom_components": 4,
+ "imports": [
+  "Foundation",
+  "ImagePlayground",
+  "SwiftUI",
+  "UIKit"
+ ],
+ "min_ios_inferred": "14",
+ "deprecated_apis_used": [
+  "NavigationView",
+  "foregroundColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "background",
+   "cornerRadius",
+   "disabled",
+   "foregroundColor",
+   "frame",
+   "multilineTextAlignment",
+   "navigationTitle",
+   "padding",
+   "resizable",
+   "scaledToFit",
+   "textFieldStyle"
+  ],
+  "types": [
+   "Button",
+   "Image",
+   "NavigationView",
+   "ProgressView",
+   "RoundedBorderTextFieldStyle",
+   "Spacer",
+   "Text",
+   "TextField",
+   "VStack",
+   "WindowGroup"
+  ],
+  "valueBuilders": [],
+  "macros": [
+   "Preview"
+  ],
+  "styleValues": [
+   "center",
+   "red",
+   "white"
+  ],
+  "propertyWrappers": [
+   "State"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 11,
+  "types": 10,
+  "valueBuilders": 0,
+  "macros": 1,
+  "styleValues": 3,
+  "propertyWrappers": 1,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 26
+}

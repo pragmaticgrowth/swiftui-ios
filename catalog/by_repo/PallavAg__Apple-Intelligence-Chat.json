@@ -1,0 +1,122 @@
+{
+ "repo": "PallavAg/Apple-Intelligence-Chat",
+ "stars": 377,
+ "categories": [
+  "Communication"
+ ],
+ "sha": "6444c7d96d3fc2ce8bdff9a406f2f44724cf556e",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 5945,
+ "contributor_count": 1,
+ "top_contributors": [
+  {
+   "login": "PallavAg",
+   "score": 5945,
+   "contributions": 4
+  }
+ ],
+ "loc": 417,
+ "custom_components": 12,
+ "imports": [
+  "FoundationModels",
+  "SwiftUI"
+ ],
+ "min_ios_inferred": "26",
+ "deprecated_apis_used": [
+  "foregroundColor",
+  "navigationBarLeading",
+  "navigationBarTrailing"
+ ],
+ "unique": {
+  "modifiers": [
+   "alert",
+   "animation",
+   "background",
+   "clipShape",
+   "disabled",
+   "font",
+   "foregroundColor",
+   "foregroundStyle",
+   "frame",
+   "glassEffect",
+   "id",
+   "lineLimit",
+   "navigationBarTitleDisplayMode",
+   "navigationTitle",
+   "onAppear",
+   "onChange",
+   "onDisappear",
+   "onSubmit",
+   "opacity",
+   "padding",
+   "scaleEffect",
+   "sheet",
+   "textFieldStyle",
+   "toolbar"
+  ],
+  "types": [
+   "Button",
+   "Circle",
+   "ForEach",
+   "Form",
+   "HStack",
+   "Image",
+   "Label",
+   "NavigationStack",
+   "ScrollView",
+   "ScrollViewReader",
+   "Section",
+   "Slider",
+   "Spacer",
+   "Text",
+   "TextEditor",
+   "TextField",
+   "Toggle",
+   "ToolbarItem",
+   "VStack",
+   "WindowGroup",
+   "ZStack"
+  ],
+  "valueBuilders": [
+   "body",
+   "easeInOut",
+   "regular",
+   "system"
+  ],
+  "macros": [
+   "Preview"
+  ],
+  "styleValues": [
+   "blue",
+   "bottom",
+   "confirmationAction",
+   "inline",
+   "leading",
+   "navigationBarLeading",
+   "navigationBarTrailing",
+   "plain",
+   "primary",
+   "trailing",
+   "white"
+  ],
+  "propertyWrappers": [
+   "AppStorage",
+   "Environment",
+   "State"
+  ],
+  "environmentKeys": [
+   "dismiss"
+  ]
+ },
+ "counts": {
+  "modifiers": 24,
+  "types": 21,
+  "valueBuilders": 4,
+  "macros": 1,
+  "styleValues": 11,
+  "propertyWrappers": 3,
+  "environmentKeys": 1
+ },
+ "total_unique_apis": 65
+}

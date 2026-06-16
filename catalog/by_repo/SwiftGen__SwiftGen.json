@@ -1,0 +1,108 @@
+{
+ "repo": "SwiftGen/SwiftGen",
+ "stars": 9547,
+ "categories": [
+  "Tools"
+ ],
+ "sha": "f7c23b63053e5a8aab4a4dbb633b24920bbb9436",
+ "platform": "cross_platform",
+ "ipad_idioms": [],
+ "author_authority": 25819,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "djbe",
+   "score": 66,
+   "contributions": 1212
+  },
+  {
+   "login": "AliSoftware",
+   "score": 78224,
+   "contributions": 640
+  },
+  {
+   "login": "grantjbutler",
+   "score": 113,
+   "contributions": 87
+  }
+ ],
+ "loc": 40998,
+ "custom_components": 4,
+ "imports": [
+  "ARKit",
+  "AVKit",
+  "AppKit",
+  "ArgumentParser",
+  "Cocoa",
+  "CoreData",
+  "CoreLocation",
+  "CoreServices",
+  "Difference",
+  "ExtraModule",
+  "Foundation",
+  "GLKit",
+  "Kanna",
+  "LocationPicker",
+  "PackageConfig",
+  "PackageDescription",
+  "PathKit",
+  "PlaygroundSupport",
+  "PrefsWindowController",
+  "SlackTextViewController",
+  "Stencil",
+  "StencilSwiftKit",
+  "SwiftGen",
+  "SwiftGenCLI",
+  "SwiftGenKit",
+  "SwiftUI",
+  "TestUtils",
+  "Transformables",
+  "UIKit",
+  "XCTest",
+  "Yams"
+ ],
+ "min_ios_inferred": "13",
+ "deprecated_apis_used": [
+  "foregroundColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "background",
+   "cornerRadius",
+   "font",
+   "foregroundColor",
+   "padding"
+  ],
+  "types": [
+   "Button",
+   "Color",
+   "Font",
+   "HStack",
+   "Image",
+   "Text",
+   "VStack"
+  ],
+  "valueBuilders": [
+   "body",
+   "custom",
+   "headline"
+  ],
+  "macros": [],
+  "styleValues": [
+   "dark",
+   "light"
+  ],
+  "propertyWrappers": [],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 5,
+  "types": 7,
+  "valueBuilders": 3,
+  "macros": 0,
+  "styleValues": 2,
+  "propertyWrappers": 0,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 17
+}

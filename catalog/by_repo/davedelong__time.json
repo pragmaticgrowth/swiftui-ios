@@ -1,0 +1,124 @@
+{
+ "repo": "davedelong/time",
+ "stars": 2344,
+ "categories": [
+  "Date & Time"
+ ],
+ "sha": "b652fe17d13dca2ed5f3aa0209b309de4a10821d",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 14615,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "davedelong",
+   "score": 14615,
+   "contributions": 300
+  },
+  {
+   "login": "iKenndac",
+   "score": 2120,
+   "contributions": 10
+  },
+  {
+   "login": "sebj",
+   "score": 6313,
+   "contributions": 6
+  }
+ ],
+ "loc": 9893,
+ "custom_components": 31,
+ "imports": [
+  "Combine",
+  "Dispatch",
+  "Foundation",
+  "PackageDescription",
+  "SwiftUI",
+  "Time",
+  "XCTest"
+ ],
+ "min_ios_inferred": "16",
+ "deprecated_apis_used": [
+  "tabItem"
+ ],
+ "unique": {
+  "modifiers": [
+   "aspectRatio",
+   "background",
+   "buttonStyle",
+   "contentShape",
+   "fixedSize",
+   "font",
+   "foregroundStyle",
+   "frame",
+   "gridCellUnsizedAxes",
+   "labelsHidden",
+   "layoutPriority",
+   "monospacedDigit",
+   "onAppear",
+   "onChange",
+   "onReceive",
+   "opacity",
+   "padding",
+   "pickerStyle",
+   "scenePadding",
+   "tabItem",
+   "tag",
+   "toggleStyle"
+  ],
+  "types": [
+   "AnyShapeStyle",
+   "Binding",
+   "Button",
+   "Divider",
+   "ForEach",
+   "Form",
+   "Grid",
+   "GridRow",
+   "GroupBox",
+   "HStack",
+   "Image",
+   "Label",
+   "Picker",
+   "Rectangle",
+   "RoundedRectangle",
+   "Spacer",
+   "Stepper",
+   "TabView",
+   "Text",
+   "Toggle",
+   "VStack"
+  ],
+  "valueBuilders": [
+   "caption",
+   "headline",
+   "subheadline",
+   "system"
+  ],
+  "macros": [],
+  "styleValues": [
+   "center",
+   "plain",
+   "primary",
+   "segmented",
+   "selection",
+   "title",
+   "top"
+  ],
+  "propertyWrappers": [
+   "Binding",
+   "State"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 22,
+  "types": 21,
+  "valueBuilders": 4,
+  "macros": 0,
+  "styleValues": 7,
+  "propertyWrappers": 2,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 56
+}

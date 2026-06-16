@@ -1,0 +1,104 @@
+{
+ "repo": "freesuraj/TLDR",
+ "stars": 74,
+ "categories": [
+  "Developer"
+ ],
+ "sha": "7a68cfa9aec892d467e13612ac0e4e7f5d3b5c3f",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 456,
+ "contributor_count": 1,
+ "top_contributors": [
+  {
+   "login": "freesuraj",
+   "score": 456,
+   "contributions": 123
+  }
+ ],
+ "loc": 1599,
+ "custom_components": 12,
+ "imports": [
+  "Combine",
+  "Foundation",
+  "RealmSwift",
+  "SwiftUI",
+  "TLDR",
+  "UIKit",
+  "XCTest",
+  "ZipArchive"
+ ],
+ "min_ios_inferred": "17",
+ "deprecated_apis_used": [
+  "foregroundColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "autocorrectionDisabled",
+   "background",
+   "environment",
+   "focused",
+   "font",
+   "foregroundColor",
+   "foregroundStyle",
+   "frame",
+   "id",
+   "onAppear",
+   "onChange",
+   "padding",
+   "task"
+  ],
+  "types": [
+   "Button",
+   "ForEach",
+   "HStack",
+   "Image",
+   "OpenURLAction",
+   "ScrollView",
+   "ScrollViewReader",
+   "Spacer",
+   "Text",
+   "TextField",
+   "VStack",
+   "WindowGroup"
+  ],
+  "valueBuilders": [
+   "callout"
+  ],
+  "macros": [],
+  "styleValues": [
+   "bottom",
+   "clear",
+   "default",
+   "leading",
+   "link",
+   "placeholder",
+   "subtitle",
+   "title",
+   "trailing",
+   "white"
+  ],
+  "propertyWrappers": [
+   "Binding",
+   "Environment",
+   "FocusState",
+   "Observable",
+   "State",
+   "UIApplicationDelegateAdaptor"
+  ],
+  "environmentKeys": [
+   "colorScheme",
+   "openURL"
+  ]
+ },
+ "counts": {
+  "modifiers": 13,
+  "types": 12,
+  "valueBuilders": 1,
+  "macros": 0,
+  "styleValues": 10,
+  "propertyWrappers": 6,
+  "environmentKeys": 2
+ },
+ "total_unique_apis": 44
+}

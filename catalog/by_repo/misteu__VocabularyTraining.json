@@ -1,0 +1,99 @@
+{
+ "repo": "misteu/VocabularyTraining",
+ "stars": 28,
+ "categories": [
+  "Education"
+ ],
+ "sha": "3cad2de293f7bbc17ebed3d6043ce89d54589aa1",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 95,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "misteu",
+   "score": 95,
+   "contributions": 35
+  },
+  {
+   "login": "nayushi",
+   "score": 3,
+   "contributions": 6
+  },
+  {
+   "login": "InsanelyHarsh",
+   "score": 8,
+   "contributions": 3
+  }
+ ],
+ "loc": 4847,
+ "custom_components": 1,
+ "imports": [
+  "Foundation",
+  "MessageUI",
+  "StoreKit",
+  "SwiftUI",
+  "UIKit",
+  "UniformTypeIdentifiers",
+  "VocabularyTrainer",
+  "WaterfallTrueCompositionalLayout",
+  "WebKit",
+  "XCTest"
+ ],
+ "min_ios_inferred": "17",
+ "deprecated_apis_used": [],
+ "unique": {
+  "modifiers": [],
+  "types": [
+   "TextField"
+  ],
+  "valueBuilders": [
+   "body",
+   "callout",
+   "footnote",
+   "headline",
+   "medium",
+   "regular",
+   "semibold",
+   "system",
+   "title2",
+   "title3"
+  ],
+  "macros": [],
+  "styleValues": [
+   "automatic",
+   "black",
+   "blue",
+   "bottom",
+   "button",
+   "cancel",
+   "center",
+   "clear",
+   "dark",
+   "date",
+   "default",
+   "destructive",
+   "fill",
+   "largeTitle",
+   "leading",
+   "light",
+   "plain",
+   "soft",
+   "top",
+   "trailing",
+   "white"
+  ],
+  "propertyWrappers": [],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 0,
+  "types": 1,
+  "valueBuilders": 10,
+  "macros": 0,
+  "styleValues": 21,
+  "propertyWrappers": 0,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 32
+}

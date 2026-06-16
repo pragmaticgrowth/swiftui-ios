@@ -1,0 +1,91 @@
+{
+ "repo": "tuist/XcodeProj",
+ "stars": 2208,
+ "categories": [
+  "Project setup"
+ ],
+ "sha": "621eca8d091cc110a99adc23bb0d6618a65b4544",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 124383,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "yonaskolb",
+   "score": 13062,
+   "contributions": 178
+  },
+  {
+   "login": "pepicrft",
+   "score": 495855,
+   "contributions": 74
+  },
+  {
+   "login": "briantkelley",
+   "score": 1292,
+   "contributions": 43
+  }
+ ],
+ "loc": 21753,
+ "custom_components": 20,
+ "imports": [
+  "AEXML",
+  "CryptoKit",
+  "FileSharedAcrossTargets",
+  "Foundation",
+  "Framework1",
+  "Framework2",
+  "Messages",
+  "MyLocalPackage",
+  "MyLocalPackageTests",
+  "MyOtherLocalPackage",
+  "NotificationCenter",
+  "PackageDescription",
+  "PathKit",
+  "ProjectDescription",
+  "SwiftUI",
+  "Testing",
+  "UIKit",
+  "UserNotifications",
+  "WatchKit",
+  "WithoutWorkspace",
+  "XCTest",
+  "XcodeProj",
+  "iOS"
+ ],
+ "min_ios_inferred": "15",
+ "deprecated_apis_used": [],
+ "unique": {
+  "modifiers": [
+   "foregroundStyle",
+   "imageScale",
+   "padding"
+  ],
+  "types": [
+   "Image",
+   "Text",
+   "UIHostingController",
+   "VStack",
+   "WindowGroup"
+  ],
+  "valueBuilders": [],
+  "macros": [
+   "Preview"
+  ],
+  "styleValues": [
+   "tint"
+  ],
+  "propertyWrappers": [],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 3,
+  "types": 5,
+  "valueBuilders": 0,
+  "macros": 1,
+  "styleValues": 1,
+  "propertyWrappers": 0,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 10
+}

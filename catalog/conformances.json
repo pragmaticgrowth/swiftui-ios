@@ -1,185 +1,310 @@
 {
  "View": {
-  "repo_count": 5,
+  "repo_count": 301,
   "top_repos": [
    [
-    "Dimillian/IceCubesApp",
-    181
+    "eerimoq/moblin",
+    915
    ],
    [
-    "Dimillian/ACHNBrowserUI",
-    115
+    "duckduckgo/apple-browsers",
+    892
    ],
    [
-    "Dimillian/MovieSwiftUI",
-    49
+    "woocommerce/woocommerce-ios",
+    773
    ],
    [
-    "Dimillian/IcySky",
-    38
+    "jasudev/FabulaItemsProvider",
+    591
    ],
    [
-    "Dimillian/MortyUI",
-    12
+    "wordpress-mobile/WordPress-iOS",
+    483
+   ],
+   [
+    "Automattic/pocket-casts-ios",
+    445
+   ],
+   [
+    "gematik/E-Rezept-App-iOS",
+    411
+   ],
+   [
+    "zzanehip/The-OldOS-Project",
+    386
+   ],
+   [
+    "jellyfin/Swiftfin",
+    384
+   ],
+   [
+    "element-hq/element-x-ios",
+    344
    ]
   ],
   "examples": [
    {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "ItemImage",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/Packages/UI/Sources/UI/ItemImage.swift#L13"
+    "repo": "1amageek/Bleu",
+    "name": "E2ERootView",
+    "permalink": "https://github.com/1amageek/Bleu/blob/214c4ae9b5e72cd950042f20f233aae95ed0537d/Examples/E2E/BleuE2EApp/E2ERootView.swift#L4"
    },
    {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "ProgressBar",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/Packages/UI/Sources/UI/ProgressView.swift#L12"
+    "repo": "1amageek/Bleu",
+    "name": "StatusHeader",
+    "permalink": "https://github.com/1amageek/Bleu/blob/214c4ae9b5e72cd950042f20f233aae95ed0537d/Examples/E2E/BleuE2EApp/E2ERootView.swift#L35"
    },
    {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "LazyView",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/Packages/UI/Sources/UI/LazyView.swift#L9"
+    "repo": "1amageek/Bleu",
+    "name": "RoleControl",
+    "permalink": "https://github.com/1amageek/Bleu/blob/214c4ae9b5e72cd950042f20f233aae95ed0537d/Examples/E2E/BleuE2EApp/E2ERootView.swift#L97"
    },
    {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "SettingsView",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/settings/SettingsView.swift#L14"
+    "repo": "1amageek/Bleu",
+    "name": "PeripheralPanel",
+    "permalink": "https://github.com/1amageek/Bleu/blob/214c4ae9b5e72cd950042f20f233aae95ed0537d/Examples/E2E/BleuE2EApp/E2ERootView.swift#L111"
    },
    {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "AppIconPickerView",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/settings/AppIconPickerView.swift#L61"
+    "repo": "1amageek/Bleu",
+    "name": "CentralPanel",
+    "permalink": "https://github.com/1amageek/Bleu/blob/214c4ae9b5e72cd950042f20f233aae95ed0537d/Examples/E2E/BleuE2EApp/E2ERootView.swift#L144"
    },
    {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "TabbarView",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/home/TabbarView.swift#L13"
+    "repo": "1amageek/Bleu",
+    "name": "ResultPanel",
+    "permalink": "https://github.com/1amageek/Bleu/blob/214c4ae9b5e72cd950042f20f233aae95ed0537d/Examples/E2E/BleuE2EApp/E2ERootView.swift#L205"
    },
    {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "DesignRowView",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/design/DesignRowView.swift#L12"
+    "repo": "1amageek/Bleu",
+    "name": "DiagnosticsPanel",
+    "permalink": "https://github.com/1amageek/Bleu/blob/214c4ae9b5e72cd950042f20f233aae95ed0537d/Examples/E2E/BleuE2EApp/E2ERootView.swift#L266"
    },
    {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "DesignListView",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/design/DesignListView.swift#L12"
+    "repo": "1amageek/Bleu",
+    "name": "LogPanel",
+    "permalink": "https://github.com/1amageek/Bleu/blob/214c4ae9b5e72cd950042f20f233aae95ed0537d/Examples/E2E/BleuE2EApp/E2ERootView.swift#L289"
    },
    {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "DesignFormView",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/design/DesignFormView.swift#L13"
+    "repo": "1amageek/Bleu",
+    "name": "InfoRow",
+    "permalink": "https://github.com/1amageek/Bleu/blob/214c4ae9b5e72cd950042f20f233aae95ed0537d/Examples/E2E/BleuE2EApp/E2ERootView.swift#L320"
    },
    {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "CommentsSection",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/comments/CommentsSection.swift#L12"
+    "repo": "1amageek/Bleu",
+    "name": "ServerExampleView",
+    "permalink": "https://github.com/1amageek/Bleu/blob/214c4ae9b5e72cd950042f20f233aae95ed0537d/Examples/SwiftUIApp/ServerExample.swift#L14"
    },
    {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "ChoreListView",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/chores/ChoreListView.swift#L13"
+    "repo": "1amageek/Bleu",
+    "name": "ServerStatusView",
+    "permalink": "https://github.com/1amageek/Bleu/blob/214c4ae9b5e72cd950042f20f233aae95ed0537d/Examples/SwiftUIApp/ServerExample.swift#L85"
    },
    {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "ChoreListRowView",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/chores/ChoreListRowView.swift#L12"
+    "repo": "1amageek/Bleu",
+    "name": "AccessLogView",
+    "permalink": "https://github.com/1amageek/Bleu/blob/214c4ae9b5e72cd950042f20f233aae95ed0537d/Examples/SwiftUIApp/ServerExample.swift#L107"
    },
    {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "ChoreFormView",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/chores/ChoreFormView.swift#L13"
+    "repo": "1amageek/Bleu",
+    "name": "ClientExampleView",
+    "permalink": "https://github.com/1amageek/Bleu/blob/214c4ae9b5e72cd950042f20f233aae95ed0537d/Examples/SwiftUIApp/ClientExample.swift#L14"
    },
    {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "CollectionProgressDetailView",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/collection/CollectionProgressDetailView.swift#L13"
+    "repo": "1amageek/Bleu",
+    "name": "ScanStatusView",
+    "permalink": "https://github.com/1amageek/Bleu/blob/214c4ae9b5e72cd950042f20f233aae95ed0537d/Examples/SwiftUIApp/ClientExample.swift#L109"
    },
    {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "CollectionRowView",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/collection/CollectionRowView.swift#L4"
+    "repo": "1amageek/Bleu",
+    "name": "DeviceRowView",
+    "permalink": "https://github.com/1amageek/Bleu/blob/214c4ae9b5e72cd950042f20f233aae95ed0537d/Examples/SwiftUIApp/ClientExample.swift#L137"
    },
    {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "CollectionListView",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/collection/CollectionListView.swift#L17"
+    "repo": "1amageek/Bleu",
+    "name": "ContentView",
+    "permalink": "https://github.com/1amageek/Bleu/blob/214c4ae9b5e72cd950042f20f233aae95ed0537d/Examples/SwiftUIApp/BleuExampleApp.swift#L22"
    },
    {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "CollectionProgressRow",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/collection/CollectionProgressRow.swift#L13"
+    "repo": "1amageek/Bleu",
+    "name": "BluetoothStatusView",
+    "permalink": "https://github.com/1amageek/Bleu/blob/214c4ae9b5e72cd950042f20f233aae95ed0537d/Examples/SwiftUIApp/BleuExampleApp.swift#L55"
    },
    {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "CollectionMoreDetailView",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/collection/CollectionMoreDetailView.swift#L12"
+    "repo": "1amageek/Bleu",
+    "name": "InfoRow",
+    "permalink": "https://github.com/1amageek/Bleu/blob/214c4ae9b5e72cd950042f20f233aae95ed0537d/Examples/SwiftUIApp/SharedViews.swift#L13"
    },
    {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "DodoCodeDetailView",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/dodocode/DodoCodeDetailView.swift#L13"
+    "repo": "1amageek/Toolbar",
+    "name": "ToolbarContainer",
+    "permalink": "https://github.com/1amageek/Toolbar/blob/651c24079698401734dbca70c00632ef1498b295/Sources/Toolbar/ToolbarContainer.swift#L67"
    },
    {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "DodoCodeFormView",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/dodocode/DodoCodeFormView.swift#L13"
+    "repo": "1amageek/Toolbar",
+    "name": "ToolbarPopupContainer",
+    "permalink": "https://github.com/1amageek/Toolbar/blob/651c24079698401734dbca70c00632ef1498b295/Sources/Toolbar/ToolbarContainer.swift#L196"
    },
    {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "DodoCodeListView",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/dodocode/DodoCodeListView.swift#L14"
+    "repo": "1amageek/Toolbar",
+    "name": "PreviewMessageBubble",
+    "permalink": "https://github.com/1amageek/Toolbar/blob/651c24079698401734dbca70c00632ef1498b295/Sources/Toolbar/ToolbarContainer.swift#L237"
    },
    {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "DodoCodeRow",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/dodocode/DodoCodeRow.swift#L12"
+    "repo": "1amageek/Toolbar",
+    "name": "ChatPreviewScaffold",
+    "permalink": "https://github.com/1amageek/Toolbar/blob/651c24079698401734dbca70c00632ef1498b295/Sources/Toolbar/ToolbarContainer.swift#L269"
    },
    {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "TurnipsView",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/turnips/TurnipsView.swift#L13"
+    "repo": "1amageek/Toolbar",
+    "name": "PreviewEditorCard",
+    "permalink": "https://github.com/1amageek/Toolbar/blob/651c24079698401734dbca70c00632ef1498b295/Sources/Toolbar/ToolbarContainer.swift#L290"
    },
    {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "GridContent",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/turnips/TurnipsView.swift#L246"
+    "repo": "1amageek/Toolbar",
+    "name": "SendButton",
+    "permalink": "https://github.com/1amageek/Toolbar/blob/651c24079698401734dbca70c00632ef1498b295/Sources/Toolbar/Buttons/SendButton.swift#L8"
    },
    {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "TurnipsFormView",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/turnips/TurnipsFormView.swift#L12"
+    "repo": "1amageek/Toolbar",
+    "name": "StopButton",
+    "permalink": "https://github.com/1amageek/Toolbar/blob/651c24079698401734dbca70c00632ef1498b295/Sources/Toolbar/Buttons/StopButton.swift#L7"
    }
   ]
  },
  "App": {
-  "repo_count": 5,
+  "repo_count": 213,
   "top_repos": [
    [
-    "Dimillian/ACHNBrowserUI",
-    1
+    "tuist/tuist",
+    70
    ],
    [
-    "Dimillian/IceCubesApp",
-    1
+    "mikelikesdesign/SwiftUI-experiments",
+    44
    ],
    [
-    "Dimillian/IcySky",
-    1
+    "pointfreeco/swift-composable-architecture",
+    15
    ],
    [
-    "Dimillian/MortyUI",
-    1
+    "miataru/miataru-ios-client",
+    12
    ],
    [
-    "Dimillian/MovieSwiftUI",
-    1
+    "pointfreeco/isowords",
+    11
+   ],
+   [
+    "firebase/quickstart-ios",
+    10
+   ],
+   [
+    "ml-explore/mlx-swift-examples",
+    9
+   ],
+   [
+    "realm/realm-swift",
+    6
+   ],
+   [
+    "criticalmaps/criticalmaps-ios",
+    4
+   ],
+   [
+    "dfed/SafeDI",
+    4
    ]
   ],
   "examples": [
    {
+    "repo": "1amageek/Bleu",
+    "name": "BleuE2EApp",
+    "permalink": "https://github.com/1amageek/Bleu/blob/214c4ae9b5e72cd950042f20f233aae95ed0537d/Examples/E2E/BleuE2EApp/BleuE2EApp.swift#L4"
+   },
+   {
+    "repo": "1amageek/Bleu",
+    "name": "BleuExampleApp",
+    "permalink": "https://github.com/1amageek/Bleu/blob/214c4ae9b5e72cd950042f20f233aae95ed0537d/Examples/SwiftUIApp/BleuExampleApp.swift#L14"
+   },
+   {
+    "repo": "256Arts/My-Assets",
+    "name": "My_Assets__watchOS__Watch_AppApp",
+    "permalink": "https://github.com/256Arts/My-Assets/blob/fc8a7b1dd54f308c64b7c38380963b950d192e69/My Assets (watchOS) Watch App/My_Assets__watchOS_App.swift#L13"
+   },
+   {
+    "repo": "256Arts/My-Assets",
+    "name": "MyAssetsApp",
+    "permalink": "https://github.com/256Arts/My-Assets/blob/fc8a7b1dd54f308c64b7c38380963b950d192e69/My Assets/MyAssetsApp.swift#L13"
+   },
+   {
+    "repo": "256Arts/Sprite-Catalog",
+    "name": "Sprite_CatalogApp",
+    "permalink": "https://github.com/256Arts/Sprite-Catalog/blob/d0f2451c9e868ab5d57836f31ac46082d61abc18/Sprite Catalog/Sprite_CatalogApp.swift#L11"
+   },
+   {
+    "repo": "256Arts/Sprite-Cutter",
+    "name": "Sprite_CutterApp",
+    "permalink": "https://github.com/256Arts/Sprite-Cutter/blob/f6b03b3456eed2d4e091eea6c713e11eca4e93ca/Sprite Cutter/Sprite_CutterApp.swift#L15"
+   },
+   {
+    "repo": "256Arts/Sprite-Pencil",
+    "name": "SpritePencilApp",
+    "permalink": "https://github.com/256Arts/Sprite-Pencil/blob/b9642f7f8aa3568c2a592c78b5bf3e379ab678cb/iOS/SpritePencilApp.swift#L100"
+   },
+   {
+    "repo": "3lvis/SwiftSync",
+    "name": "DemoApp",
+    "permalink": "https://github.com/3lvis/SwiftSync/blob/375a0d6eeca24cd18619a071b95586d8750e1e85/Demo/Demo/DemoApp.swift#L10"
+   },
+   {
+    "repo": "5calls/ios",
+    "name": "FiveCallsApp",
+    "permalink": "https://github.com/5calls/ios/blob/f3e34a71af9ed2c0ac50d86e17114dcbaaeadd63/FiveCalls/FiveCalls/AppFeature/App.swift#L6"
+   },
+   {
+    "repo": "AlexCatch/Oak",
+    "name": "OakApp",
+    "permalink": "https://github.com/AlexCatch/Oak/blob/9896da29c925d1278cb06c35d60c1925db83d460/Oak/OakApp.swift#L12"
+   },
+   {
+    "repo": "AnderGoig/github-contributions-ios",
+    "name": "ContributionsApp",
+    "permalink": "https://github.com/AnderGoig/github-contributions-ios/blob/1eb838a85ac9dac0df29c02c8fd010b5a384fa57/Contributions/ContributionsApp.swift#L12"
+   },
+   {
+    "repo": "AnthonyH93/GoCycling",
+    "name": "GoCyclingApp",
+    "permalink": "https://github.com/AnthonyH93/GoCycling/blob/9cc4f18e872ace3833c06af0e32109feda893096/Go Cycling/GoCyclingApp.swift#L12"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "PocketCastsTVApp",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/Pocket Casts TV App/PocketCastsTVApp.swift#L4"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "PocketCastsApp",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/Pocket Casts Watch App/UI/PocketCastsApp.swift#L4"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "Pocket_Casts_App_ClipApp",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/Pocket Casts App Clip/Pocket_Casts_App_ClipApp.swift#L6"
+   },
+   {
+    "repo": "DebugSwift/DebugSwift",
+    "name": "ExampleApp",
+    "permalink": "https://github.com/DebugSwift/DebugSwift/blob/58e0b2e947974c1978dc54b4652b01bc614792bb/Example/Example/ExampleApp.swift#L16"
+   },
+   {
     "repo": "Dimillian/ACHNBrowserUI",
     "name": "ACHelperApp",
     "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/App.swift#L37"
+   },
+   {
+    "repo": "Dimillian/FoundationChat",
+    "name": "FoundationChatApp",
+    "permalink": "https://github.com/Dimillian/FoundationChat/blob/10f46eb4954a994368d76c0273164e4f8da512f2/FoundationChat/FoundationChatApp.swift#L5"
    },
    {
     "repo": "Dimillian/IceCubesApp",
@@ -200,313 +325,513 @@
     "repo": "Dimillian/MovieSwiftUI",
     "name": "HomeView",
     "permalink": "https://github.com/Dimillian/MovieSwiftUI/blob/72eb4ae7117fbf893be533c9a277c47a7287d87e/MovieSwift/MovieSwift/views/components/home/HomeView.swift#L19"
+   },
+   {
+    "repo": "EhPanda-Team/EhPanda",
+    "name": "EhPandaApp",
+    "permalink": "https://github.com/EhPanda-Team/EhPanda/blob/a7e37f5196b889197c24596075fa3a2a72a30f18/EhPanda/App/EhPandaApp.swift#L9"
+   },
+   {
+    "repo": "EmergeTools/hackernews",
+    "name": "HackerNewsApp",
+    "permalink": "https://github.com/EmergeTools/hackernews/blob/5baa699e096b070d4139840211313fcacd4c3491/ios/HackerNews/HNApp.swift#L15"
+   },
+   {
+    "repo": "GEOSwift/GEOSwift",
+    "name": "ExampleApp",
+    "permalink": "https://github.com/GEOSwift/GEOSwift/blob/fcb79a9d072209605dcfcce61a4267fe6f4163a3/Example/Example/ExampleApp.swift#L4"
    }
   ]
  },
  "PreviewProvider": {
-  "repo_count": 4,
+  "repo_count": 170,
   "top_repos": [
+   [
+    "jasudev/FabulaItemsProvider",
+    290
+   ],
+   [
+    "element-hq/element-x-ios",
+    277
+   ],
+   [
+    "woocommerce/woocommerce-ios",
+    257
+   ],
+   [
+    "gematik/E-Rezept-App-iOS",
+    151
+   ],
+   [
+    "element-hq/element-ios",
+    142
+   ],
+   [
+    "Automattic/pocket-casts-ios",
+    113
+   ],
+   [
+    "yattee/yattee",
+    112
+   ],
+   [
+    "simplex-chat/simplex-chat",
+    97
+   ],
    [
     "Dimillian/ACHNBrowserUI",
     84
    ],
    [
-    "Dimillian/MovieSwiftUI",
-    51
-   ],
-   [
-    "Dimillian/MortyUI",
-    9
-   ],
-   [
-    "Dimillian/IceCubesApp",
-    7
+    "utmapp/UTM",
+    72
    ]
   ],
   "examples": [
    {
-    "repo": "Dimillian/ACHNBrowserUI",
+    "repo": "256Arts/Sprite-Pencil",
+    "name": "SpriteWidget_Previews",
+    "permalink": "https://github.com/256Arts/Sprite-Pencil/blob/b9642f7f8aa3568c2a592c78b5bf3e379ab678cb/Widget/SpriteWidget.swift#L101"
+   },
+   {
+    "repo": "Alamofire/Alamofire",
+    "name": "ContentViewPreviews",
+    "permalink": "https://github.com/Alamofire/Alamofire/blob/7595cbcf59809f9977c5f6378500de2ad73b7ddb/watchOS Example/watchOS Example WatchKit Extension/ContentView.swift#L40"
+   },
+   {
+    "repo": "AlexCatch/Oak",
     "name": "SettingsView_Previews",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/settings/SettingsView.swift#L222"
+    "permalink": "https://github.com/AlexCatch/Oak/blob/9896da29c925d1278cb06c35d60c1925db83d460/Oak/Views/Settings/SettingsView.swift#L51"
    },
    {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "AppIconPickerView_Previews",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/settings/AppIconPickerView.swift#L110"
+    "repo": "AlexCatch/Oak",
+    "name": "CircularProgressView_Previews",
+    "permalink": "https://github.com/AlexCatch/Oak/blob/9896da29c925d1278cb06c35d60c1925db83d460/Oak/Views/Shared/CircularProgressView.swift#L37"
    },
    {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "DesignRowView_Previews",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/design/DesignRowView.swift#L58"
+    "repo": "AlexCatch/Oak",
+    "name": "ToggableRow_Previews",
+    "permalink": "https://github.com/AlexCatch/Oak/blob/9896da29c925d1278cb06c35d60c1925db83d460/Oak/Views/Shared/ToggableRow.swift#L48"
    },
    {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "DesignListView_Previews",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/design/DesignListView.swift#L72"
+    "repo": "AlexCatch/Oak",
+    "name": "AccountRow_Previews",
+    "permalink": "https://github.com/AlexCatch/Oak/blob/9896da29c925d1278cb06c35d60c1925db83d460/Oak/Views/Shared/AccountRow/AccountRow.swift#L50"
    },
    {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "DesignFormView_Previews",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/design/DesignFormView.swift#L113"
+    "repo": "AlexCatch/Oak",
+    "name": "AccountsView_Previews",
+    "permalink": "https://github.com/AlexCatch/Oak/blob/9896da29c925d1278cb06c35d60c1925db83d460/Oak/Views/Accounts/AccountsView.swift#L77"
    },
    {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "ChoreListView_Previews",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/chores/ChoreListView.swift#L121"
+    "repo": "AndrewBennet/ReadingListV1",
+    "name": "General_Previews",
+    "permalink": "https://github.com/AndrewBennet/ReadingListV1/blob/46b32b5b223df7f5a9acb14f4eec0c121eb05ed9/ReadingList/ViewControllers/Settings/General.swift#L124"
    },
    {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "ChoreListRowView_Previews",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/chores/ChoreListRowView.swift#L51"
+    "repo": "AndrewBennet/ReadingListV1",
+    "name": "Tip_Previews",
+    "permalink": "https://github.com/AndrewBennet/ReadingListV1/blob/46b32b5b223df7f5a9acb14f4eec0c121eb05ed9/ReadingList/ViewControllers/Settings/Tip.swift#L215"
    },
    {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "ChoreFormView_Previews",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/chores/ChoreFormView.swift#L94"
+    "repo": "AndrewBennet/ReadingListV1",
+    "name": "DebugSettings_Previews",
+    "permalink": "https://github.com/AndrewBennet/ReadingListV1/blob/46b32b5b223df7f5a9acb14f4eec0c121eb05ed9/ReadingList/ViewControllers/Settings/DebugSettings.swift#L122"
    },
    {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "CollectionProgressDetailView_Previews",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/collection/CollectionProgressDetailView.swift#L30"
+    "repo": "AndrewBennet/ReadingListV1",
+    "name": "About_Previews",
+    "permalink": "https://github.com/AndrewBennet/ReadingListV1/blob/46b32b5b223df7f5a9acb14f4eec0c121eb05ed9/ReadingList/ViewControllers/Settings/About.swift#L214"
    },
    {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "CollectionListView_Previews",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/collection/CollectionListView.swift#L109"
+    "repo": "AndrewBennet/ReadingListV1",
+    "name": "Attributions_Previews",
+    "permalink": "https://github.com/AndrewBennet/ReadingListV1/blob/46b32b5b223df7f5a9acb14f4eec0c121eb05ed9/ReadingList/ViewControllers/Settings/Attributions.swift#L101"
    },
    {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "CollectionProgressRow_Previews",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/collection/CollectionProgressRow.swift#L48"
+    "repo": "AndrewBennet/ReadingListV1",
+    "name": "Settings_Previews",
+    "permalink": "https://github.com/AndrewBennet/ReadingListV1/blob/46b32b5b223df7f5a9acb14f4eec0c121eb05ed9/ReadingList/ViewControllers/Settings/Settings.swift#L192"
    },
    {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "MoreView_Previews",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/collection/CollectionMoreDetailView.swift#L59"
+    "repo": "AndrewBennet/ReadingListV1",
+    "name": "Appearance_Previews",
+    "permalink": "https://github.com/AndrewBennet/ReadingListV1/blob/46b32b5b223df7f5a9acb14f4eec0c121eb05ed9/ReadingList/ViewControllers/Settings/Appearance.swift#L107"
    },
    {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "DodoCodeDetailView_Previews",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/dodocode/DodoCodeDetailView.swift#L30"
+    "repo": "AndrewBennet/ReadingListV1",
+    "name": "ExpandableText_Previews",
+    "permalink": "https://github.com/AndrewBennet/ReadingListV1/blob/46b32b5b223df7f5a9acb14f4eec0c121eb05ed9/ReadingList/ViewControllers/Common/ExpandableText.swift#L111"
    },
    {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "DodoCodeFormView_Previews",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/dodocode/DodoCodeFormView.swift#L179"
+    "repo": "AndrewBennet/ReadingListV1",
+    "name": "BookDetails_Previews",
+    "permalink": "https://github.com/AndrewBennet/ReadingListV1/blob/46b32b5b223df7f5a9acb14f4eec0c121eb05ed9/ReadingList/ViewControllers/Main/BookDetails.swift#L585"
    },
    {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "DodoCodeRow_Previews",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/dodocode/DodoCodeRow.swift#L200"
+    "repo": "AndrewBennet/ReadingListV1",
+    "name": "SingleBook_Previews",
+    "permalink": "https://github.com/AndrewBennet/ReadingListV1/blob/46b32b5b223df7f5a9acb14f4eec0c121eb05ed9/ReadingListWidget/SingleBookView.swift#L84"
    },
    {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "TurnipsView_Previews",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/turnips/TurnipsView.swift#L373"
+    "repo": "AndrewBennet/ReadingListV1",
+    "name": "BookGrid_Previews",
+    "permalink": "https://github.com/AndrewBennet/ReadingListV1/blob/46b32b5b223df7f5a9acb14f4eec0c121eb05ed9/ReadingListWidget/BookGrid.swift#L87"
    },
    {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "TurnipsFormView_Previews",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/turnips/TurnipsFormView.swift#L151"
+    "repo": "AndrewBennet/ReadingListV1",
+    "name": "ReadingListWidget_Previews",
+    "permalink": "https://github.com/AndrewBennet/ReadingListV1/blob/46b32b5b223df7f5a9acb14f4eec0c121eb05ed9/ReadingListWidget/WidgetBundle.swift#L20"
    },
    {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "TurnipsChartMinMaxCurves_Previews",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/turnips/charts/TurnipsChartMinMaxCurves.swift#L46"
+    "repo": "AndrewBennet/ReadingListV1",
+    "name": "NoBooksView_Previews",
+    "permalink": "https://github.com/AndrewBennet/ReadingListV1/blob/46b32b5b223df7f5a9acb14f4eec0c121eb05ed9/ReadingListWidget/NoBooksView.swift#L40"
    },
    {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "TurnipsChartView_Previews",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/turnips/charts/TurnipsChartView.swift#L106"
+    "repo": "AndrewBennet/ReadingListV1",
+    "name": "AddBooksView_Previews",
+    "permalink": "https://github.com/AndrewBennet/ReadingListV1/blob/46b32b5b223df7f5a9acb14f4eec0c121eb05ed9/ReadingListWidget/AddBooksView.swift#L65"
    },
    {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "TurnipsChartAverageCurve_Previews",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/turnips/charts/TurnipsChartAverageCurve.swift#L30"
+    "repo": "AndyQ/NFCPassportReader",
+    "name": "SettingsView_Previews",
+    "permalink": "https://github.com/AndyQ/NFCPassportReader/blob/7dfc19c358697d4b083adc3c6fbc55a2385d9fa9/Examples/Example_CocoaPods/NFCPassportReaderApp/Views/SettingsView.swift#L57"
    },
    {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "TurnipsChartBottomLegendView_Previews",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/turnips/charts/TurnipsChartBottomLegendView.swift#L71"
+    "repo": "AndyQ/NFCPassportReader",
+    "name": "MRZEntryView_Previews",
+    "permalink": "https://github.com/AndyQ/NFCPassportReader/blob/7dfc19c358697d4b083adc3c6fbc55a2385d9fa9/Examples/Example_CocoaPods/NFCPassportReaderApp/Views/MRZEntryView.swift#L109"
    },
    {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "TurnipsChartValuesView_Previews",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/turnips/charts/TurnipsChartValuesView.swift#L51"
+    "repo": "AndyQ/NFCPassportReader",
+    "name": "DetailsView_Previews",
+    "permalink": "https://github.com/AndyQ/NFCPassportReader/blob/7dfc19c358697d4b083adc3c6fbc55a2385d9fa9/Examples/Example_CocoaPods/NFCPassportReaderApp/Views/DetailsView.swift#L186"
    },
    {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "UserListFormView_Previews",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/userLists/UserListFormView.swift#L101"
-   },
-   {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "UserListSubscribeCallView_Previews",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/userLists/UserListSubscribeCallView.swift#L51"
-   },
-   {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "CustomTaskListView_Previews",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/customTasks/CustomTasksListView.swift#L83"
+    "repo": "AndyQ/NFCPassportReader",
+    "name": "ExportPassportView_Previews",
+    "permalink": "https://github.com/AndyQ/NFCPassportReader/blob/7dfc19c358697d4b083adc3c6fbc55a2385d9fa9/Examples/Example_CocoaPods/NFCPassportReaderApp/Views/ExportPassportView.swift#L154"
    }
   ]
  },
  "ViewModifier": {
-  "repo_count": 4,
+  "repo_count": 149,
   "top_repos": [
    [
-    "Dimillian/IceCubesApp",
-    5
+    "woocommerce/woocommerce-ios",
+    80
    ],
    [
-    "Dimillian/IcySky",
-    5
+    "duckduckgo/apple-browsers",
+    73
    ],
    [
-    "Dimillian/ACHNBrowserUI",
-    3
+    "jasudev/FabulaItemsProvider",
+    53
    ],
    [
-    "Dimillian/MovieSwiftUI",
-    3
+    "Automattic/pocket-casts-ios",
+    49
+   ],
+   [
+    "partout-io/passepartout",
+    44
+   ],
+   [
+    "ProtonMail/ios-mail",
+    42
+   ],
+   [
+    "jeffreybergier/Hipstapaper",
+    38
+   ],
+   [
+    "element-hq/element-x-ios",
+    37
+   ],
+   [
+    "ProtonDriveApps/ios-drive",
+    29
+   ],
+   [
+    "horizontalsystems/unstoppable-wallet-ios",
+    29
    ]
   ],
   "examples": [
    {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "ValueModifier",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/turnips/charts/TurnipsChartValuesView.swift#L40"
+    "repo": "AnderGoig/github-contributions-ios",
+    "name": "TextCaption",
+    "permalink": "https://github.com/AnderGoig/github-contributions-ios/blob/1eb838a85ac9dac0df29c02c8fd010b5a384fa57/InterfaceKit/Sources/InterfaceKit/Modifiers/TextCaption.swift#L10"
    },
    {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "DismissingKeyboardOnSwipe",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/viewModifiers/DismissingKeyboardOnSwipe.swift#L12"
+    "repo": "AnderGoig/github-contributions-ios",
+    "name": "Tile",
+    "permalink": "https://github.com/AnderGoig/github-contributions-ios/blob/1eb838a85ac9dac0df29c02c8fd010b5a384fa57/InterfaceKit/Sources/InterfaceKit/Modifiers/Tile.swift#L11"
    },
    {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "AdaptsToSoftwareKeyboard",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/viewModifiers/AdaptsToSoftwareKeyboard.swift#L13"
+    "repo": "AnderGoig/github-contributions-ios",
+    "name": "WidgetStyle",
+    "permalink": "https://github.com/AnderGoig/github-contributions-ios/blob/1eb838a85ac9dac0df29c02c8fd010b5a384fa57/ContributionsWidget/ContributionsGraphEntryView.swift#L55"
    },
    {
-    "repo": "Dimillian/IceCubesApp",
-    "name": "SafariRouter",
-    "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/IceCubesApp/App/Router/SafariRouter.swift#L17"
+    "repo": "AndrewBennet/ReadingListV1",
+    "name": "SafariViewPresentationModifier",
+    "permalink": "https://github.com/AndrewBennet/ReadingListV1/blob/46b32b5b223df7f5a9acb14f4eec0c121eb05ed9/ReadingList/ViewControllers/Settings/SafariView/SafariViewPresentationModifier.swift#L3"
    },
    {
-    "repo": "Dimillian/IceCubesApp",
-    "name": "CardBackgroundModifier",
-    "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/Packages/DesignSystem/Sources/DesignSystem/CardBackgroundModifier.swift#L3"
+    "repo": "AndrewBennet/ReadingListV1",
+    "name": "ItemSafariViewPresentationModifier",
+    "permalink": "https://github.com/AndrewBennet/ReadingListV1/blob/46b32b5b223df7f5a9acb14f4eec0c121eb05ed9/ReadingList/ViewControllers/Settings/SafariView/SafariViewPresentationModifier.swift#L32"
    },
    {
-    "repo": "Dimillian/IceCubesApp",
-    "name": "ThemeApplier",
-    "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/Packages/DesignSystem/Sources/DesignSystem/ThemeApplier.swift#L14"
+    "repo": "AndrewBennet/ReadingListV1",
+    "name": "LinkedToAction",
+    "permalink": "https://github.com/AndrewBennet/ReadingListV1/blob/46b32b5b223df7f5a9acb14f4eec0c121eb05ed9/ReadingListWidget/ActionLink.swift#L3"
    },
    {
-    "repo": "Dimillian/IceCubesApp",
-    "name": "AccountPopoverModifier",
-    "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/Packages/DesignSystem/Sources/DesignSystem/Views/AccountPopoverView.swift#L158"
+    "repo": "AndyQ/NFCPassportReader",
+    "name": "ClearButton",
+    "permalink": "https://github.com/AndyQ/NFCPassportReader/blob/7dfc19c358697d4b083adc3c6fbc55a2385d9fa9/Examples/Example_CocoaPods/NFCPassportReaderApp/Views/HelperViews/ViewModifiers.swift#L11"
    },
    {
-    "repo": "Dimillian/IceCubesApp",
-    "name": "ConditionalUserDefinedFieldAccessibilityActionModifier",
-    "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/Packages/Account/Sources/Account/Detail/Components/AccountFieldsView.swift#L98"
+    "repo": "AndyQ/NFCPassportReader",
+    "name": "VisibilityStyle",
+    "permalink": "https://github.com/AndyQ/NFCPassportReader/blob/7dfc19c358697d4b083adc3c6fbc55a2385d9fa9/Examples/Example_CocoaPods/NFCPassportReaderApp/Views/HelperViews/ViewModifiers.swift#L29"
    },
    {
-    "repo": "Dimillian/IcySky",
-    "name": "AppDestinations",
-    "permalink": "https://github.com/Dimillian/IcySky/blob/03560c6a30277175ea91a6bfc63b50380542017c/App/Destinations/AppDestinations.swift#L9"
+    "repo": "AndyQ/NFCPassportReader",
+    "name": "ClearButton",
+    "permalink": "https://github.com/AndyQ/NFCPassportReader/blob/7dfc19c358697d4b083adc3c6fbc55a2385d9fa9/Examples/Example_SPM/NFCPassportReaderApp/Views/HelperViews/ViewModifiers.swift#L11"
    },
    {
-    "repo": "Dimillian/IcySky",
-    "name": "SheetDestinations",
-    "permalink": "https://github.com/Dimillian/IcySky/blob/03560c6a30277175ea91a6bfc63b50380542017c/App/Destinations/SheetDestinations.swift#L11"
+    "repo": "AndyQ/NFCPassportReader",
+    "name": "VisibilityStyle",
+    "permalink": "https://github.com/AndyQ/NFCPassportReader/blob/7dfc19c358697d4b083adc3c6fbc55a2385d9fa9/Examples/Example_SPM/NFCPassportReaderApp/Views/HelperViews/ViewModifiers.swift#L29"
    },
    {
-    "repo": "Dimillian/IcySky",
-    "name": "HeaderTitleShadowModifier",
-    "permalink": "https://github.com/Dimillian/IcySky/blob/03560c6a30277175ea91a6bfc63b50380542017c/Packages/Features/Sources/DesignSystem/Header/HeaderVIew.swift#L3"
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "RequireAccountModifier",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/Pocket Casts TV App/UI/Auth/RequireAccount.swift#L44"
    },
    {
-    "repo": "Dimillian/IcySky",
-    "name": "ScreenContainerModifier",
-    "permalink": "https://github.com/Dimillian/IcySky/blob/03560c6a30277175ea91a6bfc63b50380542017c/Packages/Features/Sources/DesignSystem/Base/Container.swift#L3"
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "FocusObserving",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/Pocket Casts TV App/UI/Common/FocusStore.swift#L8"
    },
    {
-    "repo": "Dimillian/IcySky",
-    "name": "GlowingRoundedRectangle",
-    "permalink": "https://github.com/Dimillian/IcySky/blob/03560c6a30277175ea91a6bfc63b50380542017c/Packages/Features/Sources/DesignSystem/Base/GlowingRoundedRectangle.swift#L3"
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "BlurredCoverBackground",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/Pocket Casts TV App/UI/Common/BlurredCoverBackground.swift#L3"
    },
    {
-    "repo": "Dimillian/MovieSwiftUI",
-    "name": "DiscoverPosterStyle",
-    "permalink": "https://github.com/Dimillian/MovieSwiftUI/blob/72eb4ae7117fbf893be533c9a277c47a7287d87e/MovieSwift/MovieSwift/views/components/discover/DiscoverCoverImage.swift#L12"
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "ArtworkShadow",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/WidgetExtension/Common/ArtworkViews.swift#L122"
    },
    {
-    "repo": "Dimillian/MovieSwiftUI",
-    "name": "TitleFont",
-    "permalink": "https://github.com/Dimillian/MovieSwiftUI/blob/72eb4ae7117fbf893be533c9a277c47a7287d87e/MovieSwift/Shared/extensions/Font.swift#L26"
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "SecondaryShadow",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/WidgetExtension/Common/ArtworkViews.swift#L129"
    },
    {
-    "repo": "Dimillian/MovieSwiftUI",
-    "name": "PosterStyle",
-    "permalink": "https://github.com/Dimillian/MovieSwiftUI/blob/72eb4ae7117fbf893be533c9a277c47a7287d87e/MovieSwift/Shared/views/modifiers/PosterStyle.swift#L11"
-   }
-  ]
- },
- "UIViewControllerRepresentable": {
-  "repo_count": 2,
-  "top_repos": [
-   [
-    "Dimillian/IceCubesApp",
-    3
-   ],
-   [
-    "Dimillian/ACHNBrowserUI",
-    2
-   ]
-  ],
-  "examples": [
-   {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "SafariView",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/representables/SafariView.swift#L14"
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "LightBackgroundShadow",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/WidgetExtension/Up Next/UpNextStyles.swift#L7"
    },
    {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "ActivityControllerView",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/representables/ActivityControllerView.swift#L13"
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "PocketCastsPreviewer",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/podcasts/SwiftUI+Previews.swift#L32"
    },
    {
-    "repo": "Dimillian/IceCubesApp",
-    "name": "ActivityView",
-    "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/IceCubesApp/App/Router/AppRegistry.swift#L269"
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "DefaultThemeSettings",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/podcasts/Styles.swift#L6"
    },
    {
-    "repo": "Dimillian/IceCubesApp",
-    "name": "FontPicker",
-    "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/Packages/DesignSystem/Sources/DesignSystem/FontPicker.swift#L4"
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "PrimaryText",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/podcasts/Styles.swift#L23"
    },
    {
-    "repo": "Dimillian/IceCubesApp",
-    "name": "CameraPickerView",
-    "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/Packages/StatusKit/Sources/StatusKit/Editor/Components/CameraPickerView.swift#L5"
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "SecondaryText",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/podcasts/Styles.swift#L32"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "HiddenListDividers",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/podcasts/Styles.swift#L53"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "RequiredInput",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/podcasts/Styles.swift#L82"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "ThemedTextField",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/podcasts/Styles.swift#L100"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "RoundedButton",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/podcasts/Styles.swift#L208"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "BorderButton",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/podcasts/Styles.swift#L233"
    }
   ]
  },
  "UIViewRepresentable": {
-  "repo_count": 2,
+  "repo_count": 148,
   "top_repos": [
    [
-    "Dimillian/IceCubesApp",
-    5
+    "stripe/stripe-ios",
+    45
    ],
    [
-    "Dimillian/ACHNBrowserUI",
-    1
+    "woocommerce/woocommerce-ios",
+    23
+   ],
+   [
+    "duckduckgo/apple-browsers",
+    18
+   ],
+   [
+    "mikelikesdesign/SwiftUI-experiments",
+    16
+   ],
+   [
+    "wordpress-mobile/WordPress-iOS",
+    16
+   ],
+   [
+    "Automattic/pocket-casts-ios",
+    14
+   ],
+   [
+    "jellyfin/Swiftfin",
+    13
+   ],
+   [
+    "gematik/E-Rezept-App-iOS",
+    11
+   ],
+   [
+    "simplex-chat/simplex-chat",
+    10
+   ],
+   [
+    "zzanehip/The-OldOS-Project",
+    10
    ]
   ],
   "examples": [
+   {
+    "repo": "1amageek/Toolbar",
+    "name": "EditorBacking",
+    "permalink": "https://github.com/1amageek/Toolbar/blob/651c24079698401734dbca70c00632ef1498b295/Sources/Toolbar/Editor/EditorBacking+iOS.swift#L5"
+   },
+   {
+    "repo": "5calls/ios",
+    "name": "WebView",
+    "permalink": "https://github.com/5calls/ios/blob/f3e34a71af9ed2c0ac50d86e17114dcbaaeadd63/FiveCalls/FiveCalls/DashboardFeature/WebView.swift#L20"
+   },
+   {
+    "repo": "AndrewBennet/ReadingListV1",
+    "name": "ProgressSpinnerView",
+    "permalink": "https://github.com/AndrewBennet/ReadingListV1/blob/46b32b5b223df7f5a9acb14f4eec0c121eb05ed9/ReadingList/ViewControllers/Settings/Common/ProgressSpinnerView.swift#L7"
+   },
+   {
+    "repo": "AnthonyH93/GoCycling",
+    "name": "MapView",
+    "permalink": "https://github.com/AnthonyH93/GoCycling/blob/9cc4f18e872ace3833c06af0e32109feda893096/Go Cycling/View/Cycle/MapView.swift#L12"
+   },
+   {
+    "repo": "AnthonyH93/GoCycling",
+    "name": "RouteDetailMapView",
+    "permalink": "https://github.com/AnthonyH93/GoCycling/blob/9cc4f18e872ace3833c06af0e32109feda893096/Go Cycling/View/History/RouteDetailMapView.swift#L22"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "ScrollableTextRepresentable",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/Pocket Casts TV App/UI/Common/ScrollableTextView.swift#L43"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "GlassProgressPreview",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/podcasts/MiniPlayerGlassProgressView.swift#L147"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "NonEditableTextView",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/podcasts/Common SwiftUI/NonEditableTextView.swift#L4"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "PodcastHeaderDescriptionView",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/podcasts/Podcasts/Podcast Page/Cells/PodcastHeaderDescriptionView.swift#L4"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "HTMLTextView",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/podcasts/Utilities/SwiftUI/HTMLTextView.swift#L5"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "PodcastImageViewWrapper",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/podcasts/Folders/Create & Edit/Views/PodcastImageViewWrapper.swift#L3"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "FolderPreviewWrapper",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/podcasts/Folders/Create & Edit/Views/FolderPreviewWrapper.swift#L4"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "SearchFolderPreviewWrapper",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/podcasts/Folders/Create & Edit/Views/FolderPreviewWrapper.swift#L23"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "SuggestedFolderPreviewWrapper",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/podcasts/Folders/Create & Edit/Views/FolderPreviewWrapper.swift#L39"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "EpisodeActionButton",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/podcasts/New Search/Views/Results/SearchResultCell.swift#L258"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "PlaylistEpisodeImageViewWrapper",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/podcasts/New Creation/New Preview/Rules/Episode Preview/PlaylistEpisodePreviewRowView.swift#L78"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "WelcomeConfettiEmitter",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/podcasts/Onboarding/Welcome/WelcomeView.swift#L275"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "VisualEffectView",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/podcasts/End of Year/Stories/Views/PaidStoryWallView.swift#L42"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "ImageView",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/Modules/Sources/EndOfYear/Views/ImageView.swift#L8"
+   },
+   {
+    "repo": "DebugSwift/DebugSwift",
+    "name": "GoogleWebView",
+    "permalink": "https://github.com/DebugSwift/DebugSwift/blob/58e0b2e947974c1978dc54b4652b01bc614792bb/Example/Example/WebView/WebViewTestView.swift#L110"
+   },
    {
     "repo": "Dimillian/ACHNBrowserUI",
     "name": "VisualEffectView",
@@ -531,16 +856,1043 @@
     "repo": "Dimillian/IceCubesApp",
     "name": "Representable",
     "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/Packages/StatusKit/Sources/StatusKit/Editor/UITextView/Representable.swift#L4"
+   }
+  ]
+ },
+ "UIViewControllerRepresentable": {
+  "repo_count": 124,
+  "top_repos": [
+   [
+    "woocommerce/woocommerce-ios",
+    33
+   ],
+   [
+    "horizontalsystems/unstoppable-wallet-ios",
+    29
+   ],
+   [
+    "wordpress-mobile/WordPress-iOS",
+    17
+   ],
+   [
+    "home-assistant/iOS",
+    15
+   ],
+   [
+    "threema-ch/threema-ios",
+    15
+   ],
+   [
+    "ProtonDriveApps/ios-drive",
+    14
+   ],
+   [
+    "element-hq/element-x-ios",
+    13
+   ],
+   [
+    "duckduckgo/apple-browsers",
+    11
+   ],
+   [
+    "rileytestut/Delta",
+    11
+   ],
+   [
+    "wireapp/wire-ios",
+    11
+   ]
+  ],
+  "examples": [
+   {
+    "repo": "3lvis/SwiftSync",
+    "name": "ProjectsRepresentable",
+    "permalink": "https://github.com/3lvis/SwiftSync/blob/375a0d6eeca24cd18619a071b95586d8750e1e85/Demo/Demo/Features/Projects/ProjectsView.swift#L5"
+   },
+   {
+    "repo": "5calls/ios",
+    "name": "EmailComposerView",
+    "permalink": "https://github.com/5calls/ios/blob/f3e34a71af9ed2c0ac50d86e17114dcbaaeadd63/FiveCalls/FiveCalls/DashboardFeature/EmailComposerView.swift#L6"
+   },
+   {
+    "repo": "5calls/ios",
+    "name": "AcknowListView",
+    "permalink": "https://github.com/5calls/ios/blob/f3e34a71af9ed2c0ac50d86e17114dcbaaeadd63/FiveCalls/FiveCalls/DashboardFeature/AcknowListView.swift#L6"
+   },
+   {
+    "repo": "AndrewBennet/ReadingListV1",
+    "name": "ActivityViewController",
+    "permalink": "https://github.com/AndrewBennet/ReadingListV1/blob/46b32b5b223df7f5a9acb14f4eec0c121eb05ed9/ReadingList/ViewControllers/Settings/DebugSettings.swift#L111"
+   },
+   {
+    "repo": "AndrewBennet/ReadingListV1",
+    "name": "ChangeListWrapper",
+    "permalink": "https://github.com/AndrewBennet/ReadingListV1/blob/46b32b5b223df7f5a9acb14f4eec0c121eb05ed9/ReadingList/ViewControllers/Settings/ViewControllerRepresentable/ChangeListWrapper.swift#L5"
+   },
+   {
+    "repo": "AndrewBennet/ReadingListV1",
+    "name": "ActivityView",
+    "permalink": "https://github.com/AndrewBennet/ReadingListV1/blob/46b32b5b223df7f5a9acb14f4eec0c121eb05ed9/ReadingList/ViewControllers/Settings/ViewControllerRepresentable/ActivityView.swift#L4"
+   },
+   {
+    "repo": "AndrewBennet/ReadingListV1",
+    "name": "MailView",
+    "permalink": "https://github.com/AndrewBennet/ReadingListV1/blob/46b32b5b223df7f5a9acb14f4eec0c121eb05ed9/ReadingList/ViewControllers/Settings/ViewControllerRepresentable/MFMailComposeView.swift#L5"
+   },
+   {
+    "repo": "AndrewBennet/ReadingListV1",
+    "name": "SafariViewPresenter",
+    "permalink": "https://github.com/AndrewBennet/ReadingListV1/blob/46b32b5b223df7f5a9acb14f4eec0c121eb05ed9/ReadingList/ViewControllers/Settings/SafariView/SafariViewPresenter.swift#L4"
+   },
+   {
+    "repo": "AndrewBennet/ReadingListV1",
+    "name": "Representable",
+    "permalink": "https://github.com/AndrewBennet/ReadingListV1/blob/46b32b5b223df7f5a9acb14f4eec0c121eb05ed9/ReadingList/ViewControllers/Settings/SafariView/SafariView+View.swift#L38"
+   },
+   {
+    "repo": "AndrewBennet/ReadingListV1",
+    "name": "EditBookNotesRepresentable",
+    "permalink": "https://github.com/AndrewBennet/ReadingListV1/blob/46b32b5b223df7f5a9acb14f4eec0c121eb05ed9/ReadingList/ViewControllers/Edit/Representable/EditBookNotesRepresentable.swift#L5"
+   },
+   {
+    "repo": "AndrewBennet/ReadingListV1",
+    "name": "EditBookMetadataRepresentable",
+    "permalink": "https://github.com/AndrewBennet/ReadingListV1/blob/46b32b5b223df7f5a9acb14f4eec0c121eb05ed9/ReadingList/ViewControllers/Edit/Representable/EditBookMetadataRepresentable.swift#L5"
+   },
+   {
+    "repo": "AndrewBennet/ReadingListV1",
+    "name": "EditBookReadStateRepresentable",
+    "permalink": "https://github.com/AndrewBennet/ReadingListV1/blob/46b32b5b223df7f5a9acb14f4eec0c121eb05ed9/ReadingList/ViewControllers/Edit/Representable/EditBookReadStateRepresentable.swift#L5"
+   },
+   {
+    "repo": "AndrewBennet/ReadingListV1",
+    "name": "ManageListsRepresentable",
+    "permalink": "https://github.com/AndrewBennet/ReadingListV1/blob/46b32b5b223df7f5a9acb14f4eec0c121eb05ed9/ReadingList/ViewControllers/Edit/Representable/ManageListsRepresentable.swift#L4"
+   },
+   {
+    "repo": "AndyQ/NFCPassportReader",
+    "name": "MRZScanner",
+    "permalink": "https://github.com/AndyQ/NFCPassportReader/blob/7dfc19c358697d4b083adc3c6fbc55a2385d9fa9/Examples/Example_CocoaPods/NFCPassportReaderApp/Views/MRZScannerViewController.swift#L14"
+   },
+   {
+    "repo": "AndyQ/NFCPassportReader",
+    "name": "MRZScanner",
+    "permalink": "https://github.com/AndyQ/NFCPassportReader/blob/7dfc19c358697d4b083adc3c6fbc55a2385d9fa9/Examples/Example_SPM/NFCPassportReaderApp/MrzScanner/VisionViewController.swift#L17"
+   },
+   {
+    "repo": "AndyQ/NFCPassportReader",
+    "name": "MRZScanner",
+    "permalink": "https://github.com/AndyQ/NFCPassportReader/blob/7dfc19c358697d4b083adc3c6fbc55a2385d9fa9/Examples/Example_SPM/NFCPassportReaderApp/Views/MRZScannerViewController.swift#L14"
+   },
+   {
+    "repo": "AnthonyH93/GoCycling",
+    "name": "UIKitAppear",
+    "permalink": "https://github.com/AnthonyH93/GoCycling/blob/9cc4f18e872ace3833c06af0e32109feda893096/Go Cycling/UIKit/UIAppearViewController.swift#L13"
+   },
+   {
+    "repo": "AnthonyH93/GoCycling",
+    "name": "ModalView",
+    "permalink": "https://github.com/AnthonyH93/GoCycling/blob/9cc4f18e872ace3833c06af0e32109feda893096/Go Cycling/Extensions/ModalViewExtension.swift#L10"
+   },
+   {
+    "repo": "AnthonyH93/GoCycling",
+    "name": "ActivityViewController",
+    "permalink": "https://github.com/AnthonyH93/GoCycling/blob/9cc4f18e872ace3833c06af0e32109feda893096/Go Cycling/View/Settings/AboutAppView.swift#L50"
+   },
+   {
+    "repo": "AnthonyH93/GoCycling",
+    "name": "TabBarHider",
+    "permalink": "https://github.com/AnthonyH93/GoCycling/blob/9cc4f18e872ace3833c06af0e32109feda893096/Go Cycling/View/History/SingleBikeRideView.swift#L179"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "NowPlayingPlayerRepresentable",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/Pocket Casts TV App/UI/Player/NowPlayingView.swift#L19"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "WebView",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/podcasts/LegalAndMoreView.swift#L61"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "SFSafariView",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/podcasts/Utilities/SwiftUI/SFSafariView.swift#L4"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "CameraPicker",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/podcasts/Share Profile/CameraPicker.swift#L3"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "CustomVideoPlayerView",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/podcasts/End of Year/Stories/2025/PaidStoryWallView2025.swift#L123"
+   }
+  ]
+ },
+ "ButtonStyle": {
+  "repo_count": 79,
+  "top_repos": [
+   [
+    "duckduckgo/apple-browsers",
+    50
+   ],
+   [
+    "Automattic/pocket-casts-ios",
+    34
+   ],
+   [
+    "ProtonVPN/ios-mac-app",
+    32
+   ],
+   [
+    "woocommerce/woocommerce-ios",
+    17
+   ],
+   [
+    "gematik/E-Rezept-App-iOS",
+    16
+   ],
+   [
+    "bitwarden/ios",
+    13
+   ],
+   [
+    "element-hq/element-x-ios",
+    13
+   ],
+   [
+    "horizontalsystems/unstoppable-wallet-ios",
+    13
+   ],
+   [
+    "ProtonMail/ios-mail",
+    12
+   ],
+   [
+    "home-assistant/iOS",
+    9
+   ]
+  ],
+  "examples": [
+   {
+    "repo": "1amageek/Toolbar",
+    "name": "GlassCircleButtonStyle",
+    "permalink": "https://github.com/1amageek/Toolbar/blob/651c24079698401734dbca70c00632ef1498b295/Sources/Toolbar/Buttons/GlassCircleButton.swift#L4"
+   },
+   {
+    "repo": "256Arts/Sprite-Pencil",
+    "name": "StepperButtonStyle",
+    "permalink": "https://github.com/256Arts/Sprite-Pencil/blob/b9642f7f8aa3568c2a592c78b5bf3e379ab678cb/iOS/Editor/LabeledStepper.swift#L55"
+   },
+   {
+    "repo": "AndyQ/NFCPassportReader",
+    "name": "CheckBoxButtonStyle",
+    "permalink": "https://github.com/AndyQ/NFCPassportReader/blob/7dfc19c358697d4b083adc3c6fbc55a2385d9fa9/Examples/Example_CocoaPods/NFCPassportReaderApp/Views/HelperViews/CheckBoxView.swift#L11"
+   },
+   {
+    "repo": "AndyQ/NFCPassportReader",
+    "name": "CheckBoxButtonStyle",
+    "permalink": "https://github.com/AndyQ/NFCPassportReader/blob/7dfc19c358697d4b083adc3c6fbc55a2385d9fa9/Examples/Example_SPM/NFCPassportReaderApp/Views/HelperViews/CheckBoxView.swift#L11"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "ChromelessButtonStyle",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/Pocket Casts TV App/UI/MainTabView.swift#L277"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "EpisodeRowButtonStyle",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/Pocket Casts TV App/UI/Podcasts/EpisodeRow.swift#L5"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "MoreButtonStyle",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/Pocket Casts TV App/UI/Podcasts/EpisodeRow.swift#L80"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "BasicButtonStyle",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/podcasts/Styles.swift#L140"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "RoundedButtonStyle",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/podcasts/Styles.swift#L176"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "RoundedDarkButton",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/podcasts/Styles.swift#L256"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "StrokeButton",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/podcasts/Styles.swift#L275"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "NavButtonStyle",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/podcasts/Styles.swift#L297"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "SimpleTextButtonStyle",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/podcasts/Styles.swift#L309"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "ClickyButton",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/podcasts/Styles.swift#L344"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "PrimaryButtonStyle",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/podcasts/Styles.swift#L352"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "SecondaryButtonStyle",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/podcasts/Styles.swift#L362"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "ListCellButtonStyle",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/podcasts/Styles.swift#L380"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "PressableLottieButtonStyle",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/podcasts/PressableLottieButtonStyle.swift#L6"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "DynamicButtonStyle",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/podcasts/Utilities/SwiftUI/View+Buttonize.swift#L35"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "OnPressedActionButtonStyle",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/podcasts/Utilities/SwiftUI/View+Buttonize.swift#L52"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "ScrollButtonStyle",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/podcasts/Utilities/SwiftUI/ScrollViewIfNeeded.swift#L69"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "SelectCircleButtonStyle",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/podcasts/Utilities/SwiftUI/SelectCircleButtonStyle.swift#L3"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "ProfileStrokeButtonStyle",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/podcasts/Profile - SwiftUI/Profile/ProfileRefreshButton.swift#L35"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "ProfileStrokeButtonStyle",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/podcasts/Profile - SwiftUI/Profile/ProfileHeaderView.swift#L246"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "PillButtonStyle",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/podcasts/New Search/Views/Results/PillSegmentControl.swift#L45"
+   }
+  ]
+ },
+ "Shape": {
+  "repo_count": 67,
+  "top_repos": [
+   [
+    "jasudev/FabulaItemsProvider",
+    46
+   ],
+   [
+    "duckduckgo/apple-browsers",
+    15
+   ],
+   [
+    "walktalkmeditate/pilgrim-ios",
+    13
+   ],
+   [
+    "miataru/miataru-ios-client",
+    9
+   ],
+   [
+    "rafsoh/dimeApp",
+    9
+   ],
+   [
+    "zzanehip/The-OldOS-Project",
+    9
+   ],
+   [
+    "gematik/E-Rezept-App-iOS",
+    8
+   ],
+   [
+    "relatedcode/ProgressHUD",
+    6
+   ],
+   [
+    "Automattic/pocket-casts-ios",
+    5
+   ],
+   [
+    "Dimillian/ACHNBrowserUI",
+    5
+   ]
+  ],
+  "examples": [
+   {
+    "repo": "AndrewBennet/ReadingListV1",
+    "name": "RoundedCorner",
+    "permalink": "https://github.com/AndrewBennet/ReadingListV1/blob/46b32b5b223df7f5a9acb14f4eec0c121eb05ed9/ReadingListWidget/Extensions.swift#L9"
+   },
+   {
+    "repo": "AnthonyH93/GoCycling",
+    "name": "HorizontalBar",
+    "permalink": "https://github.com/AnthonyH93/GoCycling/blob/9cc4f18e872ace3833c06af0e32109feda893096/Go Cycling/View/Statistics/LockedIconCoverView.swift#L35"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "KidneyShape",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/podcasts/Sharing/ShareImageView.swift#L163"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "PCUnevenRoundedRectangle",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/podcasts/Common SwiftUI/RoundedCorner.swift#L4"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "CollapseShape",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/podcasts/Podcasts/Podcast Page/Cells/PodcastHeaderView.swift#L319"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "GrowingParallelShape",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/podcasts/End of Year/Stories/2025/ListeningTime2025Story.swift#L137"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "InwardSidesRectangle",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/podcasts/End of Year/Stories/2024/TopSpotStory2024.swift#L65"
+   },
+   {
+    "repo": "Dimillian/ACHNBrowserUI",
+    "name": "TurnipsChartMinBuyPriceCurve",
+    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/turnips/charts/TurnipsChartMinBuyPriceCurve.swift#L12"
+   },
+   {
+    "repo": "Dimillian/ACHNBrowserUI",
+    "name": "TurnipsChartMinMaxCurves",
+    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/turnips/charts/TurnipsChartMinMaxCurves.swift#L12"
+   },
+   {
+    "repo": "Dimillian/ACHNBrowserUI",
+    "name": "TurnipsChartAverageCurve",
+    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/turnips/charts/TurnipsChartAverageCurve.swift#L12"
+   },
+   {
+    "repo": "Dimillian/ACHNBrowserUI",
+    "name": "TurnipsChartGrid",
+    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/turnips/charts/TurnipsChartGrid.swift#L12"
+   },
+   {
+    "repo": "Dimillian/ACHNBrowserUI",
+    "name": "RoundedRectangleOnTop",
+    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/shared/RoundedRectangleOnTop.swift#L11"
+   },
+   {
+    "repo": "EhPanda-Team/EhPanda",
+    "name": "RoundedCorner",
+    "permalink": "https://github.com/EhPanda-Team/EhPanda/blob/a7e37f5196b889197c24596075fa3a2a72a30f18/EhPanda/App/Tools/Extensions/ViewModifiers.swift#L159"
+   },
+   {
+    "repo": "HabitRPG/habitica-ios",
+    "name": "LineGraph",
+    "permalink": "https://github.com/HabitRPG/habitica-ios/blob/7058885812e4b573444d27d4ece0dad4f80c828c/HabitRPG/UI/Tasks/HabitProgressView.swift#L48"
+   },
+   {
+    "repo": "HabitRPG/habitica-ios",
+    "name": "GamifiedWave",
+    "permalink": "https://github.com/HabitRPG/habitica-ios/blob/7058885812e4b573444d27d4ece0dad4f80c828c/HabitRPG/Views/Gamified/GamifiedWaveBackground.swift#L26"
+   },
+   {
+    "repo": "JosephDuffy/Overamped",
+    "name": "RoundedCorner",
+    "permalink": "https://github.com/JosephDuffy/Overamped/blob/2d527154f10b88e12e04202d89d42b8d9cb7a4a5/Overamped/About/InstallationInstructionsView.swift#L208"
+   },
+   {
+    "repo": "Keith-43/MuVis-Experimentation",
+    "name": "Superposition_Shape",
+    "permalink": "https://github.com/Keith-43/MuVis-Experimentation/blob/2f1d643e01e3d259e0c3a12b78133e5e93b8df9f/MuVis/Views/Visualizations/Superposition.swift#L108"
+   },
+   {
+    "repo": "Mijick/Popups",
+    "name": "RoundedCorner",
+    "permalink": "https://github.com/Mijick/Popups/blob/3aa55233eda7bbcbd98b52a6f63d5a7e1955189a/Sources/Internal/Extensions/View+Background.swift#L23"
+   },
+   {
+    "repo": "NiftyTreeStudios/Bean-Juice",
+    "name": "Wave",
+    "permalink": "https://github.com/NiftyTreeStudios/Bean-Juice/blob/13d4ebb22279883caeed32f11d2a24582c146939/BeanJuice/Views/Views/SplashScreen.swift#L108"
+   },
+   {
+    "repo": "Piecelet/neodb-app",
+    "name": "StarClipShape",
+    "permalink": "https://github.com/Piecelet/neodb-app/blob/9158e3276656b1c9388304e0b3b236fe4abc0c4f/NeoDB/NeoDB/Views/Mark/StarRatingView.swift#L13"
+   },
+   {
+    "repo": "ProtonDriveApps/ios-drive",
+    "name": "RoundedCorner",
+    "permalink": "https://github.com/ProtonDriveApps/ios-drive/blob/5fa0afcb8e47ebc77dc0dc41f8971ed46685b62d/PDUIComponents/PDUIComponents/Helpers/RoundedCorner.swift#L42"
+   },
+   {
+    "repo": "Swiftgram/Telegram-iOS",
+    "name": "Triangle",
+    "permalink": "https://github.com/Swiftgram/Telegram-iOS/blob/3bff48d44991ed99947431678323c8729fbfe4b9/Swiftgram/SGPayWall/Sources/SGPayWall.swift#L853"
+   },
+   {
+    "repo": "Swiftgram/Telegram-iOS",
+    "name": "SlimRectangle",
+    "permalink": "https://github.com/Swiftgram/Telegram-iOS/blob/3bff48d44991ed99947431678323c8729fbfe4b9/Swiftgram/SGPayWall/Sources/SGPayWall.swift#L865"
+   },
+   {
+    "repo": "Swiftgram/Telegram-iOS",
+    "name": "RoundedCross",
+    "permalink": "https://github.com/Swiftgram/Telegram-iOS/blob/3bff48d44991ed99947431678323c8729fbfe4b9/Swiftgram/SGPayWall/Sources/SGPayWall.swift#L879"
+   },
+   {
+    "repo": "Swiftgram/Telegram-iOS",
+    "name": "RoundedCorner",
+    "permalink": "https://github.com/Swiftgram/Telegram-iOS/blob/3bff48d44991ed99947431678323c8729fbfe4b9/Swiftgram/SGSwiftUI/Sources/SGSwiftUI.swift#L475"
+   }
+  ]
+ },
+ "Layout": {
+  "repo_count": 23,
+  "top_repos": [
+   [
+    "mastodon/mastodon-ios",
+    4
+   ],
+   [
+    "Dimillian/IceCubesApp",
+    3
+   ],
+   [
+    "Thomvis/Construct",
+    3
+   ],
+   [
+    "element-hq/element-x-ios",
+    3
+   ],
+   [
+    "gematik/E-Rezept-App-iOS",
+    2
+   ],
+   [
+    "5calls/ios",
+    1
+   ],
+   [
+    "ProtonVPN/ios-mac-app",
+    1
+   ],
+   [
+    "TortugaPower/BookPlayer",
+    1
+   ],
+   [
+    "asuc-octo/berkeley-mobile-ios",
+    1
+   ],
+   [
+    "exyte/AnimatedTabBar",
+    1
+   ]
+  ],
+  "examples": [
+   {
+    "repo": "5calls/ios",
+    "name": "DaysFlowLayout",
+    "permalink": "https://github.com/5calls/ios/blob/f3e34a71af9ed2c0ac50d86e17114dcbaaeadd63/FiveCalls/FiveCalls/DashboardFeature/MultipleDayPicker.swift#L107"
    },
    {
     "repo": "Dimillian/IceCubesApp",
-    "name": "SelectableText",
-    "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/Packages/StatusKit/Sources/StatusKit/Share/StatusRowSelectableTextView.swift#L30"
+    "name": "_Layout",
+    "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/Packages/StatusKit/Sources/StatusKit/Row/Subviews/StatusRowCardView.swift#L329"
+   },
+   {
+    "repo": "Dimillian/IceCubesApp",
+    "name": "_Layout",
+    "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/Packages/StatusKit/Sources/StatusKit/Row/Subviews/StatusRowMediaPreviewView.swift#L482"
+   },
+   {
+    "repo": "Dimillian/IceCubesApp",
+    "name": "_PercentWidthLayout",
+    "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/Packages/StatusKit/Sources/StatusKit/Poll/StatusPollView.swift#L196"
+   },
+   {
+    "repo": "ProtonVPN/ios-mac-app",
+    "name": "WrappingHStack",
+    "permalink": "https://github.com/ProtonVPN/ios-mac-app/blob/6973fc1f7703314d80cada3eba377766c55710e5/libraries/Features/Home/Sources/Home-iOS/FreeConnectionInfoModal.swift#L105"
+   },
+   {
+    "repo": "Thomvis/Construct",
+    "name": "EqualWidthLayout",
+    "permalink": "https://github.com/Thomvis/Construct/blob/65db2bb055985933cf6121043b6eb01b79f1bd48/Sources/SharedViews/EqualWidthLayout.swift#L13"
+   },
+   {
+    "repo": "Thomvis/Construct",
+    "name": "RoundedButtonToolbarLayout",
+    "permalink": "https://github.com/Thomvis/Construct/blob/65db2bb055985933cf6121043b6eb01b79f1bd48/Sources/SharedViews/RoundedButtonToolbar.swift#L27"
+   },
+   {
+    "repo": "Thomvis/Construct",
+    "name": "FlowLayout",
+    "permalink": "https://github.com/Thomvis/Construct/blob/65db2bb055985933cf6121043b6eb01b79f1bd48/Sources/SharedViews/FlowLayout.swift#L5"
+   },
+   {
+    "repo": "TortugaPower/BookPlayer",
+    "name": "TagsFlowLayout",
+    "permalink": "https://github.com/TortugaPower/BookPlayer/blob/be3651475f51953a1d75f3b7fd9c273b7f460fd7/BookPlayer/MediaServerIntegration/TagsFlowLayout.swift#L11"
+   },
+   {
+    "repo": "asuc-octo/berkeley-mobile-ios",
+    "name": "TodayTilingLayout",
+    "permalink": "https://github.com/asuc-octo/berkeley-mobile-ios/blob/d339561016d2f1d4dfd95b84a838c4e270f06aa2/berkeley-mobile/Today/TodayTileLayout.swift#L96"
+   },
+   {
+    "repo": "element-hq/element-x-ios",
+    "name": "CollapsibleReactionLayout",
+    "permalink": "https://github.com/element-hq/element-x-ios/blob/dc29be5898f0e197184c3a22e6d3b6647e8d04ef/ElementX/Sources/Other/CollapsibleFlowLayout/CollapsibleReactionLayout.swift#L15"
+   },
+   {
+    "repo": "element-hq/element-x-ios",
+    "name": "HomeScreenEmptyStateLayout",
+    "permalink": "https://github.com/element-hq/element-x-ios/blob/dc29be5898f0e197184c3a22e6d3b6647e8d04ef/ElementX/Sources/Screens/HomeScreen/View/HomeScreenEmptyStateView.swift#L46"
+   },
+   {
+    "repo": "element-hq/element-x-ios",
+    "name": "TimelineBubbleLayout",
+    "permalink": "https://github.com/element-hq/element-x-ios/blob/dc29be5898f0e197184c3a22e6d3b6647e8d04ef/ElementX/Sources/Screens/Timeline/View/Style/TimelineBubbleLayout.swift#L15"
+   },
+   {
+    "repo": "exyte/AnimatedTabBar",
+    "name": "ButtonsBar",
+    "permalink": "https://github.com/exyte/AnimatedTabBar/blob/e958616dcaf725dea1dedeb61ba1e52c8f6a79f7/Sources/AnimatedTabBar/ButtonsBarLayout.swift#L12"
+   },
+   {
+    "repo": "gematik/E-Rezept-App-iOS",
+    "name": "PharmacySearchFlowLayout",
+    "permalink": "https://github.com/gematik/E-Rezept-App-iOS/blob/3f158fa05141ef2eef197599cfab71ad429cec4b/Sources/eRpApp/Screens/Pharmacy/PharmacySearchFlowLayout.swift#L28"
+   },
+   {
+    "repo": "gematik/E-Rezept-App-iOS",
+    "name": "RowStack",
+    "permalink": "https://github.com/gematik/E-Rezept-App-iOS/blob/3f158fa05141ef2eef197599cfab71ad429cec4b/Sources/eRpApp/Screens/Orders/OrderDetail/OrderMessageView.swift#L213"
+   },
+   {
+    "repo": "jellyfin/Swiftfin",
+    "name": "FlowLayout",
+    "permalink": "https://github.com/jellyfin/Swiftfin/blob/b30c30e23b174d043ce1b667e4290570a2131436/Shared/Components/Layouts/FlowLayout.swift#L12"
+   },
+   {
+    "repo": "kickstarter/ios-oss",
+    "name": "FlowLayout",
+    "permalink": "https://github.com/kickstarter/ios-oss/blob/d0bb6dc3145e028e2d3119456811b53a46c3f117/Kickstarter-Framework/Sources/Kickstarter-Framework/Kickstarter-iOS/SharedViews/Layouts/FlowLayout.swift#L6"
+   },
+   {
+    "repo": "marcusraitner/pulse",
+    "name": "FlowLayout",
+    "permalink": "https://github.com/marcusraitner/pulse/blob/239e79e54c5c287e399adff0820e1768b30b70b2/Pulse/Helpers/FlowLayout.swift#L12"
+   },
+   {
+    "repo": "mastodon/mastodon-ios",
+    "name": "ProportionalImageGridLayout",
+    "permalink": "https://github.com/mastodon/mastodon-ios/blob/5dbddfdc72404d54fb4578775c37aba7cb62badf/Mastodon/In Progress New Layout and Datamodel/Common Components/ProportionalImageGridLayout.swift#L6"
+   },
+   {
+    "repo": "mastodon/mastodon-ios",
+    "name": "SingleRowFlowLayout",
+    "permalink": "https://github.com/mastodon/mastodon-ios/blob/5dbddfdc72404d54fb4578775c37aba7cb62badf/Mastodon/In Progress New Layout and Datamodel/Common Components/FlowLayout.swift#L5"
+   },
+   {
+    "repo": "mastodon/mastodon-ios",
+    "name": "FlowLayout",
+    "permalink": "https://github.com/mastodon/mastodon-ios/blob/5dbddfdc72404d54fb4578775c37aba7cb62badf/Mastodon/In Progress New Layout and Datamodel/Common Components/FlowLayout.swift#L105"
+   },
+   {
+    "repo": "mastodon/mastodon-ios",
+    "name": "JustifiedBalancedFlowLayout",
+    "permalink": "https://github.com/mastodon/mastodon-ios/blob/5dbddfdc72404d54fb4578775c37aba7cb62badf/Mastodon/In Progress New Layout and Datamodel/Common Components/FlowLayout.swift#L209"
+   },
+   {
+    "repo": "miataru/miataru-ios-client",
+    "name": "FlowLayout",
+    "permalink": "https://github.com/miataru/miataru-ios-client/blob/f4dbba9d5a76c1d9b2499555156d065799248eb0/miataru/Libraries/QRCode-main/Demo/QRCodeView Demo/swiftui/QRCode 3D/settings/FlowLayout.swift#L10"
+   },
+   {
+    "repo": "nalexn/ViewInspector",
+    "name": "SimpleHStackLayout",
+    "permalink": "https://github.com/nalexn/ViewInspector/blob/4785ee635cc39196fecc7787015e74d523f0d334/Tests/ViewInspectorTests/SwiftUI/TreeViewTests.swift#L71"
+   }
+  ]
+ },
+ "LabelStyle": {
+  "repo_count": 23,
+  "top_repos": [
+   [
+    "pointfreeco/swift-composable-architecture",
+    19
+   ],
+   [
+    "element-hq/element-x-ios",
+    11
+   ],
+   [
+    "gematik/E-Rezept-App-iOS",
+    11
+   ],
+   [
+    "jellyfin/Swiftfin",
+    6
+   ],
+   [
+    "daneden/Solstice",
+    4
+   ],
+   [
+    "utmapp/UTM",
+    3
+   ],
+   [
+    "Thomvis/Construct",
+    2
+   ],
+   [
+    "daneden/Zeitgeist",
+    2
+   ],
+   [
+    "rrroyal/Harbour",
+    2
+   ],
+   [
+    "AnderGoig/github-contributions-ios",
+    1
+   ]
+  ],
+  "examples": [
+   {
+    "repo": "AnderGoig/github-contributions-ios",
+    "name": "SettingsLabelStyle",
+    "permalink": "https://github.com/AnderGoig/github-contributions-ios/blob/1eb838a85ac9dac0df29c02c8fd010b5a384fa57/Contributions/Settings/SettingsRow.swift#L47"
+   },
+   {
+    "repo": "Dimillian/IcySky",
+    "name": "CustomSpacingLabel",
+    "permalink": "https://github.com/Dimillian/IcySky/blob/03560c6a30277175ea91a6bfc63b50380542017c/Packages/Features/Sources/DesignSystem/Components/CustomSpacingLabel.swift#L3"
+   },
+   {
+    "repo": "JosephDuffy/Overamped",
+    "name": "MenuButtonLabelStyle",
+    "permalink": "https://github.com/JosephDuffy/Overamped/blob/2d527154f10b88e12e04202d89d42b8d9cb7a4a5/Overamped/Feedback/FeedbackForm.swift#L434"
+   },
+   {
+    "repo": "Piecelet/neodb-app",
+    "name": "TrailingIconLabelStyle",
+    "permalink": "https://github.com/Piecelet/neodb-app/blob/9158e3276656b1c9388304e0b3b236fe4abc0c4f/NeoDB/NeoDB/Views/Shared/Extension/LabelStyle.swift#L10"
+   },
+   {
+    "repo": "ProtonDriveApps/ios-drive",
+    "name": "VerticalLabelStyle",
+    "permalink": "https://github.com/ProtonDriveApps/ios-drive/blob/5fa0afcb8e47ebc77dc0dc41f8971ed46685b62d/PDUIComponents/PDUIComponents/Styles/Label/VerticalLabelStyle.swift#L20"
+   },
+   {
+    "repo": "XcodesOrg/XcodesApp",
+    "name": "TrailingIconLabelStyle",
+    "permalink": "https://github.com/XcodesOrg/XcodesApp/blob/fc82f6d81aa029777b059ec423b73e364f0851a9/Xcodes/Frontend/Common/TrailingIconLabelStyle.swift#L11"
+   },
+   {
+    "repo": "Thomvis/Construct",
+    "name": "LabelStyle",
+    "permalink": "https://github.com/Thomvis/Construct/blob/65db2bb055985933cf6121043b6eb01b79f1bd48/App/App/UI/TabbedDocumentView.swift#L219"
+   },
+   {
+    "repo": "Thomvis/Construct",
+    "name": "VerticalStackLabelStyle",
+    "permalink": "https://github.com/Thomvis/Construct/blob/65db2bb055985933cf6121043b6eb01b79f1bd48/Sources/SharedViews/RoundedButton.swift#L42"
+   },
+   {
+    "repo": "TortugaPower/BookPlayer",
+    "name": "VerticalLabelStyle",
+    "permalink": "https://github.com/TortugaPower/BookPlayer/blob/be3651475f51953a1d75f3b7fd9c273b7f460fd7/BookPlayer/Utils/Extensions/VerticalLabelStyle.swift#L11"
+   },
+   {
+    "repo": "b5i/Atwy",
+    "name": "FailedInitPrivateAPILabelStyle",
+    "permalink": "https://github.com/b5i/Atwy/blob/60ca460470144883a7a098ef42e053243b201138/Atwy/CenterAlignementLabelStyle.swift#L12"
+   },
+   {
+    "repo": "daneden/Solstice",
+    "name": "CompactLabelStyle",
+    "permalink": "https://github.com/daneden/Solstice/blob/4198e61147a6689fcb755d96d6ce61c91f8f2d4f/Widget/Helpers/CompactLabelStyle.swift#L10"
+   },
+   {
+    "repo": "daneden/Solstice",
+    "name": "StackedLabelStyle",
+    "permalink": "https://github.com/daneden/Solstice/blob/4198e61147a6689fcb755d96d6ce61c91f8f2d4f/Solstice/Helper Views/StackedLabelStyle.swift#L10"
+   },
+   {
+    "repo": "daneden/Solstice",
+    "name": "TitleToggledLabelStyle",
+    "permalink": "https://github.com/daneden/Solstice/blob/4198e61147a6689fcb755d96d6ce61c91f8f2d4f/Solstice/Helper Views/TimeTravelCompactView.swift#L192"
+   },
+   {
+    "repo": "daneden/Solstice",
+    "name": "AlignedIconLabelStyle",
+    "permalink": "https://github.com/daneden/Solstice/blob/4198e61147a6689fcb755d96d6ce61c91f8f2d4f/Solstice/Helper Views/AlignedIconLabelStyle.swift#L26"
+   },
+   {
+    "repo": "daneden/Zeitgeist",
+    "name": "ValueLabelStyle",
+    "permalink": "https://github.com/daneden/Zeitgeist/blob/56c776cbb75248a3dcb49b73ba4260b283e7923b/Shared/Helper Views/LabelView.swift#L10"
+   },
+   {
+    "repo": "daneden/Zeitgeist",
+    "name": "WidgetLabelStyle",
+    "permalink": "https://github.com/daneden/Zeitgeist/blob/56c776cbb75248a3dcb49b73ba4260b283e7923b/ZeitgeistWidgets/Views/WidgetLabel.swift#L26"
+   },
+   {
+    "repo": "element-hq/element-x-ios",
+    "name": "CustomLayoutLabelStyle",
+    "permalink": "https://github.com/element-hq/element-x-ios/blob/dc29be5898f0e197184c3a22e6d3b6647e8d04ef/ElementX/Sources/Other/SwiftUI/Layout/CustomLayoutLabelStyle.swift#L18"
+   },
+   {
+    "repo": "element-hq/element-x-ios",
+    "name": "MenuSheetLabelStyle",
+    "permalink": "https://github.com/element-hq/element-x-ios/blob/dc29be5898f0e197184c3a22e6d3b6647e8d04ef/ElementX/Sources/Other/SwiftUI/Layout/MenuSheetLabelStyle.swift#L40"
+   },
+   {
+    "repo": "element-hq/element-x-ios",
+    "name": "VisualListItemLabelStyle",
+    "permalink": "https://github.com/element-hq/element-x-ios/blob/dc29be5898f0e197184c3a22e6d3b6647e8d04ef/ElementX/Sources/Other/SwiftUI/Views/VisualListItem.swift#L45"
+   },
+   {
+    "repo": "element-hq/element-x-ios",
+    "name": "LabelStyle",
+    "permalink": "https://github.com/element-hq/element-x-ios/blob/dc29be5898f0e197184c3a22e6d3b6647e8d04ef/ElementX/Sources/Other/SwiftUI/Views/BadgeLabel.swift#L31"
+   },
+   {
+    "repo": "element-hq/element-x-ios",
+    "name": "MessageComposerHeaderLabelStyle",
+    "permalink": "https://github.com/element-hq/element-x-ios/blob/dc29be5898f0e197184c3a22e6d3b6647e8d04ef/ElementX/Sources/Screens/RoomScreen/ComposerToolbar/View/MessageComposer.swift#L184"
+   },
+   {
+    "repo": "element-hq/element-x-ios",
+    "name": "RoomTimelineViewPlaceholderLabelStyle",
+    "permalink": "https://github.com/element-hq/element-x-ios/blob/dc29be5898f0e197184c3a22e6d3b6647e8d04ef/ElementX/Sources/Screens/Timeline/View/TimelineItemViews/EncryptedRoomTimelineView.swift#L44"
+   },
+   {
+    "repo": "element-hq/element-x-ios",
+    "name": "FooterLabelStyle",
+    "permalink": "https://github.com/element-hq/element-x-ios/blob/dc29be5898f0e197184c3a22e6d3b6647e8d04ef/compound-ios/Sources/Compound/BaseStyles/CompoundTextFieldStyles.swift#L210"
+   },
+   {
+    "repo": "element-hq/element-x-ios",
+    "name": "ListRowDetailsLabelStyle",
+    "permalink": "https://github.com/element-hq/element-x-ios/blob/dc29be5898f0e197184c3a22e6d3b6647e8d04ef/compound-ios/Sources/Compound/List/ListRowTrailingSection.swift#L17"
+   },
+   {
+    "repo": "element-hq/element-x-ios",
+    "name": "ListRowLabelStyle",
+    "permalink": "https://github.com/element-hq/element-x-ios/blob/dc29be5898f0e197184c3a22e6d3b6647e8d04ef/compound-ios/Sources/Compound/List/ListRowLabel.swift#L14"
+   }
+  ]
+ },
+ "ToggleStyle": {
+  "repo_count": 21,
+  "top_repos": [
+   [
+    "jasudev/FabulaItemsProvider",
+    4
+   ],
+   [
+    "Automattic/pocket-casts-ios",
+    3
+   ],
+   [
+    "mullvad/mullvadvpn-app",
+    3
+   ],
+   [
+    "ProtonVPN/ios-mac-app",
+    2
+   ],
+   [
+    "element-hq/element-x-ios",
+    2
+   ],
+   [
+    "gematik/E-Rezept-App-iOS",
+    2
+   ],
+   [
+    "256Arts/Sprite-Pencil",
+    1
+   ],
+   [
+    "NiftyTreeStudios/Bean-Juice",
+    1
+   ],
+   [
+    "algolia/instantsearch-ios",
+    1
+   ],
+   [
+    "b5i/Atwy",
+    1
+   ]
+  ],
+  "examples": [
+   {
+    "repo": "256Arts/Sprite-Pencil",
+    "name": "ToolSelectionButtonToggleStyle",
+    "permalink": "https://github.com/256Arts/Sprite-Pencil/blob/b9642f7f8aa3568c2a592c78b5bf3e379ab678cb/iOS/Editor/ToolSelectionButtons.swift#L11"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "WidgetFirstEpisodePlayToggleStyle",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/WidgetExtension/Up Next/EpisodeView.swift#L63"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "WidgetPlayToggleStyle",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/WidgetExtension/Up Next/EpisodeView.swift#L99"
+   },
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "ThemedSwitchToggleStyle",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/podcasts/ThemedSwitchToggleStyle.swift#L4"
+   },
+   {
+    "repo": "NiftyTreeStudios/Bean-Juice",
+    "name": "CustomToggleStyle",
+    "permalink": "https://github.com/NiftyTreeStudios/Bean-Juice/blob/13d4ebb22279883caeed32f11d2a24582c146939/BeanJuice/Views/Views/Components/CustomToggle.swift#L28"
+   },
+   {
+    "repo": "ProtonVPN/ios-mac-app",
+    "name": "ChecklistToggleStyle",
+    "permalink": "https://github.com/ProtonVPN/ios-mac-app/blob/6973fc1f7703314d80cada3eba377766c55710e5/libraries/Foundations/Theme/Sources/Theme/ToggleStyle.swift#L27"
+   },
+   {
+    "repo": "ProtonVPN/ios-mac-app",
+    "name": "ThemeToggleStyle",
+    "permalink": "https://github.com/ProtonVPN/ios-mac-app/blob/6973fc1f7703314d80cada3eba377766c55710e5/apps/macos/ProtonVPN/Scenes/Settings/Plutonium/ThemeToggleStyle.swift#L22"
+   },
+   {
+    "repo": "algolia/instantsearch-ios",
+    "name": "CheckboxToggleStyle",
+    "permalink": "https://github.com/algolia/instantsearch-ios/blob/25311a685b11c0e85b15e470af80795be5021dec/Examples/Showcase/Filter/FilterToggle/ToggleFilterDemoSwiftUI.swift#L86"
+   },
+   {
+    "repo": "b5i/Atwy",
+    "name": "PerformanceModeToggleStyle",
+    "permalink": "https://github.com/b5i/Atwy/blob/60ca460470144883a7a098ef42e053243b201138/Atwy/Settings/SettingsKit/PerformanceModeToggleStyle.swift#L11"
+   },
+   {
+    "repo": "bitwarden/ios",
+    "name": "BitwardenToggleStyle",
+    "permalink": "https://github.com/bitwarden/ios/blob/346780121980c5d58b3c3e81b911ad0444868941/BitwardenKit/UI/Platform/Application/Appearance/Styles/BitwardenToggleStyle.swift#L8"
+   },
+   {
+    "repo": "daneden/Solstice",
+    "name": "DisclosureGroupToggleStyle",
+    "permalink": "https://github.com/daneden/Solstice/blob/4198e61147a6689fcb755d96d6ce61c91f8f2d4f/Solstice/Detail View/SolarExtremetiesOverview.swift#L137"
+   },
+   {
+    "repo": "davedelong/time",
+    "name": "DayToggleStyle",
+    "permalink": "https://github.com/davedelong/time/blob/b652fe17d13dca2ed5f3aa0209b309de4a10821d/Examples/Examples/Components/DayPicker.swift#L169"
+   },
+   {
+    "repo": "duckduckgo/apple-browsers",
+    "name": "FireToggleStyle",
+    "permalink": "https://github.com/duckduckgo/apple-browsers/blob/cf1005fdd647a60cd47b89b1061ef03a83d6eb13/macOS/LocalPackages/SwiftUIExtensions/Sources/SwiftUIExtensions/FireToggleStyle.swift#L21"
+   },
+   {
+    "repo": "element-hq/element-ios",
+    "name": "AuthenticationTermsToggleStyle",
+    "permalink": "https://github.com/element-hq/element-ios/blob/7b6c4622c68a5bdcf52b923e5a0feaf8a3149ea1/RiotSwiftUI/Modules/Authentication/Terms/View/AuthenticationTermsToggleStyle.swift#L11"
+   },
+   {
+    "repo": "element-hq/element-x-ios",
+    "name": "FilterToggleStyle",
+    "permalink": "https://github.com/element-hq/element-x-ios/blob/dc29be5898f0e197184c3a22e6d3b6647e8d04ef/ElementX/Sources/Screens/HomeScreen/View/Filters/RoomListFilterView.swift#L23"
+   },
+   {
+    "repo": "element-hq/element-x-ios",
+    "name": "CompoundToggleStyle",
+    "permalink": "https://github.com/element-hq/element-x-ios/blob/dc29be5898f0e197184c3a22e6d3b6647e8d04ef/compound-ios/Sources/Compound/BaseStyles/CompoundToggleStyle.swift#L20"
+   },
+   {
+    "repo": "gematik/E-Rezept-App-iOS",
+    "name": "FormRadioToggleStyle",
+    "permalink": "https://github.com/gematik/E-Rezept-App-iOS/blob/3f158fa05141ef2eef197599cfab71ad429cec4b/Sources/eRpStyleKit/Controls/ToggleStyles/FormRadioToggleStyle.swift#L30"
+   },
+   {
+    "repo": "gematik/E-Rezept-App-iOS",
+    "name": "FormToggleStyle",
+    "permalink": "https://github.com/gematik/E-Rezept-App-iOS/blob/3f158fa05141ef2eef197599cfab71ad429cec4b/Sources/eRpStyleKit/Controls/ToggleStyles/FormToggleStyle.swift#L30"
+   },
+   {
+    "repo": "horizontalsystems/unstoppable-wallet-ios",
+    "name": "CheckboxStyle",
+    "permalink": "https://github.com/horizontalsystems/unstoppable-wallet-ios/blob/291e06fd8dd854e46dddc08e911f59a71aba8a8d/UnstoppableWallet/UnstoppableWallet/UserInterface/SwiftUI/CheckboxStyle.swift#L3"
+   },
+   {
+    "repo": "jasudev/FabulaItemsProvider",
+    "name": "FabulaToggleStyle",
+    "permalink": "https://github.com/jasudev/FabulaItemsProvider/blob/af08a0815e21889db8251578ec28c2c27e5b27b1/Sources/FabulaItemsProvider/Items/P9_RightSheet.swift#L627"
+   },
+   {
+    "repo": "jasudev/FabulaItemsProvider",
+    "name": "VerticalToggleStyle",
+    "permalink": "https://github.com/jasudev/FabulaItemsProvider/blob/af08a0815e21889db8251578ec28c2c27e5b27b1/Sources/FabulaItemsProvider/Items/P116_ToggleStyle.swift#L24"
+   },
+   {
+    "repo": "jasudev/FabulaItemsProvider",
+    "name": "FabulaToggleStyle",
+    "permalink": "https://github.com/jasudev/FabulaItemsProvider/blob/af08a0815e21889db8251578ec28c2c27e5b27b1/Sources/FabulaItemsProvider/Items/P8_BottomSheet.swift#L205"
+   },
+   {
+    "repo": "jasudev/FabulaItemsProvider",
+    "name": "FabulaToggleStyle",
+    "permalink": "https://github.com/jasudev/FabulaItemsProvider/blob/af08a0815e21889db8251578ec28c2c27e5b27b1/Sources/FabulaItemsProvider/Items/P22_FabulaToggleStyle.swift#L435"
+   },
+   {
+    "repo": "mullvad/mullvadvpn-app",
+    "name": "IncludeAllNetworksCheckboxToggleStyle",
+    "permalink": "https://github.com/mullvad/mullvadvpn-app/blob/ce5dac7a705d055fa378ae5998048af20162e737/ios/MullvadVPN/Coordinators/Settings/IncludeAllNetworks/IncludeAllNetworksCheckboxToggleStyle.swift#L11"
+   },
+   {
+    "repo": "mullvad/mullvadvpn-app",
+    "name": "CustomToggleStyle",
+    "permalink": "https://github.com/mullvad/mullvadvpn-app/blob/ce5dac7a705d055fa378ae5998048af20162e737/ios/MullvadVPN/Views/CustomToggleStyle.swift#L12"
    }
   ]
  },
  "ToolbarContent": {
-  "repo_count": 2,
+  "repo_count": 16,
   "top_repos": [
    [
     "Dimillian/IceCubesApp",
@@ -549,9 +1901,46 @@
    [
     "Dimillian/IcySky",
     2
+   ],
+   [
+    "ProtonMail/ios-mail",
+    2
+   ],
+   [
+    "claration/Feather",
+    2
+   ],
+   [
+    "eerimoq/moblin",
+    2
+   ],
+   [
+    "utmapp/UTM",
+    2
+   ],
+   [
+    "Dimillian/FoundationChat",
+    1
+   ],
+   [
+    "EhPanda-Team/EhPanda",
+    1
+   ],
+   [
+    "VishwaiOSDev/Loadify-iOS",
+    1
+   ],
+   [
+    "b5i/Atwy",
+    1
    ]
   ],
   "examples": [
+   {
+    "repo": "Dimillian/FoundationChat",
+    "name": "ConversationDetailInputView",
+    "permalink": "https://github.com/Dimillian/FoundationChat/blob/10f46eb4954a994368d76c0273164e4f8da512f2/FoundationChat/Views/ConversationDetail/ConversationDetailInputView.swift#L3"
+   },
    {
     "repo": "Dimillian/IceCubesApp",
     "name": "ToolbarTab",
@@ -636,100 +2025,1123 @@
     "repo": "Dimillian/IcySky",
     "name": "ComposerToolbarView",
     "permalink": "https://github.com/Dimillian/IcySky/blob/03560c6a30277175ea91a6bfc63b50380542017c/Packages/Features/Sources/ComposerUI/Views/ComposerToolbarView.swift#L5"
+   },
+   {
+    "repo": "EhPanda-Team/EhPanda",
+    "name": "CustomToolbarItem",
+    "permalink": "https://github.com/EhPanda-Team/EhPanda/blob/a7e37f5196b889197c24596075fa3a2a72a30f18/EhPanda/View/Support/Components/ToolbarItems.swift#L8"
+   },
+   {
+    "repo": "ProtonMail/ios-mail",
+    "name": "MailboxLiquidUnreadToolbarButton",
+    "permalink": "https://github.com/ProtonMail/ios-mail/blob/701463fe4542945c49ac5d326b0c27e91441e02f/Modules/App/Sources/UI/Screens/Mailbox/MailboxBars/Bottom/Liquid/MailboxLiquidUnreadToolbarButton.swift#L21"
+   },
+   {
+    "repo": "ProtonMail/ios-mail",
+    "name": "MailboxLiquidComposeToolbarButton",
+    "permalink": "https://github.com/ProtonMail/ios-mail/blob/701463fe4542945c49ac5d326b0c27e91441e02f/Modules/App/Sources/UI/Screens/Mailbox/MailboxBars/Bottom/Liquid/MailboxLiquidComposeToolbarButton.swift#L21"
+   },
+   {
+    "repo": "VishwaiOSDev/Loadify-iOS",
+    "name": "LoadifyNavigationBar",
+    "permalink": "https://github.com/VishwaiOSDev/Loadify-iOS/blob/ede138f3fa29baabba44164246bb72f10f138249/Loadify/View/Components/LoadifyNavigationBar.swift#L10"
+   },
+   {
+    "repo": "b5i/Atwy",
+    "name": "ShowSettingsButton",
+    "permalink": "https://github.com/b5i/Atwy/blob/60ca460470144883a7a098ef42e053243b201138/Atwy/Settings/ShowSettingsButton.swift#L12"
+   },
+   {
+    "repo": "claration/Feather",
+    "name": "NBToolbarButton",
+    "permalink": "https://github.com/claration/Feather/blob/d308ddd8189198d170eddcf995ab4c33de421629/NimbleKit/Sources/NimbleViews/Views/NBToolbarButton.swift#L11"
+   },
+   {
+    "repo": "claration/Feather",
+    "name": "NBToolbarMenu",
+    "permalink": "https://github.com/claration/Feather/blob/d308ddd8189198d170eddcf995ab4c33de421629/NimbleKit/Sources/NimbleViews/Views/NBToolbarMenu.swift#L10"
    }
   ]
  },
- "Shape": {
-  "repo_count": 1,
+ "ProgressViewStyle": {
+  "repo_count": 13,
   "top_repos": [
    [
-    "Dimillian/ACHNBrowserUI",
+    "woocommerce/woocommerce-ios",
     5
-   ]
-  ],
-  "examples": [
-   {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "TurnipsChartMinBuyPriceCurve",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/turnips/charts/TurnipsChartMinBuyPriceCurve.swift#L12"
-   },
-   {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "TurnipsChartMinMaxCurves",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/turnips/charts/TurnipsChartMinMaxCurves.swift#L12"
-   },
-   {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "TurnipsChartAverageCurve",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/turnips/charts/TurnipsChartAverageCurve.swift#L12"
-   },
-   {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "TurnipsChartGrid",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/turnips/charts/TurnipsChartGrid.swift#L12"
-   },
-   {
-    "repo": "Dimillian/ACHNBrowserUI",
-    "name": "RoundedRectangleOnTop",
-    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/shared/RoundedRectangleOnTop.swift#L11"
-   }
-  ]
- },
- "ButtonStyle": {
-  "repo_count": 1,
-  "top_repos": [
+   ],
    [
-    "Dimillian/IceCubesApp",
+    "HabitRPG/habitica-ios",
+    2
+   ],
+   [
+    "jellyfin/Swiftfin",
+    2
+   ],
+   [
+    "wireapp/wire-ios",
+    2
+   ],
+   [
+    "EhPanda-Team/EhPanda",
+    1
+   ],
+   [
+    "blinksh/blink",
+    1
+   ],
+   [
+    "fxm90/GradientProgressBar",
+    1
+   ],
+   [
+    "horizontalsystems/unstoppable-wallet-ios",
+    1
+   ],
+   [
+    "kiwix/kiwix-apple",
+    1
+   ],
+   [
+    "mullvad/mullvadvpn-app",
     1
    ]
   ],
   "examples": [
    {
-    "repo": "Dimillian/IceCubesApp",
-    "name": "StatusActionButtonStyle",
-    "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/Packages/StatusKit/Sources/StatusKit/Row/StatusActionButtonStyle.swift#L12"
+    "repo": "EhPanda-Team/EhPanda",
+    "name": "PlainLinearProgressViewStyle",
+    "permalink": "https://github.com/EhPanda-Team/EhPanda/blob/a7e37f5196b889197c24596075fa3a2a72a30f18/EhPanda/App/Tools/Extensions/ViewModifiers.swift#L66"
+   },
+   {
+    "repo": "HabitRPG/habitica-ios",
+    "name": "ValueBarProgressStyle",
+    "permalink": "https://github.com/HabitRPG/habitica-ios/blob/7058885812e4b573444d27d4ece0dad4f80c828c/HabitRPG/UI/Social/UserProfileViewController.swift#L52"
+   },
+   {
+    "repo": "HabitRPG/habitica-ios",
+    "name": "HabiticaProgressStyle",
+    "permalink": "https://github.com/HabitRPG/habitica-ios/blob/7058885812e4b573444d27d4ece0dad4f80c828c/HabitRPG/Views/HabiticaProgressIndicator.swift#L13"
+   },
+   {
+    "repo": "blinksh/blink",
+    "name": "GaugeProgressStyle",
+    "permalink": "https://github.com/blinksh/blink/blob/a90b4423c8b7a86770c24a7eaa6c13b0a5904b18/Settings/ViewControllers/Build/BuildHelp.swift#L260"
+   },
+   {
+    "repo": "fxm90/GradientProgressBar",
+    "name": "GradientProgressBarViewStyle",
+    "permalink": "https://github.com/fxm90/GradientProgressBar/blob/cca0ea7fcd15fc30833332ca2e8ec735677ca479/Sources/GradientProgressBar/GradientProgressBarViewStyle.swift#L41"
+   },
+   {
+    "repo": "horizontalsystems/unstoppable-wallet-ios",
+    "name": "DeterminiteSpinnerStyle",
+    "permalink": "https://github.com/horizontalsystems/unstoppable-wallet-ios/blob/291e06fd8dd854e46dddc08e911f59a71aba8a8d/UnstoppableWallet/UnstoppableWallet/UserInterface/SwiftUI/DeterminiteSpinnerStyle.swift#L3"
+   },
+   {
+    "repo": "jellyfin/Swiftfin",
+    "name": "PlaybackProgressViewStyle",
+    "permalink": "https://github.com/jellyfin/Swiftfin/blob/b30c30e23b174d043ce1b667e4290570a2131436/Shared/Extensions/ProgressViewStyle/PlaybackProgressViewStyle.swift#L11"
+   },
+   {
+    "repo": "jellyfin/Swiftfin",
+    "name": "GaugeProgressViewStyle",
+    "permalink": "https://github.com/jellyfin/Swiftfin/blob/b30c30e23b174d043ce1b667e4290570a2131436/Shared/Extensions/ProgressViewStyle/GaugeProgressViewStyle.swift#L12"
+   },
+   {
+    "repo": "kiwix/kiwix-apple",
+    "name": "CircularProgressGaugeStyle",
+    "permalink": "https://github.com/kiwix/kiwix-apple/blob/2d3c35118f47632cc03d85a1d6dff4b49890ae50/Widgets/CircularProgressGaugeStyle.swift#L18"
+   },
+   {
+    "repo": "mullvad/mullvadvpn-app",
+    "name": "MullvadProgressViewStyle",
+    "permalink": "https://github.com/mullvad/mullvadvpn-app/blob/ce5dac7a705d055fa378ae5998048af20162e737/ios/MullvadVPN/Views/MullvadProgressViewStyle.swift#L3"
+   },
+   {
+    "repo": "nalexn/ViewInspector",
+    "name": "TestProgressViewStyle",
+    "permalink": "https://github.com/nalexn/ViewInspector/blob/4785ee635cc39196fecc7787015e74d523f0d334/Tests/ViewInspectorTests/SwiftUI/ProgressViewTests.swift#L124"
+   },
+   {
+    "repo": "pointfreeco/swift-composable-architecture",
+    "name": "MeetingProgressViewStyle",
+    "permalink": "https://github.com/pointfreeco/swift-composable-architecture/blob/a28ddfada0ec31d726e5c8e525318c3745ad97d9/Examples/SyncUps/SyncUps/RecordMeeting.swift#L278"
+   },
+   {
+    "repo": "tuist/tuist",
+    "name": "TuistProgressViewStyle",
+    "permalink": "https://github.com/tuist/tuist/blob/48e76ba25b75920c7e125aaf00c1257c41363959/app/Sources/TuistMenuBar/TuistProgressViewStyle.swift#L3"
+   },
+   {
+    "repo": "wireapp/wire-ios",
+    "name": "WaveFormProgressViewStyle",
+    "permalink": "https://github.com/wireapp/wire-ios/blob/cf1b0c951148d349c99b7e9ae52c83c54e5ff773/WireMessaging/Sources/WireMessagingUI/WireDrive/Components/UploadPreviews/UploadAudioPreview/WaveFormProgressViewStyle.swift#L21"
+   },
+   {
+    "repo": "wireapp/wire-ios",
+    "name": "WireDriveAssetProgressViewStyle",
+    "permalink": "https://github.com/wireapp/wire-ios/blob/cf1b0c951148d349c99b7e9ae52c83c54e5ff773/WireMessaging/Sources/WireMessagingUI/WireDrive/Components/Common/WireDriveAssetProgressViewStyle.swift#L22"
+   },
+   {
+    "repo": "woocommerce/woocommerce-ios",
+    "name": "ProductCreationAIBarProgressStyle",
+    "permalink": "https://github.com/woocommerce/woocommerce-ios/blob/94217ec8816a8fef7e200a135b5e240dee2ec4ab/WooCommerce/Classes/ViewRelated/Products/Add Product/AddProductWithAI/StartingInfo/PromptProgressBar/ProductCreationAIBarProgressStyle.swift#L3"
+   },
+   {
+    "repo": "woocommerce/woocommerce-ios",
+    "name": "POSProgressViewStyle",
+    "permalink": "https://github.com/woocommerce/woocommerce-ios/blob/94217ec8816a8fef7e200a135b5e240dee2ec4ab/Modules/Sources/PointOfSale/Presentation/Reusable Views/POSProgressViewStyle.swift#L4"
+   },
+   {
+    "repo": "woocommerce/woocommerce-ios",
+    "name": "CardWaveProgressViewStyle",
+    "permalink": "https://github.com/woocommerce/woocommerce-ios/blob/94217ec8816a8fef7e200a135b5e240dee2ec4ab/Modules/Sources/PointOfSale/Presentation/Reusable Views/WavesProgressViewStyle.swift#L3"
+   },
+   {
+    "repo": "woocommerce/woocommerce-ios",
+    "name": "POSButtonProgressViewStyle",
+    "permalink": "https://github.com/woocommerce/woocommerce-ios/blob/94217ec8816a8fef7e200a135b5e240dee2ec4ab/Modules/Sources/PointOfSale/Presentation/Reusable Views/Buttons/POSButtonProgressViewStyle.swift#L5"
+   },
+   {
+    "repo": "woocommerce/woocommerce-ios",
+    "name": "IndefiniteCircularProgressViewStyle",
+    "permalink": "https://github.com/woocommerce/woocommerce-ios/blob/94217ec8816a8fef7e200a135b5e240dee2ec4ab/Modules/Sources/WooFoundation/UI Components/IndefiniteCircularProgressViewStyle.swift#L5"
    }
   ]
  },
- "Layout": {
-  "repo_count": 1,
+ "PrimitiveButtonStyle": {
+  "repo_count": 12,
   "top_repos": [
    [
-    "Dimillian/IceCubesApp",
+    "signalapp/Signal-iOS",
     3
-   ]
-  ],
-  "examples": [
-   {
-    "repo": "Dimillian/IceCubesApp",
-    "name": "_Layout",
-    "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/Packages/StatusKit/Sources/StatusKit/Row/Subviews/StatusRowCardView.swift#L329"
-   },
-   {
-    "repo": "Dimillian/IceCubesApp",
-    "name": "_Layout",
-    "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/Packages/StatusKit/Sources/StatusKit/Row/Subviews/StatusRowMediaPreviewView.swift#L482"
-   },
-   {
-    "repo": "Dimillian/IceCubesApp",
-    "name": "_PercentWidthLayout",
-    "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/Packages/StatusKit/Sources/StatusKit/Poll/StatusPollView.swift#L196"
-   }
-  ]
- },
- "LabelStyle": {
-  "repo_count": 1,
-  "top_repos": [
+   ],
    [
-    "Dimillian/IcySky",
+    "woocommerce/woocommerce-ios",
+    3
+   ],
+   [
+    "jellyfin/Swiftfin",
+    2
+   ],
+   [
+    "ProtonDriveApps/ios-drive",
+    1
+   ],
+   [
+    "duckduckgo/apple-browsers",
+    1
+   ],
+   [
+    "element-hq/element-x-ios",
+    1
+   ],
+   [
+    "jasudev/FabulaItemsProvider",
+    1
+   ],
+   [
+    "nalexn/ViewInspector",
+    1
+   ],
+   [
+    "sindresorhus/Blear",
+    1
+   ],
+   [
+    "threema-ch/threema-ios",
     1
    ]
   ],
   "examples": [
    {
-    "repo": "Dimillian/IcySky",
-    "name": "CustomSpacingLabel",
-    "permalink": "https://github.com/Dimillian/IcySky/blob/03560c6a30277175ea91a6bfc63b50380542017c/Packages/Features/Sources/DesignSystem/Components/CustomSpacingLabel.swift#L3"
+    "repo": "ProtonDriveApps/ios-drive",
+    "name": "NoTapAnimationStyle",
+    "permalink": "https://github.com/ProtonDriveApps/ios-drive/blob/5fa0afcb8e47ebc77dc0dc41f8971ed46685b62d/PDUIComponents/PDUIComponents/Styles/Button/NoTapAnimationStyle.swift#L21"
+   },
+   {
+    "repo": "duckduckgo/apple-browsers",
+    "name": "TouchDownButtonStyle",
+    "permalink": "https://github.com/duckduckgo/apple-browsers/blob/cf1005fdd647a60cd47b89b1061ef03a83d6eb13/macOS/LocalPackages/SwiftUIExtensions/Sources/SwiftUIExtensions/ButtonStyles.swift#L292"
+   },
+   {
+    "repo": "element-hq/element-x-ios",
+    "name": "ListRowButtonStyle",
+    "permalink": "https://github.com/element-hq/element-x-ios/blob/dc29be5898f0e197184c3a22e6d3b6647e8d04ef/compound-ios/Sources/Compound/List/ListRowButtonStyle.swift#L18"
+   },
+   {
+    "repo": "jasudev/FabulaItemsProvider",
+    "name": "LongPrimitiveButtonStyle",
+    "permalink": "https://github.com/jasudev/FabulaItemsProvider/blob/af08a0815e21889db8251578ec28c2c27e5b27b1/Sources/FabulaItemsProvider/Items/P115_PrimitiveButtonStyle.swift#L28"
+   },
+   {
+    "repo": "jellyfin/Swiftfin",
+    "name": "PrimaryButtonStyle",
+    "permalink": "https://github.com/jellyfin/Swiftfin/blob/b30c30e23b174d043ce1b667e4290570a2131436/Shared/Components/ButtonStyles/PrimaryButtonStyle.swift#L17"
+   },
+   {
+    "repo": "jellyfin/Swiftfin",
+    "name": "SupplementTitleButtonStyle",
+    "permalink": "https://github.com/jellyfin/Swiftfin/blob/b30c30e23b174d043ce1b667e4290570a2131436/Shared/Components/ButtonStyles/SupplementTitleButtonStyle.swift#L91"
+   },
+   {
+    "repo": "nalexn/ViewInspector",
+    "name": "TestPrimitiveButtonStyle",
+    "permalink": "https://github.com/nalexn/ViewInspector/blob/4785ee635cc39196fecc7787015e74d523f0d334/Tests/ViewInspectorTests/SwiftUI/ButtonTests.swift#L181"
+   },
+   {
+    "repo": "signalapp/Signal-iOS",
+    "name": "LargePrimaryButtonStyle",
+    "permalink": "https://github.com/signalapp/Signal-iOS/blob/972078533bde7767d1f493a109f44a8c2a9b3297/Signal/Registration/UserInterface/RegistrationUIStyles.swift#L62"
+   },
+   {
+    "repo": "signalapp/Signal-iOS",
+    "name": "LargeSecondaryButtonStyle",
+    "permalink": "https://github.com/signalapp/Signal-iOS/blob/972078533bde7767d1f493a109f44a8c2a9b3297/Signal/Registration/UserInterface/RegistrationUIStyles.swift#L81"
+   },
+   {
+    "repo": "signalapp/Signal-iOS",
+    "name": "MediumSecondaryButtonStyle",
+    "permalink": "https://github.com/signalapp/Signal-iOS/blob/972078533bde7767d1f493a109f44a8c2a9b3297/Signal/Registration/UserInterface/RegistrationUIStyles.swift#L100"
+   },
+   {
+    "repo": "sindresorhus/Blear",
+    "name": "FormLinkButtonStyle",
+    "permalink": "https://github.com/sindresorhus/Blear/blob/2cf4083bf6c79aff11e8b723e39fbb7addb30c4a/Blear/Utilities.swift#L1799"
+   },
+   {
+    "repo": "threema-ch/threema-ios",
+    "name": "AdaptiveButtonStyle",
+    "permalink": "https://github.com/threema-ch/threema-ios/blob/0a1b07418f085de9e64872a3dc93923b7a7ad28c/Threema/RootCoordinator/LoadingCoordinator/LoadingView.swift#L96"
+   },
+   {
+    "repo": "utmapp/UTM",
+    "name": "ReleaseButtonStyle",
+    "permalink": "https://github.com/utmapp/UTM/blob/fb61bfe86a2cc39bb3bc884636fa55414f317acb/Platform/Shared/VMReleaseNotesView.swift#L148"
+   },
+   {
+    "repo": "woocommerce/woocommerce-ios",
+    "name": "SecondaryLoadingButtonStyle",
+    "permalink": "https://github.com/woocommerce/woocommerce-ios/blob/94217ec8816a8fef7e200a135b5e240dee2ec4ab/WooCommerce/Classes/ViewRelated/ReusableViews/SwiftUI Components/ButtonStyles.swift#L28"
+   },
+   {
+    "repo": "woocommerce/woocommerce-ios",
+    "name": "PrimaryLoadingButtonStyle",
+    "permalink": "https://github.com/woocommerce/woocommerce-ios/blob/94217ec8816a8fef7e200a135b5e240dee2ec4ab/WooCommerce/Classes/ViewRelated/ReusableViews/SwiftUI Components/ButtonStyles.swift#L144"
+   },
+   {
+    "repo": "woocommerce/woocommerce-ios",
+    "name": "HighlightLoadingButtonStyle",
+    "permalink": "https://github.com/woocommerce/woocommerce-ios/blob/94217ec8816a8fef7e200a135b5e240dee2ec4ab/WooCommerce/Classes/ViewRelated/ReusableViews/SwiftUI Components/ButtonStyles.swift#L216"
+   },
+   {
+    "repo": "zzanehip/The-OldOS-Project",
+    "name": "BluePrimitiveButtonStyle",
+    "permalink": "https://github.com/zzanehip/The-OldOS-Project/blob/7877b019b9c38e91e1029075cddb1f516437fbb5/OldOS/OldOS/Phone.swift#L1085"
+   }
+  ]
+ },
+ "TextFieldStyle": {
+  "repo_count": 10,
+  "top_repos": [
+   [
+    "HabitRPG/habitica-ios",
+    2
+   ],
+   [
+    "element-hq/element-ios",
+    2
+   ],
+   [
+    "Automattic/pocket-casts-ios",
+    1
+   ],
+   [
+    "ProtonVPN/ios-mac-app",
+    1
+   ],
+   [
+    "b5i/Atwy",
+    1
+   ],
+   [
+    "duckduckgo/apple-browsers",
+    1
+   ],
+   [
+    "element-hq/element-x-ios",
+    1
+   ],
+   [
+    "pia-foss/mobile-ios",
+    1
+   ],
+   [
+    "rrroyal/Harbour",
+    1
+   ],
+   [
+    "woocommerce/woocommerce-ios",
+    1
+   ]
+  ],
+  "examples": [
+   {
+    "repo": "Automattic/pocket-casts-ios",
+    "name": "RequiredFieldStyle",
+    "permalink": "https://github.com/Automattic/pocket-casts-ios/blob/38460c48d5a74d5c4f607f3235407e9984818980/podcasts/Styles.swift#L68"
+   },
+   {
+    "repo": "HabitRPG/habitica-ios",
+    "name": "FormTextFieldStyle",
+    "permalink": "https://github.com/HabitRPG/habitica-ios/blob/7058885812e4b573444d27d4ece0dad4f80c828c/HabitRPG/UI/Tasks/FormTextFieldStyle.swift#L11"
+   },
+   {
+    "repo": "HabitRPG/habitica-ios",
+    "name": "LoginTextFieldStyle",
+    "permalink": "https://github.com/HabitRPG/habitica-ios/blob/7058885812e4b573444d27d4ece0dad4f80c828c/HabitRPG/UI/Onboarding/LoginScreen.swift#L34"
+   },
+   {
+    "repo": "ProtonVPN/ios-mac-app",
+    "name": "HermesTextFieldStyle",
+    "permalink": "https://github.com/ProtonVPN/ios-mac-app/blob/6973fc1f7703314d80cada3eba377766c55710e5/libraries/Features/ios_app/Sources/ios_app/Scenes/Settings/Hermes/HermesStyles.swift#L67"
+   },
+   {
+    "repo": "b5i/Atwy",
+    "name": "ReplyCommentTextFieldStyle",
+    "permalink": "https://github.com/b5i/Atwy/blob/60ca460470144883a7a098ef42e053243b201138/Atwy/PlayerView/Comments/ReplyCommentTextFieldStyle.swift#L11"
+   },
+   {
+    "repo": "duckduckgo/apple-browsers",
+    "name": "ThemedTextFieldStyle",
+    "permalink": "https://github.com/duckduckgo/apple-browsers/blob/cf1005fdd647a60cd47b89b1061ef03a83d6eb13/macOS/DuckDuckGo/Common/View/SwiftUI/ThemedTextFieldStyle.swift#L28"
+   },
+   {
+    "repo": "element-hq/element-ios",
+    "name": "FormInputFieldStyle",
+    "permalink": "https://github.com/element-hq/element-ios/blob/7b6c4622c68a5bdcf52b923e5a0feaf8a3149ea1/RiotSwiftUI/Modules/Settings/Notifications/View/FormInputFieldStyle.swift#L12"
+   },
+   {
+    "repo": "element-hq/element-ios",
+    "name": "BorderedInputFieldStyle",
+    "permalink": "https://github.com/element-hq/element-ios/blob/7b6c4622c68a5bdcf52b923e5a0feaf8a3149ea1/RiotSwiftUI/Modules/Common/Util/BorderedInputFieldStyle.swift#L16"
+   },
+   {
+    "repo": "element-hq/element-x-ios",
+    "name": "PINTextFieldStyle",
+    "permalink": "https://github.com/element-hq/element-x-ios/blob/dc29be5898f0e197184c3a22e6d3b6647e8d04ef/ElementX/Sources/Screens/AppLock/AppLockSetupPINScreen/View/PINTextField.swift#L52"
+   },
+   {
+    "repo": "pia-foss/mobile-ios",
+    "name": "TextFieldStyleModifier",
+    "permalink": "https://github.com/pia-foss/mobile-ios/blob/97e26e7eb2ae951dc072480fd8e3e2ac26b041c2/PIA VPN-tvOS/Shared/UI/Modifiers/TextFieldStyleModifier.swift#L12"
+   },
+   {
+    "repo": "rrroyal/Harbour",
+    "name": "RoundedTextFieldStyle",
+    "permalink": "https://github.com/rrroyal/Harbour/blob/e56c10cb376baaa3ada49b29b8396e1ab9293942/Harbour/UI/Styles/TextField/RoundedTextFieldStyle.swift#L11"
+   },
+   {
+    "repo": "woocommerce/woocommerce-ios",
+    "name": "WooRoundedBorderTextFieldStyle",
+    "permalink": "https://github.com/woocommerce/woocommerce-ios/blob/94217ec8816a8fef7e200a135b5e240dee2ec4ab/Modules/Sources/WooFoundation/UI Components/TextFieldStyles.swift#L4"
+   }
+  ]
+ },
+ "Commands": {
+  "repo_count": 10,
+  "top_repos": [
+   [
+    "apps-fab/exercism-app",
+    4
+   ],
+   [
+    "XcodesOrg/XcodesApp",
+    1
+   ],
+   [
+    "daneden/Zeitgeist",
+    1
+   ],
+   [
+    "dl-alexandre/SymbolGrid",
+    1
+   ],
+   [
+    "gluonfield/enchanted",
+    1
+   ],
+   [
+    "jeffreybergier/Hipstapaper",
+    1
+   ],
+   [
+    "mick-schroeder/PotatoGame",
+    1
+   ],
+   [
+    "rrroyal/Harbour",
+    1
+   ],
+   [
+    "utmapp/UTM",
+    1
+   ],
+   [
+    "yattee/yattee",
+    1
+   ]
+  ],
+  "examples": [
+   {
+    "repo": "XcodesOrg/XcodesApp",
+    "name": "XcodeCommands",
+    "permalink": "https://github.com/XcodesOrg/XcodesApp/blob/fc82f6d81aa029777b059ec423b73e364f0851a9/Xcodes/Backend/XcodeCommands.swift#L6"
+   },
+   {
+    "repo": "apps-fab/exercism-app",
+    "name": "ExercismCommands",
+    "permalink": "https://github.com/apps-fab/exercism-app/blob/3ceb552c1b2eaed8c60e27771f84773aedbd1d3f/Exercism/Util/WindowCommands/ExercismCommands.swift#L10"
+   },
+   {
+    "repo": "apps-fab/exercism-app",
+    "name": "ViewCommands",
+    "permalink": "https://github.com/apps-fab/exercism-app/blob/3ceb552c1b2eaed8c60e27771f84773aedbd1d3f/Exercism/Util/WindowCommands/ViewCommands.swift#L10"
+   },
+   {
+    "repo": "apps-fab/exercism-app",
+    "name": "MainCommands",
+    "permalink": "https://github.com/apps-fab/exercism-app/blob/3ceb552c1b2eaed8c60e27771f84773aedbd1d3f/Exercism/Util/WindowCommands/MainCommands.swift#L10"
+   },
+   {
+    "repo": "apps-fab/exercism-app",
+    "name": "WindowCommands",
+    "permalink": "https://github.com/apps-fab/exercism-app/blob/3ceb552c1b2eaed8c60e27771f84773aedbd1d3f/Exercism/Util/WindowCommands/WindowCommands.swift#L9"
+   },
+   {
+    "repo": "daneden/Zeitgeist",
+    "name": "DeploymentCommands",
+    "permalink": "https://github.com/daneden/Zeitgeist/blob/56c776cbb75248a3dcb49b73ba4260b283e7923b/Shared/Views/Deployments/DeploymentActionsMenu.swift#L195"
+   },
+   {
+    "repo": "dl-alexandre/SymbolGrid",
+    "name": "SymbolCommands",
+    "permalink": "https://github.com/dl-alexandre/SymbolGrid/blob/cd3325ef6af357a53d1f04c03ec7c62945f5e99f/SymbolGrid/Mac/Commands.swift#L11"
+   },
+   {
+    "repo": "gluonfield/enchanted",
+    "name": "Menus",
+    "permalink": "https://github.com/gluonfield/enchanted/blob/84d0e26df7b2add017bedb8ca1f60d824ed337a6/Enchanted/UI/macOS/Menus.swift#L23"
+   },
+   {
+    "repo": "jeffreybergier/Hipstapaper",
+    "name": "MainMenu",
+    "permalink": "https://github.com/jeffreybergier/Hipstapaper/blob/2632929a3a65dc9dc8ee4a8b67dfd03cb268c436/Hipstapaper/Packages/V3Interface/Sources/V3Interface/Main/Menu/MainMenu.swift#L34"
+   },
+   {
+    "repo": "mick-schroeder/PotatoGame",
+    "name": "GameKeyboardCommands",
+    "permalink": "https://github.com/mick-schroeder/PotatoGame/blob/060c45bfe867d57ea4255bebafd3aafbf62c0b1a/PotatoGame/GameInput/GameKeyboardCommands.swift#L7"
+   },
+   {
+    "repo": "rrroyal/Harbour",
+    "name": "PortainerCommands",
+    "permalink": "https://github.com/rrroyal/Harbour/blob/e56c10cb376baaa3ada49b29b8396e1ab9293942/Harbour/HarbourApp.swift#L90"
+   },
+   {
+    "repo": "utmapp/UTM",
+    "name": "VMCommands",
+    "permalink": "https://github.com/utmapp/UTM/blob/fb61bfe86a2cc39bb3bc884636fa55414f317acb/Platform/Shared/VMCommands.swift#L19"
+   },
+   {
+    "repo": "yattee/yattee",
+    "name": "MenuCommands",
+    "permalink": "https://github.com/yattee/yattee/blob/c0815353d7c8025a376c855159d64eefe16a7a2b/Shared/MenuCommands.swift#L4"
+   }
+  ]
+ },
+ "Animatable": {
+  "repo_count": 7,
+  "top_repos": [
+   [
+    "duckduckgo/apple-browsers",
+    3
+   ],
+   [
+    "exyte/AnimatedTabBar",
+    3
+   ],
+   [
+    "jasudev/FabulaItemsProvider",
+    3
+   ],
+   [
+    "ProtonMail/ios-mail",
+    1
+   ],
+   [
+    "Thomvis/Construct",
+    1
+   ],
+   [
+    "exyte/ConcentricOnboarding",
+    1
+   ],
+   [
+    "jordibruin/Swift-Charts-Examples",
+    1
+   ]
+  ],
+  "examples": [
+   {
+    "repo": "ProtonMail/ios-mail",
+    "name": "AnimatableXTransformModifier",
+    "permalink": "https://github.com/ProtonMail/ios-mail/blob/701463fe4542945c49ac5d326b0c27e91441e02f/Modules/App/Sources/UI/Screens/Mailbox/SwipeActions/SwipeableView.swift#L245"
+   },
+   {
+    "repo": "Thomvis/Construct",
+    "name": "Modifier",
+    "permalink": "https://github.com/Thomvis/Construct/blob/65db2bb055985933cf6121043b6eb01b79f1bd48/Sources/SharedViews/AnimatingSymbol.swift#L28"
+   },
+   {
+    "repo": "duckduckgo/apple-browsers",
+    "name": "ExitingBackgroundView",
+    "permalink": "https://github.com/duckduckgo/apple-browsers/blob/cf1005fdd647a60cd47b89b1061ef03a83d6eb13/iOS/DuckDuckGo/OnboardingFlow/LinearOnboarding/Rebranding/RebrandedScrollableOnboardingBackground.swift#L181"
+   },
+   {
+    "repo": "duckduckgo/apple-browsers",
+    "name": "SlideLeftAndFadeModifier",
+    "permalink": "https://github.com/duckduckgo/apple-browsers/blob/cf1005fdd647a60cd47b89b1061ef03a83d6eb13/iOS/DuckDuckGo/OnboardingFlow/LinearOnboarding/Rebranding/RebrandedOnboardingView.swift#L856"
+   },
+   {
+    "repo": "duckduckgo/apple-browsers",
+    "name": "Bubble",
+    "permalink": "https://github.com/duckduckgo/apple-browsers/blob/cf1005fdd647a60cd47b89b1061ef03a83d6eb13/SharedPackages/UIComponents/Sources/UIComponents/Shared/BubbleView.swift#L47"
+   },
+   {
+    "repo": "exyte/AnimatedTabBar",
+    "name": "ColorButtonOutlineBell",
+    "permalink": "https://github.com/exyte/AnimatedTabBar/blob/e958616dcaf725dea1dedeb61ba1e52c8f6a79f7/AnimatedTabBarExample/AnimatedTabBarExample/ExampleColorButtons.swift#L72"
+   },
+   {
+    "repo": "exyte/AnimatedTabBar",
+    "name": "ColorButtonOutlineCalendar",
+    "permalink": "https://github.com/exyte/AnimatedTabBar/blob/e958616dcaf725dea1dedeb61ba1e52c8f6a79f7/AnimatedTabBarExample/AnimatedTabBarExample/ExampleColorButtons.swift#L109"
+   },
+   {
+    "repo": "exyte/AnimatedTabBar",
+    "name": "DropletButtonAnimatable",
+    "permalink": "https://github.com/exyte/AnimatedTabBar/blob/e958616dcaf725dea1dedeb61ba1e52c8f6a79f7/Sources/AnimatedTabBar/TabBarButtons/DropletButton.swift#L43"
+   },
+   {
+    "repo": "exyte/ConcentricOnboarding",
+    "name": "ConcentricOnboardingView",
+    "permalink": "https://github.com/exyte/ConcentricOnboarding/blob/5d692474b40ea4893a0f347a7d6e559d91049691/Sources/ConcentricOnboarding/ConcentricOnboardingView.swift#L15"
+   },
+   {
+    "repo": "jasudev/FabulaItemsProvider",
+    "name": "EllipseAnimation",
+    "permalink": "https://github.com/jasudev/FabulaItemsProvider/blob/af08a0815e21889db8251578ec28c2c27e5b27b1/Sources/FabulaItemsProvider/Items/P273_ShapeGenerator.swift#L74"
+   },
+   {
+    "repo": "jasudev/FabulaItemsProvider",
+    "name": "RotatingAnimation",
+    "permalink": "https://github.com/jasudev/FabulaItemsProvider/blob/af08a0815e21889db8251578ec28c2c27e5b27b1/Sources/FabulaItemsProvider/Items/P278_RotatingPlayingCard.swift#L49"
+   },
+   {
+    "repo": "jasudev/FabulaItemsProvider",
+    "name": "FlippingAnimation",
+    "permalink": "https://github.com/jasudev/FabulaItemsProvider/blob/af08a0815e21889db8251578ec28c2c27e5b27b1/Sources/FabulaItemsProvider/Items/P278_RotatingPlayingCard.swift#L63"
+   },
+   {
+    "repo": "jordibruin/Swift-Charts-Examples",
+    "name": "AnimatedChart",
+    "permalink": "https://github.com/jordibruin/Swift-Charts-Examples/blob/5134bcfff65ce169ef0b23412d95daef383ea537/Swift Charts Examples/Charts/LineCharts/AnimatingLine.swift#L65"
+   }
+  ]
+ },
+ "Scene": {
+  "repo_count": 5,
+  "top_repos": [
+   [
+    "Jaennaet/pISSStream",
+    1
+   ],
+   [
+    "amikhaylin/pompaddo",
+    1
+   ],
+   [
+    "apps-fab/exercism-app",
+    1
+   ],
+   [
+    "jeffreybergier/Hipstapaper",
+    1
+   ],
+   [
+    "utmapp/UTM",
+    1
+   ]
+  ],
+  "examples": [
+   {
+    "repo": "Jaennaet/pISSStream",
+    "name": "pISSSceneConfiguration",
+    "permalink": "https://github.com/Jaennaet/pISSStream/blob/11f73f186d1d611c9c74f4558007dd9a62593a2b/pISSStream/View/pISSSceneConfiguration.swift#L10"
+   },
+   {
+    "repo": "amikhaylin/pompaddo",
+    "name": "FocusTimerScene",
+    "permalink": "https://github.com/amikhaylin/pompaddo/blob/7a8a52dbfce60b2d7381209e61507bce52f5df46/PomPadDo/Activities/Focus/FocusTimerScene.swift#L10"
+   },
+   {
+    "repo": "apps-fab/exercism-app",
+    "name": "MainWindow",
+    "permalink": "https://github.com/apps-fab/exercism-app/blob/3ceb552c1b2eaed8c60e27771f84773aedbd1d3f/Exercism/Util/MainWindow.swift#L11"
+   },
+   {
+    "repo": "jeffreybergier/Hipstapaper",
+    "name": "SceneBootstrap",
+    "permalink": "https://github.com/jeffreybergier/Hipstapaper/blob/2632929a3a65dc9dc8ee4a8b67dfd03cb268c436/Hipstapaper/Packages/V3Interface/Sources/V3Interface/Main/SceneBootstrap.swift#L35"
+   },
+   {
+    "repo": "utmapp/UTM",
+    "name": "UTMMenuBarExtraScene",
+    "permalink": "https://github.com/utmapp/UTM/blob/fb61bfe86a2cc39bb3bc884636fa55414f317acb/Platform/macOS/UTMMenuBarExtraScene.swift#L21"
+   }
+  ]
+ },
+ "GroupBoxStyle": {
+  "repo_count": 5,
+  "top_repos": [
+   [
+    "threema-ch/threema-ios",
+    4
+   ],
+   [
+    "vinhnx/Clendar",
+    2
+   ],
+   [
+    "XcodesOrg/XcodesApp",
+    1
+   ],
+   [
+    "firebase/quickstart-ios",
+    1
+   ],
+   [
+    "nalexn/ViewInspector",
+    1
+   ]
+  ],
+  "examples": [
+   {
+    "repo": "XcodesOrg/XcodesApp",
+    "name": "PreferencesGroupBoxStyle",
+    "permalink": "https://github.com/XcodesOrg/XcodesApp/blob/fc82f6d81aa029777b059ec423b73e364f0851a9/Xcodes/Frontend/Preferences/AdvancedPreferencePane.swift#L174"
+   },
+   {
+    "repo": "firebase/quickstart-ios",
+    "name": "CardGroupBoxStyle",
+    "permalink": "https://github.com/firebase/quickstart-ios/blob/9da4ad1a5baed141792a7d771ba249477ad611e6/firebaseai/FirebaseAIExample/Shared/Views/SampleCardView.swift#L65"
+   },
+   {
+    "repo": "nalexn/ViewInspector",
+    "name": "TestGroupBoxStyle",
+    "permalink": "https://github.com/nalexn/ViewInspector/blob/4785ee635cc39196fecc7787015e74d523f0d334/Tests/ViewInspectorTests/SwiftUI/GroupBoxTests.swift#L122"
+   },
+   {
+    "repo": "threema-ch/threema-ios",
+    "name": "InfoGroupBoxStyle",
+    "permalink": "https://github.com/threema-ch/threema-ios/blob/0a1b07418f085de9e64872a3dc93923b7a7ad28c/Threema/SharedUI/SwiftUI/CustomStyles/InfoGroupBoxStyle.swift#L4"
+   },
+   {
+    "repo": "threema-ch/threema-ios",
+    "name": "StorageManagementGroupBoxStyle",
+    "permalink": "https://github.com/threema-ch/threema-ios/blob/0a1b07418f085de9e64872a3dc93923b7a7ad28c/Threema/SharedUI/SwiftUI/CustomStyles/StorageManagementGroupBoxStyle.swift#L4"
+   },
+   {
+    "repo": "threema-ch/threema-ios",
+    "name": "WizardGroupBoxStyle",
+    "permalink": "https://github.com/threema-ch/threema-ios/blob/0a1b07418f085de9e64872a3dc93923b7a7ad28c/Threema/SharedUI/SwiftUI/CustomStyles/WizardGroupBoxStyle.swift#L4"
+   },
+   {
+    "repo": "threema-ch/threema-ios",
+    "name": "WizardOpacityGroupBoxStyle",
+    "permalink": "https://github.com/threema-ch/threema-ios/blob/0a1b07418f085de9e64872a3dc93923b7a7ad28c/Threema/SharedUI/SwiftUI/CustomStyles/WizardGroupBoxStyle.swift#L20"
+   },
+   {
+    "repo": "vinhnx/Clendar",
+    "name": "PlainGroupBoxStyle",
+    "permalink": "https://github.com/vinhnx/Clendar/blob/c1eb93e13f5d408644a860ab4024105d751842d1/Clendar/Components/CustomGroupBoxStyle.swift#L11"
+   },
+   {
+    "repo": "vinhnx/Clendar",
+    "name": "CardGroupBoxStyle",
+    "permalink": "https://github.com/vinhnx/Clendar/blob/c1eb93e13f5d408644a860ab4024105d751842d1/Clendar/Components/CustomGroupBoxStyle.swift#L21"
+   }
+  ]
+ },
+ "InsettableShape": {
+  "repo_count": 4,
+  "top_repos": [
+   [
+    "jasudev/FabulaItemsProvider",
+    14
+   ],
+   [
+    "adaptyteam/AdaptySDK-iOS",
+    3
+   ],
+   [
+    "duckduckgo/apple-browsers",
+    2
+   ],
+   [
+    "jordibruin/Swift-Charts-Examples",
+    1
+   ]
+  ],
+  "examples": [
+   {
+    "repo": "adaptyteam/AdaptySDK-iOS",
+    "name": "UnevenRoundedRectangleFallback",
+    "permalink": "https://github.com/adaptyteam/AdaptySDK-iOS/blob/cef5c13063b2358a91f29ef7b3b64ebe6494ecc7/Sources.UIBuilder/UIBuilder/Rendering/SwiftUI+Components/UnevenRoundedRectangleFallback.swift#L70"
+   },
+   {
+    "repo": "adaptyteam/AdaptySDK-iOS",
+    "name": "CurveDownShape",
+    "permalink": "https://github.com/adaptyteam/AdaptySDK-iOS/blob/cef5c13063b2358a91f29ef7b3b64ebe6494ecc7/Sources.UIBuilder/UIBuilder/Rendering/SwiftUI+Components/CurveDownShape.swift#L13"
+   },
+   {
+    "repo": "adaptyteam/AdaptySDK-iOS",
+    "name": "CurveUpShape",
+    "permalink": "https://github.com/adaptyteam/AdaptySDK-iOS/blob/cef5c13063b2358a91f29ef7b3b64ebe6494ecc7/Sources.UIBuilder/UIBuilder/Rendering/SwiftUI+Components/CurveUpShape.swift#L13"
+   },
+   {
+    "repo": "duckduckgo/apple-browsers",
+    "name": "CustomRoundedCornersShape",
+    "permalink": "https://github.com/duckduckgo/apple-browsers/blob/cf1005fdd647a60cd47b89b1061ef03a83d6eb13/macOS/DuckDuckGo/Common/View/SwiftUI/CustomRoundedCornersShape.swift#L21"
+   },
+   {
+    "repo": "duckduckgo/apple-browsers",
+    "name": "Bubble",
+    "permalink": "https://github.com/duckduckgo/apple-browsers/blob/cf1005fdd647a60cd47b89b1061ef03a83d6eb13/SharedPackages/UIComponents/Sources/UIComponents/Shared/BubbleView.swift#L47"
+   },
+   {
+    "repo": "jasudev/FabulaItemsProvider",
+    "name": "RoundedCorners",
+    "permalink": "https://github.com/jasudev/FabulaItemsProvider/blob/af08a0815e21889db8251578ec28c2c27e5b27b1/Sources/FabulaItemsProvider/Items/P9_RightSheet.swift#L93"
+   },
+   {
+    "repo": "jasudev/FabulaItemsProvider",
+    "name": "RoundedCorners",
+    "permalink": "https://github.com/jasudev/FabulaItemsProvider/blob/af08a0815e21889db8251578ec28c2c27e5b27b1/Sources/FabulaItemsProvider/Items/P3_FlaredRounded.swift#L44"
+   },
+   {
+    "repo": "jasudev/FabulaItemsProvider",
+    "name": "RoundedCorners",
+    "permalink": "https://github.com/jasudev/FabulaItemsProvider/blob/af08a0815e21889db8251578ec28c2c27e5b27b1/Sources/FabulaItemsProvider/Items/P2_Drag3D.swift#L28"
+   },
+   {
+    "repo": "jasudev/FabulaItemsProvider",
+    "name": "RoundedCorners",
+    "permalink": "https://github.com/jasudev/FabulaItemsProvider/blob/af08a0815e21889db8251578ec28c2c27e5b27b1/Sources/FabulaItemsProvider/Items/P50_ProgressView.swift#L269"
+   },
+   {
+    "repo": "jasudev/FabulaItemsProvider",
+    "name": "RoundedCorners",
+    "permalink": "https://github.com/jasudev/FabulaItemsProvider/blob/af08a0815e21889db8251578ec28c2c27e5b27b1/Sources/FabulaItemsProvider/Items/P17_Pyramid.swift#L180"
+   },
+   {
+    "repo": "jasudev/FabulaItemsProvider",
+    "name": "RoundedCorners",
+    "permalink": "https://github.com/jasudev/FabulaItemsProvider/blob/af08a0815e21889db8251578ec28c2c27e5b27b1/Sources/FabulaItemsProvider/Items/P12_Timeface.swift#L144"
+   },
+   {
+    "repo": "jasudev/FabulaItemsProvider",
+    "name": "RoundedCorners",
+    "permalink": "https://github.com/jasudev/FabulaItemsProvider/blob/af08a0815e21889db8251578ec28c2c27e5b27b1/Sources/FabulaItemsProvider/Items/P19_TextWaveProgress.swift#L139"
+   },
+   {
+    "repo": "jasudev/FabulaItemsProvider",
+    "name": "RoundedCorners",
+    "permalink": "https://github.com/jasudev/FabulaItemsProvider/blob/af08a0815e21889db8251578ec28c2c27e5b27b1/Sources/FabulaItemsProvider/Items/P28_StrokePhase.swift#L260"
+   },
+   {
+    "repo": "jasudev/FabulaItemsProvider",
+    "name": "RoundedCorners",
+    "permalink": "https://github.com/jasudev/FabulaItemsProvider/blob/af08a0815e21889db8251578ec28c2c27e5b27b1/Sources/FabulaItemsProvider/Items/P8_BottomSheet.swift#L671"
+   },
+   {
+    "repo": "jasudev/FabulaItemsProvider",
+    "name": "RoundedCorners",
+    "permalink": "https://github.com/jasudev/FabulaItemsProvider/blob/af08a0815e21889db8251578ec28c2c27e5b27b1/Sources/FabulaItemsProvider/Items/P24_LikeButton.swift#L189"
+   },
+   {
+    "repo": "jasudev/FabulaItemsProvider",
+    "name": "RoundedCorners",
+    "permalink": "https://github.com/jasudev/FabulaItemsProvider/blob/af08a0815e21889db8251578ec28c2c27e5b27b1/Sources/FabulaItemsProvider/Items/P20_CircularProgress.swift#L181"
+   },
+   {
+    "repo": "jasudev/FabulaItemsProvider",
+    "name": "RoundedCorners",
+    "permalink": "https://github.com/jasudev/FabulaItemsProvider/blob/af08a0815e21889db8251578ec28c2c27e5b27b1/Sources/FabulaItemsProvider/Items/P22_FabulaToggleStyle.swift#L148"
+   },
+   {
+    "repo": "jasudev/FabulaItemsProvider",
+    "name": "RoundedCorners",
+    "permalink": "https://github.com/jasudev/FabulaItemsProvider/blob/af08a0815e21889db8251578ec28c2c27e5b27b1/Sources/FabulaItemsProvider/Items/P18_InvertedPyramid.swift#L180"
+   },
+   {
+    "repo": "jasudev/FabulaItemsProvider",
+    "name": "RoundedCorners",
+    "permalink": "https://github.com/jasudev/FabulaItemsProvider/blob/af08a0815e21889db8251578ec28c2c27e5b27b1/Sources/FabulaItemsProvider/Items/P13_SKscene.swift#L160"
+   },
+   {
+    "repo": "jordibruin/Swift-Charts-Examples",
+    "name": "Square",
+    "permalink": "https://github.com/jordibruin/Swift-Charts-Examples/blob/5134bcfff65ce169ef0b23412d95daef383ea537/Swift Charts Examples/Utilities/Square.swift#L9"
+   }
+  ]
+ },
+ "MenuStyle": {
+  "repo_count": 4,
+  "top_repos": [
+   [
+    "bitwarden/ios",
+    2
+   ],
+   [
+    "duckduckgo/apple-browsers",
+    1
+   ],
+   [
+    "nalexn/ViewInspector",
+    1
+   ],
+   [
+    "utmapp/UTM",
+    1
+   ]
+  ],
+  "examples": [
+   {
+    "repo": "bitwarden/ios",
+    "name": "CircleMenuStyle",
+    "permalink": "https://github.com/bitwarden/ios/blob/346780121980c5d58b3c3e81b911ad0444868941/BitwardenKit/UI/Platform/Application/Appearance/Styles/CircleMenuStyle.swift#L12"
+   },
+   {
+    "repo": "bitwarden/ios",
+    "name": "PrimaryMenuStyle",
+    "permalink": "https://github.com/bitwarden/ios/blob/346780121980c5d58b3c3e81b911ad0444868941/BitwardenKit/UI/Platform/Application/Appearance/Styles/PrimaryMenuStyle.swift#L12"
+   },
+   {
+    "repo": "duckduckgo/apple-browsers",
+    "name": "SideMenuStyle",
+    "permalink": "https://github.com/duckduckgo/apple-browsers/blob/cf1005fdd647a60cd47b89b1061ef03a83d6eb13/macOS/LocalPackages/NetworkProtectionMac/Sources/NetworkProtectionUI/SwiftUI/AccordionView.swift#L22"
+   },
+   {
+    "repo": "nalexn/ViewInspector",
+    "name": "TestMenuStyle",
+    "permalink": "https://github.com/nalexn/ViewInspector/blob/4785ee635cc39196fecc7787015e74d523f0d334/Tests/ViewInspectorTests/SwiftUI/MenuTests.swift#L105"
+   },
+   {
+    "repo": "utmapp/UTM",
+    "name": "ToolbarMenuStyle",
+    "permalink": "https://github.com/utmapp/UTM/blob/fb61bfe86a2cc39bb3bc884636fa55414f317acb/Platform/iOS/VMToolbarView.swift#L356"
+   }
+  ]
+ },
+ "LabeledContentStyle": {
+  "repo_count": 4,
+  "top_repos": [
+   [
+    "jellyfin/Swiftfin",
+    5
+   ],
+   [
+    "gematik/E-Rezept-App-iOS",
+    2
+   ],
+   [
+    "openhab/openhab-ios",
+    1
+   ],
+   [
+    "rrroyal/Harbour",
+    1
+   ]
+  ],
+  "examples": [
+   {
+    "repo": "gematik/E-Rezept-App-iOS",
+    "name": "VerticalLabeledContentStyle",
+    "permalink": "https://github.com/gematik/E-Rezept-App-iOS/blob/3f158fa05141ef2eef197599cfab71ad429cec4b/Sources/eRpStyleKit/Controls/LabelStyles/LabeledContentStyle.swift#L26"
+   },
+   {
+    "repo": "gematik/E-Rezept-App-iOS",
+    "name": "HorizontalLabeledContentStyle",
+    "permalink": "https://github.com/gematik/E-Rezept-App-iOS/blob/3f158fa05141ef2eef197599cfab71ad429cec4b/Sources/eRpStyleKit/Controls/LabelStyles/LabeledContentStyle.swift#L89"
+   },
+   {
+    "repo": "jellyfin/Swiftfin",
+    "name": "LearnMoreLabeledContentStyle",
+    "permalink": "https://github.com/jellyfin/Swiftfin/blob/b30c30e23b174d043ce1b667e4290570a2131436/Shared/Extensions/LabeledContentStyle.swift#L18"
+   },
+   {
+    "repo": "jellyfin/Swiftfin",
+    "name": "ItemAttributeLabeledContentStyle",
+    "permalink": "https://github.com/jellyfin/Swiftfin/blob/b30c30e23b174d043ce1b667e4290570a2131436/Shared/Extensions/LabeledContentStyle.swift#L40"
+   },
+   {
+    "repo": "jellyfin/Swiftfin",
+    "name": "DeviceProfileLabeledContentStyle",
+    "permalink": "https://github.com/jellyfin/Swiftfin/blob/b30c30e23b174d043ce1b667e4290570a2131436/Shared/Extensions/LabeledContentStyle.swift#L62"
+   },
+   {
+    "repo": "jellyfin/Swiftfin",
+    "name": "PlaybackInfoLabeledContentStyle",
+    "permalink": "https://github.com/jellyfin/Swiftfin/blob/b30c30e23b174d043ce1b667e4290570a2131436/Shared/Extensions/LabeledContentStyle.swift#L85"
+   },
+   {
+    "repo": "jellyfin/Swiftfin",
+    "name": "FocusableLabeledContentStyle",
+    "permalink": "https://github.com/jellyfin/Swiftfin/blob/b30c30e23b174d043ce1b667e4290570a2131436/Shared/Extensions/LabeledContentStyle.swift#L129"
+   },
+   {
+    "repo": "openhab/openhab-ios",
+    "name": "CompactLabeledContentStyle",
+    "permalink": "https://github.com/openhab/openhab-ios/blob/5928f1aee4a3d9e18089d0e0458561c34ae770e0/openHABWatch/Views/PreferencesSwiftUIView.swift#L34"
+   },
+   {
+    "repo": "rrroyal/Harbour",
+    "name": "TwoLineLabeledContentStyle",
+    "permalink": "https://github.com/rrroyal/Harbour/blob/e56c10cb376baaa3ada49b29b8396e1ab9293942/Harbour/UI/Styles/LabeledContent/TwoLineLabeledContentStyle.swift#L11"
+   }
+  ]
+ },
+ "DropDelegate": {
+  "repo_count": 3,
+  "top_repos": [
+   [
+    "256Arts/Sprite-Catalog",
+    1
+   ],
+   [
+    "256Arts/Sprite-Cutter",
+    1
+   ],
+   [
+    "256Arts/Sprite-Pencil",
+    1
+   ]
+  ],
+  "examples": [
+   {
+    "repo": "256Arts/Sprite-Catalog",
+    "name": "CutterView",
+    "permalink": "https://github.com/256Arts/Sprite-Catalog/blob/d0f2451c9e868ab5d57836f31ac46082d61abc18/Sprite Catalog/Views/CutterView.swift#L10"
+   },
+   {
+    "repo": "256Arts/Sprite-Cutter",
+    "name": "CutterView",
+    "permalink": "https://github.com/256Arts/Sprite-Cutter/blob/f6b03b3456eed2d4e091eea6c713e11eca4e93ca/Sprite Cutter/CutterView.swift#L11"
+   },
+   {
+    "repo": "256Arts/Sprite-Pencil",
+    "name": "PalettePickerView",
+    "permalink": "https://github.com/256Arts/Sprite-Pencil/blob/b9642f7f8aa3568c2a592c78b5bf3e379ab678cb/iOS/Editor/PalettePickerView.swift#L12"
+   }
+  ]
+ },
+ "ShapeStyle": {
+  "repo_count": 3,
+  "top_repos": [
+   [
+    "jellyfin/Swiftfin",
+    2
+   ],
+   [
+    "daneden/Solstice",
+    1
+   ],
+   [
+    "mick-schroeder/PotatoGame",
+    1
+   ]
+  ],
+  "examples": [
+   {
+    "repo": "daneden/Solstice",
+    "name": "SkyGradient",
+    "permalink": "https://github.com/daneden/Solstice/blob/4198e61147a6689fcb755d96d6ce61c91f8f2d4f/Solstice/Helper Views/SkyGradient.swift#L20"
+   },
+   {
+    "repo": "jellyfin/Swiftfin",
+    "name": "ComplexSecondaryShapeStyle",
+    "permalink": "https://github.com/jellyfin/Swiftfin/blob/b30c30e23b174d043ce1b667e4290570a2131436/Shared/Components/ComplexSecondaryShapeStyle.swift#L18"
+   },
+   {
+    "repo": "jellyfin/Swiftfin",
+    "name": "TintedMaterialShapeStyle",
+    "permalink": "https://github.com/jellyfin/Swiftfin/blob/b30c30e23b174d043ce1b667e4290570a2131436/Shared/Components/TintedMaterialShapeStyle.swift#L18"
+   },
+   {
+    "repo": "mick-schroeder/PotatoGame",
+    "name": "PotatoColor",
+    "permalink": "https://github.com/mick-schroeder/PotatoGame/blob/060c45bfe867d57ea4255bebafd3aafbf62c0b1a/PotatoGame/Data/PotatoColor.swift#L13"
+   }
+  ]
+ },
+ "AXChartDescriptorRepresentable": {
+  "repo_count": 1,
+  "top_repos": [
+   [
+    "jordibruin/Swift-Charts-Examples",
+    1
+   ]
+  ],
+  "examples": [
+   {
+    "repo": "jordibruin/Swift-Charts-Examples",
+    "name": "AccessiblePreviewImage",
+    "permalink": "https://github.com/jordibruin/Swift-Charts-Examples/blob/5134bcfff65ce169ef0b23412d95daef383ea537/Swift Charts Examples/ContentView.swift#L131"
+   }
+  ]
+ },
+ "ChartSymbolShape": {
+  "repo_count": 1,
+  "top_repos": [
+   [
+    "jordibruin/Swift-Charts-Examples",
+    1
+   ]
+  ],
+  "examples": [
+   {
+    "repo": "jordibruin/Swift-Charts-Examples",
+    "name": "Square",
+    "permalink": "https://github.com/jordibruin/Swift-Charts-Examples/blob/5134bcfff65ce169ef0b23412d95daef383ea537/Swift Charts Examples/Utilities/Square.swift#L9"
+   }
+  ]
+ },
+ "Observable": {
+  "repo_count": 1,
+  "top_repos": [
+   [
+    "mikaelacaron/Basic-Car-Maintenance",
+    1
+   ]
+  ],
+  "examples": [
+   {
+    "repo": "mikaelacaron/Basic-Car-Maintenance",
+    "name": "EditVehicleView",
+    "permalink": "https://github.com/mikaelacaron/Basic-Car-Maintenance/blob/7d2f1909cdce5800f44eb62544fd502a9877de4a/Basic-Car-Maintenance/Shared/Settings/Views/EditVehicleView.swift#L11"
    }
   ]
  }

@@ -1,0 +1,125 @@
+{
+ "repo": "Person2099/HTTPS-Responses",
+ "stars": 15,
+ "categories": [
+  "Developer",
+  "SwiftUI"
+ ],
+ "sha": "be21b5bfcadb74a9e59ec63fd2990f00cd023095",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 2266,
+ "contributor_count": 2,
+ "top_contributors": [
+  {
+   "login": "Person2099",
+   "score": 2266,
+   "contributions": 33
+  },
+  {
+   "login": "Person2097",
+   "score": 0,
+   "contributions": 3
+  }
+ ],
+ "loc": 1331,
+ "custom_components": 24,
+ "imports": [
+  "OneSignal",
+  "StoreKit",
+  "SwiftUI",
+  "UserNotifications",
+  "XCTest"
+ ],
+ "min_ios_inferred": "16",
+ "deprecated_apis_used": [
+  "foregroundColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "background",
+   "bold",
+   "clipShape",
+   "fixedSize",
+   "font",
+   "foregroundColor",
+   "foregroundStyle",
+   "ignoresSafeArea",
+   "listStyle",
+   "multilineTextAlignment",
+   "navigationTitle",
+   "opacity",
+   "padding",
+   "sheet",
+   "toolbar"
+  ],
+  "types": [
+   "Button",
+   "Color",
+   "DisclosureGroup",
+   "ForEach",
+   "HStack",
+   "Image",
+   "Link",
+   "List",
+   "NavigationLink",
+   "NavigationStack",
+   "RoundedRectangle",
+   "ScrollView",
+   "Section",
+   "Spacer",
+   "Text",
+   "ToolbarItem",
+   "VStack",
+   "WindowGroup",
+   "ZStack"
+  ],
+  "valueBuilders": [
+   "body",
+   "callout",
+   "caption",
+   "footnote",
+   "headline",
+   "medium",
+   "regular",
+   "semibold",
+   "subheadline",
+   "thin",
+   "title2"
+  ],
+  "macros": [
+   "Preview"
+  ],
+  "styleValues": [
+   "black",
+   "blue",
+   "bottom",
+   "center",
+   "gray",
+   "green",
+   "largeTitle",
+   "leading",
+   "orange",
+   "plain",
+   "primary",
+   "red",
+   "secondaryAction",
+   "top"
+  ],
+  "propertyWrappers": [
+   "Environment",
+   "State"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 15,
+  "types": 19,
+  "valueBuilders": 11,
+  "macros": 1,
+  "styleValues": 14,
+  "propertyWrappers": 2,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 62
+}

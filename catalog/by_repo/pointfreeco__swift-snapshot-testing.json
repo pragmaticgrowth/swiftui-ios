@@ -1,0 +1,106 @@
+{
+ "repo": "pointfreeco/swift-snapshot-testing",
+ "stars": 4264,
+ "categories": [
+  "Other Testing"
+ ],
+ "sha": "ad5e3190cc63dc288f28546f9c6827efc1e9d495",
+ "platform": "cross_platform",
+ "ipad_idioms": [],
+ "author_authority": 41287,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "stephencelis",
+   "score": 54348,
+   "contributions": 196
+  },
+  {
+   "login": "mbrandonw",
+   "score": 35931,
+   "contributions": 53
+  },
+  {
+   "login": "valeriyvan",
+   "score": 122055,
+   "contributions": 9
+  }
+ ],
+ "loc": 11335,
+ "custom_components": 2,
+ "imports": [
+  "Accelerate",
+  "AppKit",
+  "Cocoa",
+  "CoreGraphics",
+  "CoreImage",
+  "CoreServices",
+  "CustomDump",
+  "Foundation",
+  "FoundationNetworking",
+  "InlineSnapshotTesting",
+  "MetalPerformanceShaders",
+  "PackageDescription",
+  "QuartzCore",
+  "SceneKit",
+  "SnapshotTesting",
+  "SnapshotTestingCustomDump",
+  "SpriteKit",
+  "SwiftParser",
+  "SwiftSyntax",
+  "SwiftSyntaxBuilder",
+  "SwiftUI",
+  "Testing",
+  "UIKit",
+  "WebKit",
+  "XCTest"
+ ],
+ "min_ios_inferred": "14",
+ "deprecated_apis_used": [],
+ "unique": {
+  "modifiers": [
+   "background",
+   "fixedSize",
+   "padding"
+  ],
+  "types": [
+   "HStack",
+   "Image",
+   "RoundedRectangle",
+   "Text"
+  ],
+  "valueBuilders": [
+   "body",
+   "headline",
+   "medium",
+   "regular",
+   "subheadline"
+  ],
+  "macros": [],
+  "styleValues": [
+   "blue",
+   "cancel",
+   "center",
+   "clear",
+   "compact",
+   "default",
+   "green",
+   "light",
+   "orange",
+   "red",
+   "white"
+  ],
+  "propertyWrappers": [],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 3,
+  "types": 4,
+  "valueBuilders": 5,
+  "macros": 0,
+  "styleValues": 11,
+  "propertyWrappers": 0,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 23
+}

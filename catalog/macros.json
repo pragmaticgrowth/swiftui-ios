@@ -1,53 +1,494 @@
 {
  "Preview": {
-  "total_uses": 22,
-  "repo_count": 2,
-  "low_corpus": true,
+  "total_uses": 4491,
+  "repo_count": 159,
+  "low_corpus": false,
   "top_repos": [
    [
-    "Dimillian/IcySky",
-    12
+    "woocommerce/woocommerce-ios",
+    376
    ],
    [
-    "Dimillian/IceCubesApp",
-    10
+    "bitwarden/ios",
+    245
+   ],
+   [
+    "duckduckgo/apple-browsers",
+    238
+   ],
+   [
+    "ProtonVPN/ios-mac-app",
+    204
+   ],
+   [
+    "wireapp/wire-ios",
+    170
+   ],
+   [
+    "Automattic/pocket-casts-ios",
+    161
+   ],
+   [
+    "wordpress-mobile/WordPress-iOS",
+    150
+   ],
+   [
+    "home-assistant/iOS",
+    121
+   ],
+   [
+    "pointfreeco/swift-composable-architecture",
+    118
+   ],
+   [
+    "signalapp/Signal-iOS",
+    111
    ]
   ],
   "examples": [
    {
-    "id": "ex_9bfc784611",
-    "repo": "Dimillian/IceCubesApp",
-    "path": "Packages/DesignSystem/Sources/DesignSystem/Views/PlaceholderView.swift",
-    "line": 22,
-    "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/Packages/DesignSystem/Sources/DesignSystem/Views/PlaceholderView.swift#L22",
-    "src": "#Preview {",
+    "id": "ex_17d38fbd9d",
+    "repo": "Finb/Bark",
+    "path": "Widget/Widget.swift",
+    "line": 245,
+    "permalink": "https://github.com/Finb/Bark/blob/2a35a5b990415eada5fcc6c95deb9850c239796a/Widget/Widget.swift#L245",
+    "src": "@available(iOS 17.0, *)",
     "shape": null,
     "provenance": {
-     "stars": 6998,
-     "author_authority": 0,
-     "min_ios": "26",
+     "stars": 8478,
+     "author_authority": 101713,
+     "min_ios": "17",
      "platform": "cross_platform",
-     "score": 0.2307
+     "score": 0.7063
     }
    },
    {
-    "id": "ex_77fb63d2b2",
-    "repo": "Dimillian/IcySky",
-    "path": "App/AppTabView.swift",
-    "line": 34,
-    "permalink": "https://github.com/Dimillian/IcySky/blob/03560c6a30277175ea91a6bfc63b50380542017c/App/AppTabView.swift#L34",
+    "id": "ex_62ba8ed597",
+    "repo": "kean/Align",
+    "path": "Sources/Align+Preview.swift",
+    "line": 14,
+    "permalink": "https://github.com/kean/Align/blob/8c129b833af9d876c04212c4bcde85d242f72a95/Sources/Align+Preview.swift#L14",
+    "src": "@available(iOS 17.0, tvOS 17.0, *)",
+    "shape": null,
+    "provenance": {
+     "stars": 355,
+     "author_authority": 26939,
+     "min_ios": "13",
+     "platform": "cross_platform",
+     "score": 0.5487
+    }
+   },
+   {
+    "id": "ex_cd57344856",
+    "repo": "utmapp/UTM",
+    "path": "Platform/macOS/UTMServerView.swift",
+    "line": 170,
+    "permalink": "https://github.com/utmapp/UTM/blob/fb61bfe86a2cc39bb3bc884636fa55414f317acb/Platform/macOS/UTMServerView.swift#L170",
+    "src": "@available(macOS 13, *)",
+    "shape": null,
+    "provenance": {
+     "stars": 34405,
+     "author_authority": 53162,
+     "min_ios": "26",
+     "platform": "cross_platform",
+     "score": 0.5326
+    }
+   },
+   {
+    "id": "ex_99ef67efa1",
+    "repo": "Infomaniak/ios-kDrive",
+    "path": "kDrive/UI/Controller/PreloadingViewController.swift",
+    "line": 130,
+    "permalink": "https://github.com/Infomaniak/ios-kDrive/blob/ae6b3f395848c5cfd330c376b7e6dd8a202b0fd7/kDrive/UI/Controller/PreloadingViewController.swift#L130",
+    "src": "@available(iOS 17, *)",
+    "shape": null,
+    "provenance": {
+     "stars": 79,
+     "author_authority": 3552,
+     "min_ios": "17",
+     "platform": "ios",
+     "score": 0.512
+    }
+   },
+   {
+    "id": "ex_2cd7425ae2",
+    "repo": "altstoreio/AltStore",
+    "path": "AltWidget/Widgets/LockScreenWidget.swift",
+    "line": 139,
+    "permalink": "https://github.com/altstoreio/AltStore/blob/502848e3b090ee2606de4e40bf2598327ed987ce/AltWidget/Widgets/LockScreenWidget.swift#L139",
+    "src": "@available(iOS 17, *)",
+    "shape": null,
+    "provenance": {
+     "stars": 13952,
+     "author_authority": 22177,
+     "min_ios": "26",
+     "platform": "cross_platform",
+     "score": 0.4901
+    }
+   },
+   {
+    "id": "ex_cf2c8864be",
+    "repo": "kean/Pulse",
+    "path": "Sources/PulseUI/Features/Filters/ConsoleFiltersView.swift",
+    "line": 212,
+    "permalink": "https://github.com/kean/Pulse/blob/00ea2b0f7b619f4cf3c268d190aa549f9df85ef7/Sources/PulseUI/Features/Filters/ConsoleFiltersView.swift#L212",
+    "src": "@available(iOS 18, tvOS 18, macOS 15, watchOS 11, visionOS 1, *)",
+    "shape": null,
+    "provenance": {
+     "stars": 7051,
+     "author_authority": 26939,
+     "min_ios": "26",
+     "platform": "cross_platform",
+     "score": 0.4765
+    }
+   },
+   {
+    "id": "ex_c9af943700",
+    "repo": "stripe/stripe-ios",
+    "path": "StripePaymentSheet/StripePaymentSheet/Source/Internal/Link/Components/Hint/LinkHintMessageView.swift",
+    "line": 179,
+    "permalink": "https://github.com/stripe/stripe-ios/blob/167bdd3cc9480eb1cc1d5d4c853d79634baf63b3/StripePaymentSheet/StripePaymentSheet/Source/Internal/Link/Components/Hint/LinkHintMessageView.swift#L179",
+    "src": "@available(iOS 17.0, *)",
+    "shape": null,
+    "provenance": {
+     "stars": 2545,
+     "author_authority": 1989,
+     "min_ios": "26",
+     "platform": "ios",
+     "score": 0.3934
+    }
+   },
+   {
+    "id": "ex_13761bca9a",
+    "repo": "bitwarden/ios",
+    "path": "BitwardenWatchWidgetExtension/BitwardenWatchWidgetExtension.swift",
+    "line": 75,
+    "permalink": "https://github.com/bitwarden/ios/blob/346780121980c5d58b3c3e81b911ad0444868941/BitwardenWatchWidgetExtension/BitwardenWatchWidgetExtension.swift#L75",
+    "src": "@available(watchOS 10.0, *)",
+    "shape": null,
+    "provenance": {
+     "stars": 620,
+     "author_authority": 4510,
+     "min_ios": "26",
+     "platform": "ios",
+     "score": 0.3744
+    }
+   },
+   {
+    "id": "ex_ef3787369f",
+    "repo": "jtbandes/SpacePOD",
+    "path": "Widget/Widget.swift",
+    "line": 53,
+    "permalink": "https://github.com/jtbandes/SpacePOD/blob/618632eb620ab0cd72f7e2ee86014f4fcb9bc85d/Widget/Widget.swift#L53",
+    "src": "@available(iOS 17.0, *)",
+    "shape": null,
+    "provenance": {
+     "stars": 116,
+     "author_authority": 269653,
+     "min_ios": "17",
+     "platform": "ios",
+     "score": 0.3038
+    }
+   },
+   {
+    "id": "ex_acc7ca725f",
+    "repo": "strongbox-password-safe/Strongbox",
+    "path": "TwoFactorView.swift",
+    "line": 109,
+    "permalink": "https://github.com/strongbox-password-safe/Strongbox/blob/26ecccf4633921a20dd354a1548a740fbcb07ab7/TwoFactorView.swift#L109",
+    "src": "@available(iOS 16.0, *)",
+    "shape": null,
+    "provenance": {
+     "stars": 1441,
+     "author_authority": 393,
+     "min_ios": "26",
+     "platform": "cross_platform",
+     "score": 0.2884
+    }
+   },
+   {
+    "id": "ex_4784e305fa",
+    "repo": "pia-foss/mobile-ios",
+    "path": "PIAWidget/Domain/Widget/PIAWidgetPreview.swift",
+    "line": 13,
+    "permalink": "https://github.com/pia-foss/mobile-ios/blob/97e26e7eb2ae951dc072480fd8e3e2ac26b041c2/PIAWidget/Domain/Widget/PIAWidgetPreview.swift#L13",
+    "src": "@available(iOS 17, *)",
+    "shape": null,
+    "provenance": {
+     "stars": 346,
+     "author_authority": 9347,
+     "min_ios": "17",
+     "platform": "cross_platform",
+     "score": 0.2712
+    }
+   },
+   {
+    "id": "ex_d8aabdafe0",
+    "repo": "XcodesOrg/XcodesApp",
+    "path": "Xcodes/Frontend/Preferences/PlatformsListView.swift",
+    "line": 77,
+    "permalink": "https://github.com/XcodesOrg/XcodesApp/blob/fc82f6d81aa029777b059ec423b73e364f0851a9/Xcodes/Frontend/Preferences/PlatformsListView.swift#L77",
+    "src": "#Preview { @MainActor in",
+    "shape": null,
+    "provenance": {
+     "stars": 8432,
+     "author_authority": 55835,
+     "min_ios": "26",
+     "platform": "macos",
+     "score": 0.247
+    }
+   },
+   {
+    "id": "ex_b5a722dba9",
+    "repo": "willhains/Kotoba",
+    "path": "code/Kotoba/AddWord/AddWordView.swift",
+    "line": 171,
+    "permalink": "https://github.com/willhains/Kotoba/blob/2496e2cdb0945c5e5e11ed9e15a67e51eed1d78e/code/Kotoba/AddWord/AddWordView.swift#L171",
+    "src": "#Preview(\"Empty\")",
+    "shape": null,
+    "provenance": {
+     "stars": 678,
+     "author_authority": 898,
+     "min_ios": "18",
+     "platform": "ios",
+     "score": 0.1994
+    }
+   },
+   {
+    "id": "ex_0f6c55c424",
+    "repo": "adaptyteam/AdaptySDK-iOS",
+    "path": "Sources.UIBuilder/UIBuilder/Rendering/Elements/AdaptyUILoaderView.swift",
+    "line": 27,
+    "permalink": "https://github.com/adaptyteam/AdaptySDK-iOS/blob/cef5c13063b2358a91f29ef7b3b64ebe6494ecc7/Sources.UIBuilder/UIBuilder/Rendering/Elements/AdaptyUILoaderView.swift#L27",
+    "src": "@available(iOS 15.0, macOS 12.0, tvOS 15.0, watchOS 8.0, visionOS 1.0, *)",
+    "shape": null,
+    "provenance": {
+     "stars": 478,
+     "author_authority": 284,
+     "min_ios": "16",
+     "platform": "cross_platform",
+     "score": 0.1923
+    }
+   },
+   {
+    "id": "ex_612d0fa3a0",
+    "repo": "Kurozora/kurozora-app",
+    "path": "KurozoraWidget/Widgets/UpNextWidget/UpNextWidgetEntryView.swift",
+    "line": 443,
+    "permalink": "https://github.com/Kurozora/kurozora-app/blob/d0cd4fad2cb008061cbb88272f645b7e1059b3d4/KurozoraWidget/Widgets/UpNextWidget/UpNextWidgetEntryView.swift#L443",
+    "src": "@available(iOS 17.0, macOS 14.0, *)",
+    "shape": null,
+    "provenance": {
+     "stars": 68,
+     "author_authority": 220,
+     "min_ios": "18",
+     "platform": "ios",
+     "score": 0.1543
+    }
+   },
+   {
+    "id": "ex_e560208331",
+    "repo": "hishd/RicketyRick-iOS",
+    "path": "RickAndMorty/Presentation/CharactersView/CharactersViewController.swift",
+    "line": 199,
+    "permalink": "https://github.com/hishd/RicketyRick-iOS/blob/ed839bcd5e5131c7f29c31784a77023aed485922/RickAndMorty/Presentation/CharactersView/CharactersViewController.swift#L199",
+    "src": "@available(iOS 17.0, *)",
+    "shape": null,
+    "provenance": {
+     "stars": 1,
+     "author_authority": 10552,
+     "min_ios": "14",
+     "platform": "ios",
+     "score": 0.1285
+    }
+   },
+   {
+    "id": "ex_81195eade8",
+    "repo": "VAnsimov/MVI-SwiftUI",
+    "path": "MVI-SwiftUI/DesingSystem/Modifiers/Loading/LoadingModifier.swift",
+    "line": 135,
+    "permalink": "https://github.com/VAnsimov/MVI-SwiftUI/blob/b17180b72be1820adf952832d2af16171e2f8e20/MVI-SwiftUI/DesingSystem/Modifiers/Loading/LoadingModifier.swift#L135",
+    "src": "#Preview { PreviewView() }",
+    "shape": null,
+    "provenance": {
+     "stars": 82,
+     "author_authority": 91,
+     "min_ios": "16",
+     "platform": "ios",
+     "score": 0.01
+    }
+   },
+   {
+    "id": "ex_2b88353a47",
+    "repo": "1amageek/Toolbar",
+    "path": "Sources/Toolbar/ToolbarContainer.swift",
+    "line": 396,
+    "permalink": "https://github.com/1amageek/Toolbar/blob/651c24079698401734dbca70c00632ef1498b295/Sources/Toolbar/ToolbarContainer.swift#L396",
+    "src": "#Preview(\"ChatView \u2014 empty (voice)\") {",
+    "shape": null,
+    "provenance": {
+     "stars": 460,
+     "author_authority": 34805,
+     "min_ios": "26",
+     "platform": "cross_platform",
+     "score": 0.6989
+    }
+   },
+   {
+    "id": "ex_242c1bf5b4",
+    "repo": "groue/GRDB.swift",
+    "path": "Documentation/DemoApps/GRDBDemo/GRDBDemo/Views/PlayerCreationSheet.swift",
+    "line": 37,
+    "permalink": "https://github.com/groue/GRDB.swift/blob/9ed8c8457e00ff9c7aedb3bf213f20a2cfdf509e/Documentation/DemoApps/GRDBDemo/GRDBDemo/Views/PlayerCreationSheet.swift#L37",
     "src": "#Preview {",
     "shape": null,
     "provenance": {
-     "stars": 535,
-     "author_authority": 0,
-     "min_ios": "26",
+     "stars": 8469,
+     "author_authority": 12433,
+     "min_ios": "17",
      "platform": "ios",
-     "score": 0.1137
+     "score": 0.6606
+    }
+   },
+   {
+    "id": "ex_0bea7425e8",
+    "repo": "tuist/XcodeProj",
+    "path": "Fixtures/Xcode16BuildConfigurations/Xcode16BuildConfigurations/ContentView.swift",
+    "line": 15,
+    "permalink": "https://github.com/tuist/XcodeProj/blob/621eca8d091cc110a99adc23bb0d6618a65b4544/Fixtures/Xcode16BuildConfigurations/Xcode16BuildConfigurations/ContentView.swift#L15",
+    "src": "#Preview {",
+    "shape": null,
+    "provenance": {
+     "stars": 2208,
+     "author_authority": 124383,
+     "min_ios": "15",
+     "platform": "ios",
+     "score": 0.6525
+    }
+   },
+   {
+    "id": "ex_b5b11775c9",
+    "repo": "relatedcode/ProgressHUD",
+    "path": "SwiftUI/app/ContentView.swift",
+    "line": 230,
+    "permalink": "https://github.com/relatedcode/ProgressHUD/blob/e6f7339d70d793a12dbccb008d374e153f2b98b5/SwiftUI/app/ContentView.swift#L230",
+    "src": "#Preview {",
+    "shape": null,
+    "provenance": {
+     "stars": 2963,
+     "author_authority": 9404,
+     "min_ios": "17",
+     "platform": "ios",
+     "score": 0.6272
+    }
+   },
+   {
+    "id": "ex_5ccd482b30",
+    "repo": "AvdLee/Diagnostics",
+    "path": "Example/Diagnostics-Example/ContentView+iOS.swift",
+    "line": 40,
+    "permalink": "https://github.com/AvdLee/Diagnostics/blob/574b3f4e07ca5451b9d4e0f2188152aad32085f6/Example/Diagnostics-Example/ContentView+iOS.swift#L40",
+    "src": "#Preview {",
+    "shape": null,
+    "provenance": {
+     "stars": 1177,
+     "author_authority": 34801,
+     "min_ios": "14",
+     "platform": "cross_platform",
+     "score": 0.597
+    }
+   },
+   {
+    "id": "ex_0cc7940522",
+    "repo": "kylebrowning/drupal-ios-sdk",
+    "path": "DrupalIOSSDKDemo/DrupalIOSSDKDemo-iOS/DrupalIOSSDKDemo-iOS/ContentView.swift",
+    "line": 117,
+    "permalink": "https://github.com/kylebrowning/drupal-ios-sdk/blob/0276f4c12064697c0a6e41fe3d3fa2a4c79ef09e/DrupalIOSSDKDemo/DrupalIOSSDKDemo-iOS/DrupalIOSSDKDemo-iOS/ContentView.swift#L117",
+    "src": "#Preview {",
+    "shape": null,
+    "provenance": {
+     "stars": 409,
+     "author_authority": 28055,
+     "min_ios": "16",
+     "platform": "ios",
+     "score": 0.5879
+    }
+   },
+   {
+    "id": "ex_1bb978c059",
+    "repo": "fxm90/GradientLoadingBar",
+    "path": "Example/GradientLoadingBarExample/ContentView.swift",
+    "line": 38,
+    "permalink": "https://github.com/fxm90/GradientLoadingBar/blob/87d8a1deda37385f6fecdc062afb38896548a1a3/Example/GradientLoadingBarExample/ContentView.swift#L38",
+    "src": "#Preview {",
+    "shape": null,
+    "provenance": {
+     "stars": 894,
+     "author_authority": 2898,
+     "min_ios": "18",
+     "platform": "ios",
+     "score": 0.582
+    }
+   },
+   {
+    "id": "ex_fb77cb0e4d",
+    "repo": "fxm90/GradientProgressBar",
+    "path": "Example/GradientProgressBarExample/ContentView.swift",
+    "line": 37,
+    "permalink": "https://github.com/fxm90/GradientProgressBar/blob/cca0ea7fcd15fc30833332ca2e8ec735677ca479/Example/GradientProgressBarExample/ContentView.swift#L37",
+    "src": "#Preview {",
+    "shape": null,
+    "provenance": {
+     "stars": 541,
+     "author_authority": 2898,
+     "min_ios": "18",
+     "platform": "ios",
+     "score": 0.5569
     }
    }
   ],
-  "co_occurs_with": [],
+  "co_occurs_with": [
+   {
+    "sym": "backgroundStyle",
+    "lift": 2.0,
+    "repos": 9
+   },
+   {
+    "sym": "defaultSize",
+    "lift": 2.0,
+    "repos": 17
+   },
+   {
+    "sym": "Model",
+    "lift": 2.0,
+    "repos": 7
+   },
+   {
+    "sym": "fileExporter",
+    "lift": 2.0,
+    "repos": 8
+   },
+   {
+    "sym": "accessibilityFocused",
+    "lift": 2.0,
+    "repos": 8
+   },
+   {
+    "sym": "navigationSplitViewStyle",
+    "lift": 2.0,
+    "repos": 9
+   },
+   {
+    "sym": "AccessibilityFocusState",
+    "lift": 2.0,
+    "repos": 10
+   },
+   {
+    "sym": "gridColumnAlignment",
+    "lift": 2.0,
+    "repos": 5
+   }
+  ],
   "availability": {
    "introduced_ios": "13.0",
    "deprecated": false

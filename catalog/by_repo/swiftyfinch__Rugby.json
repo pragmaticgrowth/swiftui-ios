@@ -1,0 +1,90 @@
+{
+ "repo": "swiftyfinch/Rugby",
+ "stars": 716,
+ "categories": [
+  "Tools"
+ ],
+ "sha": "529f603765b795d253e96a9bedb7c70278490bba",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 857,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "swiftyfinch",
+   "score": 857,
+   "contributions": 1072
+  },
+  {
+   "login": "cltnschlosser",
+   "score": 50139,
+   "contributions": 12
+  },
+  {
+   "login": "mlch911",
+   "score": 4637,
+   "contributions": 8
+  }
+ ],
+ "loc": 22851,
+ "custom_components": 4,
+ "imports": [
+  "Alamofire",
+  "ArgumentParser",
+  "ArgumentParserToolInfo",
+  "CryptoKit",
+  "Darwin",
+  "Fish",
+  "Foundation",
+  "KeyboardLayoutGuide",
+  "Kingfisher",
+  "LocalPod",
+  "Moya",
+  "PLzmaSDK",
+  "PackageDescription",
+  "Rainbow",
+  "Rugby",
+  "RugbyFoundation",
+  "SnapKit",
+  "SwiftShell",
+  "SwiftUI",
+  "XCTest",
+  "XcbeautifyLib",
+  "XcodeProj",
+  "Yams",
+  "ZIPFoundation"
+ ],
+ "min_ios_inferred": "14",
+ "deprecated_apis_used": [
+  "foregroundColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "foregroundColor",
+   "imageScale",
+   "onAppear",
+   "padding"
+  ],
+  "types": [
+   "Image",
+   "Text",
+   "VStack",
+   "WindowGroup"
+  ],
+  "valueBuilders": [],
+  "macros": [],
+  "styleValues": [],
+  "propertyWrappers": [],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 4,
+  "types": 4,
+  "valueBuilders": 0,
+  "macros": 0,
+  "styleValues": 0,
+  "propertyWrappers": 0,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 8
+}

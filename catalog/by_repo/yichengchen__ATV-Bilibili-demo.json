@@ -1,0 +1,110 @@
+{
+ "repo": "yichengchen/ATV-Bilibili-demo",
+ "stars": 3070,
+ "categories": [
+  "Apple TV"
+ ],
+ "sha": "f188e8611d29b80aa50e5621151a6776325cecb8",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 4614,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "yichengchen",
+   "score": 3192,
+   "contributions": 254
+  },
+  {
+   "login": "haowenwu",
+   "score": 2463,
+   "contributions": 69
+  },
+  {
+   "login": "bitxeno",
+   "score": 103976,
+   "contributions": 15
+  }
+ ],
+ "loc": 14760,
+ "custom_components": 0,
+ "imports": [
+  "AVFoundation",
+  "AVKit",
+  "Alamofire",
+  "CocoaAsyncSocket",
+  "CocoaLumberjackSwift",
+  "Combine",
+  "Compression",
+  "CoreMedia",
+  "CryptoKit",
+  "Foundation",
+  "Gzip",
+  "Kingfisher",
+  "MarqueeLabel",
+  "MediaPlayer",
+  "PackageDescription",
+  "PocketSVG",
+  "SnapKit",
+  "SwiftProtobuf",
+  "SwiftUI",
+  "Swifter",
+  "SwiftyJSON",
+  "SwiftyXMLParser",
+  "TVUIKit",
+  "UIKit",
+  "Vision"
+ ],
+ "min_ios_inferred": "16",
+ "deprecated_apis_used": [],
+ "unique": {
+  "modifiers": [
+   "animation",
+   "offset"
+  ],
+  "types": [
+   "TextField",
+   "Toggle"
+  ],
+  "valueBuilders": [
+   "footnote",
+   "headline",
+   "medium",
+   "regular",
+   "semibold",
+   "system",
+   "title3"
+  ],
+  "macros": [],
+  "styleValues": [
+   "balanced",
+   "black",
+   "bottom",
+   "cancel",
+   "center",
+   "clear",
+   "dark",
+   "default",
+   "destructive",
+   "identity",
+   "leading",
+   "light",
+   "offset",
+   "title",
+   "top",
+   "white"
+  ],
+  "propertyWrappers": [],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 2,
+  "types": 2,
+  "valueBuilders": 7,
+  "macros": 0,
+  "styleValues": 16,
+  "propertyWrappers": 0,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 27
+}

@@ -1,0 +1,103 @@
+{
+ "repo": "joreilly/WordMasterKMP",
+ "stars": 103,
+ "categories": [
+  "SwiftUI",
+  "macOS"
+ ],
+ "sha": "e82a474c78241c13d6abe508da967bff34927836",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 12390,
+ "contributor_count": 2,
+ "top_contributors": [
+  {
+   "login": "joreilly",
+   "score": 12390,
+   "contributions": 67
+  },
+  {
+   "login": "Shabinder",
+   "score": 25782,
+   "contributions": 1
+  }
+ ],
+ "loc": 288,
+ "custom_components": 4,
+ "imports": [
+  "Foundation",
+  "KMPNativeCoroutinesAsync",
+  "SwiftUI",
+  "shared"
+ ],
+ "min_ios_inferred": "15",
+ "deprecated_apis_used": [
+  "NavigationView",
+  "disableAutocorrection",
+  "foregroundColor",
+  "navigationBarTitle"
+ ],
+ "unique": {
+  "modifiers": [
+   "alert",
+   "background",
+   "disableAutocorrection",
+   "focused",
+   "font",
+   "foregroundColor",
+   "frame",
+   "multilineTextAlignment",
+   "navigationBarTitle",
+   "onAppear",
+   "onChange",
+   "onSubmit",
+   "opacity",
+   "overlay",
+   "padding",
+   "submitLabel",
+   "textInputAutocapitalization"
+  ],
+  "types": [
+   "Binding",
+   "Button",
+   "ForEach",
+   "HStack",
+   "NavigationView",
+   "RoundedRectangle",
+   "Text",
+   "TextField",
+   "VStack",
+   "WindowGroup"
+  ],
+  "valueBuilders": [
+   "semibold",
+   "system"
+  ],
+  "macros": [],
+  "styleValues": [
+   "center",
+   "default",
+   "gray",
+   "green",
+   "primary",
+   "white",
+   "yellow"
+  ],
+  "propertyWrappers": [
+   "FocusState",
+   "State",
+   "StateObject"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 17,
+  "types": 10,
+  "valueBuilders": 2,
+  "macros": 0,
+  "styleValues": 7,
+  "propertyWrappers": 3,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 39
+}

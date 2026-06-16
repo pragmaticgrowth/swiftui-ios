@@ -1,0 +1,129 @@
+{
+ "repo": "VergeGroup/swift-verge",
+ "stars": 803,
+ "categories": [
+  "Reactive Programming"
+ ],
+ "sha": "5c8bcd829d57ccf1d4cee87aeb36a68e3f4611f1",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 156472,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "muukii",
+   "score": 156984,
+   "contributions": 1837
+  },
+  {
+   "login": "kenjitayama",
+   "score": 12,
+   "contributions": 4
+  },
+  {
+   "login": "jordanekay",
+   "score": 755,
+   "contributions": 2
+  }
+ ],
+ "loc": 17334,
+ "custom_components": 78,
+ "imports": [
+  "Atomics",
+  "Combine",
+  "CompilerPluginSupport",
+  "ConcurrencyTaskManager",
+  "DequeModule",
+  "Foundation",
+  "Normalization",
+  "ObjectiveC",
+  "Observation",
+  "PackageDescription",
+  "ProjectDescription",
+  "RxCocoa",
+  "RxRelay",
+  "RxSwift",
+  "StateStruct",
+  "SwiftCompilerPlugin",
+  "SwiftDiagnostics",
+  "SwiftSyntax",
+  "SwiftSyntaxBuilder",
+  "SwiftSyntaxMacros",
+  "SwiftSyntaxMacrosTestSupport",
+  "SwiftUI",
+  "SwiftUIHosting",
+  "Testing",
+  "TypedComparator",
+  "UIKit",
+  "Verge",
+  "VergeMacros",
+  "VergeMacrosPlugin",
+  "VergeNormalizationDerived",
+  "VergeRx",
+  "VergeTiny",
+  "XCTest",
+  "os"
+ ],
+ "min_ios_inferred": "16",
+ "deprecated_apis_used": [
+  "foregroundColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "aspectRatio",
+   "background",
+   "font",
+   "foregroundColor",
+   "id",
+   "imageScale",
+   "onAppear",
+   "opacity",
+   "overlay",
+   "padding",
+   "previewDisplayName",
+   "task"
+  ],
+  "types": [
+   "Button",
+   "ForEach",
+   "GridItem",
+   "Group",
+   "HStack",
+   "Image",
+   "LazyVGrid",
+   "List",
+   "NavigationLink",
+   "NavigationStack",
+   "RoundedRectangle",
+   "ScrollView",
+   "State",
+   "Text",
+   "TextField",
+   "VStack",
+   "WindowGroup"
+  ],
+  "valueBuilders": [
+   "system"
+  ],
+  "macros": [
+   "Preview"
+  ],
+  "styleValues": [],
+  "propertyWrappers": [
+   "Binding",
+   "State",
+   "StateObject"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 12,
+  "types": 17,
+  "valueBuilders": 1,
+  "macros": 1,
+  "styleValues": 0,
+  "propertyWrappers": 3,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 34
+}

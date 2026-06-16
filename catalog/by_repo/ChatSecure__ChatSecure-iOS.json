@@ -1,0 +1,101 @@
+{
+ "repo": "ChatSecure/ChatSecure-iOS",
+ "stars": 3156,
+ "categories": [
+  "Communication"
+ ],
+ "sha": "38d6abba3e1c21156095ac3a1096d5e829df4b96",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 1355,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "chrisballinger",
+   "score": 2544,
+   "contributions": 1792
+  },
+  {
+   "login": "davidchiles",
+   "score": 87,
+   "contributions": 1237
+  },
+  {
+   "login": "N-Pex",
+   "score": 0,
+   "contributions": 333
+  }
+ ],
+ "loc": 18444,
+ "custom_components": 3,
+ "imports": [
+  "Alamofire",
+  "BButton",
+  "BackgroundTasks",
+  "ChatSecureCore",
+  "ChatSecure_Push_iOS",
+  "CocoaLumberjack",
+  "CryptoKit",
+  "FormatterKit",
+  "Foundation",
+  "JSQMessagesViewController",
+  "Kvitto",
+  "LumberjackConsole",
+  "MBProgressHUD",
+  "MWFeedParser",
+  "Mantle",
+  "OTRAssets",
+  "OTRKit",
+  "ParkedTextField",
+  "PureLayout",
+  "SignalProtocolObjC",
+  "StoreKit",
+  "SwiftUI",
+  "UIKit",
+  "UserNotifications",
+  "XCTest",
+  "XLForm",
+  "XMPPFramework",
+  "YapDatabase",
+  "YapTaskQueue"
+ ],
+ "min_ios_inferred": "15",
+ "deprecated_apis_used": [],
+ "unique": {
+  "modifiers": [
+   "previewDevice",
+   "previewLayout",
+   "task"
+  ],
+  "types": [
+   "Group"
+  ],
+  "valueBuilders": [
+   "custom",
+   "medium"
+  ],
+  "macros": [],
+  "styleValues": [
+   "automatic",
+   "bottom",
+   "cancel",
+   "default",
+   "destructive",
+   "grouped",
+   "plain",
+   "top"
+  ],
+  "propertyWrappers": [],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 3,
+  "types": 1,
+  "valueBuilders": 2,
+  "macros": 0,
+  "styleValues": 8,
+  "propertyWrappers": 0,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 14
+}

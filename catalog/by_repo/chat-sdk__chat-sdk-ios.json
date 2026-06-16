@@ -1,0 +1,110 @@
+{
+ "repo": "chat-sdk/chat-sdk-ios",
+ "stars": 920,
+ "categories": [
+  "Messaging"
+ ],
+ "sha": "53f60a195f2e3e19411354183992831e5fbe3845",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 11,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "bensmiley",
+   "score": 7,
+   "contributions": 539
+  },
+  {
+   "login": "simonsmiley64",
+   "score": 1,
+   "contributions": 49
+  },
+  {
+   "login": "pepebecker",
+   "score": 294,
+   "contributions": 23
+  }
+ ],
+ "loc": 16001,
+ "custom_components": 0,
+ "imports": [
+  "AVFoundation",
+  "AVKit",
+  "AudioToolbox",
+  "ChatKit",
+  "ChatSDK",
+  "ChatSDKFirebase",
+  "ChatSDKXMPP",
+  "CloudKit",
+  "CollectionKit",
+  "ContactBook",
+  "Contacts",
+  "DateTools",
+  "EFQRCode",
+  "FFCircularProgressView",
+  "FLAnimatedImage",
+  "FirebaseAuthUI",
+  "FirebaseCore",
+  "FirebaseDatabase",
+  "FirebaseEmailAuthUI",
+  "FirebaseModules",
+  "FirebaseOAuthUI",
+  "FirebasePhoneAuthUI",
+  "Foundation",
+  "GiphyUISDK",
+  "KeepLayout",
+  "Licensing",
+  "MBProgressHUD",
+  "MZDownloadManager",
+  "MessageModules",
+  "NextGrowingTextView",
+  "Photos",
+  "QRCodeReader",
+  "QuickTableViewController",
+  "RXPromise",
+  "RxSwift",
+  "SAMKeychain",
+  "SDWebImage",
+  "SwiftUI",
+  "TLPhotoPicker",
+  "UIKit",
+  "VirgilCrypto",
+  "ZLImageEditor"
+ ],
+ "min_ios_inferred": "14",
+ "deprecated_apis_used": [],
+ "unique": {
+  "modifiers": [
+   "onChange"
+  ],
+  "types": [],
+  "valueBuilders": [
+   "clear"
+  ],
+  "macros": [],
+  "styleValues": [
+   "black",
+   "bottom",
+   "cancel",
+   "center",
+   "clear",
+   "default",
+   "grouped",
+   "plain",
+   "top"
+  ],
+  "propertyWrappers": [],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 1,
+  "types": 0,
+  "valueBuilders": 1,
+  "macros": 0,
+  "styleValues": 9,
+  "propertyWrappers": 0,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 11
+}

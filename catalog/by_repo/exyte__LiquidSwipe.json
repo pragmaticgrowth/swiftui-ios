@@ -1,0 +1,82 @@
+{
+ "repo": "exyte/LiquidSwipe",
+ "stars": 741,
+ "categories": [
+  "Transition"
+ ],
+ "sha": "bfc6b63f9b3a5fc89f91b9f35a05f6b5d0198545",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 3208,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "ystrot",
+   "score": 65,
+   "contributions": 20
+  },
+  {
+   "login": "f3dm76",
+   "score": 9945,
+   "contributions": 10
+  },
+  {
+   "login": "zapletnev",
+   "score": 7,
+   "contributions": 1
+  }
+ ],
+ "loc": 431,
+ "custom_components": 7,
+ "imports": [
+  "SwiftUI",
+  "UIKit"
+ ],
+ "min_ios_inferred": "13",
+ "deprecated_apis_used": [
+  "edgesIgnoringSafeArea",
+  "foregroundColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "edgesIgnoringSafeArea",
+   "foregroundColor",
+   "gesture",
+   "offset",
+   "onChanged",
+   "onEnded",
+   "opacity",
+   "simultaneously",
+   "zIndex"
+  ],
+  "types": [
+   "AnimatablePair",
+   "Color",
+   "DragGesture",
+   "Path",
+   "Rectangle",
+   "TapGesture",
+   "UIHostingController",
+   "ZStack"
+  ],
+  "valueBuilders": [
+   "spring"
+  ],
+  "macros": [],
+  "styleValues": [],
+  "propertyWrappers": [
+   "State"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 9,
+  "types": 8,
+  "valueBuilders": 1,
+  "macros": 0,
+  "styleValues": 0,
+  "propertyWrappers": 1,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 19
+}

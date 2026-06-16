@@ -1,0 +1,92 @@
+{
+ "repo": "StewartLynch/UbiquitousKeyValue-Storage",
+ "stars": 5,
+ "categories": [
+  "Sample"
+ ],
+ "sha": "067885e00931455bd6179f381665bc69da3a37ab",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 988,
+ "contributor_count": 1,
+ "top_contributors": [
+  {
+   "login": "StewartLynch",
+   "score": 988,
+   "contributions": 9
+  }
+ ],
+ "loc": 298,
+ "custom_components": 17,
+ "imports": [
+  "Foundation",
+  "SwiftUI"
+ ],
+ "min_ios_inferred": "15",
+ "deprecated_apis_used": [
+  "NavigationView",
+  "navigationViewStyle",
+  "stack",
+  "tabItem"
+ ],
+ "unique": {
+  "modifiers": [
+   "buttonStyle",
+   "focused",
+   "frame",
+   "modifier",
+   "navigationTitle",
+   "navigationViewStyle",
+   "onAppear",
+   "onChange",
+   "onReceive",
+   "overlay",
+   "padding",
+   "tabItem",
+   "textFieldStyle",
+   "toolbar"
+  ],
+  "types": [
+   "Button",
+   "Color",
+   "ControlGroup",
+   "Group",
+   "HStack",
+   "Image",
+   "Label",
+   "NavigationView",
+   "RoundedRectangle",
+   "Spacer",
+   "TabView",
+   "Text",
+   "TextField",
+   "ToolbarItemGroup",
+   "VStack",
+   "WindowGroup"
+  ],
+  "valueBuilders": [],
+  "macros": [],
+  "styleValues": [
+   "borderedProminent",
+   "keyboard",
+   "roundedBorder",
+   "stack"
+  ],
+  "propertyWrappers": [
+   "Binding",
+   "FocusState",
+   "State"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 14,
+  "types": 16,
+  "valueBuilders": 0,
+  "macros": 0,
+  "styleValues": 4,
+  "propertyWrappers": 3,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 37
+}

@@ -1,0 +1,163 @@
+{
+ "repo": "Keith-43/MuVis-Experimentation",
+ "stars": 15,
+ "categories": [
+  "Media"
+ ],
+ "sha": "2f1d643e01e3d259e0c3a12b78133e5e93b8df9f",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 21484,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "Treata11",
+   "score": 29892,
+   "contributions": 23
+  },
+  {
+   "login": "Keith-43",
+   "score": 66,
+   "contributions": 8
+  },
+  {
+   "login": "csprasad",
+   "score": 0,
+   "contributions": 1
+  }
+ ],
+ "loc": 9001,
+ "custom_components": 157,
+ "imports": [
+  "Accelerate",
+  "AudioVisualizer",
+  "CBass",
+  "Combine",
+  "Foundation",
+  "Observation",
+  "QuickLook",
+  "SwiftUI",
+  "Transition"
+ ],
+ "min_ios_inferred": "17",
+ "deprecated_apis_used": [
+  "foregroundColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "animation",
+   "aspectRatio",
+   "background",
+   "blur",
+   "border",
+   "disabled",
+   "drawingGroup",
+   "environment",
+   "fileImporter",
+   "font",
+   "foregroundColor",
+   "foregroundStyle",
+   "frame",
+   "gesture",
+   "help",
+   "keyboardShortcut",
+   "mask",
+   "minimumScaleFactor",
+   "navigationTitle",
+   "offset",
+   "onChange",
+   "onChanged",
+   "onEnded",
+   "onReceive",
+   "opacity",
+   "overlay",
+   "padding",
+   "preferredColorScheme",
+   "resizable",
+   "shadow",
+   "strokeBorder",
+   "tint"
+  ],
+  "types": [
+   "Angle",
+   "AnyView",
+   "Button",
+   "Canvas",
+   "Circle",
+   "Color",
+   "DragGesture",
+   "Ellipse",
+   "ForEach",
+   "GeometryReader",
+   "Gradient",
+   "Group",
+   "HStack",
+   "Image",
+   "LinearGradient",
+   "Path",
+   "Rectangle",
+   "RoundedRectangle",
+   "Slider",
+   "Spacer",
+   "TapGesture",
+   "Text",
+   "TimelineView",
+   "UnitPoint",
+   "VStack",
+   "WindowGroup",
+   "ZStack"
+  ],
+  "valueBuilders": [
+   "angularGradient",
+   "callout",
+   "conicGradient",
+   "degrees",
+   "easeInOut",
+   "easeOut",
+   "linear",
+   "linearGradient"
+  ],
+  "macros": [
+   "Preview"
+  ],
+  "styleValues": [
+   "black",
+   "blue",
+   "bottom",
+   "center",
+   "dark",
+   "green",
+   "largeTitle",
+   "leading",
+   "light",
+   "pink",
+   "purple",
+   "red",
+   "thinMaterial",
+   "top",
+   "trailing",
+   "white",
+   "yellow"
+  ],
+  "propertyWrappers": [
+   "Bindable",
+   "Environment",
+   "Observable",
+   "State"
+  ],
+  "environmentKeys": [
+   "colorScheme",
+   "displayScale"
+  ]
+ },
+ "counts": {
+  "modifiers": 32,
+  "types": 27,
+  "valueBuilders": 8,
+  "macros": 1,
+  "styleValues": 17,
+  "propertyWrappers": 4,
+  "environmentKeys": 2
+ },
+ "total_unique_apis": 91
+}

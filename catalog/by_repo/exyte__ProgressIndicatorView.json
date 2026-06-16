@@ -1,0 +1,111 @@
+{
+ "repo": "exyte/ProgressIndicatorView",
+ "stars": 355,
+ "categories": [
+  "Activity Indicator"
+ ],
+ "sha": "fe6f2bb1fad5e6260d5f7caedaa83690ad3d6dd4",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 7458,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "f3dm76",
+   "score": 9945,
+   "contributions": 21
+  },
+  {
+   "login": "mnndnl",
+   "score": 29,
+   "contributions": 4
+  },
+  {
+   "login": "Alex-M-B95",
+   "score": 0,
+   "contributions": 3
+  }
+ ],
+ "loc": 547,
+ "custom_components": 34,
+ "imports": [
+  "Foundation",
+  "PackageDescription",
+  "ProgressIndicatorView",
+  "SwiftUI"
+ ],
+ "min_ios_inferred": "15",
+ "deprecated_apis_used": [
+  "foregroundColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "animation",
+   "background",
+   "foregroundColor",
+   "frame",
+   "mask",
+   "offset",
+   "onChange",
+   "onReceive",
+   "opacity",
+   "overlay",
+   "padding",
+   "rotationEffect",
+   "tint"
+  ],
+  "types": [
+   "Angle",
+   "Capsule",
+   "EmptyView",
+   "ForEach",
+   "GeometryReader",
+   "Gradient",
+   "Group",
+   "HStack",
+   "LinearGradient",
+   "Path",
+   "RoundedRectangle",
+   "Slider",
+   "Spacer",
+   "Text",
+   "Toggle",
+   "VStack",
+   "WindowGroup",
+   "ZStack"
+  ],
+  "valueBuilders": [
+   "bar",
+   "easeIn",
+   "linear",
+   "radians"
+  ],
+  "macros": [],
+  "styleValues": [
+   "blue",
+   "bottom",
+   "clear",
+   "gray",
+   "leading",
+   "linear",
+   "red",
+   "trailing",
+   "white"
+  ],
+  "propertyWrappers": [
+   "Binding",
+   "State"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 13,
+  "types": 18,
+  "valueBuilders": 4,
+  "macros": 0,
+  "styleValues": 9,
+  "propertyWrappers": 2,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 46
+}

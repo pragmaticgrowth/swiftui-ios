@@ -1,0 +1,145 @@
+{
+ "repo": "ExistOrLive/GithubClient",
+ "stars": 141,
+ "categories": [
+  "GitHub"
+ ],
+ "sha": "7969212a8b6c938f93391d6e37666cc2c4a4c207",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 152,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "ExistOrLive",
+   "score": 152,
+   "contributions": 611
+  },
+  {
+   "login": "ExistOrLive1",
+   "score": 0,
+   "contributions": 21
+  },
+  {
+   "login": "longxiaochi",
+   "score": 2,
+   "contributions": 12
+  }
+ ],
+ "loc": 37094,
+ "custom_components": 14,
+ "imports": [
+  "Alamofire",
+  "CircleMenu",
+  "CocoaLumberjack",
+  "DGCharts",
+  "FFPopup",
+  "FWPopupView",
+  "Foundation",
+  "IQKeyboardManager",
+  "Intents",
+  "JXSegmentedView",
+  "Kanna",
+  "MJRefresh",
+  "ObjectMapper",
+  "SDWebImage",
+  "SYDCentralPivot",
+  "SnapKit",
+  "SwiftUI",
+  "UIKit",
+  "UITextView_Placeholder",
+  "WebKit",
+  "WidgetKit",
+  "YYText",
+  "ZLBaseExtension",
+  "ZLGitRemoteService",
+  "ZLGithubOAuth",
+  "ZLServiceFramework",
+  "ZLUIUtilities",
+  "ZLUtilities",
+  "ZMMVVM"
+ ],
+ "min_ios_inferred": "17",
+ "deprecated_apis_used": [
+  "foregroundColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "background",
+   "containerBackground",
+   "cornerRadius",
+   "font",
+   "foregroundColor",
+   "frame",
+   "lineLimit",
+   "lineSpacing",
+   "offset",
+   "padding",
+   "previewContext",
+   "resizable",
+   "scaledToFit",
+   "unredacted",
+   "widgetURL"
+  ],
+  "types": [
+   "Circle",
+   "Color",
+   "EdgeInsets",
+   "ForEach",
+   "HStack",
+   "Image",
+   "IntentConfiguration",
+   "RoundedRectangle",
+   "Spacer",
+   "Text",
+   "Timeline",
+   "VStack",
+   "WidgetPreviewContext"
+  ],
+  "valueBuilders": [
+   "caption",
+   "caption2",
+   "custom",
+   "footnote",
+   "medium",
+   "title3"
+  ],
+  "macros": [],
+  "styleValues": [
+   "automatic",
+   "black",
+   "bottom",
+   "cancel",
+   "center",
+   "circular",
+   "clear",
+   "dark",
+   "default",
+   "fill",
+   "gray",
+   "grouped",
+   "leading",
+   "light",
+   "plain",
+   "single",
+   "top",
+   "white"
+  ],
+  "propertyWrappers": [
+   "Environment"
+  ],
+  "environmentKeys": [
+   "widgetFamily"
+  ]
+ },
+ "counts": {
+  "modifiers": 15,
+  "types": 13,
+  "valueBuilders": 6,
+  "macros": 0,
+  "styleValues": 18,
+  "propertyWrappers": 1,
+  "environmentKeys": 1
+ },
+ "total_unique_apis": 54
+}

@@ -1,0 +1,86 @@
+{
+ "repo": "hackiftekhar/IQKeyboardManager",
+ "stars": 16623,
+ "categories": [
+  "Keyboard"
+ ],
+ "sha": "0972dd6eded87c930fb6ad36b3c5ecd620f06894",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 25374,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "hackiftekhar",
+   "score": 25374,
+   "contributions": 1200
+  },
+  {
+   "login": "ideviftekhar",
+   "score": 15,
+   "contributions": 20
+  },
+  {
+   "login": "kgn",
+   "score": 292945,
+   "contributions": 12
+  }
+ ],
+ "loc": 7291,
+ "custom_components": 4,
+ "imports": [
+  "Combine",
+  "IQDropDownTextFieldSwift",
+  "IQKeyboardCore",
+  "IQKeyboardManagerSwift",
+  "IQKeyboardNotification",
+  "IQKeyboardReturnManager",
+  "IQKeyboardToolbar",
+  "IQKeyboardToolbarManager",
+  "IQTextInputViewNotification",
+  "IQTextView",
+  "MobileCoreServices",
+  "PackageDescription",
+  "SwiftUI",
+  "UIKit",
+  "WebKit"
+ ],
+ "min_ios_inferred": "16",
+ "deprecated_apis_used": [],
+ "unique": {
+  "modifiers": [
+   "background",
+   "navigationTitle",
+   "padding"
+  ],
+  "types": [
+   "TextField",
+   "VStack"
+  ],
+  "valueBuilders": [
+   "medium"
+  ],
+  "macros": [],
+  "styleValues": [
+   "automatic",
+   "cancel",
+   "default",
+   "plain",
+   "subtitle"
+  ],
+  "propertyWrappers": [
+   "State"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 3,
+  "types": 2,
+  "valueBuilders": 1,
+  "macros": 0,
+  "styleValues": 5,
+  "propertyWrappers": 1,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 12
+}

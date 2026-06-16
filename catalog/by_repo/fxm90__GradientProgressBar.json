@@ -1,0 +1,112 @@
+{
+ "repo": "fxm90/GradientProgressBar",
+ "stars": 541,
+ "categories": [
+  "Activity Indicator"
+ ],
+ "sha": "cca0ea7fcd15fc30833332ca2e8ec735677ca479",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 2898,
+ "contributor_count": 1,
+ "top_contributors": [
+  {
+   "login": "fxm90",
+   "score": 2898,
+   "contributions": 319
+  }
+ ],
+ "loc": 2208,
+ "custom_components": 19,
+ "imports": [
+  "CoreGraphics",
+  "Foundation",
+  "GradientProgressBar",
+  "Observation",
+  "PackageDescription",
+  "SnapshotTesting",
+  "SwiftUI",
+  "Testing",
+  "UIKit",
+  "WebKit"
+ ],
+ "min_ios_inferred": "18",
+ "deprecated_apis_used": [],
+ "unique": {
+  "modifiers": [
+   "accessibilityHidden",
+   "accessibilityLabel",
+   "animation",
+   "buttonStyle",
+   "disabled",
+   "font",
+   "frame",
+   "ignoresSafeArea",
+   "mask",
+   "navigationTitle",
+   "overlay",
+   "padding",
+   "progressViewStyle"
+  ],
+  "types": [
+   "Button",
+   "Color",
+   "GeometryReader",
+   "HStack",
+   "Image",
+   "LinearGradient",
+   "NavigationStack",
+   "ProgressView",
+   "RoundedRectangle",
+   "Spacer",
+   "Tab",
+   "TabView",
+   "Text",
+   "VStack",
+   "WindowGroup"
+  ],
+  "valueBuilders": [
+   "body",
+   "callout",
+   "caption",
+   "custom",
+   "easeIn",
+   "easeInOut",
+   "easeOut",
+   "footnote",
+   "semibold"
+  ],
+  "macros": [
+   "Preview"
+  ],
+  "styleValues": [
+   "borderedProminent",
+   "bottom",
+   "center",
+   "cyan",
+   "dark",
+   "default",
+   "fill",
+   "leading",
+   "light",
+   "linear",
+   "top",
+   "trailing"
+  ],
+  "propertyWrappers": [
+   "ScaledMetric",
+   "State"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 13,
+  "types": 15,
+  "valueBuilders": 9,
+  "macros": 1,
+  "styleValues": 12,
+  "propertyWrappers": 2,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 52
+}

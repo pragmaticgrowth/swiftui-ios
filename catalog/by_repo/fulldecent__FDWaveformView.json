@@ -1,0 +1,99 @@
+{
+ "repo": "fulldecent/FDWaveformView",
+ "stars": 1305,
+ "categories": [
+  "Audio"
+ ],
+ "sha": "6684fcfe0a23d97f4f9d938611f0b2f9462f3eae",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 228307,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "fulldecent",
+   "score": 228307,
+   "contributions": 182
+  },
+  {
+   "login": "ospr",
+   "score": 1,
+   "contributions": 53
+  },
+  {
+   "login": "pixlwave",
+   "score": 28983,
+   "contributions": 26
+  }
+ ],
+ "loc": 1689,
+ "custom_components": 5,
+ "imports": [
+  "AVFoundation",
+  "Accelerate",
+  "FDWaveformView",
+  "Foundation",
+  "PackageDescription",
+  "SwiftUI",
+  "UIKit",
+  "XCTest"
+ ],
+ "min_ios_inferred": "15",
+ "deprecated_apis_used": [
+  "NavigationView"
+ ],
+ "unique": {
+  "modifiers": [
+   "alert",
+   "buttonStyle",
+   "disabled",
+   "frame",
+   "onAppear",
+   "padding",
+   "pickerStyle",
+   "tag"
+  ],
+  "types": [
+   "Button",
+   "Color",
+   "HStack",
+   "Label",
+   "NavigationView",
+   "Picker",
+   "Text",
+   "Toggle",
+   "VStack",
+   "WindowGroup"
+  ],
+  "valueBuilders": [
+   "linear"
+  ],
+  "macros": [
+   "Preview"
+  ],
+  "styleValues": [
+   "background",
+   "black",
+   "bordered",
+   "borderedProminent",
+   "cancel",
+   "linear",
+   "segmented"
+  ],
+  "propertyWrappers": [
+   "Binding",
+   "State"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 8,
+  "types": 10,
+  "valueBuilders": 1,
+  "macros": 1,
+  "styleValues": 7,
+  "propertyWrappers": 2,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 29
+}

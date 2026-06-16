@@ -1,0 +1,103 @@
+{
+ "repo": "zekunyan/TTGTagCollectionView",
+ "stars": 1903,
+ "categories": [
+  "Tag"
+ ],
+ "sha": "9257eb8d7daede6acee710688500680a41e6f263",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 4498,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "zekunyan",
+   "score": 4498,
+   "contributions": 166
+  },
+  {
+   "login": "sasojadrovski",
+   "score": 2506,
+   "contributions": 6
+  },
+  {
+   "login": "twof",
+   "score": 1143,
+   "contributions": 5
+  }
+ ],
+ "loc": 5578,
+ "custom_components": 7,
+ "imports": [
+  "Foundation",
+  "PackageDescription",
+  "SwiftUI",
+  "TTGTags",
+  "UIKit",
+  "XCTest"
+ ],
+ "min_ios_inferred": "15",
+ "deprecated_apis_used": [],
+ "unique": {
+  "modifiers": [
+   "background",
+   "buttonStyle",
+   "clipShape",
+   "clipped",
+   "fixedSize",
+   "font",
+   "foregroundStyle",
+   "frame",
+   "padding",
+   "tag"
+  ],
+  "types": [
+   "Button",
+   "Color",
+   "GeometryReader",
+   "Label",
+   "RoundedRectangle",
+   "ScrollView",
+   "Text",
+   "UIHostingController",
+   "VStack"
+  ],
+  "valueBuilders": [
+   "custom",
+   "medium",
+   "regular",
+   "semibold",
+   "system"
+  ],
+  "macros": [],
+  "styleValues": [
+   "black",
+   "borderedProminent",
+   "button",
+   "center",
+   "clear",
+   "fill",
+   "green",
+   "leading",
+   "plain",
+   "primary",
+   "red",
+   "secondary",
+   "white"
+  ],
+  "propertyWrappers": [
+   "State"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 10,
+  "types": 9,
+  "valueBuilders": 5,
+  "macros": 0,
+  "styleValues": 13,
+  "propertyWrappers": 1,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 38
+}

@@ -1,0 +1,89 @@
+{
+ "repo": "nathantannar4/InputBarAccessoryView",
+ "stars": 1279,
+ "categories": [
+  "TextField & TextView"
+ ],
+ "sha": "95ecd849d4e5e056947ac8563dd87a9302c1d7c5",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 7456,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "nathantannar4",
+   "score": 3851,
+   "contributions": 228
+  },
+  {
+   "login": "Kaspik",
+   "score": 22621,
+   "contributions": 119
+  },
+  {
+   "login": "danqing",
+   "score": 1507,
+   "contributions": 14
+  }
+ ],
+ "loc": 7198,
+ "custom_components": 4,
+ "imports": [
+  "CoreGraphics",
+  "Foundation",
+  "InputBarAccessoryView",
+  "PackageDescription",
+  "SwiftUI",
+  "UIKit"
+ ],
+ "min_ios_inferred": "17",
+ "deprecated_apis_used": [],
+ "unique": {
+  "modifiers": [
+   "bold"
+  ],
+  "types": [
+   "UIHostingController",
+   "VStack"
+  ],
+  "valueBuilders": [
+   "body",
+   "easeIn",
+   "easeInOut",
+   "easeOut",
+   "medium",
+   "regular"
+  ],
+  "macros": [],
+  "styleValues": [
+   "automatic",
+   "background",
+   "black",
+   "bottom",
+   "center",
+   "clear",
+   "default",
+   "fill",
+   "gray",
+   "interactive",
+   "linear",
+   "link",
+   "plain",
+   "subtitle",
+   "top",
+   "white"
+  ],
+  "propertyWrappers": [],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 1,
+  "types": 2,
+  "valueBuilders": 6,
+  "macros": 0,
+  "styleValues": 16,
+  "propertyWrappers": 0,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 25
+}

@@ -1,0 +1,109 @@
+{
+ "repo": "SwissCovid/swisscovid-app-ios",
+ "stars": 144,
+ "categories": [
+  "Contact Tracing"
+ ],
+ "sha": "25194212ff8ccafc8cc98bdf0d8f7174c7d5170e",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 4380,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "stmitt",
+   "score": 6163,
+   "contributions": 1025
+  },
+  {
+   "login": "UBaggeler",
+   "score": 2454,
+   "contributions": 268
+  },
+  {
+   "login": "ubfelix",
+   "score": 12,
+   "contributions": 149
+  }
+ ],
+ "loc": 33250,
+ "custom_components": 0,
+ "imports": [
+  "AVFoundation",
+  "BackgroundTasks",
+  "CoreBluetooth",
+  "CrowdNotifierBaseSDK",
+  "CrowdNotifierSDK",
+  "DP3TApp",
+  "DP3TSDK",
+  "DP3TSDK_CALIBRATION",
+  "ExposureNotification",
+  "Foundation",
+  "LocalAuthentication",
+  "SQLite",
+  "SafariServices",
+  "Security",
+  "SnapKit",
+  "StoreKit",
+  "SwiftProtobuf",
+  "SwiftUI",
+  "UIKit",
+  "UserNotifications",
+  "WebKit",
+  "XCTest",
+  "os"
+ ],
+ "min_ios_inferred": "18",
+ "deprecated_apis_used": [],
+ "unique": {
+  "modifiers": [
+   "offset"
+  ],
+  "types": [
+   "Tab"
+  ],
+  "valueBuilders": [
+   "custom",
+   "easeOut",
+   "heavy",
+   "medium",
+   "push",
+   "regular"
+  ],
+  "macros": [],
+  "styleValues": [
+   "background",
+   "black",
+   "bottom",
+   "button",
+   "cancel",
+   "center",
+   "clear",
+   "dark",
+   "date",
+   "default",
+   "destructive",
+   "fill",
+   "gray",
+   "identity",
+   "leading",
+   "light",
+   "link",
+   "plain",
+   "title",
+   "white"
+  ],
+  "propertyWrappers": [],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 1,
+  "types": 1,
+  "valueBuilders": 6,
+  "macros": 0,
+  "styleValues": 20,
+  "propertyWrappers": 0,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 28
+}

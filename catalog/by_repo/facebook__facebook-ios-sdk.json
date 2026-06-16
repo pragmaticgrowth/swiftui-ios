@@ -1,0 +1,106 @@
+{
+ "repo": "facebook/facebook-ios-sdk",
+ "stars": 8067,
+ "categories": [
+  "Official"
+ ],
+ "sha": "3e584142b41c436322f64c16d5013dee1ed29bab",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 15,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "joesus",
+   "score": 27,
+   "contributions": 878
+  },
+  {
+   "login": "jawwad",
+   "score": 21,
+   "contributions": 610
+  },
+  {
+   "login": "samodom",
+   "score": 62,
+   "contributions": 481
+  }
+ ],
+ "loc": 129173,
+ "custom_components": 6,
+ "imports": [
+  "Accelerate",
+  "AdSupport",
+  "AppTrackingTransparency",
+  "AuthenticationServices",
+  "CommonCrypto",
+  "CoreTelephony",
+  "CryptoKit",
+  "Darwin",
+  "FBAEMKit",
+  "FBSDKCoreKit",
+  "FBSDKCoreKit_Basics",
+  "FBSDKGamingServicesKit",
+  "FBSDKLoginKit",
+  "FBSDKShareKit",
+  "FacebookAEM",
+  "FacebookCore",
+  "FacebookLogin",
+  "FacebookShare",
+  "Foundation",
+  "Glibc",
+  "IAPTestsHostApp",
+  "PackageDescription",
+  "Photos",
+  "SafariServices",
+  "Security",
+  "Social",
+  "StoreKit",
+  "StoreKitTest",
+  "SwiftUI",
+  "TestTools",
+  "UIKit",
+  "WebKit",
+  "XCTest"
+ ],
+ "min_ios_inferred": "14",
+ "deprecated_apis_used": [],
+ "unique": {
+  "modifiers": [],
+  "types": [
+   "Text",
+   "WindowGroup"
+  ],
+  "valueBuilders": [
+   "system"
+  ],
+  "macros": [],
+  "styleValues": [
+   "automatic",
+   "background",
+   "blue",
+   "bottom",
+   "cancel",
+   "center",
+   "clear",
+   "default",
+   "destructive",
+   "gray",
+   "plain",
+   "top",
+   "white"
+  ],
+  "propertyWrappers": [],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 0,
+  "types": 2,
+  "valueBuilders": 1,
+  "macros": 0,
+  "styleValues": 13,
+  "propertyWrappers": 0,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 16
+}

@@ -1,0 +1,108 @@
+{
+ "repo": "kylebrowning/drupal-ios-sdk",
+ "stars": 409,
+ "categories": [
+  "Unofficial"
+ ],
+ "sha": "0276f4c12064697c0a6e41fe3d3fa2a4c79ef09e",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 28055,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "kylebrowning",
+   "score": 28055,
+   "contributions": 399
+  },
+  {
+   "login": "meSte",
+   "score": 2,
+   "contributions": 5
+  },
+  {
+   "login": "vivekvpandya",
+   "score": 45,
+   "contributions": 3
+  }
+ ],
+ "loc": 1055,
+ "custom_components": 16,
+ "imports": [
+  "DrupalIOSSDK",
+  "DrupalIOSSDKUI",
+  "Foundation",
+  "PackageDescription",
+  "SwiftUI"
+ ],
+ "min_ios_inferred": "16",
+ "deprecated_apis_used": [],
+ "unique": {
+  "modifiers": [
+   "autocorrectionDisabled",
+   "controlSize",
+   "disabled",
+   "environment",
+   "font",
+   "foregroundStyle",
+   "frame",
+   "navigationTitle",
+   "onAppear",
+   "onReceive",
+   "padding",
+   "sheet",
+   "task",
+   "textInputAutocapitalization"
+  ],
+  "types": [
+   "AnyView",
+   "Button",
+   "Form",
+   "Group",
+   "HStack",
+   "List",
+   "NavigationLink",
+   "NavigationStack",
+   "ProgressView",
+   "ScrollView",
+   "Section",
+   "SecureField",
+   "Spacer",
+   "State",
+   "Text",
+   "TextField",
+   "VStack",
+   "WindowGroup"
+  ],
+  "valueBuilders": [
+   "body",
+   "caption",
+   "headline",
+   "system"
+  ],
+  "macros": [
+   "Preview"
+  ],
+  "styleValues": [
+   "cancel",
+   "leading",
+   "red",
+   "secondary"
+  ],
+  "propertyWrappers": [
+   "Environment",
+   "State"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 14,
+  "types": 18,
+  "valueBuilders": 4,
+  "macros": 1,
+  "styleValues": 4,
+  "propertyWrappers": 2,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 43
+}

@@ -1,0 +1,94 @@
+{
+ "repo": "yonaskolb/XcodeGen",
+ "stars": 8521,
+ "categories": [
+  "Tools"
+ ],
+ "sha": "8d3d3476a69ae3e5d68e1adccc701c410c05eb36",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 13557,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "yonaskolb",
+   "score": 13062,
+   "contributions": 1307
+  },
+  {
+   "login": "kateinoigakukun",
+   "score": 186324,
+   "contributions": 109
+  },
+  {
+   "login": "brentleyjones",
+   "score": 36120,
+   "contributions": 82
+  }
+ ],
+ "loc": 23285,
+ "custom_components": 6,
+ "imports": [
+  "AppIntents",
+  "Cocoa",
+  "Codability",
+  "Contacts",
+  "EndpointSecurity",
+  "Foundation",
+  "Framework",
+  "JSONUtilities",
+  "Messages",
+  "NetworkExtension",
+  "PackageDescription",
+  "PathKit",
+  "ProjectSpec",
+  "Rainbow",
+  "Spectre",
+  "SwiftCLI",
+  "SwiftUI",
+  "TestSupport",
+  "Testing",
+  "UIKit",
+  "UserNotifications",
+  "Version",
+  "WatchKit",
+  "XCTest",
+  "XcodeGenCLI",
+  "XcodeGenCore",
+  "XcodeGenKit",
+  "XcodeProj",
+  "Yams"
+ ],
+ "min_ios_inferred": "14",
+ "deprecated_apis_used": [
+  "foregroundColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "foregroundColor",
+   "imageScale",
+   "padding"
+  ],
+  "types": [
+   "Image",
+   "Text",
+   "VStack",
+   "WindowGroup"
+  ],
+  "valueBuilders": [],
+  "macros": [],
+  "styleValues": [],
+  "propertyWrappers": [],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 3,
+  "types": 4,
+  "valueBuilders": 0,
+  "macros": 0,
+  "styleValues": 0,
+  "propertyWrappers": 0,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 7
+}

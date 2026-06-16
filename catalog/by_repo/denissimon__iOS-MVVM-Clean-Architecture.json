@@ -1,0 +1,91 @@
+{
+ "repo": "denissimon/iOS-MVVM-Clean-Architecture",
+ "stars": 59,
+ "categories": [
+  "Sample"
+ ],
+ "sha": "ca5e270faa0ad0ede0ba4950c81f866e42526179",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 0,
+ "contributor_count": 1,
+ "top_contributors": [
+  {
+   "login": "denissimon",
+   "score": 0,
+   "contributions": 514
+  }
+ ],
+ "loc": 8105,
+ "custom_components": 4,
+ "imports": [
+  "Foundation",
+  "ImageSearch",
+  "ObjectiveC",
+  "SQLite3",
+  "SwiftUI",
+  "UIKit",
+  "XCTest"
+ ],
+ "min_ios_inferred": "15",
+ "deprecated_apis_used": [],
+ "unique": {
+  "modifiers": [
+   "bold",
+   "contentShape",
+   "font",
+   "frame",
+   "listRowSeparator",
+   "listStyle",
+   "navigationTitle",
+   "onAppear",
+   "onTapGesture",
+   "padding",
+   "pickerStyle",
+   "toolbar"
+  ],
+  "types": [
+   "Button",
+   "ForEach",
+   "HStack",
+   "List",
+   "Picker",
+   "Rectangle",
+   "Spacer",
+   "Text",
+   "UIHostingController",
+   "VStack"
+  ],
+  "valueBuilders": [
+   "system"
+  ],
+  "macros": [
+   "Preview"
+  ],
+  "styleValues": [
+   "black",
+   "bottom",
+   "center",
+   "default",
+   "leading",
+   "plain",
+   "segmented",
+   "top",
+   "white"
+  ],
+  "propertyWrappers": [
+   "ObservedObject"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 12,
+  "types": 10,
+  "valueBuilders": 1,
+  "macros": 1,
+  "styleValues": 9,
+  "propertyWrappers": 1,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 34
+}

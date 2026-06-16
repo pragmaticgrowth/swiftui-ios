@@ -1,0 +1,144 @@
+{
+ "repo": "Dimillian/FoundationChat",
+ "stars": 341,
+ "categories": [
+  "Communication"
+ ],
+ "sha": "10f46eb4954a994368d76c0273164e4f8da512f2",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 48160,
+ "contributor_count": 2,
+ "top_contributors": [
+  {
+   "login": "Dimillian",
+   "score": 48160,
+   "contributions": 18
+  },
+  {
+   "login": "timi2506",
+   "score": 5037,
+   "contributions": 1
+  }
+ ],
+ "loc": 584,
+ "custom_components": 16,
+ "imports": [
+  "Foundation",
+  "FoundationModels",
+  "Playgrounds",
+  "SwiftData",
+  "SwiftSoup",
+  "SwiftUI"
+ ],
+ "min_ios_inferred": "26",
+ "deprecated_apis_used": [
+  "navigationBarTrailing"
+ ],
+ "unique": {
+  "modifiers": [
+   "animation",
+   "background",
+   "clipped",
+   "contentShape",
+   "contentTransition",
+   "cornerRadius",
+   "disabled",
+   "environment",
+   "fixedSize",
+   "focused",
+   "font",
+   "foregroundStyle",
+   "frame",
+   "glassEffect",
+   "id",
+   "listSectionSeparator",
+   "listStyle",
+   "modelContainer",
+   "navigationBarTitleDisplayMode",
+   "navigationDestination",
+   "navigationTitle",
+   "onAppear",
+   "padding",
+   "resizable",
+   "scaledToFill",
+   "scrollDismissesKeyboard",
+   "scrollPosition",
+   "scrollTargetLayout",
+   "swipeActions",
+   "textFieldStyle",
+   "tint",
+   "toolbar",
+   "toolbarRole"
+  ],
+  "types": [
+   "AsyncImage",
+   "Button",
+   "ForEach",
+   "HStack",
+   "Image",
+   "Label",
+   "LazyVStack",
+   "List",
+   "NavigationLink",
+   "NavigationStack",
+   "Rectangle",
+   "ScrollView",
+   "Spacer",
+   "Text",
+   "TextField",
+   "ToolbarItem",
+   "ToolbarItemGroup",
+   "VStack",
+   "WindowGroup"
+  ],
+  "valueBuilders": [
+   "bouncy",
+   "caption",
+   "headline",
+   "regular",
+   "subheadline",
+   "title3"
+  ],
+  "macros": [
+   "Preview"
+  ],
+  "styleValues": [
+   "blue",
+   "bottom",
+   "bottomBar",
+   "center",
+   "destructive",
+   "gray",
+   "green",
+   "inline",
+   "leading",
+   "navigationBarTrailing",
+   "plain",
+   "secondary",
+   "top",
+   "white"
+  ],
+  "propertyWrappers": [
+   "Binding",
+   "Environment",
+   "FocusState",
+   "Observable",
+   "Query",
+   "State"
+  ],
+  "environmentKeys": [
+   "modelContext"
+  ]
+ },
+ "counts": {
+  "modifiers": 33,
+  "types": 19,
+  "valueBuilders": 6,
+  "macros": 1,
+  "styleValues": 14,
+  "propertyWrappers": 6,
+  "environmentKeys": 1
+ },
+ "total_unique_apis": 80
+}

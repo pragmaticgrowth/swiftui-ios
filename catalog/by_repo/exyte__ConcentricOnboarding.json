@@ -1,0 +1,97 @@
+{
+ "repo": "exyte/ConcentricOnboarding",
+ "stars": 1559,
+ "categories": [
+  "Walkthrough / Intro / Tutorial"
+ ],
+ "sha": "5d692474b40ea4893a0f347a7d6e559d91049691",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 7103,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "f3dm76",
+   "score": 9945,
+   "contributions": 35
+  },
+  {
+   "login": "DAMMAK",
+   "score": 0,
+   "contributions": 9
+  },
+  {
+   "login": "zapletnev",
+   "score": 7,
+   "contributions": 5
+  }
+ ],
+ "loc": 619,
+ "custom_components": 17,
+ "imports": [
+  "ConcentricOnboarding",
+  "PackageDescription",
+  "SwiftUI",
+  "UIKit"
+ ],
+ "min_ios_inferred": "14",
+ "deprecated_apis_used": [
+  "edgesIgnoringSafeArea",
+  "foregroundColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "animation",
+   "aspectRatio",
+   "clipped",
+   "cornerRadius",
+   "disabled",
+   "edgesIgnoringSafeArea",
+   "font",
+   "foregroundColor",
+   "frame",
+   "multilineTextAlignment",
+   "offset",
+   "onChange",
+   "resizable",
+   "scaleEffect"
+  ],
+  "types": [
+   "Button",
+   "Circle",
+   "Color",
+   "Image",
+   "State",
+   "Text",
+   "VStack",
+   "WindowGroup",
+   "ZStack"
+  ],
+  "valueBuilders": [
+   "easeIn",
+   "easeInOut",
+   "easeOut",
+   "system"
+  ],
+  "macros": [],
+  "styleValues": [
+   "center",
+   "clear",
+   "fill"
+  ],
+  "propertyWrappers": [
+   "State"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 14,
+  "types": 9,
+  "valueBuilders": 4,
+  "macros": 0,
+  "styleValues": 3,
+  "propertyWrappers": 1,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 31
+}

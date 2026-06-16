@@ -1,0 +1,124 @@
+{
+ "repo": "uber/needle",
+ "stars": 2005,
+ "categories": [
+  "Dependency Injection"
+ ],
+ "sha": "c6a3b2c5f4bb60da4ab9ee97fea38cdf45cd4bcc",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 649,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "neakor",
+   "score": 14,
+   "contributions": 290
+  },
+  {
+   "login": "rudro",
+   "score": 2188,
+   "contributions": 131
+  },
+  {
+   "login": "wbond",
+   "score": 7937,
+   "contributions": 20
+  }
+ ],
+ "loc": 15531,
+ "custom_components": 13,
+ "imports": [
+  "Audio",
+  "Combine",
+  "CommandFramework",
+  "CommonCrypto",
+  "Concurrency",
+  "Foundation",
+  "NeedleFoundation",
+  "NeedleFoundationTest",
+  "NeedleFramework",
+  "PackageDescription",
+  "RIBs",
+  "RxCocoa",
+  "RxSwift",
+  "ScoreSheet",
+  "SnapKit",
+  "SourceParsingFramework",
+  "SwiftParser",
+  "SwiftSyntax",
+  "SwiftUI",
+  "TSCBasic",
+  "TSCUtility",
+  "TicTacToe",
+  "TicTacToeIntegrations",
+  "UIKit",
+  "Utility",
+  "XCTest"
+ ],
+ "min_ios_inferred": "13",
+ "deprecated_apis_used": [
+  "Alert",
+  "NavigationView",
+  "edgesIgnoringSafeArea",
+  "foregroundColor",
+  "presentationMode"
+ ],
+ "unique": {
+  "modifiers": [
+   "alert",
+   "background",
+   "border",
+   "edgesIgnoringSafeArea",
+   "foregroundColor",
+   "frame",
+   "navigationBarBackButtonHidden",
+   "offset",
+   "padding",
+   "textFieldStyle"
+  ],
+  "types": [
+   "Alert",
+   "AnyView",
+   "Button",
+   "EmptyView",
+   "ForEach",
+   "HStack",
+   "NavigationLink",
+   "NavigationView",
+   "RoundedBorderTextFieldStyle",
+   "Text",
+   "TextField",
+   "UIHostingController",
+   "VStack",
+   "ZStack"
+  ],
+  "valueBuilders": [],
+  "macros": [],
+  "styleValues": [
+   "black",
+   "blue",
+   "center",
+   "red",
+   "top",
+   "white"
+  ],
+  "propertyWrappers": [
+   "Environment",
+   "ObservedObject"
+  ],
+  "environmentKeys": [
+   "presentationMode"
+  ]
+ },
+ "counts": {
+  "modifiers": 10,
+  "types": 14,
+  "valueBuilders": 0,
+  "macros": 0,
+  "styleValues": 6,
+  "propertyWrappers": 2,
+  "environmentKeys": 1
+ },
+ "total_unique_apis": 33
+}

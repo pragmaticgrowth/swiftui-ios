@@ -1,0 +1,120 @@
+{
+ "repo": "ProxymanApp/atlantis",
+ "stars": 1549,
+ "categories": [
+  "Debugging"
+ ],
+ "sha": "6427600ec87d516a43754e4eaa7762f3271ac77f",
+ "platform": "cross_platform",
+ "ipad_idioms": [],
+ "author_authority": 38,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "NghiaTranUIT",
+   "score": 0,
+   "contributions": 305
+  },
+  {
+   "login": "VaslD",
+   "score": 1584,
+   "contributions": 5
+  },
+  {
+   "login": "mRs-",
+   "score": 2986,
+   "contributions": 4
+  }
+ ],
+ "loc": 5688,
+ "custom_components": 8,
+ "imports": [
+  "AVFoundation",
+  "AppKit",
+  "Atlantis",
+  "Compression",
+  "Foundation",
+  "Network",
+  "ObjectiveC",
+  "PackageDescription",
+  "SwiftUI",
+  "UIKit",
+  "WatchKit",
+  "XCTest",
+  "atlantisTests",
+  "zlib",
+  "zlibLinux"
+ ],
+ "min_ios_inferred": "15",
+ "deprecated_apis_used": [
+  "foregroundColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "background",
+   "buttonStyle",
+   "cornerRadius",
+   "disabled",
+   "font",
+   "foregroundColor",
+   "foregroundStyle",
+   "frame",
+   "multilineTextAlignment",
+   "onDisappear",
+   "opacity",
+   "padding"
+  ],
+  "types": [
+   "Button",
+   "Divider",
+   "ForEach",
+   "HStack",
+   "Image",
+   "Label",
+   "ProgressView",
+   "ScrollView",
+   "Text",
+   "VStack",
+   "WindowGroup"
+  ],
+  "valueBuilders": [
+   "body",
+   "caption",
+   "caption2",
+   "headline",
+   "subheadline",
+   "system"
+  ],
+  "macros": [
+   "Preview"
+  ],
+  "styleValues": [
+   "bordered",
+   "borderedProminent",
+   "bottom",
+   "center",
+   "gray",
+   "green",
+   "leading",
+   "orange",
+   "red",
+   "secondary",
+   "title",
+   "top"
+  ],
+  "propertyWrappers": [
+   "State"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 12,
+  "types": 11,
+  "valueBuilders": 6,
+  "macros": 1,
+  "styleValues": 12,
+  "propertyWrappers": 1,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 43
+}

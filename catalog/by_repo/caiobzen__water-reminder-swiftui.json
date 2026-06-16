@@ -1,0 +1,102 @@
+{
+ "repo": "caiobzen/water-reminder-swiftui",
+ "stars": 237,
+ "categories": [
+  "Apple Watch",
+  "SwiftUI"
+ ],
+ "sha": "3c252d31b20e1958dc12e91b5792940cbaf8076e",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 483,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "caiobzen",
+   "score": 483,
+   "contributions": 32
+  },
+  {
+   "login": "TobiasRuano",
+   "score": 3,
+   "contributions": 4
+  },
+  {
+   "login": "bigjermaine",
+   "score": 930,
+   "contributions": 1
+  }
+ ],
+ "loc": 504,
+ "custom_components": 29,
+ "imports": [
+  "Combine",
+  "Foundation",
+  "HealthKit",
+  "SwiftUI",
+  "UIKit",
+  "UserNotifications",
+  "WatchKit"
+ ],
+ "min_ios_inferred": "17",
+ "deprecated_apis_used": [
+  "accentColor",
+  "edgesIgnoringSafeArea",
+  "foregroundColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "accentColor",
+   "animation",
+   "contextMenu",
+   "edgesIgnoringSafeArea",
+   "focusable",
+   "font",
+   "foregroundColor",
+   "frame",
+   "offset",
+   "onAppear",
+   "opacity",
+   "padding",
+   "resizable",
+   "sheet"
+  ],
+  "types": [
+   "Button",
+   "Color",
+   "HStack",
+   "Image",
+   "Path",
+   "Rectangle",
+   "Spacer",
+   "Text",
+   "VStack",
+   "ZStack"
+  ],
+  "valueBuilders": [
+   "headline",
+   "regular",
+   "semibold",
+   "system"
+  ],
+  "macros": [],
+  "styleValues": [
+   "black"
+  ],
+  "propertyWrappers": [
+   "ObservedObject",
+   "State"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 14,
+  "types": 10,
+  "valueBuilders": 4,
+  "macros": 0,
+  "styleValues": 1,
+  "propertyWrappers": 2,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 31
+}

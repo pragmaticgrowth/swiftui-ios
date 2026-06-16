@@ -1,0 +1,127 @@
+{
+ "repo": "ultralytics/yolo-ios-app",
+ "stars": 480,
+ "categories": [
+  "Official"
+ ],
+ "sha": "8399cc0f3df2e84251249b38892ab5b5e1d807ff",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 133523,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "glenn-jocher",
+   "score": 163566,
+   "contributions": 120
+  },
+  {
+   "login": "john-rocky",
+   "score": 251581,
+   "contributions": 18
+  },
+  {
+   "login": "asabri97",
+   "score": 0,
+   "contributions": 9
+  }
+ ],
+ "loc": 12956,
+ "custom_components": 11,
+ "imports": [
+  "AVFoundation",
+  "Accelerate",
+  "AudioToolbox",
+  "Compression",
+  "CoreGraphics",
+  "CoreImage",
+  "CoreML",
+  "CoreMedia",
+  "CoreVideo",
+  "CryptoKit",
+  "Foundation",
+  "ImageIO",
+  "OSLog",
+  "PackageDescription",
+  "PhotosUI",
+  "QuartzCore",
+  "SafariServices",
+  "SwiftUI",
+  "Testing",
+  "UIKit",
+  "UltralyticsYOLO",
+  "Vision",
+  "XCTest",
+  "YOLORealTimeSwiftUI",
+  "YOLORealTimeUIKit",
+  "YOLOSingleImageSwiftUI",
+  "YOLOSingleImageUIKit"
+ ],
+ "min_ios_inferred": "16",
+ "deprecated_apis_used": [
+  "foregroundColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "background",
+   "cornerRadius",
+   "font",
+   "foregroundColor",
+   "frame",
+   "ignoresSafeArea",
+   "onChange",
+   "padding",
+   "resizable",
+   "scaledToFit"
+  ],
+  "types": [
+   "Image",
+   "ImageRenderer",
+   "Text",
+   "VStack",
+   "WindowGroup"
+  ],
+  "valueBuilders": [
+   "body",
+   "footnote",
+   "headline",
+   "medium",
+   "regular",
+   "semibold",
+   "subheadline",
+   "system"
+  ],
+  "macros": [
+   "Preview"
+  ],
+  "styleValues": [
+   "black",
+   "blue",
+   "cancel",
+   "center",
+   "clear",
+   "dark",
+   "default",
+   "gray",
+   "green",
+   "linear",
+   "red",
+   "white",
+   "yellow"
+  ],
+  "propertyWrappers": [
+   "State"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 10,
+  "types": 5,
+  "valueBuilders": 8,
+  "macros": 1,
+  "styleValues": 13,
+  "propertyWrappers": 1,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 38
+}

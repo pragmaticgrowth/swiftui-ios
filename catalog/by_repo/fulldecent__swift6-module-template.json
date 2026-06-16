@@ -1,0 +1,81 @@
+{
+ "repo": "fulldecent/swift6-module-template",
+ "stars": 488,
+ "categories": [
+  "Project setup"
+ ],
+ "sha": "66ae0985c74f7804dd417300be5f61b6ddc03602",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 228307,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "fulldecent",
+   "score": 228307,
+   "contributions": 122
+  },
+  {
+   "login": "claui",
+   "score": 51123,
+   "contributions": 6
+  },
+  {
+   "login": "Copilot",
+   "score": 0,
+   "contributions": 6
+  }
+ ],
+ "loc": 353,
+ "custom_components": 4,
+ "imports": [
+  "Example",
+  "Foundation",
+  "PackageDescription",
+  "SwiftUI",
+  "Testing",
+  "XCTest",
+  "xxPROJECTxNAMExx"
+ ],
+ "min_ios_inferred": "14",
+ "deprecated_apis_used": [
+  "foregroundColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "font",
+   "foregroundColor",
+   "multilineTextAlignment",
+   "padding"
+  ],
+  "types": [
+   "Text",
+   "VStack",
+   "WindowGroup"
+  ],
+  "valueBuilders": [
+   "caption",
+   "system",
+   "title2"
+  ],
+  "macros": [
+   "Preview"
+  ],
+  "styleValues": [
+   "center",
+   "secondary"
+  ],
+  "propertyWrappers": [],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 4,
+  "types": 3,
+  "valueBuilders": 3,
+  "macros": 1,
+  "styleValues": 2,
+  "propertyWrappers": 0,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 13
+}

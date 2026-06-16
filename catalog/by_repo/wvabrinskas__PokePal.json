@@ -1,0 +1,158 @@
+{
+ "repo": "wvabrinskas/PokePal",
+ "stars": 4,
+ "categories": [
+  "Misc"
+ ],
+ "sha": "50ec0a7033534bd6e6d9c8504532e3b45a475ad7",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 267,
+ "contributor_count": 1,
+ "top_contributors": [
+  {
+   "login": "wvabrinskas",
+   "score": 267,
+   "contributions": 9
+  }
+ ],
+ "loc": 5300,
+ "custom_components": 49,
+ "imports": [
+  "AVFoundation",
+  "Combine",
+  "CoreData",
+  "CoreImage",
+  "Foundation",
+  "HuddleArch",
+  "HuddleMacros",
+  "Logger",
+  "Metal",
+  "Neuron",
+  "SwiftUI",
+  "UIKit",
+  "VisionKit",
+  "WebKit",
+  "os"
+ ],
+ "min_ios_inferred": "17",
+ "deprecated_apis_used": [
+  "edgesIgnoringSafeArea",
+  "foregroundColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "animation",
+   "aspectRatio",
+   "background",
+   "bold",
+   "clipShape",
+   "compositingGroup",
+   "disabled",
+   "edgesIgnoringSafeArea",
+   "font",
+   "foregroundColor",
+   "foregroundStyle",
+   "frame",
+   "gesture",
+   "hidden",
+   "imageScale",
+   "layerEffect",
+   "modifier",
+   "onAppear",
+   "onChange",
+   "onChanged",
+   "onReceive",
+   "onTapGesture",
+   "opacity",
+   "overlay",
+   "padding",
+   "preferredColorScheme",
+   "presentationCornerRadius",
+   "presentationDetents",
+   "previewDevice",
+   "previewDisplayName",
+   "resizable",
+   "rotationEffect",
+   "scaledToFill",
+   "shadow",
+   "sheet"
+  ],
+  "types": [
+   "AnyView",
+   "Button",
+   "Circle",
+   "Color",
+   "Font",
+   "ForEach",
+   "GeometryReader",
+   "Gradient",
+   "HStack",
+   "Image",
+   "MagnifyGesture",
+   "PreviewDevice",
+   "RadialGradient",
+   "Rectangle",
+   "RoundedRectangle",
+   "Slider",
+   "Spacer",
+   "Text",
+   "Toggle",
+   "VStack",
+   "WindowGroup",
+   "ZStack"
+  ],
+  "valueBuilders": [
+   "bottomLeading",
+   "bottomTrailing",
+   "degrees",
+   "medium",
+   "regular",
+   "smooth",
+   "system",
+   "topLeading",
+   "topTrailing"
+  ],
+  "macros": [
+   "Preview"
+  ],
+  "styleValues": [
+   "background",
+   "black",
+   "blue",
+   "bottom",
+   "center",
+   "clear",
+   "dark",
+   "green",
+   "leading",
+   "primary",
+   "red",
+   "secondary",
+   "tint",
+   "top",
+   "trailing",
+   "white",
+   "yellow"
+  ],
+  "propertyWrappers": [
+   "Binding",
+   "Environment",
+   "Observable",
+   "State"
+  ],
+  "environmentKeys": [
+   "dismiss"
+  ]
+ },
+ "counts": {
+  "modifiers": 35,
+  "types": 22,
+  "valueBuilders": 9,
+  "macros": 1,
+  "styleValues": 17,
+  "propertyWrappers": 4,
+  "environmentKeys": 1
+ },
+ "total_unique_apis": 89
+}

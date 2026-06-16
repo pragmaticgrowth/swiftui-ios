@@ -8,9 +8,26 @@
  ],
  "sha": "72eb4ae7117fbf893be533c9a277c47a7287d87e",
  "platform": "ios",
- "author_authority": 0,
- "contributor_count": 0,
- "top_contributors": [],
+ "ipad_idioms": [],
+ "author_authority": 48160,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "Dimillian",
+   "score": 48160,
+   "contributions": 329
+  },
+  {
+   "login": "kmt901",
+   "score": 1178,
+   "contributions": 3
+  },
+  {
+   "login": "chriseidhof",
+   "score": 381771,
+   "contributions": 2
+  }
+ ],
  "loc": 7496,
  "custom_components": 280,
  "imports": [

@@ -1,0 +1,94 @@
+{
+ "repo": "vermont42/Conjugar",
+ "stars": 49,
+ "categories": [
+  "Education",
+  "Travel"
+ ],
+ "sha": "5d7d5b62dde2eea3234cbc0d3e55ca78d2f37d99",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 1072,
+ "contributor_count": 2,
+ "top_contributors": [
+  {
+   "login": "vermont42",
+   "score": 1072,
+   "contributions": 217
+  },
+  {
+   "login": "SpacyRicochet",
+   "score": 5,
+   "contributions": 4
+  }
+ ],
+ "loc": 8817,
+ "custom_components": 12,
+ "imports": [
+  "AVFoundation",
+  "AWSPinpoint",
+  "CloudKit",
+  "Conjugar",
+  "Foundation",
+  "GameKit",
+  "MessageUI",
+  "Observation",
+  "StoreKit",
+  "SwiftUI",
+  "UIKit",
+  "XCTest"
+ ],
+ "min_ios_inferred": "15",
+ "deprecated_apis_used": [
+  "edgesIgnoringSafeArea",
+  "foregroundColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "edgesIgnoringSafeArea",
+   "font",
+   "foregroundColor",
+   "modifier",
+   "onAppear",
+   "padding",
+   "pickerStyle",
+   "tag"
+  ],
+  "types": [
+   "Button",
+   "Color",
+   "ForEach",
+   "Picker",
+   "ScrollView",
+   "SegmentedPickerStyle",
+   "Spacer",
+   "Text",
+   "UIHostingController",
+   "VStack",
+   "ZStack"
+  ],
+  "valueBuilders": [
+   "custom"
+  ],
+  "macros": [],
+  "styleValues": [
+   "button",
+   "center"
+  ],
+  "propertyWrappers": [
+   "ObservedObject",
+   "State"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 8,
+  "types": 11,
+  "valueBuilders": 1,
+  "macros": 0,
+  "styleValues": 2,
+  "propertyWrappers": 2,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 24
+}

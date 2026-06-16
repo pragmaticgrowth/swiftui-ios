@@ -1,0 +1,128 @@
+{
+ "repo": "airbnb/lottie-ios",
+ "stars": 26763,
+ "categories": [
+  "Animation"
+ ],
+ "sha": "906e79b0648c16f02ad5844e345481ae05a94afe",
+ "platform": "cross_platform",
+ "ipad_idioms": [],
+ "author_authority": 52153,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "buba447",
+   "score": 387,
+   "contributions": 422
+  },
+  {
+   "login": "calda",
+   "score": 136314,
+   "contributions": 277
+  },
+  {
+   "login": "thedrick",
+   "score": 4,
+   "contributions": 25
+  }
+ ],
+ "loc": 41977,
+ "custom_components": 40,
+ "imports": [
+  "AppKit",
+  "CZlib",
+  "Combine",
+  "Compression",
+  "CoreFoundation",
+  "CoreGraphics",
+  "CoreText",
+  "Difference",
+  "Foundation",
+  "Lottie",
+  "PackageDescription",
+  "QuartzCore",
+  "SnapshotTesting",
+  "SwiftUI",
+  "UIKit",
+  "XCTest",
+  "zlib"
+ ],
+ "min_ios_inferred": "16",
+ "deprecated_apis_used": [],
+ "unique": {
+  "modifiers": [
+   "animation",
+   "background",
+   "cornerRadius",
+   "frame",
+   "navigationDestination",
+   "navigationTitle",
+   "offset",
+   "onAppear",
+   "onChange",
+   "onReceive",
+   "opacity",
+   "overlay",
+   "padding",
+   "resizable",
+   "rotationEffect",
+   "toolbar"
+  ],
+  "types": [
+   "Button",
+   "Color",
+   "EdgeInsets",
+   "ForEach",
+   "HStack",
+   "Image",
+   "List",
+   "Menu",
+   "NavigationLink",
+   "NavigationStack",
+   "Rectangle",
+   "Slider",
+   "Spacer",
+   "State",
+   "Text",
+   "TimelineView",
+   "VStack",
+   "WindowGroup"
+  ],
+  "valueBuilders": [
+   "custom",
+   "degrees",
+   "linear"
+  ],
+  "macros": [],
+  "styleValues": [
+   "automatic",
+   "black",
+   "bottom",
+   "button",
+   "center",
+   "clear",
+   "default",
+   "identity",
+   "leading",
+   "light",
+   "red",
+   "top",
+   "trailing"
+  ],
+  "propertyWrappers": [
+   "Environment",
+   "State"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 16,
+  "types": 18,
+  "valueBuilders": 3,
+  "macros": 0,
+  "styleValues": 13,
+  "propertyWrappers": 2,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 52
+}

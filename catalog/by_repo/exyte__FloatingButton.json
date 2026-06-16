@@ -1,0 +1,120 @@
+{
+ "repo": "exyte/FloatingButton",
+ "stars": 1263,
+ "categories": [
+  "Button"
+ ],
+ "sha": "c1e3e6a641ef5bacbcbc2b2c80db54793f75f974",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 8494,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "f3dm76",
+   "score": 9945,
+   "contributions": 41
+  },
+  {
+   "login": "jkanalakis",
+   "score": 107,
+   "contributions": 4
+  },
+  {
+   "login": "mnndnl",
+   "score": 29,
+   "contributions": 3
+  }
+ ],
+ "loc": 809,
+ "custom_components": 31,
+ "imports": [
+  "FloatingButton",
+  "PackageDescription",
+  "SwiftUI"
+ ],
+ "min_ios_inferred": "14",
+ "deprecated_apis_used": [
+  "NavigationView",
+  "foregroundColor",
+  "presentationMode"
+ ],
+ "unique": {
+  "modifiers": [
+   "animation",
+   "aspectRatio",
+   "background",
+   "buttonStyle",
+   "clipped",
+   "cornerRadius",
+   "font",
+   "foregroundColor",
+   "frame",
+   "offset",
+   "onChange",
+   "onPreferenceChange",
+   "onTapGesture",
+   "opacity",
+   "overlay",
+   "padding",
+   "preference",
+   "resizable",
+   "scaleEffect",
+   "shadow",
+   "zIndex"
+  ],
+  "types": [
+   "Button",
+   "Color",
+   "ForEach",
+   "GeometryReader",
+   "HStack",
+   "Image",
+   "List",
+   "NavigationLink",
+   "NavigationView",
+   "PlainButtonStyle",
+   "Rectangle",
+   "RoundedRectangle",
+   "Spacer",
+   "Text",
+   "VStack",
+   "WindowGroup",
+   "ZStack"
+  ],
+  "valueBuilders": [
+   "easeInOut",
+   "semibold",
+   "spring",
+   "system"
+  ],
+  "macros": [],
+  "styleValues": [
+   "black",
+   "bottom",
+   "center",
+   "default",
+   "fill",
+   "top",
+   "white"
+  ],
+  "propertyWrappers": [
+   "Binding",
+   "Environment",
+   "State"
+  ],
+  "environmentKeys": [
+   "presentationMode"
+  ]
+ },
+ "counts": {
+  "modifiers": 21,
+  "types": 17,
+  "valueBuilders": 4,
+  "macros": 0,
+  "styleValues": 7,
+  "propertyWrappers": 3,
+  "environmentKeys": 1
+ },
+ "total_unique_apis": 53
+}

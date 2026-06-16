@@ -1,0 +1,82 @@
+{
+ "repo": "ekazaev/route-composer",
+ "stars": 927,
+ "categories": [
+  "App Routing"
+ ],
+ "sha": "a9dd03fdc11e7be257736d17f7ce6e089f0194a0",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 1959,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "ekazaev",
+   "score": 1959,
+   "contributions": 216
+  },
+  {
+   "login": "Savva-Shuliatev",
+   "score": 956,
+   "contributions": 61
+  },
+  {
+   "login": "benconstantine39",
+   "score": 0,
+   "contributions": 3
+  }
+ ],
+ "loc": 18955,
+ "custom_components": 6,
+ "imports": [
+  "ContainerViewController",
+  "Foundation",
+  "ImageDetailsController",
+  "ImagesController",
+  "PackageDescription",
+  "RouteComposer",
+  "SwiftUI",
+  "UIKit",
+  "XCTest",
+  "os"
+ ],
+ "min_ios_inferred": "16",
+ "deprecated_apis_used": [],
+ "unique": {
+  "modifiers": [
+   "accessibility",
+   "onAppear"
+  ],
+  "types": [
+   "Button",
+   "Text",
+   "UIHostingController",
+   "VStack"
+  ],
+  "valueBuilders": [
+   "custom",
+   "push"
+  ],
+  "macros": [],
+  "styleValues": [
+   "default",
+   "light",
+   "red",
+   "yellow"
+  ],
+  "propertyWrappers": [
+   "State"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 2,
+  "types": 4,
+  "valueBuilders": 2,
+  "macros": 0,
+  "styleValues": 4,
+  "propertyWrappers": 1,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 13
+}

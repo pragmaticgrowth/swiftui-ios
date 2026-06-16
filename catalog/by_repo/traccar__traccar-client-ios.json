@@ -1,0 +1,63 @@
+{
+ "repo": "traccar/traccar-client-ios",
+ "stars": 251,
+ "categories": [
+  "Location"
+ ],
+ "sha": "4517f8b80dda324b13ee6fbb9bd80e64f64611a0",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 0,
+ "contributor_count": 2,
+ "top_contributors": [
+  {
+   "login": "tananaev",
+   "score": 0,
+   "contributions": 174
+  },
+  {
+   "login": "lzain",
+   "score": 0,
+   "contributions": 4
+  }
+ ],
+ "loc": 1145,
+ "custom_components": 0,
+ "imports": [
+  "AppIntents",
+  "CoreData",
+  "CoreLocation",
+  "Firebase",
+  "Foundation",
+  "InAppSettingsKit",
+  "IntentsUI",
+  "SwiftUI",
+  "SystemConfiguration",
+  "TraccarClient",
+  "UIKit",
+  "XCTest"
+ ],
+ "min_ios_inferred": "13",
+ "deprecated_apis_used": [],
+ "unique": {
+  "modifiers": [],
+  "types": [],
+  "valueBuilders": [],
+  "macros": [],
+  "styleValues": [
+   "default"
+  ],
+  "propertyWrappers": [],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 0,
+  "types": 0,
+  "valueBuilders": 0,
+  "macros": 0,
+  "styleValues": 1,
+  "propertyWrappers": 0,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 1
+}

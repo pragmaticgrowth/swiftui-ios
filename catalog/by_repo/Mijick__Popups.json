@@ -1,0 +1,108 @@
+{
+ "repo": "Mijick/Popups",
+ "stars": 1807,
+ "categories": [
+  "Popup"
+ ],
+ "sha": "3aa55233eda7bbcbd98b52a6f63d5a7e1955189a",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 273,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "FulcrumOne",
+   "score": 1,
+   "contributions": 61
+  },
+  {
+   "login": "alina-p-k",
+   "score": 2390,
+   "contributions": 8
+  },
+  {
+   "login": "EtienneGrey",
+   "score": 1,
+   "contributions": 1
+  }
+ ],
+ "loc": 5354,
+ "custom_components": 36,
+ "imports": [
+  "Combine",
+  "Foundation",
+  "MijickPopups",
+  "PackageDescription",
+  "SwiftUI",
+  "XCTest",
+  "os"
+ ],
+ "min_ios_inferred": "14",
+ "deprecated_apis_used": [],
+ "unique": {
+  "modifiers": [
+   "animation",
+   "background",
+   "compositingGroup",
+   "cornerRadius",
+   "disabled",
+   "environmentObject",
+   "fixedSize",
+   "frame",
+   "id",
+   "ignoresSafeArea",
+   "mask",
+   "offset",
+   "onAppear",
+   "onChange",
+   "onChanged",
+   "onEnded",
+   "onTapGesture",
+   "opacity",
+   "overlay",
+   "padding",
+   "scale",
+   "scaleEffect",
+   "zIndex"
+  ],
+  "types": [
+   "AnyView",
+   "DragGesture",
+   "EmptyView",
+   "ForEach",
+   "GeometryReader",
+   "Path",
+   "UIHostingController",
+   "ZStack"
+  ],
+  "valueBuilders": [
+   "spring"
+  ],
+  "macros": [],
+  "styleValues": [
+   "black",
+   "bottom",
+   "center",
+   "clear",
+   "leading",
+   "linear",
+   "top",
+   "trailing",
+   "white"
+  ],
+  "propertyWrappers": [
+   "ObservedObject"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 23,
+  "types": 8,
+  "valueBuilders": 1,
+  "macros": 0,
+  "styleValues": 9,
+  "propertyWrappers": 1,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 42
+}

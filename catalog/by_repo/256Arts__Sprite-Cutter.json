@@ -1,0 +1,120 @@
+{
+ "repo": "256Arts/Sprite-Cutter",
+ "stars": 8,
+ "categories": [
+  "Photo"
+ ],
+ "sha": "f6b03b3456eed2d4e091eea6c713e11eca4e93ca",
+ "platform": "cross_platform",
+ "ipad_idioms": [],
+ "author_authority": 0,
+ "contributor_count": 1,
+ "top_contributors": [
+  {
+   "login": "256ArtsDeveloper",
+   "score": 0,
+   "contributions": 2
+  }
+ ],
+ "loc": 541,
+ "custom_components": 7,
+ "imports": [
+  "AppIntents",
+  "AppKit",
+  "StoreKit",
+  "SwiftUI",
+  "UIKit",
+  "UniformTypeIdentifiers"
+ ],
+ "min_ios_inferred": "26",
+ "deprecated_apis_used": [
+  "foregroundColor"
+ ],
+ "unique": {
+  "modifiers": [
+   "alert",
+   "aspectRatio",
+   "bold",
+   "buttonStyle",
+   "commands",
+   "controlSize",
+   "defaultSize",
+   "disabled",
+   "fileExporter",
+   "fileImporter",
+   "font",
+   "foregroundColor",
+   "frame",
+   "interpolation",
+   "keyboardType",
+   "labelsHidden",
+   "multilineTextAlignment",
+   "onDrop",
+   "onTapGesture",
+   "padding",
+   "resizable",
+   "textFieldStyle",
+   "toolbar"
+  ],
+  "types": [
+   "Binding",
+   "Button",
+   "Color",
+   "CommandGroup",
+   "DisplayRepresentation",
+   "Divider",
+   "HStack",
+   "Image",
+   "IntentDescription",
+   "IntentFile",
+   "IntentPrediction",
+   "Label",
+   "Link",
+   "NavigationStack",
+   "Rectangle",
+   "Spacer",
+   "Stepper",
+   "Text",
+   "TextField",
+   "ToolbarItemGroup",
+   "VStack",
+   "WindowGroup",
+   "ZStack"
+  ],
+  "valueBuilders": [
+   "headline",
+   "medium",
+   "regular",
+   "system"
+  ],
+  "macros": [
+   "Preview"
+  ],
+  "styleValues": [
+   "borderedProminent",
+   "clear",
+   "glassProminent",
+   "roundedBorder",
+   "secondaryAction",
+   "trailing"
+  ],
+  "propertyWrappers": [
+   "Binding",
+   "Environment",
+   "State"
+  ],
+  "environmentKeys": [
+   "openURL"
+  ]
+ },
+ "counts": {
+  "modifiers": 23,
+  "types": 23,
+  "valueBuilders": 4,
+  "macros": 1,
+  "styleValues": 6,
+  "propertyWrappers": 3,
+  "environmentKeys": 1
+ },
+ "total_unique_apis": 61
+}

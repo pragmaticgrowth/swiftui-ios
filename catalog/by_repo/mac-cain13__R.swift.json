@@ -1,0 +1,93 @@
+{
+ "repo": "mac-cain13/R.swift",
+ "stars": 9574,
+ "categories": [
+  "Tools"
+ ],
+ "sha": "f0a0d531686138e9f7ad4c2b6bf6115149aeb08b",
+ "platform": "cross_platform",
+ "ipad_idioms": [],
+ "author_authority": 10585,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "mac-cain13",
+   "score": 10585,
+   "contributions": 764
+  },
+  {
+   "login": "tomlokhorst",
+   "score": 713,
+   "contributions": 640
+  },
+  {
+   "login": "shiraji",
+   "score": 513,
+   "contributions": 13
+  }
+ ],
+ "loc": 11336,
+ "custom_components": 24,
+ "imports": [
+  "AppKit",
+  "ArgumentParser",
+  "Bar",
+  "CoreGraphics",
+  "Darwin",
+  "Foo",
+  "Foundation",
+  "FoundationXML",
+  "Glibc",
+  "LocalizedStringApp",
+  "PackageDescription",
+  "PackagePlugin",
+  "ResourceApp",
+  "ResourceApp_tvOS",
+  "RswiftGenerators",
+  "RswiftParsers",
+  "RswiftResources",
+  "SwiftUI",
+  "UIKit",
+  "UserNotifications",
+  "WatchKit",
+  "XCTest",
+  "XcodeEdit",
+  "XcodeProjectPlugin"
+ ],
+ "min_ios_inferred": "15",
+ "deprecated_apis_used": [],
+ "unique": {
+  "modifiers": [
+   "aspectRatio",
+   "border",
+   "frame",
+   "onAppear",
+   "padding",
+   "resizable"
+  ],
+  "types": [
+   "Color",
+   "Image",
+   "Text",
+   "WindowGroup"
+  ],
+  "valueBuilders": [
+   "bar",
+   "custom"
+  ],
+  "macros": [],
+  "styleValues": [],
+  "propertyWrappers": [],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 6,
+  "types": 4,
+  "valueBuilders": 2,
+  "macros": 0,
+  "styleValues": 0,
+  "propertyWrappers": 0,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 12
+}

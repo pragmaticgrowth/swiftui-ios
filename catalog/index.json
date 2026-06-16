@@ -10,18 +10,18 @@
     "ActivityKit",
     "AppIntents"
   ],
-  "repos_analyzed": 5,
-  "custom_components": 609,
-  "view_builder_members": 1117,
-  "custom_components_total_incl_members": 1726,
+  "repos_analyzed": 319,
+  "custom_components": 23977,
+  "view_builder_members": 37815,
+  "custom_components_total_incl_members": 61792,
   "dimension_sizes": {
-    "modifiers": 200,
-    "types": 114,
-    "valueBuilders": 33,
+    "modifiers": 375,
+    "types": 325,
+    "valueBuilders": 70,
     "macros": 1,
-    "styleValues": 78,
-    "propertyWrappers": 16,
-    "environmentKeys": 21
+    "styleValues": 121,
+    "propertyWrappers": 25,
+    "environmentKeys": 66
   },
   "sdk_counts": {
     "types": 1119,

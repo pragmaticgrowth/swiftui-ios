@@ -1,0 +1,112 @@
+{
+ "repo": "ptsochantaris/trailer",
+ "stars": 1210,
+ "categories": [
+  "GitHub"
+ ],
+ "sha": "665f678f282c31cd951f6dd05d0429af018d16f3",
+ "platform": "cross_platform",
+ "ipad_idioms": [],
+ "author_authority": 2276,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "ptsochantaris",
+   "score": 2276,
+   "contributions": 1110
+  },
+  {
+   "login": "mauricerkelly",
+   "score": 20,
+   "contributions": 9
+  },
+  {
+   "login": "appleprtest",
+   "score": 0,
+   "contributions": 5
+  }
+ ],
+ "loc": 22789,
+ "custom_components": 0,
+ "imports": [
+  "AppKit",
+  "BackgroundTasks",
+  "ClockKit",
+  "Cocoa",
+  "Combine",
+  "CommonCrypto",
+  "Compression",
+  "CoreData",
+  "CoreSpotlight",
+  "Foundation",
+  "KeyVine",
+  "Lista",
+  "Maintini",
+  "PopTimer",
+  "SafariServices",
+  "Semalot",
+  "ServiceManagement",
+  "Sparkle",
+  "SwiftUI",
+  "SystemConfiguration",
+  "TrailerJson",
+  "TrailerQL",
+  "UIKit",
+  "UniformTypeIdentifiers",
+  "UserNotifications",
+  "WatchConnectivity",
+  "WatchKit",
+  "os"
+ ],
+ "min_ios_inferred": "16",
+ "deprecated_apis_used": [],
+ "unique": {
+  "modifiers": [
+   "hidden",
+   "id"
+  ],
+  "types": [
+   "EmptyView"
+  ],
+  "valueBuilders": [
+   "caption2",
+   "clear",
+   "footnote",
+   "headline",
+   "medium",
+   "push"
+  ],
+  "macros": [],
+  "styleValues": [
+   "automatic",
+   "background",
+   "cancel",
+   "center",
+   "clear",
+   "compact",
+   "default",
+   "destructive",
+   "gray",
+   "leading",
+   "light",
+   "primary",
+   "red",
+   "secondary",
+   "title",
+   "top",
+   "white"
+  ],
+  "propertyWrappers": [],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 2,
+  "types": 1,
+  "valueBuilders": 6,
+  "macros": 0,
+  "styleValues": 17,
+  "propertyWrappers": 0,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 26
+}

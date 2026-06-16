@@ -1,0 +1,122 @@
+{
+ "repo": "pitt500/OnlineStoreTCA",
+ "stars": 231,
+ "categories": [
+  "SwiftUI"
+ ],
+ "sha": "89a5e4eaab96803e039a3805466cb87769532e55",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 611,
+ "contributor_count": 2,
+ "top_contributors": [
+  {
+   "login": "pitt500",
+   "score": 611,
+   "contributions": 177
+  },
+  {
+   "login": "agescura",
+   "score": 6,
+   "contributions": 2
+  }
+ ],
+ "loc": 2152,
+ "custom_components": 38,
+ "imports": [
+  "ComposableArchitecture",
+  "DependenciesMacros",
+  "Foundation",
+  "OnlineStoreTCA",
+  "SwiftUI",
+  "XCTest"
+ ],
+ "min_ios_inferred": "17",
+ "deprecated_apis_used": [
+  "NavigationView",
+  "foregroundColor",
+  "navigationBarLeading",
+  "navigationBarTrailing",
+  "tabItem"
+ ],
+ "unique": {
+  "modifiers": [
+   "alert",
+   "aspectRatio",
+   "background",
+   "buttonStyle",
+   "cornerRadius",
+   "disabled",
+   "font",
+   "foregroundColor",
+   "frame",
+   "ignoresSafeArea",
+   "lineLimit",
+   "minimumScaleFactor",
+   "navigationTitle",
+   "onAppear",
+   "opacity",
+   "padding",
+   "previewLayout",
+   "resizable",
+   "safeAreaInset",
+   "sheet",
+   "tabItem",
+   "tag",
+   "task",
+   "toolbar"
+  ],
+  "types": [
+   "AsyncImage",
+   "Button",
+   "ForEach",
+   "Form",
+   "Group",
+   "HStack",
+   "Image",
+   "List",
+   "NavigationStack",
+   "NavigationView",
+   "ProgressView",
+   "Section",
+   "Spacer",
+   "TabView",
+   "Text",
+   "ToolbarItem",
+   "VStack",
+   "WindowGroup",
+   "ZStack"
+  ],
+  "valueBuilders": [
+   "custom"
+  ],
+  "macros": [],
+  "styleValues": [
+   "blue",
+   "bottom",
+   "center",
+   "gray",
+   "leading",
+   "navigationBarLeading",
+   "navigationBarTrailing",
+   "plain",
+   "red",
+   "top",
+   "white"
+  ],
+  "propertyWrappers": [
+   "Bindable"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 24,
+  "types": 19,
+  "valueBuilders": 1,
+  "macros": 0,
+  "styleValues": 11,
+  "propertyWrappers": 1,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 56
+}

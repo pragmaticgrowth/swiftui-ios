@@ -1,0 +1,68 @@
+{
+ "repo": "hishd/RicketyRick-iOS",
+ "stars": 1,
+ "categories": [
+  "SwiftUI"
+ ],
+ "sha": "ed839bcd5e5131c7f29c31784a77023aed485922",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 10552,
+ "contributor_count": 1,
+ "top_contributors": [
+  {
+   "login": "hishd",
+   "score": 10552,
+   "contributions": 176
+  }
+ ],
+ "loc": 7463,
+ "custom_components": 0,
+ "imports": [
+  "AVFoundation",
+  "DependencyInjector",
+  "Foundation",
+  "ImageLoader",
+  "OSLog",
+  "RickAndMorty",
+  "SwiftUI",
+  "UIKit",
+  "XCTest"
+ ],
+ "min_ios_inferred": "14",
+ "deprecated_apis_used": [],
+ "unique": {
+  "modifiers": [],
+  "types": [
+   "ProgressView"
+  ],
+  "valueBuilders": [
+   "center",
+   "medium",
+   "regular",
+   "semibold"
+  ],
+  "macros": [
+   "Preview"
+  ],
+  "styleValues": [
+   "bottom",
+   "cancel",
+   "gray",
+   "red",
+   "white"
+  ],
+  "propertyWrappers": [],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 0,
+  "types": 1,
+  "valueBuilders": 4,
+  "macros": 1,
+  "styleValues": 5,
+  "propertyWrappers": 0,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 11
+}

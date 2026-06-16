@@ -1,0 +1,165 @@
+{
+ "repo": "pmusolino/Wormholy",
+ "stars": 2600,
+ "categories": [
+  "Debugging"
+ ],
+ "sha": "aa69be5b571115108edbf32c4c16a934c86897b2",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 30559,
+ "contributor_count": 3,
+ "top_contributors": [
+  {
+   "login": "pmusolino",
+   "score": 30559,
+   "contributions": 325
+  },
+  {
+   "login": "smarttuner",
+   "score": 0,
+   "contributions": 29
+  },
+  {
+   "login": "SagarSDagdu",
+   "score": 64808,
+   "contributions": 6
+  }
+ ],
+ "loc": 3111,
+ "custom_components": 31,
+ "imports": [
+  "Foundation",
+  "PackageDescription",
+  "SwiftUI",
+  "UIKit",
+  "Wormholy",
+  "WormholySwift",
+  "WormholyTests",
+  "XCTest"
+ ],
+ "min_ios_inferred": "17",
+ "deprecated_apis_used": [
+  "NavigationView",
+  "foregroundColor",
+  "navigationBarItems",
+  "navigationBarTrailing",
+  "presentationMode"
+ ],
+ "unique": {
+  "modifiers": [
+   "alert",
+   "background",
+   "bold",
+   "buttonStyle",
+   "confirmationDialog",
+   "disabled",
+   "font",
+   "foregroundColor",
+   "foregroundStyle",
+   "frame",
+   "lineLimit",
+   "listRowBackground",
+   "listRowInsets",
+   "listStyle",
+   "multilineTextAlignment",
+   "navigationBarItems",
+   "navigationBarTitleDisplayMode",
+   "navigationTitle",
+   "onAppear",
+   "onChange",
+   "onTapGesture",
+   "opacity",
+   "overlay",
+   "padding",
+   "previewDisplayName",
+   "previewInterfaceOrientation",
+   "previewLayout",
+   "scrollContentBackground",
+   "searchable",
+   "sheet",
+   "toolbar",
+   "toolbarBackground",
+   "toolbarTitleDisplayMode"
+  ],
+  "types": [
+   "Button",
+   "Color",
+   "Divider",
+   "EdgeInsets",
+   "ForEach",
+   "Group",
+   "HStack",
+   "Image",
+   "Label",
+   "List",
+   "LocalizedStringKey",
+   "Menu",
+   "NavigationLink",
+   "NavigationStack",
+   "NavigationView",
+   "RoundedRectangle",
+   "Section",
+   "Spacer",
+   "State",
+   "Text",
+   "ToolbarItem",
+   "UIHostingController",
+   "VStack"
+  ],
+  "valueBuilders": [
+   "body",
+   "caption",
+   "footnote",
+   "subheadline"
+  ],
+  "macros": [
+   "Preview"
+  ],
+  "styleValues": [
+   "black",
+   "blue",
+   "bottom",
+   "cancel",
+   "center",
+   "clear",
+   "dark",
+   "destructive",
+   "gray",
+   "inline",
+   "insetGrouped",
+   "leading",
+   "navigationBarTrailing",
+   "plain",
+   "primaryAction",
+   "red",
+   "secondary",
+   "thinMaterial",
+   "top",
+   "topBarLeading",
+   "trailing",
+   "white",
+   "yellow"
+  ],
+  "propertyWrappers": [
+   "Binding",
+   "Environment",
+   "ObservedObject",
+   "State"
+  ],
+  "environmentKeys": [
+   "dismiss",
+   "presentationMode"
+  ]
+ },
+ "counts": {
+  "modifiers": 33,
+  "types": 23,
+  "valueBuilders": 4,
+  "macros": 1,
+  "styleValues": 23,
+  "propertyWrappers": 4,
+  "environmentKeys": 2
+ },
+ "total_unique_apis": 90
+}

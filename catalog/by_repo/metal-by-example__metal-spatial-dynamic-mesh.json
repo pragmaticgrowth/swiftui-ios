@@ -1,0 +1,59 @@
+{
+ "repo": "metal-by-example/metal-spatial-dynamic-mesh",
+ "stars": 109,
+ "categories": [
+  "Apple Vision"
+ ],
+ "sha": "8b04589f51bae9b64d7f4356c14d5a544437c4a8",
+ "platform": "ios",
+ "ipad_idioms": [],
+ "author_authority": 5531,
+ "contributor_count": 1,
+ "top_contributors": [
+  {
+   "login": "warrenm",
+   "score": 5531,
+   "contributions": 8
+  }
+ ],
+ "loc": 271,
+ "custom_components": 4,
+ "imports": [
+  "Metal",
+  "RealityKit",
+  "SwiftUI"
+ ],
+ "min_ios_inferred": "17",
+ "deprecated_apis_used": [],
+ "unique": {
+  "modifiers": [
+   "defaultSize",
+   "ignoresSafeArea",
+   "onReceive"
+  ],
+  "types": [
+   "WindowGroup"
+  ],
+  "valueBuilders": [],
+  "macros": [
+   "Preview"
+  ],
+  "styleValues": [
+   "white"
+  ],
+  "propertyWrappers": [
+   "State"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 3,
+  "types": 1,
+  "valueBuilders": 0,
+  "macros": 1,
+  "styleValues": 1,
+  "propertyWrappers": 1,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 7
+}
