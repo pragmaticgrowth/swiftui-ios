@@ -98,6 +98,7 @@ def main():
     scope_vocab = defaultdict(lambda: defaultdict(set))  # [repo][scope] -> {FORM_VOCAB syms}
     conformances = defaultdict(lambda: {"repos":Counter(), "examples":[]})
     repo_meta = {}; repo_profile = {}
+    skipped_no_swiftui = 0   # repos with zero SwiftUI presence -> classified as library, not an app
     unmatched = {"modifier": Counter(), "attribute": Counter(), "type": Counter(), "member": Counter()}
     unmatched_repos = {k: defaultdict(set) for k in unmatched}
     deprecated_usage = defaultdict(lambda: {"repos":Counter(), "renamed": AVAIL.get("","")})
@@ -171,6 +172,17 @@ def main():
                         if len(conformances[cb]["examples"]) < EX_CAP:
                             conformances[cb]["examples"].append(
                                 {"repo":repo,"name":d["name"],"permalink":f"{base}{path}#L{d['line']}"})
+        # SwiftUI-presence floor: a repo contributing zero SwiftUI content classifies as a
+        # library, not an app. prof["imports"] is the union across ALL the repo's files (added
+        # before the UI_IMPORTS filter); swiftui_occ counts matched occurrences in SwiftUI files.
+        # Without any SwiftUI presence, drop the repo entirely: skip the by_repo profile and keep
+        # it out of repo_profile/repo_meta so rankings/scores/insights never see it.
+        has_swiftui = ("SwiftUI" in prof["imports"]) or ("SwiftUICore" in prof["imports"]) \
+            or prof.get("swiftui_occ", 0) > 0
+        if not has_swiftui:
+            repo_meta.pop(repo, None)   # was set at repo-header read; remove so it's not counted
+            skipped_no_swiftui += 1
+            continue
         repo_profile[repo] = prof
         # platform + modernity classification (needs the finished profile)
         repo_meta[repo]["min_ios"] = prof["max_ios"]
@@ -271,6 +283,7 @@ def main():
                     "insights":"insights.json","rankings":"rankings.json","by_repo":"by_repo/"}}
     json.dump(idx, open(os.path.join(OUT,"index.json"),"w"), indent=2)
     print(f"catalog: {len(repo_meta)} repos, {len(custom)} custom components")
+    print(f"skipped (no SwiftUI presence -> library, not an app): {skipped_no_swiftui} repos")
     print("dimension sizes:", sizes)
     print("fully-deprecated APIs in use:", len([s for s in deprecated_usage]))
 
@@ -299,7 +312,7 @@ def repo_score(r, meta):
                          + 0.15*recency_n + 0.10*min(1,contrib_n) - pen), 4)
 
 def _provenance(r, meta, scores):
-    m = meta[r]; a = AUTH.get(r, {})
+    m = meta.get(r, {}); a = AUTH.get(r, {})   # repo may have been dropped (no SwiftUI presence)
     mm = m.get("min_ios",0)
     return {"stars":m.get("stars",0), "author_authority":a.get("author_authority",0),
             "min_ios": (f"{mm:.2f}".rstrip('0').rstrip('.') if mm else None),
@@ -326,7 +339,8 @@ def _rank_examples(examples, scores, meta):
 def _write_repo_profile(repo, prof, meta):
     a = AUTH.get(repo, {})
     out = {"repo":repo, "stars":meta["stars"], "categories":meta["categories"], "sha":meta["sha"],
-           "platform":meta.get("platform"), "author_authority":a.get("author_authority",0),
+           "platform":meta.get("platform"), "ipad_idioms":meta.get("ipad_idioms", []),
+           "author_authority":a.get("author_authority",0),
            "contributor_count":a.get("contributor_count",0),
            "top_contributors":a.get("top_contributors",[]),
            "loc":prof["loc"], "custom_components":prof["customComponents"],

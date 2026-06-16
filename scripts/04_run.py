@@ -44,6 +44,7 @@ def clone(full, tmp):
     env = {**os.environ, "GIT_LFS_SKIP_SMUDGE": "1", "GIT_TERMINAL_PROMPT": "0"}
     for attempt in range(2):
         r = subprocess.run(["git","clone","-c","filter.lfs.smudge=","-c","filter.lfs.required=false",
+                            "-c","filter.lfs.process=",
                             "--depth","1","--single-branch","--quiet",url,tmp],
                            capture_output=True, text=True, env=env, timeout=300)
         if r.returncode == 0: return True, ""
