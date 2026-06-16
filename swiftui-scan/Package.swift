@@ -3,7 +3,7 @@ import PackageDescription
 
 let package = Package(
     name: "swiftui-scan",
-    platforms: [.macOS(.v13)],
+    platforms: [.macOS(.v13), .iOS(.v17)],
     dependencies: [
         .package(url: "https://github.com/swiftlang/swift-syntax.git", exact: "603.0.1"),
         .package(url: "https://github.com/apple/swift-argument-parser.git", from: "1.5.0"),

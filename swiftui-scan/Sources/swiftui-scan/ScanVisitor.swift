@@ -26,7 +26,7 @@ struct PropInfo: Encodable {
 struct Decl: Encodable {
     var name: String
     var kind: String          // view | app | scene | viewmodifier | style | shape | preview |
-                              // commands | toolbarcontent | bridge | layout | transferable | viewbuilder
+                              // commands | toolbarcontent | appkit_bridge | uikit_bridge | layout | transferable | viewbuilder
     var conforms: [String]
     var line: Int
     var attributes: [String]
@@ -48,11 +48,31 @@ final class ScanVisitor: SyntaxVisitor {
         "ViewModifier": "viewmodifier", "PreviewProvider": "preview",
         "Shape": "shape", "InsettableShape": "shape", "Commands": "commands",
         "ToolbarContent": "toolbarcontent", "CustomizableToolbarContent": "toolbarcontent",
-        "NSViewRepresentable": "bridge", "NSViewControllerRepresentable": "bridge",
-        "UIViewRepresentable": "bridge", "UIViewControllerRepresentable": "bridge",
+        "NSViewRepresentable": "appkit_bridge", "NSViewControllerRepresentable": "appkit_bridge",
+        "UIViewRepresentable": "uikit_bridge", "UIViewControllerRepresentable": "uikit_bridge",
         "Layout": "layout", "Transferable": "transferable",
     ]
     static let viewReturns = ["some View", "some Scene", "some Commands", "some ToolbarContent"]
+    static let iosSignals: Set<String> = ["UIViewRepresentable","UIViewControllerRepresentable",
+        "UIHostingController","UIApplicationDelegateAdaptor","fullScreenCover","presentationDetents",
+        "navigationBarTitleDisplayMode","prefersLargeContent","UIScreen","UIDevice",
+        "UIImpactFeedbackGenerator","ControlWidget","ActivityAttributes"]
+    static let macosSignals: Set<String> = ["MenuBarExtra","Settings","NSViewRepresentable",
+        "NSViewControllerRepresentable","NSHostingController","windowStyle","menuBarExtraStyle",
+        "windowResizability","NSApplicationDelegateAdaptor","HSplitView","windowToolbarStyle","onExitCommand"]
+
+    func platformHint() -> String {
+        var syms = Set(occurrences.map { $0.sym })
+        for d in decls { syms.formUnion(d.conforms) }
+        let uikit  = imports.contains("UIKit")  || !syms.isDisjoint(with: Self.iosSignals)
+        let appkit = imports.contains("AppKit") || !syms.isDisjoint(with: Self.macosSignals)
+        switch (uikit, appkit) {
+        case (true, true):  return "cross"
+        case (true, false): return "uikit"
+        case (false, true): return "appkit"
+        default:            return "neutral"
+        }
+    }
 
     init(_ conv: SourceLocationConverter, _ lines: [String]) {
         self.conv = conv; self.lines = lines

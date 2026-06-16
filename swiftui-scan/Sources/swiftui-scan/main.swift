@@ -10,6 +10,7 @@ struct FileResult: Encodable {
     var occurrences: [Occurrence]
     var decls: [Decl]
     var skipped: String?
+    var platform: String = "neutral"
 }
 
 let MAX_BYTES = 2_000_000
@@ -46,5 +47,6 @@ while let path = readLine(strippingNewline: true) {
                     loc: lines.count,
                     occurrences: v.occurrences,
                     decls: v.decls,
-                    skipped: nil))
+                    skipped: nil,
+                    platform: v.platformHint()))
 }
