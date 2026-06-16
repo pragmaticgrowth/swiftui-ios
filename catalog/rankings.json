@@ -1,0 +1,230 @@
+{
+  "by_total_unique_apis": [
+    {
+      "repo": "Dimillian/IceCubesApp",
+      "stars": 6998,
+      "loc": 44175,
+      "total_unique_apis": 386,
+      "modifiers": 165,
+      "types": 90,
+      "valueBuilders": 28,
+      "custom_components": 694,
+      "min_ios": "26"
+    },
+    {
+      "repo": "Dimillian/ACHNBrowserUI",
+      "stars": 1723,
+      "loc": 16954,
+      "total_unique_apis": 202,
+      "modifiers": 82,
+      "types": 62,
+      "valueBuilders": 19,
+      "custom_components": 582,
+      "min_ios": "17"
+    },
+    {
+      "repo": "Dimillian/IcySky",
+      "stars": 535,
+      "loc": 4451,
+      "total_unique_apis": 192,
+      "modifiers": 73,
+      "types": 44,
+      "valueBuilders": 19,
+      "custom_components": 121,
+      "min_ios": "26"
+    },
+    {
+      "repo": "Dimillian/MovieSwiftUI",
+      "stars": 6527,
+      "loc": 7496,
+      "total_unique_apis": 152,
+      "modifiers": 59,
+      "types": 45,
+      "valueBuilders": 16,
+      "custom_components": 280,
+      "min_ios": "17"
+    },
+    {
+      "repo": "Dimillian/MortyUI",
+      "stars": 468,
+      "loc": 4718,
+      "total_unique_apis": 39,
+      "modifiers": 11,
+      "types": 18,
+      "valueBuilders": 3,
+      "custom_components": 49,
+      "min_ios": "14"
+    }
+  ],
+  "by_modifier_breadth": [
+    {
+      "repo": "Dimillian/IceCubesApp",
+      "stars": 6998,
+      "loc": 44175,
+      "total_unique_apis": 386,
+      "modifiers": 165,
+      "types": 90,
+      "valueBuilders": 28,
+      "custom_components": 694,
+      "min_ios": "26"
+    },
+    {
+      "repo": "Dimillian/ACHNBrowserUI",
+      "stars": 1723,
+      "loc": 16954,
+      "total_unique_apis": 202,
+      "modifiers": 82,
+      "types": 62,
+      "valueBuilders": 19,
+      "custom_components": 582,
+      "min_ios": "17"
+    },
+    {
+      "repo": "Dimillian/IcySky",
+      "stars": 535,
+      "loc": 4451,
+      "total_unique_apis": 192,
+      "modifiers": 73,
+      "types": 44,
+      "valueBuilders": 19,
+      "custom_components": 121,
+      "min_ios": "26"
+    },
+    {
+      "repo": "Dimillian/MovieSwiftUI",
+      "stars": 6527,
+      "loc": 7496,
+      "total_unique_apis": 152,
+      "modifiers": 59,
+      "types": 45,
+      "valueBuilders": 16,
+      "custom_components": 280,
+      "min_ios": "17"
+    },
+    {
+      "repo": "Dimillian/MortyUI",
+      "stars": 468,
+      "loc": 4718,
+      "total_unique_apis": 39,
+      "modifiers": 11,
+      "types": 18,
+      "valueBuilders": 3,
+      "custom_components": 49,
+      "min_ios": "14"
+    }
+  ],
+  "by_custom_components": [
+    {
+      "repo": "Dimillian/IceCubesApp",
+      "stars": 6998,
+      "loc": 44175,
+      "total_unique_apis": 386,
+      "modifiers": 165,
+      "types": 90,
+      "valueBuilders": 28,
+      "custom_components": 694,
+      "min_ios": "26"
+    },
+    {
+      "repo": "Dimillian/ACHNBrowserUI",
+      "stars": 1723,
+      "loc": 16954,
+      "total_unique_apis": 202,
+      "modifiers": 82,
+      "types": 62,
+      "valueBuilders": 19,
+      "custom_components": 582,
+      "min_ios": "17"
+    },
+    {
+      "repo": "Dimillian/MovieSwiftUI",
+      "stars": 6527,
+      "loc": 7496,
+      "total_unique_apis": 152,
+      "modifiers": 59,
+      "types": 45,
+      "valueBuilders": 16,
+      "custom_components": 280,
+      "min_ios": "17"
+    },
+    {
+      "repo": "Dimillian/IcySky",
+      "stars": 535,
+      "loc": 4451,
+      "total_unique_apis": 192,
+      "modifiers": 73,
+      "types": 44,
+      "valueBuilders": 19,
+      "custom_components": 121,
+      "min_ios": "26"
+    },
+    {
+      "repo": "Dimillian/MortyUI",
+      "stars": 468,
+      "loc": 4718,
+      "total_unique_apis": 39,
+      "modifiers": 11,
+      "types": 18,
+      "valueBuilders": 3,
+      "custom_components": 49,
+      "min_ios": "14"
+    }
+  ],
+  "most_modern_stack": [
+    {
+      "repo": "Dimillian/IceCubesApp",
+      "stars": 6998,
+      "loc": 44175,
+      "total_unique_apis": 386,
+      "modifiers": 165,
+      "types": 90,
+      "valueBuilders": 28,
+      "custom_components": 694,
+      "min_ios": "26"
+    },
+    {
+      "repo": "Dimillian/IcySky",
+      "stars": 535,
+      "loc": 4451,
+      "total_unique_apis": 192,
+      "modifiers": 73,
+      "types": 44,
+      "valueBuilders": 19,
+      "custom_components": 121,
+      "min_ios": "26"
+    },
+    {
+      "repo": "Dimillian/ACHNBrowserUI",
+      "stars": 1723,
+      "loc": 16954,
+      "total_unique_apis": 202,
+      "modifiers": 82,
+      "types": 62,
+      "valueBuilders": 19,
+      "custom_components": 582,
+      "min_ios": "17"
+    },
+    {
+      "repo": "Dimillian/MovieSwiftUI",
+      "stars": 6527,
+      "loc": 7496,
+      "total_unique_apis": 152,
+      "modifiers": 59,
+      "types": 45,
+      "valueBuilders": 16,
+      "custom_components": 280,
+      "min_ios": "17"
+    },
+    {
+      "repo": "Dimillian/MortyUI",
+      "stars": 468,
+      "loc": 4718,
+      "total_unique_apis": 39,
+      "modifiers": 11,
+      "types": 18,
+      "valueBuilders": 3,
+      "custom_components": 49,
+      "min_ios": "14"
+    }
+  ]
+}

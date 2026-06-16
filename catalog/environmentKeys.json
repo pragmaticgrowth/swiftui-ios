@@ -1,0 +1,906 @@
+{
+ "editMode": {
+  "total_uses": 7,
+  "repo_count": 3,
+  "low_corpus": true,
+  "top_repos": [
+   [
+    "Dimillian/ACHNBrowserUI",
+    5
+   ],
+   [
+    "Dimillian/IceCubesApp",
+    1
+   ],
+   [
+    "Dimillian/MovieSwiftUI",
+    1
+   ]
+  ],
+  "examples": [
+   {
+    "id": "ex_30a20667d7",
+    "repo": "Dimillian/IceCubesApp",
+    "path": "Packages/Account/Sources/Account/Edit/EditAccountView.swift",
+    "line": 32,
+    "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/Packages/Account/Sources/Account/Edit/EditAccountView.swift#L32",
+    "src": ".environment(\\.editMode, .constant(.active))",
+    "shape": null,
+    "provenance": {
+     "stars": 6998,
+     "author_authority": 0,
+     "min_ios": "26",
+     "platform": "cross_platform",
+     "score": 0.2307
+    }
+   },
+   {
+    "id": "ex_f45f8b12f5",
+    "repo": "Dimillian/MovieSwiftUI",
+    "path": "MovieSwift/MovieSwift/views/components/custom list/CustomListDetail.swift",
+    "line": 138,
+    "permalink": "https://github.com/Dimillian/MovieSwiftUI/blob/72eb4ae7117fbf893be533c9a277c47a7287d87e/MovieSwift/MovieSwift/views/components/custom list/CustomListDetail.swift#L138",
+    "src": ".environment(\\.editMode, .constant(isSearching ? .active : .inactive))",
+    "shape": null,
+    "provenance": {
+     "stars": 6527,
+     "author_authority": 0,
+     "min_ios": "17",
+     "platform": "ios",
+     "score": 0.025
+    }
+   },
+   {
+    "id": "ex_52dc5150ff",
+    "repo": "Dimillian/ACHNBrowserUI",
+    "path": "ACHNBrowserUI/ACHNBrowserUI/views/design/DesignListView.swift",
+    "line": 52,
+    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/design/DesignListView.swift#L52",
+    "src": ".environment(\\.editMode, .constant(self.isEditing ? .active : .inactive))",
+    "shape": null,
+    "provenance": {
+     "stars": 1723,
+     "author_authority": 0,
+     "min_ios": "17",
+     "platform": "ios",
+     "score": 0.0
+    }
+   }
+  ],
+  "co_occurs_with": []
+ },
+ "colorScheme": {
+  "total_uses": 10,
+  "repo_count": 3,
+  "low_corpus": true,
+  "top_repos": [
+   [
+    "Dimillian/IceCubesApp",
+    7
+   ],
+   [
+    "Dimillian/ACHNBrowserUI",
+    2
+   ],
+   [
+    "Dimillian/MovieSwiftUI",
+    1
+   ]
+  ],
+  "examples": [
+   {
+    "id": "ex_a6e0a05aa9",
+    "repo": "Dimillian/IceCubesApp",
+    "path": "IceCubesApp/App/Tabs/Settings/DisplaySettingsView.swift",
+    "line": 24,
+    "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/IceCubesApp/App/Tabs/Settings/DisplaySettingsView.swift#L24",
+    "src": "@Environment(\\.colorScheme) private var colorScheme",
+    "shape": "(\\.colorScheme)",
+    "provenance": {
+     "stars": 6998,
+     "author_authority": 0,
+     "min_ios": "26",
+     "platform": "cross_platform",
+     "score": 0.2307
+    }
+   },
+   {
+    "id": "ex_62e59a4cd7",
+    "repo": "Dimillian/MovieSwiftUI",
+    "path": "MovieSwift/MovieSwift/views/components/bottomMenu/BottomMenu.swift",
+    "line": 99,
+    "permalink": "https://github.com/Dimillian/MovieSwiftUI/blob/72eb4ae7117fbf893be533c9a277c47a7287d87e/MovieSwift/MovieSwift/views/components/bottomMenu/BottomMenu.swift#L99",
+    "src": ".environment(\\.colorScheme, .dark)",
+    "shape": null,
+    "provenance": {
+     "stars": 6527,
+     "author_authority": 0,
+     "min_ios": "17",
+     "platform": "ios",
+     "score": 0.025
+    }
+   },
+   {
+    "id": "ex_06f72fa5d3",
+    "repo": "Dimillian/ACHNBrowserUI",
+    "path": "ACHNBrowserUI/ACHNBrowserUI/views/items/row/ItemRowView.swift",
+    "line": 161,
+    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/items/row/ItemRowView.swift#L161",
+    "src": ".environment(\\.colorScheme, .dark)",
+    "shape": null,
+    "provenance": {
+     "stars": 1723,
+     "author_authority": 0,
+     "min_ios": "17",
+     "platform": "ios",
+     "score": 0.0
+    }
+   }
+  ],
+  "co_occurs_with": [],
+  "availability": {
+   "introduced_ios": "13.0",
+   "deprecated": false
+  }
+ },
+ "presentationMode": {
+  "total_uses": 38,
+  "repo_count": 2,
+  "low_corpus": true,
+  "top_repos": [
+   [
+    "Dimillian/ACHNBrowserUI",
+    32
+   ],
+   [
+    "Dimillian/MovieSwiftUI",
+    6
+   ]
+  ],
+  "examples": [
+   {
+    "id": "ex_472207a562",
+    "repo": "Dimillian/MovieSwiftUI",
+    "path": "MovieSwift/MovieSwift/views/components/settings/SettingsForm.swift",
+    "line": 16,
+    "permalink": "https://github.com/Dimillian/MovieSwiftUI/blob/72eb4ae7117fbf893be533c9a277c47a7287d87e/MovieSwift/MovieSwift/views/components/settings/SettingsForm.swift#L16",
+    "src": "@Environment(\\.presentationMode) var presentationMode",
+    "shape": "(\\.presentationMode)",
+    "provenance": {
+     "stars": 6527,
+     "author_authority": 0,
+     "min_ios": "17",
+     "platform": "ios",
+     "score": 0.025
+    }
+   },
+   {
+    "id": "ex_bbd7fb641e",
+    "repo": "Dimillian/ACHNBrowserUI",
+    "path": "ACHNBrowserUI/ACHNBrowserUI/representables/ActivityControllerView.swift",
+    "line": 14,
+    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/representables/ActivityControllerView.swift#L14",
+    "src": "@Environment(\\.presentationMode) var presentation",
+    "shape": "(\\.presentationMode)",
+    "provenance": {
+     "stars": 1723,
+     "author_authority": 0,
+     "min_ios": "17",
+     "platform": "ios",
+     "score": 0.0
+    }
+   }
+  ],
+  "co_occurs_with": [],
+  "availability": {
+   "deprecated": true,
+   "renamed": "dismiss",
+   "note": "use @Environment(\\.dismiss) and @Environment(\\.isPresented)"
+  }
+ },
+ "widgetFamily": {
+  "total_uses": 6,
+  "repo_count": 2,
+  "low_corpus": true,
+  "top_repos": [
+   [
+    "Dimillian/IceCubesApp",
+    4
+   ],
+   [
+    "Dimillian/ACHNBrowserUI",
+    2
+   ]
+  ],
+  "examples": [
+   {
+    "id": "ex_0cf3bf4b67",
+    "repo": "Dimillian/IceCubesApp",
+    "path": "IceCubesAppWidgetsExtension/Shared/PostsWidgetView.swift",
+    "line": 18,
+    "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/IceCubesAppWidgetsExtension/Shared/PostsWidgetView.swift#L18",
+    "src": "@Environment(\\.widgetFamily) var family",
+    "shape": "(\\.widgetFamily)",
+    "provenance": {
+     "stars": 6998,
+     "author_authority": 0,
+     "min_ios": "26",
+     "platform": "cross_platform",
+     "score": 0.2307
+    }
+   },
+   {
+    "id": "ex_4f1d0e2eb1",
+    "repo": "Dimillian/ACHNBrowserUI",
+    "path": "ACHNBrowserUI/Widgets/views/VillagerBirthdayWidget.swift",
+    "line": 14,
+    "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/Widgets/views/VillagerBirthdayWidget.swift#L14",
+    "src": "@Environment(\\.widgetFamily) var family: WidgetFamily",
+    "shape": "(\\.widgetFamily)",
+    "provenance": {
+     "stars": 1723,
+     "author_authority": 0,
+     "min_ios": "17",
+     "platform": "ios",
+     "score": 0.0
+    }
+   }
+  ],
+  "co_occurs_with": []
+ },
+ "dismiss": {
+  "total_uses": 68,
+  "repo_count": 2,
+  "low_corpus": true,
+  "top_repos": [
+   [
+    "Dimillian/IceCubesApp",
+    60
+   ],
+   [
+    "Dimillian/IcySky",
+    8
+   ]
+  ],
+  "examples": [
+   {
+    "id": "ex_8f8cb2b77d",
+    "repo": "Dimillian/IceCubesApp",
+    "path": "IceCubesApp/App/Tabs/NavigationSheet.swift",
+    "line": 8,
+    "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/IceCubesApp/App/Tabs/NavigationSheet.swift#L8",
+    "src": "@Environment(\\.dismiss) private var dismiss",
+    "shape": "(\\.dismiss)",
+    "provenance": {
+     "stars": 6998,
+     "author_authority": 0,
+     "min_ios": "26",
+     "platform": "cross_platform",
+     "score": 0.2307
+    }
+   },
+   {
+    "id": "ex_e25ce1aad1",
+    "repo": "Dimillian/IcySky",
+    "path": "Packages/Features/Sources/MediaUI/FullScreenMediaView.swift",
+    "line": 9,
+    "permalink": "https://github.com/Dimillian/IcySky/blob/03560c6a30277175ea91a6bfc63b50380542017c/Packages/Features/Sources/MediaUI/FullScreenMediaView.swift#L9",
+    "src": "@Environment(\\.dismiss) private var dismiss",
+    "shape": "(\\.dismiss)",
+    "provenance": {
+     "stars": 535,
+     "author_authority": 0,
+     "min_ios": "26",
+     "platform": "ios",
+     "score": 0.1137
+    }
+   }
+  ],
+  "co_occurs_with": [],
+  "availability": {
+   "introduced_ios": "13.0",
+   "deprecated": false
+  }
+ },
+ "scenePhase": {
+  "total_uses": 14,
+  "repo_count": 2,
+  "low_corpus": true,
+  "top_repos": [
+   [
+    "Dimillian/IceCubesApp",
+    12
+   ],
+   [
+    "Dimillian/IcySky",
+    2
+   ]
+  ],
+  "examples": [
+   {
+    "id": "ex_43314338eb",
+    "repo": "Dimillian/IceCubesApp",
+    "path": "IceCubesApp/App/Tabs/NotificationTab.swift",
+    "line": 13,
+    "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/IceCubesApp/App/Tabs/NotificationTab.swift#L13",
+    "src": "@Environment(\\.scenePhase) private var scenePhase",
+    "shape": "(\\.scenePhase)",
+    "provenance": {
+     "stars": 6998,
+     "author_authority": 0,
+     "min_ios": "26",
+     "platform": "cross_platform",
+     "score": 0.2307
+    }
+   },
+   {
+    "id": "ex_3b1b25d6dd",
+    "repo": "Dimillian/IcySky",
+    "path": "App/IcySkyApp.swift",
+    "line": 15,
+    "permalink": "https://github.com/Dimillian/IcySky/blob/03560c6a30277175ea91a6bfc63b50380542017c/App/IcySkyApp.swift#L15",
+    "src": "@Environment(\\.scenePhase) var scenePhase",
+    "shape": "(\\.scenePhase)",
+    "provenance": {
+     "stars": 535,
+     "author_authority": 0,
+     "min_ios": "26",
+     "platform": "ios",
+     "score": 0.1137
+    }
+   }
+  ],
+  "co_occurs_with": []
+ },
+ "openURL": {
+  "total_uses": 27,
+  "repo_count": 2,
+  "low_corpus": true,
+  "top_repos": [
+   [
+    "Dimillian/IceCubesApp",
+    25
+   ],
+   [
+    "Dimillian/IcySky",
+    2
+   ]
+  ],
+  "examples": [
+   {
+    "id": "ex_16de738371",
+    "repo": "Dimillian/IcySky",
+    "path": "Packages/Features/Sources/PostUI/Row/PostRowEmbedExternalView.swift",
+    "line": 7,
+    "permalink": "https://github.com/Dimillian/IcySky/blob/03560c6a30277175ea91a6bfc63b50380542017c/Packages/Features/Sources/PostUI/Row/PostRowEmbedExternalView.swift#L7",
+    "src": "@Environment(\\.openURL) var openURL",
+    "shape": "(\\.openURL)",
+    "provenance": {
+     "stars": 535,
+     "author_authority": 0,
+     "min_ios": "26",
+     "platform": "ios",
+     "score": 0.1137
+    }
+   },
+   {
+    "id": "ex_365a2a3c6e",
+    "repo": "Dimillian/IceCubesApp",
+    "path": "IceCubesApp/App/Tabs/Settings/AboutView.swift",
+    "line": 134,
+    "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/IceCubesApp/App/Tabs/Settings/AboutView.swift#L134",
+    "src": "\\.openURL,",
+    "shape": null,
+    "provenance": {
+     "stars": 6998,
+     "author_authority": 0,
+     "min_ios": "26",
+     "platform": "cross_platform",
+     "score": 0.2307
+    }
+   }
+  ],
+  "co_occurs_with": [],
+  "availability": {
+   "introduced_ios": "14.0",
+   "deprecated": false
+  }
+ },
+ "modelContext": {
+  "total_uses": 32,
+  "repo_count": 2,
+  "low_corpus": true,
+  "top_repos": [
+   [
+    "Dimillian/IceCubesApp",
+    28
+   ],
+   [
+    "Dimillian/IcySky",
+    4
+   ]
+  ],
+  "examples": [
+   {
+    "id": "ex_10758e1dc5",
+    "repo": "Dimillian/IceCubesApp",
+    "path": "IceCubesApp/App/Tabs/Settings/TagsGroupSettingView.swift",
+    "line": 8,
+    "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/IceCubesApp/App/Tabs/Settings/TagsGroupSettingView.swift#L8",
+    "src": "@Environment(\\.modelContext) private var context",
+    "shape": "(\\.modelContext)",
+    "provenance": {
+     "stars": 6998,
+     "author_authority": 0,
+     "min_ios": "26",
+     "platform": "cross_platform",
+     "score": 0.2307
+    }
+   },
+   {
+    "id": "ex_3b8e1053ef",
+    "repo": "Dimillian/IcySky",
+    "path": "Packages/Features/Sources/PostUI/List/PostsFeedView.swift",
+    "line": 11,
+    "permalink": "https://github.com/Dimillian/IcySky/blob/03560c6a30277175ea91a6bfc63b50380542017c/Packages/Features/Sources/PostUI/List/PostsFeedView.swift#L11",
+    "src": "@Environment(\\.modelContext) var modelContext",
+    "shape": "(\\.modelContext)",
+    "provenance": {
+     "stars": 535,
+     "author_authority": 0,
+     "min_ios": "26",
+     "platform": "ios",
+     "score": 0.1137
+    }
+   }
+  ],
+  "co_occurs_with": [],
+  "availability": {
+   "introduced_ios": "17.0",
+   "deprecated": false
+  }
+ },
+ "sizeCategory": {
+  "total_uses": 4,
+  "repo_count": 2,
+  "low_corpus": true,
+  "top_repos": [
+   [
+    "Dimillian/IceCubesApp",
+    2
+   ],
+   [
+    "Dimillian/IcySky",
+    2
+   ]
+  ],
+  "examples": [
+   {
+    "id": "ex_fea7f23b70",
+    "repo": "Dimillian/IceCubesApp",
+    "path": "Packages/StatusKit/Sources/StatusKit/Editor/UITextView/Representable.swift",
+    "line": 7,
+    "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/Packages/StatusKit/Sources/StatusKit/Editor/UITextView/Representable.swift#L7",
+    "src": "@Environment(\\.sizeCategory) var sizeCategory",
+    "shape": "(\\.sizeCategory)",
+    "provenance": {
+     "stars": 6998,
+     "author_authority": 0,
+     "min_ios": "26",
+     "platform": "cross_platform",
+     "score": 0.2307
+    }
+   },
+   {
+    "id": "ex_248a0f9e43",
+    "repo": "Dimillian/IcySky",
+    "path": "Packages/Features/Sources/PostUI/Row/PostRowView.swift",
+    "line": 18,
+    "permalink": "https://github.com/Dimillian/IcySky/blob/03560c6a30277175ea91a6bfc63b50380542017c/Packages/Features/Sources/PostUI/Row/PostRowView.swift#L18",
+    "src": "@Environment(\\.sizeCategory) var sizeCategory",
+    "shape": "(\\.sizeCategory)",
+    "provenance": {
+     "stars": 535,
+     "author_authority": 0,
+     "min_ios": "26",
+     "platform": "ios",
+     "score": 0.1137
+    }
+   }
+  ],
+  "co_occurs_with": [],
+  "availability": {
+   "introduced_ios": "13.0",
+   "deprecated": true,
+   "renamed": "dynamicTypeSize"
+  }
+ },
+ "horizontalSizeClass": {
+  "total_uses": 8,
+  "repo_count": 1,
+  "low_corpus": true,
+  "top_repos": [
+   [
+    "Dimillian/IceCubesApp",
+    8
+   ]
+  ],
+  "examples": [
+   {
+    "id": "ex_85761c4a81",
+    "repo": "Dimillian/IceCubesApp",
+    "path": "IceCubesApp/App/Tabs/ToolbarTab.swift",
+    "line": 9,
+    "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/IceCubesApp/App/Tabs/ToolbarTab.swift#L9",
+    "src": "@Environment(\\.horizontalSizeClass) private var horizontalSizeClass",
+    "shape": "(\\.horizontalSizeClass)",
+    "provenance": {
+     "stars": 6998,
+     "author_authority": 0,
+     "min_ios": "26",
+     "platform": "cross_platform",
+     "score": 0.2307
+    }
+   }
+  ],
+  "co_occurs_with": [],
+  "availability": {
+   "introduced_ios": "13.0",
+   "deprecated": false
+  }
+ },
+ "openWindow": {
+  "total_uses": 34,
+  "repo_count": 1,
+  "low_corpus": true,
+  "top_repos": [
+   [
+    "Dimillian/IceCubesApp",
+    34
+   ]
+  ],
+  "examples": [
+   {
+    "id": "ex_494cde8a98",
+    "repo": "Dimillian/IceCubesApp",
+    "path": "IceCubesApp/App/Main/IceCubesApp.swift",
+    "line": 20,
+    "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/IceCubesApp/App/Main/IceCubesApp.swift#L20",
+    "src": "@Environment(\\.openWindow) var openWindow",
+    "shape": "(\\.openWindow)",
+    "provenance": {
+     "stars": 6998,
+     "author_authority": 0,
+     "min_ios": "26",
+     "platform": "cross_platform",
+     "score": 0.2307
+    }
+   }
+  ],
+  "co_occurs_with": []
+ },
+ "symbolVariants": {
+  "total_uses": 5,
+  "repo_count": 1,
+  "low_corpus": true,
+  "top_repos": [
+   [
+    "Dimillian/IceCubesApp",
+    5
+   ]
+  ],
+  "examples": [
+   {
+    "id": "ex_60ca976e8b",
+    "repo": "Dimillian/IceCubesApp",
+    "path": "IceCubesApp/App/Main/AppView.swift",
+    "line": 95,
+    "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/IceCubesApp/App/Main/AppView.swift#L95",
+    "src": "tab.label.environment(\\.symbolVariants, tab == selectedTab ? .fill : .none)",
+    "shape": null,
+    "provenance": {
+     "stars": 6998,
+     "author_authority": 0,
+     "min_ios": "26",
+     "platform": "cross_platform",
+     "score": 0.2307
+    }
+   }
+  ],
+  "co_occurs_with": [],
+  "availability": {
+   "introduced_ios": "15.0",
+   "deprecated": false
+  }
+ },
+ "layoutDirection": {
+  "total_uses": 4,
+  "repo_count": 1,
+  "low_corpus": true,
+  "top_repos": [
+   [
+    "Dimillian/IceCubesApp",
+    4
+   ]
+  ],
+  "examples": [
+   {
+    "id": "ex_a807932897",
+    "repo": "Dimillian/IceCubesApp",
+    "path": "Packages/DesignSystem/Sources/DesignSystem/Views/EmojiText.swift",
+    "line": 35,
+    "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/Packages/DesignSystem/Sources/DesignSystem/Views/EmojiText.swift#L35",
+    "src": ".environment(\\.layoutDirection, isRTL() ? .rightToLeft : .leftToRight)",
+    "shape": null,
+    "provenance": {
+     "stars": 6998,
+     "author_authority": 0,
+     "min_ios": "26",
+     "platform": "cross_platform",
+     "score": 0.2307
+    }
+   }
+  ],
+  "co_occurs_with": [],
+  "availability": {
+   "introduced_ios": "13.0",
+   "deprecated": false
+  }
+ },
+ "redactionReasons": {
+  "total_uses": 22,
+  "repo_count": 1,
+  "low_corpus": true,
+  "top_repos": [
+   [
+    "Dimillian/IceCubesApp",
+    22
+   ]
+  ],
+  "examples": [
+   {
+    "id": "ex_ab362da934",
+    "repo": "Dimillian/IceCubesApp",
+    "path": "Packages/DesignSystem/Sources/DesignSystem/Views/AvatarView.swift",
+    "line": 117,
+    "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/Packages/DesignSystem/Sources/DesignSystem/Views/AvatarView.swift#L117",
+    "src": "@Environment(\\.redactionReasons) private var reasons",
+    "shape": "(\\.redactionReasons)",
+    "provenance": {
+     "stars": 6998,
+     "author_authority": 0,
+     "min_ios": "26",
+     "platform": "cross_platform",
+     "score": 0.2307
+    }
+   }
+  ],
+  "co_occurs_with": [],
+  "availability": {
+   "introduced_ios": "14.0",
+   "deprecated": false
+  }
+ },
+ "defaultMinListRowHeight": {
+  "total_uses": 5,
+  "repo_count": 1,
+  "low_corpus": true,
+  "top_repos": [
+   [
+    "Dimillian/IceCubesApp",
+    5
+   ]
+  ],
+  "examples": [
+   {
+    "id": "ex_2bacb19336",
+    "repo": "Dimillian/IceCubesApp",
+    "path": "Packages/Explore/Sources/Explore/ExploreView.swift",
+    "line": 110,
+    "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/Packages/Explore/Sources/Explore/ExploreView.swift#L110",
+    "src": ".environment(\\.defaultMinListRowHeight, .scrollToViewHeight)",
+    "shape": null,
+    "provenance": {
+     "stars": 6998,
+     "author_authority": 0,
+     "min_ios": "26",
+     "platform": "cross_platform",
+     "score": 0.2307
+    }
+   }
+  ],
+  "co_occurs_with": []
+ },
+ "calendar": {
+  "total_uses": 4,
+  "repo_count": 1,
+  "low_corpus": true,
+  "top_repos": [
+   [
+    "Dimillian/IceCubesApp",
+    4
+   ]
+  ],
+  "examples": [
+   {
+    "id": "ex_c535285864",
+    "repo": "Dimillian/IceCubesApp",
+    "path": "Packages/Account/Sources/Account/Metrics/AccountMetricsComponents.swift",
+    "line": 7,
+    "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/Packages/Account/Sources/Account/Metrics/AccountMetricsComponents.swift#L7",
+    "src": "@Environment(\\.calendar) private var calendar",
+    "shape": "(\\.calendar)",
+    "provenance": {
+     "stars": 6998,
+     "author_authority": 0,
+     "min_ios": "26",
+     "platform": "cross_platform",
+     "score": 0.2307
+    }
+   }
+  ],
+  "co_occurs_with": [],
+  "availability": {
+   "introduced_ios": "13.0",
+   "deprecated": false
+  }
+ },
+ "description": {
+  "total_uses": 1,
+  "repo_count": 1,
+  "low_corpus": true,
+  "top_repos": [
+   [
+    "Dimillian/IceCubesApp",
+    1
+   ]
+  ],
+  "examples": [
+   {
+    "id": "ex_e690ac160b",
+    "repo": "Dimillian/IceCubesApp",
+    "path": "Packages/StatusKit/Sources/StatusKit/Row/StatusRowAccessibilityLabel.swift",
+    "line": 86,
+    "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/Packages/StatusKit/Sources/StatusKit/Row/StatusRowAccessibilityLabel.swift#L86",
+    "src": ".compactMap(\\.description)",
+    "shape": null,
+    "provenance": {
+     "stars": 6998,
+     "author_authority": 0,
+     "min_ios": "26",
+     "platform": "cross_platform",
+     "score": 0.2307
+    }
+   }
+  ],
+  "co_occurs_with": [],
+  "availability": {
+   "introduced_ios": "13.0",
+   "deprecated": false
+  }
+ },
+ "accessibilityVoiceOverEnabled": {
+  "total_uses": 2,
+  "repo_count": 1,
+  "low_corpus": true,
+  "top_repos": [
+   [
+    "Dimillian/IceCubesApp",
+    2
+   ]
+  ],
+  "examples": [
+   {
+    "id": "ex_af445012f0",
+    "repo": "Dimillian/IceCubesApp",
+    "path": "Packages/StatusKit/Sources/StatusKit/Row/StatusRowView.swift",
+    "line": 15,
+    "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/Packages/StatusKit/Sources/StatusKit/Row/StatusRowView.swift#L15",
+    "src": "@Environment(\\.accessibilityVoiceOverEnabled) private var accessibilityVoiceOverEnabled",
+    "shape": "(\\.accessibilityVoiceOverEnabled)",
+    "provenance": {
+     "stars": 6998,
+     "author_authority": 0,
+     "min_ios": "26",
+     "platform": "cross_platform",
+     "score": 0.2307
+    }
+   }
+  ],
+  "co_occurs_with": []
+ },
+ "locale": {
+  "total_uses": 2,
+  "repo_count": 1,
+  "low_corpus": true,
+  "top_repos": [
+   [
+    "Dimillian/IceCubesApp",
+    2
+   ]
+  ],
+  "examples": [
+   {
+    "id": "ex_82d00f62ab",
+    "repo": "Dimillian/IceCubesApp",
+    "path": "Packages/StatusKit/Sources/StatusKit/Row/Subviews/StatusRowMediaPreviewView.swift",
+    "line": 266,
+    "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/Packages/StatusKit/Sources/StatusKit/Row/Subviews/StatusRowMediaPreviewView.swift#L266",
+    "src": "@Environment(\\.locale) private var locale",
+    "shape": "(\\.locale)",
+    "provenance": {
+     "stars": 6998,
+     "author_authority": 0,
+     "min_ios": "26",
+     "platform": "cross_platform",
+     "score": 0.2307
+    }
+   }
+  ],
+  "co_occurs_with": [],
+  "availability": {
+   "introduced_ios": "13.0",
+   "deprecated": false
+  }
+ },
+ "dismissWindow": {
+  "total_uses": 4,
+  "repo_count": 1,
+  "low_corpus": true,
+  "top_repos": [
+   [
+    "Dimillian/IceCubesApp",
+    4
+   ]
+  ],
+  "examples": [
+   {
+    "id": "ex_96187156ea",
+    "repo": "Dimillian/IceCubesApp",
+    "path": "Packages/StatusKit/Sources/StatusKit/Editor/EditorView.swift",
+    "line": 19,
+    "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/Packages/StatusKit/Sources/StatusKit/Editor/EditorView.swift#L19",
+    "src": "@Environment(\\.dismissWindow) private var dismissWindow",
+    "shape": "(\\.dismissWindow)",
+    "provenance": {
+     "stars": 6998,
+     "author_authority": 0,
+     "min_ios": "26",
+     "platform": "cross_platform",
+     "score": 0.2307
+    }
+   }
+  ],
+  "co_occurs_with": []
+ },
+ "isFocused": {
+  "total_uses": 5,
+  "repo_count": 1,
+  "low_corpus": true,
+  "top_repos": [
+   [
+    "Dimillian/IcySky",
+    5
+   ]
+  ],
+  "examples": [
+   {
+    "id": "ex_bfbe59c4e0",
+    "repo": "Dimillian/IcySky",
+    "path": "Packages/Features/Sources/PostUI/Row/PostRowBodyView.swift",
+    "line": 5,
+    "permalink": "https://github.com/Dimillian/IcySky/blob/03560c6a30277175ea91a6bfc63b50380542017c/Packages/Features/Sources/PostUI/Row/PostRowBodyView.swift#L5",
+    "src": "@Environment(\\.isFocused) private var isFocused",
+    "shape": "(\\.isFocused)",
+    "provenance": {
+     "stars": 535,
+     "author_authority": 0,
+     "min_ios": "26",
+     "platform": "ios",
+     "score": 0.1137
+    }
+   }
+  ],
+  "co_occurs_with": []
+ }
+}

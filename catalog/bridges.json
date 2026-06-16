@@ -1,0 +1,105 @@
+{
+ "count": 11,
+ "repos": 2,
+ "bridges": [
+  {
+   "name": "ActivityControllerView",
+   "repo": "Dimillian/ACHNBrowserUI",
+   "conforms": [
+    "UIViewControllerRepresentable"
+   ],
+   "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/representables/ActivityControllerView.swift#L13",
+   "platform": "uikit"
+  },
+  {
+   "name": "SafariView",
+   "repo": "Dimillian/ACHNBrowserUI",
+   "conforms": [
+    "UIViewControllerRepresentable"
+   ],
+   "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/representables/SafariView.swift#L14",
+   "platform": "uikit"
+  },
+  {
+   "name": "VisualEffectView",
+   "repo": "Dimillian/ACHNBrowserUI",
+   "conforms": [
+    "UIViewRepresentable"
+   ],
+   "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/musicPlayer/PlayerView.swift#L13",
+   "platform": "uikit"
+  },
+  {
+   "name": "ActivityView",
+   "repo": "Dimillian/IceCubesApp",
+   "conforms": [
+    "UIViewControllerRepresentable"
+   ],
+   "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/IceCubesApp/App/Router/AppRegistry.swift#L269",
+   "platform": "uikit"
+  },
+  {
+   "name": "CameraPickerView",
+   "repo": "Dimillian/IceCubesApp",
+   "conforms": [
+    "UIViewControllerRepresentable"
+   ],
+   "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/Packages/StatusKit/Sources/StatusKit/Editor/Components/CameraPickerView.swift#L5",
+   "platform": "uikit"
+  },
+  {
+   "name": "FontPicker",
+   "repo": "Dimillian/IceCubesApp",
+   "conforms": [
+    "UIViewControllerRepresentable"
+   ],
+   "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/Packages/DesignSystem/Sources/DesignSystem/FontPicker.swift#L4",
+   "platform": "uikit"
+  },
+  {
+   "name": "GifView",
+   "repo": "Dimillian/IceCubesApp",
+   "conforms": [
+    "UIViewRepresentable"
+   ],
+   "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/Packages/DesignSystem/Sources/DesignSystem/Views/GifView.swift#L12",
+   "platform": "uikit"
+  },
+  {
+   "name": "Representable",
+   "repo": "Dimillian/IceCubesApp",
+   "conforms": [
+    "UIViewRepresentable"
+   ],
+   "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/Packages/StatusKit/Sources/StatusKit/Editor/UITextView/Representable.swift#L4",
+   "platform": "uikit"
+  },
+  {
+   "name": "SelectableText",
+   "repo": "Dimillian/IceCubesApp",
+   "conforms": [
+    "UIViewRepresentable"
+   ],
+   "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/Packages/StatusKit/Sources/StatusKit/Share/StatusRowSelectableTextView.swift#L30",
+   "platform": "uikit"
+  },
+  {
+   "name": "WindowReader",
+   "repo": "Dimillian/IceCubesApp",
+   "conforms": [
+    "UIViewRepresentable"
+   ],
+   "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/IceCubesApp/App/Router/SafariRouter.swift#L177",
+   "platform": "uikit"
+  },
+  {
+   "name": "ZoomableScrollView",
+   "repo": "Dimillian/IceCubesApp",
+   "conforms": [
+    "UIViewRepresentable"
+   ],
+   "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/Packages/MediaUI/Sources/MediaUI/MediaUIZoomableContainer.swift#L30",
+   "platform": "uikit"
+  }
+ ]
+}

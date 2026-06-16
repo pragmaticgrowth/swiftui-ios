@@ -1,0 +1,56 @@
+{
+ "Preview": {
+  "total_uses": 22,
+  "repo_count": 2,
+  "low_corpus": true,
+  "top_repos": [
+   [
+    "Dimillian/IcySky",
+    12
+   ],
+   [
+    "Dimillian/IceCubesApp",
+    10
+   ]
+  ],
+  "examples": [
+   {
+    "id": "ex_9bfc784611",
+    "repo": "Dimillian/IceCubesApp",
+    "path": "Packages/DesignSystem/Sources/DesignSystem/Views/PlaceholderView.swift",
+    "line": 22,
+    "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/Packages/DesignSystem/Sources/DesignSystem/Views/PlaceholderView.swift#L22",
+    "src": "#Preview {",
+    "shape": null,
+    "provenance": {
+     "stars": 6998,
+     "author_authority": 0,
+     "min_ios": "26",
+     "platform": "cross_platform",
+     "score": 0.2307
+    }
+   },
+   {
+    "id": "ex_77fb63d2b2",
+    "repo": "Dimillian/IcySky",
+    "path": "App/AppTabView.swift",
+    "line": 34,
+    "permalink": "https://github.com/Dimillian/IcySky/blob/03560c6a30277175ea91a6bfc63b50380542017c/App/AppTabView.swift#L34",
+    "src": "#Preview {",
+    "shape": null,
+    "provenance": {
+     "stars": 535,
+     "author_authority": 0,
+     "min_ios": "26",
+     "platform": "ios",
+     "score": 0.1137
+    }
+   }
+  ],
+  "co_occurs_with": [],
+  "availability": {
+   "introduced_ios": "13.0",
+   "deprecated": false
+  }
+ }
+}

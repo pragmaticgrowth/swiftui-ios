@@ -1,0 +1,699 @@
+{
+  "modern_stack_adoption_pct": {
+    "repos": 5,
+    "Observable_macro": 40.0,
+    "StateObject": 80.0,
+    "ObservedObject": 60.0,
+    "NavigationStack_or_Split": 40.0,
+    "NavigationView(legacy)": 60.0,
+    "SwiftData(@Model)": 40.0,
+    "MenuBarExtra": 0.0,
+    "Settings_scene": 0.0,
+    "searchable": 20.0,
+    "AppKit_bridging": 0.0,
+    "Charts_imported": 20.0,
+    "uses_deprecated_api": 100.0
+  },
+  "deprecated_api_usage": [
+    {
+      "sym": "foregroundColor",
+      "renamed": "foregroundStyle",
+      "repos": 5,
+      "top_repos": [
+        [
+          "Dimillian/ACHNBrowserUI",
+          272
+        ],
+        [
+          "Dimillian/MovieSwiftUI",
+          84
+        ],
+        [
+          "Dimillian/IceCubesApp",
+          75
+        ],
+        [
+          "Dimillian/MortyUI",
+          11
+        ],
+        [
+          "Dimillian/IcySky",
+          5
+        ]
+      ]
+    },
+    {
+      "sym": "NavigationView",
+      "renamed": "NavigationStack",
+      "repos": 3,
+      "top_repos": [
+        [
+          "Dimillian/ACHNBrowserUI",
+          48
+        ],
+        [
+          "Dimillian/MovieSwiftUI",
+          17
+        ],
+        [
+          "Dimillian/MortyUI",
+          5
+        ]
+      ]
+    },
+    {
+      "sym": "tabItem",
+      "renamed": "Tab",
+      "repos": 3,
+      "top_repos": [
+        [
+          "Dimillian/ACHNBrowserUI",
+          8
+        ],
+        [
+          "Dimillian/MovieSwiftUI",
+          5
+        ],
+        [
+          "Dimillian/MortyUI",
+          4
+        ]
+      ]
+    },
+    {
+      "sym": "navigationBarTrailing",
+      "renamed": "",
+      "repos": 3,
+      "top_repos": [
+        [
+          "Dimillian/IceCubesApp",
+          23
+        ],
+        [
+          "Dimillian/ACHNBrowserUI",
+          1
+        ],
+        [
+          "Dimillian/IcySky",
+          1
+        ]
+      ]
+    },
+    {
+      "sym": "edgesIgnoringSafeArea",
+      "renamed": "ignoresSafeArea",
+      "repos": 3,
+      "top_repos": [
+        [
+          "Dimillian/ACHNBrowserUI",
+          4
+        ],
+        [
+          "Dimillian/IceCubesApp",
+          4
+        ],
+        [
+          "Dimillian/MovieSwiftUI",
+          3
+        ]
+      ]
+    },
+    {
+      "sym": "presentationMode",
+      "renamed": "dismiss",
+      "repos": 2,
+      "top_repos": [
+        [
+          "Dimillian/ACHNBrowserUI",
+          16
+        ],
+        [
+          "Dimillian/MovieSwiftUI",
+          3
+        ]
+      ]
+    },
+    {
+      "sym": "navigationViewStyle",
+      "renamed": "",
+      "repos": 2,
+      "top_repos": [
+        [
+          "Dimillian/ACHNBrowserUI",
+          14
+        ],
+        [
+          "Dimillian/MovieSwiftUI",
+          4
+        ]
+      ]
+    },
+    {
+      "sym": "navigationBarItems",
+      "renamed": "toolbar",
+      "repos": 2,
+      "top_repos": [
+        [
+          "Dimillian/ACHNBrowserUI",
+          23
+        ],
+        [
+          "Dimillian/MovieSwiftUI",
+          7
+        ]
+      ]
+    },
+    {
+      "sym": "navigationBarTitle",
+      "renamed": "navigationTitle",
+      "repos": 2,
+      "top_repos": [
+        [
+          "Dimillian/ACHNBrowserUI",
+          37
+        ],
+        [
+          "Dimillian/MovieSwiftUI",
+          17
+        ]
+      ]
+    },
+    {
+      "sym": "StackNavigationViewStyle",
+      "renamed": "",
+      "repos": 2,
+      "top_repos": [
+        [
+          "Dimillian/ACHNBrowserUI",
+          14
+        ],
+        [
+          "Dimillian/MovieSwiftUI",
+          4
+        ]
+      ]
+    },
+    {
+      "sym": "Alert",
+      "renamed": "alert",
+      "repos": 2,
+      "top_repos": [
+        [
+          "Dimillian/ACHNBrowserUI",
+          8
+        ],
+        [
+          "Dimillian/IceCubesApp",
+          1
+        ]
+      ]
+    },
+    {
+      "sym": "accentColor",
+      "renamed": "tint",
+      "repos": 2,
+      "top_repos": [
+        [
+          "Dimillian/ACHNBrowserUI",
+          40
+        ],
+        [
+          "Dimillian/MovieSwiftUI",
+          2
+        ]
+      ]
+    },
+    {
+      "sym": "ActionSheet",
+      "renamed": "",
+      "repos": 2,
+      "top_repos": [
+        [
+          "Dimillian/ACHNBrowserUI",
+          3
+        ],
+        [
+          "Dimillian/MovieSwiftUI",
+          2
+        ]
+      ]
+    },
+    {
+      "sym": "navigationBarLeading",
+      "renamed": "",
+      "repos": 2,
+      "top_repos": [
+        [
+          "Dimillian/IceCubesApp",
+          7
+        ],
+        [
+          "Dimillian/IcySky",
+          1
+        ]
+      ]
+    },
+    {
+      "sym": "sizeCategory",
+      "renamed": "dynamicTypeSize",
+      "repos": 2,
+      "top_repos": [
+        [
+          "Dimillian/IceCubesApp",
+          1
+        ],
+        [
+          "Dimillian/IcySky",
+          1
+        ]
+      ]
+    },
+    {
+      "sym": "autocapitalization",
+      "renamed": "textInputAutocapitalization",
+      "repos": 1,
+      "top_repos": [
+        [
+          "Dimillian/ACHNBrowserUI",
+          2
+        ]
+      ]
+    },
+    {
+      "sym": "navigationBarHidden",
+      "renamed": "",
+      "repos": 1,
+      "top_repos": [
+        [
+          "Dimillian/IcySky",
+          1
+        ]
+      ]
+    }
+  ],
+  "discovered_external_api": {
+    "modifier": [
+      {
+        "sym": "map",
+        "uses": 129,
+        "repos": 5
+      },
+      {
+        "sym": "contains",
+        "uses": 127,
+        "repos": 4
+      },
+      {
+        "sym": "append",
+        "uses": 112,
+        "repos": 5
+      },
+      {
+        "sym": "fontWeight",
+        "uses": 107,
+        "repos": 5
+      },
+      {
+        "sym": "get",
+        "uses": 97,
+        "repos": 3
+      },
+      {
+        "sym": "constant",
+        "uses": 79,
+        "repos": 4
+      },
+      {
+        "sym": "filter",
+        "uses": 70,
+        "repos": 5
+      },
+      {
+        "sym": "toggle",
+        "uses": 52,
+        "repos": 4
+      },
+      {
+        "sym": "fill",
+        "uses": 51,
+        "repos": 3
+      },
+      {
+        "sym": "firstIndex",
+        "uses": 49,
+        "repos": 3
+      },
+      {
+        "sym": "compactMap",
+        "uses": 49,
+        "repos": 5
+      },
+      {
+        "sym": "first",
+        "uses": 43,
+        "repos": 4
+      },
+      {
+        "sym": "stroke",
+        "uses": 34,
+        "repos": 4
+      },
+      {
+        "sym": "async",
+        "uses": 33,
+        "repos": 4
+      },
+      {
+        "sym": "dismiss",
+        "uses": 32,
+        "repos": 3
+      },
+      {
+        "sym": "cancel",
+        "uses": 31,
+        "repos": 4
+      },
+      {
+        "sym": "transition",
+        "uses": 28,
+        "repos": 4
+      },
+      {
+        "sym": "prefix",
+        "uses": 27,
+        "repos": 5
+      },
+      {
+        "sym": "delete",
+        "uses": 27,
+        "repos": 3
+      },
+      {
+        "sym": "data",
+        "uses": 27,
+        "repos": 3
+      },
+      {
+        "sym": "default",
+        "uses": 26,
+        "repos": 3
+      },
+      {
+        "sym": "success",
+        "uses": 26,
+        "repos": 3
+      },
+      {
+        "sym": "insert",
+        "uses": 25,
+        "repos": 4
+      }
+    ],
+    "attribute": [
+      {
+        "sym": "ViewBuilder",
+        "uses": 143,
+        "repos": 4
+      },
+      {
+        "sym": "Published",
+        "uses": 73,
+        "repos": 3
+      },
+      {
+        "sym": "main",
+        "uses": 7,
+        "repos": 5
+      }
+    ],
+    "type": [
+      {
+        "sym": "URL",
+        "uses": 61,
+        "repos": 5
+      },
+      {
+        "sym": "Date",
+        "uses": 59,
+        "repos": 4
+      },
+      {
+        "sym": "String",
+        "uses": 49,
+        "repos": 4
+      },
+      {
+        "sym": "Int",
+        "uses": 47,
+        "repos": 3
+      },
+      {
+        "sym": "CGFloat",
+        "uses": 41,
+        "repos": 4
+      },
+      {
+        "sym": "UUID",
+        "uses": 38,
+        "repos": 4
+      },
+      {
+        "sym": "Double",
+        "uses": 31,
+        "repos": 4
+      },
+      {
+        "sym": "Array",
+        "uses": 30,
+        "repos": 5
+      },
+      {
+        "sym": "CGSize",
+        "uses": 21,
+        "repos": 4
+      },
+      {
+        "sym": "UIImage",
+        "uses": 20,
+        "repos": 4
+      },
+      {
+        "sym": "UIColor",
+        "uses": 17,
+        "repos": 4
+      }
+    ],
+    "member": [
+      {
+        "sym": "id",
+        "uses": 476,
+        "repos": 5
+      },
+      {
+        "sym": "shared",
+        "uses": 453,
+        "repos": 5
+      },
+      {
+        "sym": "isEmpty",
+        "uses": 288,
+        "repos": 5
+      },
+      {
+        "sym": "count",
+        "uses": 184,
+        "repos": 5
+      },
+      {
+        "sym": "status",
+        "uses": 144,
+        "repos": 3
+      },
+      {
+        "sym": "rawValue",
+        "uses": 124,
+        "repos": 4
+      },
+      {
+        "sym": "first",
+        "uses": 123,
+        "repos": 4
+      },
+      {
+        "sym": "title",
+        "uses": 114,
+        "repos": 4
+      },
+      {
+        "sym": "name",
+        "uses": 112,
+        "repos": 5
+      },
+      {
+        "sym": "horizontal",
+        "uses": 106,
+        "repos": 4
+      },
+      {
+        "sym": "main",
+        "uses": 89,
+        "repos": 5
+      },
+      {
+        "sym": "url",
+        "uses": 89,
+        "repos": 3
+      },
+      {
+        "sym": "vertical",
+        "uses": 89,
+        "repos": 4
+      },
+      {
+        "sym": "tintColor",
+        "uses": 86,
+        "repos": 3
+      },
+      {
+        "sym": "presentedSheet",
+        "uses": 84,
+        "repos": 3
+      },
+      {
+        "sym": "image",
+        "uses": 74,
+        "repos": 5
+      },
+      {
+        "sym": "width",
+        "uses": 72,
+        "repos": 4
+      },
+      {
+        "sym": "allCases",
+        "uses": 72,
+        "repos": 4
+      },
+      {
+        "sym": "content",
+        "uses": 69,
+        "repos": 4
+      },
+      {
+        "sym": "infinity",
+        "uses": 67,
+        "repos": 3
+      },
+      {
+        "sym": "bold",
+        "uses": 61,
+        "repos": 4
+      },
+      {
+        "sym": "wrappedValue",
+        "uses": 59,
+        "repos": 4
+      },
+      {
+        "sym": "large",
+        "uses": 57,
+        "repos": 4
+      },
+      {
+        "sym": "none",
+        "uses": 55,
+        "repos": 3
+      },
+      {
+        "sym": "height",
+        "uses": 52,
+        "repos": 4
+      }
+    ]
+  },
+  "co_occurrence": [
+    {
+      "anchor": "MenuBarExtra",
+      "anchor_repos": 0,
+      "co_modifiers": []
+    },
+    {
+      "anchor": "searchable",
+      "anchor_repos": 1,
+      "co_modifiers": [
+        {
+          "sym": "onHover",
+          "repos": 1
+        },
+        {
+          "sym": "clipped",
+          "repos": 1
+        },
+        {
+          "sym": "sheet",
+          "repos": 1
+        },
+        {
+          "sym": "fileImporter",
+          "repos": 1
+        },
+        {
+          "sym": "alignmentGuide",
+          "repos": 1
+        },
+        {
+          "sym": "foregroundStyle",
+          "repos": 1
+        },
+        {
+          "sym": "chartXScale",
+          "repos": 1
+        },
+        {
+          "sym": "toolbar",
+          "repos": 1
+        },
+        {
+          "sym": "containerBackground",
+          "repos": 1
+        },
+        {
+          "sym": "rotationEffect",
+          "repos": 1
+        },
+        {
+          "sym": "mask",
+          "repos": 1
+        },
+        {
+          "sym": "allowsHitTesting",
+          "repos": 1
+        }
+      ]
+    },
+    {
+      "anchor": "NavigationSplitView",
+      "anchor_repos": 0,
+      "co_modifiers": []
+    }
+  ],
+  "custom_components_by_kind": {
+    "app": 5,
+    "layout": 3,
+    "preview": 151,
+    "shape": 5,
+    "style": 2,
+    "toolbarcontent": 17,
+    "transferable": 4,
+    "uikit_bridge": 11,
+    "view": 395,
+    "viewbuilder": 1117,
+    "viewmodifier": 16
+  },
+  "category_fingerprint": {
+    "SwiftUI": {
+      "repos": 4,
+      "avg_unique_modifiers": 56.2
+    }
+  }
+}

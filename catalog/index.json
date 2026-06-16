@@ -1,0 +1,54 @@
+{
+  "sdk": "iOS SDK (target floor iOS 17.0)",
+  "modules": [
+    "SwiftUI",
+    "SwiftUICore",
+    "Observation",
+    "SwiftData",
+    "Charts",
+    "WidgetKit",
+    "ActivityKit",
+    "AppIntents"
+  ],
+  "repos_analyzed": 5,
+  "custom_components": 609,
+  "view_builder_members": 1117,
+  "custom_components_total_incl_members": 1726,
+  "dimension_sizes": {
+    "modifiers": 200,
+    "types": 114,
+    "valueBuilders": 33,
+    "macros": 1,
+    "styleValues": 78,
+    "propertyWrappers": 16,
+    "environmentKeys": 21
+  },
+  "sdk_counts": {
+    "types": 1119,
+    "modifiers": 482,
+    "valueBuilders": 79,
+    "propertyWrappers": 27,
+    "macros": 25,
+    "environmentKeys": 122,
+    "styleValues": 131,
+    "protocols": 221
+  },
+  "shards": {
+    "modifiers": "modifiers.json",
+    "types": "types.json",
+    "valueBuilders": "valueBuilders.json",
+    "macros": "macros.json",
+    "styleValues": "styleValues.json",
+    "propertyWrappers": "propertyWrappers.json",
+    "environmentKeys": "environmentKeys.json"
+  },
+  "files": {
+    "customComponents": "customComponents.json",
+    "conformances": "conformances.json",
+    "bridges": "bridges.json",
+    "settings": "settings.json",
+    "insights": "insights.json",
+    "rankings": "rankings.json",
+    "by_repo": "by_repo/"
+  }
+}

@@ -1,0 +1,100 @@
+{
+ "repo": "Dimillian/MortyUI",
+ "stars": 468,
+ "categories": [
+  "GraphQL",
+  "SwiftUI"
+ ],
+ "sha": "76fe6db750bf20392e293e977d4edbf7c420c71e",
+ "platform": "ios",
+ "author_authority": 0,
+ "contributor_count": 0,
+ "top_contributors": [],
+ "loc": 4718,
+ "custom_components": 49,
+ "imports": [
+  "Apollo",
+  "ApolloCodegenLib",
+  "ApolloSQLite",
+  "ArgumentParser",
+  "Codegen",
+  "CodegenTests",
+  "Combine",
+  "CoreData",
+  "Darwin",
+  "Foundation",
+  "KingfisherSwiftUI",
+  "PackageDescription",
+  "SwiftUI",
+  "XCTest"
+ ],
+ "min_ios_inferred": "14",
+ "deprecated_apis_used": [
+  "NavigationView",
+  "foregroundColor",
+  "tabItem"
+ ],
+ "unique": {
+  "modifiers": [
+   "aspectRatio",
+   "cornerRadius",
+   "font",
+   "foregroundColor",
+   "frame",
+   "listStyle",
+   "navigationTitle",
+   "onAppear",
+   "redacted",
+   "resizable",
+   "tabItem"
+  ],
+  "types": [
+   "Button",
+   "ForEach",
+   "GroupedListStyle",
+   "HStack",
+   "Label",
+   "List",
+   "NavigationLink",
+   "NavigationView",
+   "ProgressView",
+   "RoundedRectangle",
+   "Section",
+   "Spacer",
+   "StateObject",
+   "TabView",
+   "Text",
+   "TextField",
+   "VStack",
+   "WindowGroup"
+  ],
+  "valueBuilders": [
+   "footnote",
+   "semibold",
+   "title3"
+  ],
+  "macros": [],
+  "styleValues": [
+   "blue",
+   "center",
+   "gray",
+   "leading",
+   "placeholder"
+  ],
+  "propertyWrappers": [
+   "ObservedObject",
+   "StateObject"
+  ],
+  "environmentKeys": []
+ },
+ "counts": {
+  "modifiers": 11,
+  "types": 18,
+  "valueBuilders": 3,
+  "macros": 0,
+  "styleValues": 5,
+  "propertyWrappers": 2,
+  "environmentKeys": 0
+ },
+ "total_unique_apis": 39
+}

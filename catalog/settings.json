@@ -1,0 +1,303 @@
+{
+ "count": 22,
+ "repos": 4,
+ "form_vocab_frequency": [
+  [
+   "Form",
+   14
+  ],
+  [
+   "Section",
+   11
+  ],
+  [
+   "Picker",
+   8
+  ],
+  [
+   "Toggle",
+   7
+  ],
+  [
+   "Spacer",
+   3
+  ],
+  [
+   "ColorPicker",
+   1
+  ],
+  [
+   "Slider",
+   1
+  ],
+  [
+   "TextField",
+   1
+  ],
+  [
+   "SecureField",
+   1
+  ]
+ ],
+ "screens": [
+  {
+   "name": "DisplaySettingsView",
+   "repo": "Dimillian/IceCubesApp",
+   "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/IceCubesApp/App/Tabs/Settings/DisplaySettingsView.swift#L21",
+   "wrappers": [
+    "Environment",
+    "State",
+    "ViewBuilder"
+   ],
+   "form_vocab": [
+    "ColorPicker",
+    "Form",
+    "Picker",
+    "Section",
+    "Slider",
+    "Spacer",
+    "Toggle"
+   ]
+  },
+  {
+   "name": "SettingsView",
+   "repo": "Dimillian/ACHNBrowserUI",
+   "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/settings/SettingsView.swift#L14",
+   "wrappers": [
+    "Environment",
+    "EnvironmentObject",
+    "ObservedObject",
+    "State"
+   ],
+   "form_vocab": [
+    "Form",
+    "Picker",
+    "Section",
+    "Spacer",
+    "TextField"
+   ]
+  },
+  {
+   "name": "TranslationSettingsView",
+   "repo": "Dimillian/IceCubesApp",
+   "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/IceCubesApp/App/Tabs/Settings/TranslationSettingsView.swift#L6",
+   "wrappers": [
+    "Environment",
+    "State",
+    "ViewBuilder"
+   ],
+   "form_vocab": [
+    "Form",
+    "Picker",
+    "Section",
+    "SecureField",
+    "Toggle"
+   ]
+  },
+  {
+   "name": "SettingsForm",
+   "repo": "Dimillian/MovieSwiftUI",
+   "permalink": "https://github.com/Dimillian/MovieSwiftUI/blob/72eb4ae7117fbf893be533c9a277c47a7287d87e/MovieSwift/MovieSwift/views/components/settings/SettingsForm.swift#L13",
+   "wrappers": [
+    "Environment",
+    "State"
+   ],
+   "form_vocab": [
+    "Form",
+    "Picker",
+    "Section",
+    "Spacer",
+    "Toggle"
+   ]
+  },
+  {
+   "name": "ContentSettingsView",
+   "repo": "Dimillian/IceCubesApp",
+   "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/IceCubesApp/App/Tabs/Settings/ContentSettingsView.swift#L12",
+   "wrappers": [
+    "Environment",
+    "State"
+   ],
+   "form_vocab": [
+    "Form",
+    "Picker",
+    "Section",
+    "Toggle"
+   ]
+  },
+  {
+   "name": "SwipeActionsSettingsView",
+   "repo": "Dimillian/IceCubesApp",
+   "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/IceCubesApp/App/Tabs/Settings/SwipeActionsSettingsView.swift#L6",
+   "wrappers": [
+    "Environment"
+   ],
+   "form_vocab": [
+    "Form",
+    "Picker",
+    "Section",
+    "Toggle"
+   ]
+  },
+  {
+   "name": "SettingsTabs",
+   "repo": "Dimillian/IceCubesApp",
+   "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/IceCubesApp/App/Tabs/Settings/SettingsTab.swift#L14",
+   "wrappers": [
+    "Environment",
+    "State",
+    "ViewBuilder"
+   ],
+   "form_vocab": [
+    "Form",
+    "Picker",
+    "Section",
+    "Toggle"
+   ]
+  },
+  {
+   "name": "HapticSettingsView",
+   "repo": "Dimillian/IceCubesApp",
+   "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/IceCubesApp/App/Tabs/Settings/HapticSettingsView.swift#L8",
+   "wrappers": [
+    "Environment"
+   ],
+   "form_vocab": [
+    "Form",
+    "Section",
+    "Toggle"
+   ]
+  },
+  {
+   "name": "TabbarEntriesSettingsView",
+   "repo": "Dimillian/IceCubesApp",
+   "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/IceCubesApp/App/Tabs/Settings/TabbarEntriesSettingsView.swift#L6",
+   "wrappers": [
+    "Environment",
+    "State"
+   ],
+   "form_vocab": [
+    "Form",
+    "Picker",
+    "Section"
+   ]
+  },
+  {
+   "name": "AccountSettingsView",
+   "repo": "Dimillian/IceCubesApp",
+   "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/IceCubesApp/App/Tabs/Settings/AccountSettingView.swift#L10",
+   "wrappers": [
+    "Environment",
+    "State"
+   ],
+   "form_vocab": [
+    "Form",
+    "Section"
+   ]
+  },
+  {
+   "name": "SettingsView",
+   "repo": "Dimillian/IcySky",
+   "permalink": "https://github.com/Dimillian/IcySky/blob/03560c6a30277175ea91a6bfc63b50380542017c/Packages/Features/Sources/SettingsUI/SettingsView.swift#L5",
+   "wrappers": [
+    "Environment"
+   ],
+   "form_vocab": [
+    "Form",
+    "Section"
+   ]
+  },
+  {
+   "name": "TagsGroupSettingView",
+   "repo": "Dimillian/IceCubesApp",
+   "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/IceCubesApp/App/Tabs/Settings/TagsGroupSettingView.swift#L7",
+   "wrappers": [
+    "Environment",
+    "Query"
+   ],
+   "form_vocab": [
+    "Form"
+   ]
+  },
+  {
+   "name": "RecenTagsSettingView",
+   "repo": "Dimillian/IceCubesApp",
+   "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/IceCubesApp/App/Tabs/Settings/RecenTagsSettingView.swift#L7",
+   "wrappers": [
+    "Environment",
+    "Query"
+   ],
+   "form_vocab": [
+    "Form"
+   ]
+  },
+  {
+   "name": "RemoteTimelinesSettingView",
+   "repo": "Dimillian/IceCubesApp",
+   "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/IceCubesApp/App/Tabs/Settings/RemoteTimelinesSettingView.swift#L7",
+   "wrappers": [
+    "Environment",
+    "Query"
+   ],
+   "form_vocab": [
+    "Form"
+   ]
+  },
+  {
+   "name": "configurationSection",
+   "repo": "Dimillian/ACHNBrowserUI",
+   "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/turnips/TurnipsFormView.swift#L79",
+   "wrappers": [],
+   "form_vocab": []
+  },
+  {
+   "name": "settingsButton",
+   "repo": "Dimillian/ACHNBrowserUI",
+   "permalink": "https://github.com/Dimillian/ACHNBrowserUI/blob/7bcb4e383a740fd81ae3ef6498a3f1757de24460/ACHNBrowserUI/ACHNBrowserUI/views/todayDashboard/TodayView.swift#L65",
+   "wrappers": [],
+   "form_vocab": []
+  },
+  {
+   "name": "generalSection",
+   "repo": "Dimillian/IceCubesApp",
+   "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/IceCubesApp/App/Tabs/Settings/SettingsTab.swift#L161",
+   "wrappers": [],
+   "form_vocab": []
+  },
+  {
+   "name": "settingsButton",
+   "repo": "Dimillian/IceCubesApp",
+   "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/Packages/AppAccount/Sources/AppAccount/AppAccountsSelectorView.swift#L195",
+   "wrappers": [],
+   "form_vocab": []
+  },
+  {
+   "name": "postSettingsSection",
+   "repo": "Dimillian/IceCubesApp",
+   "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/Packages/Account/Sources/Account/Edit/EditAccountView.swift#L166",
+   "wrappers": [],
+   "form_vocab": []
+  },
+  {
+   "name": "generalTranslateButton",
+   "repo": "Dimillian/IceCubesApp",
+   "permalink": "https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/Packages/StatusKit/Sources/StatusKit/Row/Subviews/StatusRowTranslateView.swift#L60",
+   "wrappers": [],
+   "form_vocab": []
+  },
+  {
+   "name": "settingsSection",
+   "repo": "Dimillian/MovieSwiftUI",
+   "permalink": "https://github.com/Dimillian/MovieSwiftUI/blob/72eb4ae7117fbf893be533c9a277c47a7287d87e/MovieSwift/MovieSwift/views/components/discover/DiscoverFilterForm.swift#L81",
+   "wrappers": [],
+   "form_vocab": []
+  },
+  {
+   "name": "settingButton",
+   "repo": "Dimillian/MovieSwiftUI",
+   "permalink": "https://github.com/Dimillian/MovieSwiftUI/blob/72eb4ae7117fbf893be533c9a277c47a7287d87e/MovieSwift/MovieSwift/views/components/moviesHome/MoviesHome.swift#L29",
+   "wrappers": [],
+   "form_vocab": []
+  }
+ ]
+}

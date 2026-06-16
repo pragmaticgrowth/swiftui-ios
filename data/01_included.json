@@ -1,0 +1,125 @@
+[
+  {
+    "owner": "Dimillian",
+    "repo": "IceCubesApp",
+    "full_name": "Dimillian/IceCubesApp",
+    "default_branch": "main",
+    "stars": 6998,
+    "pushed_at": "2026-06-09",
+    "swift_bytes": 1292685,
+    "swift_share": 0.9966,
+    "languages": {
+      "Swift": 1292685,
+      "Shell": 3910,
+      "JavaScript": 470
+    },
+    "categories": [
+      "Mastodon"
+    ],
+    "flags": [],
+    "license": "AGPL-3.0"
+  },
+  {
+    "owner": "Dimillian",
+    "repo": "IcySky",
+    "full_name": "Dimillian/IcySky",
+    "default_branch": "main",
+    "stars": 535,
+    "pushed_at": "2025-06-20",
+    "swift_bytes": 114048,
+    "swift_share": 0.9993,
+    "languages": {
+      "Swift": 114048,
+      "Shell": 78
+    },
+    "categories": [
+      "SwiftUI"
+    ],
+    "flags": [],
+    "license": "AGPL-3.0"
+  },
+  {
+    "owner": "Dimillian",
+    "repo": "MortyUI",
+    "full_name": "Dimillian/MortyUI",
+    "default_branch": "main",
+    "stars": 468,
+    "pushed_at": "2021-09-01",
+    "swift_bytes": 149586,
+    "swift_share": 1.0,
+    "languages": {
+      "Swift": 149586
+    },
+    "categories": [
+      "GraphQL",
+      "SwiftUI"
+    ],
+    "flags": [],
+    "license": "Apache-2.0"
+  },
+  {
+    "owner": "pointfreeco",
+    "repo": "isowords",
+    "full_name": "pointfreeco/isowords",
+    "default_branch": "main",
+    "stars": 2991,
+    "pushed_at": "2024-08-16",
+    "swift_bytes": 1404946,
+    "swift_share": 0.9577,
+    "languages": {
+      "Swift": 1404946,
+      "HTML": 32067,
+      "CSS": 14254,
+      "Makefile": 11247,
+      "GLSL": 1981,
+      "Dockerfile": 1694,
+      "Shell": 742,
+      "C": 44
+    },
+    "categories": [
+      "SwiftUI"
+    ],
+    "flags": [],
+    "license": "NOASSERTION"
+  },
+  {
+    "owner": "Dimillian",
+    "repo": "MovieSwiftUI",
+    "full_name": "Dimillian/MovieSwiftUI",
+    "default_branch": "master",
+    "stars": 6527,
+    "pushed_at": "2024-01-17",
+    "swift_bytes": 237456,
+    "swift_share": 0.9987,
+    "languages": {
+      "Swift": 237456,
+      "Objective-C": 305
+    },
+    "categories": [
+      "Content",
+      "SwiftUI",
+      "macOS"
+    ],
+    "flags": [],
+    "license": "Apache-2.0"
+  },
+  {
+    "owner": "Dimillian",
+    "repo": "ACHNBrowserUI",
+    "full_name": "Dimillian/ACHNBrowserUI",
+    "default_branch": "main",
+    "stars": 1723,
+    "pushed_at": "2023-12-06",
+    "swift_bytes": 544279,
+    "swift_share": 0.9681,
+    "languages": {
+      "Swift": 544279,
+      "JavaScript": 17949
+    },
+    "categories": [
+      "SwiftUI"
+    ],
+    "flags": [],
+    "license": "Apache-2.0"
+  }
+]
