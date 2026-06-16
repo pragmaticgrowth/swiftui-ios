@@ -1,0 +1,17 @@
+{
+  "name": "swiftui-ios",
+  "owner": { "name": "yigitkonur", "url": "https://github.com/yigitkonur" },
+  "metadata": {
+    "description": "Real-world SwiftUI for AI agents — how shipping iOS & iPadOS apps actually use SwiftUI, as a queryable CLI + skills (domain audits + write/modernize/scaffold).",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "swiftui-ios",
+      "description": "Ground AI-written SwiftUI in real production usage from iOS & iPadOS apps, plus skills (domain audits + write/modernize/scaffold): lookup/consensus/deprecation/recipes + domain audits via the swiftui-ctx CLI, slash commands, a review agent, and a deprecation hook.",
+      "version": "0.1.0",
+      "author": { "name": "yigitkonur", "url": "https://github.com/yigitkonur" },
+      "source": "."
+    }
+  ]
+}

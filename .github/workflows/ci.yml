@@ -1,0 +1,50 @@
+name: ci
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable          # Swift 6 toolchain (runner default is older)
+      - name: Install lint deps (so the audit engine's tier-2 ast-grep rules are actually exercised)
+        run: brew install ast-grep ripgrep
+
+      - name: Build + scanner regression + CLI smoke
+        run: make test
+      - name: CLI doctor (catalog loads)
+        run: SWIFTUI_CTX_CATALOG="$PWD/catalog" swiftui-scan/.build/release/swiftui-ctx doctor
+
+      - name: CLI subcommand smokes (each must exit 0 / ok:true)
+        run: |
+          set -euo pipefail
+          B=swiftui-scan/.build/release/swiftui-ctx
+          export SWIFTUI_CTX_CATALOG="$PWD/catalog"
+          ok() { echo "smoke: $*"; "$B" "$@" --json | python3 -c 'import sys,json; assert json.load(sys.stdin)["ok"], "ok:false"'; }
+          ok deprecated
+          ok search drag
+          ok examples MenuBarExtra
+          ok recipe menubar-app
+          ok stats
+          ok doctor
+          ok conformances View
+          ok valueBuilders ease
+
+      - name: Audit lint engine self-test (rule-rot guard; ast-grep present → tier-2 exercised)
+        run: make audit-selftest
+      - name: Orchestrator steering smoke
+        run: python3 scripts/audit-scan.py tests/fixtures --json /tmp/scan.json && python3 -c 'import json;d=json.load(open("/tmp/scan.json"));assert d["relevant_skills"],"no relevant skills";print(len(d["relevant_skills"]),"relevant")'
+
+      - name: deprecated-names.txt is in sync with the catalog
+        run: |
+          python3 scripts/gen_deprecated_list.py
+          git diff --exit-code hooks/deprecated-names.txt \
+            || (echo "::error::hooks/deprecated-names.txt is stale — run scripts/gen_deprecated_list.py and commit" && exit 1)
+
+      - name: Validate every skill against the Agent Skills spec (dependency-free, fail-fast)
+        run: make validate
