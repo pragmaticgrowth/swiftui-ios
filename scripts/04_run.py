@@ -43,7 +43,8 @@ def clone(full, tmp):
     url = f"https://github.com/{full}.git"
     env = {**os.environ, "GIT_LFS_SKIP_SMUDGE": "1", "GIT_TERMINAL_PROMPT": "0"}
     for attempt in range(2):
-        r = subprocess.run(["git","clone","--depth","1","--single-branch","--quiet",url,tmp],
+        r = subprocess.run(["git","clone","-c","filter.lfs.smudge=","-c","filter.lfs.required=false",
+                            "--depth","1","--single-branch","--quiet",url,tmp],
                            capture_output=True, text=True, env=env, timeout=300)
         if r.returncode == 0: return True, ""
         shutil.rmtree(tmp, ignore_errors=True); os.makedirs(tmp, exist_ok=True)
