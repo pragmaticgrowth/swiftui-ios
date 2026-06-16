@@ -18,30 +18,38 @@ def load(name):
 
 # Curated recipes: api list + a canonical skeleton. We resolve real examples from the shards.
 CURATED = [
- {"name":"menubar-app","apis":["MenuBarExtra","menuBarExtraStyle","Settings"],"dim":"types","anchor":"MenuBarExtra",
-  "description":"A menu-bar (status item) macOS app with a Settings window.",
-  "template":'@main struct MyApp: App {\n  var body: some Scene {\n    MenuBarExtra("Title", systemImage: "star") {\n      ContentView()\n    }.menuBarExtraStyle(.window)\n    Settings { SettingsView() }\n  }\n}'},
- {"name":"master-detail","apis":["NavigationSplitView","List","navigationDestination"],"dim":"types","anchor":"NavigationSplitView",
-  "description":"Sidebar + detail navigation (the macOS standard).",
-  "template":'NavigationSplitView {\n  List(items, selection: $selection) { item in\n    NavigationLink(item.name, value: item)\n  }\n} detail: {\n  DetailView(selection)\n}'},
+ # ── iOS-specific patterns ────────────────────────────────────────────────────
+ {"name":"tab-bar-app","apis":["TabView","tabItem"],"dim":"types","anchor":"TabView",
+  "description":"A tab-bar iOS app: TabView with .tabItem labels for each root screen.",
+  "template":'@main struct MyApp: App {\n  var body: some Scene {\n    WindowGroup { MainTabs() }\n  }\n}\n\nstruct MainTabs: View {\n  var body: some View {\n    TabView {\n      HomeView().tabItem { Label("Home", systemImage: "house") }\n      SearchView().tabItem { Label("Search", systemImage: "magnifyingglass") }\n      ProfileView().tabItem { Label("Profile", systemImage: "person") }\n    }\n  }\n}'},
+ {"name":"navigationstack-master-detail","apis":["NavigationStack","navigationDestination"],"dim":"types","anchor":"NavigationStack",
+  "description":"iOS master-detail: NavigationStack with .navigationDestination for type-safe push navigation.",
+  "template":'NavigationStack(path: $path) {\n  List(items) { item in\n    NavigationLink(item.name, value: item)\n  }\n  .navigationDestination(for: Item.self) { item in\n    DetailView(item: item)\n  }\n  .navigationTitle("Items")\n}'},
+ {"name":"sheet-detents","apis":["sheet","presentationDetents"],"dim":"modifiers","anchor":"presentationDetents",
+  "description":"A bottom sheet with height detents (.medium, .large, or custom fraction/height).",
+  "template":'.sheet(isPresented: $showSheet) {\n  SheetContent()\n    .presentationDetents([.medium, .large])\n    .presentationDragIndicator(.visible)\n}'},
+ {"name":"fullscreen-cover-flow","apis":["fullScreenCover"],"dim":"modifiers","anchor":"fullScreenCover",
+  "description":"Full-screen modal cover (no drag-to-dismiss; typical for onboarding or immersive flows).",
+  "template":'.fullScreenCover(isPresented: $showOnboarding) {\n  OnboardingView(isPresented: $showOnboarding)\n}'},
+ {"name":"widget-scaffold","apis":["Widget","WidgetBundle"],"dim":"types","anchor":"Widget",
+  "description":"WidgetKit home-screen widget: a Widget conformance with a Timeline provider and entry view.",
+  "template":'struct MyWidget: Widget {\n  var body: some WidgetConfiguration {\n    StaticConfiguration(kind: "com.example.widget", provider: Provider()) { entry in\n      MyWidgetEntryView(entry: entry)\n    }\n    .configurationDisplayName("My Widget")\n    .description("Shows current status.")\n  }\n}'},
+ {"name":"app-intent","apis":["AppIntent","AppShortcutsProvider"],"dim":"types","anchor":"AppIntent",
+  "description":"App Intent exposed to Siri / Shortcuts: an AppIntent struct with @Parameter inputs and an AppShortcutsProvider.",
+  "template":'struct OpenItemIntent: AppIntent {\n  static var title: LocalizedStringResource = "Open Item"\n  @Parameter(title: "Item") var item: ItemEntity\n  func perform() async throws -> some IntentResult {\n    // navigate to item\n    return .result()\n  }\n}\n\nstruct MyShortcuts: AppShortcutsProvider {\n  static var appShortcuts: [AppShortcut] {\n    AppShortcut(intent: OpenItemIntent(), phrases: ["Open \\(\\.$item) in MyApp"])\n  }\n}'},
+ # ── Platform-neutral patterns ─────────────────────────────────────────────────
  {"name":"searchable-list","apis":["searchable","searchScopes"],"dim":"modifiers","anchor":"searchable",
   "description":"A list with a search field (and optional scopes).",
   "template":'List(results) { Text($0.title) }\n  .searchable(text: $query)\n  // bind @State private var query = ""'},
  {"name":"settings-form","apis":["Form","Section","Toggle","Picker","LabeledContent"],"dim":"types","anchor":"Form",
   "description":"A grouped settings/preferences Form (Toggle/Picker/LabeledContent).",
-  "template":'Form {\n  Section("General") {\n    Toggle("Enable", isOn: $on)\n    Picker("Theme", selection: $theme) { /* … */ }\n    LabeledContent("Version", value: appVersion)\n  }\n}.formStyle(.grouped)'},
+  "template":'Form {\n  Section("General") {\n    Toggle("Enable", isOn: $on)\n    Picker("Theme", selection: $theme) { /* … */ }\n    LabeledContent("Version", value: appVersion)\n  }\n}'},
  {"name":"observable-model","apis":["Observable","State","Bindable"],"dim":"propertyWrappers","anchor":"Observable",
   "description":"Modern Observation state: an @Observable model owned by a view.",
   "template":'@Observable final class Model { var count = 0 }\n\nstruct V: View {\n  @State private var model = Model()\n  var body: some View { Stepper("\\(model.count)", value: $model.count) }\n}'},
- {"name":"window-scene","apis":["WindowGroup","windowStyle","windowResizability","defaultSize"],"dim":"modifiers","anchor":"windowStyle",
-  "description":"Custom window configuration (style/resizability/size).",
-  "template":'WindowGroup { ContentView() }\n  .windowStyle(.hiddenTitleBar)\n  .windowResizability(.contentSize)\n  .defaultSize(width: 600, height: 400)'},
  {"name":"charts-bar","apis":["Chart","BarMark","chartXAxis"],"dim":"types","anchor":"BarMark",
   "description":"A Swift Charts bar chart with axis configuration.",
   "template":'Chart(data) { row in\n  BarMark(x: .value("Day", row.day), y: .value("Total", row.total))\n}\n.chartXAxis { AxisMarks() }'},
- {"name":"command-palette","apis":["searchable","keyboardShortcut","onKeyPress","focused"],"dim":"modifiers","anchor":"searchable",
-  "description":"A ⌘K-style command palette / quick-open overlay: a presented panel with a search field + filtered list, opened by a keyboard shortcut and dismissed on escape.",
-  "template":'.sheet(isPresented: $showPalette) {\n  VStack {\n    TextField("Search…", text: $query).focused($focused)\n    List(results) { Button($0.title) { run($0) } }\n  }.onKeyPress(.escape) { showPalette = false; return .handled }\n}\n.keyboardShortcut("k", modifiers: .command)'},
  {"name":"draggable-reorder","apis":["onMove","draggable","dropDestination","Transferable"],"dim":"modifiers","anchor":"onMove",
   "description":"Reorderable list rows. Classic: List + .onMove. Custom: .draggable/.dropDestination with a Transferable type.",
   "template":'List {\n  ForEach(items) { Text($0.name) }\n    .onMove { from, to in items.move(fromOffsets: from, toOffset: to) }\n}'},
@@ -77,25 +85,17 @@ def main():
         recipes.append({"name":r["name"], "kind":"pattern", "apis":r["apis"],
                         "description":r["description"], "template":r["template"],
                         "repos":n, "examples":exs})
-    # bridge template recipe (NSViewRepresentable) — point at real bridges
+    # UIKit bridge recipe (UIViewRepresentable / UIViewControllerRepresentable) — point at real UIKit bridges
     bridges = load("bridges.json")
     if bridges:
-        recipes.append({"name":"nsview-bridge","kind":"bridge","apis":["NSViewRepresentable"],
-            "description":f"Wrap an AppKit NSView in SwiftUI ({bridges.get('count',0)} real bridges across {bridges.get('repos',0)} repos).",
-            "template":'struct MyView: NSViewRepresentable {\n  func makeNSView(context: Context) -> NSScrollView { … }\n  func updateNSView(_ v: NSScrollView, context: Context) { … }\n}',
-            "repos":bridges.get("repos",0),
+        uikit_bridges = [b for b in bridges.get("bridges", []) if b.get("platform") == "uikit"]
+        uikit_repos = len({b["repo"] for b in uikit_bridges})
+        recipes.append({"name":"uiview-bridge","kind":"bridge","apis":["UIViewRepresentable","UIViewControllerRepresentable"],
+            "description":f"Wrap a UIKit UIView or UIViewController in SwiftUI ({len(uikit_bridges)} real bridges across {uikit_repos} repos).",
+            "template":'struct MyUIKitView: UIViewRepresentable {\n  func makeUIView(context: Context) -> UIScrollView { UIScrollView() }\n  func updateUIView(_ uiView: UIScrollView, context: Context) { }\n}',
+            "repos":uikit_repos,
             "examples":[{"repo":b["repo"],"permalink":b["permalink"],"name":b["name"]}
-                        for b in bridges.get("bridges",[])[:8]]})
-    # settings screens recipe — point at richest real settings views
-    settings = load("settings.json")
-    if settings:
-        recipes.append({"name":"settings-screen","kind":"screen","apis":["Form","TabView","Section"],
-            "description":f"Full settings/preferences screens ({settings.get('count',0)} across {settings.get('repos',0)} repos). Common vocab: "
-                          + ", ".join(f"{k}({v})" for k,v in settings.get("form_vocab_frequency",[])[:8]),
-            "template":'struct SettingsView: View {\n  var body: some View {\n    TabView {\n      GeneralTab().tabItem { Label("General", systemImage: "gear") }\n    }.frame(width: 480, height: 320)\n  }\n}',
-            "repos":settings.get("repos",0),
-            "examples":[{"repo":s["repo"],"permalink":s["permalink"],"name":s["name"],"form_vocab":s["form_vocab"]}
-                        for s in settings.get("screens",[])[:8]]})
+                        for b in uikit_bridges[:8]]})
     out = {"count":len(recipes), "recipes":recipes}
     json.dump(out, open(os.path.join(CAT,"recipes.json"),"w"), indent=1)
     print(f"wrote catalog/recipes.json: {len(recipes)} recipes")
