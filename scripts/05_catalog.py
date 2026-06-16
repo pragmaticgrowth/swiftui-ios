@@ -16,10 +16,16 @@ STYLE_CAT = SDK.get("style_categories", {})
 # author-authority enrichment (optional; falls back to stars-only ranking if absent)
 try: AUTH = json.load(open(os.path.join(ROOT,"data","07_repo_authority.json")))
 except Exception: AUTH = {}
-# symbols that prove a repo is a macOS app (vs iOS/library)
+# symbols that prove a repo targets a given platform
+IOS_SIGNALS = {"UIViewRepresentable","UIViewControllerRepresentable","UIHostingController",
+               "UIApplicationDelegateAdaptor","fullScreenCover","presentationDetents",
+               "navigationBarTitleDisplayMode","prefersLargeContent","UIScreen","UIDevice",
+               "UIImpactFeedbackGenerator","ControlWidget","ActivityAttributes"}
 MACOS_SIGNALS = {"MenuBarExtra","Settings","NSViewRepresentable","NSViewControllerRepresentable",
                  "NSHostingController","windowStyle","menuBarExtraStyle","windowResizability",
                  "NSApplicationDelegateAdaptor","HSplitView","windowToolbarStyle","onExitCommand"}
+IPAD_IDIOM_SIGNALS = {"NavigationSplitView","horizontalSizeClass","verticalSizeClass",
+                      "ViewThatFits","containerRelativeFrame","supportsMultipleWindows"}
 DEMO_RE = re.compile(r'sample|example|tutorial|demo|playground', re.I)
 # Container/builder views almost always called with a trailing closure: `Form { … }`. A `Form(message:…)`
 # call WITHOUT a trailing closure is a same-named custom struct (false positive) — require the closure.
@@ -31,19 +37,28 @@ COOC_NOISE = {"immersionStyle","ornament","onImmersionChange","dragConfiguration
 OUT  = os.path.join(ROOT,"catalog")
 EX_CAP = 25
 ENVKEY = re.compile(r'\\\.([A-Za-z_]\w*)')
-UI_IMPORTS = {"SwiftUI", "SwiftUICore", "Charts"}
+UI_IMPORTS = {"SwiftUI", "SwiftUICore", "Charts", "UIKit"}
 DIMS = ("modifiers","types","valueBuilders","macros","styleValues","propertyWrappers","environmentKeys")
 SETTINGS_RE = re.compile(r'(setting|preference|config|general|advanced)', re.I)
 # form/settings vocabulary worth surfacing inside a settings screen
 FORM_VOCAB = {"Form","TabView","GroupBox","Section","LabeledContent","Toggle","Picker","TextField",
-              "SecureField","Slider","Stepper","ColorPicker","DatePicker","Settings","NavigationSplitView",
+              "SecureField","Slider","Stepper","ColorPicker","DatePicker","NavigationSplitView",
               "List","Grid","Table","KeyboardShortcut","Divider","Spacer","DisclosureGroup"}
 
-def macos_ver(s):
+def ios_ver(s):
     try:
         parts = str(s).split('.')
         return int(parts[0]) + (int(parts[1])/100.0 if len(parts) > 1 else 0.0)
     except: return 0.0
+
+def classify_platform(imports, syms, swiftui_occ, has_app):
+    ios_pos = ("UIKit" in imports) or bool(IOS_SIGNALS & syms)
+    mac_pos = ("AppKit" in imports) or bool(MACOS_SIGNALS & syms)
+    if ios_pos and mac_pos: return "cross_platform"
+    if ios_pos: return "ios"
+    if mac_pos: return "macos"
+    if swiftui_occ == 0 and not has_app: return "library"
+    return "ios"   # default low-confidence (awesome-ios seed is iOS-majority)
 
 def dim_for(occ):
     """Map an occurrence to (dimension, symbol) or None. valueBuilders is checked after the
@@ -97,7 +112,8 @@ def main():
         repo_meta[repo] = {"stars":stars, "categories":head.get("categories",[]),
                            "sha":head.get("sha"), "pushed_at":head.get("pushed_at")}
         prof = {d:set() for d in DIMS}
-        prof.update(customComponents=0, imports=set(), loc=0, max_macos=0.0, deprecated=set())
+        prof.update(customComponents=0, imports=set(), loc=0, max_ios=0.0, deprecated=set(),
+                    swiftui_occ=0, decls_kinds=[])
         for ln in lines[1:]:
             try: obj = json.loads(ln)
             except: continue
@@ -105,6 +121,7 @@ def main():
             path = obj.get("path",""); imps = obj.get("imports",[])
             prof["imports"].update(imps); prof["loc"] += obj.get("loc",0)
             if not (UI_IMPORTS & set(imps)): continue
+            file_is_swiftui = bool({"SwiftUI","SwiftUICore"} & set(imps))
             for occ in obj.get("occurrences",[]):
                 # env key from @Environment(\.key) attribute args
                 if occ["kind"]=="attribute" and occ["sym"]=="Environment" and occ.get("args"):
@@ -120,11 +137,12 @@ def main():
                     sh = arg_shape(occ)
                     if sh is not None: index[dim][sym]["arg_shapes"][sh] += 1
                     prof[dim].add(sym)
+                    if file_is_swiftui: prof["swiftui_occ"] += 1
                     if sym in FORM_VOCAB and occ.get("scope"):
                         scope_vocab[repo][occ["scope"]].add(sym)
                     av = AVAIL.get(sym, {})
-                    iv = macos_ver(av.get("introduced_macos","")) if av else 0.0
-                    if iv > prof["max_macos"]: prof["max_macos"] = iv
+                    iv = ios_ver(av.get("introduced_ios","")) if av else 0.0
+                    if iv > prof["max_ios"]: prof["max_ios"] = iv
                     if av.get("deprecated"):
                         deprecated_usage[sym]["repos"][repo]+=1
                         deprecated_usage[sym]["renamed"]=av.get("renamed","")
@@ -138,9 +156,11 @@ def main():
                                "conforms":d.get("conforms",[]),"wrappers":d.get("wrappers",[]),
                                "permalink": plink})
                 prof["customComponents"] += 1
-                if d["kind"] == "bridge":
+                prof["decls_kinds"].append(d["kind"])
+                if d["kind"].endswith("bridge"):
                     bridges.append({"name":d["name"],"repo":repo,"conforms":d.get("conforms",[]),
-                                    "permalink":plink})
+                                    "permalink":plink,
+                                    "platform": "uikit" if d["kind"]=="uikit_bridge" else "appkit"})
                 if d["kind"] in ("view","viewbuilder") and SETTINGS_RE.search(d["name"]):
                     settings_views.append({"name":d["name"],"repo":repo,"permalink":plink,
                                            "wrappers":d.get("wrappers",[])})
@@ -153,11 +173,13 @@ def main():
                                 {"repo":repo,"name":d["name"],"permalink":f"{base}{path}#L{d['line']}"})
         repo_profile[repo] = prof
         # platform + modernity classification (needs the finished profile)
-        repo_meta[repo]["min_macos"] = prof["max_macos"]
+        repo_meta[repo]["min_ios"] = prof["max_ios"]
         repo_meta[repo]["deprecated"] = len(prof["deprecated"]) > 0
-        is_mac = ("AppKit" in prof["imports"]) or bool(
-            MACOS_SIGNALS & (prof["types"] | prof["modifiers"] | prof["propertyWrappers"]))
-        repo_meta[repo]["platform"] = "macos" if is_mac else "other"
+        syms = prof["types"] | prof["modifiers"] | prof["propertyWrappers"]
+        has_app = any(k in ("app","scene") for k in prof.get("decls_kinds", []))
+        repo_meta[repo]["platform"] = classify_platform(
+            set(prof["imports"]), syms, prof.get("swiftui_occ", 0), has_app)
+        repo_meta[repo]["ipad_idioms"] = sorted(IPAD_IDIOM_SIGNALS & syms)
         _write_repo_profile(repo, prof, repo_meta[repo])
 
     # ---- composite quality score per repo (author-authority + stars + modernity + recency) ----
@@ -261,26 +283,26 @@ def _add(rec, repo, base, path, occ):
 
 def repo_score(r, meta):
     """Composite quality score in [0,1]: author authority + stars dominate; modernity, recency,
-    contributor count contribute; deprecated-usage / demo-repo / non-macOS are penalized."""
+    contributor count contribute; deprecated-usage / demo-repo / non-iOS are penalized."""
     m = meta[r]; a = AUTH.get(r, {})
     stars_n  = math.log10(m.get("stars",0)+1)/5.0                       # /log10(1e5)
     author_n = math.log10(a.get("author_authority",0)+1)/6.0           # /log10(1e6)
     author_n *= min(1.0, (m.get("stars",0)+10)/60.0)                   # damp authority for very-low-star repos
-    modern_n = min(1.0, max(0.0, (m.get("min_macos",0)-10)/16.0))      # macOS 10→0 … 26→1
+    modern_n = min(1.0, max(0.0, (m.get("min_ios",0)-13)/13.0))   # iOS 13→0 … 26→1
     py = int((m.get("pushed_at") or "2023")[:4] or 2023)
     recency_n = min(1.0, max(0.0, (py-2023)/3.0))
     contrib_n = math.log10(a.get("contributor_count",0)+1)/2.5         # /log10(~300)
     pen = (0.30 if m.get("deprecated") else 0.0) \
         + (0.20 if DEMO_RE.search(r) else 0.0) \
-        + (0.25 if m.get("platform") != "macos" else 0.0)
+        + (0.25 if m.get("platform") not in ("ios","cross_platform") else 0.0)
     return round(max(0.0, 0.30*min(1,stars_n) + 0.30*min(1,author_n) + 0.15*modern_n
                          + 0.15*recency_n + 0.10*min(1,contrib_n) - pen), 4)
 
 def _provenance(r, meta, scores):
     m = meta[r]; a = AUTH.get(r, {})
-    mm = m.get("min_macos",0)
+    mm = m.get("min_ios",0)
     return {"stars":m.get("stars",0), "author_authority":a.get("author_authority",0),
-            "min_macos": (f"{mm:.2f}".rstrip('0').rstrip('.') if mm else None),
+            "min_ios": (f"{mm:.2f}".rstrip('0').rstrip('.') if mm else None),
             "platform":m.get("platform","?"), "score":scores.get(r,0)}
 
 def _poor(src):
@@ -309,7 +331,7 @@ def _write_repo_profile(repo, prof, meta):
            "top_contributors":a.get("top_contributors",[]),
            "loc":prof["loc"], "custom_components":prof["customComponents"],
            "imports": sorted(prof["imports"]),
-           "min_macos_inferred": f"{prof['max_macos']:.2f}".rstrip('0').rstrip('.') if prof['max_macos'] else None,
+           "min_ios_inferred": f"{prof['max_ios']:.2f}".rstrip('0').rstrip('.') if prof['max_ios'] else None,
            "deprecated_apis_used": sorted(prof["deprecated"]),
            "unique": {d: sorted(prof[d]) for d in DIMS},
            "counts": {d: len(prof[d]) for d in DIMS}}
@@ -367,13 +389,13 @@ def _rankings(prof, meta):
            "modifiers":len(prof[r]["modifiers"]),"types":len(prof[r]["types"]),
            "valueBuilders":len(prof[r]["valueBuilders"]),
            "custom_components":prof[r]["customComponents"],
-           "min_macos": f"{prof[r]['max_macos']:.2f}".rstrip('0').rstrip('.') if prof[r]['max_macos'] else None}
+           "min_ios": f"{prof[r]['max_ios']:.2f}".rstrip('0').rstrip('.') if prof[r]['max_ios'] else None}
           for r in prof]
     return {"by_total_unique_apis":sorted(rows,key=lambda x:-x["total_unique_apis"])[:50],
             "by_modifier_breadth":sorted(rows,key=lambda x:-x["modifiers"])[:50],
             "by_custom_components":sorted(rows,key=lambda x:-x["custom_components"])[:50],
-            "most_modern_stack":sorted([r for r in rows if r["min_macos"] and r["total_unique_apis"]>=30],
-                                       key=lambda x:-macos_ver(x["min_macos"]))[:30]}
+            "most_modern_stack":sorted([r for r in rows if r["min_ios"] and r["total_unique_apis"]>=30],
+                                       key=lambda x:-ios_ver(x["min_ios"]))[:30]}
 
 if __name__ == "__main__":
     main()
