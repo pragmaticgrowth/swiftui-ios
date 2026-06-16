@@ -43,10 +43,12 @@ def gh_api(path):
     After exhausting retries returns (False, None, 429) — a DISTINCT signal so
     callers can record reason="ratelimited" instead of "dead_or_renamed".
     """
-    for attempt, backoff in enumerate([0] + _BACKOFF_SCHEDULE):
-        if backoff:
-            print(f"  [rate-limit] sleeping {backoff}s before retry {attempt}/{len(_BACKOFF_SCHEDULE)} for {path}", flush=True)
-            time.sleep(backoff)
+    # next_sleep carries the wait to apply BEFORE the upcoming attempt (0 for the first).
+    next_sleep = 0
+    for attempt in range(len(_BACKOFF_SCHEDULE) + 1):
+        if next_sleep:
+            print(f"  [rate-limit] sleeping {next_sleep}s before retry {attempt}/{len(_BACKOFF_SCHEDULE)} for {path}", flush=True)
+            time.sleep(next_sleep)
         r = subprocess.run(["gh","api","-i",path], capture_output=True, text=True)
         out = r.stdout
         # parse status line
@@ -70,10 +72,11 @@ def gh_api(path):
         # Check for rate-limit before deciding on success/failure
         if _is_rate_limited(status, body, r.stderr, headers_text):
             if attempt < len(_BACKOFF_SCHEDULE):
-                # Compute how long to sleep
+                # Pick a LOCAL sleep for the next attempt; never mutate the global schedule.
+                base = _BACKOFF_SCHEDULE[attempt]
                 suggested = _parse_retry_after(headers_text)
-                if suggested is not None:
-                    _BACKOFF_SCHEDULE[attempt] = suggested  # override next iteration's wait
+                # Cap any header-derived suggestion at 600s so no single stall exceeds 10 min.
+                next_sleep = min(suggested, 600) if suggested else base
                 continue  # retry
             else:
                 # Exhausted retries — return distinct 429 signal
