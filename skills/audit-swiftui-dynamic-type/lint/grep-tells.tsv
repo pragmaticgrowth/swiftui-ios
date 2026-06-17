@@ -1,0 +1,13 @@
+# grep-tells.tsv — TIER 1 (flat-presence) rules for audit-swiftui-dynamic-type (dt-01 … dt-05).
+# Columns (TAB-separated): id <TAB> severity <TAB> ERE-regex <TAB> message
+# severity: hard | warn | adv   (hard → runner exits 2). The runner greps each ERE over the target *.swift.
+# This LOCATES only — the LLM agent READS each hit (SKILL.md step 3) and decides. grep can flag the PRESENCE
+# of a fixed .system(size:) / a hard-coded .frame / a .lineLimit(1), but NOT whether the dimension sits beside
+# scalable text or whether a @ScaledMetric / .minimumScaleFactor is ABSENT — so dt-03/dt-05 hits MUST be read
+# in full. ast-grep is NOT installed; this grep tier stands alone. Full ❌→✅: ../references/dynamic-type-scaling.md.
+dt-01	warn	\.font\(\.system\(size:	.font(.system(size: N)) — a FROZEN point size that never grows with Larger Text. Body/title text wants a Dynamic-Type text style (.body/.headline/.title/.caption, all iOS 13+) (dt-01). READ: is this real text vs a fixed-geometry glyph? cross_ref typography-text.
+dt-02	warn	Font\.system\(size:	Font.system(size: N) constructor — same frozen size as dt-01, the value-init form, assigned to a .font for text. Use a text style so it scales (dt-02). READ the call site: text vs non-text glyph. cross_ref typography-text.
+dt-03	adv	\.frame\((width|height|minWidth|minHeight|maxWidth|maxHeight):[[:space:]]*[0-9]	a hard-coded .frame dimension — if it sets spacing/an icon size BESIDE scalable text it should be @ScaledMetric(relativeTo:) so it grows with the type (iOS 14+) (dt-03). READ: is this geometry tied to text? Is a @ScaledMetric absent? cross_ref adaptive-layout/layout-and-tables on a reflow.
+dt-04	warn	\.dynamicTypeSize\(\.(xSmall|small|medium|large|xLarge|xxLarge|xxxLarge)\)	.dynamicTypeSize(.<non-accessibility size>) — a FIXED cap below the accessibility range clamps text and locks out large-text users (iOS 15+) (dt-04). A cap is legitimate only at the accessibility range (e.g. ...DynamicTypeSize.accessibility1). READ the intent.
+dt-05	adv	\.lineLimit\(1\)	.lineLimit(1) on scalable text with no .minimumScaleFactor(_:) clips/truncates at large Dynamic-Type sizes (dt-05). READ: does this label grow? Allow it to shrink (.minimumScaleFactor) or wrap. (minimumScaleFactor iOS 13+)
+</content>

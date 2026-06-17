@@ -1,0 +1,13 @@
+# grep-tells.tsv — TIER 1 (flat-presence) rules for audit-swiftui-safe-area-keyboard (sak-01 … sak-05).
+# Columns (TAB-separated): id <TAB> severity <TAB> ERE-regex <TAB> message
+# severity: hard | warn | adv   (hard → runner exits 2). The runner greps each ERE over the target *.swift.
+# This LOCATES only — the LLM agent READS each hit (SKILL.md step 3) and decides. This grep tier STANDS
+# ALONE: ast-grep is NOT installed and NOT required. Structural absence calls (a scrolling input form with
+# NO .scrollDismissesKeyboard — sak-02 — and a fixed bottom bar with NO safeAreaInset — sak-03) are located
+# broadly here (anchored on the field / the pinned bar) and the ABSENCE is resolved by the agent in READ.
+# Full ❌→✅ + sources: ../references/safe-area-keyboard-patterns.md (routed from SKILL.md).
+sak-04	hard	\.edgesIgnoringSafeArea	.edgesIgnoringSafeArea(…) is DEPRECATED on iOS 14.0+ — replaced by .ignoresSafeArea(_:edges:). Replace, never gate (sak-04). Scope the replacement to the edge the original argument meant (.top/.bottom/.all).
+sak-01	warn	\.ignoresSafeArea\([[:space:]]*\)	.ignoresSafeArea() with NO edges:/regions: argument ignores ALL edges — foreground content runs under the status bar / Dynamic Island and under the home indicator (sak-01). READ: is this a full-bleed background (fine) or foreground content (defect)? Scope to .ignoresSafeArea(edges:) if a background only bleeds one edge.
+sak-02	warn	(TextField|SecureField|TextEditor)	a text input control — if it lives in a scrolling Form/List/ScrollView, that container needs .scrollDismissesKeyboard(.interactive)/.immediately or the keyboard traps the lower fields with no drag-to-dismiss (sak-02). READ the enclosing scroll container: is .scrollDismissesKeyboard set? cross_ref presentation-sheets-modals (in a sheet) / controls-forms (dismiss style).
+sak-03	warn	\.(overlay|safeAreaInset)\(|VStack[^\n]*Spacer	a candidate fixed bottom bar (bottom overlay / Spacer-pushed VStack / safeAreaInset site) — a bar pinned to the literal bottom overlaps the home indicator and is hidden by the keyboard; reserve space with safeAreaInset(edge: .bottom) (sak-03). READ: is this a fixed bottom bar, and does it ride a safeAreaInset? cross_ref layout-and-tables for the bar's internal arrangement.
+sak-05	adv	keyboardWillShow|keyboardWillHide|keyboardFrameEndUserInfoKey|UIResponder\.keyboard	a hand-rolled keyboard observer — SwiftUI avoids the keyboard automatically; a keyboardWillShow / keyboardFrameEndUserInfoKey / UIResponder.keyboard* observer fights it and double-shifts. Opt out per-view with .ignoresSafeArea(.keyboard) instead (sak-05).

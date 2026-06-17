@@ -1,0 +1,7 @@
+# rule_ids that MUST fire on privacy-permissions.swift (one per line)
+pp-01
+pp-02
+pp-03
+pp-04
+pp-05
+pp-06

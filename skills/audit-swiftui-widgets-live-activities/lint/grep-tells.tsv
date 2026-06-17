@@ -1,0 +1,14 @@
+# grep-tells.tsv — TIER 1 (flat-presence) rules for audit-swiftui-widgets-live-activities (wla-01 … wla-06), iOS.
+# Columns (TAB-separated): id <TAB> severity <TAB> ERE-regex <TAB> message
+# severity: hard | warn | adv   (hard → runner exits 2). The runner greps each ERE over the target *.swift.
+# This LOCATES only — the LLM agent READS each hit (SKILL.md step 3) and decides. NO hard-fails on iOS:
+# every symbol here exists on iOS (WidgetKit/ActivityKit/Controls). The structural ABSENCES grep cannot
+# express (a getTimeline whose Timeline carries no deliberate policy for wla-01; an ActivityConfiguration
+# closure with NO DynamicIsland for wla-02) are caught at READ (step 3), not by a flat tell — these tells
+# LOCATE the provider / configuration / control. Full ❌→✅ + sources: ../references/*.md.
+wla-01	warn	policy:[[:space:]]*\.never	Timeline policy .never — on time-driven content (clock/countdown) this freezes the widget; the right reload policy is .atEnd or .after(date) (wla-01). READ getTimeline: is the content actually static? .never is correct ONLY for genuinely static widgets.
+wla-02	warn	ActivityConfiguration[[:space:]]*\(	ActivityConfiguration — a Live Activity MUST attach a DynamicIsland { … } presentation alongside the Lock Screen view or the island is blank (wla-02; ActivityKit iOS 16.1). READ the closure: is there a DynamicIsland?
+wla-03	adv	\bIntentConfiguration[[:space:]]*\(	IntentConfiguration — the legacy SiriKit-intent-backed config; a new widget should use AppIntentConfiguration (iOS 17) instead (wla-03). READ: is this a fresh widget carrying a legacy intent surface forward?
+wla-04	warn	Button[[:space:]]*\([^)]*intent:|Toggle[[:space:]]*\([^)]*intent:	interactive widget control — Button(intent:) / Toggle(isOn:_,intent:) (iOS 17) needs a real AppIntent or the tap does nothing (wla-04; the AppIntent body is owned by app-intents). READ: does the named intent exist and is its perform() wired?
+wla-05	adv	supportedFamilies[[:space:]]*\(	supportedFamilies — confirm every listed WidgetFamily can actually be rendered by the body (e.g. .accessoryRectangular/.accessoryCircular need an accessory view); a family the body can't draw is a blank widget on that family (wla-05).
+wla-06	warn	ControlWidgetButton|ControlWidgetToggle	ControlWidgetButton / ControlWidgetToggle — Control Center controls are iOS 18.0; under an iOS-17 target they need #available(iOS 18, *) / @available(iOS 18, *) or the build fails below 18 (wla-06). READ the deployment target + gate.

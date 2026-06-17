@@ -1,0 +1,11 @@
+# grep-tells.tsv — TIER 1 (flat-presence) rules for audit-swiftui-haptics (hap-01 … hap-04).
+# Columns (TAB-separated): id <TAB> severity <TAB> ERE-regex <TAB> message
+# severity: hard | warn | adv   (hard -> runner exits 2). The runner greps each ERE over the target *.swift.
+# This LOCATES only — the LLM agent READS each hit (SKILL.md step 3) and decides. This skill ships GREP
+# TELLS ONLY (no ast-grep tier-2): absence/lifecycle judgments (no .prepare() in scope, generator hoisted
+# vs inline, discrete-vs-hot-path event) are resolved by the agent after READ, not by a structural rule.
+# Full ❌→✅ + sources: ../references/sensory-feedback.md (routed from SKILL.md).
+hap-01	warn	UI(Impact|Notification|Selection)FeedbackGenerator	raw UIKit feedback generator — on an iOS 17 target prefer the declarative .sensoryFeedback(_:trigger:) (iOS 17.0); the raw UIImpactFeedbackGenerator/UINotificationFeedbackGenerator/UISelectionFeedbackGenerator is the pre-17 reflex (hap-01). PRIMARY on the uikit-overuse seam; cross_ref uikit-overuse. READ: is this an iOS 17 target where sensoryFeedback fits?
+hap-03	warn	UI(Impact|Notification|Selection)FeedbackGenerator\([^)]*\)\.(impactOccurred|notificationOccurred|selectionChanged)	generator INSTANTIATED INLINE at the call site then fired — re-created per call, so .prepare() can never warm it and every buzz is latent (hap-03). Hoist to a stored property + .prepare() it, or move to .sensoryFeedback (iOS 17).
+hap-02	warn	\.(impactOccurred|notificationOccurred|selectionChanged)\(	feedback FIRED — READ the enclosing scope: if there is no .prepare() warming this generator, the first buzz is noticeably delayed (hap-02). A generator should be .prepare()d before .impactOccurred()/.notificationOccurred()/.selectionChanged(). (UIKit generators iOS 10.0+, verify against Xcode 26 SDK.)
+hap-04	adv	(\.onChange|scrollPosition|\.onChanged|GeometryReader)	high-frequency event CANDIDATE — READ it: a haptic fired on every scroll tick / per-frame / continuous .onChanged is overuse, desensitizes the user and drains the Taptic Engine (hap-04). Feedback must mark a discrete, meaningful event — a one-shot .onChange is fine; a continuously firing one is not.

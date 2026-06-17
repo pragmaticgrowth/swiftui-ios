@@ -1,0 +1,15 @@
+# grep-tells.tsv — TIER 1 (flat-presence) rules for audit-swiftui-app-intents (ain-01 … ain-05).
+# Columns (TAB-separated): id <TAB> severity <TAB> ERE-regex <TAB> message
+# severity: hard | warn | adv   (hard → runner exits 2). The runner greps each ERE over the target *.swift.
+# This LOCATES only — the LLM agent READS each hit (SKILL.md step 3) and decides. The real defects are
+# ABSENCE-inside-a-structure (no `static title` for ain-01, empty/no `phrases` for ain-02, no `@Parameter
+# title` for ain-03, an off-actor perform() for ain-04) — grep surfaces the AppIntent / AppShortcutsProvider
+# / @Parameter / perform() CANDIDATE and the agent confirms the missing member after READ. ain-05 is a flat
+# legacy-API deprecation tell. ast-grep is NOT installed; these stand alone.
+# Full ❌→✅ + sources: ../references/*.md (routed from SKILL.md).
+ain-01	hard	:[[:space:]]*AppIntent\b|struct[[:space:]].*AppIntent[[:space:]]*\{	AppIntent conformer CANDIDATE — READ it: every AppIntent MUST declare `static var title: LocalizedStringResource` (a protocol requirement + the Siri/Shortcuts display name). No static title → unnamed / non-compiling intent (ain-01, iOS 16).
+ain-02	warn	AppShortcutsProvider	AppShortcutsProvider CANDIDATE — READ it: its `appShortcuts` must return AppShortcut(s) with a NON-EMPTY `phrases` array; phrases are the ONLY thing Siri/Spotlight match against. Empty/no phrases → undiscoverable (ain-02, iOS 16).
+ain-03	warn	@Parameter\b	@Parameter CANDIDATE — READ it: a @Parameter with no `title:` renders unlabeled in the Shortcuts editor. Confirm a `@Parameter(title: …)` (ain-03, iOS 16).
+ain-04	adv	func[[:space:]]+perform\(\)	perform() CANDIDATE — READ it: if it touches UI / view-model state with no @MainActor on the intent (nor a main-actor hop), it runs off the intent's background executor (ain-04, advisory runtime hazard).
+ain-05	warn	\bINIntent\b|IntentConfiguration|CustomIntentMigratedAppIntent|INInteraction	legacy SiriKit / pre-AppIntents API — INIntent / IntentConfiguration / CustomIntentMigratedAppIntent predate the AppIntents framework (iOS 16). Migrate to AppIntent / AppShortcutsProvider (ain-05). cross_ref api-currency for the deprecation flag.
+</content>

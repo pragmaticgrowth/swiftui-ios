@@ -1,0 +1,16 @@
+# grep-tells.tsv — TIER 1 (flat-presence) rules for audit-swiftui-app-lifecycle-background (alb-01 … alb-07).
+# Columns (TAB-separated): id <TAB> severity <TAB> ERE-regex <TAB> message
+# severity: hard | warn | adv   (hard → runner exits 2). The runner greps each ERE over the target *.swift.
+# This LOCATES only — the LLM agent READS each hit (SKILL.md step 3) and decides. This grep tier STANDS
+# ALONE: ast-grep is NOT installed and NOT required. Structural-absence calls (a scenePhase read with no
+# .background save — alb-01, a submit with no register — alb-02, an identifier missing from Info.plist —
+# alb-03) are LOCATED broadly here and resolved by the agent in READ. BGTaskScheduler / BG*TaskRequest are
+# UIKit (BackgroundTasks framework), NOT in the SwiftUI catalog — floor is verify-against-Xcode-26-SDK, never
+# fabricate it. Full ❌→✅ + sources: ../references/lifecycle-and-background.md (routed from SKILL.md).
+alb-01	warn	@Environment\([[:space:]]*\\?\.scenePhase[[:space:]]*\)	@Environment(\.scenePhase) read — a scene with mutable in-flight state MUST onChange(of: scenePhase) and save when the phase becomes .background, or iOS drops the unsaved edits at suspension (alb-01). READ the whole scene: is a .background save wired? cross_ref swiftdata (the save shape).
+alb-02	warn	BGTaskScheduler	BGTaskScheduler — a .submit(request) only runs if a matching register(forTaskWithIdentifier:using:launchHandler:) ran at launch; a submit with no register throws and the task never fires (alb-02). READ: is there a register call in the launch path? BGTaskScheduler is UIKit — floor verify against Xcode 26 SDK.
+alb-03	warn	BG(AppRefresh|Processing)TaskRequest	BGAppRefreshTaskRequest / BGProcessingTaskRequest — its identifier MUST be declared in Info.plist BGTaskSchedulerPermittedIdentifiers (+ the mode in UIBackgroundModes) or register is rejected (alb-03). READ the plist: is this identifier listed? cross_ref privacy-permissions (manifest). Floor verify against Xcode 26 SDK.
+alb-04	adv	@SceneStorage	@SceneStorage — for SMALL per-scene UI restoration only (a tab index, a search string, a NavigationPath); large or non-UI model data does NOT belong here, it belongs in the model layer (alb-04; iOS 14.0). READ: what is stored? cross_ref state-observation.
+alb-05	adv	\.backgroundTask\([[:space:]]*\.(appRefresh|urlSession)	.backgroundTask(.appRefresh/.urlSession) scene modifier — still needs its task identifier registered + declared in Info.plist; an unregistered/undeclared identifier is never scheduled (alb-05; BackgroundTask iOS 16.0). READ: is the identifier wired?
+alb-06	adv	\.onOpenURL[[:space:]]*[({]|\.onContinueUserActivity\(	onOpenURL / onContinueUserActivity — the SwiftUI scene-lifecycle entry point (iOS 14.0). Confirm the lifecycle is wired: route the LOAD it triggers to async-data, and a deep-link that should be an OpenIntent to app-intents (alb-06).
+alb-07	adv	@UIApplicationDelegateAdaptor	@UIApplicationDelegateAdaptor (iOS 14.0) — AppDelegate overuse if it does lifecycle/background work scenePhase / .backgroundTask / onOpenURL already express; keep it only for the few things SwiftUI genuinely lacks (push registration, SDK init) (alb-07). READ the adaptor body.
