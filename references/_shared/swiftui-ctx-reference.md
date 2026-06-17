@@ -1,6 +1,6 @@
 # swiftui-ctx — the practice layer (full capability reference)
 
-`swiftui-ctx` is a bundled CLI over a catalog of **real SwiftUI usage from **319 shipping iOS apps****
+`swiftui-ctx` is a bundled CLI over a catalog of **real SwiftUI usage from 319 shipping iOS apps**
 (SwiftSyntax-parsed against the iOS 26 SDK, quality-ranked, every example GitHub-permalinked to a commit).
 It answers **"how do shipping Mac apps actually write this?"** — the PRACTICE half — and pairs with **Sosumi**
 (Apple docs = the SPEC half); every result carries a `doc:` Sosumi link. Sosumi proves the API exists / its
@@ -61,7 +61,7 @@ no catalog (**STOP, tell the user, do NOT fabricate**).
   cross-check `introduced_ios` against `_shared/floors-master.md` and the Sosumi `doc:`. Use `examples
   --shape` to confirm a specific overload, `co_occurs_with` for a missing companion.
 - **FIX (workflow step 7):** the ✅ "Correct" is the **consensus shape + a `file <id> --smart` permalink** (a
-  real macOS example), not opinion. Put the shape in `## Correct`, the permalink + Sosumi `doc:` in `##
+  real iOS example), not opinion. Put the shape in `## Correct`, the permalink + Sosumi `doc:` in `##
   Source`. Auto-fix stays gated by `_shared/fix-safety-protocol.md`.
 - **Three-source rule:** the shared lint **LOCATES** → the agent **READS** → **Sosumi (spec) + swiftui-ctx
   (practice) + `floors-master.md`** VERIFY → swiftui-ctx hands the canonical **FIX**.
