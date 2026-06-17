@@ -215,12 +215,18 @@ if [ -n "$AST_BIN" ] && [ "${#FILES[@]}" -gt 0 ]; then
   fi
 fi
 # brace/paren balance heuristic — catches the error-recovery case ast-grep parses without an ERROR node.
+# Strip single-line string literals + line comments FIRST so a lone bracket CHARACTER inside a string
+# (e.g. `sep == ")"`) or a comment can't trip a false imbalance — those are the dominant false positive.
+# sed runs per line: drop `\"` escapes, then `"…"` spans (also removes `\u{…}` escapes + interpolation),
+# then `//` line comments. Multiline `"""` is rare; genuine parse failures are still caught by the
+# ast-grep ERROR probe above (this heuristic is the no-ast fallback, a hint not an arbiter).
 for f in "${FILES[@]}"; do
   is_flagged "$f" && continue
-  ob=$(tr -cd '{' < "$f" 2>/dev/null | wc -c | tr -d ' '); ob=${ob:-0}
-  cb=$(tr -cd '}' < "$f" 2>/dev/null | wc -c | tr -d ' '); cb=${cb:-0}
-  op=$(tr -cd '(' < "$f" 2>/dev/null | wc -c | tr -d ' '); op=${op:-0}
-  cp=$(tr -cd ')' < "$f" 2>/dev/null | wc -c | tr -d ' '); cp=${cp:-0}
+  clean="$(sed -E -e 's/\\"//g' -e 's/"[^"]*"//g' -e 's|//.*||' < "$f" 2>/dev/null)"
+  ob=$(printf '%s' "$clean" | tr -cd '{' | wc -c | tr -d ' '); ob=${ob:-0}
+  cb=$(printf '%s' "$clean" | tr -cd '}' | wc -c | tr -d ' '); cb=${cb:-0}
+  op=$(printf '%s' "$clean" | tr -cd '(' | wc -c | tr -d ' '); op=${op:-0}
+  cp=$(printf '%s' "$clean" | tr -cd ')' | wc -c | tr -d ' '); cp=${cp:-0}
   if [ "$ob" -ne "$cb" ] || [ "$op" -ne "$cp" ]; then
     mark_flagged "$f"
     emit probe parse-unbalanced warn "$f" 1 \
