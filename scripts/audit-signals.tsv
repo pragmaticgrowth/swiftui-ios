@@ -1,8 +1,9 @@
-# audit-signals.tsv — domain-presence signals for audit-scan.py (the orchestrator's STEERING layer).
+# audit-signals.tsv — domain-presence signals for audit-scan.py (the iOS orchestrator's STEERING layer).
 # Columns (TAB-separated): skill <TAB> mode(always|cond) <TAB> python-regex
 #   always = relevant on ANY project containing SwiftUI (cross-cutting concerns).
 #   cond   = relevant ONLY if the regex matches at least one SwiftUI file (domain is actually present).
 # Regexes are Python `re` syntax (\s, \b, …) — consumed only by audit-scan.py, never by grep.
+# iOS roster: 8 always (cross-cutting) + 26 cond = 34 domain skills. Orchestrator = audit-ios-swiftui-full.
 api-currency	always	.
 availability-gating	always	.
 state-observation	always	.
@@ -10,24 +11,30 @@ view-performance	always	.
 accessibility	always	.
 typography-text	always	.
 appearance-color	always	.
-macos-nativeness	always	.
+ios-idiomaticness	always	.
 concurrency-safety	cond	\bTask\s*[\{\(]|Task\.detached|\bactor\s|@MainActor|\bSendable\b|DispatchQueue|nonisolated
 async-data	cond	\.task\b|AsyncImage|\.refreshable|URLSession|loadTransferable
 swiftdata	cond	import SwiftData|@Model\b|@Query\b|ModelContainer|modelContext|@Relationship
-scenes-windows	cond	MenuBarExtra|WindowGroup|Settings\s*\{|\bWindow\(|DocumentGroup|openWindow|NSApplicationDelegateAdaptor
-menus-commands	cond	\.commands\s*\{|CommandMenu|CommandGroup|keyboardShortcut|@FocusedValue|SidebarCommands
-navigation-toolbars	cond	NavigationStack|NavigationSplitView|NavigationView|\.toolbar\s*[\{\(]|navigationTitle
-controls-forms	cond	\bForm\s*[\({]|TextField\(|\bPicker\(|Toggle\(|Stepper\(|\bSlider\(|\.focusable|@FocusState
-layout-and-tables	cond	\bTable\(|\bGrid\s*[\({]|LazyV[HS]|LazyH[GS]|GeometryReader|\bViewThatFits
-liquid-glass	cond	glassEffect|GlassEffectContainer|buttonStyle\(\.glass|\.glassBackground|backgroundExtensionEffect
+adaptive-navigation	cond	NavigationStack|NavigationSplitView|NavigationView|\.toolbar\s*[\{\(]|navigationTitle|navigationBarTitleDisplayMode|navigationDestination
+controls-forms	cond	\bForm\s*[\({]|TextField\(|\bPicker\(|Toggle\(|Stepper\(|\bSlider\(|keyboardType|textFieldStyle|submitLabel|@FocusState
+layout-and-tables	cond	\bTable\(|\bGrid\s*[\({]|LazyV[HS]|LazyH[GS]|GeometryReader|\bViewThatFits|\bList\s*[\({]
+liquid-glass	cond	glassEffect|GlassEffectContainer|buttonStyle\(\.glass|glassEffectID|backgroundExtensionEffect
 charts	cond	import Charts|\bChart\s*[\({]|BarMark|LineMark|SectorMark|PointMark|RuleMark|AreaMark
 previews	cond	#Preview\b|PreviewProvider|@Previewable
-sandbox-files	cond	fileImporter|fileExporter|NSOpenPanel|NSSavePanel|bookmarkData|[Ss]ecurityScoped|FileDocument|dropDestination|\bdraggable\(|Transferable
-pointer-gestures	cond	onHover|pointerStyle|\bGesture\b|\.gesture\(|contextMenu|onTapGesture|onLongPress|MagnifyGesture|RotateGesture
+touch-gestures	cond	onTapGesture|onLongPress|\.gesture\(|\bGesture\b|MagnifyGesture|RotateGesture|DragGesture|swipeActions|contextMenu|\.refreshable|onHover
 animation-motion	cond	withAnimation|\.animation\(|matchedGeometryEffect|PhaseAnimator|KeyframeAnimator|\.transition\(|symbolEffect|contentTransition
 drawing-canvas	cond	\bCanvas\(|GraphicsContext|\bPath\s*[\({]|:\s*Shape\b|TimelineView|MeshGradient|\.drawingGroup
 localization	cond	Text\(\s*"|Label\(\s*"|LocalizedStringKey|String\(localized:|NSLocalizedString|Text\(verbatim:
-appkit-interop	cond	NSViewRepresentable|NSViewControllerRepresentable|NSHostingController|NSHostingView|makeNSView|sceneBridgingOptions
-appkit-overuse	cond	NSViewRepresentable|NSStatusItem|NSOpenPanel|UIPasteboard|\bNSWindow\b|NSVisualEffectView|NSTextView
-document-model	cond	DocumentGroup|FileDocument|ReferenceFileDocument|\bUTType\b|FileWrapper|readableContentTypes
-state-restoration	cond	@SceneStorage|@AppStorage|NavigationPath|onOpenURL|restorationBehavior|handlesExternalEvents
+uikit-interop	cond	UIViewRepresentable|UIViewControllerRepresentable|UIHostingController|makeUIView|makeUIViewController|becomeFirstResponder|makeCoordinator
+uikit-overuse	cond	UIViewRepresentable|UIScreen|UIApplication\.shared|UIPasteboard|UIDevice|\bUIWindow\b
+app-file-handling	cond	DocumentGroup|FileDocument|ReferenceFileDocument|\bUTType\b|FileWrapper|fileImporter|fileExporter|UIDocumentPicker
+document-picker-permissions	cond	fileImporter|fileExporter|UIDocumentPicker|startAccessingSecurityScopedResource|bookmarkData|[Ss]ecurityScoped|PHPicker|UIImagePickerController
+adaptive-layout	cond	horizontalSizeClass|verticalSizeClass|\bViewThatFits|containerRelativeFrame|NavigationSplitView|supportsMultipleWindows|userInterfaceIdiom
+safe-area-keyboard	cond	safeAreaInset|ignoresSafeArea|scrollDismissesKeyboard|keyboardLayoutGuide|safeAreaPadding
+app-lifecycle-background	cond	scenePhase|backgroundTask|BGTaskScheduler|BGAppRefresh|@SceneStorage|onOpenURL|onContinueUserActivity|@UIApplicationDelegateAdaptor
+presentation-sheets-modals	cond	\.sheet\s*\(|presentationDetents|presentationDragIndicator|fullScreenCover|\.popover\s*\(|presentationBackground|presentationContentInteraction
+haptics	cond	sensoryFeedback|UIImpactFeedbackGenerator|UINotificationFeedbackGenerator|UISelectionFeedbackGenerator|CHHapticEngine
+widgets-live-activities	cond	import WidgetKit|import ActivityKit|TimelineProvider|ActivityAttributes|ActivityConfiguration|DynamicIsland|ControlWidget|AppIntentConfiguration|StaticConfiguration
+app-intents	cond	import AppIntents|\bAppIntent\b|AppShortcutsProvider|\bAppShortcut\b|OpenIntent|@Parameter|ProvidesAppIntents
+privacy-permissions	cond	NSPrivacyAccessedAPITypes|UsageDescription|ATTrackingManager|UNUserNotificationCenter|requestAuthorization|UIBackgroundModes|PrivacyInfo|import StoreKit|onOpenURL
+dynamic-type	cond	dynamicTypeSize|ScaledMetric|minimumScaleFactor|\.system\(size:|relativeTo:
