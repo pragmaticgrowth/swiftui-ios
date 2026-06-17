@@ -2,7 +2,7 @@
 
 **Verified: 2026-06-16** against HIG Materials/Layout, Technology Overviews (Liquid Glass + Adopting Liquid Glass), and WWDC25 sessions 219 (Meet Liquid Glass), 356 (Get to know the new design system), 323 (Build a SwiftUI app with the new design), 284 (Build a UIKit app with the new design).
 
-**Scope:** this is the *design language* (the rules), not the API surface. API names (`glassEffect`, `GlassEffectContainer`, `glassEffectID`, `ToolbarSpacer`, `scrollEdgeEffectStyle`, `UIDesignRequiresCompatibility`) appear **only** where they make a design rule concretely checkable. The *how-to-build-it-correctly* API audit lives in `skills/audit-swiftui-liquid-glass/` — this file complements it (the WHETHER/design layer), it does not replace it. Cite-don't-assert: every rule carries its Apple source. Liquid Glass is gated **iOS 26** ([[floors-master]], [[ios-gating]]). Cross-refs: [[hig-design-rubric]] (materials/color), [[ux-smell-catalog]], [[cross-ref-graph]].
+**Scope:** this is the *design language* (the rules), not the API surface. API names (`glassEffect`, `GlassEffectContainer`, `glassEffectID`, `ToolbarSpacer`, `scrollEdgeEffectStyle`, `UIDesignRequiresCompatibility`) appear **only** where they make a design rule concretely checkable. The *how-to-build-it-correctly* API audit lives in `skills/audit-swiftui-liquid-glass/` — this file complements it (the WHETHER/design layer), it does not replace it. Cite-don't-assert: every rule carries its Apple source. Liquid Glass is gated **iOS 26** (references/_shared/floors-master.md, references/_shared/ios-gating.md). Cross-refs: references/_shared/hig-design-rubric.md (materials/color), references/_shared/ux-smell-catalog.md, references/_shared/cross-ref-graph.md.
 
 ---
 

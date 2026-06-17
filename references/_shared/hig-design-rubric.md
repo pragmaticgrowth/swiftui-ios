@@ -2,9 +2,9 @@
 
 **Verified: 2026-06-16** against live `developer.apple.com/design/human-interface-guidelines` pages (iOS 26 / Liquid Glass HIG).
 
-**Grounding rule (same discipline as `floors-master.md`):** every quantified design rule below cites the Apple page it came from. **Never assert a design number from memory.** When a widely-repeated number is *not* in the HIG (it comes from a UIKit/SwiftUI API default, or is a community myth), it is marked `(API default, NOT HIG)` or routed to [[design-claims-blacklist]] — do not attach a HIG URL to it. Design rules cite HIG; API shapes/floors cite `swiftui-ctx`; Apple-doc API prose cites Sosumi — never crossed.
+**Grounding rule (same discipline as `floors-master.md`):** every quantified design rule below cites the Apple page it came from. **Never assert a design number from memory.** When a widely-repeated number is *not* in the HIG (it comes from a UIKit/SwiftUI API default, or is a community myth), it is marked `(API default, NOT HIG)` or routed to references/_shared/design-claims-blacklist.md — do not attach a HIG URL to it. Design rules cite HIG; API shapes/floors cite `swiftui-ctx`; Apple-doc API prose cites Sosumi — never crossed.
 
-This rubric is the checkable backbone of [[design-finding-schema]]; the reviewer ([[ux-smell-catalog]] for the qualitative layer, this file for the measurable layer) scores each category 0–100 against it. Liquid Glass design rules live in [[liquid-glass-design]].
+This rubric is the checkable backbone of references/_shared/design-finding-schema.md; the reviewer (references/_shared/ux-smell-catalog.md for the qualitative layer, this file for the measurable layer) scores each category 0–100 against it. Liquid Glass design rules live in references/_shared/liquid-glass-design.md.
 
 ---
 
@@ -17,7 +17,7 @@ This rubric is the checkable backbone of [[design-finding-schema]]; the reviewer
 - Place the most important items top + leading; group related items with negative space/separators; account for RTL. https://developer.apple.com/design/human-interface-guidelines/layout
 - Don't crowd controls; give essential information room — crowded/unrelated controls are hard to tell apart and tap. https://developer.apple.com/design/human-interface-guidelines/layout
 - On iPad, design full-screen first and test halves/thirds/quadrants window sizes; defer compact layout until content no longer fits. https://developer.apple.com/design/human-interface-guidelines/layout
-- "16 pt side margins / 8 pt spacing grid / readable content width / 45–75 chars per line" — `(API default, NOT HIG)`: these come from UIKit/SwiftUI (`directionalLayoutMargins`, `readableContentGuide`) or typographic convention, not the HIG Layout page. Use as a heuristic; attribute to the API, never to HIG. See [[design-claims-blacklist]].
+- "16 pt side margins / 8 pt spacing grid / readable content width / 45–75 chars per line" — `(API default, NOT HIG)`: these come from UIKit/SwiftUI (`directionalLayoutMargins`, `readableContentGuide`) or typographic convention, not the HIG Layout page. Use as a heuristic; attribute to the API, never to HIG. See references/_shared/design-claims-blacklist.md.
 
 ## Typography
 
@@ -53,8 +53,8 @@ Built-in iOS/iPadOS text styles at the default (Large) content size — **all st
 - Don't reuse one color for different meanings or repurpose semantic colors (e.g. separator color as text). https://developer.apple.com/design/human-interface-guidelines/color
 - Custom colors must ship light + dark + increased-contrast variants (supports Increase Contrast and Liquid Glass adaptivity). https://developer.apple.com/design/human-interface-guidelines/color
 - Dark Mode: use semantic colors (they adapt, not just invert); use base vs. elevated backgrounds for depth; soften white image fields so they don't glow; test both appearances; don't add an in-app appearance toggle. https://developer.apple.com/design/human-interface-guidelines/dark-mode
-- Materials (ultraThin/thin/regular(default)/thick): use vibrant system label colors on top of any material; avoid lowest-vibrancy (quaternary) on the two thinnest materials. There is no "chrome" material — see [[design-claims-blacklist]]. https://developer.apple.com/design/human-interface-guidelines/materials
-- "Avoid pure black backgrounds in Dark Mode" — `(NOT HIG)`, see [[design-claims-blacklist]].
+- Materials (ultraThin/thin/regular(default)/thick): use vibrant system label colors on top of any material; avoid lowest-vibrancy (quaternary) on the two thinnest materials. There is no "chrome" material — see references/_shared/design-claims-blacklist.md. https://developer.apple.com/design/human-interface-guidelines/materials
+- "Avoid pure black backgrounds in Dark Mode" — `(NOT HIG)`, see references/_shared/design-claims-blacklist.md.
 
 ## Hit targets & controls
 
@@ -74,7 +74,7 @@ Built-in iOS/iPadOS text styles at the default (Large) content size — **all st
 
 ## Navigation & structure
 
-- Tab bar = flat, peer top-level sections; keep it persistent/visible; navigation, not actions; each tab needs an icon + short label. For user-customizable tab sets aim for "five or fewer." (The "max 3–5 tabs" rule is NOT in the current HIG — see [[design-claims-blacklist]].) https://developer.apple.com/design/human-interface-guidelines/tab-bars
+- Tab bar = flat, peer top-level sections; keep it persistent/visible; navigation, not actions; each tab needs an icon + short label. For user-customizable tab sets aim for "five or fewer." (The "max 3–5 tabs" rule is NOT in the current HIG — see references/_shared/design-claims-blacklist.md.) https://developer.apple.com/design/human-interface-guidelines/tab-bars
 - Navigation bar / stack = hierarchical drill-down; use the standard symbol-only Back/Close (don't relabel); concise title **under 15 characters**; don't use the app name as the title; don't crowd the bar. https://developer.apple.com/design/human-interface-guidelines/navigation-bars
 - Sidebar = complex hierarchy on larger displays; show **no more than 2 levels** (deeper → split view); prefer a tab bar when space is tight; adapt tab bar ↔ sidebar by size class. https://developer.apple.com/design/human-interface-guidelines/sidebars
 - Modality only with clear benefit; keep modal tasks short; always give an obvious dismiss; don't nest deep hierarchies in a modal; **never show more than one alert at once**. https://developer.apple.com/design/human-interface-guidelines/modality
@@ -85,7 +85,7 @@ Built-in iOS/iPadOS text styles at the default (Large) content size — **all st
 - Add motion purposefully; avoid gratuitous/excessive animation and motion on frequent interactions (the system already animates standard elements). https://developer.apple.com/design/human-interface-guidelines/motion
 - Keep feedback animations brief and precise; make them follow the triggering gesture; never make motion the only channel for important info; let people cancel/skip animations. https://developer.apple.com/design/human-interface-guidelines/motion
 - Honor Reduce Motion: replace x/y/z transitions with cross-dissolve, tighten springs, avoid parallax/blur/z-axis animation. https://developer.apple.com/design/human-interface-guidelines/accessibility
-- A specific numeric duration (e.g. "0.3 s") or named easing curve is **NOT published** by Apple for iOS — do not assert one. See [[design-claims-blacklist]].
+- A specific numeric duration (e.g. "0.3 s") or named easing curve is **NOT published** by Apple for iOS — do not assert one. See references/_shared/design-claims-blacklist.md.
 
 ## Accessibility (visual)
 

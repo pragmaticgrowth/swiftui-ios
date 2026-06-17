@@ -1,6 +1,6 @@
 # iOS UX smell catalog (shared design truth)
 
-**Verified: 2026-06-16.** The qualitative UX layer that pure code analysis misses — the things a reviewer judges by *looking* at a rendered screen (plus a code corroboration where available). Each entry: **SMELL — why it's bad — how to detect (pixels and/or code) — source.** Measurable rules (contrast ratios, 44 pt, type scale) live in [[hig-design-rubric]]; Liquid Glass smells in [[liquid-glass-design]]. The reviewer ([[design-finding-schema]]) cites these for `tier: vision` findings; never assert a blacklisted myth ([[design-claims-blacklist]]).
+**Verified: 2026-06-16.** The qualitative UX layer that pure code analysis misses — the things a reviewer judges by *looking* at a rendered screen (plus a code corroboration where available). Each entry: **SMELL — why it's bad — how to detect (pixels and/or code) — source.** Measurable rules (contrast ratios, 44 pt, type scale) live in references/_shared/hig-design-rubric.md; Liquid Glass smells in references/_shared/liquid-glass-design.md. The reviewer (references/_shared/design-finding-schema.md) cites these for `tier: vision` findings; never assert a blacklisted myth (references/_shared/design-claims-blacklist.md).
 
 ---
 

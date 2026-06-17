@@ -1,6 +1,6 @@
 # Design finding schema + Design Score (shared design truth)
 
-**Verified: 2026-06-16.** The byte-stable format every design finding uses and the deterministic 0–100 **Design Score** computation. This is the design analogue of [[finding-schema]] (which governs the static audits). The reviewer skill `audit-swiftui-design-review` MUST follow this exactly so two runs over the same build produce an equivalent `swiftui-design/` tree. Rubric source for every finding: [[hig-design-rubric]] / [[liquid-glass-design]] / [[ux-smell-catalog]]; never assert a myth from [[design-claims-blacklist]].
+**Verified: 2026-06-16.** The byte-stable format every design finding uses and the deterministic 0–100 **Design Score** computation. This is the design analogue of references/_shared/finding-schema.md (which governs the static audits). The reviewer skill `audit-swiftui-design-review` MUST follow this exactly so two runs over the same build produce an equivalent `swiftui-design/` tree. Rubric source for every finding: references/_shared/hig-design-rubric.md / references/_shared/liquid-glass-design.md / references/_shared/ux-smell-catalog.md; never assert a myth from references/_shared/design-claims-blacklist.md.
 
 ---
 
@@ -32,7 +32,7 @@ status: open | duplicate-of <rule_id> | fixed   # optional; default open
 <the concrete change, ideally the SwiftUI modifier/structure>
 ```
 
-The three body sections (`Expected → Gap → Fix`) are mandatory and in that order (the UICrit-validated critique shape). A finding with no cited `source`, or whose claim restates a [[design-claims-blacklist]] myth, is invalid and must not be written.
+The three body sections (`Expected → Gap → Fix`) are mandatory and in that order (the UICrit-validated critique shape). A finding with no cited `source`, or whose claim restates a references/_shared/design-claims-blacklist.md myth, is invalid and must not be written.
 
 ## 2. Severity (Nielsen 0–4)
 
@@ -66,7 +66,7 @@ Floor each category at 0. (Deterministic findings deduct on the same table — t
 
 **Overall** = the mean of the 10 category scores, rounded to an integer (equal weight by default — document any reweighting inline so two runs match). Report it as the headline with a band: **90–100 excellent · 75–89 good · 60–74 needs work · <60 poor**.
 
-**Re-score last.** On a FIX pass, recompute after fixes and show `before → after` per category and overall (the [[ios-idiomaticness]] before/after pattern).
+**Re-score last.** On a FIX pass, recompute after fixes and show `before → after` per category and overall (the audit-swiftui-ios-idiomaticness skill before/after pattern).
 
 ## 4. Multi-screen aggregation
 
