@@ -19,12 +19,15 @@ path"*; **accessibility** owns *"the app ignores the flag entirely"* across all 
 .animation(reduceMotion ? nil : .smooth, value: isExpanded)
 ```
 
-`accessibilityReduceMotion` is **macOS 10.15+** — no floor concern; the defect is the missing branch.
+`accessibilityReduceMotion` is **iOS 13.0+** (below the iOS-17 floor) — no floor concern; the defect is the
+missing branch. On iOS, Reduce Motion is a heavily-used setting (motion sensitivity, vestibular disorders),
+so a missing reduced path is a real defect, not a niche one.
 
 ## anim-11 — `.repeatForever` / always-on motion (restraint + cost)
 
-`.repeatForever(autoreverses:)` and other always-running animations are rarely native on the Mac (the HIG
-favours restraint) and they keep the view tree re-rendering every frame. This is a **shared seam**: the
+`.repeatForever(autoreverses:)` and other always-running animations are rarely native on iOS (the HIG
+favours restraint, and continuous motion drains battery and trips Reduce Motion) and they keep the view tree
+re-rendering every frame. This is a **shared seam**: the
 **UX-restraint** verdict is this skill's; the **render-cost** verdict belongs to **view-performance**. Flag
 advisory with `cross_ref: view-performance`; do not re-derive the perf math here.
 
@@ -39,17 +42,17 @@ advisory with `cross_ref: view-performance`; do not re-derive the perf math here
 
 ## VERIFY (step 5)
 
-- Practice: `swiftui-ctx lookup animation --json` → `co_occurs_with` to see what restrained motion ships
-  beside in real apps.
+- Practice: `swiftui-ctx lookup animation --platform ios --json` → `co_occurs_with` to see what restrained
+  motion ships beside in real apps.
 - Spec: Sosumi `https://sosumi.ai/documentation/swiftui/environmentvalues/accessibilityreducemotion`.
 
 ## Sources
 
 - Seam ownership: `${CLAUDE_PLUGIN_ROOT}/references/_shared/cross-ref-graph.md` (Reduce-Motion seam ·
   repeatForever cost seam).
-- Floors: `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md` (Apple-sourced via Sosumi, 2026-06-07).
+- Floors: `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md` (Apple-sourced via Sosumi, 2026-06-16).
 - Apple — `EnvironmentValues.accessibilityReduceMotion`:
   `https://developer.apple.com/documentation/swiftui/environmentvalues/accessibilityreducemotion` (via
-  Sosumi, 2026-06-07).
+  Sosumi, 2026-06-16).
 - Apple HIG — Motion: `https://developer.apple.com/design/human-interface-guidelines/motion` (via Sosumi,
-  2026-06-07).
+  2026-06-16).

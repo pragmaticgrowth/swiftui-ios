@@ -1,0 +1,27 @@
+# cf-01 (structural): a TextField(...) call_expression bound to numeric/email/URL/phone data (its argument
+# subtree mentions an amount/number/email/phone/price/url/zip/code token, or a .number/.currency format) but
+# whose enclosing modifier chain carries NO .keyboardType — so the full QWERTY keyboard pops for typed data.
+# grep (tier 1) can only confirm `TextField(` is present; it cannot see whether the SAME field's chain has a
+# .keyboardType vs. some unrelated line. This anchors on the TextField call_expression, requires its subtree
+# to look numeric/email-bound, and asserts it is NOT inside an outer call_expression whose subtree mentions
+# `keyboardType`. READ the file to confirm the bound data really is typed (a free-text note correctly uses
+# .default) — the engine only LOCATES.
+id: cf-01-numeric-textfield-no-keyboardtype
+language: Swift
+severity: warning
+message: >-
+  cf-01: a TextField bound to numeric/email/URL/phone data has no .keyboardType — the full QWERTY keyboard
+  pops for typed data on iOS. Add .keyboardType(.numberPad/.decimalPad/.emailAddress/.URL/.phonePad) to match
+  the bound data (iOS 13.0+). READ to confirm the data is typed, not free-text prose (then .default is right).
+rule:
+  kind: call_expression
+  all:
+    - has: { stopBy: end, regex: 'TextField' }
+    - has:
+        stopBy: end
+        regex: '(?i)amount|number|email|phone|price|\burl\b|\bzip\b|\bpin\b|\bcode\b|quantity|\.number|\.currency|\.decimal'
+    - not:
+        inside:
+          kind: call_expression
+          has: { stopBy: end, regex: 'keyboardType' }
+          stopBy: end

@@ -1,44 +1,84 @@
-# Reference — Tables, Sorting & Control Density (lt-03 · lt-04 · lt-05 · lt-07)
+# Reference — Table on iPhone, Sort & Control Density (lt-01 · lt-03)
 
-`Table` is *macOS-first*: multi-column, sortable, header-clickable since macOS 12. On iOS the same `Table`
-collapses to a single column on compact width, so AI rarely models it. These are *flag-only* defects
-except lt-07 (the deprecated `tableStyle` case, `fix_mode: auto`). Floors live in
-`${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md` — read, never restate. The ✅ here is the
-swiftui-ctx **consensus shape** backed by a real macOS-26 permalink, not opinion.
+`Table` is an **iPad/Mac control**: multi-column, sortable, header-clickable. On **iOS / iPhone (compact
+width) it collapses to a single squished column** — so shipping a `Table` as the *primary* collection with
+no size-class fallback is the defect. `List` is the iPhone primary. These are *flag-only* defects. Floors
+live in `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md` — read, never restate. The ✅ here is
+the swiftui-ctx **consensus shape** (`lookup --platform ios`) backed by a real iOS permalink, not opinion.
 
-**As of:** 2026-06-07 · macOS 26 (Tahoe) · Swift 6.2.
+**As of:** 2026-06-16 · iOS 26 · iOS-17 deployment floor · Swift 6.2.
 
 ---
 
-## lt-03 — `List` where macOS wants a `Table` (warning, flag-only)
+## Why this is wrong on iOS
 
-Structured, multi-field rows on macOS belong in a `Table` — real columns, clickable headers, multi-column
-sort, and row selection for free (the standard Mac data-grid look). A hand-rolled `HStack`-in-`List` has
-none of that and reads as non-native.
+The training corpus carries a lot of Mac code where `Table` *is* the default data grid. On iOS that
+intuition is inverted: a `Table` is a regular-width (iPad / Mac) control, and on compact width (iPhone
+portrait, iPad split-view) it renders as one cramped column with no headers. The iOS-correct pattern is a
+`List` outright, or — on a Universal target — a **width-gated split**: `Table` on regular width, `List` on
+compact. `Table` is iOS 16.0+ (confirm in `floors-master.md`); the project floor is iOS 17, so no gate.
+
+---
+
+## lt-01 — `Table` as the primary collection with no compact `List` fallback (warning, flag-only)
+
+A `Table` used as the screen's main list collapses to a single squished column on iPhone. Either use a
+`List`, or gate on `horizontalSizeClass` — `Table` on regular, `List` on compact. The **structure** is
+this skill; the **size-class branching depth** is `adaptive-layout`'s (emit `cross_ref: adaptive-layout`).
 
 ```swift
-// ❌ WRONG — HStack-in-List fakes columns; no headers, no sort, no native grid
-List(people) { person in
-    HStack { Text(person.name); Spacer(); Text("\(person.age)") }
+// ❌ WRONG — Table as the screen's primary collection; one squished column on iPhone
+struct PeopleScreen: View {
+    let people: [Person]
+    var body: some View {
+        Table(people) {
+            TableColumn("Name") { Text($0.name) }
+            TableColumn("Age")  { Text("\($0.age)") }
+        }
+    }
 }
 ```
 ```swift
-// ✅ CORRECT — Table + TableColumn (real columns; add sortOrder for sortable headers — lt-04)
-Table(people) {
-    TableColumn("Name") { Text($0.name) }
-    TableColumn("Age")  { Text("\($0.age)") }
+// ✅ CORRECT — width-gated: Table on regular (iPad), List on compact (iPhone)
+struct PeopleScreen: View {
+    @Environment(\.horizontalSizeClass) private var hSizeClass
+    let people: [Person]
+    var body: some View {
+        if hSizeClass == .regular {
+            Table(people) {
+                TableColumn("Name") { Text($0.name) }
+                TableColumn("Age")  { Text("\($0.age)") }
+            }
+        } else {
+            List(people) { person in            // iPhone primary: a List, not a collapsed Table
+                VStack(alignment: .leading) {
+                    Text(person.name)
+                    Text("\(person.age)").foregroundStyle(.secondary)
+                }
+            }
+        }
+    }
 }
 ```
-A `List` of plain single-field strings is fine as a `List` — judge whether the rows are genuinely a
-struct's *fields* before flagging.
+A `Table` inside an **iPad-only detail column** (e.g. the detail of a `NavigationSplitView` that is itself
+gated to regular width) is correct — judge the target family and the size-class context before flagging.
 
-## lt-04 — `Table` with no `sortOrder` (warning, flag-only)
+**Grounded in the corpus.** `swiftui-ctx lookup Table --platform ios --json` (run 2026-06-16) returns
+`introduced_ios: 16.0`, `deprecated: false`, and consensus shapes `(_, selection)` 27% · `(_)` 27% ·
+`(_, sortOrder)` 13% · `(_, selection, sortOrder)` 13%. Its `co_occurs_with` is `TableColumn`, `onHover`,
+`NavigationSplitView`, `CommandGroup`, `commands` — i.e. real shipping `Table` call sites sit in
+**regular-width / Mac-Catalyst** contexts, confirming `Table` is not the iPhone primary. The recommended
+iOS example is `Table($hostNetworks, selection: $selectedID)` in a settings split-view —
+`https://github.com/utmapp/UTM/blob/fb61bfe86a2cc39bb3bc884636fa55414f317acb/Platform/macOS/SettingsView.swift#L382`.
 
-On a click-to-sort platform a non-sortable table is non-native. Drive sorting with a `sortOrder: $binding`
-to `[KeyPathComparator]`; columns built with `value:` become clickable/sortable automatically.
+## lt-03 — `Table` on iPad/regular with no `sortOrder` (advisory, flag-only)
+
+When a `Table` *is* correctly shown on regular width, users expect sortable column headers. Drive sorting
+with `sortOrder: $binding` to `[KeyPathComparator]`; columns built with `value:` become sortable
+automatically. On a compact-only collection this is moot — flag only where the `Table` is genuinely shown.
 
 ```swift
-// ❌ WRONG — no sortOrder; headers don't sort
+// ❌ WRONG — Table on iPad with no sortOrder; headers don't sort
 Table(people) {
     TableColumn("Name") { Text($0.name) }
 }
@@ -49,107 +89,51 @@ Table(people) {
 @State private var sortOrder = [KeyPathComparator(\Person.name)]
 
 Table(people, sortOrder: $sortOrder) {
-    TableColumn("Name", value: \.name)                      // value: => sortable, clickable header
+    TableColumn("Name", value: \.name)                      // value: => sortable header
     TableColumn("Age",  value: \.age) { Text("\($0.age)") } // sortable + custom cell
     TableColumn("Notes") { Text($0.notes) }                 // no value: => intentionally non-sortable
 }
 .onChange(of: sortOrder) { _, newOrder in people.sort(using: newOrder) }
 ```
-SwiftUI draws the header sort-arrow and cycles ascending → descending automatically.
 
-**Grounded in the corpus.** `swiftui-ctx lookup Table --json` (run 2026-06-07) returns
-`introduced_macos: 12.0`, `deprecated: false`, and consensus shapes `(_, selection)` 34% · `(_)` 26% ·
-`(_, selection, sortOrder)` 17% · `(_, sortOrder)` — i.e. real shipping Mac apps overwhelmingly carry a
-`selection` and/or `sortOrder` binding; the bare `Table(_)` is the minority. Its `recommended` macOS-26
-example is **`Table(of: DownloadItem.self, selection: $center.selectedDownloadID) { TableColumn… }`** —
-`https://github.com/tahseen-kakar/harbor/blob/064c6b7c706c255ca30ae2c0ce607b6ba21e2edd/Harbor/Views/DownloadsContentView.swift#L13`.
-In FIX, put the consensus shape in `## Correct` and that permalink (via `swiftui-ctx file ex_0af837984c
---smart`) in `## Source`. `co_occurs_with`: `TableColumn`, `TableColumnForEach`, `tableStyle`, `TableRow`.
+> **iOS-ABSENT — do NOT suggest these on iOS:** `TableColumnForEach` (variable column count) and
+> `alternatingRowBackgrounds` are **macOS-only** (`swiftui-ctx lookup … --platform ios` exits 3). There is
+> **no `tableStyle(.inset(alternatesRowBackgrounds:))` deprecation rule on iOS** — that is a macOS-26.5
+> concern that does not apply here.
 
-> **Variable column count → `TableColumnForEach`** (macOS 14.4+, gate below that floor):
-> ```swift
-> Table(rows) {
->     TableColumn("Name") { Text($0.name) }
->     TableColumnForEach(channels) { ch in TableColumn(ch.name) { row in Text(row.value(for: ch)) } }
-> }
-> ```
+## Control density on iOS (the seam, not a rule)
 
-## lt-05 — default control density in a dense pane (advisory, flag-only)
-
-macOS supports a range of densities (`.large`/`.regular`/`.small`/`.mini`); a toolbar, inspector, or
-settings grid that should be compact looks oversized at the default — "iPad app in a window." Pointer-
-driven dense Mac layouts routinely use `.small`/`.mini`; iOS touch targets rarely shrink, so AI leaves it.
-`.controlSize` applies to every control in the subtree.
-
-```swift
-// ❌ WRONG — every control at default size in a dense inspector/toolbar => oversized
-HStack { Button("Apply") { }; Picker("Mode", selection: $mode) { /* … */ } }
-```
-```swift
-// ✅ CORRECT — tune density for the pane
-HStack { Button("Apply") { }; Picker("Mode", selection: $mode) { /* … */ } }
-    .controlSize(.small)                          // applies to controls in this subtree
-```
-`swiftui-ctx lookup controlSize --json` (run 2026-06-07): `introduced_macos: 10.15`, `deprecated: false`,
-consensus shape `(_)` 100%, recommended permalink
-`https://github.com/sindresorhus/Gifski/blob/7f873856e2acd8b52e6681dee3aec31e6cab23e4/Gifski/EstimatedFileSize.swift#L163`.
-**Seam:** the `controlSize` *sizing axis* is this skill; *style variants* (`.buttonStyle`/`.pickerStyle`/
-`.formStyle(.grouped)`) are `controls-forms` — when the issue is the style not the density, `cross_ref`
-controls-forms. (`.extraLarge` exists at macOS 14 but resolves to `.large` on platforms other than visionOS — a no-op on macOS.)
-
-## lt-07 — deprecated `tableStyle` case (hard-fail, **fix_mode: auto**)
-
-`.tableStyle(.inset(alternatesRowBackgrounds:))` (and the `.bordered` variant) is **DEPRECATED (macOS
-26.5)**. Apple: *"Use the `.inset` style with the `.alternatingRowBackgrounds()` view modifier."*
-
-```swift
-// ❌ DEPRECATED (macOS 26.5)
-Table(rows) { /* … */ }.tableStyle(.inset(alternatesRowBackgrounds: true))
-```
-```swift
-// ✅ CORRECT — split the style and the modifier (alternatingRowBackgrounds is macOS 14.0+, macOS-only)
-Table(rows) { /* … */ }.tableStyle(.inset).alternatingRowBackgrounds()
-```
-**Confirmed (primary source):** swiftui-ctx tracks deprecation at the **API** level — `swiftui-ctx deprecated
-tableStyle` returns `deprecated:false` because the *modifier* isn't deprecated, only the specific **case**
-is. Both `inset(alternatesRowBackgrounds:)` and `bordered(alternatesRowBackgrounds:)` show `macOS 12.0–26.5 Deprecated`
-on `developer.apple.com` — cite `source: https://developer.apple.com/documentation/swiftui/tablestyle/inset(alternatesrowbackgrounds:)`.
-The floor/deprecation row is in `floors-master.md`; the auto-fix is a
-mechanical single-answer swap (fix-safety protocol).
+`controlSize(_:)` exists on iOS (15.0+), but its `.small`/`.mini` densities are a **pointer-driven Mac
+idiom**. On iPhone, touch targets must stay at or above the **44pt minimum** — shrinking controls to
+`.mini` to fit "more in a pane" is a Mac habit that fails Apple's touch guidance. There is **no iOS rule**
+telling you to shrink density (the macOS lt-05 "use `.small` in a dense pane" is inverted away). When the
+real issue is a control's *style* (`.buttonStyle`/`.pickerStyle`/`.textFieldStyle`), that is
+`controls-forms` — `cross_ref controls-forms`, don't own it here.
 
 ---
 
-## macOS-specific notes
+## iOS-specific notes
 
-- **`Table` is macOS-first** (macOS 12.0+); on iOS it collapses to one column on compact width. A
-  `TableColumn` built with `value:` is sortable; one with only a content closure is not.
-- **Scale to AppKit at size.** SwiftUI `Table`/`List` render via `NSTableView` but struggle past ~5,000
-  rows or with heavy custom cells — that ceiling and the `NSViewRepresentable` bridge decision are
-  `view-performance`'s; note it in one line and `cross_ref view-performance`, don't own it here.
+- **`Table` collapses to one column on compact width** (iOS 16.0+). A `TableColumn` built with `value:` is
+  sortable; one with only a content closure is not.
+- **Scale at size.** SwiftUI `List`/`Table` past ~5,000 rows or with heavy custom cells is a render-cost
+  concern owned by `view-performance` (and the `UITableView`/`UICollectionView` bridge decision is
+  `uikit-interop`'s) — note it in one line and `cross_ref view-performance`, don't own it here.
 
 ---
 
 ## Sources
 
-- Apple — `Table`: *"A container that presents rows of data arranged in one or more columns, optionally
-  providing the ability to select one or more members."* — `iOS 16.0+ … macOS 12.0+`.
-  `https://developer.apple.com/documentation/swiftui/table` (via Sosumi, accessed 2026-06-07).
-- Apple — `tableStyle(_:)`: `.inset(alternatesRowBackgrounds:)` **deprecated (macOS 26.5)**: *"Use the
-  .inset style with the .alternatingRowBackgrounds() view modifier."* (same for `.bordered`).
-  `https://developer.apple.com/documentation/swiftui/view/tablestyle(_:)` (via Sosumi, accessed
-  2026-06-07).
-- Apple — `alternatingRowBackgrounds(_:)`: *"Sets the alternating row background style of rows in this
-  table."* — macOS 14.0+, macOS-only.
-  `https://developer.apple.com/documentation/swiftui/view/alternatingrowbackgrounds(_:)` (via Sosumi,
-  accessed 2026-06-07).
-- Apple — `TableColumnForEach`: *"A structure that computes columns on demand…"* — macOS 14.4+.
-  `https://developer.apple.com/documentation/swiftui/tablecolumnforeach` (via Sosumi, accessed
-  2026-06-07).
-- Apple — `controlSize(_:)`: *"Sets the size for controls within this view."* — `iOS 15.0+, macOS 10.15+`.
-  `https://developer.apple.com/documentation/swiftui/view/controlsize(_:)` (via Sosumi, accessed
-  2026-06-07).
-- Practice corpus (the ✅ permalinks): `swiftui-ctx lookup Table` →
-  `https://github.com/tahseen-kakar/harbor/blob/064c6b7c706c255ca30ae2c0ce607b6ba21e2edd/Harbor/Views/DownloadsContentView.swift#L13`;
-  `swiftui-ctx lookup controlSize` →
-  `https://github.com/sindresorhus/Gifski/blob/7f873856e2acd8b52e6681dee3aec31e6cab23e4/Gifski/EstimatedFileSize.swift#L163`
-  (1,857-repo macOS catalog, SwiftSyntax, macOS 26.5 SDK; accessed 2026-06-07).
+- Apple — `Table`: *"A container that presents rows of data arranged in one or more columns…"* —
+  iOS arm: `iOS 16.0+` (read only the iOS arm). *"On iOS, tables collapse to a single column on a compact size class."*
+  `https://developer.apple.com/documentation/swiftui/table` (via Sosumi, accessed 2026-06-16).
+- Apple — `controlSize(_:)`: *"Sets the size for controls within this view."* — `iOS 15.0+`.
+  `https://developer.apple.com/documentation/swiftui/view/controlsize(_:)` (via Sosumi, accessed 2026-06-16).
+- Apple — `horizontalSizeClass` (the width-gate idiom): *"The horizontal size class of this environment."*
+  `https://developer.apple.com/documentation/swiftui/environmentvalues/horizontalsizeclass` (via Sosumi,
+  accessed 2026-06-16).
+- Apple HIG — Layout / minimum 44pt touch targets:
+  `https://developer.apple.com/design/human-interface-guidelines/layout` (via Sosumi, accessed 2026-06-16).
+- Practice corpus (the ✅ permalink): `swiftui-ctx lookup Table --platform ios` →
+  `https://github.com/utmapp/UTM/blob/fb61bfe86a2cc39bb3bc884636fa55414f317acb/Platform/macOS/SettingsView.swift#L382`
+  (iOS catalog, `introduced_ios`, SwiftSyntax; accessed 2026-06-16).

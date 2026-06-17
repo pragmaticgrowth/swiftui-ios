@@ -14,12 +14,12 @@ permalinked examples) is reached with `swiftui-ctx`, contract in
 
 ## How to verify (summary; full protocol in the shared sosumi reference)
 
-1. **Does the symbol exist + what's its macOS floor?** Fetch
+1. **Does the symbol exist + what's its iOS floor?** Fetch
    `https://sosumi.ai/documentation/charts/<symbol-path>` (or `/documentation/swiftui/<modifier-path>` for
-   the chart view modifiers) and read the `**Available on:** … macOS N+ …` line. Absent from the Charts
+   the chart view modifiers) and read the `**Available on:** … iOS N+ …` line. Absent from the Charts
    index = treat as hallucinated until proven.
-2. **Practice cross-check.** `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx lookup <api> --json` →
-   `introduced_macos` + `consensus` + a `recommended`/`diverse` permalink; **exit 3** corroborates a
+2. **Practice cross-check.** `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx lookup <api> --platform ios --json` →
+   `introduced_ios` + `consensus` + a `recommended`/`diverse` permalink; **exit 3** corroborates a
    hallucination. Never `WebFetch` `developer.apple.com`; never paper a 404 with a memory guess.
 
 ---
@@ -30,22 +30,22 @@ Doc path = `developer.apple.com/documentation/charts/<path>` (fetch via `sosumi.
 
 | Symbol | Path | Floor |
 |---|---|---|
-| `Chart` | `chart` | macOS 13 |
-| `BarMark` / `LineMark` / `PointMark` / `AreaMark` | `barmark` · `linemark` · `pointmark` · `areamark` | macOS 13 |
-| `RuleMark` / `RectangleMark` | `rulemark` · `rectanglemark` | macOS 13 |
-| `AxisMarks` / `AxisValueLabel` / `AxisGridLine` | `axismarks` · `axisvaluelabel` · `axisgridline` | macOS 13 |
-| `SectorMark` | `sectormark` | **macOS 14** |
-| `LinePlot` / `AreaPlot` / `BarPlot` / `PointPlot` / `SectorPlot` / `RectanglePlot` / `RulePlot` | `lineplot` · `areaplot` · `barplot` · `pointplot` · `sectorplot` · `rectangleplot` · `ruleplot` | **macOS 15** |
+| `Chart` | `chart` | iOS 16 |
+| `BarMark` / `LineMark` / `PointMark` / `AreaMark` | `barmark` · `linemark` · `pointmark` · `areamark` | iOS 16 |
+| `RuleMark` / `RectangleMark` | `rulemark` · `rectanglemark` | iOS 16 |
+| `AxisMarks` / `AxisValueLabel` / `AxisGridLine` | `axismarks` · `axisvaluelabel` · `axisgridline` | iOS 16 |
+| `SectorMark` | `sectormark` | **iOS 17** (at project floor) |
+| `LinePlot` / `AreaPlot` / `BarPlot` / `PointPlot` / `SectorPlot` / `RectanglePlot` / `RulePlot` | `lineplot` · `areaplot` · `barplot` · `pointplot` · `sectorplot` · `rectangleplot` · `ruleplot` | **iOS 18** (above floor → gate) |
 
 ## B. Chart view modifiers (`documentation/swiftui/view/<path>`)
 
 | Modifier | Path | Floor |
 |---|---|---|
-| `.chartXAxis` / `.chartYAxis` / `.chartLegend` | `chartxaxis(content:)` · `chartyaxis(content:)` · `chartlegend(_:)` | macOS 13 |
-| `.foregroundStyle(by:)` | `documentation/charts/chartcontent/foregroundstyle(by:)` | macOS 13 |
-| `.chartXSelection` / `.chartYSelection` / `.chartAngleSelection` | `chartxselection(value:)` · `chartyselection(value:)` · `chartangleselection(value:)` | **macOS 14** |
-| `.chartScrollableAxes` / `.chartScrollPosition` / `.chartXVisibleDomain` | `chartscrollableaxes(_:)` · `chartscrollposition(x:)` · `chartxvisibledomain(length:)` | **macOS 14** |
-| `.accessibilityChartDescriptor(_:)` | `accessibilitychartdescriptor(_:)` | macOS 12 |
+| `.chartXAxis` / `.chartYAxis` / `.chartLegend` | `chartxaxis(content:)` · `chartyaxis(content:)` · `chartlegend(_:)` | iOS 16 |
+| `.foregroundStyle(by:)` | `documentation/charts/chartcontent/foregroundstyle(by:)` | iOS 16 |
+| `.chartXSelection` / `.chartYSelection` / `.chartAngleSelection` | `chartxselection(value:)` · `chartyselection(value:)` · `chartangleselection(value:)` | **iOS 17** (at floor) |
+| `.chartScrollableAxes` / `.chartScrollPosition` / `.chartXVisibleDomain` | `chartscrollableaxes(_:)` · `chartscrollposition(x:)` · `chartxvisibledomain(length:)` | **iOS 17** (at floor) |
+| `.accessibilityChartDescriptor(_:)` | `accessibilitychartdescriptor(_:)` | iOS 15 |
 
 **Absent from the index → hallucinated (never emit):** `BarChart`, `LineChart`, `PieChart`, `AreaChart`,
 `ChartView`, `.chartType(...)`, `PieMark`, `DonutMark`, `ScatterMark`, `ColumnMark`.
@@ -71,7 +71,7 @@ Doc path = `developer.apple.com/documentation/charts/<path>` (fetch via `sosumi.
 
 | Source | URL | Reliable for | Trust |
 |---|---|---|---|
-| Swift Charts shipping examples | via `swiftui-ctx lookup Chart`/`BarMark` (`diverse`/`recommended` permalinks) | real macOS-26 call shapes | high (real code) |
+| Swift Charts shipping examples | via `swiftui-ctx lookup Chart`/`BarMark` (`diverse`/`recommended` permalinks) | real iOS-26 call shapes | high (real code) |
 | Apple Sample — "Visualizing your app's data" | `developer.apple.com/documentation/charts/visualizing_your_app_s_data` | end-to-end chart construction | high |
 
 ---
@@ -81,4 +81,4 @@ Doc path = `developer.apple.com/documentation/charts/<path>` (fetch via `sosumi.
 - Sosumi fetch protocol + JSON-404 caveat: `${CLAUDE_PLUGIN_ROOT}/references/_shared/sosumi-reference.md`.
 - All Apple paths above fetched via `https://sosumi.ai/...` (access 2026-06-07).
 - Practice corpus reached via `swiftui-ctx` (contract in the shared swiftui-ctx-reference); permalinks are
-  real GitHub macOS-26 call sites surfaced by `lookup`/`recipe`.
+  real GitHub iOS-26 call sites surfaced by `lookup`/`recipe`.

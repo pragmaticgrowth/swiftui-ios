@@ -1,74 +1,78 @@
-# Pointer-modifier availability gating (pg-07, pg-12)
+# Gesture/affordance availability gating (tg-08, tg-09)
 
-This skill owns **pointer-modifier** gating in depth; the blanket "is every floored API gated" sweep is
-`audit-swiftui-availability-gating`'s (cross_ref it when a gate miss is incidental). The *rule* for
-writing a macOS gate, the wrong-arm failure mode, and reading a multi-platform availability string are the
-**single shared copy** in `${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md` — read it, do not
+This skill owns **gesture/affordance** gating in this domain; the blanket "is every floored API gated"
+sweep is `audit-swiftui-availability-gating`'s (cross_ref it when a gate miss is incidental). The *rule*
+for writing an iOS gate, the wrong-arm failure mode, and reading a multi-platform availability string are
+the **single shared copy** in `${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md` — read it, do not
 restate it here. Floor *values* live in `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md`.
 
 ---
 
-## Which pointer modifiers need a gate
+## Almost nothing in this domain needs a gate at the iOS-17 floor
 
-Only two of this domain's APIs have a floor above the common Mac deployment target, so only these trigger
-pg-07 when the project floor is below them (read the value from `floors-master.md`, never assert it):
+The toolkit deployment floor is **iOS 17**. Read the value from `floors-master.md`, never assert it:
 
-- `pointerStyle(_:)` / `PointerStyle` (incl. `.grabActive`/`.grabIdle`/`.columnResize`/`.rowResize`/
-  `.frameResize(position:directions:)`) — the higher floor; **no iOS arm** (Mac-only).
-- `onContinuousHover(coordinateSpace:perform:)` — the lower of the two.
+- `MagnifyGesture` / `RotateGesture` — **iOS 17.0+**: exactly at the floor → **no gate**.
+- `.swipeActions` / `.refreshable` — iOS 15.0+ → below the floor → no gate.
+- `onContinuousHover` — iOS 16.0+ → below the floor → no gate (but it is iPad-pointer-only → tg-05).
+- `onTapGesture` / `onLongPressGesture` / `DragGesture` / `contextMenu` / `.accessibilityAction` — iOS
+  13.0+ → no gate.
 
-`.onHover` and `.contextMenu` are macOS 10.15+ and effectively never need a gate; `MagnifyGesture` /
-`RotateGesture` are macOS 14.0+ (gate only under a sub-14 floor — see `gestures-and-state.md`).
+So the gating defects in this domain are **not** "an ungated above-floor gesture" — they are the two
+**platform** errors below.
 
-## pg-07 — an ungated pointer modifier under a lower floor (warning)
+## tg-08 — `pointerStyle(_:)` on an iOS target (platform-wrong, hard-fail)
 
-If the deployment target (read in ORIENT) is **below** the modifier's floor and the call is not wrapped in
-`#available(macOS NN, *)` (or annotated `@available`), it is a build break / silent no-op. Report pg-07
-**only** when the floor is actually below; at or above the floor it is not a finding. Use the macOS arm and
-the trailing `*` per the shared rule. The pre-floor `else` (where the affordance must degrade) drops the
-cursor shape gracefully — there is no pre-15 `pointerStyle` equivalent, so the fallback is simply omitting
-the cursor change, not a substitute API.
-
-```swift
-// ✅ CORRECT — gated on the macOS arm; pre-15 path just omits the cursor shape
-if #available(macOS 15, *) {
-    handle.pointerStyle(.columnResize(directions: .all))
-} else {
-    handle                                  // no cursor change pre-15 (no equivalent API)
-}
-```
-
-## pg-12 — a pointer modifier gated on the `iOS` arm (wrong arm, hard-fail, auto)
-
-Gating a Mac-only / Mac-floored pointer modifier on the **iOS** arm is the central gating bug: on a Mac
-the branch's availability is wrong, so it either fails to compile or silently never runs. The symbol is
-fine; the **arm** is wrong — flag it as a gating finding, not a hallucination, and rewrite to
-`#available(macOS NN, *)`. `fix_mode: auto`. The tier-2 ast-grep rule `pg-12-ios-arm-gates-pointer.yml`
-proves the `if #available(iOS …)` block body actually uses `pointerStyle` / `onContinuousHover` (the gate
-*scope*), not merely that the `iOS` string appears.
+`pointerStyle(_:)` / `PointerStyle` has **no iOS arm** — it is macOS / visionOS only.
+`swiftui-ctx lookup pointerStyle --platform ios` **exits 3** (no iOS-arm record). Wrapping it in
+`#available(iOS …)` does **not** make it real on iOS — the symbol simply does not exist there. This is a
+*platform-wrong* finding, not an under-gate: **replace** the cursor affordance with a touch interaction
+(or drop it), never gate it.
 
 ```swift
-// ❌ WRONG — pointerStyle is Mac-only; gating it on iOS means it never runs on the Mac
-if #available(iOS 18, *) { handle.pointerStyle(.grabIdle) }
+// ❌ WRONG — pointerStyle does not exist on iOS; an #available(iOS …) wrapper cannot conjure it
+if #available(iOS 18, *) { handle.pointerStyle(.grabIdle) }   // still no iOS arm — won't compile / no-op
 ```
 ```swift
-// ✅ CORRECT — the macOS arm and floor
-if #available(macOS 15, *) { handle.pointerStyle(.grabIdle) }
+// ✅ CORRECT on iOS — express the affordance with touch (a drag handle is dragged, not cursor-shaped)
+handle.gesture(DragGesture().updating($drag) { v, s, _ in s = v.translation })
+```
+Reading a multi-platform availability string (the iOS-ABSENT case): the shared
+`${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md` §4. `fix_mode: flag-only` (the replacement is a
+judgment, not a mechanical rename).
+
+## tg-09 — a gesture/affordance gated on the `macOS` arm in an iOS target (wrong arm, hard-fail, auto)
+
+Gating an iOS gesture/affordance on the **`macOS`** arm is the central gating bug ported from
+cross-platform code: on iOS the branch's availability is wrong, so it either fails to compile or silently
+never runs on device. The symbol is fine; the **arm** is wrong — flag it as a gating finding, not a
+hallucination, and rewrite to `#available(iOS NN, *)` (or drop the gate when the symbol is at/under the
+iOS-17 floor). `fix_mode: auto`. The tier-2 ast-grep rule `tg-09-macos-arm-gates-gesture.yml` proves the
+`if #available(macOS …)` block body actually uses a gesture/affordance symbol (the gate *scope*), not
+merely that the `macOS` string appears.
+
+```swift
+// ❌ WRONG — gated on macOS; on iPhone/iPad this branch's availability is wrong, the gesture never runs
+if #available(macOS 14, *) { content.gesture(MagnifyGesture()) }
+```
+```swift
+// ✅ CORRECT — MagnifyGesture is iOS 17 (the floor): no gate needed at all
+content.gesture(MagnifyGesture())
+// …or, if a sub-floor symbol genuinely needs gating, name the iOS arm:
+if #available(iOS 17, *) { content.gesture(MagnifyGesture()) }
 ```
 
-Full rule (macOS arm, the required `*`, reading a multi-platform string, the `macOS ABSENT` case): the
-shared `${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md`. Note `pointerStyle` has **no iOS
-arm at all** — it is `macOS-only`, so an `iOS`-armed gate around it is always wrong-arm, never a higher-iOS
-over-gate.
+Full rule (iOS arm, the required `*`, reading a multi-platform string, the iOS-ABSENT case): the shared
+`${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md`.
 
 ---
 
 ## Detection tells (what LOCATE surfaces; you READ and judge)
 
-- `.pointerStyle(` / `onContinuousHover(` present **and** project floor below the modifier's floor, with
-  no enclosing `#available(macOS NN, *)` → pg-07 (read the floor in ORIENT).
-- `#available(iOS …)` whose block body uses `pointerStyle` / `onContinuousHover` → pg-12 (tier-2 proves
-  the scope).
+- `.pointerStyle(` present in an iOS target → tg-08 (platform-wrong; `swiftui-ctx lookup pointerStyle
+  --platform ios` exits 3 corroborates).
+- `#available(macOS …)` whose block body uses a gesture/affordance symbol → tg-09 (tier-2 proves the
+  scope).
 
 ---
 
@@ -76,10 +80,10 @@ over-gate.
 
 | URL | Claim | Confidence |
 |---|---|---|
-| https://developer.apple.com/documentation/swiftui/view/pointerstyle(_:) | `pointerStyle(_:)` — macOS 15.0+, macOS-only (no iOS arm) | high |
-| https://developer.apple.com/documentation/swiftui/view/oncontinuoushover(coordinatespace:perform:) | `onContinuousHover` — macOS 14.0+ | high |
-| https://developer.apple.com/documentation/swiftui/pointerstyle | `PointerStyle` — `.grabActive`/`.grabIdle`/`.columnResize`/`.rowResize`/`.frameResize(position:directions:)`; macOS 15.0+ | high |
+| https://developer.apple.com/documentation/swiftui/view/pointerstyle(_:) | `pointerStyle(_:)` — macOS/visionOS only, **no iOS arm** (platform-wrong on iOS) | high |
+| https://developer.apple.com/documentation/swiftui/magnifygesture | `MagnifyGesture` — iOS 17.0+ (at the toolkit floor → no gate) | high |
+| swiftui-ctx `lookup pointerStyle --platform ios` | **exit 3** — no iOS-arm record | high |
 
 Apple availability strings cross-checked against `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md`
-and fetched via Sosumi (access 2026-06-07). The macOS-arm gating *rule* itself is the shared
+and fetched via Sosumi (access 2026-06-16). The iOS-arm gating *rule* itself is the shared
 `${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md` — not restated here.

@@ -6,13 +6,13 @@ commands and the JSON-404 caveat is `${CLAUDE_PLUGIN_ROOT}/references/_shared/so
 is the accessibility-specific *map* of which pages to fetch. Floor values live in
 `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md`.
 
-**As of:** 2026-06-07 · macOS 26 (Tahoe) · Xcode 26 SDK.
+**As of:** 2026-06-16 · iOS 26 · Xcode 26 SDK.
 
 ## How to verify (summary; full protocol in the shared sosumi reference)
 
-1. **Does the symbol exist + its macOS floor?** Fetch `https://sosumi.ai/documentation/swiftui/<symbol-path>`
-   and read the `**Available on:** … macOS N+ …` line. Absence from the SwiftUI index = treat as hallucinated
-   (a11y-10) until proven. Corroborate with `swiftui-ctx lookup <api>` — an **exit 3** is a strong
+1. **Does the symbol exist + its iOS floor?** Fetch `https://sosumi.ai/documentation/swiftui/<symbol-path>`
+   and read the iOS arm of the `**Available on:** … iOS N+ …` line. Absence from the SwiftUI index = treat as hallucinated
+   (a11y-10) until proven. Corroborate with `swiftui-ctx lookup <api> --platform ios` — an **exit 3** is a strong
    "this API does not exist" signal.
 2. **Need the precise per-platform array?** The raw `…/data/documentation/swiftui/<symbol>.json` `introducedAt`
    works when it resolves; it **404s** on parenthesized-symbol families — fall back to Sosumi. Never `WebFetch`
@@ -22,22 +22,24 @@ is the accessibility-specific *map* of which pages to fetch. Floor values live i
 
 Human doc path = `developer.apple.com/documentation/swiftui/<path>` (fetch via `sosumi.ai/...`).
 
-| Symbol | Path | Floor |
+| Symbol | Path | iOS floor |
 |---|---|---|
-| `accessibilityLabel(_:)` (`StringProtocol`) | `view/accessibilitylabel(_:)-1d7jv` | macOS 11.0 |
-| `accessibilityLabel(_:)` (`LocalizedStringResource`) | `view/accessibilitylabel(_:)` | macOS 13.0 |
-| `accessibilityValue(_:)` | `view/accessibilityvalue(_:)` | macOS 11.0 |
-| `accessibilityHint(_:)` | `view/accessibilityhint(_:)` | macOS 13.0 |
-| `accessibilityHidden(_:)` | `view/accessibilityhidden(_:)` | macOS 11.0 |
-| `accessibilityElement(children:)` | `view/accessibilityelement(children:)` | macOS 10.15 |
-| `accessibilityAddTraits(_:)` | `view/accessibilityaddtraits(_:)` | macOS 11.0 |
-| `AccessibilityTraits.isToggle` | `accessibilitytraits/istoggle` | **macOS 14.0** |
-| `accessibilityFocused(_:)` / `AccessibilityFocusState` | `view/accessibilityfocused(_:)` · `accessibilityfocusstate` | macOS 12.0 |
-| `accessibilitySortPriority(_:)` | `view/accessibilitysortpriority(_:)` | macOS 11.0 |
-| `accessibilityChartDescriptor(_:)` | `view/accessibilitychartdescriptor(_:)` | macOS 12.0 |
-| `accessibilityRepresentation(representation:)` | `view/accessibilityrepresentation(representation:)` | macOS 12.0 |
-| `EnvironmentValues.accessibilityReduceMotion` | `environmentvalues/accessibilityreducemotion` | macOS 10.15 |
-| `EnvironmentValues.accessibilityDifferentiateWithoutColor` | `environmentvalues/accessibilitydifferentiatewithoutcolor` | macOS 10.15 |
+| `accessibilityLabel(_:)` (`StringProtocol`) | `view/accessibilitylabel(_:)-1d7jv` | iOS 14.0 |
+| `accessibilityLabel(_:)` (`LocalizedStringResource`) | `view/accessibilitylabel(_:)` | iOS 16.0 |
+| `accessibilityValue(_:)` | `view/accessibilityvalue(_:)` | iOS 14.0 |
+| `accessibilityHint(_:)` | `view/accessibilityhint(_:)` | iOS 14.0 |
+| `accessibilityHidden(_:)` | `view/accessibilityhidden(_:)` | iOS 14.0 |
+| `accessibilityElement(children:)` | `view/accessibilityelement(children:)` | iOS 13.0 |
+| `accessibilityAddTraits(_:)` | `view/accessibilityaddtraits(_:)` | iOS 14.0 |
+| `AccessibilityTraits.isToggle` | `accessibilitytraits/istoggle` | **iOS 17.0** (= project floor; no gate) |
+| `accessibilityFocused(_:)` / `AccessibilityFocusState` | `view/accessibilityfocused(_:)` · `accessibilityfocusstate` | iOS 15.0 |
+| `accessibilitySortPriority(_:)` | `view/accessibilitysortpriority(_:)` | iOS 14.0 |
+| `accessibilityChartDescriptor(_:)` | `view/accessibilitychartdescriptor(_:)` | iOS 15.0 |
+| `accessibilityRepresentation(representation:)` | `view/accessibilityrepresentation(representation:)` | iOS 15.0 |
+| `accessibilityShowsLargeContentViewer(_:)` | `view/accessibilityshowslargecontentviewer(_:)` | **iOS 15.0** (iOS-specific large-content label) |
+| `accessibilityRespondsToUserInteraction(_:)` | `view/accessibilityrespondstouserinteraction(_:)` | iOS 15.0 |
+| `EnvironmentValues.accessibilityReduceMotion` | `environmentvalues/accessibilityreducemotion` | iOS 13.0 |
+| `EnvironmentValues.accessibilityDifferentiateWithoutColor` | `environmentvalues/accessibilitydifferentiatewithoutcolor` | iOS 13.0 |
 
 **Absent from the index → hallucinated (a11y-10, never emit):** `.voiceOverLabel`, `.a11yLabel`,
 `.accessibilityText`, `.screenReaderLabel`, `.accessibilityName`, `.voiceOverHint`.
@@ -64,10 +66,10 @@ Human doc path = `developer.apple.com/documentation/swiftui/<path>` (fetch via `
 | Source | URL | Reliable for | Trust |
 |---|---|---|---|
 | Apple Developer — Accessibility | `developer.apple.com/accessibility/` | first-party guidance | high |
-| Mela / WWDC sample-code repos in the `swiftui-ctx` corpus | via `swiftui-ctx lookup <api>` `recommended` permalink | real production label/value/grouping shapes | high |
+| Mela / WWDC sample-code repos in the `swiftui-ctx` corpus | via `swiftui-ctx lookup <api> --platform ios` `recommended` permalink | real production label/value/grouping shapes | high |
 
 ## Sources
 
 - Sosumi fetch protocol + JSON-404 caveat: `${CLAUDE_PLUGIN_ROOT}/references/_shared/sosumi-reference.md`.
-- All Apple paths above fetched via `https://sosumi.ai/...` (access 2026-06-07).
+- All Apple paths above fetched via `https://sosumi.ai/...` (access 2026-06-16).
 - Practice permalinks from the bundled `swiftui-ctx` corpus (`recommended` field of each `lookup`).

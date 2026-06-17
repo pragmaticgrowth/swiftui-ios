@@ -1,183 +1,236 @@
-# Reference — Grouped Form, Keyboard Focus & Tooltips (cf-01 · cf-02 · cf-03)
+# Reference — Keyboard Config, Field Style, Submit & Focus (cf-01 · cf-02 · cf-03 · cf-04 · cf-06)
 
-The three settings-pane defects that make a Mac app read as "an iPad app in a window": an **ungrouped
-`Form`**, a **custom view that drops out of the Tab order**, and an **icon-only button with no tooltip**.
-All three are absent from iOS habits — iOS forms are grouped by default, touch has no Tab-key focus ring,
-and there is no iOS tooltip analog. These are *flag-only* defects (the correct fix is a judgment call: is
-this a settings `Form`? should this control take focus? is the button truly icon-only?). Floors live in
+The text-input defects that make an iOS form awkward to type into: a `TextField` bound to **typed data with
+the wrong keyboard**, an **email/code field that auto-capitalizes and auto-corrects**, a **free-standing
+field with no visible border**, a **multi-field form with no Return-key label**, and a **custom view / form
+with no keyboard-focus wiring** so fields can't be advanced or the keyboard dismissed. These are absent from
+the corpus because on iOS a `Form` already looks grouped and a `TextField` already *works* with the default
+keyboard — it is just the wrong one. These are *flag-only* defects (the correct fix is a judgment call: what
+data is bound, is the field free-standing, is the form multi-field). Floors live in
 `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md` — read, never restate. The ✅ here is the
-swiftui-ctx **consensus shape** backed by a real macOS example permalink, not opinion.
+swiftui-ctx **consensus shape** backed by a real iOS example permalink, not opinion.
 
-**As of:** 2026-06-07 · macOS 26 (Tahoe) · Swift 6.2.
+**As of:** 2026-06-16 · iOS 26 · Swift 6.2 · project floor iOS 17.
 
----
-
-## cf-01 — plain `Form` with no `.formStyle(.grouped)` (warning, flag-only)
-
-On macOS the default `Form` is **not** the grouped, inset, label-aligned style users expect from System
-Settings. iOS forms render grouped out of the box, so AI assumes the same and ships an ungrouped, foreign
-settings pane.
-
-```swift
-// ❌ WRONG — ungrouped on macOS; looks native only on iOS
-Form {
-    TextField("Name", text: $name)
-    Toggle("Enabled", isOn: $enabled)
-}                                   // no formStyle -> non-native macOS settings look
-```
-```swift
-// ✅ CORRECT — grouped is the macOS System-Settings idiom
-Form {
-    TextField("Name", text: $name)
-    Toggle("Enabled", isOn: $enabled)
-}
-.formStyle(.grouped)                // macOS 13.0+ — the grouped/inset settings look
-```
-
-**Grounded in the corpus.** `swiftui-ctx lookup formStyle --json` (run 2026-06-07) returns
-`introduced_macos: 13.0`, `deprecated: false`, consensus shape `(_)` **100%** — every real use passes a
-style argument; the bare ungrouped `Form` is the defect, not a corpus shape. Its `recommended` macOS-26
-example is **`Form { … }.formStyle(.grouped)`** in `sindresorhus/Gifski`:
-`https://github.com/sindresorhus/Gifski/blob/7f873856e2acd8b52e6681dee3aec31e6cab23e4/Gifski/EditScreen.swift#L546`
-(fetched live with `swiftui-ctx file ex_c4ac4d12ab --smart`; the enclosing `Form` carries `.formStyle`). In
-FIX, put `.formStyle(.grouped)` in `## Correct` and that permalink (+ the Sosumi `doc:`) in `## Source`.
-`co_occurs_with`: `focusedObject`, `windowToolbarLabelStyle`, `RenameButton`. The other documented styles
-are `.columns` and `.automatic`; `.grouped` is the settings idiom.
-
-> **Judge before flagging.** A `Form` is *not* always a settings pane — a small inline `Form` inside a
-> popover or a one-off entry sheet may intentionally stay ungrouped. cf-01 LOCATES every `Form` without a
-> `.formStyle` in its chain; you decide whether it is a settings/preferences pane that wants grouping.
-
-## cf-02 — custom view not keyboard-focusable (warning, flag-only)
-
-Mac users navigate by keyboard: Tab moves focus and a system-drawn focus ring tracks it. A **custom**
-interactive view with no `.focusable()` / `@FocusState` can't receive focus, shows no ring, and Tab skips
-it — inaccessible and non-native. Native controls (`TextField`, `Button`, `Toggle`) are *already*
-focusable; the defect is a **hand-rolled** focus-taking control. AI omits the wiring because focus traversal
-is invisible on touch.
-
-```swift
-// ❌ WRONG — custom field never joins the Tab order; no focus ring on macOS
-struct SearchField: View {
-    @State private var text = ""
-    var body: some View {
-        TextField("Search", text: $text)    // not focusable(); Tab skips the custom wrapper
-    }
-}
-```
-```swift
-// ✅ CORRECT — participates in keyboard focus + the focus ring (all macOS 12.0+)
-struct SearchField: View {
-    @FocusState private var focused: Bool   // @FocusState: macOS 12.0+
-    @State private var text = ""
-    var body: some View {
-        TextField("Search", text: $text)
-            .focusable()                     // join keyboard focus (macOS 12.0+)
-            .focused($focused)               // .focused(_:) binds the @FocusState (macOS 12.0+)
-            .onAppear { focused = true }     // optionally focus on appear
-    }
-}
-```
-
-**Grounded in the corpus.** `swiftui-ctx lookup focusable --json` (run 2026-06-07) returns consensus
-`.focusable()` **68%** · `.focusable(_:)` 31%, `deprecated: false`; its `recommended` macOS example is a
-plain `.focusable()` in `nickustinov/itsypad-macos`:
-`https://github.com/nickustinov/itsypad-macos/blob/d6ffd18f75d47a84fc4e3d86ad9665abb048edb6/Packages/Bonsplit/Sources/Bonsplit/Internal/Views/SplitViewContainer.swift#L27`.
-`co_occurs_with`: `onMoveCommand`, `defaultFocus`, `focusEffectDisabled`, `prefersDefaultFocus`.
-
-> **Floor correction (load-bearing).** The corpus reports `focusable` `introduced_macos: 10.15`, but
-> `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md` **corrects** `focusable`/`focused`/
-> `@FocusState` to **macOS 12.0+** (a known corpus-vs-spec discrepancy). The reconciled floor wins — gate a
-> focus fix on `#available(macOS 12, *)` only if the target is below 12. **Seam:** `@FocusState` (keyboard)
-> is this skill; `AccessibilityFocusState` / `.accessibilityFocused` (VoiceOver focus) is
-> `audit-swiftui-accessibility` — `cross_ref` it, don't claim it.
-
-## cf-03 — icon-only button with no `.help` tooltip (warning, flag-only)
-
-On macOS `.help` renders as the standard tooltip after the pointer rests on a view for a moment, and feeds
-accessibility. An icon-only toolbar/inspector button without it is opaque — the user can't tell what it
-does. There is no iOS tooltip analog, so AI rarely emits it, yet it is mandatory polish for any glyph-only
-control.
-
-```swift
-// ❌ WRONG — icon-only button with no tooltip; user can't tell what it does
-Button { addItem() } label: { Image(systemName: "plus") }
-```
-```swift
-// ✅ CORRECT — tooltip on pointer rest (macOS) + feeds accessibility, title case (macOS 11.0+)
-Button { addItem() } label: { Image(systemName: "plus") }
-    .help("Add a new item")                 // standard macOS tooltip; title-case text
-```
-
-**Grounded in the corpus.** `swiftui-ctx lookup help --json` (run 2026-06-07) returns
-`introduced_macos: 11.0` (matches floors-master's corrected floor — **NOT** 10.15), `deprecated: false`
-(confirmed by `swiftui-ctx deprecated help`), consensus `(_)` **100%**; its `recommended` example is
-`.help(error.localizedDescription)` in `sindresorhus/Gifski`:
-`https://github.com/sindresorhus/Gifski/blob/7f873856e2acd8b52e6681dee3aec31e6cab23e4/Gifski/EstimatedFileSize.swift#L152`.
-
-> **keep-both seam (do NOT collapse).** An icon-only control with **no `.help` AND no `.accessibilityLabel`**
-> is detected by BOTH this skill (the `.help` tooltip) and `audit-swiftui-accessibility` (the VoiceOver
-> label). Per `${CLAUDE_PLUGIN_ROOT}/references/_shared/cross-ref-graph.md` this is intentional —
-> file the `.help` finding here with `cross_ref: accessibility`; accessibility reuses your `.help` text as
-> its label. `.help` text is title-case and especially required on icon-only toolbar buttons and every icon
-> segment of a segmented control.
+> **What is NOT a defect on iOS (inverted from macOS).** An iOS `Form` is **grouped by default** — a missing
+> `.formStyle(.grouped)` is *not* a finding. `.pickerStyle(.wheel)` / `WheelPickerStyle` is a **native iOS
+> control** (`introduced_ios 13.0`), never platform-wrong. `.help(_:)` exists (iOS 14.0+) but its tooltip
+> surfaces only under the iPad pointer — it is not a required affordance and never a finding here.
 
 ---
 
-## Canonical pattern (the native-settings-pane exemplar — controls half only)
+## cf-01 — numeric/email/URL/phone `TextField` with no `.keyboardType(_:)` (warning, flag-only)
+
+A `TextField` bound to a number, amount, email, URL, or phone number pops the **full QWERTY keyboard** by
+default (`.keyboardType(.default)`). The user has to hunt for digits or the `@` key. Match the keyboard to the
+bound data.
 
 ```swift
-// Native macOS settings pane: grouped form, keyboard focus, tooltip, explicit density.
-// (Hover / right-click affordances are audit-swiftui-pointer-gestures' half — omitted here on purpose.)
-struct SettingsPane: View {
-    @State private var name = ""
-    @State private var enabled = false
-    @FocusState private var nameFocused: Bool          // macOS 12.0+
+// ❌ WRONG — an amount field shows the full QWERTY keyboard
+TextField("Amount", value: $amount, format: .number)
+```
+```swift
+// ✅ CORRECT — the decimal keypad for a numeric amount
+TextField("Amount", value: $amount, format: .number)
+    .keyboardType(.decimalPad)              // .numberPad for ints, .decimalPad for decimals (iOS 13.0+)
+```
 
+**Grounded in the corpus.** `swiftui-ctx lookup keyboardType --platform ios --json` (run 2026-06-16) returns
+`introduced_ios: 13.0`, `deprecated: false`, consensus `(_)` **100%** — every real use passes a type. The
+practical cases: `.numberPad` (integer), `.decimalPad` (amount), `.emailAddress` (email), `.URL`, `.phonePad`,
+`.numbersAndPunctuation`. A `TextField` bound to **free-text prose** (a name, a note) correctly keeps
+`.default` — judge the bound data before flagging.
+
+## cf-02 — email/username/code/URL field with no autocaps/autocorrection suppression (warning, flag-only)
+
+iOS capitalizes the first letter of a `TextField` (`.sentences` by default) and auto-corrects what it types.
+For an **email, username, login code, or URL** that mangles valid input ("john@…" → "John@…"; a coupon code
+"swift10" → "Swift10"). Suppress both.
+
+```swift
+// ❌ WRONG — email gets a capital first letter and is "auto-corrected"
+TextField("Email", text: $email)
+    .keyboardType(.emailAddress)
+```
+```swift
+// ✅ CORRECT — no capitalization, no autocorrect for an identifier
+TextField("Email", text: $email)
+    .keyboardType(.emailAddress)
+    .textInputAutocapitalization(.never)    // iOS 15.0+ (replaces the deprecated .autocapitalization)
+    .autocorrectionDisabled()               // iOS 13.0+
+```
+
+**Grounded in the corpus.** `swiftui-ctx lookup textInputAutocapitalization --platform ios --json` (run
+2026-06-16) returns `introduced_ios: 15.0`, `deprecated: false`, consensus `(_)` **100%**;
+`swiftui-ctx lookup autocorrectionDisabled --platform ios` returns `introduced_ios: 13.0`, consensus `()`
+**86%** · `(_)` 14% (the no-arg form is the idiom). `.textInputAutocapitalization(.words)` is right for a name,
+`.never` for emails/codes — judge the field. Both are at/below the iOS-17 floor, so **no gate** is needed.
+
+## cf-03 — free-standing `TextField` with no `.textFieldStyle(.roundedBorder)` (advisory, flag-only)
+
+Outside a grouped `Form` or an inset `List` (which give a field its own bounded row), a bare `TextField` has
+**no border** — it is invisible until tapped. `.textFieldStyle(.roundedBorder)` is the standard iOS bordered
+field.
+
+```swift
+// ❌ WRONG — a free-standing field with no visible bounds
+VStack {
+    TextField("Search", text: $query)
+}
+```
+```swift
+// ✅ CORRECT — the standard rounded iOS field
+VStack {
+    TextField("Search", text: $query)
+        .textFieldStyle(.roundedBorder)     // RoundedBorderTextFieldStyle (iOS 13.0+)
+}
+```
+
+**Grounded in the corpus.** `swiftui-ctx lookup textFieldStyle --platform ios --json` (run 2026-06-16) returns
+`introduced_ios: 13.0`, `deprecated: false`, consensus `(_)` **100%**; `RoundedBorderTextFieldStyle` is
+`introduced_ios: 13.0`. **Judge the container:** a `TextField` already inside a `Form` `Section` or an inset
+`List` row gets its bounds from the row — `.roundedBorder` there is redundant; this is a **free-standing**
+field defect only.
+
+## cf-04 — multi-field form with no `.submitLabel(_:)` (advisory, flag-only)
+
+In a form of several fields, the keyboard's Return key reads a generic "return" — it should say **Next** to
+advance and **Done**/**Go** on the last field. `.submitLabel` sets it (and pairs with `.onSubmit` + `@FocusState`
+to actually advance — cf-06).
+
+```swift
+// ❌ WRONG — Return key has no Next/Done affordance across fields
+TextField("Email", text: $email)
+SecureField("Password", text: $password)
+```
+```swift
+// ✅ CORRECT — Next then Go labels guide the user through the form
+TextField("Email", text: $email)
+    .submitLabel(.next)                     // iOS 15.0+
+SecureField("Password", text: $password)
+    .submitLabel(.go)
+```
+
+**Grounded in the corpus.** `swiftui-ctx lookup submitLabel --platform ios --json` (run 2026-06-16) returns
+`introduced_ios: 15.0`, `deprecated: false`, consensus `(_)` **100%**. Cases: `.done`/`.next`/`.go`/`.search`/
+`.send`/`.return`. A single-field form doesn't need this — judge the field count.
+
+## cf-06 — custom view / form with no `@FocusState` keyboard-focus wiring (warning, flag-only)
+
+`@FocusState` + `.focused($field, equals:)` + `.onSubmit` is how iOS **drives the keyboard**: focus the first
+field on appear, advance on Return, and dismiss the keyboard programmatically. A custom focus-taking view, or a
+multi-field form, with **none** of this can't advance fields or dismiss the keyboard. (Keyboard focus is fully
+valid on iOS — `@FocusState` is `introduced_ios 15.0`, `.focusable()` 17.0.)
+
+```swift
+// ❌ WRONG — no way to advance fields or dismiss the keyboard
+struct LoginForm: View {
+    @State private var email = ""
+    @State private var password = ""
     var body: some View {
-        Form {
-            TextField("Name", text: $name)
-                .focusable().focused($nameFocused)      // join Tab order + focus ring (macOS 12.0+)
-            Toggle("Enabled", isOn: $enabled)
-            Button { showHelp() } label: { Image(systemName: "questionmark.circle") }
-                .help("Shows contextual help")          // tooltip on pointer rest (macOS 11.0+)
-                .buttonStyle(.borderless)
+        VStack {
+            TextField("Email", text: $email)
+            SecureField("Password", text: $password)
         }
-        .formStyle(.grouped)                            // macOS grouped settings look (macOS 13.0+)
-        .controlSize(.regular)                          // explicit Mac density (see control-styles-density.md)
-        .onAppear { nameFocused = true }                // focus first field on appear
+    }
+}
+```
+```swift
+// ✅ CORRECT — @FocusState drives the keyboard (all at/below the iOS-17 floor)
+struct LoginForm: View {
+    enum Field { case email, password }
+    @FocusState private var focused: Field?   // @FocusState: iOS 15.0+
+    @State private var email = ""
+    @State private var password = ""
+    var body: some View {
+        VStack {
+            TextField("Email", text: $email)
+                .focused($focused, equals: .email)   // .focused(_:equals:): iOS 15.0+
+                .submitLabel(.next)
+            SecureField("Password", text: $password)
+                .focused($focused, equals: .password)
+                .submitLabel(.go)
+        }
+        .onSubmit { focused = (focused == .email) ? .password : nil }   // advance / dismiss
+        .onAppear { focused = .email }
     }
 }
 ```
 
-**Rules recap:** (1) `.formStyle(.grouped)` for settings/forms — the macOS default is ungrouped (cf-01).
-(2) `.focusable()` + `@FocusState` + `.focused($_)` so a custom view joins the Tab order and shows the focus
-ring (cf-02). (3) `.help` for a tooltip on every icon-only control, title case (cf-03). Density and the
-`List`/`Button`/`Picker` style choice are in `control-styles-density.md` (cf-04…cf-08); the pointer/cursor
-affordances are `audit-swiftui-pointer-gestures`' half.
+**Grounded in the corpus.** `swiftui-ctx lookup focused --platform ios --json` (run 2026-06-16) returns
+`introduced_ios: 15.0`, `deprecated: false`; `@FocusState` is `introduced_ios: 15.0`, `focusable` is
+`introduced_ios: 17.0` (corpus consensus `()` 68% · `(_)` 32%). All at/below the iOS-17 floor — **no gate**.
+
+> **keep-apart seam.** `@FocusState` (keyboard / which field the keyboard targets) is **this skill**;
+> `AccessibilityFocusState` / `.accessibilityFocused` (VoiceOver focus) is `audit-swiftui-accessibility` —
+> per `${CLAUDE_PLUGIN_ROOT}/references/_shared/cross-ref-graph.md` they are different wrappers; `cross_ref`
+> accessibility, don't claim its half.
+
+---
+
+## Canonical pattern (the native iOS entry-form exemplar — controls half only)
+
+```swift
+// Native iOS sign-in form: grouped Form (grouped by default on iOS — NO .formStyle needed),
+// keyboard configured per field, submit labels, @FocusState advance + dismiss.
+// (Tap/swipe affordances are audit-swiftui-touch-gestures' half — omitted here on purpose.)
+struct SignInForm: View {
+    enum Field { case email, password }
+    @FocusState private var focused: Field?
+    @State private var email = ""
+    @State private var password = ""
+
+    var body: some View {
+        Form {                                          // iOS Form is grouped by default — no .formStyle
+            Section {
+                TextField("Email", text: $email)
+                    .keyboardType(.emailAddress)        // cf-01 (iOS 13.0+)
+                    .textInputAutocapitalization(.never)// cf-02 (iOS 15.0+)
+                    .autocorrectionDisabled()           // cf-02 (iOS 13.0+)
+                    .focused($focused, equals: .email)  // cf-06 (iOS 15.0+)
+                    .submitLabel(.next)                 // cf-04 (iOS 15.0+)
+                SecureField("Password", text: $password)
+                    .focused($focused, equals: .password)
+                    .submitLabel(.go)
+            }
+        }
+        .onSubmit { focused = (focused == .email) ? .password : nil }
+        .onAppear { focused = .email }
+    }
+}
+```
+
+**Rules recap:** (1) `.keyboardType` matched to the bound data — `.default` is wrong for typed data (cf-01).
+(2) `.textInputAutocapitalization(.never)` + `.autocorrectionDisabled()` for emails/codes (cf-02). (3)
+`.textFieldStyle(.roundedBorder)` for a **free-standing** field (cf-03). (4) `.submitLabel` on each field of a
+multi-field form (cf-04). (5) `@FocusState` + `.focused($_, equals:)` + `.onSubmit` to advance/dismiss the
+keyboard (cf-06). The picker-style and `controlSize` density choices are in `control-styles-density.md`
+(cf-05/07); the tap/swipe affordances are `audit-swiftui-touch-gestures`' half.
 
 ---
 
 ## Sources
 
-- Apple — `formStyle(_:)`: *"Sets the style for forms in a view hierarchy."* (`.automatic`/`.columns`/
-  `.grouped`; macOS 13.0+ — body was nav-only on the scrape, floor confirmed via the corpus
-  `introduced_macos`): `https://developer.apple.com/documentation/swiftui/view/formstyle(_:)` (via Sosumi,
-  accessed 2026-06-07).
-- Apple — `focusable(_:)`: *"Specifies if the view is focusable."* — **macOS 12.0+** (floors-master
-  corrects the corpus's reported 10.15): `https://developer.apple.com/documentation/swiftui/view/focusable(_:)`
-  (via Sosumi, accessed 2026-06-07).
-- Apple — `focused(_:)` (binds focus to a `@FocusState`; macOS 12.0+):
-  `https://developer.apple.com/documentation/swiftui/view/focused(_:)`; `@FocusState` (macOS 12.0+):
-  `https://developer.apple.com/documentation/swiftui/focusstate` (via Sosumi, accessed 2026-06-07).
-- Apple — `help(_:)`: *"Adds help text to a view that people see as a tooltip…"* — **macOS 11.0+** (not
-  10.15): `https://developer.apple.com/documentation/swiftui/view/help(_:)` (via Sosumi, accessed 2026-06-07).
-- Practice corpus (the ✅ permalinks): `swiftui-ctx lookup formStyle` →
-  `https://github.com/sindresorhus/Gifski/blob/7f873856e2acd8b52e6681dee3aec31e6cab23e4/Gifski/EditScreen.swift#L546`;
-  `swiftui-ctx lookup focusable` →
-  `https://github.com/nickustinov/itsypad-macos/blob/d6ffd18f75d47a84fc4e3d86ad9665abb048edb6/Packages/Bonsplit/Sources/Bonsplit/Internal/Views/SplitViewContainer.swift#L27`;
-  `swiftui-ctx lookup help` →
-  `https://github.com/sindresorhus/Gifski/blob/7f873856e2acd8b52e6681dee3aec31e6cab23e4/Gifski/EstimatedFileSize.swift#L152`
-  (1,857-repo macOS catalog, SwiftSyntax, macOS 26.5 SDK; accessed 2026-06-07).
-- SerialCoder.dev — *Implementing a focusable text field in SwiftUI* (macOS; corroboration only):
-  `https://serialcoder.dev/text-tutorials/macos-tutorials/macos-programming-implementing-a-focusable-text-field-in-swiftui/`
+- Apple — `keyboardType(_:)`: *"Sets the keyboard type for this view."* (`.numberPad`/`.decimalPad`/
+  `.emailAddress`/`.URL`/`.phonePad`; iOS 13.0+):
+  `https://developer.apple.com/documentation/swiftui/view/keyboardtype(_:)` (via Sosumi, accessed 2026-06-16).
+- Apple — `textInputAutocapitalization(_:)`: iOS 15.0+ (replaces the deprecated `.autocapitalization`):
+  `https://developer.apple.com/documentation/swiftui/view/textinputautocapitalization(_:)` (via Sosumi,
+  accessed 2026-06-16).
+- Apple — `autocorrectionDisabled(_:)`: iOS 13.0+:
+  `https://developer.apple.com/documentation/swiftui/view/autocorrectiondisabled(_:)` (via Sosumi, accessed
+  2026-06-16).
+- Apple — `textFieldStyle(_:)` (`.roundedBorder`/`.plain`/`.automatic`; iOS 13.0+):
+  `https://developer.apple.com/documentation/swiftui/view/textfieldstyle(_:)` (via Sosumi, accessed
+  2026-06-16).
+- Apple — `submitLabel(_:)`: iOS 15.0+:
+  `https://developer.apple.com/documentation/swiftui/view/submitlabel(_:)` (via Sosumi, accessed 2026-06-16).
+- Apple — `focused(_:equals:)` (binds focus to a `@FocusState`; iOS 15.0+):
+  `https://developer.apple.com/documentation/swiftui/view/focused(_:equals:)`; `@FocusState` (iOS 15.0+):
+  `https://developer.apple.com/documentation/swiftui/focusstate` (via Sosumi, accessed 2026-06-16).
+- Practice corpus (consensus shapes + the ✅ permalinks): `swiftui-ctx lookup keyboardType` /
+  `textInputAutocapitalization` / `autocorrectionDisabled` / `textFieldStyle` / `submitLabel` / `focused`
+  `--platform ios` (1,857-repo iOS catalog, SwiftSyntax, iOS 26 SDK; accessed 2026-06-16);
+  `swiftui-ctx recipe settings-form` →
+  `https://github.com/groue/GRDB.swift/blob/9ed8c8457e00ff9c7aedb3bf213f20a2cfdf509e/Documentation/DemoApps/GRDBDemo/GRDBDemo/Views/PlayerCreationSheet.swift#L11`
+  (the canonical grouped-`Form` iOS exemplar).

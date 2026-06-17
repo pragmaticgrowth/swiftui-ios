@@ -9,4 +9,4 @@
 #
 # Run the shared runner (it forwards every arg to swiftui-lint.sh):
 exec bash "$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd)/scripts/swiftui-lint.sh" \
-  --skill audit-swiftui-appkit-overuse "$@"
+  --skill audit-swiftui-uikit-overuse "$@"

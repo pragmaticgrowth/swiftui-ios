@@ -1,0 +1,23 @@
+# gate-06 (structural): an `#available(iOS …)` block whose body uses an iOS-ABSENT symbol (a symbol with
+# no iOS arm at all — a macOS-/visionOS-/AppKit-only name). Wrapping it in an iOS gate is wrong — the
+# symbol must be REPLACED with the iOS equivalent, not gated. The grep tell catches the bare symbol; this
+# structural form proves it is actually inside an iOS availability gate (the giveaway that a dev tried to
+# gate an unreplaceable name onto iOS).
+# See ${CLAUDE_PLUGIN_ROOT}/references/_shared/hallucination-blacklist.md for the iOS equivalents.
+id: gate-06-absent-symbol-in-ios-gate
+language: Swift
+severity: error
+message: >-
+  gate-06: an iOS-ABSENT symbol (a macOS-/visionOS-/AppKit-only name) is wrapped in #available(iOS …). A
+  symbol with no iOS arm cannot be gated onto iPhone/iPad — replace it with the iOS equivalent
+  (hallucination-blacklist). READ to confirm.
+rule:
+  kind: if_statement
+  all:
+    - has:
+        field: condition
+        kind: availability_condition
+        regex: 'iOS'
+    - has:
+        stopBy: end
+        regex: 'glassBackgroundEffect|MenuBarExtra|WindowStyle\.volumetric|NSViewRepresentable|NSViewControllerRepresentable|NSHostingController|NSHostingView'

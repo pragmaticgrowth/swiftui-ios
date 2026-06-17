@@ -2,9 +2,9 @@
 # cf-lint.sh — thin pointer. There is no bespoke grep script: the toolkit ships ONE shared hybrid lint
 # engine fed declarative rule files (the pattern every audit skill inherits).
 #
-# Rules for this skill live in:   ../lint/grep-tells.tsv       (tier 1 — flat grep tells: cf-01..cf-08)
-#                                 ../lint/ast-grep/*.yml       (tier 2 — structural: cf-01 form-without-
-#                                                               formstyle, cf-02 custom-view-not-focusable)
+# Rules for this skill live in:   ../lint/grep-tells.tsv       (tier 1 — flat grep tells: cf-01..cf-07)
+#                                 ../lint/ast-grep/*.yml       (tier 2 — structural: cf-01 numeric-textfield-
+#                                                               no-keyboardtype, cf-06 custom-view-not-focusable)
 # The engine + rule-file format + JSON/SARIF shape + safety rails:
 #                                 ${CLAUDE_PLUGIN_ROOT}/references/_shared/lint-architecture.md
 #

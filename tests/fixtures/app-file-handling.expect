@@ -1,0 +1,6 @@
+# rule_ids that MUST fire on app-file-handling.swift
+doc-01
+doc-02
+doc-05
+doc-09
+doc-13

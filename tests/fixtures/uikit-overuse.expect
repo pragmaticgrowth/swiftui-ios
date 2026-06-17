@@ -1,0 +1,8 @@
+# rule_ids that MUST fire on uikit-overuse.swift (one per line)
+over-01
+over-02
+over-03
+over-04
+over-05
+over-06
+over-07

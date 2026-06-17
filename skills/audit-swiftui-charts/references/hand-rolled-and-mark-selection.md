@@ -25,7 +25,7 @@ GeometryReader { geo in
 ```
 
 ```swift
-// ✅ Chart (consensus shape from swiftui-ctx lookup BarMark — 86% (x:, y:))
+// ✅ Chart (consensus shape from swiftui-ctx lookup BarMark --platform ios — 58% (x:, y:))
 Chart(data) { row in
     BarMark(x: .value("Day", row.day), y: .value("Total", row.total))
 }
@@ -55,14 +55,14 @@ compiles.
 |---|---|---|
 | Discrete categories, magnitude | `BarMark` | a `LineMark` connecting unordered categories (implies a trend that isn't there) |
 | Continuous/time-ordered trend | `LineMark` / `AreaMark` | a `BarMark` per timestamp for a dense series (should be a line) |
-| Parts of a whole | `SectorMark` (macOS 14) | many `BarMark`s the reader must sum mentally |
+| Parts of a whole | `SectorMark` (iOS 17, at floor) | many `BarMark`s the reader must sum mentally |
 | Correlation of two quantities | `PointMark` | a `LineMark` across unsorted x (zig-zag spaghetti) |
 | Threshold / target overlay | `RuleMark` | a hardcoded `Rectangle` overlay |
 
 **Judgment, not mechanics.** charts-03 is a `warning`/`flag` — the "right" mark depends on intent. When
-unsure whether a Mark fits, VERIFY the data's domain and check `swiftui-ctx lookup <Mark> --json`
-`co_occurs_with` (e.g. `LineMark` co-occurs with `chartScrollPosition`/`chartXVisibleDomain` → it's a
-trend series; `SectorMark` co-occurs with `chartAngleSelection` → parts-of-whole). Cite the consensus
+unsure whether a Mark fits, VERIFY the data's domain and check `swiftui-ctx lookup <Mark> --platform ios --json`
+`co_occurs_with` (e.g. `LineMark` co-occurs with `chartXScale`/`chartYScale`/`chartOverlay` → it's a
+trend series; `SectorMark` co-occurs with `chartLegend`/`AreaMark` → parts-of-whole). Cite the consensus
 example permalink as the ✅, never a hand-written snippet.
 
 ---

@@ -1,89 +1,97 @@
-# Reference — Toolbar Placements & Titles (nav-05/06/07/10/11)
+# Reference — Toolbar Placements & Titles (nav-06/07/10/11)
 
-macOS has **no navigation bar** — toolbar items use **semantic** placements and the title shows in the
-**window titlebar**. iOS-bar concepts are deprecated, platform-absent, or no-ops on the Mac. **Floor
-values are the reconciled truth in `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md` — never
-restated here**; the platform-wrong-placement list is `hallucination-blacklist.md` §5. Every ✅ shape is
-the **swiftui-ctx consensus** (run the `lookup` in step VERIFY), not opinion.
+iOS **has a navigation bar** — toolbar items use the **bar placements** and the title shows in the
+navigation bar. The current iOS placements are correct; only the *old* `navigationBar*` placement and
+title spellings are deprecated. **Floor values are the reconciled truth in
+`${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md` — never restated here**. Every ✅ shape is the
+**swiftui-ctx consensus** (run the `lookup` in step VERIFY), not opinion.
 
 ---
 
-## nav-05 · `.topBarLeading` / `.topBarTrailing` on a Mac target (hard-fail · auto)
+## INVERTED FROM macOS — `.topBarLeading` / `.topBarTrailing` / `.bottomBar` are CORRECT on iOS
 
-The nominal replacements for the deprecated iOS placements — `topBarLeading` / `topBarTrailing` — are
-**unavailable on macOS at all**. macOS is **absent** from Apple's platform list for those cases, so
-referencing them on a Mac target is a compile-time *unavailable* error, not just an "iOS-shaped" choice.
-Per `${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md`: a `macOS ABSENT` symbol is **replaced,
-never wrapped in `#available(macOS …)`**. A `swiftui-ctx lookup` exit-3 on these corroborates that no
-shipping Mac app uses them.
+On macOS this skill (as nav-05) flagged `.topBarLeading` / `.topBarTrailing` as a **compile error**
+(macOS-absent). **On iOS that is wrong** — those placements are the current, idiomatic iOS bar slots:
+
+- `swiftui-ctx lookup topBarLeading --platform ios` → `introduced_ios: 14.0`, `deprecated: false`.
+- `lookup topBarTrailing --platform ios` → `introduced_ios: 14.0`, `deprecated: false`.
+- `lookup bottomBar --platform ios` → `introduced_ios: 14.0`, `deprecated: false`.
+
+So **nav-05 is retired here**: a `.topBarLeading` / `.topBarTrailing` / `.bottomBar` placement is **never**
+a finding on an iOS target. Use them freely. `.principal` (centered title area) and `.primaryAction`
+(trailing on iOS) are also current.
 
 ## nav-06 · `.navigationBarLeading` / `.navigationBarTrailing` (hard-fail · auto)
 
-Deprecated (macOS 11.0+; exact deprecation version is `verify-SDK` per `floors-master.md`) **and iOS-only
-to begin with**. Replace with a semantic placement.
-
-## nav-07 · `navigationBarTitle` / `navigationBarTitleDisplayMode` (hard-fail · auto)
-
-macOS has no navigation *bar*; the title shows in the **window titlebar** (plus the Windows menu and
-Mission Control). The current cross-platform modifier is `navigationTitle(_:)` (macOS 11.0+).
-`navigationBarTitleDisplayMode` and its `.inline`/`.large` modes are iOS/watchOS-only and **no-ops on the
-Mac** (`hallucination-blacklist.md` §5).
+The **old** spellings `.navigationBarLeading` / `.navigationBarTrailing` are **deprecated**
+(`swiftui-ctx deprecated navigationBarLeading` / `navigationBarTrailing` → `deprecated: true`;
+`lookup … --platform ios` → `introduced_ios: 14.0`, `deprecated: true`). Apple's current spellings are
+`.topBarLeading` / `.topBarTrailing`. Mechanical rename.
 
 ```swift
-// ❌ deprecated iOS-only, topBar* won't compile, iOS-bar title is a no-op
+// ❌ deprecated placement spellings
 .toolbar {
-    ToolbarItem(placement: .navigationBarLeading)  { Button("Back") {} }  // nav-06 deprecated iOS-only
-    ToolbarItem(placement: .topBarTrailing)        { Button("Add")  {} }  // nav-05 unavailable → compile error
+    ToolbarItem(placement: .navigationBarLeading)  { Button("Back") {} }  // nav-06 deprecated
+    ToolbarItem(placement: .navigationBarTrailing) { Button("Add")  {} }  // nav-06 deprecated
 }
-.navigationBarTitle("Inbox")                                              // nav-07 iOS bar concept
-.navigationBarTitleDisplayMode(.inline)                                   // nav-07 no-op on macOS
 ```
 ```swift
-// ✅ semantic placements + navigationTitle — SwiftUI positions per-platform on macOS
+// ✅ current iOS bar placements
 .toolbar {
-    ToolbarItem(placement: .navigation)    { Button("Back") {} }   // leading, ahead of the title
-    ToolbarItem(placement: .principal)     { TitleView() }         // centered on macOS
-    ToolbarItem(placement: .primaryAction) { Button("Add")  {} }   // LEADING EDGE on macOS (not trailing)
-    ToolbarItem { Button("Toggle") {} }                            // .automatic default
+    ToolbarItem(placement: .topBarLeading)  { Button("Back") {} }   // current iOS leading
+    ToolbarItem(placement: .topBarTrailing) { Button("Add")  {} }   // current iOS trailing
+    ToolbarItem(placement: .bottomBar)      { Button("Edit") {} }   // bottom toolbar
 }
-.navigationTitle(item?.name ?? "Untitled")    // → window titlebar / Windows menu / Mission Control
-.navigationSubtitle("\(unread) unread")       // secondary line; macOS 11.0+ (iOS floor 26.0 — much higher)
 ```
 
-**Semantic placements resolve on macOS as:** `.navigation` → leading (ahead of the inline title);
-`.primaryAction` → **leading edge of the toolbar** (Apple: *"In macOS … the location for the primary
-action is the leading edge of the toolbar"*) — NOT trailing; `.principal` and `.status` → **centered**.
-`NavigationSplitView` adds a sidebar toggle automatically on macOS 14+; `ToolbarDefaultItemKind.sidebarToggle` (macOS 14.0+, `static let sidebarToggle: ToolbarDefaultItemKind`) is the identity token used with `toolbar(removing: .sidebarToggle)` to remove that default toggle — it is not a `ToolbarItemPlacement`. No first-party inspector-toggle item kind exists on any SwiftUI type; toggle the inspector via its `.inspector(isPresented:)` binding instead.
+## nav-07 · `navigationBarTitle` is deprecated → `navigationTitle` (hard-fail · auto)
 
-**swiftui-ctx grounding (run live in VERIFY):** `lookup toolbar --json` →
-`consensus: [{shape:"{ }", pct:89}]`, `co_occurs_with: ["ToolbarItem","ToolbarItemGroup","searchToolbarBehavior", …]`,
-`recommended` a high-authority macOS-26 `.toolbar { … }` example (permalinked `var body`). The 89%
-trailing-closure `{ }` form is the canonical toolbar shape; the auto-fix's ✅ in `## Correct` is that
-consensus shape backed by `file <recommended.id> --smart`.
-
-## nav-10 · `.searchable` on a column, not the split view (advisory)
-
-`.searchable` goes on the `NavigationSplitView` itself, **not** on a column — otherwise it lands in the
-wrong toolbar slot on macOS. `searchToolbarBehavior(_:)` (macOS 26.0+) tunes the field; gate it if the floor is below 26. Note: `.minimize` is **not available on macOS** (iOS/iPadOS/Mac Catalyst/visionOS 26.0+ only); the macOS-safe case is `.automatic`.
+`navigationBarTitle(_:)` is **deprecated** (`swiftui-ctx lookup navigationBarTitle --platform ios` →
+`introduced_ios: 13.0`, `deprecated: true`, `migrate_to: navigationTitle`). The current modifier is
+`navigationTitle(_:)` (iOS 13.0+). **Keep `navigationBarTitleDisplayMode`** — it is iOS-only and **NOT
+deprecated** (`lookup navigationBarTitleDisplayMode --platform ios` → `introduced_ios: 14.0`,
+`deprecated: false`); `.inline` / `.large` / `.automatic` are the correct iOS title modes.
 
 ```swift
-// ✅ searchable on the split view (right toolbar slot)
-NavigationSplitView { SidebarView() } detail: { DetailView() }
+// ❌ deprecated title modifier
+.navigationBarTitle("Inbox")                          // nav-07 deprecated → navigationTitle
+```
+```swift
+// ✅ navigationTitle + navigationBarTitleDisplayMode (the latter is iOS-only and correct — keep it)
+.navigationTitle("Inbox")
+.navigationBarTitleDisplayMode(.inline)               // iOS-only, current — NOT a defect
+```
+
+**swiftui-ctx grounding (run live in VERIFY):** `lookup toolbar --platform ios --json` →
+`co_occurs_with: ["ToolbarItem","ToolbarItemGroup", …]`, `recommended` a high-authority iOS
+`.toolbar { … }` example. The trailing-closure `{ }` form is the canonical toolbar shape; the auto-fix's
+✅ in `## Correct` is that consensus shape backed by `file <recommended.id> --smart`.
+
+## nav-10 · `.searchable` on a column, not the navigation container (advisory)
+
+`.searchable` goes on the `NavigationStack` / `NavigationSplitView` itself, **not** on a column — otherwise
+it lands in the wrong bar slot. `searchToolbarBehavior(_:)` (iOS 26.0+) tunes the field; gate it if the
+floor is below 26. `.minimize` (iOS/iPadOS 26.0+) is the iOS minimizing behavior.
+
+```swift
+// ✅ searchable on the navigation container (right bar slot)
+NavigationStack { ListView() }
     .searchable(text: $query)
 ```
 
-## nav-11 · `ToolbarSpacer` / `SpacerSizing` ungated under a < macOS 26 floor (hard-fail · flag)
+## nav-11 · `ToolbarSpacer` / `SpacerSizing` ungated under a < iOS 26 floor (warning · flag)
 
 `ToolbarSpacer(_:placement:)` + `SpacerSizing` (`.fixed` for a single system-standard gap, `.flexible`
-to push items toward opposite ends of a region) are **macOS 26.0+**. Under a deployment target below 26
-they must sit behind `#available(macOS 26, *)` (the macOS arm — see
-`${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md`). If the project floor is already ≥ 26,
-nav-11 does not fire — read the floor in ORIENT.
+to push items toward opposite ends of a region) are **iOS 26.0+**
+(`swiftui-ctx lookup ToolbarSpacer --platform ios` → `introduced_ios: 26.0`). Under a deployment target
+below 26 they must sit behind `#available(iOS 26, *)` (the **iOS** arm — see
+`${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md`). If the project floor is already ≥ 26, nav-11
+does not fire — read the floor in ORIENT.
 
 ```swift
-if #available(macOS 26, *) {
-    ToolbarSpacer(.fixed, placement: .primaryAction)      // system-standard gap
-    ToolbarSpacer(.flexible, placement: .primaryAction)   // pushes following items apart
+if #available(iOS 26, *) {
+    ToolbarSpacer(.fixed, placement: .topBarTrailing)      // system-standard gap
+    ToolbarSpacer(.flexible, placement: .topBarTrailing)   // pushes following items apart
 }
 ```
 
@@ -95,13 +103,13 @@ glass-adoption angle there.
 ## Sources
 
 All Apple docs fetched via Sosumi (protocol:
-`${CLAUDE_PLUGIN_ROOT}/references/_shared/sosumi-reference.md`); access 2026-06-07. Floors live in
+`${CLAUDE_PLUGIN_ROOT}/references/_shared/sosumi-reference.md`); access 2026-06-16. Floors live in
 `floors-master.md`; the live consensus shape + permalink come from `swiftui-ctx lookup toolbar` (see
 `${CLAUDE_PLUGIN_ROOT}/references/_shared/swiftui-ctx-reference.md`).
 
-- `ToolbarItemPlacement` (`.primaryAction` = leading edge on macOS; `.principal`/`.status` centered; `navigationBarLeading`/`Trailing` deprecated iOS-only; `topBarLeading`/`topBarTrailing` unavailable on macOS): https://developer.apple.com/documentation/swiftui/toolbaritemplacement
-- `ToolbarSpacer` + `SpacerSizing` (macOS 26; `.fixed`/`.flexible` toolbar gaps): https://developer.apple.com/documentation/swiftui/toolbarspacer
-- `navigationTitle(_:)` (macOS → window titlebar / Windows menu / Mission Control): https://developer.apple.com/documentation/swiftui/view/navigationtitle(_:)-43srq
-- `navigationSubtitle(_:)` (macOS 11.0+, also iOS/iPadOS 26.0+): https://developer.apple.com/documentation/swiftui/view/navigationsubtitle(_:)
+- `ToolbarItemPlacement` (`.topBarLeading`/`.topBarTrailing`/`.bottomBar`/`.principal`/`.primaryAction` current on iOS; `.navigationBarLeading`/`.navigationBarTrailing` deprecated): https://developer.apple.com/documentation/swiftui/toolbaritemplacement
+- `ToolbarSpacer` + `SpacerSizing` (iOS 26; `.fixed`/`.flexible` toolbar gaps): https://developer.apple.com/documentation/swiftui/toolbarspacer
+- `navigationTitle(_:)` (iOS 13.0+): https://developer.apple.com/documentation/swiftui/view/navigationtitle(_:)-43srq
+- `navigationBarTitleDisplayMode(_:)` (iOS-only, `.inline`/`.large`/`.automatic`, iOS 14.0+ — current): https://developer.apple.com/documentation/swiftui/view/navigationbartitledisplaymode(_:)
 - `searchable(text:placement:prompt:)`: https://developer.apple.com/documentation/swiftui/view/searchable(text:placement:prompt:)-18a8f
-- `searchToolbarBehavior(_:)` (macOS 26.0+; `.minimize` is iOS/iPadOS/Mac Catalyst/visionOS 26.0+ only — not macOS; macOS-safe case is `.automatic`): https://developer.apple.com/documentation/swiftui/view/searchtoolbarbehavior(_:)
+- `searchToolbarBehavior(_:)` (iOS 26.0+; `.minimize` iOS/iPadOS 26.0+): https://developer.apple.com/documentation/swiftui/view/searchtoolbarbehavior(_:)

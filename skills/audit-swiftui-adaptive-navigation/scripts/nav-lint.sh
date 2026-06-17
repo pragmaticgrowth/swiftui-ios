@@ -9,4 +9,4 @@
 #
 # Run the shared runner instead (it forwards every arg to swiftui-lint.sh):
 exec bash "$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd)/scripts/swiftui-lint.sh" \
-  --skill audit-swiftui-navigation-toolbars "$@"
+  --skill audit-swiftui-adaptive-navigation "$@"

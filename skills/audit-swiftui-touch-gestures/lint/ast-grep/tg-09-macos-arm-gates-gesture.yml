@@ -1,0 +1,24 @@
+# tg-09 (structural): an `if #available(macOS …)` block whose body uses a gesture/affordance symbol, inside
+# an iOS target = wrong availability arm (hard-fail). On iOS the macOS-armed branch's availability is wrong,
+# so the gesture either fails to compile or silently never runs on device. This structural form proves the
+# GATE SCOPE actually wraps a gesture/affordance symbol (not merely that the `macOS` string appears).
+# Rewrite to #available(iOS NN, *), or drop the gate when the symbol is at/under the iOS-17 floor
+# (MagnifyGesture/RotateGesture = iOS 17). fix_mode: auto. READ to confirm the body uses the symbol.
+id: tg-09-macos-arm-gates-gesture
+language: Swift
+severity: error
+message: >-
+  tg-09: an `if #available(macOS …)` block guards a gesture/affordance (MagnifyGesture / RotateGesture /
+  DragGesture / onTapGesture / swipeActions / refreshable) in an iOS target (wrong availability arm).
+  Gate on #available(iOS 17, *) — or drop the gate (these are at/under the iOS-17 floor). fix_mode: auto.
+  READ to confirm the body uses the gesture/affordance.
+rule:
+  kind: if_statement
+  all:
+    - has:
+        field: condition
+        kind: availability_condition
+        regex: 'macOS'
+    - has:
+        stopBy: end
+        regex: 'MagnifyGesture|RotateGesture|DragGesture|onTapGesture|onLongPressGesture|swipeActions|refreshable'

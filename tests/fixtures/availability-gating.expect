@@ -1,0 +1,10 @@
+# rule_ids that MUST fire on availability-gating.swift (one per line)
+# iOS-17 deployment target; every gated symbol's iOS floor confirmed via swiftui-ctx --platform ios.
+gate-01
+gate-02
+gate-03
+# gate-04 (no-else) has NO flat lint tell by design (SKILL.md: structural absence) — the agent
+# surfaces it in READ from the gate-03 hits at fixture lines 33/40/52; it can never appear in lint JSON.
+gate-05
+gate-06
+gate-07

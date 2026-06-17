@@ -1,7 +1,7 @@
 # Reference — Axes, Legend & Color Encoding (charts-04 / charts-05 / charts-06)
 
 How a `Chart` communicates: its axes (charts-04), its legend (charts-05), and how series are colored
-(charts-06). All macOS 13+.
+(charts-06). All iOS 16+.
 
 ---
 

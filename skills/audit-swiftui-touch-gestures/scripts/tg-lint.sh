@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# sandbox-lint.sh — thin pointer. The toolkit ships ONE shared hybrid lint engine fed declarative rule
-# files (the pattern every audit skill inherits); there is no bespoke grep script here.
+# tg-lint.sh — thin pointer. This skill uses the toolkit's ONE shared hybrid lint engine fed declarative
+# rule files (the pattern every audit skill inherits), not a bespoke grep script.
 #
 # Rules for this skill live in:   ../lint/grep-tells.tsv       (tier 1 — flat grep tells)
 #                                 ../lint/ast-grep/*.yml       (tier 2 — structural ast-grep rules)
@@ -9,4 +9,4 @@
 #
 # Run the shared runner instead (it forwards every arg to swiftui-lint.sh):
 exec bash "$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd)/scripts/swiftui-lint.sh" \
-  --skill audit-swiftui-sandbox-files "$@"
+  --skill audit-swiftui-touch-gestures "$@"

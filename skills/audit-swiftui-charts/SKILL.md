@@ -1,21 +1,23 @@
 ---
 name: audit-swiftui-charts
-description: Audits a finished or in-progress macOS SwiftUI codebase for Swift Charts defects and writes per-finding Markdown to swiftui-audits/. Use when the user says a chart looks wrong, hand-built, slow, or inaccessible; when they ask to verify Chart, BarMark, LineMark, PointMark, SectorMark, chartXAxis, chartLegend, foregroundStyle(by:), chartXSelection, or chartScrollableAxes; when AI may have written BarChart, LineChart, PieChart, ChartView, PieMark, DonutMark, ScatterMark, ColumnMark, or chartType; when a chart is hand-rolled from a ForEach of Rectangle bars or a GeometryReader; when the wrong Mark is used for the data; when SectorMark, chartXSelection, or LinePlot may be ungated or over-gated under a lower deployment target; or when a chart lacks axes, a legend, interactivity, or a VoiceOver descriptor. AUDIT-ONLY, macOS-only, SwiftUI-only. Not for Canvas-drawn charts (drawing-canvas), not for the blanket availability sweep, not for color theory, not for authoring new charts.
+description: Audits a finished or in-progress iOS SwiftUI codebase for Swift Charts defects and writes per-finding Markdown to swiftui-audits/. Use when the user says a chart looks wrong, hand-built, slow, or inaccessible; when they ask to verify Chart, BarMark, LineMark, PointMark, SectorMark, chartXAxis, chartLegend, foregroundStyle(by:), chartXSelection, or chartScrollableAxes; when AI may have written BarChart, LineChart, PieChart, ChartView, PieMark, DonutMark, ScatterMark, ColumnMark, or chartType; when a chart is hand-rolled from a ForEach of Rectangle bars or a GeometryReader; when the wrong Mark is used for the data; when LinePlot/AreaPlot may be ungated or over-gated against the iOS 17 floor, or a chart symbol is gated on the wrong (macOS) arm; or when a chart lacks axes, a legend, interactivity, or a VoiceOver descriptor. AUDIT-ONLY, iOS-only, SwiftUI-only. Not for Canvas-drawn charts (drawing-canvas), not for the blanket availability sweep, not for color theory, not for authoring new charts.
 ---
 
 # Audit SwiftUI Charts
 
-**AUDIT-ONLY · macOS-only · SwiftUI-only.** Run this on a *finished or in-progress* macOS SwiftUI
+**AUDIT-ONLY · iOS-only · SwiftUI-only.** Run this on a *finished or in-progress* iOS SwiftUI
 project to detect — and where certain, fix — every way Swift Charts goes wrong: hallucinated chart/mark
 names, charts hand-rolled from stacks of rectangles instead of `Chart`, the wrong `*Mark` for the data,
 missing axes/legend/color-encoding, missing interactivity, version-floored symbols left ungated (or
-needlessly over-gated), wrong-arm `iOS` gates, unscalable large-series plots, and missing chart
+needlessly over-gated), wrong-arm `macOS` gates, unscalable large-series plots, and missing chart
 accessibility. Findings are written to disk in the toolkit's unified schema; certain mechanical defects
 are fixed under the fix-safety protocol. This is never a from-scratch chart generator.
 
-Swift Charts is macOS 13+; **`SectorMark`, the `chart*Selection` family, and `chartScrollableAxes` are
-macOS 14 (not 13); `LinePlot`/`AreaPlot`/`BarPlot`/`PointPlot`/`SectorPlot`/`RectanglePlot`/`RulePlot` vectorized plots are macOS 15.** AI routinely mis-floors these
-and reaches for iOS-shaped or invented chart types — be suspicious wherever AI wrote chart code.
+Swift Charts is iOS 16+; the project floor is **iOS 17**, so `SectorMark` and the `chart*Selection`
+family (**iOS 17**) need **no gate** here — but **`LinePlot`/`AreaPlot`/`BarPlot`/`PointPlot`/`SectorPlot`/`RectanglePlot`/`RulePlot`
+vectorized plots are iOS 18**, above the floor, and DO need gating. AI routinely mis-floors these and
+reaches for invented chart types or gates a chart symbol on the wrong (`macOS`) arm — be suspicious
+wherever AI wrote chart code.
 
 ## Boundary / seam note (stay in lane)
 
@@ -46,25 +48,27 @@ fix; `flag` = show the ✅, dev applies.
 | charts-04 | default axis cluttered/wrong — no `.chartXAxis`/`.chartYAxis` customization where needed | advisory | flag | `axes-legend-color.md` |
 | charts-05 | multi-series `.foregroundStyle(by:)` with the legend missing/hidden | advisory | flag | `axes-legend-color.md` |
 | charts-06 | hardcoded per-mark color repeated per category instead of `.foregroundStyle(by:)` | advisory | flag | `axes-legend-color.md` |
-| charts-07 | hand-rolled tap/drag hit-testing for selection instead of `.chartXSelection` (macOS 14) | warning | flag | `interactivity-and-scale.md` |
-| charts-08 | a version-floored symbol (`SectorMark`/`chart*Selection`/`LinePlot`) ungated **or over-gated** vs its real floor | warning | flag | `availability-gating-charts.md` |
-| charts-09 | `#available(iOS …, *)` gating a chart symbol in a macOS target (wrong arm) | warning | auto | `availability-gating-charts.md` |
+| charts-07 | hand-rolled tap/drag hit-testing for selection instead of `.chartXSelection` (iOS 17, at floor) | warning | flag | `interactivity-and-scale.md` |
+| charts-08 | a version-floored symbol (vectorized `LinePlot`/`AreaPlot`, iOS 18) ungated **or over-gated** vs its real floor | warning | flag | `availability-gating-charts.md` |
+| charts-09 | `#available(macOS …, *)` gating a chart symbol in an iOS target (wrong arm) | warning | auto | `availability-gating-charts.md` |
 | charts-10 | thousands of `BarMark`/`LineMark` from one array (no vectorized plot / no scroll) | advisory | flag | `interactivity-and-scale.md` |
 | charts-11 | `Chart` with no VoiceOver descriptor (`.accessibilityLabel`/`.accessibilityValue` / summary) | warning | flag | `accessibility-charts.md` |
 
 **One claim is FLOOR-SENSITIVE, not a fact about code: charts-08 fires for BOTH directions** — a symbol
-*ungated* below its floor **and** a symbol *needlessly over-gated above* it (e.g. `chartXSelection`
-behind `#available(macOS 15, *)` when it is macOS 14, or `SectorMark` treated as macOS 13 when it is 14).
-Confirm the floor in `floors-master.md` + via `swiftui-ctx`/Sosumi before asserting either.
+*ungated* below its floor **and** a symbol *needlessly over-gated above* it (e.g. `LinePlot` behind
+`#available(iOS 26, *)` when it is iOS 18, or `SectorMark` wrapped in any gate when it is iOS 17 — at the
+project floor, so it needs none). Confirm the floor in `floors-master.md` + via `swiftui-ctx`/Sosumi
+before asserting either.
 
 ## The real API, at a glance
 
-**Real (exist on macOS 13.0+ unless noted):** `Chart`, `BarMark`, `LineMark`, `PointMark`, `AreaMark`,
+**Real (exist on iOS 16.0+ unless noted):** `Chart`, `BarMark`, `LineMark`, `PointMark`, `AreaMark`,
 `RuleMark`, `RectangleMark`, `AxisMarks`, `AxisValueLabel`, `AxisGridLine`, `.chartXAxis`/`.chartYAxis`,
-`.chartLegend`, `.foregroundStyle(by:)`, `.symbol(by:)`, `.position(by:)`. **macOS 14.0+:** `SectorMark`
-(pie/donut), `.chartXSelection`/`.chartYSelection`/`.chartAngleSelection`, `.chartScrollableAxes`,
-`.chartScrollPosition`, `.chartXVisibleDomain`/`.chartYVisibleDomain`. **macOS 15.0+:** `LinePlot`,
-`AreaPlot`, `BarPlot`, `PointPlot`, `SectorPlot`, `RectanglePlot`, `RulePlot` (vectorized function/large-series plots).
+`.chartLegend`, `.foregroundStyle(by:)`, `.symbol(by:)`, `.position(by:)`. **iOS 17.0+ (at the project
+floor — no gate needed):** `SectorMark` (pie/donut), `.chartXSelection`/`.chartYSelection`/`.chartAngleSelection`,
+`.chartScrollableAxes`, `.chartScrollPosition`, `.chartXVisibleDomain`/`.chartYVisibleDomain`. **iOS 18.0+
+(above the floor — DO gate):** `LinePlot`, `AreaPlot`, `BarPlot`, `PointPlot`, `SectorPlot`, `RectanglePlot`,
+`RulePlot` (vectorized function/large-series plots).
 
 **Hallucinated (never exist):** `BarChart`, `LineChart`, `PieChart`, `AreaChart`, `ChartView`,
 `.chartType(...)`, `PieMark`, `DonutMark`, `ScatterMark`, `ColumnMark` — these are other-library /
@@ -74,25 +78,26 @@ invented shapes (`PieMark`→`SectorMark`, `ColumnMark`→`BarMark`, `ScatterMar
 ### ✅ Correct (grounded reference shape)
 
 The canonical `Chart` call is the `swiftui-ctx` **consensus** shape — `Chart { … }` (45%) and
-`Chart(data) { … }` (44%) dominate; `Chart(data, id:) { … }` is the 11% tail. A real, current
-(macOS 26 SDK) call site from the corpus:
+`Chart(data) { … }` (37%) dominate; `Chart(data, id:) { … }` is the 16% tail. A real, current
+(iOS 26 SDK) call site from the corpus:
 
 ```swift
-// f/deeper · PlatformsView.swift (consensus shape: Chart(_) { SectorMark … }; SectorMark = macOS 14+)
-Chart(store.platformStats) { stat in
-    SectorMark(
-        angle: .value("Chats", stat.chatCount),
-        innerRadius: .ratio(0.6),
-        angularInset: 2
+// Dimillian/IceCubesApp · TagChartView.swift (consensus shape: Chart(_) { AreaMark … }; all iOS 16+)
+Chart(sortedHistory) { data in
+    AreaMark(
+        x: .value("day", sortedHistory.firstIndex(where: { $0.id == data.id }) ?? 0),
+        y: .value("uses", Int(data.uses) ?? 0)
     )
-    .foregroundStyle(stat.platform.color)
-    .cornerRadius(4)
+    .interpolationMethod(.catmullRom)
 }
-.frame(height: 220)
+.chartLegend(.hidden)
+.chartXAxis(.hidden)
+.chartYAxis(.hidden)
+.frame(width: 70, height: 40)
 ```
 
 Source (real permalink, verify before citing in a finding):
-`https://github.com/f/deeper/blob/19b9f69fa0bbe2cd12dc8ba3729114a194bf1bf0/Deeper/Views/Platforms/PlatformsView.swift#L34`
+`https://github.com/Dimillian/IceCubesApp/blob/9c05a720597b3ff13de2e241bf58d3fba0863c09/Packages/DesignSystem/Sources/DesignSystem/Views/TagChartView.swift#L16`
 · Apple spec via Sosumi `doc: https://sosumi.ai/documentation/charts/chart`. Every `## Correct` in a
 finding is regenerated this way per the actual API — never hand-written — via `swiftui-ctx lookup <api>`
 then `swiftui-ctx file <recommended.id> --smart`.
@@ -105,9 +110,10 @@ invented-name list (incl. the Charts section) in
 ## The 8-step audit workflow (execute verbatim)
 
 1. **ORIENT.** `tree`/`find` the SwiftUI sources. Read the **deployment target**
-   (`project.pbxproj` `MACOSX_DEPLOYMENT_TARGET`, or `Package.swift` `platforms:`). It is load-bearing:
-   charts-08 fires when a symbol's floor (14 for `SectorMark`/selection/scroll, 15 for `LinePlot`) is
-   above the project floor and the call is ungated — or when a gate sits *above* the real floor. Record it.
+   (`project.pbxproj` `IPHONEOS_DEPLOYMENT_TARGET`, or `Package.swift` `platforms:`). It is load-bearing:
+   charts-08 fires when a symbol's floor (18 for the vectorized `LinePlot`/`AreaPlot` family) is above the
+   project floor (iOS 17) and the call is ungated — or when a gate sits *above* the real floor (e.g. a gate
+   on `SectorMark`/selection, which are iOS 17 and already at the floor). Record it.
 2. **LOCATE.** Run the shared hybrid lint runner:
    `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-lint.sh --skill audit-swiftui-charts --dir <sources> --json /tmp/charts.json --sarif /tmp/charts.sarif`.
    It runs this skill's tier-1 grep tells (`lint/grep-tells.tsv`) + tier-2 structural ast-grep rules
@@ -121,18 +127,19 @@ invented-name list (incl. the Charts section) in
    invisible to grep. Build a per-file inventory: each chart, its `*Mark`(s), data shape, axes/legend,
    interactivity, gate, and accessibility.
 4. **DETECT.** Apply the index. Assign each candidate a **confidence**; report a finding **only at 100%
-   certainty** (e.g. a hallucinated name, an `iOS` gate arm over a chart, a `SectorMark` ungated under a
-   macOS 13 floor).
+   certainty** (e.g. a hallucinated name, a `macOS` gate arm over a chart, a `LinePlot` ungated under the
+   iOS 17 floor).
 5. **VERIFY.** For anything ≤ ~70% confidence (a symbol you're unsure exists, a floor you can't place, a
    "wrong Mark" judgment), run **both** evidence sources. (a) **Practice** — `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx
-   lookup <api> --json` (and `swiftui-ctx deprecated <api>` for a currency rule): read its `consensus`
-   (the canonical call shape), `introduced_macos`, `deprecated`+`replacement`, `recommended`/`diverse`
-   permalink, and `co_occurs_with`; a `lookup` **exit 3** (not-found, with a did-you-mean `suggestion`)
-   corroborates a hallucination — no shipping Mac app uses the symbol. (b) **Spec** — confirm via
-   **Sosumi**: `curl -sSL https://sosumi.ai/<apple-path>` using `references/source-directory.md` for the
-   path and `${CLAUDE_PLUGIN_ROOT}/references/_shared/sosumi-reference.md` for the protocol (never
-   `WebFetch` `developer.apple.com`). Cross-check `introduced_macos` against `floors-master.md` and the
-   Sosumi `doc:` floor. The CLI contract is
+   lookup <api> --platform ios --json` (and `swiftui-ctx deprecated <api>` for a currency rule): read its
+   `consensus` (the canonical call shape), `introduced_ios`, `deprecated`+`replacement`,
+   `recommended`/`diverse` permalink, and `co_occurs_with`; a `lookup` **exit 3** (not-found, with a
+   did-you-mean `suggestion`) corroborates a hallucination — no shipping iOS app uses the symbol. (b)
+   **Spec** — confirm via **Sosumi**: `curl -sSL https://sosumi.ai/<apple-path>` using
+   `references/source-directory.md` for the path and
+   `${CLAUDE_PLUGIN_ROOT}/references/_shared/sosumi-reference.md` for the protocol (never `WebFetch`
+   `developer.apple.com`). Cross-check `introduced_ios` against `floors-master.md` and the Sosumi `doc:`
+   floor. The CLI contract is
    `${CLAUDE_PLUGIN_ROOT}/references/_shared/swiftui-ctx-reference.md`. Promote with the citation or discard.
 6. **REPORT.** Write each confirmed finding (output contract below). One finding per file, zero-padded,
    ordered. Write the run's `_index.md`.
@@ -140,14 +147,14 @@ invented-name list (incl. the Charts section) in
    (`${CLAUDE_PLUGIN_ROOT}/references/_shared/fix-safety-protocol.md`): clean-tree gate, findings-first,
    **only `fix_mode: auto`** (charts-01 1:1 mark renames, charts-09 wrong-arm gate), one conventional
    commit per finding citing its `rule_id`, never weaken a check. The ✅ "Correct" is **not a hand-written
-   snippet** — it is the swiftui-ctx **consensus shape** put in `## Correct`, backed by a real macOS-26
+   snippet** — it is the swiftui-ctx **consensus shape** put in `## Correct`, backed by a real iOS-26
    example fetched with `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx file <recommended.id> --smart`
    whose GitHub permalink (plus the Sosumi `doc:`) goes in `## Source`. Leave `flag-only` findings `open`
    with that ✅ in `## Correct`.
 8. **DOUBLE-CHECK.** Re-grep each fixed file to confirm the tell no longer matches; record the evidence in
    `## Fix applied?`. Re-confirm every citation still resolves and still says the expected floor. If a fix
-   introduced a new tell (e.g. a `SectorMark` you added now needs a macOS 14 gate), loop that file back to
-   DETECT.
+   introduced a new tell (e.g. a `LinePlot` you added now needs an iOS 18 gate above the floor), loop that
+   file back to DETECT.
 
 ## Confidence gating (load-bearing)
 
@@ -173,7 +180,7 @@ domain:
 
 | `<context>` | File a finding here when… |
 |---|---|
-| `hallucinated-api/` | a chart/mark name doesn't exist on macOS (charts-01) |
+| `hallucinated-api/` | a chart/mark name doesn't exist on iOS (charts-01) |
 | `hand-rolled-vs-chart/` | a chart is built from stacks/`GeometryReader` instead of `Chart` (charts-02) |
 | `mark-selection/` | the `*Mark` doesn't fit the data shape (charts-03) |
 | `axes-legend-color/` | axes are cluttered, the legend is missing, or color encoding is hardcoded (charts-04/05/06) |
@@ -206,7 +213,7 @@ requirement.* Two runs over the same code produce structurally identical trees.
 |---|---|
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md` | every floor/availability value (the reconciled truth) |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/hallucination-blacklist.md` | the canonical invented-name list (incl. §4 Charts) |
-| `${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md` | the macOS-arm gating rule + wrong-arm failure (charts-09) |
+| `${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md` | the iOS-arm gating rule + wrong-arm (macOS) failure (charts-09) |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/finding-schema.md` | the unified finding schema + frontmatter keys + `cross_ref` |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/fix-safety-protocol.md` | the fix-safety protocol (step FIX) |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/sosumi-reference.md` | the Apple-doc spec fetch protocol (step VERIFY) |

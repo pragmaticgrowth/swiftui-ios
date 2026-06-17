@@ -4,12 +4,12 @@
 # This LOCATES only — the LLM agent READS each hit (SKILL.md step 3) and decides. Structural rules grep
 # cannot express (argument arity, namespace identity, gate scope) live in ast-grep/*.yml (tier 2).
 # Full ❌→✅ + sources: ../references/*.md (routed from SKILL.md).
-anim-01	warn	\.animation\(	.animation( present — confirm it is the value-scoped .animation(_:value:); a single-arg .animation(x) is the DEPRECATED implicit form (macOS 12) → add value: or use withAnimation (anim-01). ast-grep anim-01 refines to single-arg.
+anim-01	warn	\.animation\(	.animation( present — confirm it is the value-scoped .animation(_:value:); a single-arg .animation(x) is the DEPRECATED implicit form → add value: or use withAnimation (anim-01). ast-grep anim-01 refines to single-arg.
 anim-02	warn	withAnimation[[:space:]]*[({]	withAnimation — confirm its body mutates @State/observed the view actually reads; a no-op body or a constant value: animates nothing (anim-02).
-anim-04	warn	\.bouncy|\.smooth|\.snappy	spring preset (.bouncy/.smooth/.snappy) — macOS 14 despite the rendered 10.15 (DocC quirk). REPORT only if deployment target < macOS 14 and ungated; gate #available(macOS 14, *) (anim-04). Read floor in ORIENT.
+anim-04	adv	\.bouncy|\.smooth|\.snappy	spring preset (.bouncy/.smooth/.snappy) — WWDC23 spring vocabulary, available at the iOS 17 floor (no gate). Native-idiom advisory: prefer a preset over a raw curve for physical/interactive motion (anim-04). No availability finding on the iOS-17 floor.
 anim-03	adv	\.linear\(duration|\.easeInOut\(duration|\.easeIn\(duration|\.easeOut\(duration	raw duration curve — for physical/interactive motion a spring preset .bouncy/.smooth/.snappy reads more native (anim-03, judgment/flag).
-anim-05	adv	\.repeatForever|Timer\.|\.repeatCount	hand-rolled / repeating loop — multi-step motion may fit PhaseAnimator/KeyframeAnimator (macOS 14) better (anim-05).
-anim-06	warn	\.symbolEffect\(	.symbolEffect — macOS 14.0+. REPORT if floor < 14 and ungated (gate #available(macOS 14,*)); else confirm a hand-animated SF Symbol shouldn't use it (anim-06).
+anim-05	adv	\.repeatForever|Timer\.|\.repeatCount	hand-rolled / repeating loop — multi-step motion may fit PhaseAnimator/KeyframeAnimator (iOS 17, at floor) better (anim-05).
+anim-06	adv	\.symbolEffect\(	.symbolEffect — iOS 17.0+, at the project floor (no gate). Native-idiom advisory: confirm a hand-animated SF Symbol shouldn't use the built-in effect (.bounce/.pulse/.variableColor) instead (anim-06).
 anim-07	adv	\.contentTransition\(	contentTransition present — confirm value changes (numeric Text, swapped symbol) use it; its ABSENCE on an animated value is the defect (anim-07, READ the value change).
 anim-08	warn	matchedGeometryEffect\(	matchedGeometryEffect — verify ONE shared @Namespace + matching id + single withAnimation transaction + one isSource (anim-08).
 anim-09	adv	matchedGeometryEffect\(	matchedGeometryEffect on glassed views — if both matched views carry .glassEffect(), morph with glassEffectID in a GlassEffectContainer instead (anim-09, cross_ref liquid-glass).

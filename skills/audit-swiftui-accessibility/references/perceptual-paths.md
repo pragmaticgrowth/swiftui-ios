@@ -24,7 +24,7 @@ owns the *missing non-color cue / missing label*. Emit `cross_ref appearance-col
 ## a11y-06 — motion ignores Reduce Motion (advisory, flag-only) · cross_ref animation-motion
 
 A `withAnimation`, `.transition`, `repeatForever`, `.phaseAnimator`, or `.keyframeAnimator` that always runs
-ignores a user who set **Reduce Motion** (System Settings → Accessibility). Read the flag and replace motion
+ignores a user who set **Reduce Motion** (Settings → Accessibility → Motion). Read the flag and replace motion
 with a cross-fade or nothing:
 
 ```
@@ -46,10 +46,10 @@ descriptor anywhere inside:
 
 ```
 Chart(series) { … }
-    .accessibilityChartDescriptor(SalesDescriptor(series))   // Audio Graph, macOS 12+
+    .accessibilityChartDescriptor(SalesDescriptor(series))   // Audio Graph, iOS 15+
 // a custom Canvas → proxy it with a standard control's semantics:
 Canvas { … }
-    .accessibilityRepresentation { Slider(value: $level, in: 0...1) }   // macOS 12+
+    .accessibilityRepresentation { Slider(value: $level, in: 0...1) }   // iOS 15+
 // minimum bar: a label + summarizing value
 .accessibilityLabel("Monthly sales").accessibilityValue("peak \(peak) in \(peakMonth)")
 ```
@@ -57,14 +57,14 @@ Canvas { … }
 **Seam:** this is **intentional double-detection** (cross-ref-graph "keep-both") — the `charts` skill files the
 chart-descriptor finding and `drawing-canvas` files the Canvas one; this skill cross-links rather than
 collapsing. Emit `cross_ref charts` (or `drawing-canvas` for a `Canvas`). `accessibilityChartDescriptor` and
-`accessibilityRepresentation` are both **macOS 12.0+** — gate if the floor is lower.
+`accessibilityRepresentation` are both **iOS 15.0+** — at or below the iOS-17 toolkit floor, so **no gate**.
 
 ## Sources
 
-- Apple — `accessibilityChartDescriptor(_:)`: `https://sosumi.ai/documentation/swiftui/view/accessibilitychartdescriptor(_:)`;
-  `accessibilityRepresentation(representation:)`: `https://sosumi.ai/documentation/swiftui/view/accessibilityrepresentation(representation:)`
-  (via Sosumi; access 2026-06-07).
+- Apple — `accessibilityChartDescriptor(_:)` (iOS 15): `https://sosumi.ai/documentation/swiftui/view/accessibilitychartdescriptor(_:)`;
+  `accessibilityRepresentation(representation:)` (iOS 15): `https://sosumi.ai/documentation/swiftui/view/accessibilityrepresentation(representation:)`
+  (via Sosumi; access 2026-06-16).
 - Apple — Environment values `accessibilityReduceMotion` / `accessibilityDifferentiateWithoutColor`:
-  `https://sosumi.ai/documentation/swiftui/environmentvalues/accessibilityreducemotion` (access 2026-06-07).
-- Floors (both descriptor APIs macOS 12, env flags 10.15): `_shared/floors-master.md` (re-confirmed 2026-06-07).
+  `https://sosumi.ai/documentation/swiftui/environmentvalues/accessibilityreducemotion` (access 2026-06-16).
+- Floors (both descriptor APIs iOS 15, env flags iOS 13): `_shared/floors-master.md` (re-confirmed 2026-06-16).
 - Seam ownership ("keep-both" double-detection): `_shared/cross-ref-graph.md`.

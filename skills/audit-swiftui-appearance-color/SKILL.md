@@ -1,22 +1,22 @@
 ---
 name: audit-swiftui-appearance-color
-description: Audits a finished or in-progress macOS SwiftUI codebase for appearance and color defects on macOS 26 Tahoe and writes per-finding Markdown to swiftui-audits/. Use when the user says Dark Mode looks broken, colors do not adapt, text is hardcoded gray, the app forces light or dark, contrast is too low, or a background looks flat or opaque; when they ask to verify Color, hardcoded RGB, asset-catalog colors, foregroundColor, foregroundStyle, accentColor, tint, Material, vibrancy, preferredColorScheme, colorScheme, or colorSchemeContrast on a Mac target; when AI may have written Color(red:green:blue:), Color.white, Color.black, .foregroundColor, .accentColor, .textColor, .backgroundColor, .tintColor, or UIColor; or when an app forces a color scheme app-wide or ignores Increase Contrast. AUDIT-ONLY, macOS-only, SwiftUI-only. Not for AppKit NSColor/NSVisualEffectView, not for Liquid Glass, not for the general deprecation sweep, not for WCAG accessibility audits, not for writing new themed UI from scratch.
+description: Audits a finished or in-progress iOS SwiftUI codebase for appearance and color defects on iOS 17+ and writes per-finding Markdown to swiftui-audits/. Use when the user says Dark Mode looks broken, colors do not adapt, text is hardcoded gray, a background is the wrong gray on iPad, the app forces light or dark, contrast is too low, or a panel looks flat; when they ask to verify Color, hardcoded RGB, asset-catalog colors, iOS system colors Color(.systemBackground)/secondarySystemBackground/label, foregroundColor, foregroundStyle, accentColor, tint, Material, preferredColorScheme, or colorSchemeContrast; when AI may have written Color(red:green:blue:), Color.white, Color.black, .foregroundColor, .accentColor, .textColor, or .tintColor; or when an app forces a color scheme app-wide or ignores Increase Contrast. AUDIT-ONLY, iOS-only, SwiftUI-only. Not for UIVisualEffectView bridging, not for Liquid Glass, not the general deprecation sweep, not WCAG accessibility audits, not writing new themed UI from scratch.
 ---
 
 # Audit SwiftUI Appearance & Color
 
-**AUDIT-ONLY · macOS-only · SwiftUI-only.** Run this on a *finished or in-progress* macOS SwiftUI
-project to detect — and where certain, fix — every way appearance and color go wrong on a macOS 26
-(Tahoe) target: hardcoded `Color(red:green:blue:)` / `Color.white` / `Color.black` that freeze one
+**AUDIT-ONLY · iOS-only · SwiftUI-only.** Run this on a *finished or in-progress* iOS SwiftUI
+project to detect — and where certain, fix — every way appearance and color go wrong on an iOS 17+
+(iPhone & iPad) target: hardcoded `Color(red:green:blue:)` / `Color.white` / `Color.black` that freeze one
 appearance, deprecated `.foregroundColor` / `.accentColor`, opaque `Color` backgrounds where a `Material`
-belongs, a force-set `.preferredColorScheme` that overrides the user's system appearance, ignored
-Increase-Contrast, and invented or cross-platform color APIs. Findings are written to disk in the
-toolkit's unified schema; certain mechanical defects are fixed under the fix-safety protocol. This is
-never a from-scratch theming generator.
+or an iOS **system background** color belongs, a force-set `.preferredColorScheme` that overrides the
+user's system appearance, ignored Increase-Contrast, and invented color APIs. Findings are written to disk
+in the toolkit's unified schema; certain mechanical defects are fixed under the fix-safety protocol. This
+is never a from-scratch theming generator.
 
-Two of this domain's modifiers **deprecate at macOS 26.5** (after most training data), so AI frequently
-emits `.foregroundColor` and `.accentColor`, and pads dark-broken literal RGB throughout. Be suspicious
-wherever AI set a color.
+Two of this domain's modifiers — `.foregroundColor` and `.accentColor` — are **deprecated** (their
+deprecation post-dates most training data), so AI frequently emits them, and pads dark-broken literal RGB
+throughout instead of reaching for the iOS system colors. Be suspicious wherever AI set a color.
 
 ## Boundary / seam note (stay in lane)
 
@@ -29,20 +29,30 @@ wherever AI set a color.
 - **WCAG ratios, Differentiate-Without-Color, and the trait-level a11y audit** belong to
   `audit-swiftui-accessibility`; this skill detects the *mechanics* (an ignored `colorSchemeContrast`),
   a11y owns the contrast requirement. Emit `cross_ref: accessibility` on ac-07.
-- **AppKit `NSColor` / `NSVisualEffectView` vibrancy** is out of scope — note it in one line and point to
-  the future `audit-appkit-interop` / `audit-appkit-overuse` skills.
+- **Custom colors that fail Differentiate Without Color** (color-only state signalling) belong to
+  `audit-swiftui-accessibility`; a *color paired with scaled text* routes to `audit-swiftui-dynamic-type`.
+  Note the seam in one line and `cross_ref` rather than re-auditing it here.
+- **UIKit `UIColor` catalogs / `UIVisualEffectView` vibrancy** reached for via a representable are out of
+  scope — note it in one line and point to the future `audit-swiftui-uikit-interop` (HOW to bridge) /
+  `audit-swiftui-uikit-overuse` (WHETHER to bridge). `UIColor` itself is a *native iOS type* (see ac-08).
 
 ## Domain rules
 
-1. **Color is semantic, not literal.** Use a system color (`.primary`, `.secondary`, `Color.accentColor`)
-   or a **named asset-catalog color** that carries Any/Dark variants. A raw `Color(red:green:blue:)` or
-   `Color.white`/`.black` paints one appearance and breaks Dark Mode.
+1. **Color is semantic, not literal.** Use a SwiftUI system color (`.primary`, `.secondary`,
+   `Color.accentColor`), an **iOS UI-element system color** (`Color(.label)`, `Color(.secondaryLabel)`,
+   `Color(.systemBackground)`, `Color(.secondarySystemBackground)`, `Color(.systemGroupedBackground)`), or a
+   **named asset-catalog color** that carries Any/Dark variants. A raw `Color(red:green:blue:)` or
+   `Color.white`/`.black` paints one appearance and breaks Dark Mode. The iOS grouped-background colors are
+   the load-bearing idiom for `List`/`Form` and grouped-table surfaces — a plain `Color(.systemBackground)`
+   under a grouped table reads as the wrong gray on both iPhone and iPad.
 2. **Style the foreground through the hierarchy.** `.foregroundStyle(.secondary)` / `.tertiary` adapts to
-   appearance and vibrancy; a hardcoded gray does not. `.foregroundColor` is deprecated at 26.5.
-3. **Let chrome breathe with a `Material`.** Sidebars, overlays, popovers, and bars behind content want
-   `.ultraThinMaterial`/`.regularMaterial` (or a glass surface), not an opaque `Color` fill.
+   appearance and vibrancy; a hardcoded gray does not. `.foregroundColor` is deprecated → `.foregroundStyle`.
+3. **Let chrome breathe with a `Material`.** Overlays, popovers, sheet/toolbar-adjacent fills, and HUD
+   panels behind content want `.ultraThinMaterial`/`.regularMaterial` (or a glass surface), not an opaque
+   `Color` fill.
 4. **Never force the appearance app-wide.** `.preferredColorScheme(.dark)` at the root overrides the
-   user's macOS system setting — an anti-pattern. Scope it to a deliberate preview/island only.
+   user's iOS system setting (Settings → Display & Brightness) — an anti-pattern. Scope it to a deliberate
+   preview/island only.
 5. **Honor Increase Contrast.** Read `@Environment(\.colorSchemeContrast)` and branch where custom colors
    would otherwise fall below the system contrast.
 
@@ -55,13 +65,13 @@ wherever AI set a color.
 | id | One-line tell | Sev | Fix | Reference |
 |---|---|---|---|---|
 | ac-01 | hardcoded `Color(red:green:blue:)` / `Color(.sRGB…)` literal RGB → breaks Dark Mode | warning | flag | `colors-semantic-and-assets.md` |
-| ac-02 | `Color.white` / `Color.black` / `Color(white:)` as content fg/bg → no Dark-Mode adapt | warning | flag | `colors-semantic-and-assets.md` |
-| ac-03 | `.foregroundColor(_:)` deprecated 26.5 → `.foregroundStyle(_:)` (+ `.secondary` hierarchy) | warning | auto | `colors-semantic-and-assets.md` |
-| ac-04 | `.accentColor(_:)` deprecated 26.5 → `.tint(_:)` | warning | auto | `colors-semantic-and-assets.md` |
+| ac-02 | `Color.white` / `Color.black` / `Color(white:)` as content fg/bg → no Dark-Mode adapt; use an iOS system color | warning | flag | `colors-semantic-and-assets.md` |
+| ac-03 | `.foregroundColor(_:)` deprecated → `.foregroundStyle(_:)` (+ `.secondary` hierarchy) | warning | auto | `colors-semantic-and-assets.md` |
+| ac-04 | `.accentColor(_:)` deprecated → `.tint(_:)` | warning | auto | `colors-semantic-and-assets.md` |
 | ac-05 | forced `.preferredColorScheme(_:)` at app/root scope → overrides user appearance | warning | flag | `color-scheme-and-contrast.md` |
-| ac-06 | opaque `Color` background where a `Material` belongs (sidebar/overlay/bar) | advisory | flag | `materials-and-vibrancy.md` |
+| ac-06 | opaque `Color` background where a `Material` or an iOS system background belongs (overlay/sheet/grouped table) | advisory | flag | `materials-and-vibrancy.md` |
 | ac-07 | custom colors with no `@Environment(\.colorSchemeContrast)` branch under Increase Contrast | advisory | flag | `color-scheme-and-contrast.md` |
-| ac-08 | invented / cross-platform color API: `.textColor(`, `.backgroundColor(`, `.tintColor(`, `UIColor` | hard-fail | flag | `colors-semantic-and-assets.md` |
+| ac-08 | invented color API: `.textColor(`, `.backgroundColor(`, `.tintColor(` (UIKit spelling) → SwiftUI modifier | hard-fail | flag | `colors-semantic-and-assets.md` |
 
 **Currency seam:** ac-03 and ac-04 carry `cross_ref: api-currency` (currency flags the deprecation;
 appearance owns the replacement craft). ac-06 carries `cross_ref: liquid-glass`; ac-07 carries
@@ -69,19 +79,25 @@ appearance owns the replacement craft). ac-06 carries `cross_ref: liquid-glass`;
 
 ## The real API, at a glance
 
-**Real (exist on macOS 26):** `Color` (`.primary`, `.secondary`, `Color.accentColor`, named
-asset-catalog `Color("Brand")`), `foregroundStyle(_:)` (macOS 12+, takes a `ShapeStyle` hierarchy —
-`.secondary`/`.tertiary`), `tint(_:)` (Color overload macOS 12+; the `ShapeStyle` overload is macOS 13+),
-`Material` (`.ultraThinMaterial` … macOS 12+),
-`@Environment(\.colorScheme)` / `@Environment(\.colorSchemeContrast)` (macOS 10.15+),
-`preferredColorScheme(_:)` (macOS 11+, *for scoped use*), `ShapeStyle` hierarchy levels
-(`.primary`/`.secondary`/`.tertiary`/`.quaternary`/`.quinary` — all macOS 12+). **`foregroundColor(_:)` and `accentColor(_:)` still resolve but are
-deprecated at macOS 26.5 → `foregroundStyle(_:)` / `tint(_:)`.**
+**Real (exist on iOS 17):** `Color` (`.primary`, `.secondary`, `Color.accentColor`, named asset-catalog
+`Color("Brand")`, and the iOS UI-element bridges `Color(.label)`/`Color(.secondaryLabel)`/
+`Color(.systemBackground)`/`Color(.secondarySystemBackground)`/`Color(.systemGroupedBackground)` — all
+`Color(uiColor:)`-family, iOS 13+), `foregroundStyle(_:)` (iOS 15+, takes a `ShapeStyle` hierarchy —
+`.secondary`/`.tertiary`), `tint(_:)` (Color & `ShapeStyle` overloads, iOS 15+),
+`Material` (`.ultraThinMaterial`/`.regularMaterial` … iOS 15+),
+`@Environment(\.colorScheme)` / `@Environment(\.colorSchemeContrast)` (iOS 13+),
+`preferredColorScheme(_:)` (iOS 13+, *for scoped use*), `ShapeStyle` hierarchy levels
+(`.primary`/`.secondary`/`.tertiary`/`.quaternary`/`.quinary`). **`foregroundColor(_:)` and
+`accentColor(_:)` still resolve but are deprecated → `foregroundStyle(_:)` / `tint(_:)`.**
 
-**Invented / cross-platform (never SwiftUI-on-macOS):** `.textColor(_:)`, `.backgroundColor(_:)`,
-`.tintColor(_:)`, `.foregroundColour(_:)`, `UIColor` (UIKit — absent on macOS; the bridge is
-`Color(nsColor:)`). Confirm any uncertain name via `swiftui-ctx lookup <api>` (exit 3 = no shipping Mac
-app uses it) + the canonical invented-name list in
+**`UIColor` is native on iOS** — it is the UIKit color type, bridged into SwiftUI via `Color(uiColor:)` /
+the `Color(.systemBackground)`-style sugar. It is **not** an ac-08 hallucination here (that is the macOS
+inversion). The bridge to use is `Color(uiColor:)`, never `Color(nsColor:)`.
+
+**Invented (never a SwiftUI modifier on any platform):** `.textColor(_:)`, `.backgroundColor(_:)`,
+`.tintColor(_:)` (the UIKit `tintColor` spelling), `.foregroundColour(_:)` (British misspelling). Confirm
+any uncertain name via `swiftui-ctx lookup <api> --platform ios` (exit 3 = no shipping iOS app uses it) +
+the canonical invented-name list in
 `${CLAUDE_PLUGIN_ROOT}/references/_shared/hallucination-blacklist.md` — read, never restate.
 
 Floor / deprecation *values* are the reconciled truth in
@@ -90,8 +106,10 @@ Floor / deprecation *values* are the reconciled truth in
 ## The 8-step audit workflow (execute verbatim)
 
 1. **ORIENT.** `tree` / `find` the SwiftUI sources. Read the **deployment target**
-   (`project.pbxproj` `MACOSX_DEPLOYMENT_TARGET`, or `Package.swift` `platforms:`). It is load-bearing:
-   the ac-03/ac-04 deprecations are advisory below their 26.5 close and become live-warning at/after it.
+   (`project.pbxproj` `IPHONEOS_DEPLOYMENT_TARGET`, or `Package.swift` `platforms:` `.iOS(...)`). The
+   project floor is **iOS 17**; every floor here (`foregroundStyle`/`tint`/`Material` iOS 15) sits below
+   it, so no color symbol in this domain needs a `#available` gate. Note whether the project also targets
+   iPad (it does unless `TARGETED_DEVICE_FAMILY` excludes `2`) — the grouped-background ✅ matters there.
    Also note whether an **asset catalog** (`*.xcassets`) with color sets exists — its presence changes the
    ac-01/02 ✅ to "move the literal into a color set." Record both.
 2. **LOCATE.** Run the shared hybrid lint runner:
@@ -111,14 +129,14 @@ Floor / deprecation *values* are the reconciled truth in
    certainty** (an invented name, a literal `Color(red:`, a root `.preferredColorScheme`).
 5. **VERIFY.** For anything ≤ ~70% confidence (a symbol you're unsure exists, a floor you can't place, a
    deprecation you can't date), run **both** evidence sources. (a) **Practice** —
-   `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx lookup <api> --json` (and
+   `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx lookup <api> --platform ios --json` (and
    `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx deprecated <api>` for ac-03/ac-04): read its `consensus`
-   (the canonical shape), `deprecated`+`replacement`, `recommended` permalink, `introduced_macos`, and
+   (the canonical shape), `deprecated`+`replacement`, `recommended` permalink, `introduced_ios`, and
    `co_occurs_with`; a `lookup` **exit 3** (not-found, with a did-you-mean `suggestion`) corroborates an
-   ac-08 hallucination — no shipping Mac app uses the symbol. (b) **Spec** — confirm via **Sosumi**:
+   ac-08 hallucination — no shipping iOS app uses the symbol. (b) **Spec** — confirm via **Sosumi**:
    `curl -sSL https://sosumi.ai/<apple-path>` using `references/source-directory.md` for the path and
    `${CLAUDE_PLUGIN_ROOT}/references/_shared/sosumi-reference.md` for the protocol (never `WebFetch`
-   `developer.apple.com`). Cross-check `introduced_macos` against `floors-master.md` and the Sosumi `doc:`
+   `developer.apple.com`). Cross-check `introduced_ios` against `floors-master.md` and the Sosumi `doc:`
    floor. The CLI contract is `${CLAUDE_PLUGIN_ROOT}/references/_shared/swiftui-ctx-reference.md`. Promote
    with the citation or discard.
 
@@ -128,9 +146,9 @@ Floor / deprecation *values* are the reconciled truth in
    `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx conformances ShapeStyle` (and `… conformances ButtonStyle`)
    for custom `ShapeStyle`/`ButtonStyle` conformers (stable envelope + `next_actions` + permalinks), and
    `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx examples foregroundStyle --shape "(_)"` for the consensus
-   modifier shape (`(_)`, 100%). E.g. the corpus material consensus is **`.regular` (10,238 uses / 978
-   repos) — not `.ultraThin` (32 / 13)**: prefer `.regularMaterial` as the ac-06 ✅ unless the surface is
-   genuinely a thin overlay. Per the shared CLI surface in `swiftui-ctx-reference.md`.
+   modifier shape (`(_)`, 98%). E.g. the iOS corpus material consensus is **`regular` (8,174 uses via
+   `valueBuilders`)**: prefer `.regularMaterial` as the ac-06 ✅ unless the surface is genuinely a thin
+   overlay (`.ultraThinMaterial`). Per the shared CLI surface in `swiftui-ctx-reference.md`.
 6. **REPORT.** Write each confirmed finding (output contract below). One finding per file, zero-padded,
    ordered. Write the run's `_index.md`.
 7. **FIX.** Apply corrections under the fix-safety protocol
@@ -138,20 +156,18 @@ Floor / deprecation *values* are the reconciled truth in
    **only `fix_mode: auto`** (ac-03 `.foregroundColor(x)` → `.foregroundStyle(x)`; ac-04 `.accentColor(x)`
    → `.tint(x)` — identical-argument mechanical renames), one conventional commit per finding citing its
    `rule_id`, never weaken a check. The ✅ "Correct" is **not a hand-written snippet** — it is the
-   swiftui-ctx **consensus shape** put in `## Correct`, backed by a real macOS example fetched with
+   swiftui-ctx **consensus shape** put in `## Correct`, backed by a real iOS example fetched with
    `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx file <recommended.id> --smart` whose GitHub permalink
    (plus the Sosumi `doc:`) goes in `## Source`. Leave `flag-only` findings `open` with that ✅. The
    verified canonical `.foregroundStyle(_:)` ✅ — the live swiftui-ctx **consensus shape `(_)` (100 %)**,
    grounded in real corpus code, not a placeholder:
 
    ```swift
-   // ✅ Correct — swiftui-ctx `lookup foregroundStyle` consensus `(_)` (100%); real example
-   //    sindresorhus/Gifski `ex_032f0b9e2b` (author_authority 1,013,769, 8,409★, min_macos 26)
-   Circle()
-       .stroke(lineWidth: lineWidth)
-       .opacity(0.3)
+   // ✅ Correct — swiftui-ctx `lookup foregroundStyle --platform ios` consensus `(_)` (98%); real example
+   //    Finb/Bark `ex_d0fa885d9f` (author_authority 101,713, 8,478★, min_ios 17)
+   Text(title)
        .foregroundStyle(.secondary)   // adapts to appearance + vibrancy; no frozen literal
-   // permalink: https://github.com/sindresorhus/Gifski/blob/7f873856e2acd8b52e6681dee3aec31e6cab23e4/Gifski/Utilities.swift#L5192
+   // permalink: https://github.com/Finb/Bark/blob/2a35a5b990415eada5fcc6c95deb9850c239796a/Widget/Widget.swift#L83
    // doc: https://sosumi.ai/documentation/swiftui/view/foregroundstyle(_:)
    ```
 8. **DOUBLE-CHECK.** Re-grep each fixed file to confirm the tell no longer matches; record the evidence in
@@ -208,7 +224,7 @@ hard requirement.* Two runs over the same code produce structurally identical tr
 |---|---|
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md` | every floor/availability/deprecation value (the reconciled truth) |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/hallucination-blacklist.md` | the canonical invented-name list (ac-08) |
-| `${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md` | the macOS-arm gating rule (any `#available` near a color symbol) |
+| `${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md` | the iOS-arm gating rule + iPhone/iPad idiom checks (any `#available` near a color symbol; all color floors sit below the iOS 17 project floor) |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/finding-schema.md` | the unified finding schema + frontmatter keys |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/fix-safety-protocol.md` | the fix-safety protocol (step 7) |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/sosumi-reference.md` | the Apple-doc spec fetch protocol (step 5 VERIFY) |

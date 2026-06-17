@@ -5,7 +5,7 @@ struct GlassView: View {
     var body: some View {
         Text("hi")
             .glassBackground()                            // glass-01 (hallucinated name)
-            .glassBackgroundEffect()                      // glass-02 (visionOS-only on Mac)
+            .glassBackgroundEffect()                      // glass-02 (visionOS-only, absent on iOS)
             .glassEffect(.clear)                          // glass-03 / glass-08
     }
 }

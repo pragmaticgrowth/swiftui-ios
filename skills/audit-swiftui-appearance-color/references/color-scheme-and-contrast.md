@@ -3,19 +3,19 @@
 Two appearance-environment defects: forcing the color scheme app-wide, and ignoring Increase Contrast.
 Floor values: `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md` (read, never restate).
 
-**As of:** 2026-06-07 · macOS 26 (Tahoe) · Xcode 26 SDK.
+**As of:** 2026-06-16 · iOS 17+ (iPhone & iPad) · Xcode 26 SDK.
 
 ---
 
 ## ac-05 — forced `.preferredColorScheme(_:)` app-wide
 
-`preferredColorScheme(_:)` (macOS 11+) tells SwiftUI which appearance to render *for the views it scopes*.
-Applied at the **App / `WindowGroup` / root view** it overrides the user's macOS system setting — a
-documented anti-pattern on the Mac, where the user owns the appearance in System Settings.
+`preferredColorScheme(_:)` (iOS 13+) tells SwiftUI which appearance to render *for the views it scopes*.
+Applied at the **App / `WindowGroup` / root view** it overrides the user's iOS system setting — a
+documented anti-pattern on iOS, where the user owns the appearance in Settings → Display & Brightness.
 
 ❌ at the root:
 ```swift
-WindowGroup { ContentView().preferredColorScheme(.dark) }   // hijacks every window
+WindowGroup { ContentView().preferredColorScheme(.dark) }   // hijacks the whole app
 ```
 ✅ remove it and let the system drive appearance; honor `@Environment(\.colorScheme)` where the view needs
 to know. A *scoped* `.preferredColorScheme` on a deliberate island (a media canvas that is always dark, a
@@ -24,8 +24,9 @@ depends on intent (delete vs scope down), so show the ✅ and let the dev choose
 
 ## ac-07 — ignoring Increase Contrast
 
-macOS exposes **Increase Contrast** (System Settings → Accessibility → Display). SwiftUI surfaces it as
-`@Environment(\.colorSchemeContrast)` → `.standard` | `.increased` (macOS 10.15+). A view that paints its
+iOS exposes **Increase Contrast** (Settings → Accessibility → Display & Text Size → Increase Contrast).
+SwiftUI surfaces it as `@Environment(\.colorSchemeContrast)` → `.standard` | `.increased` (iOS 13+). A
+view that paints its
 own custom colors (especially low-contrast grays, tinted-on-tinted text) should branch on it so the
 contrast lifts when the user asks for it.
 
@@ -53,7 +54,7 @@ ratio audit, Differentiate-Without-Color, and the trait-level requirement belong
 
 ## Sources
 
-- Sosumi (fetched via `https://sosumi.ai/...`, access 2026-06-07):
+- Sosumi (fetched via `https://sosumi.ai/...`, access 2026-06-16):
   `documentation/swiftui/view/preferredcolorscheme(_:)`,
   `documentation/swiftui/environmentvalues/colorscheme`,
   `documentation/swiftui/environmentvalues/colorschemecontrast`,

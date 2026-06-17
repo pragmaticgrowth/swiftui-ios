@@ -4,7 +4,7 @@ Depth for doc-02, doc-03, doc-08, doc-09, doc-10, doc-12 — the document *type*
 disk safely. Floor values are in `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md`; verify any
 uncertain symbol via Sosumi and `swiftui-ctx lookup <api> --json`.
 
-**As of:** 2026-06-07 · macOS 26 (Tahoe) · Xcode 26 SDK.
+**As of:** 2026-06-16 · iOS 26 · Xcode 26 SDK.
 
 ---
 
@@ -93,8 +93,9 @@ confirm every mutation flows through `$document` / the observed reference.
 
 ## doc-12 — undo wiring (reference documents)
 
-A `ReferenceFileDocument` app should register edits with the document's `UndoManager` so ⌘Z works and the
-dirty/clean state tracks correctly: read `@Environment(\.undoManager)` in the editing view and wrap each
+A `ReferenceFileDocument` app should register edits with the document's `UndoManager` so the shake-to-undo /
+three-finger-swipe undo gesture works and the dirty/clean state tracks correctly: read
+`@Environment(\.undoManager)` in the editing view and wrap each
 mutation in `undoManager?.registerUndo(withTarget:…)`. A reference document with no `UndoManager` usage is
 advisory (doc-12) — confirm undo is actually required for the app before flagging.
 
@@ -102,7 +103,7 @@ advisory (doc-12) — confirm undo is actually required for the app before flagg
 
 ## Sources
 
-- Apple — fetched via Sosumi (access 2026-06-07):
+- Apple — fetched via Sosumi (access 2026-06-16):
   `https://developer.apple.com/documentation/swiftui/filedocument`,
   `/documentation/swiftui/referencefiledocument`,
   `/documentation/swiftui/referencefiledocument/snapshot(contenttype:)`,
@@ -111,5 +112,5 @@ advisory (doc-12) — confirm undo is actually required for the app before flagg
 - Apple — "Building a document-based app with SwiftUI"
   (`/documentation/swiftui/building-a-document-based-app-with-swiftui`) — the "Don't perform serialization
   on MainActor" guidance — via Sosumi.
-- Practice corpus — `swiftui-ctx lookup DocumentGroup --json` (`co_occurs_with` focused-value APIs);
-  fetch a real macOS document type with `swiftui-ctx file <recommended.id> --smart`.
+- Practice corpus — `swiftui-ctx lookup DocumentGroup --platform ios --json` (consensus `(newDocument)`);
+  fetch a real iOS document type with `swiftui-ctx file <recommended.id> --smart`.

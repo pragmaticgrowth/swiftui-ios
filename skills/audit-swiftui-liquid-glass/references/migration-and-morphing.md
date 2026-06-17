@@ -5,7 +5,7 @@ auto-removable `LabelStyle`) and the morph-wiring conditions for `glassEffectID`
 Floors live in `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md`; real symbols in
 `glass-api-surface.md`.
 
-**As of:** 2026-06-07 · macOS 26 (Tahoe).
+**As of:** 2026-06-16 · iOS 26.
 
 ---
 
@@ -23,11 +23,11 @@ restoration is no longer automatic**. Selection bound to plain `@State` is lost 
 Flag-only — adding `@SceneStorage` changes persistence semantics (the dev decides the key).
 
 **glass-16 — backward-compat `LabelStyle` kept after raising the floor to 26 (advisory; fix_mode:
-auto).** Once the deployment target is macOS 26, glass styles the items and a hand-rolled backward-compat
+auto).** Once the deployment target is iOS 26, glass styles the items and a hand-rolled backward-compat
 `LabelStyle` is dead code. Annotation-only fix — makes the compiler force its removal without changing
 behavior:
 ```swift
-@available(macOS, obsoleted: 26, message: "Glass styles items on macOS 26 — remove this LabelStyle.")
+@available(iOS, obsoleted: 26, message: "Glass styles items on iOS 26 — remove this LabelStyle.")
 struct LegacyToolbarLabelStyle: LabelStyle { … }
 ```
 Safe to auto-fix: it adds an annotation, it does not delete or rewrite the type.
@@ -66,13 +66,13 @@ merge. ✅ make `id`, shape, glass variant, and tint identical across the union.
 ## Sources
 
 - Apple — `glassEffectUnion(id:namespace:)` discussion ("same shape and Liquid Glass variant"
-  grouping), macOS 26.0+: `https://developer.apple.com/documentation/swiftui/view/glasseffectunion(id:namespace:)`
-  (via Sosumi, accessed 2026-06-07).
-- Apple — `glassEffectID(_:in:)` / `glassEffectTransition(_:)`, macOS 26.0+
-  (`/documentation/swiftui/view/glasseffectid(_:in:)`, via Sosumi, 2026-06-07).
+  grouping), iOS 26.0+: `https://developer.apple.com/documentation/swiftui/view/glasseffectunion(id:namespace:)`
+  (via Sosumi, accessed 2026-06-16).
+- Apple — `glassEffectID(_:in:)` / `glassEffectTransition(_:)`, iOS 26.0+
+  (`/documentation/swiftui/view/glasseffectid(_:in:)`, via Sosumi, 2026-06-16).
 - Majid Jabrayilov — "Liquid Glass in SwiftUI": Tab + `@SceneStorage` restoration;
-  `@available(macOS, obsoleted: 26)` `LabelStyle` auto-removal; migration not backward-compatible.
-  `https://swiftwithmajid.com/2025/07/01/liquid-glass-in-swiftui/` (accessed 2026-06-07, high trust).
+  `@available(iOS, obsoleted: 26)` `LabelStyle` auto-removal; migration not backward-compatible.
+  `https://swiftwithmajid.com/2025/07/01/liquid-glass-in-swiftui/` (accessed 2026-06-16, high trust).
 - Donny Wals — `glassEffectUnion` grouping conditions (same id / glass style / tint), now
   Apple-corroborated: `https://donnywals.com/grouping-liquid-glass-components-using-glasseffectunion-on-ios-26/`
-  (accessed 2026-06-07, high trust).
+  (accessed 2026-06-16, high trust).

@@ -1,44 +1,46 @@
-# Gesture currency, live state & composition (pg-08 … pg-11)
+# Gesture currency, live state & composition (tg-01 … tg-04)
 
-The gesture half of the domain: the deprecated pinch/rotate **rename mechanics** (pg-08/09), missing live
-`@GestureState` on a continuous gesture (pg-10), and gesture composition (pg-11). The *flag* that
+The gesture half of the domain: the deprecated pinch/rotate **rename mechanics** (tg-01/02), missing live
+`@GestureState` on a continuous gesture (tg-03), and gesture composition (tg-04). The *flag* that
 `MagnificationGesture`/`RotationGesture` are deprecated is owned by `audit-swiftui-api-currency`; **this
-skill owns the rewrite** — emit `cross_ref: api-currency` on pg-08/pg-09. Gesture-driven *animation
+skill owns the rewrite** — emit `cross_ref: api-currency` on tg-01/tg-02. Gesture-driven *animation
 timing* is `animation-motion`'s.
 
 Floor values are NOT restated — read them from
 `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md`. The deprecated-rename rows are in
 `${CLAUDE_PLUGIN_ROOT}/references/_shared/hallucination-blacklist.md`. The ✅ shape is the swiftui-ctx
-**consensus** + a permalinked example — `lookup`/`deprecated` before you cite.
+**consensus** + a permalinked example — `lookup … --platform ios` / `deprecated` before you cite.
 
 ---
 
-## pg-08 / pg-09 — `MagnificationGesture` / `RotationGesture` deprecated (26.5)
+## tg-01 / tg-02 — `MagnificationGesture` / `RotationGesture` deprecated
 
-Both are real but **deprecated in macOS 26.5**; the replacements `MagnifyGesture` / `RotateGesture` ship
-at **macOS 14.0+**. `swiftui-ctx deprecated MagnificationGesture` returns `deprecated:true`,
-`migrate_to: MagnifyGesture` — corroborate every flag with it. The value carrier renames too:
-`MagnifyGesture.Value.magnification` (was `.magnitude`) and `RotateGesture.Value.rotation`.
+Both are real but **deprecated**; the replacements `MagnifyGesture` / `RotateGesture` ship at **iOS
+17.0+** — which is the toolkit's deployment floor, so the rewrite needs **no `#available` gate**.
+`swiftui-ctx deprecated MagnificationGesture` returns `deprecated:true`, `migrate_to: MagnifyGesture` —
+corroborate every flag with it. The value carrier renames too: `MagnifyGesture.Value.magnification` (was
+`.magnitude`) and `RotateGesture.Value.rotation`.
 
 ```swift
-// ❌ WRONG — deprecated 26.5
+// ❌ WRONG — deprecated
 @GestureState private var scale: CGFloat = 1
 content.gesture(MagnificationGesture().updating($scale) { v, s, _ in s = v })
 ```
 ```swift
-// ✅ CORRECT — MagnifyGesture (macOS 14+). consensus shape is MagnifyGesture() (85% of real uses);
-//    verify: swiftui-ctx lookup MagnifyGesture  →  recommended permalink backs the finding's ## Source
+// ✅ CORRECT — MagnifyGesture (iOS 17+, at the floor → no gate). consensus shape is MagnifyGesture()
+//    (67% of real uses); verify: swiftui-ctx lookup MagnifyGesture --platform ios → recommended permalink
 @GestureState private var scale: CGFloat = 1
 content.gesture(
     MagnifyGesture().updating($scale) { v, s, _ in s = v.magnification }   // .rotation for RotateGesture
 )
 ```
 
-If the project's deployment floor is below macOS 14, the rewrite *also* needs a `#available(macOS 14, *)`
-gate (route to `gesture-availability.md`). Because pg-08/09 are a deprecation flag, `cross_ref:
-api-currency` and let api-currency own the currency angle; this skill carries the mechanics.
+Because tg-01/02 are a deprecation flag, `cross_ref: api-currency` and let api-currency own the currency
+angle; this skill carries the mechanics. (If a project's deployment floor were below iOS 17 the rewrite
+would also need an `#available(iOS 17, *)` gate — see `gesture-availability.md` — but at the iOS-17
+toolkit floor it does not.)
 
-## pg-10 — continuous gesture with no live `@GestureState`
+## tg-03 — continuous gesture with no live `@GestureState`
 
 A `DragGesture` / `MagnifyGesture` / `RotateGesture` is *continuous*: it streams a value while in flight.
 Without `@GestureState` (`.updating`) — or a committed `@State` written in `.onChanged`/`.onEnded` — the
@@ -64,15 +66,15 @@ content
                        offset.height += $0.translation.height }
     )
 ```
-The `DragGesture` consensus shape per `swiftui-ctx lookup DragGesture` is `(minimumDistance:)` (49%) /
-`()` (33%) — back the ✅ with its `recommended` permalink.
+The `DragGesture` consensus shape per `swiftui-ctx lookup DragGesture --platform ios` is `()` (56%) /
+`(minimumDistance)` (31%) — back the ✅ with its `recommended` permalink.
 
-## pg-11 — `.gesture` where `.simultaneousGesture` / `.highPriorityGesture` is needed (advisory)
+## tg-04 — `.gesture` where `.simultaneousGesture` / `.highPriorityGesture` is needed (advisory)
 
 A plain `.gesture(...)` attached to a view that **already has a built-in gesture** (a `Button`'s tap, a
-`Slider`'s drag, a `ScrollView`'s pan, a `List` row's selection) can swallow or be swallowed by that
-built-in. Two plain `.gesture(...)` chained onto one receiver also conflict — the later wins. The fix is
-to declare intent:
+`Slider`'s drag, a `ScrollView`'s pan/scroll, a `List` row's selection or swipe) can swallow or be
+swallowed by that built-in. Two plain `.gesture(...)` chained onto one receiver also conflict — the later
+wins. The fix is to declare intent:
 
 - `.simultaneousGesture(_:)` — your gesture runs **alongside** the built-in (both fire).
 - `.highPriorityGesture(_:)` — your gesture runs **instead of** the built-in (yours wins).
@@ -81,15 +83,17 @@ to declare intent:
 
 This is **advisory** and control-specific: whether the built-in actually conflicts depends on the host
 control's gesture, which differs across SwiftUI versions — `source: verify against Xcode 26 SDK`. The
-tier-2 ast-grep rule `pg-11-stacked-gestures.yml` catches the chained `.gesture().gesture()` form
-structurally; the grep tell catches the plain-`.gesture(` presence for the agent to judge.
+tier-2 ast-grep rule `tg-04-stacked-gestures.yml` catches the chained `.gesture().gesture()` form
+structurally; the grep tell catches the plain-`.gesture(` presence for the agent to judge. On iOS the
+`ScrollView`-pan conflict is the most common: a `DragGesture` inside a scroll view often needs
+`.simultaneousGesture` to let scrolling continue.
 
 ```swift
-// ❌ WRONG — a drag on a row that also selects: the two fight, selection may break
+// ❌ WRONG — a drag on a row that also swipes/selects: the two fight, the built-in may break
 row.gesture(DragGesture().onChanged { … })
 ```
 ```swift
-// ✅ CORRECT — declare it runs alongside the built-in selection
+// ✅ CORRECT — declare it runs alongside the built-in
 row.simultaneousGesture(DragGesture().onChanged { … })       // or .highPriorityGesture to override
 ```
 
@@ -97,11 +101,11 @@ row.simultaneousGesture(DragGesture().onChanged { … })       // or .highPriori
 
 ## Detection tells (what LOCATE surfaces; you READ and judge)
 
-- `MagnificationGesture` anywhere → pg-08 (deprecated → `MagnifyGesture`, `cross_ref` api-currency).
-- `RotationGesture` anywhere → pg-09 (deprecated → `RotateGesture`, `cross_ref` api-currency).
+- `MagnificationGesture` anywhere → tg-01 (deprecated → `MagnifyGesture`, `cross_ref` api-currency).
+- `RotationGesture` anywhere → tg-02 (deprecated → `RotateGesture`, `cross_ref` api-currency).
 - `DragGesture(` / `MagnifyGesture(` / `RotateGesture(` with no `@GestureState` / `.updating` /
-  committed `@State` → pg-10.
-- A plain `.gesture(` on a built-in-gesture control, or two `.gesture()` chained on one receiver → pg-11.
+  committed `@State` → tg-03.
+- A plain `.gesture(` on a built-in-gesture control, or two `.gesture()` chained on one receiver → tg-04.
 
 ---
 
@@ -109,17 +113,17 @@ row.simultaneousGesture(DragGesture().onChanged { … })       // or .highPriori
 
 | URL | Claim | Confidence |
 |---|---|---|
-| https://developer.apple.com/documentation/swiftui/magnifygesture | `MagnifyGesture` — macOS 14.0+; `Value.magnification`; replaces deprecated `MagnificationGesture` | high |
-| https://developer.apple.com/documentation/swiftui/magnificationgesture | `MagnificationGesture` — deprecated (26.5) → `MagnifyGesture` | high |
-| https://developer.apple.com/documentation/swiftui/rotategesture | `RotateGesture` — macOS 14.0+; `Value.rotation`; replaces deprecated `RotationGesture` | high |
+| https://developer.apple.com/documentation/swiftui/magnifygesture | `MagnifyGesture` — iOS 17.0+; `Value.magnification`; replaces deprecated `MagnificationGesture` | high |
+| https://developer.apple.com/documentation/swiftui/magnificationgesture | `MagnificationGesture` — deprecated → `MagnifyGesture` | high |
+| https://developer.apple.com/documentation/swiftui/rotategesture | `RotateGesture` — iOS 17.0+; `Value.rotation`; replaces deprecated `RotationGesture` | high |
 | https://developer.apple.com/documentation/swiftui/gesturestate | `@GestureState` — transient gesture value that auto-resets when the gesture ends | high |
 | https://developer.apple.com/documentation/swiftui/view/simultaneousgesture(_:including:) | `.simultaneousGesture` / `.highPriorityGesture` — compose with a built-in gesture | high |
-| https://developer.apple.com/documentation/swiftui/draggesture | `DragGesture` — macOS 10.15+; `.translation` value; `.updating`/`.onChanged`/`.onEnded` | high |
-| swiftui-ctx `deprecated MagnificationGesture` (corpus of 1,857 macOS apps) | `deprecated:true`, `migrate_to: MagnifyGesture` | high |
-| swiftui-ctx `lookup MagnifyGesture` | consensus `()` 85% / `(minimumScaleDelta)` 15%; recommended `noah-nuebling/mac-mouse-fix` `CurveVisualizer.swift#L56` permalink (macOS 14, 10k★); `co_occurs_with` RotateGesture | high |
-| swiftui-ctx `lookup DragGesture` | consensus `(minimumDistance)` 49% / `()` 33%; `co_occurs_with` onChanged / SimultaneousGesture / ExclusiveGesture / sequenced | high |
+| https://developer.apple.com/documentation/swiftui/draggesture | `DragGesture` — iOS 13.0+; `.translation` value; `.updating`/`.onChanged`/`.onEnded` | high |
+| swiftui-ctx `deprecated MagnificationGesture` | `deprecated:true`, `migrate_to: MagnifyGesture` | high |
+| swiftui-ctx `lookup MagnifyGesture --platform ios` | consensus `()` 67% / `(minimumScaleDelta)` 33%; recommended `mastodon/mastodon-ios` `PageableZoomableView.swift#L365` permalink (iOS 17) | high |
+| swiftui-ctx `lookup DragGesture --platform ios` | consensus `()` 56% / `(minimumDistance)` 31%; recommended `mainframecomputer/fullmoon-ios` `ContentView.swift#L54`; `co_occurs_with` onChanged / SimultaneousGesture / ExclusiveGesture / sequenced | high |
 
 Apple availability strings cross-checked against `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md`
-and fetched via Sosumi (access 2026-06-07). pg-11's built-in-gesture conflict is control-specific —
+and fetched via Sosumi (access 2026-06-16). tg-04's built-in-gesture conflict is control-specific —
 `verify against Xcode 26 SDK`. Cite the swiftui-ctx `recommended` permalink in each finding's `## Source`,
 not the static snippet.

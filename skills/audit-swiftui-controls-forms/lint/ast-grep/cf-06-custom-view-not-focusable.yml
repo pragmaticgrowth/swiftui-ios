@@ -1,0 +1,21 @@
+# cf-06 (structural): a custom View struct (parsed as a class_declaration in tree-sitter-swift) that uses a
+# focus-taking control (TextField/SecureField/TextEditor) but has NONE of @FocusState/.focused/.onSubmit —
+# so on iOS the keyboard can't be driven (no field advance, no programmatic dismiss) for that view's fields.
+# grep can confirm focus/submit wiring exists somewhere in a file but cannot prove the absence is INSIDE the
+# SAME View that takes focus; this anchors on the class_declaration node, requires it conforms to View and
+# uses a focus-taking control, and asserts the View's subtree carries none of the wiring. READ to confirm the
+# form is genuinely multi-field / the control should drive keyboard focus — the engine only LOCATES.
+id: cf-06-custom-view-not-focusable
+language: Swift
+severity: warning
+message: >-
+  cf-06: a custom View uses a TextField/SecureField but has no @FocusState/.focused/.onSubmit — the iOS
+  keyboard can't be advanced between fields or dismissed programmatically. Wire @FocusState +
+  .focused($_, equals:) + .onSubmit (all at/below the iOS-17 floor). READ to confirm it is a multi-field
+  form; cross_ref accessibility for VoiceOver focus (AccessibilityFocusState).
+rule:
+  kind: class_declaration
+  all:
+    - has: { kind: inheritance_specifier, stopBy: end, regex: 'View' }
+    - has: { stopBy: end, regex: 'TextField|SecureField|TextEditor' }
+    - not: { has: { stopBy: end, regex: 'FocusState|focused|onSubmit' } }

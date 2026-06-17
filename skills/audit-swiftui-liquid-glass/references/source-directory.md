@@ -6,14 +6,14 @@ commands and the JSON-404 caveat is `${CLAUDE_PLUGIN_ROOT}/references/_shared/so
 this file is the glass-specific *map* of which pages to fetch. Floor values live in
 `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md`.
 
-**As of:** 2026-06-07 · macOS 26 (Tahoe) · Xcode 26 SDK.
+**As of:** 2026-06-16 · iOS 26 · Xcode 26 SDK.
 
 ---
 
 ## How to verify (summary; full protocol in the shared sosumi reference)
 
-1. **Does the symbol exist + what's its macOS floor?** Fetch
-   `https://sosumi.ai/documentation/swiftui/<symbol-path>` and read the `**Available on:** … macOS N+ …`
+1. **Does the symbol exist + what's its iOS floor?** Fetch
+   `https://sosumi.ai/documentation/swiftui/<symbol-path>` and read the `**Available on:** … iOS N+ …`
    line. Absence from the SwiftUI index = treat as hallucinated until proven.
 2. **Need the precise per-platform array?** The raw `…/tutorials/data/documentation/swiftui/<symbol>.json`
    `introducedAt` works when it resolves; it **404s** on parenthesized-symbol families — fall back to
@@ -27,7 +27,7 @@ this file is the glass-specific *map* of which pages to fetch. Floor values live
 ## A. SwiftUI glass symbol map
 
 Human doc path = `developer.apple.com/documentation/swiftui/<path>` (fetch via `sosumi.ai/...`).
-All glass symbols below are **macOS 26.0+** per floors-master (re-confirmed 2026-06-07).
+All glass symbols below are **iOS 26.0+** per floors-master (re-confirmed 2026-06-16).
 
 | Symbol | Path |
 |---|---|
@@ -36,7 +36,7 @@ All glass symbols below are **macOS 26.0+** per floors-master (re-confirmed 2026
 | `.buttonStyle(.glass)` / `GlassButtonStyle` | `glassbuttonstyle` · `primitivebuttonstyle/glass` |
 | `.glassProminent` / `GlassProminentButtonStyle` | `glassprominentbuttonstyle` · `primitivebuttonstyle/glassprominent` |
 | `Glass` (struct) | `glass` |
-| `Glass.interactive(_:)` | `glass/interactive(_:)` — **macOS 26.0+, NOT iOS-only** |
+| `Glass.interactive(_:)` | `glass/interactive(_:)` — **iOS 26.0+, the natural touch-driven variant** |
 | `Glass.identity` / `Glass.tint(_:)` | `glass/identity` · `glass/tint(_:)` |
 | `glassEffectID(_:in:)` | `view/glasseffectid(_:in:)` |
 | `glassEffectUnion(id:namespace:)` | `view/glasseffectunion(id:namespace:)` |
@@ -44,11 +44,11 @@ All glass symbols below are **macOS 26.0+** per floors-master (re-confirmed 2026
 | `backgroundExtensionEffect()` | `view/backgroundextensioneffect()` |
 | `scrollEdgeEffectStyle(_:for:)` / `scrollEdgeEffectHidden(_:for:)` | `view/scrolledgeeffectstyle(_:for:)` · `view/scrolledgeeffecthidden(_:for:)` |
 | `ToolbarContent.sharedBackgroundVisibility(_:)` | `toolbarcontent/sharedbackgroundvisibility(_:)` |
-| `toolbarBackgroundVisibility(_:for:)` (macOS **15.0+**) | `view/toolbarbackgroundvisibility(_:for:)` |
+| `toolbarBackgroundVisibility(_:for:)` (iOS **26.0+**) · `toolbarBackground(_:for:)` (iOS **16.0+**) | `view/toolbarbackgroundvisibility(_:for:)` |
 
 **Absent from the index → hallucinated (never emit):** `.glassBackground()`, `.liquidGlass()`,
 `LiquidGlassView`, `.material(.glass)`, `.background(.glass)`, `GlassContainer`,
-`.buttonStyle(.liquidGlass)`. **Real-but-platform-wrong:** `.glassBackgroundEffect()` (visionOS-only).
+`.buttonStyle(.liquidGlass)`. **Real-but-platform-wrong:** `.glassBackgroundEffect()` (visionOS-only — absent on iOS).
 
 ## B. Apple conceptual / HIG pages
 
@@ -71,13 +71,12 @@ All glass symbols below are **macOS 26.0+** per floors-master (re-confirmed 2026
 | Source | URL | Reliable for | Trust |
 |---|---|---|---|
 | Majid Jabrayilov | `swiftwithmajid.com/2025/07/01/liquid-glass-in-swiftui/` | Tab + `@SceneStorage`; `@available(obsoleted:26)` LabelStyle | high |
-| Donny Wals | `donnywals.com/grouping-liquid-glass-components-using-glasseffectunion-on-ios-26/` | `glassEffectUnion` grouping (now Apple-corroborated) | high |
-| tgrinblatt/tyler-app-style | `github.com/tgrinblatt/tyler-app-style` | macOS title-bar/toolbar fixes | medium |
+| Donny Wals | `donnywals.com/grouping-liquid-glass-components-using-glasseffectunion-on-ios-26/` | `glassEffectUnion` grouping on iOS 26 (now Apple-corroborated) | high |
 
 ---
 
 ## Sources
 
 - Sosumi fetch protocol + JSON-404 caveat: `${CLAUDE_PLUGIN_ROOT}/references/_shared/sosumi-reference.md`.
-- All Apple paths above fetched via `https://sosumi.ai/...` (access 2026-06-07).
+- All Apple paths above fetched via `https://sosumi.ai/...` (access 2026-06-16).
 - Practitioner URLs as listed (trust labelled; corroboration only).

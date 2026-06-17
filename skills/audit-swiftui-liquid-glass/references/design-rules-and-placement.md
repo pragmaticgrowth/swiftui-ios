@@ -6,13 +6,13 @@ defects (the ✅ pattern is shown; restructuring the view is the dev's call), wi
 exception noted. Floors live in `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md`; real
 symbols in `glass-api-surface.md`.
 
-**As of:** 2026-06-07 · macOS 26 (Tahoe).
+**As of:** 2026-06-16 · iOS 26.
 
 ---
 
 ## What Liquid Glass is (so the rules make sense)
 
-A real-time light-lensing **navigation-layer material** — not a blur, not `NSVisualEffectView`
+A real-time light-lensing **navigation-layer material** — not a blur, not `UIVisualEffectView`
 renamed. You declare placement, shape, and tint; the system owns lensing, motion, and accessibility.
 The rules below all flow from one fact: **glass samples the content behind it, and it cannot sample
 glass.**
@@ -103,7 +103,7 @@ controls. ✅ tint/`.glassProminent` exactly **one** primary action per screen; 
 ## The canonical "correct" exemplar (steer fixes toward this)
 
 ```swift
-@available(macOS 26.0, *)
+@available(iOS 26.0, *)
 struct FloatingToolPalette: View {
     @Namespace private var ns
     var body: some View {
@@ -128,10 +128,10 @@ struct FloatingToolPalette: View {
 - Apple — "Adopting Liquid Glass": *"Liquid Glass applies to the topmost layer of the interface, where
   you define your navigation."* + *"do so sparingly."*
   `https://developer.apple.com/documentation/TechnologyOverviews/adopting-liquid-glass` (via Sosumi,
-  accessed 2026-06-07).
+  accessed 2026-06-16).
 - Apple — "Applying Liquid Glass to custom views": container blends/morphs; *"Creating too many Liquid
   Glass effect containers … can degrade performance."*
   `https://developer.apple.com/documentation/SwiftUI/Applying-Liquid-Glass-to-custom-views` (via
-  Sosumi, accessed 2026-06-07).
+  Sosumi, accessed 2026-06-16).
 - WWDC25 — "Meet Liquid Glass" (`/videos/play/wwdc2025/219`): "always avoid glass on glass"; never mix
   variants; tint primary only (via Sosumi).

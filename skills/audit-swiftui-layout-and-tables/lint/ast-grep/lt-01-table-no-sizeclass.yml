@@ -1,0 +1,27 @@
+# lt-01 (structural): a file that uses Table(...) but carries NO horizontalSizeClass reference anywhere.
+# On iOS a Table collapses to a single squished column on compact width (iPhone). If the file shows a
+# Table as the primary collection and never branches on horizontalSizeClass to fall back to a List on
+# compact, that is the iOS defect. grep CANNOT prove the file-level ABSENCE of horizontalSizeClass — it
+# only sees the Table line; this anchors on the whole source_file node, asserts it contains a `Table(`
+# call and does NOT contain `horizontalSizeClass` anywhere. READ to confirm the Table is genuinely the
+# screen's primary collection (not a small iPad-only detail pane). adaptive-layout owns the size-class
+# branching depth (companion note / cross_ref); layout-and-tables owns the multi-column structure.
+id: lt-01-table-no-sizeclass
+language: Swift
+severity: warning
+message: >-
+  lt-01: this file uses Table( but never references horizontalSizeClass — on iOS a Table collapses to one
+  squished column on compact width (iPhone). If the Table is the primary collection, gate it to regular
+  width and show a List on compact, or use a List outright. cross_ref adaptive-layout. READ to confirm the
+  Table is the screen's primary collection, not an iPad-only detail pane.
+rule:
+  kind: source_file
+  all:
+    - has:
+        stopBy: end
+        kind: call_expression
+        regex: '^Table\('
+    - not:
+        has:
+          stopBy: end
+          regex: 'horizontalSizeClass'
