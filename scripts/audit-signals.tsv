@@ -4,7 +4,9 @@
 #   cond   = relevant ONLY if the regex matches at least one SwiftUI file (domain is actually present).
 # Regexes are Python `re` syntax (\s, \b, …) — consumed only by audit-scan.py, never by grep.
 # iOS roster: 8 always (cross-cutting) + 26 cond = 34 domain skills. Orchestrator = audit-ios-swiftui-full.
+# +1 visual reviewer: design-review (always) — pixel-first design/UX, self-degrades to code-only if no build.
 api-currency	always	.
+design-review	always	.
 availability-gating	always	.
 state-observation	always	.
 view-performance	always	.
