@@ -50,6 +50,25 @@ Liquid Glass, SwiftData, document/file access, previews.
 6. **No architecture mandate.** Teach plain `@Observable final class` owned at the App level. Do not
    force MVVM/VIPER.
 
+## Design defaults (HIG + Liquid Glass)
+
+Generated UI is HIG-idiomatic and Liquid-Glass-modern **by default**, not as an afterthought. Unless the
+user overrides, every screen you write:
+
+- **Type** — built-in text styles (`.title`, `.headline`, `.body`, `.caption`); **never** `.font(.system(size:))` (it defeats Dynamic Type). Hierarchy via weight/size/color, not new typefaces.
+- **Color** — system/semantic colors (`.primary`, `.secondary`, `Color(.systemBackground)`, `.tint`) that adapt to Dark Mode + Increase Contrast; **never** hardcode `.black`/`.white`/raw RGB for foreground. Custom colors ship light + dark + increased-contrast variants.
+- **Targets** — interactive controls ≥ **44×44 pt**; icon-only buttons get an `.accessibilityLabel`.
+- **Navigation** — tab bar for peer top-level sections, `NavigationStack` for drill-down, `NavigationSplitView` gated by size class; standard symbol-only Back; concise titles (< 15 chars).
+- **Liquid Glass (iOS 26, gated)** — only on the navigation/chrome layer, never on content; one `GlassEffectContainer`; emphasis-tint a **single** primary action; never glass-on-glass. Adopt by removing custom bar/sheet backgrounds, not by adding glass everywhere.
+- **SF Symbols** for standard actions (`square.and.arrow.up`, `trash`, `magnifyingglass`, `plus`, `ellipsis`).
+- **States** — real empty / loading (skeleton or `ProgressView`) / error states; never a blank screen.
+
+Ground every choice in `${CLAUDE_PLUGIN_ROOT}/references/_shared/hig-design-rubric.md` and
+`liquid-glass-design.md`; **never assert a design number from memory** or a myth from
+`${CLAUDE_PLUGIN_ROOT}/references/_shared/design-claims-blacklist.md` (no "max 3–5 tabs", "0.3 s
+animation", "16 pt HIG margin", …). **Optional self-check:** after writing a screen, render it with
+`${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-capture.sh` and critique it via `audit-swiftui-design-review`.
+
 ## The Core Catalog — ranked failure modes
 
 Ordered by frequency × impact × iOS-uniqueness. `Sev`: **C**=critical (broken/net-negative),
@@ -253,3 +272,6 @@ State the verification rung you actually reached. "Compiles" requires the hook/b
 | `references/previews.md` | #Preview / @Previewable / @Entry, SwiftData/env preview crashes |
 | `references/view-performance.md` | Rendering anti-patterns, lazy stacks/grids, large-List cost, device glass cost |
 | `references/lint-checklist.md` | The grep tells (mirrors the lint script) |
+| `../../references/_shared/hig-design-rubric.md` | Design defaults — type scale, contrast, 44 pt, spacing, nav limits (cited HIG) |
+| `../../references/_shared/liquid-glass-design.md` | Liquid Glass *design* placement/tint/adoption (complements `references/liquid-glass.md` API) |
+| `../../references/_shared/design-claims-blacklist.md` | Debunked design myths to never assert |
