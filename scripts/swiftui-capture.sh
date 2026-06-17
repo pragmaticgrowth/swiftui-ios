@@ -106,20 +106,55 @@ APP="$(find "$OUT/build/Build/Products" -maxdepth 2 -name '*.app' 2>/dev/null | 
 BUNDLE_ID="$(/usr/libexec/PlistBuddy -c 'Print :CFBundleIdentifier' "$APP/Info.plist" 2>/dev/null)"
 [ -z "$BUNDLE_ID" ] && emit_unavailable "could not read CFBundleIdentifier from $APP"
 
-# ---- boot (idempotent), install, launch ----
+# ---- boot (idempotent) + install ----
 xcrun simctl bootstatus "$UDID" -b >/dev/null 2>&1 || xcrun simctl boot "$UDID" >/dev/null 2>&1 || true
 xcrun simctl install "$UDID" "$APP" >/dev/null 2>&1 || emit_unavailable "install failed"
-xcrun simctl launch "$UDID" "$BUNDLE_ID" >/dev/null 2>&1 || emit_unavailable "launch failed"
-sleep 2   # crude settle; Task 8 adds an AX wait_for_idle
 
-# ---- screenshot the launch screen ----
-xcrun simctl io "$UDID" screenshot "$OUT/screens/home.png" >/dev/null 2>&1 || emit_unavailable "screenshot failed"
+# ---- clean status bar (9:41 / full bars) + grant permissions so dialogs don't block shots ----
+xcrun simctl status_bar "$UDID" override --time "9:41" \
+  --dataNetwork wifi --wifiMode active --wifiBars 3 \
+  --batteryState charged --batteryLevel 100 >/dev/null 2>&1 || true
+xcrun simctl privacy "$UDID" grant all "$BUNDLE_ID" >/dev/null 2>&1 || true
 
-# ---- emit success index ----
+# ---- variant axes: appearance × Dynamic Type ----
+APPEARANCES=(light dark)
+if [ "$VARIANTS" = "full" ]; then
+  SIZES=("large:large" "accessibility-extra-extra-extra-large:axxxl")
+else
+  SIZES=("large:large")
+fi
+
+# shoot one (already on-screen) screen across the whole matrix. Relaunch between changes because
+# UIKit reads appearance/content_size at process start. Records "screen__appearance__type".
+CAPTURED=()
+shoot_screen() {
+  local screen="$1" ap sz cat lbl
+  for ap in "${APPEARANCES[@]}"; do
+    xcrun simctl ui "$UDID" appearance "$ap" >/dev/null 2>&1 || true
+    for sz in "${SIZES[@]}"; do
+      cat="${sz%%:*}"; lbl="${sz##*:}"
+      xcrun simctl ui "$UDID" content_size "$cat" >/dev/null 2>&1 || true
+      xcrun simctl launch --terminate-running-process "$UDID" "$BUNDLE_ID" >/dev/null 2>&1 || true
+      sleep 2   # crude settle; Task 8 adds an AX wait_for_idle
+      if xcrun simctl io "$UDID" screenshot "$OUT/screens/${screen}__${ap}__${lbl}.png" >/dev/null 2>&1; then
+        CAPTURED+=("${screen}__${ap}__${lbl}")
+      fi
+    done
+  done
+}
+
+shoot_screen home
+[ "${#CAPTURED[@]}" -eq 0 ] && emit_unavailable "no screenshots captured"
+
+# ---- emit success index (group captured variants per screen) ----
+SCREENS_JSON="$(printf '%s\n' "${CAPTURED[@]}" | jq -R -s '
+  split("\n") | map(select(length>0)) |
+  map({screen: split("__")[0], variant: (split("__")[1] + "/" + split("__")[2])}) |
+  group_by(.screen) | map({name: .[0].screen, variants: map(.variant)})')"
 jq -n --arg p "$PROJECT" --arg s "$SCHEME" --arg d "$UDID" --arg app "$BUNDLE_ID" \
+  --argjson screens "$SCREENS_JSON" \
   '{tool:"swiftui-capture", role:"visual-capture", status:"ok",
-    project:$p, scheme:$s, device:$d, bundle_id:$app,
-    screens:[{name:"home", variants:["default"]}], failures:[]}' \
+    project:$p, scheme:$s, device:$d, bundle_id:$app, screens:$screens, failures:[]}' \
   > "$OUT/capture.json"
-echo "swiftui-capture: ok — 1 screen captured → $OUT/screens" >&2
+echo "swiftui-capture: ok — ${#CAPTURED[@]} screenshot(s) → $OUT/screens" >&2
 exit 0
