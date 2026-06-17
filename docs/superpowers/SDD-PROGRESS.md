@@ -57,6 +57,12 @@ Plan: docs/superpowers/plans/2026-06-16-swiftui-ios-sp4-skills-commands-hook-age
 - Final whole-plugin review: all scopes PASS (0 Critical, 0 Important).
 
 # ===== PROGRAM COMPLETE ===== macOS swiftui plugin fully ported to this iOS plugin. v0.4.0.
+
+## SP5 — live-dogfood bugfixes (v0.4.1)
+Dogfooded the suite against a real app (life-runner/ios/LifeRunner — Universal, iOS 17 floor, ~10k LOC). LOCATE→VERIFY discipline held (all 48 gate "hard" hits were false positives at VERIFY); the run surfaced two engine precision bugs, both fixed:
+- **audit-gate.sh now STEER-gated.** It consulted no relevance signal, so it ran swiftdata's broad `hard` nets (sd-01 = any `let x: [Type]`, sd-09 = any `Task {`) on a SwiftData-free repo → 44 false hard-fails blocking CI. Now reuses `audit-scan.py`; absent cond domains are marked `n/a — not present` (not run, not counted). `--all`/`--no-steer` forces all 34; degrades to all-34 if python3/scan unavailable. LifeRunner hard 48→4 (the 4 remaining are privacy pp-01, a present-domain Info.plist cross-check grep can't do — a VERIFY concern, not STEER).
+- **swiftui-lint.sh parse-unbalanced FP fixed.** The brace/paren balance heuristic counted bracket chars inside string literals + comments, so a lone `")"` in a string (e.g. MarkdownText.swift `sep == ")"`) tripped a spurious `parse-unbalanced` warn under EVERY skill (~34 phantom warns/gate). Now strips `"…"` spans + `//` comments first (BSD-portable sed). Genuine imbalance still flags (verified in --no-ast fallback). LifeRunner gate warn 675→641.
+- Green after: validate-skills 39 OK, audit-selftest 140/25, audit-scan 32/34, gate fixtures exit 2 preserved.
 # Published: github.com/pragmaticgrowth/swiftui-ios (public, tag v0.4.0). macOS reference repo never modified.
 # Full per-batch ledger (every commit + deferred minors) lived in the macOS controller repo at .git/sdd/progress.md
 #   (github.com/serkanhaslak/claude-swiftui-plugin) — this in-repo SDD-PROGRESS.md is the iOS-side summary.

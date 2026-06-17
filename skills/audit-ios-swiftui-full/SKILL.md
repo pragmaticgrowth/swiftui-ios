@@ -172,11 +172,14 @@ Two runs over the same code produce a structurally identical `swiftui-audits/` t
 
 ## Pre-ship gate (CI)
 
-`bash ${CLAUDE_PLUGIN_ROOT}/scripts/audit-gate.sh <target-dir>` loops the shared lint runner over all 34
-skills, tallies hard/warn/adv per skill + total, prints a summary to stderr and a combined JSON to
-stdout, and **exits 2 if any skill reports a hard finding** (else 0). It is the mechanical LOCATE-tier
-gate — a non-zero exit means a human-driven full audit (this skill) is required before shipping; it does
-not replace the VERIFY/READ step.
+`bash ${CLAUDE_PLUGIN_ROOT}/scripts/audit-gate.sh <target-dir>` loops the shared lint runner over the
+audit skills, tallies hard/warn/adv per skill + total, prints a summary to stderr and a combined JSON to
+stdout, and **exits 2 if any audited skill reports a hard finding** (else 0). It is **STEER-gated** by the
+same `audit-scan.py` relevance scan this orchestrator uses: domains whose presence signal is absent are
+marked `n/a — not present` (not run, not counted), so a project that doesn't use a domain never hard-fails
+CI on that domain's broad LOCATE nets (e.g. a SwiftData-free repo won't block on `swiftdata` sd-01/sd-09).
+Pass `--all` (or `--no-steer`) to force every skill regardless of presence. A non-zero exit means a
+human-driven full audit (this skill) is required before shipping; it does not replace the VERIFY/READ step.
 
 ## Boundaries (stay in lane)
 
