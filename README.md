@@ -123,6 +123,8 @@ each domain auditor pairs the lint engine (which *locates* candidates) with `swi
 
 `audit-swiftui-design-review` is the visual complement to the code audits — it judges *rendered design quality*, not code. It builds the app, screenshots every screen across **light/dark + Dynamic Type** in the Simulator (`scripts/swiftui-capture.sh` — auto-explores via the accessibility tree, or a `screens.manifest.json`), runs **deterministic** objective checks (static `dr-*` tells + Apple's `performAccessibilityAudit`), then **critiques the pixels** against a cited **Apple HIG + iOS 26 Liquid Glass** knowledge base (`references/_shared/hig-design-rubric.md`, `liquid-glass-design.md`, `ux-smell-catalog.md`) — ending in a **0–100 Design Score**. Every finding cites a real HIG/WWDC rule (`expected → gap → fix`); debunked myths are blacklisted; it degrades to code-only when no simulator is available. It runs as **Wave 9** of `audit-ios-swiftui-full`, or invoke it directly for a design-only pass.
 
+For **auth-gated apps**, pass a DEBUG bypass so the reviewer reaches the signed-in screens: `swiftui-capture.sh <proj> --launch-arg --demo-session`, or per-screen in a manifest (`{"name":"health","launch_args":["--demo-session","--initial-tab","health"]}`). Verified on a real app (LifeRunner): a manifest of its 4 tabs produced a signed-in **Design Score of 90/100** with cited findings.
+
 | domain | skill | what it catches |
 |---|---|---|
 | **orchestrator** | `audit-ios-swiftui-full` | routes all domains in dependency-ordered waves, rolls up to `_SUMMARY.md` |
