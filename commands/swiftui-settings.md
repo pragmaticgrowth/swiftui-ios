@@ -1,37 +1,24 @@
 ---
-description: Create or update .claude/swiftui.local.md to configure the swiftui plugin for this project
+description: Build an iOS settings/preferences screen as a grounded grouped Form — the idiomatic iOS pattern (Form + Section + Toggle/Picker/NavigationLink), grounded in real shipping apps via swiftui-ctx.
 ---
+This file is instructions for *you* to run — there is no pre-computed output to wait for, and nothing here is broken.
 
-# /swiftui-settings — Configure the swiftui plugin for this project
+iOS has no `Settings` scene. The idiomatic iOS preferences screen is a grouped `Form` — usually pushed onto a `NavigationStack` or presented in a sheet — built from `Section`s of `Toggle`, `Picker`, `NavigationLink`, and labeled rows, with values persisted via `@AppStorage` / `@Bindable` settings model.
 
-Creates or updates `.claude/swiftui.local.md` with per-project plugin settings.
+Read from the conversation what the settings screen needs (which toggles, pickers, sub-screens, what state backs them). If that is unstated, build a representative scaffold and note where to add the user's own rows.
 
-## Steps
+**Do this now**, via the Bash tool — ground the shape in real iOS apps (the CLI self-builds and self-locates):
 
-1. Check if `.claude/swiftui.local.md` already exists with the Read tool. If it does, show the current values to the user.
+    "$CLAUDE_PLUGIN_ROOT/scripts/swiftui-ctx" recipe settings-form --json
 
-2. Ask the user which settings to configure (or accept defaults):
-   - `enabled` (true/false) — master on/off for the deprecation hook (default: true)
-   - `strict_audit` (true/false) — whether `/swiftui-audit` should exit non-zero on `hard` findings (default: true)
+Then for each control you place, confirm the real call shape and iOS floor:
 
-3. Ensure `.claude/` directory exists: `mkdir -p .claude`
+    "$CLAUDE_PLUGIN_ROOT/scripts/swiftui-ctx" lookup Form --platform ios
+    "$CLAUDE_PLUGIN_ROOT/scripts/swiftui-ctx" lookup Toggle --platform ios
+    "$CLAUDE_PLUGIN_ROOT/scripts/swiftui-ctx" lookup Picker --platform ios
 
-4. Write the settings file with YAML frontmatter:
-
-```markdown
----
-enabled: true
-strict_audit: true
----
-
-# swiftui plugin settings
-
-- `enabled` — set to `false` to silence the deprecation guard hook.
-- `strict_audit` — set to `false` to make `/swiftui-audit` advisory only (no non-zero exit on hard findings).
-
-After editing this file, restart Claude Code for hook changes to take effect.
-```
-
-5. Verify `.claude/*.local.md` is in `.gitignore`. If not, remind the user to add it.
-
-6. Confirm to the user: "Settings saved to `.claude/swiftui.local.md`. Restart Claude Code for hook changes to take effect."
+Build the screen grounded in that output:
+- Wrap the rows in a `Form`; group related rows in `Section`s with headers; use `.navigationTitle` on the enclosing `NavigationStack`.
+- Follow each control's `consensus` shape and the `recommended` example; back values with `@AppStorage` or an observable settings model.
+- Honor `introduced_ios` for any API you reach for — do not exceed the project's deployment target.
+- If a `next_actions` line shows a `file …` command, run it to fetch the real, compilable enclosing view before writing code.

@@ -1,31 +1,30 @@
 foregroundColor|foregroundStyle
-tabItem|Tab
-borderlessButton|borderless
 NavigationView|NavigationStack
-Alert|alert
 edgesIgnoringSafeArea|ignoresSafeArea
+navigationBarTrailing|(no replacement)
+tabItem|Tab
 presentationMode|dismiss
-accentColor|tint
-disableAutocorrection|autocorrectionDisabled
-MagnificationGesture|MagnifyGesture
-navigationViewStyle|(no replacement)
 navigationBarTitle|navigationTitle
+Alert|alert
+accentColor|tint
+navigationBarLeading|(no replacement)
+autocapitalization|textInputAutocapitalization
+navigationBarItems|toolbar
+navigationViewStyle|(no replacement)
+disableAutocorrection|autocorrectionDisabled
 navigationBarHidden|(no replacement)
-controlActiveState|(no replacement)
-colorMultiply|foregroundStyle
+stack|(no replacement)
 sizeCategory|dynamicTypeSize
-MenuButton|(no replacement)
-BorderlessButtonMenuStyle|(no replacement)
+StackNavigationViewStyle|(no replacement)
+ActionSheet|(no replacement)
+statusBar|statusBarHidden
+MagnificationGesture|MagnifyGesture
+colorMultiply|foregroundStyle
 ContextMenu|(no replacement)
+borderlessButton|borderless
 RotationGesture|RotateGesture
-borderedButton|(no replacement)
-DoubleColumnNavigationViewStyle|(no replacement)
-menuButtonStyle|(no replacement)
-BorderlessButtonMenuButtonStyle|(no replacement)
-PopUpButtonPickerStyle|(no replacement)
-DefaultNavigationViewStyle|(no replacement)
 accessibilityShowButtonShapes|accessibilityShowBorders
-MenuButtonStyle|(no replacement)
+BorderlessButtonMenuStyle|(no replacement)
+DoubleColumnNavigationViewStyle|(no replacement)
 ContentSizeCategory|DynamicTypeSize
-DefaultMenuButtonStyle|(no replacement)
-PullDownMenuButtonStyle|(no replacement)
+DefaultNavigationViewStyle|(no replacement)

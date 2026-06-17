@@ -5,14 +5,14 @@ write task with `file --smart` on the `recommended` example before emitting code
 
 ## Writing a known call (e.g. a search field)
 ```
-$BIN lookup searchable                  # consensus shapes + recommended example + co_occurs_with
-$BIN file <recommended.id> --smart      # the real enclosing view, compilable
+$BIN lookup searchable --platform ios   # consensus shapes + recommended example + co_occurs_with
+$BIN file <recommended.id> --smart       # the real enclosing view, compilable
 ```
-Read `consensus` to pick the shape (`(text:)` 24% vs `(text:placement:prompt:)` 27%), then write it the dominant way.
+Read `consensus` to pick the shape (`(text)` 28% vs `(text, prompt)` 24% vs `(text, placement, prompt)` 24%), then write it the dominant way.
 
 ## Choosing an overload / argument shape
 ```
-$BIN lookup frame                       # consensus: (width, height) 31% · (maxWidth, alignment) 12% …
+$BIN lookup frame --platform ios        # consensus: (width, height) 31% · (height) 19% · (maxWidth) 13% · (maxWidth, alignment) 12% …
 $BIN examples frame --shape "(maxWidth, alignment)"   # real call sites of that exact shape
 ```
 Note: `examples` shows a curated ≤25/API sample; the consensus % is over *all* uses (the tool says so in its output).
@@ -24,23 +24,24 @@ $BIN lookup foregroundStyle             # real usage of the modern replacement
 ```
 `$BIN deprecated` (no arg) lists every deprecated API still in production use, with its replacement — the audit entry point.
 
-**Floor gaps:** replacements can have a higher macOS floor than the deprecated API — always check `min_macos` in the `lookup` result before swapping. Example: `tabItem(_:)` is macOS 10.15+ Deprecated, but its replacement `Tab` is macOS 15.0+. Using `Tab` on a macOS 13–14 deployment target is a compile error; use `#available(macOS 15, *)` or keep `tabItem` if you must support macOS 13–14.
+**Floor gaps:** replacements can have a higher iOS floor than the deprecated API — always check `min_ios`/`introduced_ios` in the `lookup` result before swapping. Example: `tabItem(_:)` is iOS 13.0+ Deprecated, but its replacement `Tab` is iOS 18.0+. Using `Tab` on an iOS 17 deployment target is a compile error; use `#available(iOS 18, *)` or keep `tabItem` if you must support iOS 17.
 
 ## Building a known pattern (recipes)
 ```
 $BIN recipes                            # list patterns
-$BIN recipe menubar-app                 # template skeleton + real examples (each with a file/permalink next_action)
+$BIN recipe tab-bar-app                 # template skeleton + real examples (each with a file/permalink next_action)
 $BIN file <example> --smart
 ```
-Recipes: `menubar-app · master-detail · settings-screen · settings-form · observable-model · window-scene ·
-charts-bar · nsview-bridge · searchable-list · command-palette · draggable-reorder · cached-async-image`.
+Recipes: `tab-bar-app · navigationstack-master-detail · sheet-detents · fullscreen-cover-flow · widget-scaffold ·
+app-intent · searchable-list · settings-form · observable-model · charts-bar · draggable-reorder ·
+cached-async-image · uiview-bridge`.
 
 ## Planning a feature from intent (you don't know the API names)
 ```
-$BIN search "command palette"           # intent → APIs (sheet/searchable/keyboardShortcut) + recipe
-$BIN lookup keyboardShortcut            # drill into each candidate
+$BIN search "bottom sheet"              # intent → APIs (sheet/presentationDetents) + recipe
+$BIN lookup presentationDetents --platform ios   # drill into each candidate
 ```
-`search` understands design vocabulary ("sidebar", "menu bar", "drag drop", "reorder", "async image", "settings").
+`search` understands design vocabulary ("tab bar", "master detail", "bottom sheet", "reorder", "async image", "settings", "widget").
 
 ## Reviewing / auditing existing SwiftUI
 ```
@@ -57,14 +58,14 @@ $BIN recipe observable-model            # the correct ownership pattern (@Observ
 $BIN file <example> --smart             # a working reference to diff your code against
 ```
 
-## NSView/NSViewController bridging (where LLMs fail most)
+## UIView/UIViewController bridging (where LLMs fail most)
 ```
-$BIN recipe nsview-bridge               # template + real bridges (use the file <permalink> next_action)
-$BIN file <permalink> --full            # bridges are best read whole: Coordinator + makeNSView + updateNSView
+$BIN recipe uiview-bridge               # template + real bridges (use the file <permalink> next_action)
+$BIN file <permalink> --full            # bridges are best read whole: Coordinator + makeUIView + updateUIView
 ```
 
 ## Reading the `file` modes
 - `--smart` (default): tightest useful, anchor-guaranteed span (enclosing `var body`/func if it fits, else the statement, else an anchored window). Start here.
-- `--full`: the whole file — for Scene-level patterns (App struct) and NSView bridges.
+- `--full`: the whole file — for App/Scene-level patterns (App struct) and UIView/UIViewController bridges.
 - `--chain`: just the modifier chain — for a dense `.a().b().c()` call.
 - `--decl`: the full enclosing declaration even if large.

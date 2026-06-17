@@ -1,9 +1,9 @@
-# View Rendering Performance (macOS)
+# View Rendering Performance (iOS)
 
-**As of 2026-06-07 · macOS 26 (Tahoe) · Swift 6.2 toolchain.** SwiftUI re-renders are driven by
+**As of 2026-06-07 · iOS 26 · Swift 6.2 toolchain.** SwiftUI re-renders are driven by
 view *identity* and dependency tracking; the anti-patterns below force needless `body` re-evaluation or
-view recreation. All apply on macOS (a resizable, long-lived, multi-window Mac app re-renders far more
-than a transient iOS screen, so these bite harder). Every example compiles on a Mac target.
+view recreation. They bite on iOS where scrolling lists, gesture-driven transitions, and older devices
+make wasted `body` work visible as dropped frames. Every example compiles on an iOS target.
 
 ## The rendering anti-patterns
 
@@ -45,7 +45,7 @@ compares the *other* props and skips re-render — keeping the closure stable al
 
 ### 5. `GeometryReader` overuse
 `GeometryReader` greedily takes all offered space and re-lays-out its subtree on every size change
-(constant on a resizable Mac window). Reach for layout (`Layout`, `.frame`, `.alignmentGuide`,
+(every rotation, split-view resize on iPad, or keyboard-driven safe-area change). Reach for layout (`Layout`, `.frame`, `.alignmentGuide`,
 container relative frames) first; use `GeometryReader` only when you truly need the measured size.
 
 ### 6. Real logic in `View.init`
@@ -67,38 +67,41 @@ many times a second — re-evaluates the whole subtree of subscribers on every t
 warns against exactly this). Keep such values in a narrowly-scoped `@State`/`@Observable` read only by
 the views that need them; reserve `@Environment` for slow-changing, broadly-shared configuration.
 
-## SwiftUI `Table` / `List` performance ceiling (macOS)
-SwiftUI `Table` has known large-dataset performance issues (FB13639482, filed Feb 2024 against
-macOS 14.3); no Apple-published fix milestone is confirmed in release notes — so do not assume a
-given OS version cleared it; measure on your target. Plain `List` is a different story: practitioner
-testing on **macOS 26** shows a plain `List` of ~10,000 items now scrolls smoothly (≈50k still usable),
-so the old "a few hundred rows" ceiling no longer holds for plain `List` there. `Table`, however, still
-trails `NSTableView` for large, interaction-heavy grids.
+## SwiftUI `List` / `Table` performance ceiling (iOS)
+On iOS, **`List` is the primary collection**. Practitioner testing on **iOS 26** shows a plain `List`
+of ~10,000 items now scrolls smoothly (≈50k still usable), so the old "a few hundred rows" ceiling no
+longer holds for plain `List` there. The cost reappears with **heavy per-row content** — many subviews,
+inline images decoded in `body`, `AnyView` cells. For a `List`/`ForEach`, give rows a stable `id` and
+keep cell bodies cheap. `Table` (iPad / regular width) has known large-dataset issues (FB13639482, filed
+Feb 2024 against iOS 17.3); no Apple-published fix milestone is confirmed — measure on your target.
 
-Rule of thumb on macOS 26: a plain `List` handles many thousands of simple rows fine. The
-`NSTableView` / `NSOutlineView` fallback (via `NSViewRepresentable`) remains the right call for a
-SwiftUI `Table` with 10k+ rows, or for complex per-cell interaction and inline editing.
+Rule of thumb on iOS 26: a plain `List` handles many thousands of simple rows fine. For a very large or
+interaction-dense grid where SwiftUI `List`/`Table` janks, bridge `UICollectionView` (a compositional /
+list layout) via `UIViewRepresentable` — but only after a measurement shows the SwiftUI path is the
+bottleneck (→ `uikit-interop.md`).
 ```swift
-// ❌ WRONG — SwiftUI Table with 10k+ rows + complex editable cells → janky scrolling (FB13639482)
-Table(tensOfThousandsOfRows) { /* heavy custom columns */ }
-// ✅ CORRECT — bridge NSTableView for large, interaction-dense data grids
-struct DataGrid: NSViewRepresentable { /* wrap NSScrollView + NSTableView, updateNSView to reload */ }
+// ❌ WRONG — heavy custom cells decoding images in body → janky scrolling
+List(items) { item in HeavyCell(item: item) }   // image decode + many subviews per row
+// ✅ CORRECT — cheap rows, stable ids, async-decoded thumbnails
+List(items) { item in Row(item: item) }          // small body; thumbnails via AsyncImage / a cache
+// for 10k+ interaction-dense grids only, after measuring:
+struct DataGrid: UIViewRepresentable { /* wrap UICollectionView, reload in updateUIView */ }
 ```
 
-## Liquid Glass performance on lower-GPU machines
-Liquid Glass is GPU-shader-bound; overlapping glass layers compound cost on lower-GPU machines
-(including Intel Macs). Prefer ONE `GlassEffectContainer` over many sibling `glassEffect()` calls, and
-avoid glass on high-frequency-updating content. Profile on your lowest-spec target and gate selectively
-only if a measurement shows a problem — do **not** blanket-`#if arch(arm64)`: that silently strips
-Liquid Glass from all Intel users, against Apple's design intent.
+## Liquid Glass performance on older devices
+Liquid Glass is GPU-shader-bound; overlapping glass layers compound cost on **older iPhones/iPads**.
+Prefer ONE `GlassEffectContainer` over many sibling `glassEffect()` calls, and avoid glass on
+high-frequency-updating content (a scrolling list, an animating chart). Profile on your lowest-spec
+supported device and gate selectively only if a measurement shows a problem — the `#available(iOS 26, *)`
+fallback to `.regularMaterial` is the right lever, not a device-model `#if`.
 ```swift
 // ✅ CORRECT — one container groups sibling glass; the GPU composites them together
 GlassEffectContainer {
     badge.glassEffect(.regular.interactive(), in: .capsule)
     label.glassEffect(.regular, in: .capsule)
 }
-// ❌ WRONG — a blanket arch gate strips glass from every Intel Mac
-#if arch(arm64) /* glass */ #else /* no glass */ #endif
+// ✅ CORRECT — fall back below the floor (and on measured slow paths) to a cheaper material
+if #available(iOS 26.0, *) { content.glassEffect() } else { content.background(.regularMaterial) }
 ```
 
 ## Detection tells
@@ -115,7 +118,7 @@ GlassEffectContainer {
   that `body` to re-evaluate (`@self`, a specific property, or `@identity`). Zero setup, no Instruments;
   the fastest way to find *why* a view re-renders. Remove before shipping.
 - **SwiftUI Instrument (Instruments 26)** — the new SwiftUI track plus its **Cause & Effect graph**
-  attributes update cost to the state change that triggered it; the canonical macOS-26 tool for finding
+  attributes update cost to the state change that triggered it; the canonical iOS-26 tool for finding
   expensive `body` work and excessive updates. See WWDC25 session 306.
 
 ## Sources
@@ -127,8 +130,8 @@ GlassEffectContainer {
   Instruments 26 and its Cause & Effect graph; also the `@Environment` high-frequency fan-out warning:
   https://developer.apple.com/videos/play/wwdc2025/306/
 - Apple — `Text(_:format:)` and `Layout`: https://developer.apple.com/documentation/swiftui/text · https://developer.apple.com/documentation/swiftui/layout
-- SwiftUI `Table` large-dataset bug: FB13639482 (filed Feb 2024, macOS 14.3). No fix milestone is
+- SwiftUI `Table` large-dataset bug: FB13639482 (filed Feb 2024, iOS 17.3). No fix milestone is
   confirmed in Apple release notes — **measure the row threshold against your own build.**
-- Community practitioner reports (r/SwiftUI, macOS SwiftUI performance write-ups) for the macOS 26
-  plain-`List` headroom (~10k smooth, ~50k usable) and the `Table`-vs-`NSTableView` ceiling — treat the
+- Community practitioner reports (r/SwiftUI, iOS SwiftUI performance write-ups) for the iOS 26
+  plain-`List` headroom (~10k smooth, ~50k usable) and the `List`/`Table`-vs-`UICollectionView` ceiling — treat the
   numbers as guidance and profile your build.

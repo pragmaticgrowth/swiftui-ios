@@ -1,7 +1,7 @@
 # Commands — flags, JSON schema, exit codes
 
 Binary: `swiftui-ctx`. Catalog found via `--catalog`, `$SWIFTUI_CTX_CATALOG`, `./catalog`, or package-relative.
-Global flags: `--json` · `--limit N` · `--platform macos|any` · `--offline` · `--catalog <dir>`.
+Global flags: `--json` · `--limit N` · `--platform ios|macos|cross|any` (default `ios`) · `--offline` · `--catalog <dir>`.
 Input is normalized: a leading `@`/`.` and a trailing `(…)` signature are stripped (`@State`→`State`).
 
 ## Commands
@@ -17,8 +17,8 @@ Input is normalized: a leading `@`/`.` and a trailing `(…)` signature are stri
 | `stats` | Corpus overview + coverage. |
 | `doctor` | Health check: confirms the catalog loads + prints version/repos/SDK. Run first if a query errors. |
 | `conformances <protocol>` | Real conformers of `View`/`ViewModifier`/`ButtonStyle`/`Layout`/… (custom-component evidence). |
-| `bridges [<filter>]` | AppKit↔SwiftUI bridges (`NSViewRepresentable`…) across the corpus + permalinks. |
-| `settings` | Production `Settings`/preferences screens + the Form vocab they use. |
+| `bridges [<filter>]` | UIKit↔SwiftUI bridges (`UIViewRepresentable`/`UIViewControllerRepresentable`…) across the corpus + permalinks. |
+| `settings` | Production settings/preferences screens + the `Form` vocab they use. |
 | `valueBuilders [<filter>]` | Real Font/Color/Animation/gradient value expressions (e.g. spring presets). |
 | `rankings <dim>` | Top repos by `by_total_unique_apis · by_modifier_breadth · by_custom_components · most_modern_stack`. |
 | `insights <section>` | Corpus signals: `modern-stack · deprecated · cooccurrence · external · components · categories`. |
@@ -33,12 +33,12 @@ Input is normalized: a leading `@`/`.` and a trailing `(…)` signature are stri
 Failure: `"error": {"class","code","message","retryable","suggestion"}` with `"ok": false`.
 
 ### `lookup` result fields
-`api · kind · repo_count · total_uses · introduced_macos · deprecated · replacement? · doc ·
-consensus:[{shape,pct}] · recommended:{id,repo,permalink,src,stars,author_authority,min_macos,score} ·
+`api · kind · repo_count · total_uses · introduced_ios · deprecated · replacement? · doc ·
+consensus:[{shape,pct}] · recommended:{id,repo,permalink,src,stars,author_authority,min_ios,score} ·
 diverse:[…] · co_occurs_with:[sym] · recipes:[name] · low_corpus:bool`.
 
 ### `examples` result fields
-`api · matched_in_sample · page · limit · platform · note · examples:[{id,repo,permalink,src,shape,stars,author_authority,min_macos,score}]`.
+`api · matched_in_sample · page · limit · platform · note · examples:[{id,repo,permalink,src,shape,stars,author_authority,min_ios,score}]`.
 The `note` explains the curated-sample vs consensus-% relationship — read it before trusting counts.
 
 ### `file` result fields
@@ -54,6 +54,6 @@ The `note` explains the curated-sample vs consensus-% relationship — read it b
 | 5 | no catalog | **STOP. Tell the user. Do NOT fabricate examples from memory.** |
 
 ## Notes
-- `lookup <ProtocolName>` (e.g. `NSViewRepresentable`) is not a single API — it **redirects to its recipe** (exit 0).
+- `lookup <ProtocolName>` (e.g. `UIViewRepresentable`) is not a single API — it **redirects to its recipe** (exit 0).
 - A `recommended` example is never a `score==0 && stars==0` repo, and container types (`Form`/`List`/…) only count when called with a trailing closure (kills same-named custom structs).
 - `--offline` returns the stored one-line `src` (the full call head), not a fetched span — use only as a network fallback.

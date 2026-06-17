@@ -1,10 +1,10 @@
-# SwiftData (macOS)
+# SwiftData (iOS)
 
-SwiftData (`@Model`, `ModelContainer`/`ModelContext`, `@Query`, `.modelContainer(for:)`) is the current first-party persistence layer on **macOS 14+** — a thin macro façade over Core Data. That façade is exactly why AI gets it wrong: the *Swift-language* semantics an LLM reasons about (`let` is immutable, a non-optional is non-optional, `init` assigns stored properties) are silently violated by the Core Data machinery underneath, and **almost none of the violations produce a compiler diagnostic.** The code compiles, looks idiomatic, and then crashes at runtime, loses data on relaunch, or kills the preview canvas. Apple's own samples make it worse: they show no `@Model` initializer, ship a non-compiling `@Relationship(.cascade)`, and recommend `fatalError` on container creation.
+SwiftData (`@Model`, `ModelContainer`/`ModelContext`, `@Query`, `.modelContainer(for:)`) is the current first-party persistence layer on **iOS 17+** — a thin macro façade over Core Data. That façade is exactly why AI gets it wrong: the *Swift-language* semantics an LLM reasons about (`let` is immutable, a non-optional is non-optional, `init` assigns stored properties) are silently violated by the Core Data machinery underneath, and **almost none of the violations produce a compiler diagnostic.** The code compiles, looks idiomatic, and then crashes at runtime, loses data on relaunch, or kills the preview canvas. Apple's own samples make it worse: they show no `@Model` initializer, ship a non-compiling `@Relationship(.cascade)`, and recommend `fatalError` on container creation.
 
-> macOS-only reference. SwiftData is byte-for-byte identical on iOS 17+, so iOS appears here only as a ❌ contrast. The genuinely macOS-divergent angles are environmental, not API: save-on-window-close / Quit timing, the App-Sandbox store location, and multi-process (app + menu-bar helper + widget) container access — called out where they bite.
+> iOS reference. The SwiftData API is byte-for-byte identical cross-platform; macOS appears here only as a ❌ contrast. The genuinely iOS-divergent angles are environmental, not API: **save on `scenePhase == .background`** (iOS suspends and terminates the app — a pending auto-save is lost), the per-app store location, and **multi-process container access** (the app + a widget + a share/notification extension on one App-Group container) — called out where they bite.
 
-Every example below targets **macOS 14+**, except the variadic `ModelContainer(for:configurations:)` init (used in the preview/container examples), which is `macOS 15.0+` — each such call notes the `macOS 14.0+` alternative `ModelContainer(for:migrationPlan:configurations:)` inline.
+Every example below targets **iOS 17+**, except the variadic `ModelContainer(for:configurations:)` init (used in the preview/container examples), which is `iOS 18.0+` — each such call notes the `iOS 17.0+` alternative `ModelContainer(for:migrationPlan:configurations:)` inline.
 
 ---
 
@@ -26,7 +26,7 @@ SwiftData presumes every relationship is **mutable** (and optional); the Core Da
 
 ✅ **CORRECT** — relationships are always `var`, defaulted:
 ```swift
-@Model final class House {                              // macOS 14+
+@Model final class House {                              // iOS 17+
     @Relationship(deleteRule: .cascade, inverse: \Floor.house)
     var floors: [Floor] = []        // ✅ var, even if you think of it as constant
 }
@@ -48,7 +48,7 @@ No compile or runtime error. Everything works until you Quit and relaunch — th
 
 ✅ **CORRECT** — default to `[]`, then `append`:
 ```swift
-@Model final class House {                              // macOS 14+
+@Model final class House {                              // iOS 17+
     var floors: [Floor] = []
     init(floors: [Floor]) {
         self.floors.append(contentsOf: floors)   // ✅ append in init, or assign outside init
@@ -70,7 +70,7 @@ Apple's very first SwiftData sample omits the initializer, so the class can't ac
 
 ✅ **CORRECT** — full `@Model`, explicit `init`, named `deleteRule:`:
 ```swift
-@Model final class Trip {                               // macOS 14+
+@Model final class Trip {                               // iOS 17+
     var name: String
     @Relationship(deleteRule: .cascade, inverse: \Stop.trip)
     var stops: [Stop] = []
@@ -93,7 +93,7 @@ Constructing a `@Model` value (or touching `\.modelContext`) with no `ModelConta
 
 ✅ **CORRECT** — in-memory container + sample data, attached with `.modelContainer`:
 ```swift
-#Preview {                                              // macOS 15+ (see init note below)
+#Preview {                                              // iOS 18+ (see init note below)
     let config = ModelConfiguration(isStoredInMemoryOnly: true)
     let container = try! ModelContainer(for: Trip.self, configurations: config) // try! OK in preview
     let trip = Trip(name: "Sample")
@@ -102,11 +102,11 @@ Constructing a `@Model` value (or touching `\.modelContext`) with no `ModelConta
         .modelContainer(container)
 }
 ```
-> **Init availability:** the variadic convenience `ModelContainer(for: Trip.self, configurations: config)` is **`macOS 15.0+`** — not 14.0. On a **macOS-14** target use the full init that takes `migrationPlan:` (which *is* `macOS 14.0+`): `try! ModelContainer(for: Trip.self, migrationPlan: nil, configurations: config)`. (`@Model`, `ModelContext`, `ModelConfiguration`, `isStoredInMemoryOnly` are all `macOS 14+`.)
+> **Init availability:** the variadic convenience `ModelContainer(for: Trip.self, configurations: config)` is **`iOS 18.0+`** — not 14.0. On an **iOS-17** target use the full init that takes `migrationPlan:` (which *is* `iOS 17.0+`): `try! ModelContainer(for: Trip.self, migrationPlan: nil, configurations: config)`. (`@Model`, `ModelContext`, `ModelConfiguration`, `isStoredInMemoryOnly` are all `iOS 17+`.)
 
 ### 5. `fatalError` on `ModelContainer` creation — Apple's sample, shipped as-is
 
-`ModelContainer.init` throws for **several recoverable, real-world reasons**: a schema/migration mismatch (`Code=134504`, *"Cannot use staged migration with an unknown model version"*), no free disk space (which produces *no* logs), or two processes migrating concurrently (`Code=134110` / `134100`). Apple's getting-started code wraps this in `fatalError(error.localizedDescription)` — turning every one into a hard crash with no usable diagnostic (the `SwiftDataError` `_explanation` is typically `nil`). On macOS, the multi-process case is routine (app + menu-bar helper + widget on one container), so this is not a corner case. Catch and classify; recover or surface a real message.
+`ModelContainer.init` throws for **several recoverable, real-world reasons**: a schema/migration mismatch (`Code=134504`, *"Cannot use staged migration with an unknown model version"*), no free disk space (which produces *no* logs), or two processes migrating concurrently (`Code=134110` / `134100`). Apple's getting-started code wraps this in `fatalError(error.localizedDescription)` — turning every one into a hard crash with no usable diagnostic (the `SwiftDataError` `_explanation` is typically `nil`). On iOS, the multi-process case is routine (app + a widget + a share or notification extension on one App-Group container), so this is not a corner case. Catch and classify; recover or surface a real message.
 
 ❌ **WRONG** — copy Apple's `fatalError`; every recoverable error becomes a crash:
 ```swift
@@ -121,10 +121,10 @@ do {
 ```swift
 let container: ModelContainer
 do {
-    // variadic `configurations:` init is macOS 15+; on macOS 14 add `migrationPlan: nil,`
+    // variadic `configurations:` init is iOS 18+; on iOS 17 add `migrationPlan: nil,`
     container = try ModelContainer(for: Trip.self, configurations: ModelConfiguration())
 } catch {
-    // 134504 schema mismatch · no-free-space · 134110/134100 concurrent migration (common on macOS)
+    // 134504 schema mismatch · no-free-space · 134110/134100 concurrent migration (common on iOS multi-process containers)
     // recover (serialize multi-process opens with a lock file; check disk; clear+recreate on
     // an unrecoverable schema mismatch) or surface a real message — do NOT fatalError(error).
     container = try! ModelContainer(                 // last-resort fallback, not the first response
@@ -145,12 +145,12 @@ ForEach(house.floors) { … }         // ❌ unordered; reshuffles on reload
 
 ✅ **CORRECT** — order via `@Query(sort:)` / `SortDescriptor`:
 ```swift
-struct TripList: View {                                 // macOS 14+
+struct TripList: View {                                 // iOS 17+
     @Query(sort: \Trip.name, order: .forward) private var trips: [Trip]   // ✅ explicit order
     var body: some View {
         // multi-sort also works: @Query(sort: [SortDescriptor(\Trip.startDate),
         //                                      SortDescriptor(\Trip.name)])
-        Table(trips) { /* macOS-rich, sortable columns */ }
+        List(trips) { trip in Text(trip.name) }  // iOS-primary list (Table is iPad/macOS-shaped)
     }
 }
 ```
@@ -172,7 +172,7 @@ func importAll(_ raw: [RawTrip]) {
 
 ✅ **CORRECT** — a `@ModelActor` owns its own context; hand off `PersistentIdentifier`:
 ```swift
-@ModelActor                                             // macOS 14+; generates an actor with its own context
+@ModelActor                                             // iOS 17+; generates an actor with its own context
 actor DataImporter {
     func importTrips(_ raw: [RawTrip]) throws {
         for r in raw { modelContext.insert(Trip(name: r.name)) }
@@ -185,13 +185,13 @@ let id: PersistentIdentifier = trip.persistentModelID
 
 ### 8. Relying on auto-save — `try modelContext.save()` is omitted (silent data loss)
 
-The docs promise periodic implicit saves, but in practice the auto-save period is *tens of seconds*, and changes made shortly before window close / app Quit are frequently **lost** — there are no deinit/window-close/app-exit hooks. This bites *harder on macOS*: Mac windows are free-floating and independently closable, and users expect state to persist when they close one. Call `try modelContext.save()` explicitly after meaningful mutations (and on `ScenePhase` change / window close), handling the thrown error.
+The docs promise periodic implicit saves, but in practice the auto-save period is *tens of seconds*, and changes made shortly before **suspension** are frequently **lost** — there are no deinit/app-exit hooks. This bites *hard on iOS*: the system suspends and can terminate the app at any time, so an edit a user just made may never reach disk. Call `try modelContext.save()` explicitly after meaningful mutations **and on `scenePhase` change to `.background`** (`onChange(of: scenePhase)`), handling the thrown error. (Wiring the `scenePhase` → save *trigger* is the app-lifecycle concern; the save itself is here. → `app-lifecycle.md`.)
 
-❌ **WRONG** — mutate and trust auto-save; changes lost on a fast Quit:
+❌ **WRONG** — mutate and trust auto-save; changes lost when the app is suspended:
 ```swift
 func rename(_ trip: Trip, to name: String) {
     trip.name = name
-    // ❌ no save() — auto-save may not fire before window close / Quit → change lost
+    // ❌ no save() — auto-save may not fire before suspension/termination → change lost
 }
 ```
 
@@ -203,7 +203,7 @@ func rename(_ trip: Trip, to name: String) {
     do { try context.save() }            // ✅ explicit, immediately after the mutation
     catch { /* surface / log — don't swallow silently */ }
 }
-// macOS: also save on ScenePhase change / window close, not only on a timer.
+// iOS: also save on scenePhase → .background, not only on a timer (see app-lifecycle.md).
 ```
 
 ---
@@ -221,8 +221,8 @@ Grep/scan signals that flag the mistakes above:
 - **`try ModelContainer(` followed by `catch { fatalError(`** in non-preview code → mistake 5 (recoverable errors crash-blind). `try!` outside a `#Preview` is the same smell.
 - **Indexing a relationship array (`.floors[0]`) or a `ForEach`/`Table` over a relationship with no `@Query(sort:)` / `SortDescriptor`** → mistake 6 (assumes unpersisted order).
 - **`Task` / `Task.detached` / `DispatchQueue` reading `@Environment(\.modelContext)` results and mutating them, with no `@ModelActor`** → mistake 7 (non-`Sendable` `@Model` across actors).
-- **A mutation path with no `try modelContext.save()` anywhere** → mistake 8 (silent loss on Quit). On macOS, also look for the absence of a `ScenePhase`/window-close save.
-- **macOS-only smell:** one container opened by the app *and* a widget/menu-bar helper with no lock-file serialization → triggers the concurrent-migration error class from mistake 5.
+- **A mutation path with no `try modelContext.save()` anywhere** → mistake 8 (silent loss on suspension). Also look for the absence of an `onChange(of: scenePhase)` → save on `.background`.
+- **iOS smell:** one container opened by the app *and* a widget/extension on a shared App-Group container with no lock-file serialization → triggers the concurrent-migration error class from mistake 5.
 
 ---
 
@@ -231,7 +231,7 @@ Grep/scan signals that flag the mistakes above:
 Quote this block verbatim when prescribing the rules:
 
 ```swift
-// CANONICAL @Model (macOS 14+): explicit init; relationships are `var` with a default.
+// CANONICAL @Model (iOS 17+): explicit init; relationships are `var` with a default.
 @Model final class House {
     var name: String
     @Relationship(deleteRule: .cascade, inverse: \Floor.house)
@@ -255,7 +255,7 @@ WindowGroup { ContentView() }
 // Preview: in-memory container, sample data inserted (try! OK here only).
 #Preview {
     let config = ModelConfiguration(isStoredInMemoryOnly: true)
-    // `for:configurations:` is macOS 15+; on macOS 14 use `for:migrationPlan:configurations:` (migrationPlan: nil)
+    // `for:configurations:` is iOS 18+; on iOS 17 use `for:migrationPlan:configurations:` (migrationPlan: nil)
     let container = try! ModelContainer(for: House.self, configurations: config)
     container.mainContext.insert(House(name: "Sample"))
     return ContentView().modelContainer(container)
@@ -263,9 +263,9 @@ WindowGroup { ContentView() }
 
 // Production container: classify the error, NEVER blind fatalError.
 do {
-    container = try ModelContainer(for: House.self, configurations: ModelConfiguration())  // macOS 15+ init
+    container = try ModelContainer(for: House.self, configurations: ModelConfiguration())  // iOS 18+ init
 } catch {
-    // 134504 schema mismatch / no disk space / 134110 concurrent migration (common on macOS) →
+    // 134504 schema mismatch / no disk space / 134110 concurrent migration (common on iOS multi-process containers) →
     // recover or surface a real message; do NOT just fatalError(error).
 }
 
@@ -278,9 +278,9 @@ do {
 }
 ```
 
-**Rules:** (1) relationship properties are **always `var`** with a default — `let` crashes at runtime. (2) **Never assign a relationship in `init`** — `append`, or assign outside `init`, or the FK saves `NULL` and data vanishes on relaunch. (3) Every `@Model` needs an **explicit `init`**; use named `@Relationship(deleteRule:)` — the bare `@Relationship(.cascade)` from Apple's docs is a type error. (4) **Previews need an in-memory container** (`isStoredInMemoryOnly: true`) with sample data inserted. (5) **Never `fatalError` on container creation** — classify and recover. (6) **Order explicitly** with `@Query(sort:)` / `SortDescriptor`; relationship-array order is not persisted. (7) **Mutate off-main only inside a `@ModelActor`**; hand off `PersistentIdentifier`, never the non-`Sendable` `@Model`. (8) **Call `try modelContext.save()` explicitly** — don't trust auto-save, especially before macOS window close / Quit.
+**Rules:** (1) relationship properties are **always `var`** with a default — `let` crashes at runtime. (2) **Never assign a relationship in `init`** — `append`, or assign outside `init`, or the FK saves `NULL` and data vanishes on relaunch. (3) Every `@Model` needs an **explicit `init`**; use named `@Relationship(deleteRule:)` — the bare `@Relationship(.cascade)` from Apple's docs is a type error. (4) **Previews need an in-memory container** (`isStoredInMemoryOnly: true`) with sample data inserted. (5) **Never `fatalError` on container creation** — classify and recover. (6) **Order explicitly** with `@Query(sort:)` / `SortDescriptor`; relationship-array order is not persisted. (7) **Mutate off-main only inside a `@ModelActor`**; hand off `PersistentIdentifier`, never the non-`Sendable` `@Model`. (8) **Call `try modelContext.save()` explicitly** — don't trust auto-save, especially before the app is suspended (`scenePhase` → `.background`).
 
-**macOS addendum (not in the iOS version):** save on `ScenePhase` change / window close because Mac windows close independently and a fast Quit drops a pending auto-save (mistake 8). A sandboxed store lands in the app/group container (`…/Library/Application Support/default.store`); sharing it with a helper or widget needs a **group-container** entitlement, and those multi-process opens are exactly what triggers the concurrent-migration crash in mistake 5 — serialize container creation with a lock file.
+**iOS addendum:** save on `onChange(of: scenePhase)` to `.background` because iOS suspends and can terminate the app at any time, dropping a pending auto-save (mistake 8; the trigger is owned by `app-lifecycle.md`). A per-app store lands in the app container; **sharing it with a widget or a share/notification extension needs an App-Group container** (`ModelConfiguration(groupContainer:)` + the group entitlement), and those multi-process opens are exactly what triggers the concurrent-migration crash in mistake 5 — serialize container creation.
 
 ---
 
@@ -292,24 +292,24 @@ do {
 | https://scottdriggers.com/blog/swiftdata-modelcontainer-creation-crash/ | practitioner blog | high | *"creating a `ModelContainer` can throw an error, and in their code, they recommend crashing your app with `fatalError`"*; the three causes *"Error due to schema mismatch … no free space on disk … multiple migrators attempting to migrate the database concurrently."*; `Code=134504` *"Cannot use staged migration with an unknown model version"*; `SwiftDataError(…loadIssueModelContainer, _explanation: nil)`. Accessed 2026-06-06. |
 | https://www.hackingwithswift.com/quick-start/swiftdata/how-to-use-swiftdata-in-swiftui-previews | practitioner tutorial (Paul Hudson, upd. Xcode 16.4) | high | *"you must create a custom `ModelConfiguration` that stores data in memory only, use that to create a `ModelContainer` …"* and *"If you attempt to create a model object without first having created a container for that object, your preview will crash."* Accessed 2026-06-06. |
 | https://www.reddit.com/r/swift/comments/145e4p7/swiftdata_crashes_in_preview/ | forum | medium | Corroborates the preview-crash-without-container symptom. Accessed 2026-06-06. |
-| https://developer.apple.com/documentation/swiftdata | primary-doc (index) | high | Core surface: `@Model`, `ModelContext`, `@Query`, `.modelContainer(for:)` are `macOS 14+`; `#Index` / `#Unique` and the history API (`HistoryDescriptor`, `fetchHistory(_:)`, `fetchLimit`) are `macOS 15+`; `HistoryDescriptor.sortBy` is `macOS 26+`. Confirmed 2026-06-07. |
-| https://developer.apple.com/documentation/swiftdata/modelcontainer | primary-doc | high | `init(for:configurations:)` (variadic convenience) is **`macOS 15.0+`**; `init(for:migrationPlan:configurations:)` is **`macOS 14.0+`** — the correct init for a macOS-14 target (pass `migrationPlan: nil`). Confirmed 2026-06-07. |
-| https://developer.apple.com/videos/play/wwdc2025/291/ | Apple WWDC25 (session 291, "SwiftData: Dive into inheritance and schema migration") | high | macOS 26 adds `@Model` class inheritance: subclasses need `@available(macOS 26, *)`; adding one is a schema change requiring a versioned schema + `MigrationStage`; register every type via `.modelContainer(for: [Base.self, SubA.self, …])`; filter by subclass with `#Predicate { $0 is SubType }`. Accessed 2026-06-07. |
+| https://developer.apple.com/documentation/swiftdata | primary-doc (index) | high | Core surface: `@Model`, `ModelContext`, `@Query`, `.modelContainer(for:)` are `iOS 17+`; `#Index` / `#Unique` and the history API (`HistoryDescriptor`, `fetchHistory(_:)`, `fetchLimit`) are `iOS 18+`; `HistoryDescriptor.sortBy` is `iOS 26+`. Confirmed 2026-06-07. |
+| https://developer.apple.com/documentation/swiftdata/modelcontainer | primary-doc | high | `init(for:configurations:)` (variadic convenience) is **`iOS 18.0+`**; `init(for:migrationPlan:configurations:)` is **`iOS 17.0+`** — the correct init for an iOS-17 target (pass `migrationPlan: nil`). Confirmed 2026-06-07. |
+| https://developer.apple.com/videos/play/wwdc2025/291/ | Apple WWDC25 (session 291, "SwiftData: Dive into inheritance and schema migration") | high | iOS 26 adds `@Model` class inheritance: subclasses need `@available(iOS 26, *)`; adding one is a schema change requiring a versioned schema + `MigrationStage`; register every type via `.modelContainer(for: [Base.self, SubA.self, …])`; filter by subclass with `#Predicate { $0 is SubType }`. Accessed 2026-06-07. |
 | https://www.hackingwithswift.com/swift/6.0/concurrency | practitioner | high | Swift 6 language mode: *"complete concurrency checking is enabled by default"* — the non-`Sendable` `@Model` / off-context-mutation rule (mistake 7) becomes a hard error. Accessed 2026-06-06. |
 
 **Availability (Apple SwiftData docs, confirmed 2026-06-07):**
 
-- `@Model`, `ModelContext`, `ModelConfiguration(isStoredInMemoryOnly:)`, `@Relationship(deleteRule:inverse:)`, `@Attribute(.preserveValueOnDeletion)`, `@Query`, `.modelContainer(for:)` — **macOS 14.0+**.
-- **`ModelContainer(for:configurations:)`** — the variadic convenience init — is **macOS 15.0+**. The macOS-14-compatible init is **`ModelContainer(for:migrationPlan:configurations:)`** (`macOS 14.0+`): pass `migrationPlan: nil` when you have no plan.
-- **`@ModelActor`** (mistake 7) — **macOS 14.0+**; `PersistentIdentifier` is the `Sendable` hand-off type.
-- **`#Index` / `#Unique`** — **macOS 15.0+** (confirmed). Compile-time index/uniqueness constraints on a `@Model`.
-- **History API** — `HistoryDescriptor`, `ModelContext.fetchHistory(_:)`, and `HistoryDescriptor.fetchLimit` — **macOS 15.0+** (confirmed). `HistoryDescriptor.sortBy` (`[SortDescriptor]`, for sorted history fetches) — **macOS 26.0+**.
+- `@Model`, `ModelContext`, `ModelConfiguration(isStoredInMemoryOnly:)`, `@Relationship(deleteRule:inverse:)`, `@Attribute(.preserveValueOnDeletion)`, `@Query`, `.modelContainer(for:)` — **iOS 17.0+**.
+- **`ModelContainer(for:configurations:)`** — the variadic convenience init — is **iOS 18.0+**. The iOS-17-compatible init is **`ModelContainer(for:migrationPlan:configurations:)`** (`iOS 17.0+`): pass `migrationPlan: nil` when you have no plan.
+- **`@ModelActor`** (mistake 7) — **iOS 17.0+**; `PersistentIdentifier` is the `Sendable` hand-off type.
+- **`#Index` / `#Unique`** — **iOS 18.0+** (confirmed). Compile-time index/uniqueness constraints on a `@Model`.
+- **History API** — `HistoryDescriptor`, `ModelContext.fetchHistory(_:)`, and `HistoryDescriptor.fetchLimit` — **iOS 18.0+** (confirmed). `HistoryDescriptor.sortBy` (`[SortDescriptor]`, for sorted history fetches) — **iOS 26.0+**.
 
-**macOS 26 — `@Model` class inheritance (the one new feature this cycle):**
+**iOS 26 — `@Model` class inheritance (the one new feature this cycle):**
 
 WWDC25 session 291 ("SwiftData: Dive into inheritance and schema migration") adds subclassing of `@Model` classes. It is gated and migration-bound:
 
-- Every `@Model` subclass needs `@available(macOS 26, *)`.
+- Every `@Model` subclass needs `@available(iOS 26, *)`.
 - Adding a subclass is a schema change: define a **versioned schema** and a `MigrationStage` for it.
 - The container must register the base **and every subclass** type: `.modelContainer(for: [Base.self, SubA.self, SubB.self])`.
 - Filter a query to one subclass with a type check in the predicate: `@Query(filter: #Predicate<Base> { $0 is SubType })`.

@@ -2,7 +2,7 @@
 
 **real-world swiftui for claude — grounded in shipping iOS & iPadOS apps.**
 
-[![version](https://img.shields.io/badge/version-0.1.0-blue)](https://github.com/yigitkonur/swiftui-ios-plugin/releases) [![license](https://img.shields.io/badge/license-MIT-green)](LICENSE) [![platform](https://img.shields.io/badge/platform-iOS%20%7C%20iPadOS-lightgrey)](https://developer.apple.com/ios/)
+[![version](https://img.shields.io/badge/version-0.4.0-blue)](https://github.com/yigitkonur/swiftui-ios-plugin/releases) [![license](https://img.shields.io/badge/license-MIT-green)](LICENSE) [![platform](https://img.shields.io/badge/platform-iOS%20%7C%20iPadOS-lightgrey)](https://developer.apple.com/ios/)
 
 ---
 
@@ -25,11 +25,9 @@ on top of the lookup layer sits a complete **iOS swiftui audit suite** — skill
 | sdk surface | iOS 17 target · iPhoneOS 26.5 SDK `swift symbolgraph-extract` (incl. WidgetKit · ActivityKit · AppIntents) |
 | api coverage | 375 modifiers · 325 types · 25 property wrappers · 66 env keys · 13 whole-pattern recipes |
 | platform mix | 229 iOS · 85 cross-platform · 5 macOS (cross-listed) |
-| audit suite | _in progress — sub-project 3_ |
-| commands | _in progress — sub-project 4_ |
+| audit suite | **34 domain auditors** + an orchestrator (`audit-ios-swiftui-full`) |
+| commands | 4 — `/swiftui`, `/swiftui-review`, `/swiftui-audit`, `/swiftui-settings` |
 | quality ranking | composite score: author authority (aggregate stars) + repo stars + api modernity + recency |
-
-> **Status:** sub-project 1 (data foundation) is complete. The skills table, pipeline diagram, and caveats below are carried over from the macOS plugin and are retargeted to iOS in sub-projects 3–4.
 
 ---
 
@@ -49,7 +47,7 @@ brew install jq            # required for the audit suite
 brew install ast-grep ripgrep   # optional — structural + faster grep tiers
 ```
 
-without `ast-grep`/`ripgrep` the audit suite degrades gracefully to the grep-only tier — it still runs 282 rules, just not the 52 ast-grep structural ones. without `jq` the audit scripts exit early with a clear message.
+without `ast-grep`/`ripgrep` the audit suite degrades gracefully to the grep-only tier — it still runs 283 grep tells, just not the 42 ast-grep structural rules. without `jq` the audit scripts exit early with a clear message.
 
 ### cli-only install (no plugin)
 
@@ -110,46 +108,52 @@ skills fire automatically when you describe a task to claude. the commands above
 |---|---|
 | `swiftui-examples` | write or look up a swiftui api — returns consensus arg shape + ranked real examples with permalinks |
 | `swiftui-modernize` | upgrade existing code — finds deprecated apis, produces concrete migration patches with before/after |
-| `macos-app-patterns` | scaffold a whole feature — menu-bar app, settings screen, master-detail, nsview bridge, document app, toolbar… |
-| `build-ios-swiftui` | write / review / refactor broadly — @Observable state, native iOS idioms, hig conformance |
+| `ios-app-patterns` | scaffold a whole feature — tab-bar app, NavigationStack master-detail, sheet + detents flow, uiview bridge, widget, onboarding… |
+| `build-ios-swiftui` | write / review / refactor broadly — @Observable state, native iOS/iPadOS idioms, hig conformance |
 
-### audit suite (29 skills)
+### audit suite (34 skills)
 
-`audit-macos-swiftui-full` is the orchestrator — it routes your codebase through the right subset of auditors automatically, runs them in dependency order, and produces `_SUMMARY.md`.
+`audit-ios-swiftui-full` is the orchestrator — it routes your codebase through the right subset of auditors automatically, runs them in dependency order, and produces `_SUMMARY.md`.
 
 each domain auditor pairs the lint engine (which *locates* candidates) with `swiftui-ctx` evidence (which lets claude *judge*). the engine never reports a finding as fact — it surfaces lines for review.
 
 | domain | skill | what it catches |
 |---|---|---|
-| **orchestrator** | `audit-macos-swiftui-full` | routes all domains in dependency-ordered waves, rolls up to `_SUMMARY.md` |
-| accessibility | `audit-swiftui-accessibility` | missing labels/traits/hints, visionOS notes, dynamic type, reduce-motion |
-| animation & motion | `audit-swiftui-animation-motion` | deprecated `.animation(_:)`, missing `withAnimation`, spring misconfiguration |
-| api currency | `audit-swiftui-api-currency` | deprecated/renamed apis, floor mismatches, migration paths to successors |
+| **orchestrator** | `audit-ios-swiftui-full` | routes all domains in dependency-ordered waves, rolls up to `_SUMMARY.md` |
+| accessibility | `audit-swiftui-accessibility` | icon-only controls with no label, ungrouped composite rows, custom controls with no value/trait |
+| adaptive layout | `audit-swiftui-adaptive-layout` | iPhone-only designs on a Universal (iPhone + iPad) target, frozen widths, missing size-class adaptation |
+| adaptive navigation | `audit-swiftui-adaptive-navigation` | `NavigationStack`/`NavigationSplitView` shell, toolbar placement, iPhone↔iPad nav adaptation |
+| animation & motion | `audit-swiftui-animation-motion` | deprecated `.animation(_:)`, missing `withAnimation`, spring misconfiguration, reduce-motion |
+| api currency | `audit-swiftui-api-currency` | deprecated/renamed/hallucinated apis, floor mismatches, migration paths to successors |
+| app file handling | `audit-swiftui-app-file-handling` | `DocumentGroup` wiring, value-type `FileDocument`, import/export, autosave |
+| app intents | `audit-swiftui-app-intents` | features invisible to Siri/Spotlight/Shortcuts, `AppShortcutsProvider`, `@Parameter` wiring |
+| app lifecycle & background | `audit-swiftui-app-lifecycle-background` | scenePhase state loss on suspension, background tasks that never run |
 | appearance & color | `audit-swiftui-appearance-color` | hardcoded colors, missing dark-mode adaptation, missing semantic color usage |
-| appkit interop | `audit-swiftui-appkit-interop` | `NSViewRepresentable` wiring, coordinator update-path gaps, representable lifecycle |
-| appkit overuse | `audit-swiftui-appkit-overuse` | appkit used where a native swiftui equivalent exists and should be preferred |
 | async & data loading | `audit-swiftui-async-data` | missing `.task`, retain cycles, `.onAppear` anti-patterns, missing cancellation |
-| availability gating | `audit-swiftui-availability-gating` | missing `#available`, floor mismatches, deployment-target drift |
+| availability gating | `audit-swiftui-availability-gating` | above-floor apis shipped ungated, gated on the wrong arm, deployment-target drift |
 | charts | `audit-swiftui-charts` | swift charts patterns, accessibility marks, missing axis labels, wrong mark types |
-| concurrency safety | `audit-swiftui-concurrency-safety` | main-actor violations, sendable gaps, @State mutation off main thread |
-| controls & forms | `audit-swiftui-controls-forms` | focus management, form layout, button styles, picker patterns, toggle wiring |
-| document model | `audit-swiftui-document-model` | `ReferenceFileDocument` vs value-type, undo manager wiring, autosave |
+| concurrency safety | `audit-swiftui-concurrency-safety` | Swift 6 data-race safety, actor-isolation gaps, @State mutation off main thread |
+| controls & forms | `audit-swiftui-controls-forms` | text-input ergonomics, focus management, picker/keyboard styles, control wiring |
+| document picker & permissions | `audit-swiftui-document-picker-permissions` | security-scoped urls, file-consent gaps, importer/exporter patterns |
 | drawing & canvas | `audit-swiftui-drawing-canvas` | `Canvas` misuse, `GeometryReader` overuse, `MeshGradient` availability |
-| layout & tables | `audit-swiftui-layout-and-tables` | `Table` column types, list/table selection, `GeometryProxy` misuse, lazy stacks |
-| liquid glass | `audit-swiftui-liquid-glass` | macOS 26 liquid glass adoption, `.glassEffect` placement, material misuse |
+| dynamic type | `audit-swiftui-dynamic-type` | body text that ignores Larger Text, fixed font sizes, clipped scaled layouts |
+| haptics | `audit-swiftui-haptics` | missing/overused haptic feedback, wrong feedback style, `.sensoryFeedback` patterns |
+| iOS idiomaticness | `audit-swiftui-ios-idiomaticness` | desktop habits shoehorned onto a phone — scores 0-100 with a routed punch-list |
+| layout & tables | `audit-swiftui-layout-and-tables` | iPad/Mac-shaped grids that break on iPhone, device-frozen layouts, `Table` misuse |
+| liquid glass | `audit-swiftui-liquid-glass` | iOS 26 liquid glass adoption, `.glassEffect` placement, material misuse |
 | localization | `audit-swiftui-localization` | raw string literals, missing `LocalizedStringKey`, RTL layout gaps |
-| macOS nativeness | `audit-swiftui-macos-nativeness` | hig conformance, keyboard navigation, context menus, toolbar idioms, window chrome |
-| menus & commands | `audit-swiftui-menus-commands` | `CommandMenu` wiring, keyboard shortcut conflicts, missing separators |
-| navigation & toolbars | `audit-swiftui-navigation-toolbars` | `NavigationStack`/`NavigationSplitView` patterns, toolbar placement, deprecated nav apis |
-| pointer & gestures | `audit-swiftui-pointer-gestures` | hover effects, cursor styles, drag/drop wiring, simultaneous gesture conflicts |
+| presentation & sheets | `audit-swiftui-presentation-sheets-modals` | stale/non-idiomatic sheet, cover, popover, and detent presentation |
 | previews | `audit-swiftui-previews` | `#Preview` macro migration, `PreviewProvider` removal, preview traits |
-| sandbox & files | `audit-swiftui-sandbox-files` | security-scoped bookmarks, entitlement gaps, `FileImporter`/`FileExporter` patterns |
-| scenes & windows | `audit-swiftui-scenes-windows` | `Settings` scene, `WindowGroup` sizing, `openWindow` misuse, `MenuBarExtra` wiring |
-| state & observation | `audit-swiftui-state-observation` | `@Observable` vs `ObservableObject`, `@Bindable`, environment propagation |
-| state restoration | `audit-swiftui-state-restoration` | `SceneStorage`, `AppStorage`, restoration identifier coverage |
+| privacy & permissions | `audit-swiftui-privacy-permissions` | missing usage-description keys, required-reason api gaps, launch-time crashes |
+| safe area & keyboard | `audit-swiftui-safe-area-keyboard` | notch/Dynamic Island/home-indicator overlap, fields trapped behind the keyboard |
+| state & observation | `audit-swiftui-state-observation` | `@Observable` vs `ObservableObject`, wrong ownership wrappers, mixed observation worlds |
 | swiftdata | `audit-swiftui-swiftdata` | `@Model` schema, `ModelContext` threading, migration plans, relationship cascade |
+| touch & gestures | `audit-swiftui-touch-gestures` | ignored taps, gesture conflicts, drag/drop wiring, hit-testing gaps |
 | typography & text | `audit-swiftui-typography-text` | font scaling, `AttributedString` usage, markdown rendering, dynamic type |
-| view performance | `audit-swiftui-view-performance` | expensive body recomputes, `Equatable` conformance, lazy stack misuse, heavy initializers |
+| uikit interop | `audit-swiftui-uikit-interop` | `UIViewRepresentable`/`UIViewControllerRepresentable`/`UIHostingController` bridge correctness |
+| uikit overuse | `audit-swiftui-uikit-overuse` | uikit bridging where a native swiftui equivalent exists and should be preferred |
+| view performance | `audit-swiftui-view-performance` | needless body re-evaluation, view recreation, lazy-stack misuse, heavy initializers |
+| widgets & live activities | `audit-swiftui-widgets-live-activities` | WidgetKit/ActivityKit timeline staleness, Live Activity, interactivity defects |
 
 ---
 
@@ -174,18 +178,18 @@ swiftui-ctx lookup @Observable --json
 swiftui-ctx lookup frame(width:height:)       # name formats are flexible
 
 # search by intent
-swiftui-ctx search "command palette"
-swiftui-ctx search "drag files between windows"
+swiftui-ctx search "bottom sheet with detents"
+swiftui-ctx search "pull to refresh a list"
 
 # pull the real enclosing view from github (syntax-accurate span)
 swiftui-ctx file ex_4bdd3cf4d9
 swiftui-ctx file ex_4bdd3cf4d9 --smart        # expand to the full enclosing view
 
 # whole patterns
-swiftui-ctx recipe menubar-app                # menu-bar app scaffold
-swiftui-ctx recipe settings-screen
-swiftui-ctx recipe nsview-bridge
-swiftui-ctx recipes                           # list all 12 recipes
+swiftui-ctx recipe tab-bar-app                # tab-bar iOS app scaffold
+swiftui-ctx recipe navigationstack-master-detail
+swiftui-ctx recipe uiview-bridge
+swiftui-ctx recipes                           # list all 13 recipes
 
 # deprecation guard
 swiftui-ctx deprecated foregroundColor        # → .foregroundStyle
@@ -193,7 +197,7 @@ swiftui-ctx deprecated listStyle             # lists all deprecated forms
 
 # sdk and conformance info
 swiftui-ctx conformances View                 # what protocols View conforms to
-swiftui-ctx bridges                           # all nsview/uiview bridge patterns
+swiftui-ctx bridges                           # all uiview/uiviewcontroller bridge patterns
 
 # corpus quality and coverage
 swiftui-ctx rankings                          # top-quality repos in the corpus
@@ -229,19 +233,19 @@ the file is gitignored automatically (`.claude/*.local.md` pattern). restart cla
 the pipeline is reproducible. `scripts/00..08_*.py` do the full thing (run manually, step-by-step, per [`RUN.md`](RUN.md) — this is a dev-only offline build, not an install step):
 
 ```
-00  harvest seed repos from awesome-mac
+00  harvest seed repos from awesome-ios + open-source-ios-apps
  ↓
 01  gate: filter to recent commits + actually-swiftui repos
  ↓
-02  build sdk symbol catalog from macOS .swiftinterface + symbolgraph-extract
+02  build sdk symbol catalog from the iOS sdk + symbolgraph-extract
  ↓
 03  swiftui-scan (swiftsyntax) — parse every .swift file for exact api usage
  ↓
-04  clone → scan → delete loop across all 1,857 repos
+04  clone → scan → delete loop across every gated repo
  ↓
 05  aggregate shards into catalog/ json files
  ↓
-06  discovery pass: macOS-exclusive github code search for more repos
+06  discovery pass: iOS-focused github code search for more repos
  ↓
 07  author-authority enrichment: contributors' aggregate stars
  ↓
@@ -254,20 +258,20 @@ the cli reads from `catalog/` (plain json, committed to the repo). the 92mb raw 
 
 ## caveats
 
-- **macOS-first**: ~83% of the corpus is a proper macOS app. for iOS or cross-platform examples, pass `--platform any`.
+- **iOS-first**: the corpus is shipping iOS & iPadOS apps (229 iOS · 85 cross-platform · 5 macOS cross-listed). for cross-platform or macOS examples, pass `--platform any`.
 - **evidence tiers**: `low_corpus: true` means fewer than 10 repos matched — thin evidence. cross-check the sosumi doc before trusting the consensus.
-- **the ranking is a heuristic**: `recommended` ≈ "how a current, high-quality mac app writes it." trust it over claude's memory; verify the spec on sosumi.
+- **the ranking is a heuristic**: `recommended` ≈ "how a current, high-quality iOS app writes it." trust it over claude's memory; verify the spec on sosumi.
 - **audit findings are candidates**: the lint engine locates, the auditor judges. a grep match is never a confirmed bug — claude reads the surrounding code and decides.
-- **sdk surface**: matched against macOS 26.5. floor annotations in `references/_shared/floors-master.md` are verified against apple's published release notes; anything marked `verify-SDK` should be confirmed in xcode.
+- **sdk surface**: matched against the iPhoneOS 26.5 SDK with an iOS 17 deployment floor. floor annotations in `references/_shared/floors-master.md` are verified against apple's published release notes; anything marked `verify-SDK` should be confirmed in xcode.
 
 ---
 
 ## credits
 
 - [sosumi.ai](https://sosumi.ai) — apple docs as markdown for llms. every result links to the matching doc.
-- [awesome-mac](https://github.com/jaywcjlove/awesome-mac) by jaywcjlove — the seed corpus.
+- [awesome-ios](https://github.com/vsouza/awesome-ios) and [open-source-ios-apps](https://github.com/dkhamsing/open-source-ios-apps) by dkhamsing — the seed corpus.
 - apple swiftsyntax + swift-argument-parser — the parser and the cli scaffolding.
-- the 1,857 authors who shipped real macOS apps in the open. every example permalink points back to your repo.
+- the authors who shipped real iOS & iPadOS apps in the open. every example permalink points back to your repo.
 
 ---
 

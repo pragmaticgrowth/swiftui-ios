@@ -34,7 +34,7 @@ while IFS= read -r line; do
   printf '%s\n' "$prompt" | $GEN | strip_fences > "$OUT/$id/baseline.swift"
   # GROUNDED: prompt + real production usage from the catalog
   eg=$("$CTX" $gcmd 2>/dev/null || true)
-  printf '%s\n\n# Real production usage from shipping macOS apps (ground truth — follow this idiom):\n%s\n' "$prompt" "$eg" \
+  printf '%s\n\n# Real production usage from shipping iOS apps (ground truth — follow this idiom):\n%s\n' "$prompt" "$eg" \
     | $GEN | strip_fences > "$OUT/$id/grounded.swift"
   echo "  generated: $id" >&2
 done < "$HERE/tasks.jsonl"

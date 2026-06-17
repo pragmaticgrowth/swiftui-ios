@@ -1,13 +1,13 @@
 ---
 name: swiftui-examples
-description: Use BEFORE writing or editing ANY SwiftUI code (a View, modifier, Scene, @State/@Observable/@Environment, gesture, command, style) — and the moment you are about to write a SwiftUI API from memory, pick an argument shape, check the current idiom for an API, or plan a SwiftUI feature. Surfaces real production SwiftUI usage from 1,857 shipping macOS apps via the `swiftui-ctx` CLI, replacing guessing with real, quality-ranked, current examples that carry GitHub permalinks — stopping hallucinated and deprecated APIs. Do NOT use for official API signatures/semantics (use sosumi.ai), migrating an existing file off deprecated APIs (use swiftui-modernize), a whole-codebase audit (use audit-macos-swiftui-full), non-SwiftUI Swift (Foundation/Combine/AppKit), or Xcode/build config.
+description: Use BEFORE writing or editing ANY SwiftUI code (a View, modifier, @State/@Observable/@Environment, gesture, navigation, style) — and the moment you are about to write a SwiftUI API from memory, pick an argument shape, check the current idiom for an API, or plan a SwiftUI feature for iOS/iPadOS. Surfaces real production SwiftUI usage from 319 shipping iOS apps via the swiftui-ctx CLI, replacing guessing with real, quality-ranked, current examples that carry GitHub permalinks — stopping hallucinated and deprecated APIs. Do NOT use for official API signatures/semantics (use sosumi.ai), migrating an existing file off deprecated APIs (use swiftui-modernize), a whole-app review or symptom in finished code (use audit-ios-swiftui-full), building a known iOS pattern end to end (use ios-app-patterns or build-ios-swiftui), non-SwiftUI Swift (Foundation/Combine/UIKit), or Xcode/build config.
 license: MIT
 compatibility: Requires macOS with a Swift 6 toolchain (Xcode) to build the bundled CLI on first run; the file command needs network access. Using the CLI needs nothing else (the catalog is bundled).
 ---
 
 # swiftui-examples — drive `swiftui-ctx`
 
-`swiftui-ctx` answers **"how do shipping macOS apps actually write this SwiftUI?"** from **1,857 analyzed
+`swiftui-ctx` answers **"how do shipping iOS apps actually write this SwiftUI?"** from **319 analyzed
 production repos**, quality-ranked (author authority + stars + modernity) with GitHub permalinks. It is the
 *practice* layer; the *spec* is **sosumi.ai** (official docs), which every result links to.
 
@@ -27,23 +27,24 @@ from a clone, run `make install` once to put `swiftui-ctx` on PATH. Both self-lo
 
 | Querying gives you | Skipping it risks |
 |---|---|
-| The **current** idiom (e.g. `foregroundStyle`, `NavigationStack`, `@Observable`) | Shipping a **deprecated** API (`foregroundColor`, `NavigationView`) — flagged in 1,000+ real repos |
+| The **current** idiom (e.g. `foregroundStyle`, `NavigationStack`, `@Observable`) | Shipping a **deprecated** API (`foregroundColor`, `NavigationView`) — flagged in real repos |
 | The **consensus** argument shape real apps use | Guessing an overload that compiles but isn't idiomatic |
 | A **compilable** enclosing view from a high-authority app | A plausible-looking fragment that doesn't actually work |
-| **macOS-correct** patterns (MenuBarExtra, Settings, NSViewRepresentable bridges) | iOS-isms that don't fit a Mac app |
+| **iOS-correct** patterns (NavigationStack, `.sheet` detents, UIViewRepresentable bridges) | macOS-isms (MenuBarExtra, Settings scene) that don't fit an iPhone/iPad app |
 | A **GitHub permalink** the user can verify | Unverifiable, confidently-wrong code |
 
 Full rationale + how ranking works (so you can trust `recommended`/`consensus`) → `references/why-this-matters.md`.
 
 ## When to use — fire on ANY of these
-- About to **write/edit** a SwiftUI call: a `View`/`Scene` type, a `.modifier(...)`, `@State`/`@Binding`/`@Observable`/`@Environment`/`@AppStorage`/`@FocusState`, a gesture, a `Command`, a style.
+- About to **write/edit** a SwiftUI call: a `View` type, a `.modifier(...)`, `@State`/`@Binding`/`@Observable`/`@Environment`/`@AppStorage`/`@FocusState`, a gesture, a navigation destination, a style.
 - **Unsure** of an argument shape or which overload; verifying the **current idiom** for an API before you write it.
-- **Planning** a SwiftUI feature (which APIs/recipes to reach for). For *migrating* an existing file off deprecated APIs use `swiftui-modernize`; for *symptoms* in finished code ("state not updating", "list is slow") or a whole-codebase pass, run the relevant `audit-swiftui-*` skill / `audit-macos-swiftui-full`.
+- **Planning** a SwiftUI feature (which APIs/recipes to reach for). For *migrating* an existing file off deprecated APIs use `swiftui-modernize`; for building a known iOS pattern end to end use `ios-app-patterns` / `build-ios-swiftui`; for *symptoms* in finished code ("state not updating", "list is slow") or a whole-app pass, run the relevant `audit-swiftui-*` skill / `audit-ios-swiftui-full`.
 
 ## Do NOT use (and what to use instead)
 - **Official signatures/semantics** → **sosumi.ai** (the `doc:` link in every result).
-- **Non-SwiftUI Swift** (Foundation, Combine, standalone AppKit, language syntax). **Xcode/build/signing** config.
-- **iOS-only code** → only with `--platform any` (the corpus is macOS-first).
+- **Migrating off deprecated APIs** → `swiftui-modernize`. **Whole-app review / symptom in finished code** → `audit-ios-swiftui-full`. **Building a known iOS pattern** → `ios-app-patterns` / `build-ios-swiftui`.
+- **Non-SwiftUI Swift** (Foundation, Combine, standalone UIKit, language syntax). **Xcode/build/signing** config.
+- **macOS-only code** → only with `--platform any` (the corpus is iOS-first).
 
 ## First run / discovery
 The CLI + catalog ship with the plugin. The bundled wrapper downloads or builds the CLI on first use and finds the
@@ -65,13 +66,13 @@ Add `--json` for the machine envelope; default is human markdown ending in a lit
 ## Scenario → command playbook (situation → first command → required follow-up)
 | Situation | First command | Then |
 |---|---|---|
-| Writing a call to a known API | `swiftui-ctx lookup <api>` | `swiftui-ctx file <recommended.id> --smart` |
-| Choosing the argument shape / overload | `swiftui-ctx lookup <api>` → read `consensus` | `swiftui-ctx examples <api> --shape "(…)"` |
+| Writing a call to a known API | `swiftui-ctx lookup <api> --platform ios` | `swiftui-ctx file <recommended.id> --smart` |
+| Choosing the argument shape / overload | `swiftui-ctx lookup <api> --platform ios` → read `consensus` | `swiftui-ctx examples <api> --shape "(…)"` |
 | Is it current / deprecated? | `swiftui-ctx deprecated <api>` | if deprecated → `swiftui-ctx lookup <replacement>` |
 | Building a known pattern | `swiftui-ctx recipe <name>` | `swiftui-ctx file <example.id> --smart` |
 | Planning a feature (unknown APIs) | `swiftui-ctx search "<intent>"` | `swiftui-ctx lookup <each candidate>` |
 
-(Migrating a file off deprecated APIs → `swiftui-modernize`. Reviewing/auditing finished code or a whole project → the `audit-swiftui-*` skills / `audit-macos-swiftui-full`. This skill is the *write/lookup* layer those skills call for the consensus shape.)
+(Migrating a file off deprecated APIs → `swiftui-modernize`. Reviewing/auditing finished code or a whole project → the `audit-swiftui-*` skills / `audit-ios-swiftui-full`. Building a known iOS pattern end to end → `ios-app-patterns` / `build-ios-swiftui`. This skill is the *write/lookup* layer those skills call for the consensus shape.)
 
 Worked transcripts for each row + the recipe list → `references/playbook.md`.
 
@@ -96,3 +97,5 @@ Worked transcripts for each row + the recipe list → `references/playbook.md`.
 | `references/playbook.md` | You need the worked command transcripts per scenario + the recipe catalog. |
 | `references/commands.md` | You need the exact flags, `--json` field schema, and exit-code contract. |
 | `references/why-this-matters.md` | You doubt the tool / want to know how ranking works and what "production-grade" means here. |
+</content>
+</invoke>

@@ -43,9 +43,20 @@ def parses(path):
     return r.returncode == 0
 
 
+def _forbid_pattern(t):
+    # Plain identifiers (incl. dotted/@-prefixed names like @Published) are matched as
+    # word-bounded tokens. A token carrying regex metacharacters is treated as a raw
+    # regex so a task can forbid a specific call form, e.g. "\.cornerRadius(" — which
+    # matches the deprecated `.cornerRadius(12)` modifier WITHOUT also penalizing the
+    # modern `RoundedRectangle(cornerRadius:)` / `.rect(cornerRadius:)` parameter labels.
+    if re.fullmatch(r"@?\w+", t):
+        return r"\b" + re.escape(t) + r"\b"
+    return t
+
+
 def deprecated_count(code, forbid):
     toks = set(forbid) | DEP
-    return sum(len(re.findall(r"\b" + re.escape(t) + r"\b", code)) for t in toks)
+    return sum(len(re.findall(_forbid_pattern(t), code)) for t in toks)
 
 
 def lint_findings(path):
