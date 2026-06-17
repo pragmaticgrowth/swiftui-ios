@@ -25,7 +25,7 @@ on top of the lookup layer sits a complete **iOS swiftui audit suite** — skill
 | sdk surface | iOS 17 target · iPhoneOS 26.5 SDK `swift symbolgraph-extract` (incl. WidgetKit · ActivityKit · AppIntents) |
 | api coverage | 375 modifiers · 325 types · 25 property wrappers · 66 env keys · 13 whole-pattern recipes |
 | platform mix | 229 iOS · 85 cross-platform · 5 macOS (cross-listed) |
-| audit suite | **34 domain auditors** + an orchestrator (`audit-ios-swiftui-full`) |
+| audit suite | **34 domain auditors** + an orchestrator (`audit-ios-swiftui-full`) + a **pixel-first visual design reviewer** (`audit-swiftui-design-review`) |
 | commands | 4 — `/swiftui`, `/swiftui-review`, `/swiftui-audit`, `/swiftui-settings` |
 | quality ranking | composite score: author authority (aggregate stars) + repo stars + api modernity + recency |
 
@@ -116,6 +116,10 @@ skills fire automatically when you describe a task to claude. the commands above
 `audit-ios-swiftui-full` is the orchestrator — it routes your codebase through the right subset of auditors automatically, runs them in dependency order, and produces `_SUMMARY.md`.
 
 each domain auditor pairs the lint engine (which *locates* candidates) with `swiftui-ctx` evidence (which lets claude *judge*). the engine never reports a finding as fact — it surfaces lines for review.
+
+### design & ux review (pixel-first)
+
+`audit-swiftui-design-review` is the visual complement to the code audits — it judges *rendered design quality*, not code. It builds the app, screenshots every screen across **light/dark + Dynamic Type** in the Simulator (`scripts/swiftui-capture.sh` — auto-explores via the accessibility tree, or a `screens.manifest.json`), runs **deterministic** objective checks (static `dr-*` tells + Apple's `performAccessibilityAudit`), then **critiques the pixels** against a cited **Apple HIG + iOS 26 Liquid Glass** knowledge base (`references/_shared/hig-design-rubric.md`, `liquid-glass-design.md`, `ux-smell-catalog.md`) — ending in a **0–100 Design Score**. Every finding cites a real HIG/WWDC rule (`expected → gap → fix`); debunked myths are blacklisted; it degrades to code-only when no simulator is available. It runs as **Wave 9** of `audit-ios-swiftui-full`, or invoke it directly for a design-only pass.
 
 | domain | skill | what it catches |
 |---|---|---|
