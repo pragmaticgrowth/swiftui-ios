@@ -11,7 +11,7 @@ To confirm a symbol's existence/availability before flagging, fetch the Apple pa
 `${CLAUDE_PLUGIN_ROOT}/references/_shared/sosumi-reference.md`. Floors for the *real* replacements
 live in `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md` (iOS `introduced_ios`).
 
-**As of:** 2026-06-16 · iOS 18 / iOS 26 (Tahoe) · Xcode 26 SDK · deployment floor iOS 17.
+**As of:** 2026-06-16 · iOS 18 / iOS 26 · Xcode 26 SDK · deployment floor iOS 17.
 
 ---
 

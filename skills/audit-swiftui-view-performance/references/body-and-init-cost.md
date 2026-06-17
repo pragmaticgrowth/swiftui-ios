@@ -5,7 +5,7 @@
 `swiftui-ctx lookup` (the consensus shape) + a permalinked real example; verify each fix target's floor
 via Sosumi (`references/source-directory.md`) and `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md`.
 
-**As of 2026-06-07 · iOS 26 (Tahoe) · Swift 6.2 toolchain.**
+**As of 2026-06-07 · iOS 26 · Swift 6.2 toolchain.**
 
 ---
 

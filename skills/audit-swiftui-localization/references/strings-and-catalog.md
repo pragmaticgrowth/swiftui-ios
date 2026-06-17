@@ -6,7 +6,7 @@ floor *values* are not restated here — they live in
 consensus** for each API (run `swiftui-ctx lookup <api> --platform ios --json` to refresh the permalinked example);
 verify any uncertain symbol via Sosumi (`${CLAUDE_PLUGIN_ROOT}/references/_shared/sosumi-reference.md`).
 
-**As of:** 2026-06-07 · iOS 26 (Tahoe) · Xcode 26 SDK.
+**As of:** 2026-06-07 · iOS 26 · Xcode 26 SDK.
 
 ---
 

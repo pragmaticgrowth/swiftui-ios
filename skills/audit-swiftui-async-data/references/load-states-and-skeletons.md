@@ -5,7 +5,7 @@ the happy path (loaded), so three of these are *absence* defects — found by RE
 lint tell. Get the ✅ skeleton shape from `swiftui-ctx`:
 `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx lookup redacted --json` (consensus `(reason)` 94%).
 
-**As of:** 2026-06-07 · iOS 26 (Tahoe) · Xcode 26 SDK.
+**As of:** 2026-06-07 · iOS 26 · Xcode 26 SDK.
 
 ---
 

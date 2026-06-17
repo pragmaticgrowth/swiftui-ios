@@ -5,7 +5,7 @@ Arabic, Hebrew, Farsi, and Urdu read right-to-left; UIKit/SwiftUI mirror most la
 direction. Floor values: `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md`. Verify symbols via
 Sosumi (`${CLAUDE_PLUGIN_ROOT}/references/_shared/sosumi-reference.md`).
 
-**As of:** 2026-06-07 · iOS 26 (Tahoe) · Xcode 26 SDK.
+**As of:** 2026-06-07 · iOS 26 · Xcode 26 SDK.
 
 ---
 

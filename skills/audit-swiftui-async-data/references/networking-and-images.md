@@ -4,7 +4,7 @@ The outward-facing async surfaces. Get every ✅ shape from `swiftui-ctx` (not m
 `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx lookup AsyncImage --json`,
 `… lookup refreshable --json`, and the cache recipe `… recipe cached-async-image --json`.
 
-**As of:** 2026-06-07 · iOS 26 (Tahoe) · Xcode 26 SDK.
+**As of:** 2026-06-07 · iOS 26 · Xcode 26 SDK.
 
 ---
 

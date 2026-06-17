@@ -12,7 +12,7 @@ concurrency claim. **Two source classes — route each fact correctly:**
   `${CLAUDE_PLUGIN_ROOT}/references/_shared/sosumi-reference.md`; never `WebFetch developer.apple.com`.
 
 Floor values: `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md`. **As of:** 2026-06-07 ·
-iOS 26 (Tahoe) · Xcode 26 SDK · Swift 6.2.
+iOS 26 · Xcode 26 SDK · Swift 6.2.
 
 ---
 

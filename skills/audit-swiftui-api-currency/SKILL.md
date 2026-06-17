@@ -7,7 +7,7 @@ description: Audits a finished or in-progress iOS SwiftUI codebase for stale, de
 
 **AUDIT-ONLY · iOS-only · SwiftUI-only.** Run this on a *finished or in-progress* iOS SwiftUI
 project to detect — and where certain, fix — every way an API drifts out of currency on an iOS 26
-(Tahoe) target: the **stale** symbol the model learned from a 2019–2022 corpus (`NavigationView`,
+target: the **stale** symbol the model learned from a 2019–2022 corpus (`NavigationView`,
 `.foregroundColor`, 1-param `onChange`), the freshly-**deprecated** iOS-26.5 call, the **renamed**
 gesture, and the **hallucinated** modifier AI confabulated for a surface it never saw. Findings are
 written to disk in the toolkit's unified schema; certain mechanical renames are fixed under the

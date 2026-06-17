@@ -8,7 +8,7 @@ file is the perf-specific *map* of which pages to fetch. Floor values live in
 a permalinked real example) comes from `swiftui-ctx` per
 `${CLAUDE_PLUGIN_ROOT}/references/_shared/swiftui-ctx-reference.md`.
 
-**As of 2026-06-07 · iOS 26 (Tahoe) · Xcode 26 SDK.**
+**As of 2026-06-07 · iOS 26 · Xcode 26 SDK.**
 
 ---
 

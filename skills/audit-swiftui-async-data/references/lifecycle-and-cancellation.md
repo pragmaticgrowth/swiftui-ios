@@ -7,7 +7,7 @@ audit framing. **Get the ✅ shapes from `swiftui-ctx`, not from memory** —
 `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx lookup task --json` returns the consensus shape and a
 permalinked iOS-26 example (do not paste a static snippet as the canonical one).
 
-**As of:** 2026-06-07 · iOS 26 (Tahoe) · Xcode 26 SDK.
+**As of:** 2026-06-07 · iOS 26 · Xcode 26 SDK.
 
 ---
 

@@ -4,7 +4,7 @@ Lists and grids are where per-render work multiplies by row count. Compute deriv
 upstream**; iterate **lazily**; and respect the iOS `List`/`LazyVStack` large-collection ceiling. The
 ✅ lazy-container shape below is grounded in `swiftui-ctx` (a real iOS example, permalinked).
 
-**As of 2026-06-07 · iOS 26 (Tahoe) · Swift 6.2 toolchain.**
+**As of 2026-06-07 · iOS 26 · Swift 6.2 toolchain.**
 
 ---
 

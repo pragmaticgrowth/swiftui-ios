@@ -8,7 +8,7 @@ of which pages to fetch. Floor/deprecation values are the reconciled truth in
 `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md`. The **practice** half of VERIFY is
 `swiftui-ctx` (`lookup`/`deprecated`) per `${CLAUDE_PLUGIN_ROOT}/references/_shared/swiftui-ctx-reference.md`.
 
-**As of:** 2026-06-16 · iOS 26 (Tahoe) · Xcode 26 SDK.
+**As of:** 2026-06-16 · iOS 26 · Xcode 26 SDK.
 
 ---
 

@@ -7,7 +7,7 @@ real example) and **Sosumi** for the SPEC half (the iOS floor + signature). The 
 commands + JSON-404 caveat) is `${CLAUDE_PLUGIN_ROOT}/references/_shared/sosumi-reference.md`. Floor values
 are `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md` (read, never restate).
 
-**As of:** 2026-06-07 · iOS 26 (Tahoe) · Xcode 26 SDK.
+**As of:** 2026-06-07 · iOS 26 · Xcode 26 SDK.
 
 ---
 

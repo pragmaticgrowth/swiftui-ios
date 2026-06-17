@@ -5,7 +5,7 @@ prop it can't value-compare, a fast-changing `@Environment` value read by many v
 `@Observable` read each defeats that proof. These are **judgment** defects — READ before reporting; the
 fix shapes below are confirmed via `swiftui-ctx lookup`.
 
-**As of 2026-06-07 · iOS 26 (Tahoe) · Swift 6.2 toolchain.**
+**As of 2026-06-07 · iOS 26 · Swift 6.2 toolchain.**
 
 ---
 

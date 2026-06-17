@@ -4,7 +4,7 @@ Before reporting a perf finding, *prove* the re-render. SwiftUI gives two zero-t
 attribute a `body` re-evaluation to its cause. This file backs the workflow's "render test" and the
 vperf-12 leftover-debug strip, and describes the optional `_render-cost-map.md` artifact.
 
-**As of 2026-06-07 · iOS 26 (Tahoe) · Swift 6.2 toolchain.**
+**As of 2026-06-07 · iOS 26 · Swift 6.2 toolchain.**
 
 ---
 

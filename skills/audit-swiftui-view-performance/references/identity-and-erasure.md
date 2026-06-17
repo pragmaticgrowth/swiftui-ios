@@ -6,7 +6,7 @@ symbol is hallucinated — `.id(_:)` and `AnyView` are **real APIs misused** (co
 `swiftui-ctx deprecated AnyView` → not deprecated, no replacement); findings are `warning`, not
 `hard-fail`.
 
-**As of 2026-06-07 · iOS 26 (Tahoe) · Swift 6.2 toolchain.**
+**As of 2026-06-07 · iOS 26 · Swift 6.2 toolchain.**
 
 ---
 

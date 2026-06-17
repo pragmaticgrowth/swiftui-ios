@@ -5,7 +5,7 @@ assembled by string-building (so plurals and grammar can't vary per language), o
 formatted with a locale-unaware API. Floor values: `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md`.
 ✅ shapes are the swiftui-ctx consensus (`swiftui-ctx lookup <api> --platform ios --json`); verify via Sosumi.
 
-**As of:** 2026-06-07 · iOS 26 (Tahoe) · Xcode 26 SDK.
+**As of:** 2026-06-07 · iOS 26 · Xcode 26 SDK.
 
 ---
 
