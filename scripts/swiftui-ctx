@@ -18,7 +18,7 @@ else
 fi
 export SWIFTUI_CTX_CATALOG="${SWIFTUI_CTX_CATALOG:-$root/catalog}"
 
-repo="yigitkonur/swiftui-ios"
+repo="pragmaticgrowth/swiftui-ios"
 ver="$(sed -n 's/.*"version"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/p' "$root/.claude-plugin/plugin.json" 2>/dev/null | head -1)"
 ver="${ver:-dev}"
 cache="${XDG_CACHE_HOME:-$HOME/.cache}/swiftui-ctx"

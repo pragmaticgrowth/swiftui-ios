@@ -2,9 +2,9 @@
   "name": "swiftui-ios",
   "description": "Real production SwiftUI usage from shipping iOS & iPadOS apps PLUS iOS-SwiftUI skills (domain audits + write/modernize/scaffold) — backed by the swiftui-ctx CLI. Look up how an API is really used and the consensus argument shape, flag deprecated calls, scaffold whole patterns, and run domain audits (navigation, adaptive layout, presentation/sheets, UIKit interop, widgets/Live Activities, accessibility, concurrency, and more) grounded in real iOS code with GitHub permalinks. Use before writing, reviewing, modernizing, or auditing SwiftUI on iOS/iPadOS.",
   "version": "0.4.0",
-  "author": { "name": "yigitkonur", "url": "https://github.com/yigitkonur" },
-  "homepage": "https://github.com/yigitkonur/swiftui-ios-plugin",
-  "repository": "https://github.com/yigitkonur/swiftui-ios-plugin",
+  "author": { "name": "pragmaticgrowth", "url": "https://github.com/pragmaticgrowth" },
+  "homepage": "https://github.com/pragmaticgrowth/swiftui-ios",
+  "repository": "https://github.com/pragmaticgrowth/swiftui-ios",
   "license": "MIT",
   "keywords": ["swiftui", "ios", "ipados", "swift", "code-examples", "audit", "cli"]
 }
