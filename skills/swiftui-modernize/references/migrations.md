@@ -12,7 +12,7 @@ Confirm each against the live tool: `swiftui-ctx deprecated <api> --platform ios
 | `.navigationBarItems(...)` | `.toolbar { ... }` | use `ToolbarItem`/`ToolbarItemGroup` with placements |
 | `.tabItem { ... }` | `Tab(_:systemImage:content:)` | inside `TabView(selection:)` (newer API) |
 | `Alert(...)` / `.alert(isPresented:content:)` | `.alert(_:isPresented:actions:message:)` | message/actions builder form |
-| `.actionSheet(...)` | `.confirmationDialog(_:isPresented:)` | — |
+| `ActionSheet` / `.actionSheet(...)` | `.confirmationDialog(_:isPresented:)` | — |
 | `presentationMode` (`@Environment`) | `@Environment(\.dismiss)` | call `dismiss()` to dismiss the view |
 | `presentationMode` (`@Environment`) | `@Environment(\.isPresented)` | read-only `Bool` — query whether view is presented; cannot dismiss |
 | `.accentColor(_:)` | `.tint(_:)` | — |
