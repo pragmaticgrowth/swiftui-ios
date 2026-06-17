@@ -1,0 +1,13 @@
+# grep-tells.tsv — TIER 1 (flat-presence) design-smell tells for audit-swiftui-design-review (dr-*).
+# Columns (TAB-separated): id <TAB> severity <TAB> ERE-regex <TAB> message
+# severity: hard | warn | adv. NONE are hard — design smells are not ship-blockers; the reviewer READS
+# the rendered screenshot + code and judges against the cited KB before reporting (LOCATE-only).
+# Rules cite references/_shared/hig-design-rubric.md / ux-smell-catalog.md / liquid-glass-design.md.
+# Structural cases grep can't express (FAB shape, icon-only-button containment) live in ast-grep/*.yml (optional).
+dr-fontsize	warn	\.font\(\.system\(size:	hardcoded font size — prefer a built-in text style (Body 17pt) so Dynamic Type works. hig-design-rubric.md#typography
+dr-hardcoded-color	adv	\.foregroundColor\(\.(black|white)\)|Color\(red:	hardcoded color — prefer semantic colors that adapt to Dark Mode / Increase Contrast. hig-design-rubric.md#color-contrast
+dr-keyboardtype	warn	TextField\(	text field — confirm .keyboardType + .textContentType match the field's semantics (email/number/password). ux-smell-catalog.md#forms-input
+dr-iconbtn-label	warn	Image\(systemName:	icon candidate — if it is the sole label of a Button/tappable with no .accessibilityLabel, VoiceOver reads the symbol name. hig-design-rubric.md#accessibility-visual
+dr-fab	warn	Circle\(\)	possible Android FAB — a floating circular shadowed button (esp. bottom-trailing) is non-idiomatic on iOS; put primary actions in the nav/tool bar. ux-smell-catalog.md#native-vs-not
+dr-hamburger	warn	line\.horizontal\.3	hamburger glyph — if it hides primary navigation, iOS expects a persistent bottom tab bar instead. ux-smell-catalog.md#native-vs-not
+dr-fixed-frame	adv	\.frame\(width: *[0-9]+, *height: *[0-9]+\)	fixed-size frame — confirm it doesn't clip/overlap at the largest Dynamic Type (AX5). hig-design-rubric.md#accessibility-visual
