@@ -252,6 +252,25 @@ if [ ! -f "$MANIFEST" ]; then
   rm -f "$DISC"
 fi
 
+# ---- optional: #Preview snapshots via EmergeTools/SnapshotPreviews (non-fatal) ----
+PREVIEWS_STATUS="skipped"
+if [ "$PREVIEWS" -eq 1 ]; then
+  if grep -rqs -e 'SnapshottingTests' -e 'EmergeTools/SnapshotPreviews' -e 'SnapshotPreviews' \
+       --include='*.swift' --include='*.pbxproj' --include='Package.resolved' "$PROJECT" 2>/dev/null; then
+    mkdir -p "$OUT/previews"
+    if TEST_RUNNER_SNAPSHOTS_EXPORT_DIR="$OUT/previews" xcodebuild test "${CONTAINER[@]}" \
+         -scheme "$SCHEME" -destination "platform=iOS Simulator,id=$UDID" \
+         -derivedDataPath "$OUT/build" >"$OUT/previews.log" 2>&1; then
+      PREVIEWS_STATUS="ok ($(find "$OUT/previews" -name '*.png' 2>/dev/null | wc -l | tr -d ' ') png)"
+    else
+      PREVIEWS_STATUS="test-failed (see $OUT/previews.log)"
+    fi
+  else
+    PREVIEWS_STATUS="not-wired"
+    COVERAGE_NOTES+=("previews not-wired: add EmergeTools/SnapshotPreviews (SPM) + a SnapshotTest subclass, then re-run with --previews")
+  fi
+fi
+
 # ---- emit success index (group captured variants per screen) + coverage ----
 SCREENS_JSON="$(printf '%s\n' "${CAPTURED[@]}" | jq -R -s '
   split("\n") | map(select(length>0)) |
@@ -259,10 +278,11 @@ SCREENS_JSON="$(printf '%s\n' "${CAPTURED[@]}" | jq -R -s '
   group_by(.screen) | map({name: .[0].screen, variants: map(.variant)})')"
 COVERAGE_JSON="$(printf '%s\n' "${COVERAGE_NOTES[@]}" | jq -R -s 'split("\n")|map(select(length>0))')"
 jq -n --arg p "$PROJECT" --arg s "$SCHEME" --arg d "$UDID" --arg app "$BUNDLE_ID" \
-  --argjson screens "$SCREENS_JSON" --argjson coverage "$COVERAGE_JSON" --arg idb "${IDB:-none}" \
+  --argjson screens "$SCREENS_JSON" --argjson coverage "$COVERAGE_JSON" \
+  --arg idb "${IDB:-none}" --arg previews "$PREVIEWS_STATUS" \
   '{tool:"swiftui-capture", role:"visual-capture", status:"ok",
     project:$p, scheme:$s, device:$d, bundle_id:$app, navigator:$idb,
-    screens:$screens, coverage:$coverage, failures:[]}' \
+    screens:$screens, coverage:$coverage, previews_status:$previews, failures:[]}' \
   > "$OUT/capture.json"
 echo "swiftui-capture: ok — ${#CAPTURED[@]} screenshot(s), ${#SCREEN_NAMES[@]} screen(s) → $OUT/screens" >&2
 exit 0
