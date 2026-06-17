@@ -12,12 +12,21 @@
 # Usage:
 #   bash scripts/swiftui-capture.sh <project-dir> [--out DIR] [--device NAME]
 #                                   [--variants minimal|full] [--no-idb] [--previews]
+#                                   [--launch-arg ARG]... [--launch-env KEY=VAL]...
 #   <project-dir>   dir containing a .xcworkspace or .xcodeproj (default ".")
 #   --out DIR       output dir (default <project-dir>/swiftui-design)
 #   --device NAME   simulator device name (default: a booted device, else first available iPhone)
-#   --variants      minimal = light+dark @ large (default); full = adds an AX Dynamic Type size  [Task 7]
-#   --no-idb        skip the idb accessibility-tree crawl (deep-links + manifest only)             [Task 8]
-#   --previews      also snapshot #Previews via EmergeTools/SnapshotPreviews                       [Task 9]
+#   --variants      minimal = light+dark @ large (default); full = adds an AX Dynamic Type size
+#   --no-idb        skip the idb accessibility-tree crawl (deep-links + manifest only)
+#   --previews      also snapshot #Previews via EmergeTools/SnapshotPreviews
+#   --launch-arg A  extra app launch argument, applied to every launch; repeatable. Use to get past an
+#                   auth wall via a DEBUG bypass — e.g. --launch-arg --demo-session (then the crawl/
+#                   manifest sees the signed-in app). Per-screen launch args go in the manifest (below).
+#   --launch-env K=V app environment variable (the app sees K=V); repeatable.
+#
+# screens.manifest.json entry fields: {name, deeplink?, tap_labels?[], launch_args?[]}. When launch_args
+# is set for a screen, the app is relaunched with those args to REACH it (no tap/deeplink needed) — e.g.
+# {"name":"health","launch_args":["--demo-session","--initial-tab","health"]}.
 #
 # Output: <out>/capture.json  (index: status, project, device, screens[], failures[])
 #         <out>/screens/<screen>__<appearance>__<type>.png
@@ -29,16 +38,20 @@ PLUGIN_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 
 # ---- args ----
 PROJECT=""; OUT=""; DEVICE=""; VARIANTS="minimal"; NO_IDB=0; PREVIEWS=0
+GLOBAL_LARGS=""        # extra app launch arguments applied to every launch (e.g. --demo-session)
+LAUNCH_ENV_PREFIX=""   # SIMCTL_CHILD_K=V pairs prefixed onto each simctl launch (the app sees K=V)
 while [ "$#" -gt 0 ]; do
   case "$1" in
-    --out)      OUT="$2"; shift 2;;
-    --device)   DEVICE="$2"; shift 2;;
-    --variants) VARIANTS="$2"; shift 2;;
-    --no-idb)   NO_IDB=1; shift;;
-    --previews) PREVIEWS=1; shift;;
-    -h|--help)  sed -n '2,30p' "$0"; exit 0;;
-    -*)         echo "swiftui-capture: unknown flag $1" >&2; shift;;
-    *)          [ -z "$PROJECT" ] && PROJECT="$1"; shift;;
+    --out)        OUT="$2"; shift 2;;
+    --device)     DEVICE="$2"; shift 2;;
+    --variants)   VARIANTS="$2"; shift 2;;
+    --no-idb)     NO_IDB=1; shift;;
+    --previews)   PREVIEWS=1; shift;;
+    --launch-arg) GLOBAL_LARGS="$GLOBAL_LARGS $2"; shift 2;;                       # repeatable; passed to the app
+    --launch-env) LAUNCH_ENV_PREFIX="$LAUNCH_ENV_PREFIX SIMCTL_CHILD_$2"; shift 2;; # repeatable; KEY=VAL
+    -h|--help)    sed -n '2,34p' "$0"; exit 0;;
+    -*)           echo "swiftui-capture: unknown flag $1" >&2; shift;;
+    *)            [ -z "$PROJECT" ] && PROJECT="$1"; shift;;
   esac
 done
 PROJECT="${PROJECT:-.}"
@@ -171,18 +184,26 @@ replay_nav() {  # $1=deeplink  $2=single tap label
   wait_for_idle
 }
 
+# relaunch the app with the env prefix + global launch args + this screen's launch args (all word-split).
+relaunch() {  # $@ = per-screen launch args
+  # shellcheck disable=SC2086
+  env $LAUNCH_ENV_PREFIX xcrun simctl launch --terminate-running-process "$UDID" "$BUNDLE_ID" $GLOBAL_LARGS "$@" >/dev/null 2>&1 || true
+}
+
 # shoot a screen across the matrix; re-navigate after each relaunch (UIKit reads appearance/type at start).
 CAPTURED=()
-shoot_screen() {  # $1=name $2=deeplink $3=tap-label
-  local name="$1" dl="$2" tap="$3" ap sz cat lbl
+shoot_screen() {  # $1=name $2=deeplink $3=tap-label $4=launch-args(space-joined)
+  local name="$1" dl="$2" tap="$3" slargs="$4" ap sz cat lbl
   for ap in "${APPEARANCES[@]}"; do
     xcrun simctl ui "$UDID" appearance "$ap" >/dev/null 2>&1 || true
     for sz in "${SIZES[@]}"; do
       cat="${sz%%:*}"; lbl="${sz##*:}"
       xcrun simctl ui "$UDID" content_size "$cat" >/dev/null 2>&1 || true
-      xcrun simctl launch --terminate-running-process "$UDID" "$BUNDLE_ID" >/dev/null 2>&1 || true
-      wait_for_idle
-      replay_nav "$dl" "$tap"
+      # shellcheck disable=SC2086
+      relaunch $slargs
+      sleep 2          # launch settle: let an async bootstrap (session/sign-in) complete before polling —
+      wait_for_idle    # wait_for_idle alone is too eager (a momentarily-stable launch screen looks "idle")
+      [ -z "$slargs" ] && replay_nav "$dl" "$tap"   # launch args navigate by themselves; else deep-link/tap
       if xcrun simctl io "$UDID" screenshot "$OUT/screens/${name}__${ap}__${lbl}.png" >/dev/null 2>&1; then
         CAPTURED+=("${name}__${ap}__${lbl}")
       fi
@@ -192,21 +213,23 @@ shoot_screen() {  # $1=name $2=deeplink $3=tap-label
 
 # ---- navigation: manifest-driven (deterministic) else auto-explore (breadth-1) ----
 MANIFEST="$OUT/screens.manifest.json"
-SCREEN_NAMES=(); SCREEN_DLS=(); SCREEN_TAPS=()
+SCREEN_NAMES=(); SCREEN_DLS=(); SCREEN_TAPS=(); SCREEN_LARGS=()
 if [ -f "$MANIFEST" ]; then
-  while IFS=$'\t' read -r nm dl tp; do
-    SCREEN_NAMES+=("$nm"); SCREEN_DLS+=("$dl"); SCREEN_TAPS+=("$tp")
-  done < <(jq -r '.screens[] | [.name, (.deeplink//""), ((.tap_labels//[])[0]//"")] | @tsv' "$MANIFEST" 2>/dev/null)
+  # Delimit with the Unit Separator (\x1f), NOT tab: `read` coalesces consecutive IFS *whitespace*
+  # (tab included), which would drop the empty deeplink/tap columns and misalign launch_args.
+  while IFS=$'\x1f' read -r nm dl tp la; do
+    SCREEN_NAMES+=("$nm"); SCREEN_DLS+=("$dl"); SCREEN_TAPS+=("$tp"); SCREEN_LARGS+=("$la")
+  done < <(jq -r '.screens[] | [.name, (.deeplink//""), ((.tap_labels//[])[0]//""), ((.launch_args//[])|join(" "))] | join("\u001f")' "$MANIFEST" 2>/dev/null)
   COVERAGE_NOTES+=("manifest-driven: ${#SCREEN_NAMES[@]} screen(s)")
 else
-  SCREEN_NAMES=(home); SCREEN_DLS=(""); SCREEN_TAPS=("")
+  SCREEN_NAMES=(home); SCREEN_DLS=(""); SCREEN_TAPS=(""); SCREEN_LARGS=("")
   if [ -n "$IDB" ]; then
-    xcrun simctl launch --terminate-running-process "$UDID" "$BUNDLE_ID" >/dev/null 2>&1 || true
+    relaunch                       # global launch args (e.g. --demo-session) apply to the crawl too
     wait_for_idle
     while IFS= read -r lbl; do
       [ -z "$lbl" ] && continue
       SCREEN_NAMES+=("$(printf '%s' "$lbl" | tr ' /' '__' | tr -cd 'A-Za-z0-9_-' | cut -c1-40)")
-      SCREEN_DLS+=(""); SCREEN_TAPS+=("$lbl")
+      SCREEN_DLS+=(""); SCREEN_TAPS+=("$lbl"); SCREEN_LARGS+=("")
     done < <(ax_json | python3 -c '
 import json,sys
 raw=sys.stdin.read().strip() or "[]"
@@ -233,7 +256,7 @@ fi
 # shoot every screen
 idx=0
 while [ "$idx" -lt "${#SCREEN_NAMES[@]}" ]; do
-  shoot_screen "${SCREEN_NAMES[$idx]}" "${SCREEN_DLS[$idx]}" "${SCREEN_TAPS[$idx]}"
+  shoot_screen "${SCREEN_NAMES[$idx]}" "${SCREEN_DLS[$idx]}" "${SCREEN_TAPS[$idx]}" "${SCREEN_LARGS[$idx]}"
   idx=$((idx+1))
 done
 [ "${#CAPTURED[@]}" -eq 0 ] && emit_unavailable "no screenshots captured"
@@ -243,11 +266,13 @@ if [ ! -f "$MANIFEST" ]; then
   DISC="$(mktemp)"
   k=0
   while [ "$k" -lt "${#SCREEN_NAMES[@]}" ]; do
-    printf '%s\t%s\t%s\n' "${SCREEN_NAMES[$k]}" "${SCREEN_DLS[$k]}" "${SCREEN_TAPS[$k]}" >> "$DISC"
+    printf '%s\t%s\t%s\t%s\n' "${SCREEN_NAMES[$k]}" "${SCREEN_DLS[$k]}" "${SCREEN_TAPS[$k]}" "${SCREEN_LARGS[$k]}" >> "$DISC"
     k=$((k+1))
   done
   jq -R -s 'split("\n")|map(select(length>0))|map(split("\t"))|
-    {screens: map({name:.[0], deeplink:.[1], tap_labels: (if .[2]=="" then [] else [.[2]] end)})}' \
+    {screens: map({name:.[0], deeplink:.[1],
+      tap_labels: (if (.[2]//"")=="" then [] else [.[2]] end),
+      launch_args: (if (.[3]//"")=="" then [] else (.[3]|split(" ")) end)})}' \
     "$DISC" > "$MANIFEST"
   rm -f "$DISC"
 fi
