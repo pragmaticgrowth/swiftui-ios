@@ -52,7 +52,7 @@ RowView(item)
     .accessibilityAction { open(item) }          // VoiceOver path
     .onHover { isHighlighted = $0 }              // optional iPad-pointer polish, not the sole trigger
 ```
-`cross_ref: ios-idiomaticness` (this is an iPad-app-in-an-iPhone-window idiom smell the meta-scorer routes
+this is an iPad-app-in-an-iPhone-window idiom smell that `ios-idiomaticness` routes INBOUND to this skill (touch-gestures owns the tg-05 finding; no outbound cross_ref — the meta-scorer is outgoing-only per cross-ref-graph §4); it routes
 here). If the affordance is `pointerStyle`, it is *platform-wrong*, not merely pointer-only → tg-08
 (`gesture-availability.md`).
 

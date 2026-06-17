@@ -227,5 +227,3 @@ emits unified **JSON + SARIF**, and **degrades to grep-only with a notice** if a
 LOCATES — always READ each hit in full before reporting (step 3). The thin `scripts/haptics-lint.sh` is a
 pointer to this runner. Engine + rule-file format + JSON/SARIF shape + safety rails:
 `${CLAUDE_PLUGIN_ROOT}/references/_shared/lint-architecture.md`.
-</content>
-</invoke>

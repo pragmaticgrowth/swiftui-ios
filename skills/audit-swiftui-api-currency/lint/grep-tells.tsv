@@ -18,4 +18,3 @@ curr-09	warn	dropDestination\(for:[^)]*isTargeted:	3-arg dropDestination(for:act
 curr-10	warn	MagnificationGesture|RotationGesture	MagnificationGesture/RotationGesture renamed (iOS 26.5) → MagnifyGesture/RotateGesture (fix_mode: auto). cross_ref touch-gestures.
 curr-11	adv	Font\.system\([^)]*design:	Font.system(_:design:) — if it passes NO weight: the design-only form is deprecated (iOS 26.5) → Font.system(_:design:weight:). READ to confirm. cross_ref typography-text.
 curr-12	warn	\.accentColor\(	.accentColor(_:) deprecated (iOS 26.5) → .tint(_:) (fix_mode: auto). cross_ref appearance-color.
-</content>

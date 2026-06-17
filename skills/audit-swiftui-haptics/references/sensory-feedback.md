@@ -141,4 +141,3 @@ Feedback is punctuation, not texture. A buzz on every scroll tick, per frame, or
   `verify against Xcode 26 SDK`.
 - Apple spec fetched via Sosumi: `${CLAUDE_PLUGIN_ROOT}/references/_shared/sosumi-reference.md`;
   path map in `source-directory.md`.
-</content>

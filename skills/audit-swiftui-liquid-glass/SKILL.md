@@ -222,7 +222,7 @@ skill's declarative rules: **tier-1 grep tells** (`lint/grep-tells.tsv`, glass-0
 + **tier-2 ast-grep** structural rules (`lint/ast-grep/*.yml` — glass-04 glass-on-glass, glass-05
 not-in-container, glass-07 wrong-arm gate-scope) that grep cannot express. It runs a per-file **parse
 probe** (surfaces "did not fully parse" so a structural miss can't look clean), emits unified **JSON +
-SARIF**, exits **2** on any hard-fail (glass-01/02/06/07) for a CI gate, and **degrades to grep-only with a
+SARIF**, exits **2** on any hard-fail (glass-01/02) for a CI gate, and **degrades to grep-only with a
 notice** if ast-grep is unreachable (`npx --package @ast-grep/cli ast-grep`; faster: `brew install ast-grep`).
 It only LOCATES — always READ each hit in full before reporting (step 3). The legacy
 `scripts/glass-lint.sh` is now a thin pointer to this runner. Engine + rule-file format + JSON/SARIF

@@ -212,5 +212,3 @@ ORIENT, not by the runner; loc-05/loc-09 are READ-judgment. It only LOCATES — 
 full before reporting (step 3). The thin `scripts/loc-lint.sh` is a pointer to this runner. Engine +
 rule-file format + JSON/SARIF shape + safety rails:
 `${CLAUDE_PLUGIN_ROOT}/references/_shared/lint-architecture.md`.
-</content>
-</invoke>

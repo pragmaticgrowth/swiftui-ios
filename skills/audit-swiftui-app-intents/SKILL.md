@@ -245,5 +245,3 @@ SARIF**, exits **2** on any hard-fail (ain-01) for a CI gate, and **degrades to 
 if ast-grep is unreachable. It only LOCATES — always READ each hit in full before reporting (step 3). The
 thin `scripts/app-intents-lint.sh` is a pointer to this runner. Engine + rule-file format + JSON/SARIF
 shape + safety rails: `${CLAUDE_PLUGIN_ROOT}/references/_shared/lint-architecture.md`.
-</content>
-</invoke>

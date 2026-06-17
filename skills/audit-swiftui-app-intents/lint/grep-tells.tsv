@@ -12,4 +12,3 @@ ain-02	warn	AppShortcutsProvider	AppShortcutsProvider CANDIDATE — READ it: its
 ain-03	warn	@Parameter\b	@Parameter CANDIDATE — READ it: a @Parameter with no `title:` renders unlabeled in the Shortcuts editor. Confirm a `@Parameter(title: …)` (ain-03, iOS 16).
 ain-04	adv	func[[:space:]]+perform\(\)	perform() CANDIDATE — READ it: if it touches UI / view-model state with no @MainActor on the intent (nor a main-actor hop), it runs off the intent's background executor (ain-04, advisory runtime hazard).
 ain-05	warn	\bINIntent\b|IntentConfiguration|CustomIntentMigratedAppIntent|INInteraction	legacy SiriKit / pre-AppIntents API — INIntent / IntentConfiguration / CustomIntentMigratedAppIntent predate the AppIntents framework (iOS 16). Migrate to AppIntent / AppShortcutsProvider (ain-05). cross_ref api-currency for the deprecation flag.
-</content>

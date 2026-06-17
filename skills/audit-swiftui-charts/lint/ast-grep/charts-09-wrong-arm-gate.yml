@@ -5,7 +5,7 @@
 # the real floor (Charts iOS 16; SectorMark/selection/scroll iOS 17; LinePlot/AreaPlot iOS 18).
 id: charts-09-wrong-arm-gate
 language: Swift
-severity: hard
+severity: warning
 message: >-
   charts-09: an #available(macOS ...) gate scopes a Charts symbol in an iOS target (wrong arm). Gate on
   #available(iOS N, *) with the floor from floors-master (fix_mode: auto).

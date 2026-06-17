@@ -35,10 +35,10 @@ resolve. **Global flags (every command):** `--json` (stable envelope) · `--limi
 ## Per-domain shard commands (which to reach for)
 `bridges`/`settings`/`conformances`/`rankings`/`insights`/`valueBuilders` are first-class commands over the
 catalog shards (stable envelope + `next_actions`, no raw `jq` needed):
-- `bridges [<kind|name>]` — real AppKit/UIKit `NSViewRepresentable`/`NSViewControllerRepresentable` bridges (4,698 across 957 repos) + permalinks → `appkit-interop`, `appkit-overuse`.
-- `settings` — real Settings screens + the Form vocab they use (Toggle/Picker/Section counts) → `controls-forms`, `scenes-windows`.
+- `bridges [<kind|name>]` — real UIKit `UIViewRepresentable`/`UIViewControllerRepresentable` bridges (4,698 across 957 repos) + permalinks → `uikit-interop`, `uikit-overuse`.
+- `settings` — real Settings screens + the Form vocab they use (Toggle/Picker/Section counts) → `controls-forms`.
 - `conformances [<protocol>]` — custom `ButtonStyle`/`Layout`/`Shape`/`LabelStyle`/`ViewModifier` conformers + permalinks → `appearance-color`, `layout-and-tables`, `drawing-canvas`, `animation-motion`.
-- `rankings [<dimension>]` + `insights` — `most_modern_stack`, API breadth, `modern_stack_adoption_pct`, `deprecated_api_usage`, `co_occurrence` → `macos-nativeness` (the benchmark).
+- `rankings [<dimension>]` + `insights` — `most_modern_stack`, API breadth, `modern_stack_adoption_pct`, `deprecated_api_usage`, `co_occurrence` → `ios-idiomaticness` (the benchmark).
 - `valueBuilders [<filter>]` — the real Font/Color/Animation/gradient vocabulary ranked by usage (filter by name fragment: `gradient`, `ease`, `bouncy`) → `appearance-color`, `animation-motion`, `typography-text`. Every shard also remains under `catalog/` for direct `jq` reads.
 
 ## Capability → audit-move map

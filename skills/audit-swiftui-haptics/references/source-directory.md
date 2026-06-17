@@ -85,4 +85,3 @@ Human doc path = `developer.apple.com/documentation/uikit/<path>` (generators) o
   cross-checked against `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md`. UIKit generator (iOS
   10.0+) and `CHHapticEngine` (iOS 13.0+) floors are well-known introductions outside the SwiftUI corpus —
   `verify against Xcode 26 SDK`.
-</content>

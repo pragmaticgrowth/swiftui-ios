@@ -33,7 +33,7 @@ throughout instead of reaching for the iOS system colors. Be suspicious wherever
   `audit-swiftui-accessibility`; a *color paired with scaled text* routes to `audit-swiftui-dynamic-type`.
   Note the seam in one line and `cross_ref` rather than re-auditing it here.
 - **UIKit `UIColor` catalogs / `UIVisualEffectView` vibrancy** reached for via a representable are out of
-  scope — note it in one line and point to the future `audit-swiftui-uikit-interop` (HOW to bridge) /
+  scope — note it in one line and point to `audit-swiftui-uikit-interop` (HOW to bridge) /
   `audit-swiftui-uikit-overuse` (WHETHER to bridge). `UIColor` itself is a *native iOS type* (see ac-08).
 
 ## Domain rules

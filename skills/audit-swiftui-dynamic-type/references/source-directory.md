@@ -85,4 +85,3 @@ the reconciled truth in `floors-master.md` — never restate them here.
 - UIKit-bridge symbols (`UIFontMetrics`, `adjustsFontForContentSizeCategory`) are not in the SwiftUI catalog —
   floors marked **verify against Xcode 26 SDK** per the rule in the SKILL body.
 - Practitioner URLs as listed (trust labelled; corroboration only).
-</content>

@@ -53,7 +53,7 @@ array — but it **404s** on:
 
 - parenthesized-symbol families (`task(...)`, `init(text:selection:)`),
 - bridged namespaces (`String(localized:)` under `/swift/`, not `/foundation/`),
-- and assorted paths (notably the state-restoration & document-model parenthesized symbols).
+- and assorted paths (notably the app-lifecycle-background & app-file-handling parenthesized symbols).
 
 **When the JSON 404s or you need prose, fall back to Sosumi** — it never 404s on a valid human URL.
 Never trust `WebFetch` on `developer.apple.com`, and never paper a JSON 404 with a memory guess.

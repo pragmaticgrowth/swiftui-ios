@@ -241,5 +241,3 @@ whether the dimension sits beside scalable text or whether a `@ScaledMetric` / `
 *absent* from the surrounding view, every dt-03 / dt-05 hit MUST be read in full before reporting. The thin
 `scripts/dynamic-type-lint.sh` is a pointer to this runner. Engine + rule-file format + JSON/SARIF shape +
 safety rails: `${CLAUDE_PLUGIN_ROOT}/references/_shared/lint-architecture.md`.
-</content>
-</invoke>

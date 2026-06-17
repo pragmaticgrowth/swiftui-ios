@@ -186,4 +186,3 @@ every modifier above is available unconditionally — no `#available` gate per
   14.0, `dynamicTypeSize`/`DynamicTypeSize` 15.0, `font`/`minimumScaleFactor` 13.0).
 - Apple docs fetched via `https://sosumi.ai/...` per `references/source-directory.md` (access 2026-06-16).
 - GitHub permalinks above are the swiftui-ctx `recommended` exemplars (pinned commit SHAs).
-</content>

@@ -168,7 +168,7 @@ Signatures, floors, and the full ❌→✅ rewrites: `references/touch-affordanc
    discard. Carry the two UNVERIFIED items as `advisory` with `source: verify against Xcode 26 SDK`.
 6. **REPORT.** Write each confirmed finding (output contract below). One finding per file, zero-padded,
    ordered. Emit `cross_ref` on shared-seam findings (tg-01/tg-02 → `api-currency`; tg-06 → `accessibility`;
-   tg-05 → `ios-idiomaticness`; a `.contextMenu` action that should be a Shortcuts intent → `app-intents`;
+   a `.contextMenu` action that should be a Shortcuts intent → `app-intents`;
    a `DragGesture` carrying a `Transferable` payload → `document-picker-permissions`). Write the run's
    `_index.md`.
 7. **FIX.** Apply corrections under the fix-safety protocol

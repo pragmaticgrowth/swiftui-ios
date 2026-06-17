@@ -228,7 +228,7 @@ declarative rules: **tier-1 grep tells** (`lint/grep-tells.tsv`, charts-01/02/03
 + **tier-2 ast-grep** structural rules (`lint/ast-grep/*.yml` — charts-02 hand-rolled-bars containment,
 charts-09 wrong-arm gate-scope) that grep cannot express. It runs a per-file **parse probe** (surfaces
 "did not fully parse" so a structural miss can't look clean), emits unified **JSON + SARIF**, exits **2**
-on any hard-fail (charts-01/08/09) for a CI gate, and **degrades to grep-only with a notice** if ast-grep
+on any hard-fail (charts-01) for a CI gate, and **degrades to grep-only with a notice** if ast-grep
 is unreachable (`npx --package @ast-grep/cli ast-grep`; faster: `brew install ast-grep`). It only LOCATES
 — always READ each hit in full before reporting (step READ). The legacy `scripts/charts-lint.sh` is a thin
 pointer to this runner. Engine + rule-file format + JSON/SARIF shape + safety rails:
