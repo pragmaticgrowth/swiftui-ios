@@ -1,0 +1,13 @@
+# grep-tells.tsv — TIER 1 (flat-presence) rules for audit-swiftui-uikit-interop (uik-01 … uik-06).
+# Columns (TAB-separated): id <TAB> severity <TAB> ERE-regex <TAB> message
+# severity: hard | warn | adv   (hard → runner exits 2). The runner greps each ERE over the target *.swift.
+# This LOCATES only — the LLM agent READS each hit (SKILL.md step 3) and decides. Structural ABSENCE rules
+# (a representable with NO updateUIView; a delegate set with NO makeCoordinator) live in ast-grep/*.yml
+# (tier 2, optional — ast-grep is NOT installed; the grep tier stands alone). ERE only (ripgrep-valid).
+# Full ❌→✅ + sources: ../references/*.md (routed from SKILL.md).
+uik-01	hard	:[[:space:]]*(UIViewRepresentable|UIViewControllerRepresentable)	UIViewRepresentable/UIViewControllerRepresentable conformance — its body MUST carry a real updateUIView(_:context:)/updateUIViewController(_:context:); without one SwiftUI state can NEVER propagate to the UIKit view (uik-01, hard). READ the type: is updateUIView present with a non-empty body? (ast-grep uik-01 proves the absence)
+uik-02	warn	func[[:space:]]+makeUIView(Controller)?[[:space:]]*\(	makeUIView/makeUIViewController builds the view ONCE — every @Binding/property read here MUST be re-applied in updateUIView, or the view freezes at its initial value (uik-02). READ both methods: is each input set in make also re-assigned in update?
+uik-03	hard	\.(delegate|dataSource)[[:space:]]*=[[:space:]]*context\.coordinator	a UIKit delegate/dataSource is wired to context.coordinator — the type MUST implement makeCoordinator() returning that Coordinator, or context.coordinator is never your object and the callbacks are silently dead (uik-03, hard). READ: is makeCoordinator present? (ast-grep uik-03 proves the absence)
+uik-04	warn	(var|let)[[:space:]]+parent[[:space:]]*:|self\.parent[[:space:]]*=	a Coordinator holding `parent` — a struct value is fine, but a retained closure capturing self/parent of a class is a retain cycle / stale-parent bug (uik-04; cross_ref concurrency-safety). READ the Coordinator: is the capture a value, or a strong reference cycle?
+uik-05	adv	addSubview\(.*\.view\)|addSubview\([[:space:]]*hosting	a UIHostingController embedded via bare addSubview with no addChild/didMove(toParent:) → broken child-VC containment (uik-05). READ: is the hosting controller added as a child VC (addChild + didMove(toParent:)) and its view pinned?
+uik-06	adv	\.becomeFirstResponder\(\)	becomeFirstResponder() — a no-op if the view is not yet in the window (e.g. called in makeUIView). It belongs in updateUIView or a Coordinator callback, after the view is installed (uik-06). READ the call site.

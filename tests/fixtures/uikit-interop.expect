@@ -1,0 +1,7 @@
+# rule_ids that MUST fire on uikit-interop.swift (one per line)
+uik-01
+uik-02
+uik-03
+uik-04
+uik-05
+uik-06

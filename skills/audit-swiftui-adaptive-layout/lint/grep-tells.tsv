@@ -1,0 +1,14 @@
+# grep-tells.tsv — TIER 1 (flat-presence) rules for audit-swiftui-adaptive-layout (adl-01 … adl-07).
+# Columns (TAB-separated): id <TAB> severity <TAB> ERE-regex <TAB> message
+# severity: hard | warn | adv   (hard → runner exits 2). The runner greps each ERE over the target *.swift.
+# This LOCATES only — the LLM agent READS each hit (SKILL.md step 3) and decides. This grep tier STANDS
+# ALONE: ast-grep is NOT installed and NOT required. Structural absence calls (a NavigationSplitView with
+# no horizontalSizeClass read anywhere in the file — adl-03/adl-04) are located broadly here and resolved by
+# the agent in READ. Full ❌→✅ + sources: ../references/adaptive-layout-patterns.md (routed from SKILL.md).
+adl-02	hard	UIScreen\.main	UIScreen.main / UIScreen.main.bounds used as a layout oracle — DEPRECATED on iOS 16+ (no scene/multitasking context). Read the container with GeometryReader or branch on size class; replace, never gate (adl-02). cross_ref uikit-overuse.
+adl-01	warn	\.frame\(width:[[:space:]]*[0-9]	literal .frame(width: <number>) — full-screen content pinned to a device width letter-boxes on iPad / clips in landscape & Split View (adl-01). READ: does this wrap full-screen content or a genuinely fixed element?
+adl-03	warn	NavigationSplitView	NavigationSplitView shell — the regular-width split must adapt to compact width. READ the whole file: is there a horizontalSizeClass branch in scope? An unconditional split ships onto compact iPhone (adl-03). cross_ref adaptive-navigation.
+adl-04	adv	@Environment\(\\\.(horizontal|vertical)SizeClass\)	size-class read present — confirm device-dependent arrangement actually BRANCHES on it; a layout file with arrangement logic and ZERO size-class reads never reacts to compact-vs-regular (adl-04). READ: is the class used to switch arrangement?
+adl-05	adv	(GeometryReader|geo|proxy)[^\n]*\.size\.width[[:space:]]*[<>]	manual width-threshold ladder (size.width > …) switching fixed layouts — this is what ViewThatFits (iOS 16) expresses natively (adl-05). READ: are these mutually-exclusive fixed layouts?
+adl-06	adv	(UIScreen\.main\.bounds|\.size)\.width[[:space:]]*[*/][[:space:]]*[0-9]	a fractional-of-screen width by arithmetic (.width * 0.5 / .width / 2) — use containerRelativeFrame (iOS 17) for a fraction of the container (adl-06).
+adl-07	warn	GeometryReader[[:space:]]*\{[[:space:]]*[a-zA-Z_]+[[:space:]]+in	GeometryReader wrapped only to read a width threshold — if the decision is compact-vs-regular, use @Environment(\.horizontalSizeClass) instead of a proxy (adl-07). READ: is real per-pixel geometry needed, or just a size-class decision?

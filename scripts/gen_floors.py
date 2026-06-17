@@ -14,7 +14,11 @@ lines=["# iOS availability floors (generated from sdk_catalog.json `introduced_i
 for floor in sorted(byfloor, key=lambda v:tuple(int(p) for p in v.split("."))):
     apis=sorted(byfloor[floor])
     lines.append(f"## iOS {floor}+  ({len(apis)} symbols)")
-    lines.append(", ".join(f"`{a}`" for a in apis[:60]) + ("" if len(apis)<=60 else f", … (+{len(apis)-60} more)"))
+    # Emit EVERY symbol — no elision. A skill that says "verify the floor in
+    # floors-master.md" must be able to find every symbol it cites (e.g. the
+    # iOS 16.0 `presentationDetents`/`presentationDragIndicator`, which are
+    # alphabetically past any small cap in the 800+ symbol 16.0 bucket).
+    lines.append(", ".join(f"`{a}`" for a in apis))
     lines.append("")
 open(os.path.join(ROOT,"references","_shared","floors-master.md"),"w").write("\n".join(lines))
 print(f"floors-master.md: {len(rows)} symbols across {len(byfloor)} iOS floors")

@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 # audit-gate.sh — the toolkit's PRE-SHIP GATE (mechanical LOCATE-tier, CI-friendly).
 #
-# Loops the ONE shared lint runner (swiftui-lint.sh) over ALL 28 audit-swiftui-* skills against a
+# Loops the ONE shared lint runner (swiftui-lint.sh) over ALL 34 audit-swiftui-* skills against a
 # target directory, tallies hard/warn/adv per skill + grand total, prints a per-skill + total summary
 # to stderr, emits one combined JSON to stdout, and EXITS 2 if ANY skill reports a hard finding (else 0).
 #
 # This is the mechanical gate: a hard finding here means a human-driven full audit
-# (skills/audit-macos-swiftui-full) is required before shipping. It LOCATES only — it never decides a
+# (skills/audit-ios-swiftui-full) is required before shipping. It LOCATES only — it never decides a
 # finding is real (an LLM agent READs each hit in the full audit). It does NOT reimplement the lint; it
 # reuses swiftui-lint.sh.
 #
@@ -33,7 +33,7 @@ if [ ! -x "$LINT" ] && [ ! -f "$LINT" ]; then
 fi
 command -v jq >/dev/null 2>&1 || { echo "audit-gate: jq is required (brew install jq)." >&2; exit 69; }
 
-# ---- discover all 28 audit skills (skills with a lint/ dir) -----------------------------------------
+# ---- discover all 34 audit skills (skills with a lint/ dir) -----------------------------------------
 SKILLS=()
 for d in "$PLUGIN_ROOT"/skills/audit-swiftui-*; do
   [ -d "$d/lint" ] || continue
@@ -83,7 +83,7 @@ printf '%s\n' "${PER_SKILL_JSON[@]}" | jq -s \
   {
     tool: "audit-gate",
     role: "pre-ship-locator-gate",
-    note: "Mechanical LOCATE-tier tally across all audit skills. A hard finding blocks; an LLM-driven full audit (audit-macos-swiftui-full) must READ each hit before shipping.",
+    note: "Mechanical LOCATE-tier tally across all audit skills. A hard finding blocks; an LLM-driven full audit (audit-ios-swiftui-full) must READ each hit before shipping.",
     target: $target,
     skills_run: $nskills,
     gate: (if $anyhard==1 then "fail" else "pass" end),

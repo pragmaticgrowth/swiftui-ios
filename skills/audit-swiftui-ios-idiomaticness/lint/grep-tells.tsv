@@ -1,0 +1,17 @@
+# grep-tells.tsv — TIER 1 (flat-presence) rules for audit-swiftui-ios-idiomaticness (idi-01 … idi-09).
+# Columns (TAB-separated): id <TAB> severity <TAB> ERE-regex <TAB> message
+# severity: hard | warn | adv   (hard → runner exits 2). The runner greps each ERE over the target *.swift.
+# This LOCATES idiom SMELLS only — the LLM agent READS each hit (SKILL.md step 3), CONFIRMS the absence/misuse,
+# SCORES the category, and ROUTES to the owner skill via cross_ref. This is the META-SCORER: it owns NO deep
+# domain rule — every tell points at the skill that holds the ❌→✅ fix. Most smells are an ABSENCE (no detents,
+# no size-class branch) that grep cannot decide; these tells locate the candidate SITE only.
+# Full smell catalog + the 0-100 rubric + routing: ../references/idiom-catalog.md, ../references/source-directory.md.
+idi-01	warn	\bNavigationView\b	NavigationView is the deprecated push shell (iOS 16+ → NavigationStack / NavigationSplitView). Non-idiomatic navigation root. SMELL → route adaptive-navigation (structural) + api-currency (the flag). READ: is this the app shell? (idi-01)
+idi-02	adv	\.onHover\b|\bpointerStyle\b|\bonContinuousHover\b	pointer affordance (.onHover/pointerStyle/onContinuousHover) — a Mac/iPad-pointer idiom misapplied as the ONLY interaction on an iPhone-touch surface (no hover hardware). SMELL → route touch-gestures. READ: is there a touch path too, or is hover load-bearing? (idi-02)
+idi-03	warn	\.frame\(width: *3[0-9][0-9]|\.frame\(width: *[0-9]+, *height: *[0-9]{3}	fixed full-screen .frame(width:height:) (~3xx pt) — a hard-coded device-size frame instead of size-class / GeometryReader / containerRelativeFrame adaptive layout. SMELL → route adaptive-layout. READ: is this meant to fill the screen? (idi-03)
+idi-04	adv	\.sheet\(|\.fullScreenCover\(	modal presentation — confirm modality fit: .fullScreenCover where a resizable .sheet + presentationDetents would be idiomatic, or a sheet with no detents. SMELL → route presentation-sheets-modals. READ: is fullScreenCover justified (immersive/onboarding)? (idi-04)
+idi-05	adv	\bTabView\b	TabView — confirm the navigation idiom fits: tabs for top-level peers vs a NavigationStack push hierarchy; >5 tabs collapse to More on iPhone. SMELL → route adaptive-navigation. READ: are these genuine top-level sections? (idi-05)
+idi-06	adv	UIScreen\.main|UIScreen\.main\.bounds	UIScreen.main(.bounds) — deprecated device-metrics reach instead of GeometryReader / size-class for adaptive sizing (a UIKit-overuse idiom smell). SMELL → route uikit-overuse + adaptive-layout. READ: is a SwiftUI geometry source available? (idi-06)
+idi-07	adv	\bTable\b	Table — a multi-column data grid that collapses to one column on iPhone (compact) with no size-class handling reads as iPad-only. SMELL → route layout-and-tables + adaptive-layout. READ: is there a List fallback for compact width? (idi-07)
+idi-08	adv	\.navigationBarTitle\b	navigationBarTitle is deprecated (iOS 14+ → .navigationTitle + .navigationBarTitleDisplayMode). Stale title idiom. SMELL → route adaptive-navigation + api-currency. READ: confirm the modifier site. (idi-08)
+idi-09	adv	UIApplication\.shared\.windows|keyWindow	UIApplication.shared.windows / keyWindow — deprecated global window reach (iOS 15+) instead of a SwiftUI scene/environment source. UIKit-overuse idiom smell. SMELL → route uikit-overuse. READ: is a SwiftUI source available? (idi-09)

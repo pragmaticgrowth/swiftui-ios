@@ -1,6 +1,6 @@
 # Shared Reference — Unified Finding Schema & Output Contract
 
-The byte-identical finding-file format every audit skill writes. All 28 audit skills inherit this
+The byte-identical finding-file format every audit skill writes. All 34 audit skills inherit this
 schema unchanged; the orchestrator's consolidation reads it. Do not redefine the schema inside a
 skill's own `references/` — a skill adds only its own context-folder starter set and any catalogued
 additive domain fields.
@@ -17,12 +17,12 @@ additive domain fields.
 - Each run also writes a per-domain index: `swiftui-audits/<domain>/_index.md` — a table of every
   finding written that run.
 - `<domain>` = the skill's slug suffix (e.g. `api-currency`, `liquid-glass`).
-- `<context>` = a domain-defined sub-bucket (e.g. `control-density/`, `window-sizing/`,
+- `<context>` = a domain-defined sub-bucket (e.g. `control-density/`, `adaptive-sizing/`,
   `availability-gating/` as a *context folder* inside a domain skill — distinct from the
   `availability-gating` *skill*).
 - `NN` = a zero-padded sequence; `slug` = a short kebab description.
 - The orchestrator additionally writes one consolidated `swiftui-audits/_SUMMARY.md`.
-- `macos-nativeness` writes its `_index.md` with a `kind: nativeness-dashboard` discriminator.
+- `ios-idiomaticness` writes its `_index.md` with a `kind: nativeness-dashboard` discriminator.
 
 ---
 
@@ -38,7 +38,7 @@ context:      <context-folder name>
 file:         <path relative to project root>
 line:         <line or line-range>
 api:          <the symbol in question>
-availability: <macOS floor / "macOS ABSENT" / "n/a">
+availability: <iOS floor / "iOS ABSENT" / "n/a">
 status:       open | fixed | duplicate-of <rule_id>
 source:       <Apple URL + access date, or "verify against Xcode 26 SDK">
 verified_on:  <YYYY-MM-DD>
@@ -65,7 +65,7 @@ Field notes:
 
 ```markdown
 ## What
-## Why it's wrong on macOS
+## Why it's wrong on iOS
 ## Evidence
 ## Correct
 ## Fix applied?
@@ -87,7 +87,7 @@ A skill MAY add these alongside the canonical frontmatter; nothing else:
 | `swift_era` | concurrency-safety | the Swift concurrency era (renamed from `era` to avoid collision with api-currency's `era`) |
 | `isolation_kind` | concurrency-safety | the isolation hazard class |
 | `motion_role` | animation-motion | the animation's role |
-| `justified` (a `status` value) | appkit-overuse | a bridge confirmed necessary |
+| `justified` (a `status` value) | uikit-overuse | a bridge confirmed necessary |
 
 > **Collision rule:** `concurrency-safety` MUST use `swift_era`, not `era` — `api-currency`'s `era`
 > is a different, free-string field and the two must not share a key.
@@ -99,8 +99,8 @@ A skill MAY add these alongside the canonical frontmatter; nothing else:
 - `control-density/` → **controls-forms** owns; layout-and-tables cross_refs only inside a
   `Table`/inspector.
 - `custom-layout/` (the `Layout` protocol) → **layout-and-tables** owns; drawing-canvas classifies + routes.
-- `window-sizing/` → intentional two-domain split (content-frame = layout-and-tables, scene =
-  scenes-windows); each adds a companion note.
+- `adaptive-sizing/` → intentional two-domain split (content-frame = layout-and-tables, size-class =
+  adaptive-layout; split-view columns = adaptive-navigation); each adds a companion note.
 - preview-container canvas-crash → **previews** owns; swiftdata routes.
 
 ---

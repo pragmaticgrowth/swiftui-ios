@@ -10,22 +10,22 @@ this protocol inside a skill's own `references/`.
 **As of:** 2026-06-07.
 
 **Helper:** `bash ${CLAUDE_PLUGIN_ROOT}/scripts/sosumi.sh <symbol | doc-path | apple-url>` wraps the fetch
-below (symbol→path normalization, the macOS-floor line, error/exit codes) — the spec-layer counterpart to
-`scripts/swiftui-ctx`. e.g. `sosumi.sh MenuBarExtra` → the doc + `**Available on:** macOS 13.0+`.
+below (symbol→path normalization, the iOS-floor line, error/exit codes) — the spec-layer counterpart to
+`scripts/swiftui-ctx`. e.g. `sosumi.sh NavigationStack` → the doc + `**Available on:** iOS 16.0+`.
 
 ---
 
 ## 1. The fetch commands
 
 Sosumi renders any Apple Developer page (`/documentation/...` and `/videos/play/wwdc.../...`) to clean
-Markdown — including the `**Available on:** … macOS N+ …` line, the declaration, overview, and code
+Markdown — including the `**Available on:** … iOS N+ …` line, the declaration, overview, and code
 samples.
 
 ```bash
 # Preferred — hosted, cached, no install, block-resistant.
 # Replace developer.apple.com with sosumi.ai:
 curl -sSL https://sosumi.ai/documentation/swiftui/view/glasseffect(_:in:)
-curl -sSL https://sosumi.ai/documentation/appkit/nsanimationcontext/animate(_:changes:completion:)
+curl -sSL https://sosumi.ai/documentation/swiftui/uiviewcontrollerrepresentable
 
 # CLI (downloads on first run; accepts a full URL OR a path; --json for structured output):
 npx -y @nshipster/sosumi fetch https://developer.apple.com/documentation/swift/array
@@ -63,8 +63,8 @@ Never trust `WebFetch` on `developer.apple.com`, and never paper a JSON 404 with
 ## 4. The DocC type-property floor-inheritance quirk
 
 A `static var` / type-property's rendered floor can **inherit its enclosing type's floor**. Example:
-spring presets (`Animation.bouncy` / `.smooth` / `.snappy`) render `macOS 10.15` because they inherit
-`Animation`'s floor, but they are really **macOS 14** (WWDC23 provenance). For any type-property,
+spring presets (`Animation.bouncy` / `.smooth` / `.snappy`) render `iOS 13.0` because they inherit
+`Animation`'s floor, but they are really **iOS 17** (WWDC23 provenance). For any type-property,
 **cross-check the rendered "Available on" line against WWDC provenance** (also fetchable via Sosumi)
 before trusting the floor. A gating audit that trusts the raw JSON for such symbols will set a floor
 too low and ship a build break.
@@ -73,7 +73,7 @@ too low and ship a build break.
 
 ## 5. Rules
 
-1. To learn an API's macOS floor, deprecation, signature, or a WWDC session's content → **Sosumi**.
+1. To learn an API's iOS floor, deprecation, signature, or a WWDC session's content → **Sosumi**.
    Never `WebFetch` on `developer.apple.com`.
 2. The raw `*.json` endpoint is acceptable when it resolves and you need the exact per-platform array;
    on a 404 or for prose, fall back to Sosumi.

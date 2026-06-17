@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""audit-scan.py — relevance STEERING for the macOS-SwiftUI audit orchestrator.
+"""audit-scan.py — relevance STEERING for the iOS-SwiftUI audit orchestrator.
 
 Scans a target project and reports WHICH audit-swiftui-* skills are relevant (their domain is
 actually present), each scoped to the files where its signal hits — so the orchestrator
-(audit-macos-swiftui-full) dispatches subagent waves over only the relevant set instead of blindly
-running all 28. The 8 `always` skills are cross-cutting (run on any SwiftUI project); the 20 `cond`
+(audit-ios-swiftui-full) dispatches subagent waves over only the relevant set instead of blindly
+running all 34. The 8 `always` skills are cross-cutting (run on any SwiftUI project); the 26 `cond`
 skills fire only when their presence signal (scripts/audit-signals.tsv) matches.
 
 Usage:

@@ -43,7 +43,7 @@ The load-bearing sequence under `--fix` on a clean tree:
 ```
 guards (SEQUENTIAL):  api-currency → availability-gating → concurrency-safety
 domains (per wave):   each active domain skill, one commit per finding
-meta (LAST):          macos-nativeness (re-scored for a before/after delta)
+meta (LAST):          ios-idiomaticness (re-scored for a before/after delta)
 ```
 
 Fixes are **never** applied inside a parallel detection wave — domain skills run findings-only in

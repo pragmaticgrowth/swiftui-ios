@@ -1,0 +1,12 @@
+# grep-tells.tsv — TIER 1 (flat-presence) rules for audit-swiftui-presentation-sheets-modals (psm-01 … psm-05).
+# Columns (TAB-separated): id <TAB> severity <TAB> ERE-regex <TAB> message
+# severity: hard | warn | adv   (hard → runner exits 2). The runner greps each ERE over the target *.swift.
+# This LOCATES only — the LLM agent READS each hit (SKILL.md step 3) and decides. grep can flag the PRESENCE
+# of a .sheet/.fullScreenCover/.popover but NOT the ABSENCE of .presentationDetents / .presentationCompactAdaptation
+# in its chain — so every psm-01/psm-04 hit MUST be read in full to confirm no detent/adaptation modifier
+# appears downstream. ast-grep is NOT installed; this grep tier stands alone. Full ❌→✅: ../references/sheets-detents-covers.md.
+psm-01	warn	\.sheet\(	a .sheet presentation — READ its chain: a content-rich sheet wants .presentationDetents([.medium, .large]) (iOS 16+) or it is locked full-height, the pre-iOS-16 modal (psm-01). Confirm NO .presentationDetents appears downstream.
+psm-02	adv	\.presentationDetents\(	a detented sheet — confirm a .presentationDragIndicator(.visible) grab handle accompanies the detents (psm-02). READ: is the drag indicator present in the same chain?
+psm-03	warn	\.fullScreenCover\(	a .fullScreenCover — reserve for immersive / no-dismiss flows (onboarding, capture, sign-in). READ the wrapped content: a trivial dismissible dialog/picker/confirmation should be a .sheet (psm-03).
+psm-04	warn	\.popover\(	a .popover — on compact-width iPhone it becomes an opaque full-screen cover unless .presentationCompactAdaptation(.popover) is set (psm-04). Confirm NO .presentationCompactAdaptation appears downstream.
+psm-05	adv	\.presentationBackground\(\.clear\)|\.presentationContentInteraction\(	presentation-background/interaction — a presentationBackground(.clear) needs visible material behind it; presentationContentInteraction is a no-op on a non-detented sheet (psm-05). READ the surrounding presentation chain.
