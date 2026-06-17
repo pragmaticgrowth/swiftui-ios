@@ -18,6 +18,11 @@ Don't reconstruct an iOS pattern from memory — `NavigationStack` + `.navigatio
 `.presentationDetents` argument shapes, and `UIViewRepresentable` (Coordinator + `makeUIView` / `updateUIView`) are
 exactly where memory fails. Pull the recipe, then open a real example. Announce: *"Using ios-app-patterns."*
 
+**Design-vet every scaffold.** Adapt recipes to use built-in text styles, semantic/system colors, 44 pt
+targets, SF Symbols, and HIG navigation per `${CLAUDE_PLUGIN_ROOT}/references/_shared/hig-design-rubric.md`
+and `liquid-glass-design.md` (never a number from memory or a myth from `design-claims-blacklist.md`).
+**Ship a `#Preview` with each scaffold** so it can be rendered and design-reviewed (`audit-swiftui-design-review`).
+
 ## Workflow
 1. `swiftui-ctx recipes` — list the patterns (or go straight to the one you need).
 2. `swiftui-ctx recipe <name>` — the template skeleton + the APIs + real examples.
@@ -49,3 +54,5 @@ cross-framework (UIKit / WidgetKit), not gated by the SwiftUI floor. Confirm any
 | File | Read when |
 |---|---|
 | `references/recipes.md` | You want the recipe index with the APIs each one composes. |
+| `../../references/_shared/hig-design-rubric.md` | Design defaults for the scaffold (type/color/targets/nav) |
+| `../../references/_shared/liquid-glass-design.md` | Liquid Glass placement when a scaffold has chrome |
