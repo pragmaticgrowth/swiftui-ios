@@ -17,19 +17,19 @@ struct LibraryView: View { @EnvironmentObject var library: Library }     // wron
 ```
 
 ```swift
-// ✅ CORRECT — inject by type at SCENE level, retrieve by type, bind locally (macOS 14+)
-@available(macOS 14, *)
+// ✅ CORRECT — inject by type at SCENE level, retrieve by type, bind locally (iOS 17+)
+@available(iOS 17, *)
 @Observable final class Book { var title = "Sample Book Title" }
 
-@available(macOS 14, *)
-@main struct MacApp: App {
+@available(iOS 17, *)
+@main struct iOSApp: App {
     @State private var book = Book()               // owned once, @State at App scope
     var body: some Scene {
         WindowGroup { TitleEditView() }
-            .environment(book)                     // every window of the WindowGroup sees it
+            .environment(book)                     // every view in the WindowGroup sees it
     }
 }
-@available(macOS 14, *)
+@available(iOS 17, *)
 struct TitleEditView: View {
     @Environment(Book.self) private var book       // read-only by type
     var body: some View {
@@ -39,12 +39,12 @@ struct TitleEditView: View {
 }
 ```
 
-## The macOS angle (load-bearing)
+## The iOS angle (load-bearing)
 
-On macOS, type-keyed injection is typically at the **scene** level (on `WindowGroup`/the `Scene`) so every
-window of a `WindowGroup` sees the **shared** model — this is the multi-window reason the type-keyed
-environment matters more on Mac than iOS. Inject only **genuinely shared** models at scene level; per-window
-concerns stay as `@State` in the window's root view (see `model-lifecycle.md`, state-10). Reading back an
+On iOS, type-keyed injection at the **scene** level (on `WindowGroup`/the `Scene`) makes a shared
+model visible to every view in the hierarchy — this is the correct ownership shape for app-wide
+models on iPhone and iPad. Inject only **genuinely shared** models at scene level; per-screen
+concerns stay as `@State` in the screen's root view (see `model-lifecycle.md`, state-10). Reading back an
 injected `@Observable` is read-only; to get a binding, re-wrap locally with `@Bindable var x = x`.
 
 ## The detection nuance

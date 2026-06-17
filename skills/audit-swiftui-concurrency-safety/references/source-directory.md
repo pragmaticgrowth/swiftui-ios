@@ -12,7 +12,7 @@ concurrency claim. **Two source classes — route each fact correctly:**
   `${CLAUDE_PLUGIN_ROOT}/references/_shared/sosumi-reference.md`; never `WebFetch developer.apple.com`.
 
 Floor values: `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md`. **As of:** 2026-06-07 ·
-macOS 26 (Tahoe) · Xcode 26 SDK · Swift 6.2.
+iOS 26 (Tahoe) · Xcode 26 SDK · Swift 6.2.
 
 ---
 
@@ -32,12 +32,12 @@ Human doc path = `developer.apple.com/documentation/<path>` (fetch as `sosumi.ai
 
 | Symbol | Path | Floor |
 |---|---|---|
-| `.task(name:priority:file:line:_:)` / `.task(id:name:priority:file:line:_:)` | `swiftui/view/task(name:priority:file:line:_:)` | macOS 12.0+ |
-| `MainActor.run(resultType:body:)` | `swift/mainactor/run(resulttype:body:)` | macOS 10.15+ |
-| `@MainActor` / `Sendable` / `Task` / `Task.detached` | `swift/mainactor` · `swift/sendable` · `swift/task` | macOS 10.15+ |
-| `Transferable` / `transferRepresentation` | `coretransferable/transferable` | macOS 13.0+ |
+| `.task(name:priority:file:line:_:)` / `.task(id:name:priority:file:line:_:)` | `swiftui/view/task(name:priority:file:line:_:)` | iOS 15.0+ |
+| `MainActor.run(resultType:body:)` | `swift/mainactor/run(resulttype:body:)` | iOS 13.0+ |
+| `@MainActor` / `Sendable` / `Task` / `Task.detached` | `swift/mainactor` · `swift/sendable` · `swift/task` | iOS 13.0+ |
+| `Transferable` / `transferRepresentation` | `coretransferable/transferable` | iOS 16.0+ |
 
-**Era-gated to Swift 6.2+ (no macOS floor — a toolchain gate; verify against Xcode 26 SDK):**
+**Era-gated to Swift 6.2+ (no iOS floor — a toolchain gate; verify against Xcode 26 SDK):**
 `@concurrent`, `nonisolated(nonsending)`, the `NonisolatedNonsendingByDefault` flag,
 `-default-isolation MainActor`, `Task(name:)`.
 

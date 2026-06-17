@@ -7,7 +7,7 @@ The depth behind the view-vs-`Canvas` choice, the `Timer`→`TimelineView` redra
 lookup <api> --json` and a real call site with `… file <recommended.id> --smart`), never a hand-invented
 snippet.
 
-**As of:** 2026-06-07 · macOS 26 (Tahoe) · Xcode 26 SDK. APIs here are long-stable (macOS 12/10.15).
+**As of:** 2026-06-07 · iOS 26 · Xcode 26 SDK. APIs here are long-stable (iOS 15/13.0).
 
 ---
 
@@ -44,8 +44,8 @@ Canvas { context, size in
 }
 ```
 
-**Real verified call site (the `## Source` shape — `swiftui-ctx lookup Canvas` → `recommended`
-`ex_94cad9e72b`, the `{ }` consensus form at 90%, macOS 12.0+, 251 repos / 672 uses, fetched 2026-06-07):**
+**Real verified call site (the `## Source` shape — `swiftui-ctx lookup Canvas --platform ios` → `recommended`
+`ex_94cad9e72b`, the `{ }` consensus form at 90%, iOS 15.0+, 251 repos / 672 uses, fetched 2026-06-07):**
 
 ```swift
 // github.com/sindresorhus/Gifski … CropOverlayView.swift#L21  — Canvas { context, size in … }
@@ -59,10 +59,10 @@ Canvas { context, size in
 ```
 
 - Permalink: `https://github.com/sindresorhus/Gifski/blob/7f873856e2acd8b52e6681dee3aec31e6cab23e4/Gifski/Crop/CropOverlayView.swift#L21`
-- Sosumi `doc:` `https://sosumi.ai/documentation/swiftui/canvas` (macOS 12.0+).
+- Sosumi `doc:` `https://sosumi.ai/documentation/swiftui/canvas` (iOS 15.0+).
 
 Refresh the live consensus + permalink for any finding's `## Source`:
-`bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx lookup Canvas --json` then `file <recommended.id> --smart`.
+`bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx lookup Canvas --platform ios --json` then `file <recommended.id> --smart`.
 `Canvas` `co_occurs_with` gestures
 (`RotateGesture`, `RotationGesture`) and keyframe drivers — a Canvas that *is* interactive keeps its
 gesture; that is the line between draw-01 (consolidate) and "leave it a view."
@@ -80,7 +80,7 @@ advances. That is a hand-rolled render loop SwiftUI already owns — it is not v
 whole `body`, and it keeps ticking off-screen.
 
 **✅ correct — `TimelineView` (swiftui-ctx consensus shape is `(_)` at 99% — a single schedule argument +
-trailing closure; floor macOS 12.0):**
+trailing closure; floor iOS 15.0):**
 
 ```swift
 TimelineView(.animation) { context in           // .animation = redraw every frame, vsync-aligned
@@ -95,7 +95,7 @@ cadence — a clock), `.explicit(_:)` (you supply the dates). Pick the slowest s
 right; `.animation` on a clock that only needs `.periodic(by: 1)` is wasted frames.
 
 Verify the schedule + a real call site:
-`bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx lookup TimelineView --json`. Warning, `flag-only` — the
+`bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx lookup TimelineView --platform ios --json`. Warning, `flag-only` — the
 ast-grep rule `draw-02` proves the handler assigns; READ to confirm the mutation exists *only* to repaint
 (a `Timer` that also writes a model or logs is a real side effect, not draw-02). The motion *curve* of the
 animation is `animation-motion`'s; `TimelineView`-as-clock is ours at that seam.
@@ -104,7 +104,7 @@ animation is `animation-motion`'s; `TimelineView`-as-clock is ours at that seam.
 
 ## draw-09 / draw-10 — `.drawingGroup()`: the usage decision (and its misuse)
 
-`.drawingGroup()` (floor macOS 10.15) flattens its subtree into **one** offscreen Metal layer rendered as
+`.drawingGroup()` (floor iOS 13.0) flattens its subtree into **one** offscreen Metal layer rendered as
 a unit — a win for *expensive, static, many-primitive* vector art that would otherwise re-rasterize each
 frame. swiftui-ctx consensus is the bare `()` form (82%; `(opaque)` 13%).
 
@@ -138,5 +138,5 @@ draw-01/02/09 legible at a glance and is reproducible run-to-run.
   `https://developer.apple.com/documentation/swiftui/view/drawinggroup(opaque:colormode:)` (via Sosumi,
   accessed 2026-06-07).
 - Practice corpus (consensus shapes + permalinked call sites): `swiftui-ctx lookup Canvas|TimelineView|
-  drawingGroup --json` — e.g. `Canvas` `{ }` 90%, `TimelineView` `(_)` 99%, `drawingGroup` `()` 82%
+  drawingGroup --platform ios --json` — e.g. `Canvas` `{ }` 90%, `TimelineView` `(_)` 99%, `drawingGroup` `()` 82%
   (accessed 2026-06-07). CLI contract: `${CLAUDE_PLUGIN_ROOT}/references/_shared/swiftui-ctx-reference.md`.

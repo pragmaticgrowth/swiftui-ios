@@ -5,7 +5,7 @@ prop it can't value-compare, a fast-changing `@Environment` value read by many v
 `@Observable` read each defeats that proof. These are **judgment** defects — READ before reporting; the
 fix shapes below are confirmed via `swiftui-ctx lookup`.
 
-**As of 2026-06-07 · macOS 26 (Tahoe) · Swift 6.2 toolchain.**
+**As of 2026-06-07 · iOS 26 (Tahoe) · Swift 6.2 toolchain.**
 
 ---
 
@@ -17,7 +17,7 @@ re-render. Two fixes, in order of preference:
 1. **Prefer**: let the child read shared `@Observable`/`@Environment` state instead of receiving a
    callback — then there's no closure to compare.
 2. **When the child must keep the closure**: make the child `Equatable` (or wrap it in `EquatableView`,
-   real since macOS 10.15 — `swiftui-ctx lookup EquatableView` → 100% consensus `(content)`) so SwiftUI
+   real since iOS 13.0 — `swiftui-ctx lookup EquatableView --platform ios` → 100% consensus `(content)`) so SwiftUI
    compares the child's **other** props and skips re-render. Keeping the closure *stable* alone is **not
    enough** — SwiftUI still can't compare a function value, so without `Equatable` the child is never
    skipped.
@@ -38,7 +38,8 @@ struct Row: View, Equatable {
 `@Environment` **fans out widely**: every view reading a given key is re-checked when that value changes.
 A fast-changing value there — a timer tick, drag/scroll geometry, anything updating many times a second —
 re-evaluates the **whole subtree of subscribers on every tick** (WWDC25 session 306 warns against
-exactly this).
+exactly this). On iOS, scroll-position updates and sensor data (location, motion) are common sources
+of high-frequency fan-out.
 
 ```swift
 // ❌ WRONG — a timer tick pushed through the environment; every reader's subtree re-evaluates per tick

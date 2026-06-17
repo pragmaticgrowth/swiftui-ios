@@ -13,7 +13,7 @@ the data it needs, so it gets its own per-property invalidation.
 
 ```swift
 // ❌ WRONG (perf) — AI splits the view into a computed property to "tidy" it
-@available(macOS 14, *)
+@available(iOS 17, *)
 struct DashboardView: View {
     @State private var vm = DashboardModel()
     var body: some View { header; list }
@@ -23,13 +23,13 @@ struct DashboardView: View {
 ```
 
 ```swift
-// ✅ CORRECT — extract into a real child View TYPE (macOS 14+)
-@available(macOS 14, *)
+// ✅ CORRECT — extract into a real child View TYPE (iOS 17+)
+@available(iOS 17, *)
 struct DashboardView: View {
     @State private var vm = DashboardModel()
     var body: some View { Header(); ItemList(items: vm.items) }
 }
-@available(macOS 14, *)
+@available(iOS 17, *)
 struct ItemList: View { let items: [Item]; var body: some View { /* … */ } }
 ```
 
@@ -47,8 +47,8 @@ non-UI bookkeeping field that mutates frequently will invalidate views for chang
 such fields `@ObservationIgnored` so mutating them never triggers invalidation.
 
 ```swift
-// ✅ CORRECT — UI-relevant fields tracked; a private cache opts out (macOS 14+)
-@available(macOS 14, *)
+// ✅ CORRECT — UI-relevant fields tracked; a private cache opts out (iOS 17+)
+@available(iOS 17, *)
 @Observable final class SearchModel {
     var query = ""                                                  // tracked: typing redraws results
     @ObservationIgnored private var cache: [String: [Result]] = [:] // never triggers invalidation
@@ -62,7 +62,7 @@ should opt out. A tracked-but-displayed property must stay tracked; over-flaggin
 ## ✅ grounded in swiftui-ctx
 
 ```bash
-bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx lookup ObservationIgnored --json  # introduced_macos 14.0, real call sites
+bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx lookup ObservationIgnored --platform ios --json  # introduced_ios 17.0, real call sites
 bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx file <recommended.id> --smart     # a real @ObservationIgnored model, live
 ```
 
@@ -77,10 +77,10 @@ Cite the recommended permalink as the ✅ `## Source`.
 
 ## Sources
 
-- **Apple — `ObservationIgnored()` macro.** `macOS 14.0+`. Disables observation tracking for a stored
+- **Apple — `ObservationIgnored()` macro.** `iOS 17.0+`. Disables observation tracking for a stored
   property of an `@Observable` type.
   https://developer.apple.com/documentation/observation/observationignored() — accessed 2026-06-07 (via Sosumi).
-- **Apple — `Observable()` macro.** Tracks every stored property by default; `macOS 14.0+`.
+- **Apple — `Observable()` macro.** Tracks every stored property by default; `iOS 17.0+`.
   https://developer.apple.com/documentation/observation/observable() — accessed 2026-06-06 (via Sosumi).
 - **Paul Hudson — "What to fix in AI-generated Swift code," 2025-12-09.** Computed-property views defeat
   `@Observable` invalidation. https://www.hackingwithswift.com/articles/281/what-to-fix-in-ai-generated-swift-code

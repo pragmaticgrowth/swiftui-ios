@@ -1,12 +1,12 @@
 # Reference — Strings, the String Catalog & translator comments (loc-01/02/03/04/05/09)
 
-How user-facing text reaches a translator on macOS, and the ways SwiftUI code escapes it. Per-platform
+How user-facing text reaches a translator on iOS, and the ways SwiftUI code escapes it. Per-platform
 floor *values* are not restated here — they live in
 `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md`. The ✅ shapes below are the **swiftui-ctx
-consensus** for each API (run `swiftui-ctx lookup <api> --json` to refresh the permalinked example);
+consensus** for each API (run `swiftui-ctx lookup <api> --platform ios --json` to refresh the permalinked example);
 verify any uncertain symbol via Sosumi (`${CLAUDE_PLUGIN_ROOT}/references/_shared/sosumi-reference.md`).
 
-**As of:** 2026-06-07 · macOS 26 (Tahoe) · Xcode 26 SDK.
+**As of:** 2026-06-07 · iOS 26 (Tahoe) · Xcode 26 SDK.
 
 ---
 
@@ -24,10 +24,10 @@ Catalog as a key. `Text(someVar)` silently takes the *other* overload and never 
 This is the single highest-frequency localization defect (loc-02). The same literal-vs-variable split
 applies to `Label`, `.navigationTitle`, `Button`, `Toggle`, `.help`, `Picker` row labels, etc.
 
-`swiftui-ctx lookup Text --json` → consensus `(_)` **99%**, `(verbatim)` 1%; recommended current
-example (macOS 26, f/textream, authority 409932):
+`swiftui-ctx lookup Text --platform ios --json` → consensus `(_)` **99%**, `(verbatim)` 1%; recommended current
+example (iOS corpus, f/textream, authority 409932):
 `https://github.com/f/textream/blob/6c34baaef9fea5de30bce619b4ed34cd675d5617/Textream/Textream/NotchOverlayController.swift#L910`.
-`lookup LocalizedStringKey --json` → consensus `(_)` **98%**. So shipping Mac apps overwhelmingly pass
+`lookup LocalizedStringKey --platform ios --json` → consensus `(_)` **98%**. So shipping iOS apps overwhelmingly pass
 a **literal**; a variable is the outlier to scrutinize.
 
 ---
@@ -43,7 +43,7 @@ a **literal**; a variable is the outlier to scrutinize.
   "fixing" your product name. ❌ `Text("Acme 1.0.3")` → ✅ `Text(verbatim: "Acme 1.0.3")`.
 
 The call is **judgment** (human-readable copy vs token), so both are detected in READ, not by a regex,
-and carried at the confidence you can defend. A real production opt-out (mac-mouse-fix, the 1% shape):
+and carried at the confidence you can defend. A real production opt-out (the 1% shape):
 `https://github.com/noah-nuebling/mac-mouse-fix/blob/1fad847915cee43dbc4f1806f23ac67913462f92/Shared/Math/Curves/CurveVisualizer.swift#L40`
 (`Text(verbatim: …)` around a debug/math string — correct, because it is not UI copy).
 
@@ -56,7 +56,7 @@ This `verbatim:` / markdown axis is **shared with `audit-swiftui-typography-text
 ✅ Hold the text as a localized type so the variable *is* localized:
 
 ```swift
-let status = LocalizedStringResource("status.syncing")   // macOS 13+
+let status = LocalizedStringResource("status.syncing")   // iOS 16+
 Text(status)                                             // localized via the resource
 // or, for a String you need elsewhere:
 let label = String(localized: "status.syncing", comment: "Shown while a sync is running")
@@ -80,7 +80,7 @@ Text("welcome.title")
 let s = String(localized: "welcome.title", comment: "Welcome screen title")
 ```
 
-`String(localized:)` / `String.LocalizationValue` is **macOS 12.0+** and its doc lives under
+`String(localized:)` / `String.LocalizationValue` is **iOS 15.0+** and its doc lives under
 `/documentation/swift/` (the Swift overlay), **not** `/foundation/` — see `source-directory.md`. If both
 this and the generic deprecation sweep fire on the same line, `audit-swiftui-api-currency` is primary;
 emit `cross_ref: api-currency`.
@@ -95,7 +95,7 @@ review all assume a catalog. ✅ Add a String Catalog target file; literal keys 
 ## loc-05 — no `comment:` for translators
 
 A key without a comment gives the translator no context ("Open" — a verb? a state? a door?). Provide a
-`comment:` everywhere a literal becomes a key. The real shape (NetNewsWire, macOS-shipping):
+`comment:` everywhere a literal becomes a key. The real shape (NetNewsWire, iOS-shipping):
 `Text("label.text.unread", comment: "Unread")` —
 `https://github.com/Ranchero-Software/NetNewsWire/blob/60295842054529c3450b91af15911cecb1a1cc4f/Widget/WidgetBundle.swift#L27`.
 
@@ -118,5 +118,5 @@ A `bundle:` argument (e.g. `Text("context", bundle: .module)`) is the right shap
   `/documentation/xcode/localizing-and-varying-text-with-a-string-catalog`.
 - WWDC23 — "Discover String Catalogs" (`/videos/play/wwdc2023/10155`); WWDC21 — "Streamline your
   localized strings" (`/videos/play/wwdc2021/10221`), via Sosumi.
-- Real macOS examples surfaced by `swiftui-ctx lookup Text` / `lookup LocalizedStringKey` — permalinks
+- Real iOS examples surfaced by `swiftui-ctx lookup Text --platform ios` / `lookup LocalizedStringKey --platform ios` — permalinks
   inline above (f/textream, NetNewsWire, mac-mouse-fix).

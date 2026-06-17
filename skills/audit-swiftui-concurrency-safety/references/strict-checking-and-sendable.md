@@ -16,7 +16,7 @@ ORIENT before calling any of these an error rather than a latent race.
 
 ## conc-01 — non-`Sendable` type crossing an actor boundary
 
-Passing a model `class`, `ModelContext`, or an `NSView` out of a main-actor context into a background
+Passing a model `class`, `ModelContext`, or a `UIView` out of a main-actor context into a background
 task. Pre-6 leniency; an **error** under the Swift 6 language mode.
 
 ❌ **WRONG** — non-`Sendable` `user` escapes main-actor isolation:
@@ -65,9 +65,9 @@ func use() { run { [count] in print(count) } }
 ```
 **Why:** capture-by-value reads a *copy* taken at closure creation, so no isolated access happens inside
 the `@Sendable` body. Reads only — *mutating* main-actor state triggers "*can not be mutated from a
-Sendable closure*" and needs an `await` / `MainActor.run` hop (see `main-actor-hops.md`). On Mac this
-bites at AppKit `Coordinator` delegate callbacks — flag the isolation hazard; the *how* of the bridge
-belongs to `appkit-interop` (cross_ref).
+Sendable closure*" and needs an `await` / `MainActor.run` hop (see `main-actor-hops.md`). On iPhone/iPad this
+bites at UIKit `Coordinator` delegate callbacks — flag the isolation hazard; the *how* of the bridge
+belongs to `uikit-interop` (cross_ref).
 
 ---
 
@@ -75,7 +75,7 @@ belongs to `appkit-interop` (cross_ref).
 
 `Transferable` / `loadTransferable` drag-drop that compiled pre-6 but errors because the transfer
 payload — or the closure crossing the transfer boundary — isn't `Sendable`-correct. **This skill owns
-Sendable correctness (primary); `sandbox-files` owns consent/bookmark (cross_ref).**
+Sendable correctness (primary); `document-picker-permissions` owns consent/bookmark (cross_ref).**
 
 ❌ **WRONG** — a transfer item wrapping a non-`Sendable` class:
 ```swift

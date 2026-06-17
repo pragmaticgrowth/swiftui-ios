@@ -2,12 +2,12 @@
 
 How view-lifecycle async loading should be bound, cancelled, and guarded against stale results. The
 canonical concurrency facts (`.task` is `@MainActor`, `Sendable` crossing) live in
-`${CLAUDE_PLUGIN_ROOT}/skills/build-macos-swiftui/references/concurrency.md` mistake 4; this file is the
+`${CLAUDE_PLUGIN_ROOT}/skills/build-ios-swiftui/references/concurrency.md` mistake 4; this file is the
 audit framing. **Get the ✅ shapes from `swiftui-ctx`, not from memory** —
 `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx lookup task --json` returns the consensus shape and a
-permalinked macOS-26 example (do not paste a static snippet as the canonical one).
+permalinked iOS-26 example (do not paste a static snippet as the canonical one).
 
-**As of:** 2026-06-07 · macOS 26 (Tahoe) · Xcode 26 SDK.
+**As of:** 2026-06-07 · iOS 26 (Tahoe) · Xcode 26 SDK.
 
 ---
 
@@ -23,7 +23,7 @@ re-appearing view launches a second one that races the first.
 ```
 
 ✅ **CORRECT** — `.task` binds the work to view identity and auto-cancels; `.task(id:)` restarts on change.
-The consensus shape (`swiftui-ctx lookup task`: 70% `{ }`, 29% `(id)`) and a real macOS-26 site:
+The consensus shape (`swiftui-ctx lookup task`: 70% `{ }`, 29% `(id)`) and a real iOS-26 site:
 ```swift
 .task { await model.load() }                          // cancelled when the view goes away
 .task(id: selectedID) { await model.load(selectedID) }   // restarts when id changes
@@ -31,7 +31,7 @@ The consensus shape (`swiftui-ctx lookup task`: 70% `{ }`, 29% `(id)`) and a rea
 The `.task` closure **inherits the actor context of its call site** — in a SwiftUI `View.body` (itself `@MainActor`) that means the closure runs on the main actor, so view-state mutation inside needs no extra hop in normal use. This is inherited context via `@_inheritActorContext`, not an explicit `@MainActor` annotation; a `.task` applied from a non-`@MainActor` call site would not inherit it.
 
 **Seam (own the lifecycle, not the isolation).** This skill fixes only the lifecycle move. If the captured
-loading state is **non-`Sendable`** (a model `class`, `ModelContext`, an `NSView`), the isolation verdict
+loading state is **non-`Sendable`** (a model `class`, `ModelContext`, a `UIView`), the isolation verdict
 is `concurrency-safety`'s — emit `cross_ref: concurrency-safety` and keep the fix to `.task`. When the
 state is already `Sendable`/`@MainActor`-safe, the `Task{}`→`.task` rewrite is mechanical (`fix_mode: auto`).
 
@@ -79,6 +79,6 @@ concurrency-safety` when a `Sendable` boundary is also involved.
   cancelled on disappear), fetched via Sosumi. Accessed 2026-06-07.
 - Apple — `https://developer.apple.com/documentation/swift/task/iscancelled` and
   `/documentation/swift/task/cancel()` (cooperative cancellation), via Sosumi. Accessed 2026-06-07.
-- swiftui-ctx corpus — `lookup task` consensus `{ }` 70% / `(id)` 29%; recommended macOS-26 example
+- swiftui-ctx corpus — `lookup task` consensus `{ }` 70% / `(id)` 29%; recommended iOS-26 example
   `https://github.com/sindresorhus/Gifski/blob/7f873856e2acd8b52e6681dee3aec31e6cab23e4/Gifski/Utilities.swift#L5590`
   (`.task(id:)`). Accessed 2026-06-07.

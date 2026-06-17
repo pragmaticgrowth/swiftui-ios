@@ -42,11 +42,11 @@ The opposite extreme of the same misread: dropping `@MainActor` from a UI-touchi
 ✅ **CORRECT** — annotate explicitly when the mode is off (the common case):
 ```swift
 @MainActor @Observable final class ViewModel { var items: [Item] = [] }
-// Mode ON (a fresh Xcode 26 Mac app may enable it): the @MainActor is redundant — drop it.
+// Mode ON (a fresh Xcode 26 iOS app may enable it): the @MainActor is redundant — drop it.
 ```
 **Why:** "main actor by default" is the **new option** to isolate code to the main actor
 (`-default-isolation MainActor`), not the unconditional default. Check the build setting; a fresh Xcode
-26 Mac template frequently enables it, an existing or library target usually does not.
+26 iOS app template frequently enables it, an existing or library target usually does not.
 
 ## conc-07 / conc-08 — execution context: `@concurrent` vs `nonisolated(nonsending)` vs plain `nonisolated async`
 
@@ -67,7 +67,7 @@ nonisolated func decode(_ url: URL) async -> Image { heavyDecode(url) }
 // call: .task { self.image = try? await Loader.decodeLargeImage(url) }
 
 // (b) CALLER's context per function (no global flag): nonisolated(nonsending).            [conc-08]
-//     Ideal at an AppKit Coordinator / NSViewRepresentable boundary that's already main-actor.
+//     Ideal at a UIKit Coordinator / UIViewRepresentable boundary that's already main-actor.
 nonisolated(nonsending) func validate(_ text: String) async -> Bool { /* stays on the caller */ }
 
 // (c) Module-wide caller-context default: enable the flag, then @concurrent marks exceptions.
@@ -77,9 +77,9 @@ nonisolated(nonsending) func validate(_ text: String) async -> Bool { /* stays o
 **Why:** `@concurrent` (always global executor) and `nonisolated(nonsending)` (always caller's context)
 are explicit opposites — they behave the same with or without the flag. The flag only changes the
 **default** for *unannotated* `nonisolated async` functions. All three need **Swift 6.2+** — gate them;
-never emit them for a 6.0/6.1 target. On Mac, reach for `nonisolated(nonsending)` at AppKit
-`Coordinator`/`NSViewRepresentable` async callbacks (cross_ref `appkit-interop`), and `@concurrent` for
-heavy image/document decode that must stay off the main actor — never GCD.
+never emit them for a 6.0/6.1 target. On iPhone/iPad, reach for `nonisolated(nonsending)` at UIKit
+`Coordinator`/`UIViewRepresentable` async callbacks (cross_ref `uikit-interop`), and `@concurrent` for
+heavy image/decode work that must stay off the main actor — never GCD.
 
 ---
 

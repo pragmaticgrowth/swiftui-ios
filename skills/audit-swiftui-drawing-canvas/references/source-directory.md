@@ -7,18 +7,18 @@ file is the drawing-specific *map* of which pages to fetch. Floor values live in
 `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md`. The **practice** half of VERIFY is
 `swiftui-ctx` (`${CLAUDE_PLUGIN_ROOT}/references/_shared/swiftui-ctx-reference.md`).
 
-**As of:** 2026-06-07 · macOS 26 (Tahoe) · Xcode 26 SDK.
+**As of:** 2026-06-07 · iOS 26 · Xcode 26 SDK.
 
 ---
 
 ## How to verify (summary; full protocol in the shared sosumi reference)
 
-1. **Does the symbol exist + what's its macOS floor?** Fetch
-   `https://sosumi.ai/documentation/swiftui/<symbol-path>` and read the `**Available on:** … macOS N+ …`
-   line. Absence from the SwiftUI index = treat as hallucinated until proven. Most APIs here are macOS
-   12/10.15 — the only floor that *moves* is `MeshGradient` (macOS 15.0).
-2. **Practice cross-check.** `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx lookup <api> --json` →
-   `consensus` (canonical call shape), `introduced_macos`, `recommended` (a real macOS-26 permalink for
+1. **Does the symbol exist + what's its iOS floor?** Fetch
+   `https://sosumi.ai/documentation/swiftui/<symbol-path>` and read the `**Available on:** … iOS N+ …`
+   line. Absence from the SwiftUI index = treat as hallucinated until proven. Most APIs here are iOS
+   15/13.0 — the only floor that *moves* is `MeshGradient` (iOS 18.0).
+2. **Practice cross-check.** `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx lookup <api> --platform ios --json` →
+   `consensus` (canonical call shape), `introduced_ios`, `recommended` (a real iOS-26 permalink for
    the finding's `## Source`), `co_occurs_with`. A `lookup` **exit 3** corroborates a hallucination.
 3. Never `WebFetch` `developer.apple.com`; never paper a 404 with a memory guess — fall back to Sosumi.
 
@@ -28,20 +28,20 @@ file is the drawing-specific *map* of which pages to fetch. Floor values live in
 
 Human doc path = `developer.apple.com/documentation/swiftui/<path>` (fetch via `sosumi.ai/...`).
 
-| Symbol | Path | Floor |
+| Symbol | Path | iOS Floor |
 |---|---|---|
-| `Canvas(opaque:colorMode:rendersAsynchronously:renderer:)` | `canvas` | 12.0 |
-| `GraphicsContext` | `graphicscontext` | 12.0 |
-| `TimelineView` | `timelineview` | 12.0 |
-| `TimelineSchedule` (`.animation`/`.periodic`/`.explicit`) | `timelineschedule` | 12.0 |
-| `Path` | `path` | 10.15 |
-| `Circle`/`Ellipse`/`Rectangle`/`RoundedRectangle`/`Capsule` | `circle` · `ellipse` · `rectangle` · `roundedrectangle` · `capsule` | 10.15 |
-| `Gradient`/`LinearGradient`/`RadialGradient`/`AngularGradient` | `gradient` · `lineargradient` · `radialgradient` · `angulargradient` | 10.15 |
-| `MeshGradient(width:height:points:colors:)` | `meshgradient` | **15.0** |
-| `View.drawingGroup(opaque:colorMode:)` | `view/drawinggroup(opaque:colormode:)` | 10.15 |
-| `View.containerRelativeFrame(_:alignment:)` | `view/containerrelativeframe(_:alignment:)` | 14.0 |
-| `GeometryReader` | `geometryreader` | 10.15 |
-| `View.accessibilityChartDescriptor(_:)` | `view/accessibilitychartdescriptor(_:)` | 12.0 |
+| `Canvas(opaque:colorMode:rendersAsynchronously:renderer:)` | `canvas` | 15.0 |
+| `GraphicsContext` | `graphicscontext` | 15.0 |
+| `TimelineView` | `timelineview` | 15.0 |
+| `TimelineSchedule` (`.animation`/`.periodic`/`.explicit`) | `timelineschedule` | 15.0 |
+| `Path` | `path` | 13.0 |
+| `Circle`/`Ellipse`/`Rectangle`/`RoundedRectangle`/`Capsule` | `circle` · `ellipse` · `rectangle` · `roundedrectangle` · `capsule` | 13.0 |
+| `Gradient`/`LinearGradient`/`RadialGradient`/`AngularGradient` | `gradient` · `lineargradient` · `radialgradient` · `angulargradient` | 13.0 |
+| `MeshGradient(width:height:points:colors:)` | `meshgradient` | **18.0** |
+| `View.drawingGroup(opaque:colorMode:)` | `view/drawinggroup(opaque:colormode:)` | 13.0 |
+| `View.containerRelativeFrame(_:alignment:)` | `view/containerrelativeframe(_:alignment:)` | 17.0 |
+| `GeometryReader` | `geometryreader` | 13.0 |
+| `View.accessibilityChartDescriptor(_:)` | `view/accessibilitychartdescriptor(_:)` | 15.0 |
 
 **Do not invent** (absent from the index → hallucinated): `Canvas2D`, `.canvasRenderer`,
 `MeshGradientView`, `DrawingContext` (the real type is `GraphicsContext`). VERIFY any uncertain symbol via
@@ -76,6 +76,6 @@ a `swiftui-ctx lookup` exit-3 + Sosumi index-absence before emitting a hallucina
 
 - Sosumi fetch protocol + JSON-404 caveat: `${CLAUDE_PLUGIN_ROOT}/references/_shared/sosumi-reference.md`.
 - swiftui-ctx practice CLI: `${CLAUDE_PLUGIN_ROOT}/references/_shared/swiftui-ctx-reference.md` (run
-  `lookup Canvas|TimelineView|MeshGradient|drawingGroup --json`, accessed 2026-06-07).
+  `lookup Canvas|TimelineView|MeshGradient|drawingGroup --platform ios --json`, accessed 2026-06-07).
 - All Apple paths above fetched via `https://sosumi.ai/...` (access 2026-06-07).
 - Practitioner URLs as listed (trust labelled; corroboration only).

@@ -24,11 +24,11 @@ struct InspectorView: View {
 ```
 
 ```swift
-// ✅ CORRECT — non-owning view that needs two-way bindings → @Bindable (macOS 14+)
-@available(macOS 14, *)
+// ✅ CORRECT — non-owning view that needs two-way bindings → @Bindable (iOS 17+)
+@available(iOS 17, *)
 @Observable final class MyCounter { var count = 0 }
 
-@available(macOS 14, *)
+@available(iOS 17, *)
 struct InspectorView: View {
     @Bindable var counter: MyCounter               // passed in, not owned here
     var body: some View { Stepper("Count", value: $counter.count) }   // now compiles
@@ -57,11 +57,11 @@ is correct — not a finding.
 ## ✅ grounded in swiftui-ctx
 
 ```bash
-bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx lookup Bindable --json     # introduced_macos 14.0; 390 repos / 4548 uses
+bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx lookup Bindable --platform ios --json     # introduced_ios 17.0; 390 repos / 4548 uses
 bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx file <recommended.id> --smart   # the real @Bindable call site, live
 ```
 
-`lookup Bindable` (accessed 2026-06-07): `introduced_macos 14.0`, recommended `ex_ff2273b082`
+`lookup Bindable --platform ios` (accessed 2026-06-07): `introduced_ios 17.0`, recommended `ex_ff2273b082`
 (`sindresorhus/Gifski`), source `@Bindable var appState = appState` — exactly the local-re-wrap idiom.
 
 ## Severity & fix mode
@@ -72,7 +72,7 @@ model arrives, a human-confirmed call). `model_kind: observable`.
 
 ## Sources
 
-- **Apple — `Bindable`.** `macOS 14.0+`. *"A property wrapper type that supports creating bindings to the
+- **Apple — `Bindable`.** `iOS 17.0+`. *"A property wrapper type that supports creating bindings to the
   mutable properties of observable objects."* Overview carries the `@Environment(Book.self) private var
   book` + `@Bindable var book = book` re-wrap example.
   https://developer.apple.com/documentation/swiftui/bindable — accessed 2026-06-06 (via Sosumi).

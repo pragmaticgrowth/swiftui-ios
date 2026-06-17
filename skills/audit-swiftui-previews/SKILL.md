@@ -1,11 +1,11 @@
 ---
 name: audit-swiftui-previews
-description: Audits a finished or in-progress macOS SwiftUI codebase for broken #Preview / Xcode-canvas defects and writes per-finding Markdown to swiftui-audits/. Use when the user says a preview is blank, crashes the canvas, or won't compile; when they ask to verify #Preview, PreviewProvider, @Previewable, @Entry, EnvironmentKey, preview traits, PreviewModifier, or .modifier(_:); when AI may have written a legacy PreviewProvider struct, bare @State/@Binding/@Bindable in a #Preview body without @Previewable, hand-rolled EnvironmentKey boilerplate, Preview(windowStyle:) on a Mac target, .environmentObject for an @Observable, or a .frame sizing hack in a preview; when a #Preview of a @Query / SwiftData view ships no in-memory ModelContainer; or when a #Preview reads @Environment with no injection. AUDIT-ONLY, macOS-only, SwiftUI-only. Not for SwiftData model design, not for live-app @Observable wiring, not for the blanket availability sweep, not for writing new previews from scratch.
+description: Audits a finished or in-progress iOS SwiftUI codebase for broken #Preview / Xcode-canvas defects and writes per-finding Markdown to swiftui-audits/. Use when the user says a preview is blank, crashes the canvas, or won't compile; when they ask to verify #Preview, PreviewProvider, @Previewable, @Entry, EnvironmentKey, preview traits, PreviewModifier, or .modifier(_:); when AI may have written a legacy PreviewProvider struct, bare @State/@Binding/@Bindable in a #Preview body without @Previewable, hand-rolled EnvironmentKey boilerplate, Preview(windowStyle:) on an iPhone/iPad target, .environmentObject for an @Observable, or a .frame sizing hack in a preview; when a #Preview of a @Query / SwiftData view ships no in-memory ModelContainer; or when a #Preview reads @Environment with no injection. AUDIT-ONLY, iOS-only, SwiftUI-only. Not for SwiftData model design, not for live-app @Observable wiring, not for the blanket availability sweep, not for writing new previews from scratch.
 ---
 
 # Audit SwiftUI Previews
 
-**AUDIT-ONLY · macOS-only · SwiftUI-only.** Run this on a *finished or in-progress* macOS SwiftUI
+**AUDIT-ONLY · iOS-only · SwiftUI-only.** Run this on a *finished or in-progress* iOS SwiftUI
 project to detect — and where certain, fix — every way the `#Preview` macro and the Xcode canvas go
 wrong: the legacy `PreviewProvider` struct, bare `@State`/`@Binding`/`@Bindable` in a `#Preview` body
 without `@Previewable`, hand-rolled `EnvironmentKey` boilerplate instead of `@Entry`, the visionOS-only
@@ -29,7 +29,7 @@ A preview **instantiates the view for real** — so a missing container or `@Env
   `audit-swiftui-state-observation`. This skill owns only the **preview injection** of a sample
   `@Observable`; `cross_ref` it for the factory.
 - **`@Entry`/`FocusedValueKey`** is a context-conditional seam: if the pattern is co-located with a
-  `CommandMenu`/`CommandGroup` → `audit-swiftui-menus-commands` owns it; **in a preview / general
+  Shortcuts/Siri-exposed intent action → `audit-swiftui-app-intents` owns it; **in a preview / general
   environment setup → this skill owns it** (per the shared cross-ref graph). `cross_ref` the other way.
 - **The blanket "is every floored API gated" sweep** is `audit-swiftui-availability-gating`; **macro
   modernity** (`PreviewProvider`-as-deprecated-era) shares a seam with `audit-swiftui-api-currency`.
@@ -37,7 +37,7 @@ A preview **instantiates the view for real** — so a missing container or `@Env
 ## The three non-negotiable preview rules
 
 1. **`#Preview` macro, not `PreviewProvider`.** The freestanding macro is the modern path (Xcode 15+,
-   macOS 14+). One `#Preview` declaration per named preview — never the legacy
+   iOS 17+). One `#Preview` declaration per named preview — never the legacy
    `struct …_Previews: PreviewProvider { static var previews }` for new code.
 2. **A `#Preview` body is an expanded view scope — tag dynamic state `@Previewable`.** Bare
    `@State`/`@Binding`/`@Bindable` at that scope is a **compile error**; `@Previewable @State var …`
@@ -62,44 +62,43 @@ single-answer fix; `flag` = show the ✅, dev applies.
 | prev-02 | bare `@State`/`@Binding`/`@Bindable` in a `#Preview` body, no `@Previewable` | hard-fail | flag | `preview-macro-and-state.md` |
 | prev-03 | `struct *Key: EnvironmentKey` + `extension EnvironmentValues` boilerplate (use `@Entry`) | warning | flag | `entry-and-environment.md` |
 | prev-04 | manual `.frame(width:height:)` in a `#Preview` body (use a trait) | advisory | flag | `preview-macro-and-state.md` |
-| prev-05 | `Preview(…, windowStyle:)` on a Mac target (visionOS-only overload) | hard-fail | flag | `preview-macro-and-state.md` |
+| prev-05 | `Preview(…, windowStyle:)` on an iPhone/iPad target (visionOS-only overload) | hard-fail | flag | `preview-macro-and-state.md` |
 | prev-06 | `#Preview` of a `@Query`/SwiftData view, no `.modelContainer(… inMemory: true)` | warning | flag | `preview-crashes-and-injection.md` |
 | prev-07 | `#Preview` of a view reading `@Environment(Model.self)`, no `.environment(_:)` injection | advisory | flag | `preview-crashes-and-injection.md` |
 | prev-08 | `.environmentObject(…)` in a preview whose model is `@Observable` (wrong injector) | warning | flag | `entry-and-environment.md` |
 | prev-09 | repeated `.modelContainer(for:inMemory:true)` + re-seed across many `#Preview`s (use `PreviewModifier`) | advisory | flag | `preview-modifier-shared.md` |
 
 **Two claims need a floor check at audit time — confirm in VERIFY, never assert from memory:** the
-`PreviewModifier` / `.modifier(_:)` floor (macOS 15.0+, carried `verify-SDK` in `floors-master.md`); and
-that `@Previewable @Query` itself needs macOS 15 (prev-09 fallback path). Both reduce to a gating note,
+`PreviewModifier` / `.modifier(_:)` floor (iOS 18.0+, carried `verify-SDK` in `floors-master.md`); and
+that `@Previewable @Query` itself needs iOS 18 (prev-09 fallback path). Both reduce to a gating note,
 not a hallucination.
 
 ## The real API, at a glance
 
-**Real (exist on macOS):** `#Preview` / `Preview(_:traits:_:body:)` macro (macOS 14.0+), `@Previewable`
-(macOS 14.0+), `@Entry` (macOS 10.15+, back-deploys; Xcode 15+ to expand → practical floor macOS 14),
+**Real (exist on iOS):** `#Preview` / `Preview(_:traits:_:body:)` macro (iOS 17.0+), `@Previewable`
+(iOS 17.0+), `@Entry` (iOS 13.0+, back-deploys; Xcode 15+ to expand → practical floor iOS 17),
 `.fixedLayout(width:height:)` / `.sizeThatFitsLayout` / `.defaultLayout` traits, `PreviewModifier` +
-`.modifier(_:)` trait (macOS 15.0+), `.modelContainer(for:inMemory:)`, `.environment(_:)`,
+`.modifier(_:)` trait (iOS 18.0+), `.modelContainer(for:inMemory:)`, `.environment(_:)`,
 `PreviewProvider` (legacy but **not deprecated** — flag as stale-for-new-code, never as invented).
 
-**Hallucinated / platform-wrong (never on macOS):** `Preview(_:windowStyle:traits:body:)` is
-**visionOS-only** — there is no `windowStyle:` `#Preview` overload on macOS; `.environmentObject(_:)`
+**Hallucinated / platform-wrong (never on iOS):** `Preview(_:windowStyle:traits:body:)` is
+**visionOS-only** — there is no `windowStyle:` `#Preview` overload on iOS; `.environmentObject(_:)`
 for an `@Observable` is the **wrong injector** (it takes only an `ObservableObject`).
 
-### ✅ Correct — grounded in real macOS code (swiftui-ctx consensus)
+### ✅ Correct — grounded in real iOS code (swiftui-ctx consensus)
 
 The modern shape, from `swiftui-ctx lookup Preview` → `file <recommended.id> --smart`
-(repo `utmapp/UTM`, 34k★) — the freestanding macro, one declaration per named preview, no
+(repo `Finb/Bark`, an iOS push notification app) — the freestanding macro, one declaration per named preview, no
 `PreviewProvider` struct:
 
 ```swift
-@available(macOS 13, *)
 #Preview {
-    UTMServerView()
+    ContentView()
 }
 ```
 
-- **Source (real permalink):** https://github.com/utmapp/UTM/blob/e4a4c34b671284263fc69f81b607de494d7e9b65/Platform/macOS/UTMServerView.swift#L170
-- **Apple doc (Sosumi):** `doc:` https://sosumi.ai/documentation/swiftui/preview (`#Preview` macro, `introduced_macos: 10.15` — DocC inheritance artifact; authoritative Apple docs badge is **macOS 14.0+**, same trap as `Animation.bouncy` in floors files)
+- **Source (real permalink):** https://github.com/Finb/Bark/blob/2a35a5b990415eada5fcc6c95deb9850c239796a/Widget/Widget.swift#L245
+- **Apple doc (Sosumi):** `doc:` https://sosumi.ai/documentation/swiftui/preview (`#Preview` macro, `introduced_ios: 13.0` — DocC inheritance artifact; authoritative Apple docs badge is **iOS 17.0+**, same trap as `Animation.bouncy` in floors files)
 
 This is the live grounding for prev-01: the canonical `#Preview { }` that replaces the legacy
 `struct …_Previews: PreviewProvider`. At FIX time, re-fetch the per-defect consensus shape
@@ -108,13 +107,13 @@ This is the live grounding for prev-01: the canonical `#Preview { }` that replac
 Floor *values* are the reconciled truth in
 `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md` and the canonical invented-name list in
 `${CLAUDE_PLUGIN_ROOT}/references/_shared/hallucination-blacklist.md` — read, never restate them. The
-real macOS-26 shape for any symbol comes from `swiftui-ctx lookup <api>` (step 5), not memory.
+real iOS-26 shape for any symbol comes from `swiftui-ctx lookup <api> --platform ios` (step 5), not memory.
 
 ## The 8-step audit workflow (execute verbatim)
 
 1. **ORIENT.** `tree` / `find` the SwiftUI sources. Read the **deployment target**
-   (`project.pbxproj` `MACOSX_DEPLOYMENT_TARGET`, or `Package.swift` `platforms:`). It is load-bearing
-   for prev-09 (`PreviewModifier`/`@Previewable @Query` need macOS 15). Record it.
+   (`project.pbxproj` `IPHONEOS_DEPLOYMENT_TARGET`, or `Package.swift` `platforms:` `.iOS(.v17)`). It is load-bearing
+   for prev-09 (`PreviewModifier`/`@Previewable @Query` need iOS 18). Record it.
 2. **LOCATE.** Run the shared hybrid lint runner:
    `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-lint.sh --skill audit-swiftui-previews --dir <sources> --json /tmp/prev.json --sarif /tmp/prev.sarif`.
    It runs this skill's tier-1 grep tells (`lint/grep-tells.tsv`) + the one tier-2 structural ast-grep
@@ -131,22 +130,22 @@ real macOS-26 shape for any symbol comes from `swiftui-ctx lookup <api>` (step 5
    grep. Build a per-file inventory: each `#Preview` + what state it declares + what dependencies the
    previewed view reads + whether each is provided.
 4. **DETECT.** Apply the index. Assign each candidate a **confidence**; report a finding **only at 100%
-   certainty** (e.g. a bare `@State` at `#Preview` body scope, a `windowStyle:` overload on a Mac
-   target, a `@Query` view with no injected container).
+   certainty** (e.g. a bare `@State` at `#Preview` body scope, a `windowStyle:` overload on an
+   iPhone/iPad target, a `@Query` view with no injected container).
 5. **VERIFY.** For anything ≤ ~70% confidence (a symbol you're unsure exists, a floor you can't place,
    a behavior claim), run **both** evidence sources. (a) **Practice** —
-   `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx lookup <api> --json` (and
+   `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx lookup <api> --platform ios --json` (and
    `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx deprecated <api>` for a currency/deprecation rule
    like prev-01): read its `consensus` (the canonical shape), `deprecated`+`replacement`, `recommended`
-   permalink, `introduced_macos`, and `co_occurs_with` (e.g. `modelContainer` co-occurs with `Query` /
+   permalink, `introduced_ios`, and `co_occurs_with` (e.g. `modelContainer` co-occurs with `Query` /
    `Model` — exactly the prev-06 seam); a `lookup` **exit 3** (not-found, with a did-you-mean
    `suggestion`) corroborates a hallucination/platform-wrong finding. (b) **Spec** — confirm via
    **Sosumi**: `curl -sSL https://sosumi.ai/<apple-path>` using `references/source-directory.md` for the
    path and `${CLAUDE_PLUGIN_ROOT}/references/_shared/sosumi-reference.md` for the protocol (never
-   `WebFetch` `developer.apple.com`). Cross-check `introduced_macos` against `floors-master.md` and the
+   `WebFetch` `developer.apple.com`). Cross-check `introduced_ios` against `floors-master.md` and the
    Sosumi `doc:` floor. The CLI contract is
    `${CLAUDE_PLUGIN_ROOT}/references/_shared/swiftui-ctx-reference.md`. Promote with the citation or
-   discard. Carry the `PreviewModifier` floor and `@Previewable @Query` macOS-15 claim as gating notes
+   discard. Carry the `PreviewModifier` floor and `@Previewable @Query` iOS-18 claim as gating notes
    with `source: verify against Xcode 26 SDK` until VERIFY confirms them.
 6. **REPORT.** Write each confirmed finding (output contract below). One finding per file, zero-padded,
    ordered. Write the run's `_index.md`.
@@ -155,7 +154,7 @@ real macOS-26 shape for any symbol comes from `swiftui-ctx lookup <api>` (step 5
    **only `fix_mode: auto`** (this domain ships **none** by default — every fix is `flag-only`; see
    below), one conventional commit per finding citing its `rule_id`, never weaken a check. The ✅
    "Correct" is **not a hand-written snippet** — it is the swiftui-ctx **consensus shape** put in
-   `## Correct`, backed by a real macOS example fetched with
+   `## Correct`, backed by a real iOS example fetched with
    `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx file <recommended.id> --smart` whose GitHub permalink
    (plus the Sosumi `doc:`) goes in `## Source`. Leave `flag-only` findings `open` with that ✅.
 8. **DOUBLE-CHECK.** Re-grep each fixed file to confirm the tell no longer matches; record the evidence
@@ -182,8 +181,8 @@ domain:
 - `domain: previews`. Frontmatter is the canonical schema; `fix_mode` is `flag-only` for **every**
   prev-NN (see confidence gating). `availability` reads from `floors-master.md`. `source` is an Apple
   URL + access date (fetched via Sosumi) or `verify against Xcode 26 SDK`. Emit `cross_ref` on the
-  shared-seam findings (prev-06 → swiftdata, prev-07 → state-observation, prev-03 → menus-commands when
-  command-co-located, prev-01 → api-currency).
+  shared-seam findings (prev-06 → swiftdata, prev-07 → state-observation, prev-03 → app-intents when
+  Shortcuts/intent-co-located, prev-01 → api-currency).
 
 **Starter `<context>` folders (file here when…):**
 
@@ -208,7 +207,7 @@ hard requirement.* Two runs over the same code produce structurally identical tr
 | `references/preview-macro-and-state.md` | the macro-vs-`PreviewProvider` call, `@Previewable` state, traits-vs-`.frame`, the `windowStyle:` platform trap (prev-01/02/04/05) |
 | `references/entry-and-environment.md` | `@Entry`-vs-`EnvironmentKey` boilerplate and the `.environment` vs `.environmentObject` injector (prev-03/08) |
 | `references/preview-crashes-and-injection.md` | the two canvas-crash traps — missing in-memory container, missing `@Environment` injection — and the instantiation test (prev-06/07) |
-| `references/preview-modifier-shared.md` | collapsing repeated inline in-memory containers into one shared `PreviewModifier` (macOS 15+) (prev-09) |
+| `references/preview-modifier-shared.md` | collapsing repeated inline in-memory containers into one shared `PreviewModifier` (iOS 18+) (prev-09) |
 | `references/source-directory.md` | step VERIFY — the Apple/WWDC/practitioner source map fetched via Sosumi |
 | `lint/grep-tells.tsv` + `lint/ast-grep/*.yml` | step LOCATE — this skill's declarative lint rule set fed to the shared runner (tier-1 grep tells + tier-2 structural ast-grep); edit here to tune detection |
 
@@ -218,7 +217,7 @@ hard requirement.* Two runs over the same code produce structurally identical tr
 |---|---|
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md` | every floor/availability value (`@Previewable`, `@Entry`, `#Preview`, `PreviewModifier`, `ModelContainer.init`) — the reconciled truth |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/hallucination-blacklist.md` | the canonical invented / platform-wrong name list |
-| `${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md` | the macOS-arm gating rule (prev-09 floor gates) + the `macOS ABSENT` (visionOS-only `windowStyle:`) rule |
+| `${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md` | the iOS availability gating rule (prev-09 floor gates) + the `iOS ABSENT` (visionOS-only `windowStyle:`) rule |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/finding-schema.md` | the unified finding schema + frontmatter keys |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/fix-safety-protocol.md` | the 8-point fix-safety protocol (step 7) |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/sosumi-reference.md` | the Apple-doc spec fetch protocol (step 5 VERIFY) |

@@ -5,7 +5,7 @@ the happy path (loaded), so three of these are *absence* defects — found by RE
 lint tell. Get the ✅ skeleton shape from `swiftui-ctx`:
 `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx lookup redacted --json` (consensus `(reason)` 94%).
 
-**As of:** 2026-06-07 · macOS 26 (Tahoe) · Xcode 26 SDK.
+**As of:** 2026-06-07 · iOS 26 (Tahoe) · Xcode 26 SDK.
 
 ---
 
@@ -38,7 +38,7 @@ items = (try? await fetch()) ?? []                    // failure looks identical
 do { items = try await fetch() }
 catch { loadError = error }                            // rendered: ContentUnavailableView / retry button
 ```
-`ContentUnavailableView` (macOS 14+) is the native empty/error surface — confirm its floor in
+`ContentUnavailableView` (iOS 17+) is the native empty/error surface — confirm its floor in
 `floors-master.md` before prescribing it.
 
 ## async-04 — no empty-case view (DETECT-only)
@@ -66,5 +66,5 @@ content.redacted(reason: isLoading ? .placeholder : [])
   `/documentation/swiftui/redactionreasons/placeholder` (skeleton redaction), fetched via Sosumi.
   Accessed 2026-06-07.
 - Apple — `https://developer.apple.com/documentation/swiftui/contentunavailableview` (the native empty/error
-  surface, macOS 14+), via Sosumi. Accessed 2026-06-07.
-- swiftui-ctx corpus — `lookup redacted` consensus `(reason)` 94% (macOS floor 11). Accessed 2026-06-07.
+  surface, iOS 17+), via Sosumi. Accessed 2026-06-07.
+- swiftui-ctx corpus — `lookup redacted` consensus `(reason)` 94% (iOS floor 14). Accessed 2026-06-07.

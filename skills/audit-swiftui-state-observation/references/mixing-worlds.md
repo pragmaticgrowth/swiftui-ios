@@ -6,7 +6,7 @@ redundant/contradictory. The pivot for every finding here is the model's `class`
 
 ## The two worlds (pick ONE per model)
 
-| | Modern — `@Observable` (default, macOS 14+) | Legacy — `ObservableObject` (Combine / pre-14) |
+| | Modern — `@Observable` (default, iOS 17+) | Legacy — `ObservableObject` (Combine / pre-17) |
 |---|---|---|
 | Declaration | `@Observable final class` — no `@Published`, no conformance | `class: ObservableObject` + `@Published` per field |
 | Granularity | field-level (read-only-what-changed) | whole-object `objectWillChange` (over-renders) |
@@ -15,7 +15,7 @@ redundant/contradictory. The pivot for every finding here is the model's `class`
 | Inject | `.environment(_:)` + `@Environment(Type.self)` | `.environmentObject(_:)` + `@EnvironmentObject` |
 
 Legacy is **not deprecated** (`swiftui-ctx deprecated StateObject`/`ObservedObject` →
-`deprecated:false`, accessed 2026-06-07) — but it is not the new-Mac-code idiom.
+`deprecated:false`, accessed 2026-06-07) — but it is not the new-iOS-code idiom.
 
 ## state-02 — redundant `: ObservableObject` on an `@Observable` class (fix_mode: auto)
 
@@ -48,24 +48,24 @@ converting, **not** a hard error. The genuinely wrong part is the redundant `: O
 ## ✅ The correct shape — grounded in swiftui-ctx
 
 ```bash
-bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx lookup Observable --json   # introduced_macos 14.0, recommended ex_44cfa1bff8
-bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx file ex_44cfa1bff8 --smart # @Observable @MainActor final class, live from GitHub
+bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx lookup Observable --platform ios --json   # introduced_ios 17.0, recommended ex_8a9e39b23c
+bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx file ex_8a9e39b23c --smart # @Observable @MainActor final class, live from GitHub
 ```
 
-The recommended example (`ex_44cfa1bff8`, `Gremble-io/Detto`, accessed 2026-06-07) is a plain
+The recommended example (`ex_8a9e39b23c`, `rrroyal/Harbour`, a screen view-model, accessed 2026-06-16) is a plain
 `@Observable @MainActor final class` — no `: ObservableObject`, no `@Published`:
 
 ```swift
-// ✅ CORRECT — one world: @Observable, owned with @State (macOS 14+). Consensus per swiftui-ctx lookup
-//    Observable (434 repos / 2485 uses); recommended ex_44cfa1bff8.
-@available(macOS 14, *)
+// ✅ CORRECT — one world: @Observable, owned with @State (iOS 17+). Consensus per swiftui-ctx lookup
+//    Observable --platform ios (62 repos / 295 uses); recommended ex_8a9e39b23c.
+@available(iOS 17, *)
 @Observable final class ViewModel {                 // no ObservableObject, no @Published
     var items: [Item] = []
 }
-@available(macOS 14, *)
+@available(iOS 17, *)
 struct ListView: View {
     @State private var vm = ViewModel()
-    var body: some View { Table(vm.items) { /* columns … */ } }   // macOS-rich multi-column
+    var body: some View { List(vm.items, id: \.self) { item in Text(item.title) } }   // iOS-native list
 }
 ```
 
@@ -73,7 +73,7 @@ struct ListView: View {
 
 `swiftui-audits/state-observation/_world-map.md`: one row per model `class` — its kind
 (`modern`/`legacy`/`mixed`), owner wrapper, and ownership verdict. A `mixed` row (`@Observable` +
-`@Published`/`: ObservableObject`) is the state-02/03 finding set; a `legacy` row under a macOS-14+ floor
+`@Published`/`: ObservableObject`) is the state-02/03 finding set; a `legacy` row under an iOS-17+ floor
 is a migration candidate (state-08), not a defect on its own.
 
 ## Severity & fix mode
@@ -89,7 +89,7 @@ is a migration candidate (state-08), not a defect on its own.
   `@Bindable`/`@Environment` mapping; `@Published`/conformance are dropped under `@Observable`.
   https://developer.apple.com/documentation/swiftui/migrating-from-the-observable-object-protocol-to-the-observable-macro
   — accessed 2026-06-06 (via Sosumi).
-- **Apple — `Observable()` macro.** `macOS 14.0+`. https://developer.apple.com/documentation/observation/observable()
+- **Apple — `Observable()` macro.** `iOS 17.0+`. https://developer.apple.com/documentation/observation/observable()
   — accessed 2026-06-06 (via Sosumi).
 - **Paul Hudson — "What to fix in AI-generated Swift code," 2025-12-09.** Replace `ObservableObject` →
   `@Observable`. https://www.hackingwithswift.com/articles/281/what-to-fix-in-ai-generated-swift-code

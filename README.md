@@ -111,7 +111,7 @@ skills fire automatically when you describe a task to claude. the commands above
 | `swiftui-examples` | write or look up a swiftui api — returns consensus arg shape + ranked real examples with permalinks |
 | `swiftui-modernize` | upgrade existing code — finds deprecated apis, produces concrete migration patches with before/after |
 | `macos-app-patterns` | scaffold a whole feature — menu-bar app, settings screen, master-detail, nsview bridge, document app, toolbar… |
-| `build-macos-swiftui` | write / review / refactor broadly — @Observable state, native mac idioms, hig conformance |
+| `build-ios-swiftui` | write / review / refactor broadly — @Observable state, native iOS idioms, hig conformance |
 
 ### audit suite (29 skills)
 

@@ -1,12 +1,12 @@
 # Reference — Container Creation, Previews & Multi-Process (sd-06, sd-07, sd-12)
 
 The `ModelContainer` lifecycle defects: a preview that crashes for lack of an in-memory container, a
-`fatalError` that turns every recoverable container error into a hard crash, and the macOS-specific
+`fatalError` that turns every recoverable container error into a hard crash, and the
 multi-process container race. Floor *values* live in
 `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md`. Get the canonical container ✅ from
 `swiftui-ctx` (see the bottom of this file).
 
-**As of:** 2026-06-07 · macOS 14+ (the variadic `for:configurations:` init is macOS 15+) · Xcode 26 SDK.
+**As of:** 2026-06-07 · iOS 17+ · Xcode 26 SDK.
 
 ---
 
@@ -24,17 +24,17 @@ this is high-friction. Inject an **in-memory** container built from
 ```
 ✅ in-memory container + sample data:
 ```swift
-#Preview {                                              // macOS 15+ (see init note)
+#Preview {                                              // iOS 17+
     let config = ModelConfiguration(isStoredInMemoryOnly: true)
     let container = try! ModelContainer(for: Trip.self, configurations: config) // try! OK in preview
     container.mainContext.insert(Trip(name: "Sample"))   // ✅ insert so @Query has data
     return EditingView(trip: Trip(name: "Sample")).modelContainer(container)
 }
 ```
-> **Init availability:** the variadic `ModelContainer(for:configurations:)` is **macOS 15.0+**. On a
-> **macOS-14** target use `ModelContainer(for:migrationPlan:configurations:)` (which *is* macOS 14.0+)
-> with `migrationPlan: nil`. `@Model`, `ModelContext`, `ModelConfiguration`, `isStoredInMemoryOnly` are
-> all macOS 14+. Confirm every floor against `floors-master.md`.
+> **Init availability:** the variadic `ModelContainer(for:configurations:)` is iOS 17+. Use
+> `ModelContainer(for:migrationPlan:configurations:)` with `migrationPlan: nil` for maximum
+> back-compatibility. `@Model`, `ModelContext`, `ModelConfiguration`, `isStoredInMemoryOnly` are
+> all iOS 17+. Confirm every floor against `floors-master.md`.
 
 **Detection:** grep `sd-06` locates `#Preview`; the agent READS to confirm it constructs a `@Model`
 with no `ModelConfiguration(isStoredInMemoryOnly:` / `.modelContainer(` in scope. Severity **warning**,
@@ -48,8 +48,8 @@ reason it crashes.
 (`Code=134504`, *"Cannot use staged migration with an unknown model version"*), no free disk space
 (which produces *no* logs), or two processes migrating concurrently (`Code=134110` / `134100`). Apple's
 getting-started code wraps this in `fatalError(error.localizedDescription)` — turning each into a hard
-crash with no usable diagnostic (the `SwiftDataError` `_explanation` is typically `nil`). On macOS the
-multi-process case is **routine** (app + menu-bar helper + widget on one container), so this is not a
+crash with no usable diagnostic (the `SwiftDataError` `_explanation` is typically `nil`). On iOS the
+multi-process case is **common** (app + widget extension + share extension on one group container), so this is not a
 corner case. Catch, classify, recover — or surface a real message.
 
 ❌ Apple's `fatalError`:
@@ -60,10 +60,9 @@ catch { fatalError(error.localizedDescription) }   // ❌ schema/disk/concurrent
 ✅ classify and recover (never blind-`fatalError`):
 ```swift
 do {
-    // variadic `configurations:` init is macOS 15+; on macOS 14 add `migrationPlan: nil,`
     container = try ModelContainer(for: Trip.self, configurations: ModelConfiguration())
 } catch {
-    // 134504 schema mismatch · no-free-space · 134110/134100 concurrent migration (common on macOS):
+    // 134504 schema mismatch · no-free-space · 134110/134100 concurrent migration (common in app+widget targets):
     // serialize multi-process opens with a lock file; check disk; clear+recreate on an unrecoverable
     // schema mismatch — or surface a real message. Do NOT fatalError(error).
 }
@@ -72,25 +71,25 @@ do {
 `ModelContainer` creation (`try!` inside a `#Preview` is fine — see sd-06). Severity **warning**,
 `fix_mode: flag-only`.
 
-## sd-12 — multi-process container with no lock-file serialization (macOS smell)
+## sd-12 — multi-process container with no lock-file serialization
 
 A sandboxed store lands in the app/group container (`…/Library/Application Support/default.store`).
-Sharing it with a helper or widget needs a **group-container** entitlement, and those multi-process
+Sharing it with a widget extension or app extension needs a **group-container** entitlement, and those multi-process
 opens are exactly what triggers the concurrent-migration crash class in sd-07. Serialize container
 creation across processes with a lock file.
 
 **Detection:** grep `sd-12` locates container sites; the agent READS the project for a second
-container-opening target (a widget extension, a menu-bar helper) with no serialization. Severity
+container-opening target (a widget extension, a share extension, or an app clip) with no serialization. Severity
 **advisory**, `fix_mode: flag-only`. **Seam:** the store-location / group-container **entitlement** is
-owned by `audit-swiftui-sandbox-files` — emit `cross_ref: sandbox-files`.
+owned by `audit-swiftui-document-picker-permissions` — emit `cross_ref: document-picker-permissions`.
 
 ---
 
 ## The canonical container ✅ — from swiftui-ctx (verified during this build)
 
 `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx lookup ModelContainer --json` returns the dominant
-real-world shape: **`(for, configurations)` at 64% consensus** (the variadic init; `(for)` is 9%). Its
-`recommended` example (`introduced_macos: 14.0`, `doc: https://sosumi.ai/documentation/swiftui/modelcontainer`):
+real-world shape: **`(for, configurations)` at 76% consensus** (the variadic init). Its
+`recommended` example (`introduced_ios: 17.0`, `doc: https://sosumi.ai/documentation/swiftui/modelcontainer`):
 
 ```swift
 ModelContainer(for: schema, configurations: [modelConfiguration])
@@ -109,5 +108,5 @@ Sosumi `doc:` in `## Source`.
 | https://scottdriggers.com/blog/swiftdata-modelcontainer-creation-crash/ | practitioner blog | high | "creating a `ModelContainer` can throw … they recommend crashing your app with `fatalError`"; the three causes (schema mismatch / no free disk space / concurrent migrators); `Code=134504`; `SwiftDataError(… _explanation: nil)`. Accessed 2026-06-06. |
 | https://www.hackingwithswift.com/quick-start/swiftdata/how-to-use-swiftdata-in-swiftui-previews | practitioner tutorial (Paul Hudson, upd. Xcode 16.4) | high | "create a custom `ModelConfiguration` that stores data in memory only …" and "If you attempt to create a model object without first having created a container … your preview will crash." Accessed 2026-06-06. |
 | https://www.reddit.com/r/swift/comments/145e4p7/swiftdata_crashes_in_preview/ | forum | medium | corroborates the preview-crash-without-container symptom. Accessed 2026-06-06. |
-| https://developer.apple.com/documentation/swiftdata/modelcontainer | primary-doc | high | `init(for:configurations:)` (variadic) is macOS 15.0+; `init(for:migrationPlan:configurations:)` is macOS 14.0+ (pass `migrationPlan: nil`). Confirmed 2026-06-07. |
+| https://developer.apple.com/documentation/swiftdata/modelcontainer | primary-doc | high | `init(for:configurations:)` (variadic) and `init(for:migrationPlan:configurations:)` are both iOS 17.0+. Confirmed 2026-06-07. |
 | https://github.com/fayazara/bucketdrop/blob/92816bedcd2267022ede0c797d12e593f0997e4b/BucketDrop/BucketDropApp.swift#L29 | corpus example (swiftui-ctx `recommended`) | high | the canonical `ModelContainer(for: schema, configurations: [modelConfiguration])` shape (64% consensus). Fetched 2026-06-07. |

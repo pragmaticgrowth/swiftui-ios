@@ -1,11 +1,11 @@
 ---
 name: audit-swiftui-localization
-description: Audits a finished or in-progress macOS SwiftUI codebase for localization and internationalization defects and writes per-finding Markdown to swiftui-audits/. Use when the user says the app is hardcoded to English, can't be translated, ships no String Catalog, or breaks in other languages; when they ask to verify localization, internationalization, i18n, LocalizedStringKey, Text(verbatim:), String(localized:), NSLocalizedString, .xcstrings String Catalogs, translator comments, pluralization, grammar agreement, locale-aware number/date formatting, or right-to-left (RTL) layout; when AI may have passed a String variable to Text, used String(format:) or DateFormatter for display, built UI sentences by interpolation, or hardcoded left/right directions on a Mac target. AUDIT-ONLY, macOS-only, SwiftUI-only. Not for AttributedString styling or markdown rendering (typography-text), not for the general deprecated-API sweep (api-currency), not for writing new localized UI from scratch.
+description: Audits a finished or in-progress iOS SwiftUI codebase for localization and internationalization defects and writes per-finding Markdown to swiftui-audits/. Use when the user says the app is hardcoded to English, can't be translated, ships no String Catalog, or breaks in other languages; when they ask to verify localization, internationalization, i18n, LocalizedStringKey, Text(verbatim:), String(localized:), NSLocalizedString, .xcstrings String Catalogs, translator comments, pluralization, grammar agreement, locale-aware number/date formatting, or right-to-left (RTL) layout; when AI may have passed a String variable to Text, used String(format:) or DateFormatter for display, built UI sentences by interpolation, or hardcoded left/right directions on an iPhone or iPad target. AUDIT-ONLY, iOS-only, SwiftUI-only. Not for AttributedString styling or markdown rendering (typography-text), not for the general deprecated-API sweep (api-currency), not for writing new localized UI from scratch.
 ---
 
 # Audit SwiftUI Localization
 
-**AUDIT-ONLY · macOS-only · SwiftUI-only.** Run this on a *finished or in-progress* macOS SwiftUI
+**AUDIT-ONLY · iOS-only · SwiftUI-only.** Run this on a *finished or in-progress* iOS SwiftUI
 project to detect — and flag — every way localization & internationalization goes wrong: hardcoded
 strings that never reach a translator, `Text(verbatim:)` used both too much and too little, missing
 String Catalog (`.xcstrings`), no translator comments, sentences built by interpolation (no
@@ -20,17 +20,17 @@ input (a sentence assembled by interpolation).
 
 **✅ Correct (grounded, not a placeholder).** The consensus shape from `swiftui-ctx lookup Text --json`
 is the `(_ key: LocalizedStringKey)` overload at **99%** (the bare-`String`/`(verbatim)` form is the 1%
-outlier) — so a string **literal**, ideally with a translator `comment:`, is what shipping Mac apps
+outlier) — so a string **literal**, ideally with a translator `comment:`, is what shipping iOS apps
 overwhelmingly write:
 
 ```swift
-// localized literal + translator context — NetNewsWire (macOS-shipping)
+// localized literal + translator context — NetNewsWire (iOS-shipping)
 Text("label.text.unread", comment: "Unread")
 ```
 
-Real permalink (verified, macOS 26 corpus): `https://github.com/Ranchero-Software/NetNewsWire/blob/60295842054529c3450b91af15911cecb1a1cc4f/Widget/WidgetBundle.swift#L27`
+Real permalink (verified, iOS corpus): `https://github.com/Ranchero-Software/NetNewsWire/blob/60295842054529c3450b91af15911cecb1a1cc4f/Widget/WidgetBundle.swift#L27`
 · Apple spec via Sosumi `doc:` `https://sosumi.ai/documentation/swiftui/text`. Refresh either with
-`swiftui-ctx lookup Text --json` (VERIFY) and `swiftui-ctx file <recommended.id> --smart` (FIX).
+`swiftui-ctx lookup Text --platform ios --json` (VERIFY) and `swiftui-ctx file <recommended.id> --smart` (FIX).
 
 ## Boundary / seam note (stay in lane)
 
@@ -88,10 +88,10 @@ they are detected in READ/DETECT, not by the lint runner. No rule is dropped; ea
 
 **Real (use these):** `Text(_ key: LocalizedStringKey)` (literal → auto-localizes),
 `Text(_:comment:)`, `Text(verbatim:)` (opt-out), `LocalizedStringKey`, `LocalizedStringResource`
-(macOS 13+), `String(localized:_:)` / `String.LocalizationValue` (macOS 12+ — doc lives under
+(iOS 16+), `String(localized:_:)` / `String.LocalizationValue` (iOS 15+ — doc lives under
 `/documentation/swift/`, **not** `/foundation/`), `FormatStyle` / `.formatted(…)`,
 `@Environment(\.layoutDirection)`, `\.locale`, `flipsForRightToLeftLayoutDirection(_:)`,
-`InflectionRule` (macOS 12+, automatic grammar agreement). **Catalog format:** the **String Catalog
+`InflectionRule` (iOS 15+, automatic grammar agreement). **Catalog format:** the **String Catalog
 (`.xcstrings`)**, not legacy `.strings`/`.stringsdict`.
 
 **Avoid for display:** `NSLocalizedString` (legacy), `String(format:)`, hand-built `DateFormatter` /
@@ -102,7 +102,7 @@ There is no localization hallucination blacklist; if a symbol's existence is in 
 ## The 8-step audit workflow (execute verbatim)
 
 1. **ORIENT.** `tree` / `find` the SwiftUI sources. Read the **deployment target**
-   (`project.pbxproj` `MACOSX_DEPLOYMENT_TARGET`, or `Package.swift` `platforms:`). Then check
+   (`project.pbxproj` `IPHONEOS_DEPLOYMENT_TARGET`, or `Package.swift` `platforms: [.iOS(.v17)]`). Then check
    **loc-04**: `find . -name '*.xcstrings'` — if none (and the app has user-facing copy), the project
    ships no String Catalog. Note loose `.strings`/`.stringsdict` as the legacy form. Record both.
 2. **LOCATE.** Run the shared hybrid lint runner:
@@ -122,13 +122,13 @@ There is no localization hallucination blacklist; if a symbol's existence is in 
    call for loc-01/loc-09.
 5. **VERIFY.** For anything ≤ ~70% confidence (a symbol you're unsure exists, a floor you can't place,
    a "what do shipping apps actually write?" question) run **both** evidence sources. (a) **Practice** —
-   `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx lookup <api> --json` (and
+   `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx lookup <api> --platform ios --json` (and
    `swiftui-ctx deprecated <api>` for a currency/deprecation rule): read its `consensus` (the canonical
-   shape), `recommended` permalink, `introduced_macos`, `co_occurs_with`; a `lookup` **exit 3**
+   shape), `recommended` permalink, `introduced_ios`, `co_occurs_with`; a `lookup` **exit 3**
    (not-found, with a did-you-mean `suggestion`) corroborates a non-existent symbol. (b) **Spec** —
    confirm via **Sosumi**: `curl -sSL https://sosumi.ai/<apple-path>` using `references/source-directory.md`
    for the path and `${CLAUDE_PLUGIN_ROOT}/references/_shared/sosumi-reference.md` for the protocol
-   (never `WebFetch` `developer.apple.com`). Cross-check `introduced_macos` against `floors-master.md`.
+   (never `WebFetch` `developer.apple.com`). Cross-check `introduced_ios` against `floors-master.md`.
    The CLI contract is `${CLAUDE_PLUGIN_ROOT}/references/_shared/swiftui-ctx-reference.md`. Promote with
    the citation or discard.
 6. **REPORT.** Write each confirmed finding (output contract below). One finding per file, zero-padded,
@@ -137,7 +137,7 @@ There is no localization hallucination blacklist; if a symbol's existence is in 
    (`${CLAUDE_PLUGIN_ROOT}/references/_shared/fix-safety-protocol.md`): clean-tree gate, findings-first.
    **Every loc rule is `fix_mode: flag-only`** — leave findings `open` with the ✅ in `## Correct`. The
    ✅ "Correct" is **not a hand-written snippet** — it is the swiftui-ctx **consensus shape**, backed by
-   a real macOS-26 example fetched with `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx file <recommended.id> --smart`
+   a real iOS example fetched with `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx file <recommended.id> --smart`
    whose GitHub permalink (plus the Sosumi `doc:`) goes in `## Source`.
 8. **DOUBLE-CHECK.** Re-confirm every citation still resolves and still says the floor it claims. If a
    reader applied a suggested ✅ and it would introduce a new tell, loop that file back to DETECT.

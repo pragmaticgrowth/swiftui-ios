@@ -1,16 +1,16 @@
 ---
 name: audit-swiftui-swiftdata
-description: Audits a finished or in-progress macOS SwiftUI codebase for SwiftData persistence defects on macOS 14+ and writes per-finding Markdown to swiftui-audits/. Use when the user says SwiftData crashes, data vanishes on relaunch, the preview canvas crashes, or a relationship is empty after Quit; when they ask to verify a @Model class, @Relationship, ModelContainer, ModelContext, @Query, @ModelActor, ModelConfiguration, or a SwiftData migration; when a relationship is declared let, a relationship is assigned in init, an init is missing, @Relationship(.cascade) is written positionally, a to-one relationship is non-optional, a ModelContainer is wrapped in fatalError, a @Model is mutated off the main context, save() is missing, or a @Model subclass targets macOS 26. AUDIT-ONLY, macOS-only, SwiftUI-only. Not for Core Data NSManagedObject, not for generic concurrency outside SwiftData, not for the blanket availability sweep, not for writing a new data model from scratch.
+description: Audits a finished or in-progress iOS SwiftUI codebase for SwiftData persistence defects on iOS 17+ and writes per-finding Markdown to swiftui-audits/. Use when the user says SwiftData crashes, data vanishes on relaunch, the preview canvas crashes, or a relationship is empty after app restart; when they ask to verify a @Model class, @Relationship, ModelContainer, ModelContext, @Query, @ModelActor, ModelConfiguration, or a SwiftData migration; when a relationship is declared let, a relationship is assigned in init, an init is missing, @Relationship(.cascade) is written positionally, a to-one relationship is non-optional, a ModelContainer is wrapped in fatalError, a @Model is mutated off the main context, save() is missing, or a @Model subclass targets iOS 26. AUDIT-ONLY, iOS-only, SwiftUI-only. Not for Core Data NSManagedObject, not for generic concurrency outside SwiftData, not for the blanket availability sweep, not for writing a new data model from scratch.
 ---
 
 # Audit SwiftUI SwiftData
 
-**AUDIT-ONLY · macOS-only · SwiftUI-only.** Run this on a *finished or in-progress* macOS SwiftUI
-project to detect — and where mechanical, fix — every way SwiftData goes wrong on a macOS 14+ target:
+**AUDIT-ONLY · iOS-only · SwiftUI-only.** Run this on a *finished or in-progress* iOS SwiftUI
+project to detect — and where mechanical, fix — every way SwiftData goes wrong on an iOS 17+ target:
 `let` on a relationship, a relationship assigned in `init`, a missing initializer, the positional
 `@Relationship(.cascade)` type error, a non-optional to-one relationship, a container-crashing
 preview, a `fatalError` on `ModelContainer`, off-actor `@Model` mutation, a missing `save()`, an
-unordered relationship array, and an ungated macOS-26 `@Model` subclass. Findings are written to disk
+unordered relationship array, and an ungated iOS-26 `@Model` subclass. Findings are written to disk
 in the toolkit's unified schema; the one mechanical defect (`@Relationship(.cascade)`) is fixed under
 the fix-safety protocol. This is never a from-scratch data-model generator.
 
@@ -33,10 +33,10 @@ container. **Be suspicious wherever the compiler stayed silent.**
 - **Preview-container construction mechanics** (in-memory container, sample factory) are owned by
   `audit-swiftui-previews`; this skill detects the *model-design* reason a preview crashes (sd-06) and
   routes preview-rig depth there with a `cross_ref: previews`.
-- **Store location / group-container entitlement** is owned by `audit-swiftui-sandbox-files`; this
+- **Store location / group-container entitlement** is owned by `audit-swiftui-document-picker-permissions`; this
   skill flags the *multi-process container* smell (sd-12) and cross_refs it.
 - **The blanket "is every OS-floored API gated" sweep** belongs to `audit-swiftui-availability-gating`;
-  this skill owns the macOS-26 `@Model`-inheritance gate (sd-11) in depth and defers other gating there.
+  this skill owns the iOS-26 `@Model`-inheritance gate (sd-11) in depth and defers other gating there.
 
 ## The eight invariants (non-negotiable)
 
@@ -77,25 +77,24 @@ crash / data loss — never correct), **warning** (compiles but wrong), **adviso
 | sd-08 | indexing a relationship array (`.floors[0]`) / `ForEach` over a relationship with no `@Query(sort:)` | warning | flag | `query-and-persistence.md` |
 | sd-09 | off-actor `@Model` mutation in `Task`/`Task.detached`/`DispatchQueue` with no `@ModelActor` | hard-fail | flag | `concurrency-and-saving.md` |
 | sd-10 | a mutation path with no `try modelContext.save()` (silent loss on Quit / window close) | advisory | flag | `concurrency-and-saving.md` |
-| sd-11 | a `@Model` subclass ungated / its types not all registered (macOS-26 inheritance) | warning | flag | `query-and-persistence.md` |
-| sd-12 | one container opened by app + widget/menu-bar helper with no lock-file serialization | advisory | flag | `container-and-preview.md` |
+| sd-11 | a `@Model` subclass ungated / its types not all registered (iOS-26 inheritance) | warning | flag | `query-and-persistence.md` |
+| sd-12 | one container opened by app + widget/share extension with no lock-file serialization | advisory | flag | `container-and-preview.md` |
 
 **Two claims are corpus-thin — carry with care.** `@ModelActor` and the off-context race (sd-09) are
 real but **sparse in the practice corpus** (`swiftui-ctx lookup ModelActor` returns not-found — that is
-`low_corpus`, **not** a hallucination; the symbol is `macOS 14.0+` per `floors-master.md`). Lean on
+`low_corpus`, **not** a hallucination; the symbol is `iOS 17.0+` per `floors-master.md`). Lean on
 Sosumi for sd-09. The auto-save-window dropping a fast-Quit save (sd-10) is observed practitioner
 behavior, not a documented guarantee — carry sd-10 as `advisory` with `source: verify against Xcode 26
 SDK` unless Sosumi confirms a `save()` requirement.
 
 ## The real API, at a glance
 
-**Real (exist on macOS 14.0+):** `@Model`, `ModelContext`, `ModelConfiguration(isStoredInMemoryOnly:)`,
+**Real (exist on iOS 17.0+):** `@Model`, `ModelContext`, `ModelConfiguration(isStoredInMemoryOnly:)`,
 `@Relationship(deleteRule:inverse:)`, `@Attribute`, `@Query`, `@Query(sort:)`, `.modelContainer(for:)`,
 `@ModelActor` (macro: converts a Swift `actor` to conform to `protocol ModelActor`, giving it its own `ModelContext`), `PersistentIdentifier` (the `Sendable`
-hand-off; macOS 13.0+). **macOS 15.0+:** the variadic `ModelContainer(for:configurations:)` (on a macOS-14
-target use `ModelContainer(for:migrationPlan:configurations:)` with `migrationPlan: nil`), `#Index`,
-`#Unique`, the history API (`HistoryDescriptor`, `fetchHistory(_:)`). **macOS 26.0+:** `@Model` class
-inheritance (every subclass needs `@available(macOS 26, *)`; register base + every subclass in the
+hand-off; iOS 16.0+). **iOS 18.0+:** `#Index`, `#Unique`, the history API (`HistoryDescriptor`, `fetchHistory(_:)`);
+the variadic `ModelContainer(for:configurations:)` is also iOS 17+ (use `ModelContainer(for:migrationPlan:configurations:)` with `migrationPlan: nil` for maximum back-compatibility). **iOS 26.0+:** `@Model` class
+inheritance (every subclass needs `@available(iOS 26, *)`; register base + every subclass in the
 container) and `HistoryDescriptor.sortBy`.
 
 **The type error (compiles never):** `@Relationship(.cascade)` — `.cascade` is a
@@ -109,8 +108,8 @@ and the full ❌→✅ rewrites: the routed `references/*.md`.
 
 ### ✅ Correct — the container shape, grounded in real shipping code
 
-The corpus consensus for `ModelContainer` construction is **`(for, configurations)` at 64%**
-(`swiftui-ctx lookup ModelContainer`; next at 9% is bare `(for)`). The canonical real example
+The corpus consensus for `ModelContainer` construction is **`(for, configurations)` at 76%**
+(`swiftui-ctx lookup ModelContainer`). The canonical real example
 (author-authority 9558, 218★) is `fayazara/bucketdrop`:
 
 ```swift
@@ -130,15 +129,14 @@ The construction shape `try ModelContainer(for: schema, configurations: [config]
 ✅; the **same real file's `catch` proves sd-07 in the wild** (it `fatalError`s a recoverable throw).
 Source of record: the permalink above + the Sosumi doc `doc:` link
 `https://sosumi.ai/documentation/swiftdata/modelcontainer` (the variadic `(for:configurations:)`
-overload is **macOS 15.0+** per `floors-master.md`; on a macOS-14 floor use the
-`(for:migrationPlan:configurations:)` overload with `migrationPlan: nil`).
+overload is also iOS 17+; use `(for:migrationPlan:configurations:)` with `migrationPlan: nil` for maximum back-compatibility).
 
 ## The 8-step audit workflow (execute verbatim)
 
 1. **ORIENT.** `tree` / `find` the SwiftUI sources. Read the **deployment target**
-   (`project.pbxproj` `MACOSX_DEPLOYMENT_TARGET`, or `Package.swift` `platforms:`). It is load-bearing:
-   sd-11 fires only when the floor includes macOS 26 *and* a subclass is ungated; the variadic
-   `ModelContainer(for:configurations:)` init needs macOS 15 (note the 14 alternative). Record it.
+   (`project.pbxproj` `IPHONEOS_DEPLOYMENT_TARGET`, or `Package.swift` `platforms:` `.iOS(.v17)`). It is load-bearing:
+   sd-11 fires only when the floor includes iOS 26 *and* a subclass is ungated; confirm the variadic
+   `ModelContainer(for:configurations:)` floor against `floors-master.md`. Record it.
 2. **LOCATE.** Run the shared hybrid lint runner:
    `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-lint.sh --skill audit-swiftui-swiftdata --dir <sources> --json /tmp/sd.json --sarif /tmp/sd.sarif`.
    It runs this skill's tier-1 grep tells (`lint/grep-tells.tsv`) + tier-2 structural ast-grep rules
@@ -160,26 +158,26 @@ overload is **macOS 15.0+** per `floors-master.md`; on a macOS-14 floor use the
    **both** evidence sources. (a) **Practice** — `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx
    lookup <api> --json` (and `swiftui-ctx deprecated <api>` for a currency rule): read its `consensus`
    (the canonical shape — e.g. `ModelContainer` consensus is `(for, configurations)` at 64%),
-   `recommended` permalink + `min_macos`, `introduced_macos`, `co_occurs_with`, and `low_corpus`. A
+   `recommended` permalink + `min_ios`, `introduced_ios`, `co_occurs_with`, and `low_corpus`. A
    `lookup` **exit 3** (not-found, with a did-you-mean `suggestion`) corroborates a hallucination — but
    for a known-sparse symbol (`ModelActor`) treat not-found as `low_corpus`, **not** a hallucination,
    and lean on Sosumi. (b) **Spec** — confirm via **Sosumi**: `curl -sSL https://sosumi.ai/<apple-path>`
    using `references/source-directory.md` for the path and
    `${CLAUDE_PLUGIN_ROOT}/references/_shared/sosumi-reference.md` for the protocol (never `WebFetch`
-   `developer.apple.com`). Cross-check `introduced_macos` against `floors-master.md` and the Sosumi
+   `developer.apple.com`). Cross-check `introduced_ios` against `floors-master.md` and the Sosumi
    `doc:` floor. The CLI contract is
    `${CLAUDE_PLUGIN_ROOT}/references/_shared/swiftui-ctx-reference.md`. Promote with the citation or
    discard. Carry sd-10 (and any unprovable behavior claim) as `advisory` with `source: verify against
    Xcode 26 SDK`.
 6. **REPORT.** Write each confirmed finding (output contract below). One finding per file, zero-padded,
    ordered. Emit a `cross_ref` on every shared-seam site (sd-09 → `concurrency-safety`; sd-06 →
-   `previews`; sd-12 → `sandbox-files`). Write the run's `_index.md`.
+   `previews`; sd-12 → `document-picker-permissions`). Write the run's `_index.md`.
 7. **FIX.** Apply corrections under the fix-safety protocol
    (`${CLAUDE_PLUGIN_ROOT}/references/_shared/fix-safety-protocol.md`): clean-tree gate, findings-first,
    **only `fix_mode: auto`** (sd-04 `@Relationship(.cascade)` → `@Relationship(deleteRule: .cascade)`),
    one conventional commit per finding citing its `rule_id`, never weaken a check. The ✅ "Correct" is
    **not a hand-written snippet** — it is the swiftui-ctx **consensus shape** put in `## Correct`,
-   backed by a real macOS-era example fetched with
+   backed by a real corpus example fetched with
    `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx file <recommended.id> --smart` whose GitHub permalink
    (plus the Sosumi `doc:`) goes in `## Source` as the canonical example. Leave `flag-only` findings
    `open` with that ✅ in `## Correct`.
@@ -218,7 +216,7 @@ domain:
 | `container-lifecycle/` | a preview lacks an in-memory container, a container `fatalError`s, or a multi-process container is unserialized (sd-06, sd-07, sd-12) |
 | `ordering-and-query/` | a relationship array is indexed / iterated unordered (sd-08) |
 | `concurrency-and-saving/` | a `@Model` is mutated off-actor, or a mutation path omits `save()` (sd-09, sd-10) |
-| `availability-gating/` | a `@Model` subclass is ungated or its types unregistered on a macOS-26 floor (sd-11) |
+| `availability-gating/` | a `@Model` subclass is ungated or its types unregistered on an iOS-26 floor (sd-11) |
 
 **New-folder rule:** *if a finding does not fit any existing context folder, create a new one under
 `swiftui-audits/swiftdata/` with a lowercase-hyphen slug naming the sub-category, and note it in the
@@ -231,7 +229,7 @@ hard requirement.* Two runs over the same code produce structurally identical tr
 |---|---|
 | `references/model-shape-and-relationships.md` | a `@Model` definition question — `let`-vs-`var`, init-assignment, missing init, positional `@Relationship`, to-one optionality (sd-01/02/03/04/05) |
 | `references/container-and-preview.md` | `ModelContainer` creation, the `fatalError` trap, preview in-memory containers, multi-process serialization (sd-06/07/12) |
-| `references/query-and-persistence.md` | `@Query` ordering, relationship-array order, and macOS-26 `@Model`-inheritance gating + registration (sd-08/11) |
+| `references/query-and-persistence.md` | `@Query` ordering, relationship-array order, and iOS-26 `@Model`-inheritance gating + registration (sd-08/11) |
 | `references/concurrency-and-saving.md` | off-actor mutation, the `@ModelActor` fix shape, `PersistentIdentifier` hand-off, explicit `save()` and `ScenePhase`/window-close timing (sd-09/10) |
 | `references/source-directory.md` | step VERIFY — the Apple/WWDC/practitioner source map fetched via Sosumi |
 | `lint/grep-tells.tsv` + `lint/ast-grep/*.yml` | step LOCATE — this skill's declarative lint rule set fed to the shared runner (tier-1 grep tells + tier-2 structural ast-grep); edit here to tune detection |
@@ -242,12 +240,12 @@ hard requirement.* Two runs over the same code produce structurally identical tr
 |---|---|
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md` | every floor/availability value (the reconciled truth) |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/hallucination-blacklist.md` | the canonical invented-name list |
-| `${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md` | the macOS-arm gating rule (sd-11 subclass gate) |
+| `${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md` | the iOS gating rule (sd-11 subclass gate) |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/finding-schema.md` | the unified finding schema + frontmatter keys |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/fix-safety-protocol.md` | the 8-point fix-safety protocol (step 7) |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/sosumi-reference.md` | the Apple-doc spec fetch protocol (step 5 VERIFY) |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/swiftui-ctx-reference.md` | the practice-corpus CLI contract — `lookup`/`deprecated`/`file --smart` for the consensus shape + permalinked example (steps 5 VERIFY · 7 FIX) |
-| `${CLAUDE_PLUGIN_ROOT}/references/_shared/cross-ref-graph.md` | seam ownership + `cross_ref` targets (concurrency-safety · previews · sandbox-files) |
+| `${CLAUDE_PLUGIN_ROOT}/references/_shared/cross-ref-graph.md` | seam ownership + `cross_ref` targets (concurrency-safety · previews · document-picker-permissions) |
 
 ## Detection accelerator
 

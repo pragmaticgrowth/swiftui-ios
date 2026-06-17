@@ -2,7 +2,7 @@
 # macos-swiftui-lint.sh — grep tells for macOS SwiftUI defects.
 # Usage: macos-swiftui-lint.sh [file-or-dir ...]   (default: current dir)
 # Exit: 2 if any [hard-fail] rule matched, else 0. Warnings never fail the run.
-# Full rule list + replacements: skills/build-macos-swiftui/references/lint-checklist.md
+# Full rule list + replacements: skills/build-ios-swiftui/references/lint-checklist.md
 set -uo pipefail
 
 # ---- collect .swift files -------------------------------------------------

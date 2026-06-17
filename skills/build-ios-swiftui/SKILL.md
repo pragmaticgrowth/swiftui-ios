@@ -1,5 +1,5 @@
 ---
-name: build-macos-swiftui
+name: build-ios-swiftui
 description: Use skill if you are writing, reviewing, or refactoring SwiftUI for macOS — @Observable state, scenes/windows/menu bar (Settings, MenuBarExtra, .commands), NavigationSplitView sidebars, AppKit (NSViewRepresentable) bridging, Swift 6 concurrency, SwiftData, App Sandbox file access, or macOS-gated Liquid Glass. Triggers include "write a SwiftUI view for Mac", "macOS menu bar app", "Settings window", "Mac sidebar app", "bridge NSTextView/NSView", "state isn't updating", "sandbox file access", "SwiftData crash", "Liquid Glass on macOS". NOT for iOS/iPadOS SwiftUI, visual-only HIG snapshot auditing, codesigning/notarization, a single-API lookup (use swiftui-examples), recipe/template scaffolding (use macos-app-patterns), or a whole-codebase audit (use audit-macos-swiftui-full).
 ---
 

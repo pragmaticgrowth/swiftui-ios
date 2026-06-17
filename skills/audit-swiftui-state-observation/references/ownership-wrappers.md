@@ -50,7 +50,7 @@ Fix: `@State` (owned) or `@Bindable` (passed in).
 
 ```swift
 // ❌ WRONG (compile error) — @Observable type cannot satisfy @ObservedObject's ObservableObject requirement
-@available(macOS 14, *)
+@available(iOS 17, *)
 struct CounterView2: View {
     @ObservedObject var model = CounterModel()     // CounterModel is @Observable → does NOT compile
     var body: some View { Text("\(model.count)") }
@@ -77,20 +77,20 @@ The fix's ✅ is the **consensus shape + a permalinked real example**, not opini
 
 ```bash
 bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx recipe observable-model    # the canonical own-with-@State pattern
-bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx lookup State --json        # @State consensus + recommended
-bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx file ex_44cfa1bff8 --smart # the recommended @Observable model, live
+bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx lookup State --platform ios --json        # @State consensus + recommended
+bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx file ex_8a9e39b23c --smart # the recommended @Observable model, live
 ```
 
 The `observable-model` recipe's consensus (accessed 2026-06-07): own a modern model with `@State`, bind
 with `$model.prop`:
 
 ```swift
-// ✅ CORRECT — modern @Observable owned by the view → @State (macOS 14+). Consensus per swiftui-ctx
-//    recipe observable-model; recommended example ex_44cfa1bff8 (Gremble-io/Detto, @Observable @MainActor).
-@available(macOS 14, *)
+// ✅ CORRECT — modern @Observable owned by the view → @State (iOS 17+). Consensus per swiftui-ctx
+//    recipe observable-model; recommended example ex_8a9e39b23c (rrroyal/Harbour, @Observable @MainActor).
+@available(iOS 17, *)
 @Observable final class CounterModel { var count = 0 }
 
-@available(macOS 14, *)
+@available(iOS 17, *)
 struct CounterView: View {
     @State private var model = CounterModel()        // stable, SwiftUI-managed lifetime
     var body: some View { Stepper("\(model.count)", value: $model.count) }
@@ -119,7 +119,7 @@ no replacement (accessed 2026-06-07). The defect is the *wrong-kind pairing*, ne
 - **Apple — `ObservedObject`.** *"Attempting to wrap an Observable object with @ObservedObject may cause a
   compiler error, because it requires that its wrapped object conform to the ObservableObject protocol."*
   https://developer.apple.com/documentation/swiftui/observedobject — accessed 2026-06-07 (via Sosumi).
-- **Apple — `StateObject`.** Reference-type owner; `macOS 11.0+`.
+- **Apple — `StateObject`.** Reference-type owner; `iOS 14.0+`.
   https://developer.apple.com/documentation/swiftui/stateobject — accessed 2026-06-07 (via Sosumi).
 - **Apple — `State` / `Bindable`.** `https://developer.apple.com/documentation/swiftui/state` ·
   `https://developer.apple.com/documentation/swiftui/bindable` — accessed 2026-06-07 (via Sosumi).

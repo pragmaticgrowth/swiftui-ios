@@ -8,14 +8,14 @@ SwiftData-specific *map* of which pages to fetch. Floor values live in
 permalinked example, deprecation-in-the-wild) is `swiftui-ctx` — its contract is
 `${CLAUDE_PLUGIN_ROOT}/references/_shared/swiftui-ctx-reference.md`.
 
-**As of:** 2026-06-07 · macOS 14+ · Xcode 26 SDK.
+**As of:** 2026-06-07 · iOS 17+ · Xcode 26 SDK.
 
 ---
 
 ## How to verify (summary; full protocol in the shared sosumi reference)
 
-1. **Does the symbol exist + what's its macOS floor?** Fetch
-   `https://sosumi.ai/documentation/swiftdata/<symbol-path>` and read the `**Available on:** … macOS N+`
+1. **Does the symbol exist + what's its iOS floor?** Fetch
+   `https://sosumi.ai/documentation/swiftdata/<symbol-path>` and read the `**Available on:** … iOS N+`
    line. Cross-check against `floors-master.md`.
 2. **Need the real shape / is it `low_corpus`?** Run
    `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx lookup <api> --json`. A not-found on a known-real but
@@ -29,21 +29,21 @@ permalinked example, deprecation-in-the-wild) is `swiftui-ctx` — its contract 
 
 | Symbol | Path | Floor |
 |---|---|---|
-| `@Model` macro | `model()` | macOS 14.0+ |
-| `@Model` class inheritance (`@Model class X: Y`) | `model()` (WWDC25/291) | **macOS 26.0+** |
-| `@Relationship(deleteRule:inverse:)` | `relationship` | macOS 14.0+ |
-| `@Attribute` | `attribute` | macOS 14.0+ |
-| `@Query` / `@Query(sort:)` | `query` | macOS 14.0+ |
-| `ModelContext` / `.save()` / `.insert(_:)` | `modelcontext` | macOS 14.0+ |
-| `ModelConfiguration(isStoredInMemoryOnly:)` | `modelconfiguration` | macOS 14.0+ |
-| `ModelContainer(for:configurations:)` (variadic) | `modelcontainer` | **macOS 15.0+** |
-| `ModelContainer(for:migrationPlan:configurations:)` | `modelcontainer` | macOS 14.0+ |
-| `@ModelActor` | `modelactor` | macOS 14.0+ (`low_corpus` in swiftui-ctx) |
-| `PersistentIdentifier` | `persistentidentifier` | macOS 13.0+ (the `Sendable` hand-off) |
-| `#Index` / `#Unique` | `index` · `unique` | macOS 15.0+ |
-| `HistoryDescriptor` / `fetchHistory(_:)` | `historydescriptor` | macOS 15.0+ |
-| `HistoryDescriptor.sortBy` | `historydescriptor/sortby` | macOS 26.0+ (member badge: `verify-SDK`) |
-| `.modelContainer(for:)` (SwiftUI scene modifier) | `swiftui/scene/modelcontainer(for:)` | macOS 14.0+ |
+| `@Model` macro | `model()` | iOS 17.0+ |
+| `@Model` class inheritance (`@Model class X: Y`) | `model()` (WWDC25/291) | **iOS 26.0+** |
+| `@Relationship(deleteRule:inverse:)` | `relationship` | iOS 17.0+ |
+| `@Attribute` | `attribute` | iOS 17.0+ |
+| `@Query` / `@Query(sort:)` | `query` | iOS 17.0+ |
+| `ModelContext` / `.save()` / `.insert(_:)` | `modelcontext` | iOS 17.0+ |
+| `ModelConfiguration(isStoredInMemoryOnly:)` | `modelconfiguration` | iOS 17.0+ |
+| `ModelContainer(for:configurations:)` (variadic) | `modelcontainer` | iOS 17.0+ |
+| `ModelContainer(for:migrationPlan:configurations:)` | `modelcontainer` | iOS 17.0+ |
+| `@ModelActor` | `modelactor` | iOS 17.0+ (`low_corpus` in swiftui-ctx) |
+| `PersistentIdentifier` | `persistentidentifier` | iOS 16.0+ (the `Sendable` hand-off) |
+| `#Index` / `#Unique` | `index` · `unique` | iOS 18.0+ |
+| `HistoryDescriptor` / `fetchHistory(_:)` | `historydescriptor` | iOS 18.0+ |
+| `HistoryDescriptor.sortBy` | `historydescriptor/sortby` | iOS 26.0+ (member badge: `verify-SDK`) |
+| `.modelContainer(for:)` (SwiftUI scene modifier) | `swiftui/scene/modelcontainer(for:)` | iOS 17.0+ |
 
 **Treat as hallucinated until Sosumi proves it:** any SwiftData name absent from the index. There is no
 SwiftData-specific invented-name list — defer to

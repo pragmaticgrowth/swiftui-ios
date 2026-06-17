@@ -3,9 +3,9 @@
 The two ways a translated string is still *wrong* after the literal reaches the catalog: it was
 assembled by string-building (so plurals and grammar can't vary per language), or a number/date was
 formatted with a locale-unaware API. Floor values: `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md`.
-✅ shapes are the swiftui-ctx consensus (`swiftui-ctx lookup <api> --json`); verify via Sosumi.
+✅ shapes are the swiftui-ctx consensus (`swiftui-ctx lookup <api> --platform ios --json`); verify via Sosumi.
 
-**As of:** 2026-06-07 · macOS 26 (Tahoe) · Xcode 26 SDK.
+**As of:** 2026-06-07 · iOS 26 (Tahoe) · Xcode 26 SDK.
 
 ---
 
@@ -30,7 +30,7 @@ Text("^[\(count) file](inflect: true) remaining")
 The defect is **not** the interpolation syntax itself — it is the absence of catalog plural/inflect
 variations behind it (or, worse, building the whole sentence with `+`). The lint tell
 `Text("…\(…)")` LOCATES; READ confirms whether the catalog varies it. `InflectionRule` /
-automatic grammar agreement is **macOS 12.0+** (floors-master). Reach for `String(localized:)` with a
+automatic grammar agreement is **iOS 15.0+** (floors-master). Reach for `String(localized:)` with a
 `String.LocalizationValue` when the string is built outside a `Text`.
 
 ## loc-07 — locale-unaware number/date formatting
@@ -50,8 +50,8 @@ Text(date, format: .dateTime.year().month().day())
 Text(date.formatted(.relative(presentation: .named)))
 ```
 
-`Text.init(_:format:)` (the `FormatStyle` overload) is **macOS 15.0+**; `.formatted()` / `FormatStyle`
-on the value types are macOS 12.0+ (floors-master). When the formatted value is *async-loaded* data, the
+`Text.init(_:format:)` (the `FormatStyle` overload) is **iOS 15.0+**; `.formatted()` / `FormatStyle`
+on the value types are iOS 15.0+ (floors-master). When the formatted value is *async-loaded* data, the
 date/number `FormatStyle` choice seams to `audit-swiftui-async-data` — note and route, don't double-own.
 
 A formatter that *is* given an explicit `\.locale` and is genuinely needed (e.g. parsing a fixed wire

@@ -1,21 +1,21 @@
 ---
 name: audit-swiftui-api-currency
-description: Audits a finished or in-progress macOS SwiftUI codebase for stale, deprecated, renamed, or hallucinated APIs and writes per-finding Markdown to swiftui-audits/. Use when the user says the code uses old APIs, deprecation warnings, or "is this current for macOS 26"; when AI may have emitted NavigationView, foregroundColor, cornerRadius, one-parameter onChange, tabItem, inline NavigationLink, Text plus Text concatenation, or DispatchQueue.main.async cargo-cult; when a macOS-26.5 deprecation appears (3-arg dropDestination, MagnificationGesture, RotationGesture, design-only Font.system, accentColor); or when an invented name like glassBackground, liquidGlass, LiquidGlassView, material(.glass), or visionOS-only glassBackgroundEffect slips into a Mac target. AUDIT-ONLY, macOS-only, SwiftUI-only. Not for the deep Liquid-Glass design audit, not for the blanket availability-gating sweep, not for positive color or typography craft, not for from-scratch or inline single-file fixes (use swiftui-modernize).
+description: Audits a finished or in-progress iOS SwiftUI codebase for stale, deprecated, renamed, or hallucinated APIs and writes per-finding Markdown to swiftui-audits/. Use when the user says the code uses old APIs, deprecation warnings, or "is this current for iOS 26"; when AI may have emitted NavigationView, foregroundColor, cornerRadius, one-parameter onChange, tabItem, inline NavigationLink, Text plus Text concatenation, or DispatchQueue.main.async cargo-cult; when an iOS-26.5 deprecation appears (3-arg dropDestination, MagnificationGesture, RotationGesture, design-only Font.system, accentColor); or when an invented name like glassBackground, liquidGlass, LiquidGlassView, material(.glass), or visionOS-only glassBackgroundEffect slips into an iPhone/iPad target. AUDIT-ONLY, iOS-only, SwiftUI-only. Not for the deep Liquid-Glass design audit, not for the blanket availability-gating sweep, not for positive color or typography craft, not for from-scratch or inline single-file fixes (use swiftui-modernize).
 ---
 
 # Audit SwiftUI API Currency
 
-**AUDIT-ONLY · macOS-only · SwiftUI-only.** Run this on a *finished or in-progress* macOS SwiftUI
-project to detect — and where certain, fix — every way an API drifts out of currency on a macOS 26
+**AUDIT-ONLY · iOS-only · SwiftUI-only.** Run this on a *finished or in-progress* iOS SwiftUI
+project to detect — and where certain, fix — every way an API drifts out of currency on an iOS 26
 (Tahoe) target: the **stale** symbol the model learned from a 2019–2022 corpus (`NavigationView`,
-`.foregroundColor`, 1-param `onChange`), the freshly-**deprecated** macOS-26.5 call, the **renamed**
+`.foregroundColor`, 1-param `onChange`), the freshly-**deprecated** iOS-26.5 call, the **renamed**
 gesture, and the **hallucinated** modifier AI confabulated for a surface it never saw. Findings are
 written to disk in the toolkit's unified schema; certain mechanical renames are fixed under the
 fix-safety protocol. This is never a from-scratch modernizer.
 
 Three mechanisms compound: **training recency** (renames every year; the corpus is the old surface),
 **confident confabulation** (an unknown surface yields a plausible *invented* name, not an admission of
-absence), and **no availability awareness** (a macOS-26-only call emitted with no gate). The unifying
+absence), and **no availability awareness** (an iOS-26-only call emitted with no gate). The unifying
 tell: the code *reads* idiomatic and usually compiles, so it survives casual review.
 
 ## Boundary / seam note (stay in lane)
@@ -24,10 +24,10 @@ tell: the code *reads* idiomatic and usually compiles, so it survives casual rev
   sibling's.** Emit `cross_ref` on every shared seam (`${CLAUDE_PLUGIN_ROOT}/references/_shared/cross-ref-graph.md`):
   - `.foregroundColor` / `.accentColor` / `.cornerRadius` craft → **`audit-swiftui-appearance-color`**.
   - `Text + Text` / `Font.system(_:design:)` craft → **`audit-swiftui-typography-text`**.
-  - `NavigationView` / `tabItem` / inline `NavigationLink` structural migration → **`audit-swiftui-navigation-toolbars`**.
+  - `NavigationView` / `tabItem` / inline `NavigationLink` structural migration → **`audit-swiftui-adaptive-navigation`**.
   - 1-param `onChange`, `ObservableObject` default → **`audit-swiftui-state-observation`**.
   - `DispatchQueue.main.async` isolation fix → **`audit-swiftui-async-data`** / concurrency.
-  - Gesture renames mechanics → **`audit-swiftui-pointer-gestures`**; `dropDestination` → **`audit-swiftui-sandbox-files`**.
+  - Gesture renames mechanics → **`audit-swiftui-touch-gestures`**; `dropDestination` → **`audit-swiftui-document-picker-permissions`**.
   - Hallucinated glass names + glass design → **`audit-swiftui-liquid-glass`**.
 - **The blanket "is every OS-floored API gated" sweep belongs to `audit-swiftui-availability-gating`.**
   This skill flags the deprecation; whether a current-but-floored *replacement* is gated is noted and
@@ -38,9 +38,9 @@ tell: the code *reads* idiomatic and usually compiles, so it survives casual rev
 
 1. **Deprecated/renamed** — a real symbol Apple superseded; it compiles with a warning today and breaks
    when the window closes (`NavigationView` → 26.5; `Text + Text` → 26.0). Flag + cite the current idiom.
-2. **Hallucinated** — a name that never existed on macOS; a hard-fail. A `swiftui-ctx lookup` **exit 3**
-   (not-found) corroborates it: no shipping Mac app uses the symbol.
-3. **Ungated current API** — the *right* replacement carries its own macOS floor; using it below the
+2. **Hallucinated** — a name that never existed on iOS; a hard-fail. A `swiftui-ctx lookup` **exit 3**
+   (not-found) corroborates it: no shipping iPhone/iPad app uses the symbol.
+3. **Ungated current API** — the *right* replacement carries its own iOS floor; using it below the
    deployment target is a build break. This skill notes it and routes the depth to `availability-gating`.
 
 ## Defect index (curr-01 … curr-14)
@@ -51,20 +51,20 @@ single-answer rename; `flag` = show the ✅, dev applies.
 
 | id | One-line tell | Sev | Fix | Reference |
 |---|---|---|---|---|
-| curr-01 | `NavigationView { … }` (deprecated macOS 10.15–26.5) | warning | flag | `deprecations-and-renames.md` |
+| curr-01 | `NavigationView { … }` (deprecated iOS 13.0–26.5) | warning | flag | `deprecations-and-renames.md` |
 | curr-02 | `.foregroundColor(_:)` (deprecated → `.foregroundStyle`) | warning | auto | `deprecations-and-renames.md` |
 | curr-03 | `.cornerRadius(_:)` (deprecated → `.clipShape(.rect(cornerRadius:))`) | warning | auto | `deprecations-and-renames.md` |
-| curr-04 | 1-param `.onChange(of:) { newValue in }` (introduced macOS 11, deprecated macOS 14) | warning | flag | `deprecations-and-renames.md` |
-| curr-05 | `.tabItem { … }` (→ `Tab("…", systemImage:) { }`, macOS 15) | warning | flag | `deprecations-and-renames.md` |
+| curr-04 | 1-param `.onChange(of:) { newValue in }` (introduced iOS 14, deprecated iOS 17) | warning | flag | `deprecations-and-renames.md` |
+| curr-05 | `.tabItem { … }` (→ `Tab("…", systemImage:) { }`, iOS 18) | warning | flag | `deprecations-and-renames.md` |
 | curr-06 | inline `NavigationLink(…, destination:)` inside `List`/`ForEach` | warning | flag | `deprecations-and-renames.md` |
-| curr-07 | `Text("…") + Text("…")` concatenation (deprecated macOS 26.0) | warning | flag | `deprecations-and-renames.md` |
+| curr-07 | `Text("…") + Text("…")` concatenation (deprecated iOS 26.0) | warning | flag | `deprecations-and-renames.md` |
 | curr-08 | `DispatchQueue.main.async` cargo-cult in async-aware code | advisory | flag | `deprecations-and-renames.md` |
-| curr-09 | 3-arg `dropDestination(for:action:isTargeted:)` (deprecated macOS 26.5) | warning | flag | `deprecations-and-renames.md` |
-| curr-10 | `MagnificationGesture` / `RotationGesture` (renamed macOS 26.5) | warning | auto | `deprecations-and-renames.md` |
+| curr-09 | 3-arg `dropDestination(for:action:isTargeted:)` (deprecated iOS 26.5) | warning | flag | `deprecations-and-renames.md` |
+| curr-10 | `MagnificationGesture` / `RotationGesture` (renamed iOS 26.5) | warning | auto | `deprecations-and-renames.md` |
 | curr-11 | `Font.system(_:design:)` design-only, no `weight:` (deprecated 26.5) | advisory | flag | `deprecations-and-renames.md` |
-| curr-12 | `.accentColor(_:)` (deprecated macOS 26.5 → `.tint(_:)`) | warning | auto | `deprecations-and-renames.md` |
+| curr-12 | `.accentColor(_:)` (deprecated iOS 26.5 → `.tint(_:)`) | warning | auto | `deprecations-and-renames.md` |
 | curr-13 | `.glassBackground()` / `.liquidGlass()` / `LiquidGlassView` / `.material(.glass)` / `.cardStyle()` | hard-fail | flag | `hallucinated-currency.md` |
-| curr-14 | `.glassBackgroundEffect()` on a Mac target (visionOS-only) | hard-fail | flag | `hallucinated-currency.md` |
+| curr-14 | `.glassBackgroundEffect()` on an iOS target (visionOS-only) | hard-fail | flag | `hallucinated-currency.md` |
 
 **Two claims are version-sensitive — confirm before asserting, never invent:** the exact `dropDestination`
 successor signature (`dropDestination(for:isEnabled:action:)`) and any `GlassProminentButtonStyle`
@@ -72,7 +72,7 @@ availability; carry as the citation from `swiftui-ctx` + Sosumi or as `source: v
 
 ## The real API, at a glance
 
-**Deprecated → current (macOS):** `NavigationView` → `NavigationStack` / `NavigationSplitView` ·
+**Deprecated → current (iOS):** `NavigationView` → `NavigationStack` / `NavigationSplitView` ·
 `.foregroundColor(_:)` → `.foregroundStyle(_:)` · `.cornerRadius(_:)` →
 `.clipShape(.rect(cornerRadius:))` · 1-param `.onChange` → `(old, new)` or 0-param · `.tabItem` →
 `Tab(){}` · inline `NavigationLink(destination:)` → `.navigationDestination(for:)` · `Text + Text` →
@@ -81,24 +81,24 @@ interpolation / `AttributedString` · `DispatchQueue.main.async` → `@MainActor
 `RotationGesture` → `MagnifyGesture` / `RotateGesture` · `Font.system(_:design:)` →
 `Font.system(_:design:weight:)` · `.accentColor(_:)` → `.tint(_:)`.
 
-**Hallucinated (never exist on macOS):** `.glassBackground()`, `.liquidGlass()`, `LiquidGlassView`,
+**Hallucinated (never exist on iOS):** `.glassBackground()`, `.liquidGlass()`, `LiquidGlassView`,
 `.material(.glass)`, `.background(.glass)`, `.cardStyle()`. **Real-but-platform-wrong:**
-`.glassBackgroundEffect()` (visionOS-only). **NOT hallucinated — do not flag:** `Glass.interactive(_:)`
-is `macOS 26.0+` and pointer-driven on the Mac.
+`.glassBackgroundEffect()` (visionOS-only). **NOT hallucinated — do not flag:** `glassEffect(_:in:)`
+is `iOS 26.0+` on iPhone/iPad.
 
 **Grounded ✅ example (the shape step 7 FIX embeds — real code, not a placeholder).** For curr-02
 (`.foregroundColor` → `.foregroundStyle`), `swiftui-ctx lookup foregroundStyle --json` returns the
 `consensus` shape `(_)` at 100% with `recommended` permalink below — this is what `## Correct` carries:
 
 ```swift
-// ✅ .foregroundStyle(_:) — consensus shape (_), real macOS-26 call site
+// ✅ .foregroundStyle(_:) — consensus shape (_), real iOS-26 call site
 Circle()
     .stroke(lineWidth: lineWidth)
     .opacity(0.3)
     .foregroundStyle(.secondary)
 ```
 
-- **Source (real GitHub permalink):** sindresorhus/Gifski (8.4k★, `min_macos: 26`) —
+- **Source (real GitHub permalink):** sindresorhus/Gifski (8.4k★, `min_ios: 26`) —
   https://github.com/sindresorhus/Gifski/blob/7f873856e2acd8b52e6681dee3aec31e6cab23e4/Gifski/Utilities.swift#L5192
 - **Spec (Sosumi `doc:`):** https://sosumi.ai/documentation/swiftui/view/foregroundstyle
 - Re-fetch live with `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx file ex_032f0b9e2b --smart`; never
@@ -107,13 +107,13 @@ Circle()
 Floor *values* are the reconciled truth in `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md`
 and the canonical invented-name list in
 `${CLAUDE_PLUGIN_ROOT}/references/_shared/hallucination-blacklist.md` — read, never restate them. The
-canonical ✅ shape + a real macOS-26 example come from `swiftui-ctx` (step VERIFY/FIX), not a hand-written
+canonical ✅ shape + a real iOS-26 example come from `swiftui-ctx` (step VERIFY/FIX), not a hand-written
 snippet.
 
 ## The 8-step audit workflow (execute verbatim)
 
 1. **ORIENT.** `tree` / `find` the SwiftUI sources. Read the **deployment target**
-   (`project.pbxproj` `MACOSX_DEPLOYMENT_TARGET`, or `Package.swift` `platforms:`). It governs the
+   (`project.pbxproj` `IPHONEOS_DEPLOYMENT_TARGET`, or `Package.swift` `platforms:` `.iOS(.v17)`). It governs the
    gating angle (a current-but-floored replacement must be gated below its floor). Record it.
 2. **LOCATE.** Run the shared hybrid lint runner:
    `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-lint.sh --skill audit-swiftui-api-currency --dir <sources> --json /tmp/curr.json --sarif /tmp/curr.sarif`.
@@ -134,19 +134,19 @@ snippet.
    floor you can't place, a successor signature), run **both** evidence sources. (a) **Practice** —
    `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx lookup <api> --json` AND, for every currency rule,
    `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx deprecated <api>`: read its `consensus` (the canonical
-   shape), `deprecated`+`replacement`, `recommended` permalink, `introduced_macos`, and `co_occurs_with`.
+   shape), `deprecated`+`replacement`, `recommended` permalink, `introduced_ios`, and `co_occurs_with`.
    A `lookup` **exit 3** (not-found, with a did-you-mean `suggestion`) corroborates a hallucination
-   (curr-13/14) — no shipping Mac app uses the symbol. (b) **Spec** — confirm via **Sosumi**:
+   (curr-13/14) — no shipping iPhone/iPad app uses the symbol. (b) **Spec** — confirm via **Sosumi**:
    `curl -sSL https://sosumi.ai/<apple-path>` using `references/source-directory.md` for the path and
    `${CLAUDE_PLUGIN_ROOT}/references/_shared/sosumi-reference.md` for the protocol (never `WebFetch`
-   `developer.apple.com`). Cross-check `introduced_macos` against `floors-master.md` and the Sosumi
+   `developer.apple.com`). Cross-check `introduced_ios` against `floors-master.md` and the Sosumi
    `doc:` floor. The CLI contract is `${CLAUDE_PLUGIN_ROOT}/references/_shared/swiftui-ctx-reference.md`.
    Promote with the citation or discard; carry an unconfirmed successor signature as `source: verify
    against Xcode 26 SDK`.
    - **Deeper corpus evidence (currency BASELINE).** Open the sweep with the corpus deprecation set:
      `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx deprecated --json` (no arg) or
      `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx insights deprecated` — the deprecated APIs real
-     Mac apps STILL ship, with repo counts (e.g. `.foregroundColor`/curr-02 in **1,119** repos,
+     iPhone/iPad apps STILL ship, with repo counts (e.g. `.foregroundColor`/curr-02 in **1,119** repos,
      `NavigationView`/curr-01 in 257). Use it to rank which curr-IDs to hunt first and to ground each
      finding's `era` ("still shipped by N repos"), per `_shared/swiftui-ctx-reference.md`.
 6. **REPORT.** Write each confirmed finding (output contract below). One finding per file, zero-padded,
@@ -155,13 +155,13 @@ snippet.
    (`${CLAUDE_PLUGIN_ROOT}/references/_shared/fix-safety-protocol.md`): clean-tree gate, findings-first,
    **only `fix_mode: auto`** (curr-02/03/10/12 — the pure mechanical renames), one conventional commit
    per finding citing its `rule_id`, never weaken a check. The ✅ "Correct" is **not a hand-written
-   snippet** — it is the swiftui-ctx **consensus shape** put in `## Correct`, backed by a real macOS-26
+   snippet** — it is the swiftui-ctx **consensus shape** put in `## Correct`, backed by a real iOS-26
    example fetched with `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx file <recommended.id> --smart`
    whose GitHub permalink (plus the Sosumi `doc:`) goes in `## Source` as the canonical example. Leave
    `flag-only` findings `open` with that ✅ in `## Correct`.
 8. **DOUBLE-CHECK.** Re-grep each fixed file to confirm the tell no longer matches; record the evidence
    in `## Fix applied?`. Re-confirm every citation still resolves. If a fix introduced a new tell (e.g.
-   a `.foregroundStyle` replacement that now needs a macOS-12 gate below the floor), loop that file back
+   a `.foregroundStyle` replacement that now needs an iOS-15 gate below the floor), loop that file back
    to DETECT and route the gating note to `availability-gating`.
 
 ## Confidence gating (load-bearing)
@@ -179,7 +179,7 @@ domain:
 - Findings: `swiftui-audits/api-currency/<context>/NN-slug.md` (one finding per file, zero-padded,
   ordered). Per-run index: `swiftui-audits/api-currency/_index.md`.
 - `domain: api-currency`. Uses the additive field **`era`** (free-string release wave, e.g.
-  `WWDC22/macOS-13`, `macOS-26.5`, `WWDC25/macOS-26`). `fix_mode` is `auto` for curr-02/03/10/12, else
+  `WWDC22/iOS-16`, `iOS-26.5`, `WWDC25/iOS-26`). `fix_mode` is `auto` for curr-02/03/10/12, else
   `flag-only`. `availability` reads from `floors-master.md`. `source` is an Apple URL + access date
   (fetched via Sosumi) or `verify against Xcode 26 SDK`. Emit `cross_ref` per the seam note.
 
@@ -189,8 +189,8 @@ domain:
 |---|---|
 | `deprecated-renamed/` | a real symbol Apple superseded — nav, color, clip, onChange, tab, link, Text+Text (curr-01…07) |
 | `concurrency-cargo-cult/` | a `DispatchQueue.main.async` hop in async-aware code (curr-08) |
-| `macos-26-5-deprecations/` | a freshly-deprecated 26.5 surface — dropDestination, gesture renames, Font weight, accentColor (curr-09…12) |
-| `hallucinated-api/` | an invented name (curr-13) or a visionOS-only symbol on a Mac target (curr-14) |
+| `ios-26-5-deprecations/` | a freshly-deprecated 26.5 surface — dropDestination, gesture renames, Font weight, accentColor (curr-09…12) |
+| `hallucinated-api/` | an invented name (curr-13) or a visionOS-only symbol on an iOS target (curr-14) |
 | `gating/` | a current-but-floored *replacement* used below the deployment target (route depth → availability-gating) |
 
 **New-folder rule:** *if a finding does not fit any existing context folder, create a new one under
@@ -213,7 +213,7 @@ hard requirement.* Two runs over the same code produce structurally identical tr
 |---|---|
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md` | every floor/availability/deprecation value (the reconciled truth) |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/hallucination-blacklist.md` | the canonical invented-name list |
-| `${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md` | the macOS-arm gating rule + wrong-arm failure |
+| `${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md` | the iOS availability gating rule + wrong-arm failure |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/finding-schema.md` | the unified finding schema + frontmatter keys (incl. additive `era`) |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/fix-safety-protocol.md` | the fix-safety protocol (step 7) |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/sosumi-reference.md` | the Apple-doc spec fetch protocol (step 5 VERIFY) |
@@ -234,5 +234,3 @@ gate, and **degrades to grep-only with a notice** if ast-grep is unreachable (`n
 full before reporting (step 3). The thin `scripts/currency-lint.sh` is a pointer to this runner. Engine
 + rule-file format + JSON/SARIF shape + safety rails:
 `${CLAUDE_PLUGIN_ROOT}/references/_shared/lint-architecture.md`.
-</content>
-</invoke>

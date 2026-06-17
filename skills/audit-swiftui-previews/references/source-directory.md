@@ -8,18 +8,18 @@ file is the previews-specific *map* of which pages to fetch. Floor values live i
 permalinked example) comes from `swiftui-ctx` per
 `${CLAUDE_PLUGIN_ROOT}/references/_shared/swiftui-ctx-reference.md`.
 
-**As of:** 2026-06-07 · macOS 26 (Tahoe) · Xcode 26 SDK.
+**As of:** 2026-06-07 · iOS 26 · Xcode 26 SDK.
 
 ---
 
 ## How to verify (summary; full protocol in the shared sosumi reference)
 
-1. **Does the symbol exist + what's its macOS floor?** Fetch
-   `https://sosumi.ai/documentation/swiftui/<symbol-path>` and read the `**Available on:** … macOS N+ …`
+1. **Does the symbol exist + what's its iOS floor?** Fetch
+   `https://sosumi.ai/documentation/swiftui/<symbol-path>` and read the `**Available on:** … iOS N+ …`
    line. Absence from the SwiftUI index = treat as hallucinated/platform-wrong until proven (e.g. the
-   `windowStyle:` `#Preview` overload is **absent** from the macOS `#Preview` page — visionOS-only).
-2. **Need the practice idiom?** `swiftui-ctx lookup <api> --json` → `consensus` (canonical shape),
-   `recommended` (permalinked real macOS example), `co_occurs_with`. A `lookup` **exit 3** corroborates a
+   `windowStyle:` `#Preview` overload is **absent** from the iOS `#Preview` page — visionOS-only).
+2. **Need the practice idiom?** `swiftui-ctx lookup <api> --platform ios --json` → `consensus` (canonical shape),
+   `recommended` (permalinked real iOS example), `co_occurs_with`. A `lookup` **exit 3** corroborates a
    hallucination/platform-wrong finding. A `low_corpus:true` (e.g. `Previewable`, `Entry` — sparse in the
    corpus because they are compile-time macros, not runtime call sites) means lean on Sosumi for the spec.
 3. **Type-property floors** can inherit the enclosing type's floor in DocC — cross-check against WWDC
@@ -31,21 +31,21 @@ permalinked example) comes from `swiftui-ctx` per
 
 Human doc path = `developer.apple.com/documentation/swiftui/<path>` (fetch via `sosumi.ai/...`).
 
-| Symbol | Path | macOS floor |
+| Symbol | Path | iOS floor |
 |---|---|---|
-| `#Preview` / `Preview(_:traits:_:body:)` | `preview(_:traits:_:body:)` | 14.0+ |
-| `@Previewable` | `previewable()` | 14.0+ |
-| `@Entry` | `entry()` | 10.15+ (Xcode 15 to expand; practical 14) |
-| `.fixedLayout(width:height:)` / `.sizeThatFitsLayout` / `.defaultLayout` traits | `previewtrait` family | 14.0+ |
-| `PreviewModifier` / `.modifier(_:)` trait | `previewmodifier` · `previewtrait/modifier(_:)` | 15.0+ (`verify-SDK`) |
-| `PreviewProvider` (legacy, NOT deprecated) | `previewprovider` | 10.15+ |
-| `.modelContainer(for:inMemory:)` | `view/modelcontainer(for:inmemory:onsetup:)` | 14.0+ |
-| `.environment(_:)` (type-keyed Observable) | `view/environment(_:)` | 10.15+ |
-| `FocusedValueKey` / focused values | `focusedvaluekey` | 11.0+ |
+| `#Preview` / `Preview(_:traits:_:body:)` | `preview(_:traits:_:body:)` | 17.0+ |
+| `@Previewable` | `previewable()` | 17.0+ |
+| `@Entry` | `entry()` | 13.0+ (Xcode 15 to expand; practical 17) |
+| `.fixedLayout(width:height:)` / `.sizeThatFitsLayout` / `.defaultLayout` traits | `previewtrait` family | 17.0+ |
+| `PreviewModifier` / `.modifier(_:)` trait | `previewmodifier` · `previewtrait/modifier(_:)` | 18.0+ (`verify-SDK`) |
+| `PreviewProvider` (legacy, NOT deprecated) | `previewprovider` | 13.0+ |
+| `.modelContainer(for:inMemory:)` | `view/modelcontainer(for:inmemory:onsetup:)` | 17.0+ |
+| `.environment(_:)` (type-keyed Observable) | `view/environment(_:)` | 13.0+ |
+| `FocusedValueKey` / focused values | `focusedvaluekey` | 14.0+ |
 
-**Absent from the macOS index → platform-wrong (never emit on a Mac target):**
+**Absent from the iOS index → platform-wrong (never emit on an iPhone/iPad target):**
 `Preview(_:windowStyle:traits:body:)` (visionOS-only — there is **no** `windowStyle:` `#Preview` on
-macOS). **Wrong injector for an `@Observable`:** `.environmentObject(_:)` (takes only an
+iOS). **Wrong injector for an `@Observable`:** `.environmentObject(_:)` (takes only an
 `ObservableObject`). Canonical list:
 `${CLAUDE_PLUGIN_ROOT}/references/_shared/hallucination-blacklist.md`.
 
@@ -66,7 +66,7 @@ macOS). **Wrong injector for an `@Observable`:** `.environmentObject(_:)` (takes
 | Source | Use |
 |---|---|
 | swiftlang/swift #66537 | SwiftData preview crashes without an in-memory container (prev-06 symptom) |
-| swiftui-ctx `recommended` permalinks | the canonical ✅ — a real macOS app's `.modelContainer`/`.environment` body |
+| swiftui-ctx `recommended` permalinks | the canonical ✅ — a real iOS app's `.modelContainer`/`.environment` body |
 
 ---
 

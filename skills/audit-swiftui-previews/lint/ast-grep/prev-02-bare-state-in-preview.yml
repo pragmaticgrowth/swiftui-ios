@@ -12,7 +12,7 @@ severity: error
 message: >-
   prev-02: a dynamic property (@State/@Binding/@Bindable) is declared inside a #Preview body with no
   @Previewable tag — a compile error at the expanded body scope. Tag it `@Previewable @State var …`
-  (macOS 14.0+). READ to confirm the declaration is at #Preview body scope. fix_mode: flag-only.
+  (iOS 17.0+). READ to confirm the declaration is at #Preview body scope. fix_mode: flag-only.
 rule:
   kind: macro_invocation
   all:

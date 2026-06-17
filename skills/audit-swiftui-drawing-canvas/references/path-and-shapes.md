@@ -2,9 +2,9 @@
 
 The depth behind `Path` correctness, hand-rolled-vs-built-in shapes, and the `Canvas`/drawing a11y
 descriptor. Floor *values* live in `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md`. `Path` and
-the primitive shapes are macOS 10.15+ — the failure mode here is **math/judgment, not availability**.
+the primitive shapes are iOS 13.0+ — the failure mode here is **math/judgment, not availability**.
 
-**As of:** 2026-06-07 · macOS 26 (Tahoe) · Xcode 26 SDK.
+**As of:** 2026-06-07 · iOS 26 · Xcode 26 SDK.
 
 ---
 
@@ -72,6 +72,6 @@ Canvas { ctx, size in drawBars(into: ctx, size) }
 - Apple — `View.accessibilityChartDescriptor(_:)` + `AXChartDescriptor`:
   `https://developer.apple.com/documentation/swiftui/view/accessibilitychartdescriptor(_:)` (via Sosumi,
   accessed 2026-06-07).
-- Practice corpus: `swiftui-ctx lookup Path|Circle|Canvas --json` for consensus shapes + permalinked call
+- Practice corpus: `swiftui-ctx lookup Path|Circle|Canvas --platform ios --json` for consensus shapes + permalinked call
   sites (accessed 2026-06-07). CLI contract:
   `${CLAUDE_PLUGIN_ROOT}/references/_shared/swiftui-ctx-reference.md`.

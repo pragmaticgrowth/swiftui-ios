@@ -1,11 +1,11 @@
 # Reference — Right-to-left layout & layout direction (loc-08/10)
 
-Arabic, Hebrew, Farsi, and Urdu read right-to-left; AppKit/SwiftUI mirror most layout automatically
+Arabic, Hebrew, Farsi, and Urdu read right-to-left; UIKit/SwiftUI mirror most layout automatically
 **if** the code uses direction-relative APIs. The defects are the places that hard-code a physical
 direction. Floor values: `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md`. Verify symbols via
 Sosumi (`${CLAUDE_PLUGIN_ROOT}/references/_shared/sosumi-reference.md`).
 
-**As of:** 2026-06-07 · macOS 26 (Tahoe) · Xcode 26 SDK.
+**As of:** 2026-06-07 · iOS 26 (Tahoe) · Xcode 26 SDK.
 
 ---
 

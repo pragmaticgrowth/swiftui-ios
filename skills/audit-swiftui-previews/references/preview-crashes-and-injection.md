@@ -30,28 +30,28 @@ cross-ref graph.)
 }
 ```
 ```swift
-// ✅ inject an in-memory container scoped to the preview (macOS 14+)
+// ✅ inject an in-memory container scoped to the preview (iOS 17+)
 #Preview {
     ItemListView()
         .modelContainer(for: Item.self, inMemory: true)
 }
 ```
 
-**swiftui-ctx grounding (run during this build):** `swiftui-ctx lookup modelContainer --json` →
+**swiftui-ctx grounding (run during this build):** `swiftui-ctx lookup modelContainer --platform ios --json` →
 `consensus` carries the `(for, inMemory)` shape (the preview form) at **13%** of all real uses;
 `co_occurs_with` lists `Query`, `Model`, `ModelContext`, `Schema` — i.e. wherever the corpus uses
-`@Query` it pairs a `modelContainer`, corroborating prev-06's tell. `introduced_macos: 14.0`,
+`@Query` it pairs a `modelContainer`, corroborating prev-06's tell. `introduced_ios: 17.0`,
 `doc: https://sosumi.ai/documentation/swiftui/view/modelcontainer`. The `recommended` permalink (a real
-macOS app's body) is the canonical ✅ to cite in a finding's `## Source` — fetch its enclosing body with
+iOS app's body) is the canonical ✅ to cite in a finding's `## Source` — fetch its enclosing body with
 `swiftui-ctx file <recommended.id> --smart`. For an **explicit** configured container:
 
 ```swift
 // let container = try! ModelContainer(
 //     for: Item.self,
-//     configurations: ModelConfiguration(isStoredInMemoryOnly: true))   // ModelContainer.init(for:configurations:) is macOS 15.0+ — see floors-master
+//     configurations: ModelConfiguration(isStoredInMemoryOnly: true))   // ModelContainer.init(for:configurations:) is iOS 18.0+ — see floors-master
 ```
 
-Seed sample rows into the container's `mainContext` when the view should render non-empty. On macOS 15+
+Seed sample rows into the container's `mainContext` when the view should render non-empty. On iOS 18+
 prefer a shared `PreviewModifier` over rebuilding inline (prev-09 — `preview-modifier-shared.md`).
 
 ## prev-07 — environment-dependent view with no injected dependency
@@ -68,7 +68,7 @@ where `AppModel.preview` lives — is `audit-swiftui-state-observation`'s; `cros
 }
 ```
 ```swift
-// ✅ inject a sample @Observable by type (macOS 14+)
+// ✅ inject a sample @Observable by type (iOS 17+)
 #Preview {
     DetailView()
         .environment(AppModel.preview)               // sample/mock @Observable
@@ -77,14 +77,13 @@ where `AppModel.preview` lives — is `audit-swiftui-state-observation`'s; `cros
 
 This is the type-keyed `.environment(_:)` injection — **not** legacy `.environmentObject(_:)`, which only
 takes an `ObservableObject` (that mismatch is prev-08 — see `entry-and-environment.md`).
-**swiftui-ctx grounding:** `swiftui-ctx lookup environment --json` → `consensus` `(_)` 56% / `(_, _)` 44%;
-the highest-authority `recommended` example is `.environment(appState)` at `min_macos: 26`
-(`sindresorhus/Gifski`), confirming `.environment(_:)` as the live macOS injector.
-`introduced_macos: 10.15`, `doc: https://sosumi.ai/documentation/swiftui/view/environment`.
+**swiftui-ctx grounding:** `swiftui-ctx lookup environment --platform ios --json` → `consensus` `(_)` 56% / `(_, _)` 44%;
+the highest-authority `recommended` example corroborates `.environment(_:)` as the live iOS injector.
+`introduced_ios: 13.0`, `doc: https://sosumi.ai/documentation/swiftui/view/environment`.
 
 ## VERIFY / FIX
 
-Run `swiftui-ctx lookup modelContainer --json` and `swiftui-ctx lookup environment --json` for the
+Run `swiftui-ctx lookup modelContainer --platform ios --json` and `swiftui-ctx lookup environment --platform ios --json` for the
 consensus shape + `recommended` permalink; cross-check the floor on Sosumi
 (`${CLAUDE_PLUGIN_ROOT}/references/_shared/sosumi-reference.md`). The ✅ in `## Correct` is the consensus
 shape backed by `swiftui-ctx file <recommended.id> --smart`; its GitHub permalink + the Sosumi `doc:` go
@@ -92,7 +91,7 @@ in `## Source`. Every fix is `flag-only` (per the fix-safety protocol).
 
 ## Sources
 
-- **Apple — SwiftData / `.modelContainer(for:inMemory:)`.** `@Model`, `ModelContainer`, `ModelConfiguration`, `@Query`, `.modelContainer(for:inMemory:)` confirmed; SwiftData is `macOS 14.0+`. https://developer.apple.com/documentation/swiftdata — accessed 2026-06-07. View modifier: https://developer.apple.com/documentation/swiftui/view/modelcontainer(for:inmemory:onsetup:) — accessed 2026-06-07.
+- **Apple — SwiftData / `.modelContainer(for:inMemory:)`.** `@Model`, `ModelContainer`, `ModelConfiguration`, `@Query`, `.modelContainer(for:inMemory:)` confirmed; SwiftData is `iOS 17.0+`. https://developer.apple.com/documentation/swiftdata — accessed 2026-06-07. View modifier: https://developer.apple.com/documentation/swiftui/view/modelcontainer(for:inmemory:onsetup:) — accessed 2026-06-07.
 - **Apple — `environment(_:)` (type-keyed Observable injection).** The modern injector for an `@Observable`; supersedes `.environmentObject(_:)` for `Observable` types. https://developer.apple.com/documentation/swiftui/view/environment(_:) — accessed 2026-06-07.
 - **swiftlang/swift issue #66537** — SwiftData preview crashes without an in-memory container; corroborates the canvas-trap symptom (also r/swift "SwiftData Crashes in Preview"). https://github.com/swiftlang/swift/issues/66537 — accessed 2026-06-07.
-- **Real macOS example (swiftui-ctx `recommended`):** `.environment(appState)` in `sindresorhus/Gifski` — https://github.com/sindresorhus/Gifski/blob/7f873856e2acd8b52e6681dee3aec31e6cab23e4/Gifski/App.swift#L15 — accessed 2026-06-07.
+- **Real iOS example (swiftui-ctx `recommended`):** `#Preview` in `Finb/Bark` — https://github.com/Finb/Bark/blob/2a35a5b990415eada5fcc6c95deb9850c239796a/Widget/Widget.swift#L245 — accessed 2026-06-07.

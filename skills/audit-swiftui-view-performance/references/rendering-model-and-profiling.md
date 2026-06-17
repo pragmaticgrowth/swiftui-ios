@@ -4,7 +4,7 @@ Before reporting a perf finding, *prove* the re-render. SwiftUI gives two zero-t
 attribute a `body` re-evaluation to its cause. This file backs the workflow's "render test" and the
 vperf-12 leftover-debug strip, and describes the optional `_render-cost-map.md` artifact.
 
-**As of 2026-06-07 · macOS 26 (Tahoe) · Swift 6.2 toolchain.**
+**As of 2026-06-07 · iOS 26 (Tahoe) · Swift 6.2 toolchain.**
 
 ---
 
@@ -48,7 +48,7 @@ fix-safety protocol; DOUBLE-CHECK re-greps the file to confirm the line is gone.
 ## The SwiftUI Instrument (Instruments 26) — the deeper tool
 
 For attributing *cost* (not just cause), the **SwiftUI track** in Instruments 26 and its **Cause &
-Effect graph** map update cost to the state change that triggered it — the canonical macOS-26 tool for
+Effect graph** map update cost to the state change that triggered it — the canonical iOS-26 tool for
 finding expensive `body` work and excessive updates (WWDC25 session 306). Use it when
 `Self._printChanges()` shows *which* dependency but you need *how much* it costs.
 

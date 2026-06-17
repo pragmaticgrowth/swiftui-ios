@@ -1,11 +1,11 @@
 ---
 name: audit-swiftui-concurrency-safety
-description: Audits a finished or in-progress macOS SwiftUI codebase for Swift 6 / 6.2 data-race-safety and actor-isolation defects, writing per-finding Markdown to swiftui-audits/. Use when the build errors with "non-Sendable" or "main actor-isolated property can not be referenced from a Sendable closure", or data-race warnings became errors after a Swift 6 bump; when verifying Sendable, actor isolation, @MainActor, Task.detached, DispatchQueue.main.async, nonisolated(nonsending), or -default-isolation MainActor; when AI sprinkled @MainActor everywhere or assumed Swift 6.2 makes everything main-actor-by-default; or when Transferable / loadTransferable drag-drop stopped compiling under strict checking. AUDIT-ONLY, macOS-only, SwiftUI-only. Not for the async-data loading lifecycle (.task vs onAppear), not the SwiftData @ModelActor fix, not the AppKit bridge implementation, not the general availability sweep, not writing new concurrent code from scratch.
+description: Audits a finished or in-progress iOS SwiftUI codebase (iPhone/iPad) for Swift 6 / 6.2 data-race-safety and actor-isolation defects, writing per-finding Markdown to swiftui-audits/. Use when the build errors with "non-Sendable" or "main actor-isolated property can not be referenced from a Sendable closure", or data-race warnings became errors after a Swift 6 bump; when verifying Sendable, actor isolation, @MainActor, Task.detached, DispatchQueue.main.async, nonisolated(nonsending), or -default-isolation MainActor; when AI sprinkled @MainActor everywhere or assumed Swift 6.2 makes everything main-actor-by-default; or when Transferable / loadTransferable drag-drop stopped compiling under strict checking. AUDIT-ONLY, iOS-only, SwiftUI-only. Not for the async-data loading lifecycle (.task vs onAppear), not the SwiftData @ModelActor fix, not the UIKit bridge implementation, not the general availability sweep, not writing new concurrent code from scratch.
 ---
 
 # Audit SwiftUI Concurrency Safety
 
-**AUDIT-ONLY · macOS-only · SwiftUI-only.** Run this on a *finished or in-progress* macOS SwiftUI
+**AUDIT-ONLY · iOS-only · SwiftUI-only.** Run this on a *finished or in-progress* iOS SwiftUI
 project to detect — and where certain, fix — every way Swift concurrency goes wrong: non-`Sendable`
 types crossing actor boundaries, `@Sendable` closures touching main-actor state, the
 `DispatchQueue.main.async` cargo-cult, lifecycle-leaking `Task`s, `@MainActor` spam, the Swift 6.2
@@ -47,10 +47,10 @@ on every shared-seam finding (targets + primary-owner verdicts derive from
 - **SwiftData `@Model` mutation off-context** (conc-11): **`swiftdata` prescribes `@ModelActor`**; this
   skill flags the race and routes. `cross_ref: audit-swiftui-swiftdata`.
 - **`loadTransferable` / `Transferable` Sendable race** (conc-09): **THIS skill owns Sendable
-  correctness** (primary); `sandbox-files` owns consent/bookmark. `cross_ref: audit-swiftui-sandbox-files`.
-- **AppKit `Coordinator` / `NSViewRepresentable` boundary**: `appkit-overuse` owns *whether* the bridge
-  exists, `appkit-interop` owns *how*. This skill flags only the Sendable/isolation hazard at the
-  boundary. `cross_ref: audit-swiftui-appkit-interop`.
+  correctness** (primary); `document-picker-permissions` owns consent/bookmark. `cross_ref: audit-swiftui-document-picker-permissions`.
+- **UIKit `Coordinator` / `UIViewRepresentable` boundary**: `uikit-overuse` owns *whether* the bridge
+  exists, `uikit-interop` owns *how*. This skill flags only the Sendable/isolation hazard at the
+  boundary. `cross_ref: audit-swiftui-uikit-interop`.
 - **`@MainActor` on an `@Observable`** (conc-06): `state-observation` owns model-correctness; this skill
   owns the isolation angle. `cross_ref: audit-swiftui-state-observation`.
 
@@ -62,7 +62,7 @@ language mode / never-correct), **warning** (compiles but unsafe / non-native), 
 
 | id | One-line tell | Sev | Fix | Reference |
 |---|---|---|---|---|
-| conc-01 | `Task.detached { … }` carrying a non-`Sendable` class / `ModelContext` / `NSView` across the boundary | warning | flag | `strict-checking-and-sendable.md` |
+| conc-01 | `Task.detached { … }` carrying a non-`Sendable` class / `ModelContext` / `UIView` across the boundary | warning | flag | `strict-checking-and-sendable.md` |
 | conc-02 | `@Sendable` closure body reads `self.` / a `@MainActor` property ("can not be referenced from a Sendable closure") | warning | flag | `strict-checking-and-sendable.md` |
 | conc-03 | `DispatchQueue.main.async` inside async / SwiftUI code (GCD cargo-cult) | warning | auto | `main-actor-hops.md` |
 | conc-04 | bare `Task { }` in `.onAppear` / `.onChange` — not lifecycle-bound, not cancelled | warning | flag | `main-actor-hops.md` |
@@ -82,8 +82,8 @@ era is read in ORIENT, not assumed.
 
 ## The real API, at a glance
 
-**Real & era-stable (back-deploy to `macOS 10.15+`):** `@MainActor`, `Sendable`, `MainActor.run`,
-`Task.detached`, `sending`, `@preconcurrency import`. **`.task` / `.task(id:)`** is `macOS 12.0+`; its closure
+**Real & era-stable (back-deploy to `iOS 13.0+`):** `@MainActor`, `Sendable`, `MainActor.run`,
+`Task.detached`, `sending`, `@preconcurrency import`. **`.task` / `.task(id:)`** is `iOS 15.0+`; its closure
 inherits the caller's isolation via `@isolated(any)`. **Swift 6.2+ only** (verify the toolchain): `@concurrent` (ALWAYS the global
 executor), `nonisolated(nonsending)` (ALWAYS the caller's context, SE-0461), `-default-isolation
 MainActor`, the `NonisolatedNonsendingByDefault` upcoming-feature flag, `Task(name:)`.
@@ -99,7 +99,7 @@ Floor *values* are the reconciled truth in `${CLAUDE_PLUGIN_ROOT}/references/_sh
 ## ✅ Correct — the grounded lifecycle shape (the anchor every fix imitates)
 
 The most common concurrency defect (conc-04) is a bare `Task { }` in `.onAppear` — unbound to view
-lifetime, never cancelled. The lifecycle-correct shape is `.task` / `.task(id:)` (`macOS 12.0+`,
+lifetime, never cancelled. The lifecycle-correct shape is `.task` / `.task(id:)` (`iOS 15.0+`,
 caller-isolation-inheriting via `@isolated(any)`, auto-cancelled on disappear). This is the **real consensus shape**, not a
 hand-written snippet — verified live via `swiftui-ctx lookup task` (step 5): **`.task { }` 70% ·
 `.task(id:)` 29%** across the corpus.
@@ -116,7 +116,7 @@ hand-written snippet — verified live via `swiftui-ctx lookup task` (step 5): *
 
 - **Real example** (`swiftui-ctx file ex_a1cff2419c --smart`): `sindresorhus/Gifski` —
   https://github.com/sindresorhus/Gifski/blob/7f873856e2acd8b52e6681dee3aec31e6cab23e4/Gifski/Utilities.swift#L5590
-- **doc:** https://sosumi.ai/documentation/swiftui/view/task(name:priority:file:line:_:) (`.task` floor `macOS 12.0+`)
+- **doc:** https://sosumi.ai/documentation/swiftui/view/task(name:priority:file:line:_:) (`.task` floor `iOS 15.0+`)
 - **Note the seam:** the lifecycle *fix* (`.task`) is `async-data`'s to prescribe — this skill owns the
   isolation verdict only when the captured value is non-`Sendable` or main-actor state is mutated
   off-context. Every ✅ in a written finding is reproduced this way: the consensus shape in `## Correct`,
@@ -149,13 +149,13 @@ hand-written snippet — verified live via `swiftui-ctx lookup task` (step 5): *
    or the pool", whether a type is `Sendable`), run **both** evidence sources. (a) **Practice** —
    `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx lookup <api> --json` (and `swiftui-ctx deprecated <api>`
    for a currency rule): read its `consensus` (the canonical shape), `recommended` permalink,
-   `introduced_macos`, and `co_occurs_with`; an exit-3 corroborates an invented spelling. (b) **Spec** —
+   `introduced_ios`, and `co_occurs_with`; an exit-3 corroborates an invented spelling. (b) **Spec** —
    for an **API floor / signature** confirm via **Sosumi** (`curl -sSL https://sosumi.ai/<apple-path>`
    using `references/source-directory.md` for the path + `${CLAUDE_PLUGIN_ROOT}/references/_shared/sosumi-reference.md`
    for the protocol; never `WebFetch developer.apple.com`); for a **toolchain / isolation-semantics**
    fact (`@concurrent`, `nonisolated(nonsending)`, the flag, the language-mode default) the spec source
    is **swift.org / Swift Evolution (SE-0338, SE-0461)** in `references/source-directory.md`, NOT
-   swiftui-ctx. Cross-check `introduced_macos` against `floors-master.md`. Promote with the citation or
+   swiftui-ctx. Cross-check `introduced_ios` against `floors-master.md`. Promote with the citation or
    discard; carry toolchain-gated items as `advisory` with `source: verify against Xcode 26 SDK`.
 6. **REPORT.** Write each confirmed finding (output contract below). One finding per file, zero-padded,
    ordered. Write the run's `_index.md`.
@@ -164,7 +164,7 @@ hand-written snippet — verified live via `swiftui-ctx lookup task` (step 5): *
    **only `fix_mode: auto`** (conc-03 `DispatchQueue.main.async` → `await MainActor.run` /
    `@MainActor`), one conventional commit per finding citing its `rule_id`, never weaken a check. The ✅
    "Correct" is **not a hand-written snippet** — it is the swiftui-ctx **consensus shape** put in
-   `## Correct`, backed by a real macOS-26 example fetched with
+   `## Correct`, backed by a real iOS-26 example fetched with
    `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx file <recommended.id> --smart` whose GitHub permalink
    (plus the swift.org / Sosumi `doc:`) goes in `## Source`. Leave `flag-only` findings `open` with that
    ✅ in `## Correct`.
@@ -233,8 +233,8 @@ Two runs over the same code produce structurally identical trees.
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/fix-safety-protocol.md` | the fix-safety protocol (step 7) |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/sosumi-reference.md` | the Apple-doc spec fetch protocol (step 5 VERIFY) |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/swiftui-ctx-reference.md` | the practice-corpus CLI contract — `lookup`/`deprecated`/`file --smart` for the consensus shape + permalinked example (steps 5 VERIFY · 7 FIX) |
-| `${CLAUDE_PLUGIN_ROOT}/references/_shared/cross-ref-graph.md` | seam ownership + `cross_ref` targets (async-data · swiftdata · sandbox-files · appkit-interop · state-observation) |
-| `${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md` | the macOS-arm gating rule (for any availability gate on a 6.2 API) |
+| `${CLAUDE_PLUGIN_ROOT}/references/_shared/cross-ref-graph.md` | seam ownership + `cross_ref` targets (async-data · swiftdata · document-picker-permissions · uikit-interop · state-observation) |
+| `${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md` | the iOS availability gating rule (for any availability gate on a floored API) |
 
 ## Detection accelerator
 

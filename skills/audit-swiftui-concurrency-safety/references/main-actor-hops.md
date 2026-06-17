@@ -1,7 +1,7 @@
 # Reference — Main-Actor Hops & Task Lifecycle (conc-03/04/10)
 
 How async code reaches the main actor and how view-bound async work is scoped. These are era-stable
-mechanics (`@MainActor` / `MainActor.run` back-deploy to `macOS 10.15+`; `.task` is `macOS 12.0+`), but
+mechanics (`@MainActor` / `MainActor.run` back-deploy to `iOS 13.0+`; `.task` is `iOS 15.0+`), but
 strict checking is what turns the GCD cargo-cult from "works" into "unverifiable".
 
 > Confirm the canonical `.task` shape against the corpus:
@@ -53,7 +53,7 @@ present** (a non-`Sendable` capture, an off-actor mutation). Emit `cross_ref: au
 .task { await viewModel.load() }                            // cancelled when the view goes away
 .task(id: selectedID) { await viewModel.load(selectedID) }  // restarts when id changes
 ```
-**Why:** `.task` (`macOS 12.0+`; closure inherits the caller's isolation via `@isolated(any)` — from a
+**Why:** `.task` (`iOS 15.0+`; closure inherits the caller's isolation via `@isolated(any)` — from a
 `@MainActor` context, view-state mutation needs no extra hop) scopes async work to the view's lifetime. `Task {}` still has a place — quick async
 coordination on a `@MainActor` type — but it inherits the caller's actor and stalls the UI on
 blocking/CPU work (use `@concurrent` + a `Sendable` return for that, see
@@ -93,6 +93,6 @@ the reload. The lifecycle ownership of this seam is `async-data` (cross_ref).
 
 | URL | Type | Key fact |
 |---|---|---|
-| https://developer.apple.com/documentation/swiftui/view/task(priority:_:) | primary-doc | `.task` is the lifecycle-bound async modifier, `macOS 12.0+`; the closure inherits the caller's isolation via `@isolated(any)`, cancelled on view disappearance. Fetch via Sosumi. Accessed 2026-06-07. |
-| https://developer.apple.com/documentation/swift/mainactor/run(resulttype:body:) | primary-doc | `MainActor.run` runs a body on the main actor from a nonisolated async context; back-deploys to `macOS 10.15+`. Fetch via Sosumi. Accessed 2026-06-07. |
+| https://developer.apple.com/documentation/swiftui/view/task(priority:_:) | primary-doc | `.task` is the lifecycle-bound async modifier, `iOS 15.0+`; the closure inherits the caller's isolation via `@isolated(any)`, cancelled on view disappearance. Fetch via Sosumi. Accessed 2026-06-07. |
+| https://developer.apple.com/documentation/swift/mainactor/run(resulttype:body:) | primary-doc | `MainActor.run` runs a body on the main actor from a nonisolated async context; back-deploys to `iOS 13.0+`. Fetch via Sosumi. Accessed 2026-06-07. |
 | https://www.hackingwithswift.com/quick-start/concurrency/how-to-use-a-task-to-perform-asynchronous-work | practitioner | `Task {}` inherits the caller's actor; unstructured tasks in `.onAppear` are not cancelled with the view; cancellation is cooperative. Accessed 2026-06-07. |

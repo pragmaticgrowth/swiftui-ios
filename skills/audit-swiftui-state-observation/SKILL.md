@@ -1,11 +1,11 @@
 ---
 name: audit-swiftui-state-observation
-description: Audits a finished or in-progress macOS SwiftUI codebase for state and observation defects — wrong ownership wrappers, mixed Observation worlds, and observation-killing view shapes — and writes per-finding Markdown to swiftui-audits/. Use when the user says state resets, a counter "won't count", a view "won't update", or re-renders too much; when they ask to verify @Observable, @State, @StateObject, @ObservedObject, @Bindable, @EnvironmentObject, @Environment(Type.self), or @Published on a Mac target; or when AI wrote @ObservedObject var x = Model(), an @Observable class still conforming to ObservableObject or carrying @Published, @StateObject on a struct, @EnvironmentObject for an @Observable model, $obj.prop with no @Bindable, or a computed some View property reading the model. AUDIT-ONLY, macOS-only, SwiftUI-only. Not for SwiftData @Query, @Observable actor-isolation, over-broad-observation render cost as a perf budget, the blanket availability sweep, or writing new state code from scratch.
+description: Audits a finished or in-progress iOS SwiftUI codebase for state and observation defects — wrong ownership wrappers, mixed Observation worlds, and observation-killing view shapes — and writes per-finding Markdown to swiftui-audits/. Use when the user says state resets, a counter "won't count", a view "won't update", or re-renders too much; when they ask to verify @Observable, @State, @StateObject, @ObservedObject, @Bindable, @EnvironmentObject, @Environment(Type.self), or @Published on an iPhone/iPad target; or when AI wrote @ObservedObject var x = Model(), an @Observable class still conforming to ObservableObject or carrying @Published, @StateObject on a struct, @EnvironmentObject for an @Observable model, $obj.prop with no @Bindable, or a computed some View property reading the model. AUDIT-ONLY, iOS-only, SwiftUI-only. Not for SwiftData @Query, @Observable actor-isolation, over-broad-observation render cost as a perf budget, the blanket availability sweep, or writing new state code from scratch.
 ---
 
 # Audit SwiftUI State and Observation
 
-**AUDIT-ONLY · macOS-only · SwiftUI-only.** Run this on a *finished or in-progress* macOS SwiftUI
+**AUDIT-ONLY · iOS-only · SwiftUI-only.** Run this on a *finished or in-progress* iOS SwiftUI
 project to detect — and where certain, fix — every way state ownership and `@Observable` observation
 go wrong: the wrong ownership wrapper, the two Observation worlds mixed illegally, missing `@Bindable`
 projection, environment injected the legacy way, and view shapes that defeat field-granular
@@ -14,7 +14,7 @@ mechanical defects are fixed under the fix-safety protocol. This is never a from
 generator.
 
 Where state lives and how it's observed is the single most **error-dense** area of AI-written SwiftUI.
-The data-flow rules changed in **macOS 14** (the `@Observable` macro); most training data predates that
+The data-flow rules changed in **iOS 17** (the `@Observable` macro); most training data predates that
 split, so AI defaults to the legacy `ObservableObject` + `@Published` + `@StateObject` world, mixes the
 two worlds illegally, and pairs the wrong wrapper with each model kind. **Two failure shapes** result —
 know which you're looking at, because it *is* half the fix:
@@ -36,19 +36,19 @@ know which you're looking at, because it *is* half the fix:
   lifecycle** to `audit-swiftui-async-data`; **preview sample-model injection** to `audit-swiftui-previews`.
   Where state lives is ours; how it's fetched/awaited/previewed routes out (`cross_ref`).
 - **The blanket "is every OS-floored API gated" sweep** belongs to `audit-swiftui-availability-gating`;
-  this skill gates the `@Observable`-era symbols it touches (floor `macOS 14`, `Observations` `macOS 26`)
+  this skill gates the `@Observable`-era symbols it touches (floor `iOS 17`, `Observations` `iOS 26`)
   and defers non-state gating there.
 
 ## The two worlds — pick ONE per model
 
-1. **Modern (default for new Mac code).** `@Observable final class` — **no** `@Published`, **no**
+1. **Modern (default for new iOS code).** `@Observable final class` — **no** `@Published`, **no**
    `ObservableObject` conformance. Field-granular: a view invalidates only when the property it actually
    reads changes. Own with `@State`, bind with `@Bindable`, inject with `.environment(_:)` +
    `@Environment(Type.self)`.
-2. **Legacy (only for Combine publishers / back-deployment below macOS 14).** `class: ObservableObject`
+2. **Legacy (only for Combine publishers / back-deployment below iOS 17).** `class: ObservableObject`
    + `@Published`. Whole-object `objectWillChange` over-renders. Own with `@StateObject`, observe with
    `@ObservedObject`, inject with `@EnvironmentObject`. **Not deprecated** — confirmed
-   `deprecated:false` in the swiftui-ctx corpus — but not the idiom for new Mac code; a `@StateObject`
+   `deprecated:false` in the swiftui-ctx corpus — but not the idiom for new iOS code; a `@StateObject`
    holding a *plain* `@Observable` is a **migration smell**, not a hard error.
 
 **The ownership test:** does *this view* create the model (`= Model()`)? → it **owns** it → `@State`
@@ -60,23 +60,25 @@ Full reasoning + the two-shape decision: `references/ownership-wrappers.md`.
 
 The ✅ for the whole modern world is one real, permalinked consensus shape — `@Observable` (+ `@MainActor`)
 on a `final class`, plain stored `var`s, **no** `@Published`, **no** `ObservableObject` (verified
-`deprecated:false`, `introduced_macos:14.0`). This is the canonical target every wrong-wrapper fix
+`deprecated:false`, `introduced_ios:17.0`). This is the canonical target every wrong-wrapper fix
 converges to; reproduce it from swiftui-ctx live during FIX, never hand-write it.
 
 ```swift
-// swiftui-ctx lookup Observable → recommended ex_44cfa1bff8 (author_authority 165155, min_macos 14)
-// permalink: https://github.com/Gremble-io/Detto/blob/ed96effda1699a8ef4aa2868f7f7a244f4f45fcf/Detto/Sources/Detto/App/MenuBarIcon.swift#L3
+// swiftui-ctx lookup Observable --platform ios → recommended ex_8a9e39b23c (author_authority 62718, min_ios 26)
+// permalink: https://github.com/rrroyal/Harbour/blob/e56c10cb376baaa3ada49b29b8396e1ab9293942/Harbour/UI/Views/ContainerLogsView/ContainerLogsView+ViewModel.swift#L20
 // doc: https://sosumi.ai/documentation/swiftui/observable
-@Observable @MainActor
-final class MenuBarAnimator {
-    private let state: DictationState
-    private var timer: Timer?          // bookkeeping — not read in a body; carries no @Published
-    var wavePhase: Double = 0          // plain stored var → field-granular invalidation, no @Published
-    var spinnerAngle: Double = 0
-    init(state: DictationState) { self.state = state }
+extension ContainerLogsView {
+    @Observable @MainActor
+    final class ViewModel {                    // a real iPhone/iPad screen view-model
+        private let portainerStore = PortainerStore.shared  // back-pointer — not read in a body
+        private(set) var viewState: ViewState<String, Error> = .loading  // plain var → field-granular
+        var searchText: String = ""            // plain stored var → invalidates only readers, no @Published
+        var isSearchVisible = false
+        var logs: [String]? { /* derived from viewState + searchText */ }  // computed read, no storage
+    }
 }
-// owned by its view with `@State private var animator = MenuBarAnimator(state:)`,
-// bound with `@Bindable`, injected with `.environment(_:)` + `@Environment(MenuBarAnimator.self)`.
+// owned by its view with `@State private var viewModel = ViewModel()`,
+// bound with `@Bindable`, injected with `.environment(_:)` + `@Environment(ViewModel.self)`.
 ```
 
 Re-derive (don't trust this transcription) with
@@ -101,7 +103,7 @@ single-answer fix; `flag` = show the ✅, dev applies.
 | state-07 | `private var x: some View {` computed property that reads an `@Observable` model | advisory | flag | `observation-granularity.md` |
 | state-08 | `@StateObject`/`@ObservedObject`/`@Published` kept after an `@Observable` migration | warning | flag | `mixing-worlds.md` |
 | state-09 | heavy `init()` in a `@State` default of a frequently-re-evaluated view (row/cell) | advisory | flag | `model-lifecycle.md` |
-| state-10 | `static let shared` app-state singleton / per-window state forced global | advisory | flag | `model-lifecycle.md` |
+| state-10 | `static let shared` app-state singleton / app state bypasses `@State` graph as global | advisory | flag | `model-lifecycle.md` |
 | state-11 | mutable cache / back-pointer in an `@Observable` with no `@ObservationIgnored` | advisory | flag | `observation-granularity.md` |
 | state-12 | view-only `@Observable` with no `@MainActor` (older default-isolation builds) | advisory | flag | `model-lifecycle.md` |
 
@@ -116,9 +118,9 @@ type; advisory (migration smell) on a plain `@Observable`.
 
 ## The real API, at a glance
 
-**Real, modern (`@Observable` world):** `@Observable` (macOS 14), `@State` (macOS 10.15),
-`@Bindable` (macOS 14), `@Environment(Type.self)` + `.environment(_:)`, `@ObservationIgnored`
-(macOS 14), `Observations` async sequence (**macOS 26**, for reacting to changes *outside* a view body).
+**Real, modern (`@Observable` world):** `@Observable` (iOS 17), `@State` (iOS 13),
+`@Bindable` (iOS 17), `@Environment(Type.self)` + `.environment(_:)`, `@ObservationIgnored`
+(iOS 17), `Observations` async sequence (**iOS 26**, for reacting to changes *outside* a view body).
 **Real, legacy (`ObservableObject` world):** `@StateObject`, `@ObservedObject`, `@EnvironmentObject`,
 `@Published`, `.environmentObject(_:)` — all real, **not deprecated**, just not the new-code idiom.
 
@@ -132,8 +134,8 @@ floors, and the full ❌→✅ rewrites: `references/*.md`.
 ## The 8-step audit workflow (execute verbatim)
 
 1. **ORIENT.** `tree` / `find` the SwiftUI sources. Read the **deployment target**
-   (`project.pbxproj` `MACOSX_DEPLOYMENT_TARGET`, or `Package.swift` `platforms:`). It is load-bearing:
-   the whole `@Observable` world requires **macOS 14**; `Observations` requires **macOS 26**; below the
+   (`project.pbxproj` `IPHONEOS_DEPLOYMENT_TARGET`, or `Package.swift` `platforms: [.iOS(.v17)]`). It is load-bearing:
+   the whole `@Observable` world requires **iOS 17**; `Observations` requires **iOS 26**; below the
    floor, the legacy world is the *correct* default, not a smell. Record the floor and whether
    `SWIFT_DEFAULT_ACTOR_ISOLATION`/"Default Actor Isolation = MainActor" is on (governs state-12).
 2. **LOCATE.** Run the shared hybrid lint runner:
@@ -155,10 +157,10 @@ floors, and the full ❌→✅ rewrites: `references/*.md`.
    a non-owning wrapper of a known kind, a `$obj.prop` with no nearby `@Bindable`).
 5. **VERIFY.** For anything ≤ ~70% confidence (a wrapper floor you can't place, a behavior claim, a
    "does this still compile" doubt), run BOTH evidence sources:
-   - **Practice — swiftui-ctx:** `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx lookup <api> --json`
-     (read `consensus`, `recommended`, `co_occurs_with`, `introduced_macos`, `deprecated`) and, for any
+   - **Practice — swiftui-ctx:** `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx lookup <api> --platform ios --json`
+     (read `consensus`, `recommended`, `co_occurs_with`, `introduced_ios`, `deprecated`) and, for any
      "is this deprecated" doubt, `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx deprecated <api>`. A
-     `lookup` **exit 3** corroborates a hallucination (no real Mac app uses it).
+     `lookup` **exit 3** corroborates a hallucination (no real iOS app uses it).
    - **Spec — Sosumi:** `curl -sSL https://sosumi.ai/<apple-path>` for floor/signature, via
      `references/source-directory.md` for the path and
      `${CLAUDE_PLUGIN_ROOT}/references/_shared/sosumi-reference.md` for the protocol (never `WebFetch`
@@ -176,7 +178,7 @@ floors, and the full ❌→✅ rewrites: `references/*.md`.
    Leave `flag-only` findings `open` with the ✅ in `## Correct`.
 8. **DOUBLE-CHECK.** Re-grep / re-read each fixed file to confirm the tell no longer matches; record the
    evidence in `## Fix applied?`. Re-confirm every floor citation still resolves and still says
-   `macOS 14.0` (or `26.0` for `Observations`). If a fix introduced a new tell (e.g. dropping
+   `iOS 17.0` (or `26.0` for `Observations`). If a fix introduced a new tell (e.g. dropping
    `@StateObject` for `@State` on a model still conforming to `ObservableObject`), loop that file back to
    DETECT.
 
@@ -211,7 +213,7 @@ domain:
 | `binding-projection/` | a non-owned `@Observable` is missing its `@Bindable` re-wrap for `$obj.prop` (state-06) |
 | `environment-injection/` | an `@Observable` model is injected/read the legacy `@EnvironmentObject` way (state-05) |
 | `observation-granularity/` | a computed `some View` reading the model, or a missing `@ObservationIgnored` (state-07, state-11) |
-| `model-lifecycle/` | heavy `@State` init, a `static let shared` singleton / forced-global per-window state, or missing `@MainActor` (state-09, state-10, state-12) |
+| `model-lifecycle/` | heavy `@State` init, a `static let shared` singleton / app state bypassing the `@State` graph, or missing `@MainActor` (state-09, state-10, state-12) |
 
 **New-folder rule:** *if a finding does not fit any existing context folder, create a new one under
 `swiftui-audits/state-observation/` with a lowercase-hyphen slug naming the sub-category, and note it in
@@ -229,9 +231,9 @@ hard requirement.* Two runs over the same code produce structurally identical tr
 | `references/ownership-wrappers.md` | the two failure shapes, the ownership test, initializer-on-non-owning-wrapper, `@StateObject`-on-a-value-type (state-01, state-04) |
 | `references/mixing-worlds.md` | the `@Observable`/`ObservableObject` two-world split, redundant conformance, `@Published`, the not-a-drop-in migration, the world-map (state-02, state-03, state-08) |
 | `references/binding-and-bindable.md` | `@Binding` vs `@Bindable`, projecting `$obj.prop`, the local re-wrap (state-06) |
-| `references/environment-injection.md` | type-keyed `.environment`/`@Environment(Type.self)` vs legacy `@EnvironmentObject`, scene-level macOS injection (state-05) |
+| `references/environment-injection.md` | type-keyed `.environment`/`@Environment(Type.self)` vs legacy `@EnvironmentObject`, scene-level iOS injection (state-05) |
 | `references/observation-granularity.md` | computed-`some View` invalidation cost, child-`View`-type extraction, `@ObservationIgnored` (state-07, state-11) |
-| `references/model-lifecycle.md` | `@State` re-instantiation, app/scene-scoped ownership, the macOS multi-window / no-`static let shared` rule, `@MainActor` discipline (state-09, state-10, state-12) |
+| `references/model-lifecycle.md` | `@State` re-instantiation, app/scene-scoped ownership, the iOS no-`static let shared` rule, `@MainActor` discipline (state-09, state-10, state-12) |
 | `references/source-directory.md` | step VERIFY — the Apple/WWDC/practitioner source map (Sosumi) + the swiftui-ctx `lookup`/`recipe` entry points for canonical shapes |
 | `lint/grep-tells.tsv` + `lint/ast-grep/*.yml` | step LOCATE — this skill's declarative lint rule set fed to the shared runner (tier-1 grep tells + tier-2 structural ast-grep); edit here to tune detection |
 
@@ -241,7 +243,7 @@ hard requirement.* Two runs over the same code produce structurally identical tr
 |---|---|
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md` | every floor/availability value (the reconciled truth) |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/hallucination-blacklist.md` | the canonical invented-name list (no state symbol is on it) |
-| `${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md` | the macOS-arm gating rule for the macOS-14 / macOS-26 floors |
+| `${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md` | the iOS gating rule for the iOS-17 / iOS-26 floors |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/finding-schema.md` | the unified finding schema + the `model_kind`/`failure_shape` additive fields |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/fix-safety-protocol.md` | the 8-point fix-safety protocol (step 7) |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/sosumi-reference.md` | the Apple-doc fetch protocol (step 5 VERIFY, spec side) |

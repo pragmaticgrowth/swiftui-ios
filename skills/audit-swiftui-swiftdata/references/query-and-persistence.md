@@ -1,12 +1,12 @@
-# Reference — @Query Ordering & macOS-26 @Model Inheritance (sd-08, sd-11)
+# Reference — @Query Ordering & iOS-26 @Model Inheritance (sd-08, sd-11)
 
-Two persistence-layer defects: trusting an unpersisted relationship-array order, and the new macOS-26
+Two persistence-layer defects: trusting an unpersisted relationship-array order, and the new iOS-26
 `@Model` class-inheritance feature that is gated and migration-bound. Floor *values* live in
-`${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md`; the macOS-arm gating rule lives in
+`${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md`; the iOS gating rule lives in
 `${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md`. Get the canonical `@Query` ✅ from
 `swiftui-ctx` (bottom of this file).
 
-**As of:** 2026-06-07 · macOS 14+ (inheritance is macOS 26+) · Xcode 26 SDK.
+**As of:** 2026-06-07 · iOS 17+ (inheritance is iOS 26+) · Xcode 26 SDK.
 
 ---
 
@@ -32,12 +32,12 @@ ForEach(house.floors) { … }         // ❌ unordered; reshuffles on reload
 collection is a `@Model` relationship driven with no `@Query(sort:)` / `SortDescriptor`. Severity
 **warning**, `fix_mode: flag-only`.
 
-## sd-11 — macOS-26 `@Model` class inheritance: gated + migration-bound + register all types
+## sd-11 — iOS-26 `@Model` class inheritance: gated + migration-bound + register all types
 
 WWDC25 session 291 adds subclassing of `@Model` classes — the one new SwiftData feature this cycle. It
 is gated and schema-bound:
 
-- Every `@Model` **subclass** needs `@available(macOS 26, *)`.
+- Every `@Model` **subclass** needs `@available(iOS 26, *)`.
 - Adding a subclass is a **schema change**: define a **versioned schema** and a `MigrationStage` for it.
 - The container must register the base **and every subclass**:
   `.modelContainer(for: [Base.self, SubA.self, SubB.self])`.
@@ -46,8 +46,8 @@ is gated and schema-bound:
 
 ✅ shape:
 ```swift
-@available(macOS 26, *)
-@Model final class BusinessTrip: Trip {                 // macOS 26.0+; subclass needs the gate
+@available(iOS 26, *)
+@Model final class BusinessTrip: Trip {                 // iOS 26.0+; subclass needs the gate
     var account: String
     init(name: String, account: String) { self.account = account; super.init(name: name) }
 }
@@ -58,15 +58,15 @@ WindowGroup { ContentView() }
 **Detection:** ast-grep `sd-11` (a `class_declaration` whose `modifiers` hold a `@Model` attribute AND
 which has an `inheritance_specifier` = a `@Model` subclass — the attribute-to-class binding and the
 inheritance clause co-occur, which grep can't express). The grep tell `sd-11` catches the
-`@available(macOS 26` gate string for cross-checking. The agent READS to confirm the gate is present
-(fire only when the project floor includes macOS 26 and the subclass is ungated, or the container
+`@available(iOS 26` gate string for cross-checking. The agent READS to confirm the gate is present
+(fire only when the project floor includes iOS 26 and the subclass is ungated, or the container
 fails to register every type). Severity **hard-fail**, `fix_mode: flag-only`. **Seam:** the blanket
 "is everything gated" sweep is `audit-swiftui-availability-gating`; this skill owns the
-`@Model`-inheritance gate in depth — defer non-SwiftData gating there, cross-checking the macOS-arm
+`@Model`-inheritance gate in depth — defer non-SwiftData gating there, following the iOS gating
 rule in `ios-gating.md`.
 
-> `HistoryDescriptor.sortBy` (sorted-history fetches) is also **macOS 26.0+** (member badge:
-> `verify-SDK` in `floors-master.md`); `#Index` / `#Unique` and the base history API are macOS 15.0+.
+> `HistoryDescriptor.sortBy` (sorted-history fetches) is also **iOS 26.0+** (member badge:
+> `verify-SDK` in `floors-master.md`); `#Index` / `#Unique` and the base history API are iOS 18.0+.
 > Verify any of these against `floors-master.md` + Sosumi before asserting a floor.
 
 ---
@@ -76,7 +76,7 @@ rule in `ios-gating.md`.
 `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx lookup Query --json` returns the real idiom: the
 dominant consensus shape is **`(sort: \Video.id)` at 29%** (a sorted `@Query`), with `(filter:
 #Predicate<…> { … }, sort: \.id)` close behind — confirming `@Query(sort:)` and predicate-filtered
-sorted queries are how shipping Mac apps order their data. `Query` `co_occurs_with` `modelContext`,
+sorted queries are how shipping iOS apps order their data. `Query` `co_occurs_with` `modelContext`,
 `Model`, `Relationship`, `modelContainer`, `FetchDescriptor`. Put the `consensus` shape in `## Correct`,
 fetch the enclosing body with `swiftui-ctx file <recommended.id> --smart`, and put its permalink + the
 Sosumi `doc:` in `## Source`.
@@ -86,5 +86,5 @@ Sosumi `doc:` in `## Source`.
 | URL | Type | Confidence | Key fact |
 |---|---|---|---|
 | https://wadetregaskis.com/swiftdata-pitfalls/ | practitioner blog | high | "randomly reordering elements … it fails to record the order" — to-many relationship arrays come back shuffled after a reload. Accessed 2026-06-06. |
-| https://developer.apple.com/videos/play/wwdc2025/291/ | Apple WWDC25 (session 291, "SwiftData: Dive into inheritance and schema migration") | high | macOS-26 `@Model` inheritance: subclasses need `@available(macOS 26, *)`; adding one is a schema change requiring a versioned schema + `MigrationStage`; register every type via `.modelContainer(for: [Base.self, SubA.self, …])`; filter by subclass with `#Predicate { $0 is SubType }`. Accessed 2026-06-07. |
-| https://developer.apple.com/documentation/swiftdata | primary-doc | high | `@Query(sort:)` is macOS 14.0+; `#Index`/`#Unique` and the history API are macOS 15.0+; `HistoryDescriptor.sortBy` is macOS 26.0+. Confirmed 2026-06-07. |
+| https://developer.apple.com/videos/play/wwdc2025/291/ | Apple WWDC25 (session 291, "SwiftData: Dive into inheritance and schema migration") | high | iOS-26 `@Model` inheritance: subclasses need `@available(iOS 26, *)`; adding one is a schema change requiring a versioned schema + `MigrationStage`; register every type via `.modelContainer(for: [Base.self, SubA.self, …])`; filter by subclass with `#Predicate { $0 is SubType }`. Accessed 2026-06-07. |
+| https://developer.apple.com/documentation/swiftdata | primary-doc | high | `@Query(sort:)` is iOS 17.0+; `#Index`/`#Unique` and the history API are iOS 18.0+; `HistoryDescriptor.sortBy` is iOS 26.0+. Confirmed 2026-06-07. |

@@ -6,7 +6,7 @@ This is the spine the other references cite. Floor *values* are not restated her
 `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md`. Get the canonical ✅ shape from
 `swiftui-ctx`, not from memory (see each fix below).
 
-**As of:** 2026-06-07 · macOS 14+ · Xcode 26 SDK.
+**As of:** 2026-06-07 · iOS 17+ · Xcode 26 SDK.
 
 ---
 
@@ -38,7 +38,7 @@ class **must** be `var`, regardless of intended semantics.
 ```
 ✅ relationships are always `var`, defaulted:
 ```swift
-@Model final class House {                              // macOS 14+
+@Model final class House {                              // iOS 17+
     @Relationship(deleteRule: .cascade, inverse: \Floor.house)
     var floors: [Floor] = []        // ✅ var, even if you think of it as constant
 }
@@ -86,7 +86,7 @@ write a full `@Model` with an explicit `init`.
 ```
 ✅ explicit `init`:
 ```swift
-@Model final class Trip {                               // macOS 14+
+@Model final class Trip {                               // iOS 17+
     var name: String
     init(name: String) { self.name = name }   // ✅ Apple omits this — you must write it
 }
@@ -142,5 +142,5 @@ Put the `consensus` shape in `## Correct`; the `recommended.permalink` + the Sos
 | URL | Type | Confidence | Key fact |
 |---|---|---|---|
 | https://wadetregaskis.com/swiftdata-pitfalls/ | practitioner blog | high | relationships must be `var` not `let` ("irrespective of their actual intended semantics"); the `KeyPath`→`ReferenceWritableKeyPath` cast crash; "never assign the relationship in `init` … append … or assign outside of `init`" / "foreign key back to `House` is `NULL`"; "Apple never show a complete example of a `@Model` class"; `@Relationship(.cascade)` "doesn't even compile". Accessed 2026-06-06. |
-| https://developer.apple.com/documentation/swiftdata | primary-doc | high | `@Model`, `@Relationship(deleteRule:inverse:)`, `@Attribute` are macOS 14.0+. Confirmed 2026-06-07. |
+| https://developer.apple.com/documentation/swiftdata | primary-doc | high | `@Model`, `@Relationship(deleteRule:inverse:)`, `@Attribute` are iOS 17.0+. Confirmed 2026-06-07. |
 | https://developer.apple.com/documentation/swiftdata/relationship | primary-doc | high | `@Relationship` macro signature: the first variadic slot is `Schema.Relationship.Option`, `deleteRule:` is a named parameter taking `Schema.Relationship.DeleteRule`. Confirmed 2026-06-07. |

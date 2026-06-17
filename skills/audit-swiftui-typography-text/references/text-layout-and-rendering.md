@@ -2,17 +2,17 @@
 
 Reserving line space, the `TextRenderer` / `textRenderer(_:)` floor split, and replacing hand-rolled label
 rows with `LabeledContent`. Floor *values* live in
-`${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md`; the macOS-arm gating rule is
+`${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md`; the iOS-arm gating rule is
 `${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md` — read, never restate.
 
-**As of:** 2026-06-07 · macOS 26 (Tahoe) · Xcode 26 SDK.
+**As of:** 2026-06-07 · iOS 26 · Xcode 26 SDK.
 
 ---
 
 ## txt-04 — `.lineLimit(N)` without `reservesSpace:` (layout jump)
 
 A bare integer `lineLimit` lets the frame grow/shrink as content arrives, so neighbouring views jump.
-`lineLimit(_:reservesSpace:)` (macOS 13.0+, floors-master) pins the height to `N` lines up front. The corpus
+`lineLimit(_:reservesSpace:)` (iOS 13.0+, floors-master) pins the height to `N` lines up front. The corpus
 consensus for `lineLimit` is `(_)` at 100% — i.e. most code ships the bare form, which is exactly the smell
 when the frame must stay stable.
 
@@ -30,19 +30,19 @@ integers).
 
 ## txt-06 — `TextRenderer` / `textRenderer(_:)` floor split
 
-Two distinct floors (floors-master): the **`TextRenderer` protocol is macOS 14.0+**, but the
-**`textRenderer(_:)` *modifier* that applies one is macOS 15.0+**. A view that conforms to `TextRenderer`
-and applies it with `.textRenderer(...)` must be gated to the **higher** floor (15.0) and on the **macOS
-arm** (`#available(macOS 15, *)`, never `iOS`) per the shared arm-gating rule. Report only when the
-deployment target is below the relevant floor.
+Two distinct floors (floors-master): the **`TextRenderer` protocol is iOS 17.0+**, but the
+**`textRenderer(_:)` *modifier* that applies one is iOS 18.0+**. A view that conforms to `TextRenderer`
+and applies it with `.textRenderer(...)` must be gated to the **higher** floor (18.0) and on the **iOS
+arm** (`#available(iOS 18, *)`) per the shared arm-gating rule. Report only when the deployment target is
+below the relevant floor.
 
-### ❌ Wrong (ungated under a <15 floor)
+### ❌ Wrong (ungated under an iOS 17 floor)
 ```swift
-someText.textRenderer(MyRenderer())            // crashes/won't build below macOS 15
+someText.textRenderer(MyRenderer())            // crashes/won't build below iOS 18
 ```
 ### ✅ Correct
 ```swift
-if #available(macOS 15, *) {
+if #available(iOS 18, *) {
     someText.textRenderer(MyRenderer())
 }
 ```
@@ -51,8 +51,8 @@ Canonical real usage from the corpus (`swiftui-ctx lookup textRenderer` recommen
 
 ## txt-07 — hand-rolled label row → `LabeledContent`
 
-`LabeledContent` (macOS 13.0+, floors-master) renders a label/value pair with native alignment,
-`Form`/`Settings` styling, and accessibility. A hand-rolled `HStack { Text(label); Spacer(); Text(value) }`
+`LabeledContent` (iOS 16.0+, floors-master) renders a label/value pair with native alignment,
+`Form` styling, and accessibility. A hand-rolled `HStack { Text(label); Spacer(); Text(value) }`
 loses all of that. The grep tell (`HStack { … Spacer() … }`) over-locates — READ to confirm it is a
 label/value row (typically inside a `Form`) before reporting.
 

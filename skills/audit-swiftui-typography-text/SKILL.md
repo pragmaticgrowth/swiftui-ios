@@ -1,12 +1,12 @@
 ---
 name: audit-swiftui-typography-text
-description: Audits a finished or in-progress macOS SwiftUI codebase for typography and text-rendering defects on macOS 26 Tahoe and writes per-finding Markdown to swiftui-audits/. Use when the user says text looks wrong, fonts jump on size change, numbers jiggle, labels are misaligned, or styled text is broken; when they ask to verify Text composition, Text + Text concatenation, AttributedString styling, Font.system design, Dynamic Type, ScaledMetric, lineLimit reservesSpace, TextRenderer, textRenderer, LabeledContent, or monospacedDigit on a Mac target; when AI may have written fontSize, textStyle, attributedText, Text(styled:), or font(size:); or when a deployment target below macOS 26 leaves Text + Text or Font.system(_:design:) ungated for deprecation. AUDIT-ONLY, macOS-only, SwiftUI-only. Not for AppKit NSTextView/NSAttributedString rendering, not for color/material craft, not for string externalization or localization catalogs, not for the general deprecation sweep, not for writing new typographic UI from scratch.
+description: Audits a finished or in-progress iOS SwiftUI codebase for typography and text-rendering defects on iOS 26 and writes per-finding Markdown to swiftui-audits/. Use when the user says text looks wrong, fonts jump on size change, numbers jiggle, labels are misaligned, or styled text is broken; when they ask to verify Text composition, Text + Text concatenation, AttributedString styling, Font.system design, Dynamic Type, ScaledMetric, lineLimit reservesSpace, TextRenderer, textRenderer, LabeledContent, or monospacedDigit on an iPhone/iPad target; when AI may have written fontSize, textStyle, attributedText, Text(styled:), or font(size:); or when a deployment target below iOS 26 leaves Text + Text or Font.system(_:design:) ungated for deprecation. AUDIT-ONLY, iOS-only, SwiftUI-only. Not for UIKit UILabel/NSAttributedString rendering, not for color/material craft, not for string externalization or localization catalogs, not for the general deprecation sweep, not for writing new typographic UI from scratch.
 ---
 
 # Audit SwiftUI Typography & Text
 
-**AUDIT-ONLY · macOS-only · SwiftUI-only.** Run this on a *finished or in-progress* macOS SwiftUI
-project to detect — and where certain, fix — every way text and type go wrong on a macOS 26 (Tahoe)
+**AUDIT-ONLY · iOS-only · SwiftUI-only.** Run this on a *finished or in-progress* iOS SwiftUI
+project to detect — and where certain, fix — every way text and type go wrong on an iOS 26
 target: deprecated `Text + Text` concatenation, malformed `AttributedString`, hardcoded font sizes that
 defeat Dynamic Type, `lineLimit(N)` that jumps layout, the design-only `Font.system` overload, mis-gated
 `TextRenderer`, hand-rolled label rows that should be `LabeledContent`, jiggling numerics missing
@@ -14,7 +14,7 @@ defeat Dynamic Type, `lineLimit(N)` that jumps layout, the design-only `Font.sys
 certain mechanical defects are fixed under the fix-safety protocol. This is never a from-scratch text-UI
 generator.
 
-Several of this domain's deprecations **close at macOS 26.0 / 26.5** (after most training data), so AI
+Several of this domain's deprecations **close at iOS 26.0 / 26.5** (after most training data), so AI
 frequently emits the now-deprecated `Text + Text` and design-only `Font.system`. Be suspicious wherever AI
 composed styled text.
 
@@ -25,14 +25,17 @@ composed styled text.
   Emit `cross_ref: api-currency` on these findings; do not double-own the flag.
 - **String externalization, `String(localized:)`, and the AttributedString localization facet** belong to
   `audit-swiftui-localization` — file the *catalog* implication there; this skill owns *rendering*.
+- **Dynamic Type scaling mechanics** are owned by `audit-swiftui-dynamic-type`; this skill detects the
+  hardcoded-size mechanics (txt-03), dynamic-type owns the scaling audit. Emit `cross_ref: dynamic-type` on
+  txt-03 findings alongside `cross_ref: accessibility`.
 - **Dynamic Type as an accessibility requirement** is cross-linked to `audit-swiftui-accessibility`; this
   skill detects the hardcoded-size mechanics, a11y owns the trait-level audit. Emit `cross_ref: accessibility`.
-- **AppKit `NSTextView` / `NSAttributedString` rich-text bridging** is out of scope — note it in one line
-  and point to the future `audit-appkit-interop` skill.
+- **UIKit `UITextView` / `NSAttributedString` rich-text bridging** is out of scope — note it in one line
+  and point to the `audit-swiftui-uikit-interop` skill.
 
 ## Domain rules
 
-1. **Compose, don't concatenate.** `Text + Text` is deprecated at macOS 26.0; build styled runs with
+1. **Compose, don't concatenate.** `Text + Text` is deprecated at iOS 26.0; build styled runs with
    `AttributedString` (`AttributeContainer`) or string interpolation into one `Text`.
 2. **Size through the type system, never literals.** Use a semantic text style (`.system(.body)`) or
    `@ScaledMetric` so Dynamic Type scales it; `.font(.system(size: 14))` freezes the layout.
@@ -49,30 +52,31 @@ single-answer fix; `flag` = show the ✅, dev applies.
 
 | id | One-line tell | Sev | Fix | Reference |
 |---|---|---|---|---|
-| txt-01 | `Text(…) + Text(…)` concatenation (deprecated macOS 26.0) | warning | flag | `text-composition-and-attributed.md` |
+| txt-01 | `Text(…) + Text(…)` concatenation (deprecated iOS 26.0) | warning | flag | `text-composition-and-attributed.md` |
 | txt-02 | `Font.system(_:design:)` design-only overload (deprecated 26.5 → add `weight:`) | warning | auto | `fonts-and-dynamic-type.md` |
 | txt-03 | `.font(.system(size: N))` hardcoded size — defeats Dynamic Type | advisory | flag | `fonts-and-dynamic-type.md` |
 | txt-04 | `.lineLimit(N)` integer without `reservesSpace:` → layout jump | advisory | flag | `text-layout-and-rendering.md` |
 | txt-05 | `AttributedString(…)` built wrong (String concat / no `AttributeContainer`) | warning | flag | `text-composition-and-attributed.md` |
-| txt-06 | `.textRenderer(_:)` (macOS 15) / `TextRenderer` (macOS 14) mis-gated | warning | flag | `text-layout-and-rendering.md` |
+| txt-06 | `.textRenderer(_:)` (iOS 18) / `TextRenderer` (iOS 17) mis-gated | warning | flag | `text-layout-and-rendering.md` |
 | txt-07 | hand-rolled `HStack { Text; Spacer(); Text }` label row → `LabeledContent` | advisory | flag | `text-layout-and-rendering.md` |
 | txt-08 | live numeric `Text` (`.formatted()`/`format:`) missing `.monospacedDigit()` | advisory | flag | `fonts-and-dynamic-type.md` |
 | txt-09 | invented type API: `.fontSize(`, `.textStyle(`, `Text(styled:)`, `.attributedText(`, `.font(size:` | hard-fail | flag | `text-composition-and-attributed.md` |
 
 **Currency seam:** txt-01 and txt-02 carry `cross_ref: api-currency` (currency flags the deprecation;
-typography owns the craft). txt-03 carries `cross_ref: accessibility` (Dynamic Type).
+typography owns the craft). txt-03 carries `cross_ref: dynamic-type` (scaling mechanics) and
+`cross_ref: accessibility` (Dynamic Type as an a11y requirement).
 
 ## The real API, at a glance
 
-**Real (exist on macOS 26):** `AttributedString` + `AttributeContainer`, `Text` string interpolation,
-`Font.system(_:design:weight:)`, `@ScaledMetric(relativeTo:)`, `lineLimit(_:reservesSpace:)` (macOS 13+),
-`TextRenderer` (protocol, macOS 14+) + `textRenderer(_:)` (modifier, macOS 15+), `LabeledContent` (macOS 13+),
+**Real (exist on iOS 26):** `AttributedString` + `AttributeContainer`, `Text` string interpolation,
+`Font.system(_:design:weight:)`, `@ScaledMetric(relativeTo:)`, `lineLimit(_:reservesSpace:)` (iOS 13+),
+`TextRenderer` (protocol, iOS 17+) + `textRenderer(_:)` (modifier, iOS 18+), `LabeledContent` (iOS 16+),
 `monospacedDigit()`, `Text(_:format:)`. **`Font.system(_:design:)` (no `weight:`) still resolves but is
-deprecated at macOS 26.5 → `system(_:design:weight:)`; `Text("a") + Text("b")` is deprecated at 26.0.**
+deprecated at iOS 26.5 → `system(_:design:weight:)`; `Text("a") + Text("b")` is deprecated at 26.0.**
 
 **Invented (never exist):** `.fontSize(_:)`, `.textStyle(_:)`, `Text(styled:)`, `.attributedText(_:)`,
 `.font(size:)` (the real spelling is `.font(.system(size:))`). Confirm any uncertain name via
-`swiftui-ctx lookup <api>` (exit 3 = no shipping Mac app uses it) + the canonical invented-name list in
+`swiftui-ctx lookup <api>` (exit 3 = no shipping iOS app uses it) + the canonical invented-name list in
 `${CLAUDE_PLUGIN_ROOT}/references/_shared/hallucination-blacklist.md` — read, never restate.
 
 Floor *values* are the reconciled truth in
@@ -80,13 +84,13 @@ Floor *values* are the reconciled truth in
 
 ## Grounded ✅ correct shape (real shipping code, not a placeholder)
 
-The ✅ examples in this skill are **the swiftui-ctx consensus shape backed by a permalinked Mac app**, not
+The ✅ examples in this skill are **the swiftui-ctx consensus shape backed by a permalinked iOS app**, not
 hand-written snippets. The canonical txt-08 fix (a live numeric `Text` that must not jiggle) — verified via
-`swiftui-ctx lookup monospacedDigit --json` (consensus `()` at 100%, `introduced_macos` 10.15) and
+`swiftui-ctx lookup monospacedDigit --json` (consensus `()` at 100%, `introduced_ios` 13.0) and
 `swiftui-ctx file ex_59de3fab78 --smart`:
 
 ```swift
-// ✅ live numeric Text — .monospacedDigit() stops per-frame re-flow (sindresorhus/Gifski, macOS 26)
+// ✅ live numeric Text — .monospacedDigit() stops per-frame re-flow (iOS 26)
 Text(progress.formatted(.percent.precision(.fractionLength(0))))
     .font(.system(size: 30, weight: .bold, design: .rounded))   // current overload carries weight: (txt-02 ✅)
     .monospacedDigit()                                           // txt-08 ✅
@@ -102,9 +106,10 @@ permalink + Sosumi `doc:` in `## Source` (step 7 FIX).
 ## The 8-step audit workflow (execute verbatim)
 
 1. **ORIENT.** `tree` / `find` the SwiftUI sources. Read the **deployment target**
-   (`project.pbxproj` `MACOSX_DEPLOYMENT_TARGET`, or `Package.swift` `platforms:`). It is load-bearing:
-   txt-06 mis-gating fires only when the floor is **below the symbol's introduction**, and the txt-01/02
-   deprecations are advisory below their close (26.0 / 26.5) but become live-warning at/after it. Record it.
+   (`project.pbxproj` `IPHONEOS_DEPLOYMENT_TARGET`, or `Package.swift` `platforms:` `.iOS(.v17)`). It is
+   load-bearing: txt-06 mis-gating fires only when the floor is **below the symbol's introduction**, and the
+   txt-01/02 deprecations are advisory below their close (26.0 / 26.5) but become live-warning at/after it.
+   Record it.
 2. **LOCATE.** Run the shared hybrid lint runner:
    `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-lint.sh --skill audit-swiftui-typography-text --dir <sources> --json /tmp/txt.json --sarif /tmp/txt.sarif`.
    It runs this skill's tier-1 grep tells (`lint/grep-tells.tsv`) + the tier-2 structural ast-grep rule
@@ -122,12 +127,12 @@ permalink + Sosumi `doc:` in `## Source` (step 7 FIX).
    deprecation you can't date), run **both** evidence sources. (a) **Practice** —
    `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx lookup <api> --json` (and
    `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx deprecated <api>` for txt-01/02): read its `consensus`
-   (the canonical shape), `deprecated`+`replacement`, `recommended` permalink, `introduced_macos`, and
+   (the canonical shape), `deprecated`+`replacement`, `recommended` permalink, `introduced_ios`, and
    `co_occurs_with`; a `lookup` **exit 3** (not-found, with a did-you-mean `suggestion`) corroborates a
-   txt-09 hallucination — no shipping Mac app uses the symbol. (b) **Spec** — confirm via **Sosumi**:
+   txt-09 hallucination — no shipping iOS app uses the symbol. (b) **Spec** — confirm via **Sosumi**:
    `curl -sSL https://sosumi.ai/<apple-path>` using `references/source-directory.md` for the path and
    `${CLAUDE_PLUGIN_ROOT}/references/_shared/sosumi-reference.md` for the protocol (never `WebFetch`
-   `developer.apple.com`). Cross-check `introduced_macos` against `floors-master.md` and the Sosumi `doc:`
+   `developer.apple.com`). Cross-check `introduced_ios` against `floors-master.md` and the Sosumi `doc:`
    floor. The CLI contract is `${CLAUDE_PLUGIN_ROOT}/references/_shared/swiftui-ctx-reference.md`. Promote
    with the citation or discard.
 6. **REPORT.** Write each confirmed finding (output contract below). One finding per file, zero-padded,
@@ -136,7 +141,7 @@ permalink + Sosumi `doc:` in `## Source` (step 7 FIX).
    (`${CLAUDE_PLUGIN_ROOT}/references/_shared/fix-safety-protocol.md`): clean-tree gate, findings-first,
    **only `fix_mode: auto`** (txt-02 — append `weight: .regular`), one conventional commit per finding
    citing its `rule_id`, never weaken a check. The ✅ "Correct" is **not a hand-written snippet** — it is
-   the swiftui-ctx **consensus shape** put in `## Correct`, backed by a real macOS example fetched with
+   the swiftui-ctx **consensus shape** put in `## Correct`, backed by a real iOS example fetched with
    `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx file <recommended.id> --smart` whose GitHub permalink
    (plus the Sosumi `doc:`) goes in `## Source`. Leave `flag-only` findings `open` with that ✅.
 8. **DOUBLE-CHECK.** Re-grep each fixed file to confirm the tell no longer matches; record the evidence in
@@ -191,7 +196,7 @@ requirement.* Two runs over the same code produce structurally identical trees.
 |---|---|
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md` | every floor/availability/deprecation value (the reconciled truth) |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/hallucination-blacklist.md` | the canonical invented-name list (txt-09) |
-| `${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md` | the macOS-arm gating rule (txt-06 wrong-arm) |
+| `${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md` | the iOS-arm gating rule (txt-06 wrong-arm) |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/finding-schema.md` | the unified finding schema + frontmatter keys |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/fix-safety-protocol.md` | the fix-safety protocol (step 7) |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/sosumi-reference.md` | the Apple-doc spec fetch protocol (step 5 VERIFY) |

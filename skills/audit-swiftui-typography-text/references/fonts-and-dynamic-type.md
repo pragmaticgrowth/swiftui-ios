@@ -4,14 +4,14 @@ How fonts are sized so Dynamic Type scales them, the deprecation of the design-o
 overload, and stopping live numerics from jiggling. Floor *values* live in
 `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md` — read, never restate.
 
-**As of:** 2026-06-07 · macOS 26 (Tahoe) · Xcode 26 SDK.
+**As of:** 2026-06-07 · iOS 26 · Xcode 26 SDK.
 
 ---
 
-## txt-02 — `Font.system(_:design:)` design-only overload (deprecated macOS 26.5)
+## txt-02 — `Font.system(_:design:)` design-only overload (deprecated iOS 26.5)
 
 Per floors-master, `Font.system(_:design:)` (the overload with **no `weight:`**) is **deprecated at
-macOS 26.5** → the current overload `Font.system(_:design:weight:)` (macOS 13.0+). The currency *flag* is
+iOS 26.5** → the current overload `Font.system(_:design:weight:)` (iOS 13.0+). The currency *flag* is
 api-currency's; this skill owns the craft → emit `cross_ref: api-currency`. This is `fix_mode: auto`: the
 mechanical single-answer fix is appending `weight: .regular`.
 
@@ -42,13 +42,13 @@ Image(systemName: "gear").font(.system(size: 22))
 Text(title).font(.body)                       // or .system(.body, design: .default, weight: .regular)
 ```
 ### ✅ Correct — `@ScaledMetric` when a literal dimension is unavoidable (icons, custom metrics)
-Canonical shape from the corpus (`swiftui-ctx lookup ScaledMetric` — consensus `(relativeTo: .body)`, 36%,
-recommended example `cmsj/Hammerspoon2` `SettingsConfigView.swift#L23`):
+Canonical shape from the corpus (`swiftui-ctx lookup ScaledMetric --platform ios` — consensus
+`(relativeTo: .body)`, 36%, recommended example `cmsj/Hammerspoon2` `SettingsConfigView.swift#L23`):
 ```swift
 @ScaledMetric(relativeTo: .body) private var iconSize: CGFloat = 12
 Image(systemName: "gear").font(.system(size: iconSize))
 ```
-`@ScaledMetric` is macOS 11.0+ (floors-master) — no gating needed on any modern target.
+`@ScaledMetric` is iOS 14.0+ (floors-master) — no gating needed on an iOS 17 floor target.
 
 ## txt-08 — live numerics missing `monospacedDigit()`
 

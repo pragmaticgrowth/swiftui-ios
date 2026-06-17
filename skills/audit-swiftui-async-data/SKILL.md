@@ -1,11 +1,11 @@
 ---
 name: audit-swiftui-async-data
-description: Audits a finished or in-progress macOS SwiftUI codebase for async data-loading defects and writes per-finding Markdown to swiftui-audits/. Use when the user says a view loads data wrong, flashes empty, spins forever, has no error or empty state, leaks or double-fires network calls, searches on every keystroke, or shows blank remote images; when they ask to verify a screen's .task, .task(id:), .onAppear Task, .refreshable, .searchable debounce, AsyncImage phases, .redacted skeletons, URLSession in a view, or a stale-result race; when AI wrote a bare Task in onAppear, swallowed errors with try? await, or AsyncImage(url:) in a list with no cache. AUDIT-ONLY, macOS-only, SwiftUI-only. Not the Swift-6 isolation/Sendable verdict (that is concurrency-safety), not where the model lives (state-observation), not SwiftData @Query fetching, not the general availability sweep, not writing new data UI from scratch.
+description: Audits a finished or in-progress iOS SwiftUI codebase for async data-loading defects and writes per-finding Markdown to swiftui-audits/. Use when the user says a view loads data wrong, flashes empty, spins forever, has no error or empty state, leaks or double-fires network calls, searches on every keystroke, or shows blank remote images; when they ask to verify a screen's .task, .task(id:), .onAppear Task, .refreshable, .searchable debounce, AsyncImage phases, .redacted skeletons, URLSession in a view, or a stale-result race; when AI wrote a bare Task in onAppear, swallowed errors with try? await, or AsyncImage(url:) in a list with no cache. AUDIT-ONLY, iOS-only, SwiftUI-only. Not the Swift-6 isolation/Sendable verdict (that is concurrency-safety), not where the model lives (state-observation), not SwiftData @Query fetching, not the general availability sweep, not writing new data UI from scratch.
 ---
 
 # Audit SwiftUI Async Data
 
-**AUDIT-ONLY · macOS-only · SwiftUI-only.** Run this on a *finished or in-progress* macOS SwiftUI project
+**AUDIT-ONLY · iOS-only · SwiftUI-only.** Run this on a *finished or in-progress* iOS SwiftUI project
 to detect — and where certain, fix — every way **async data loading inside a view** goes wrong: a bare
 `Task` in `.onAppear` that never cancels, no loading / error / empty state, raw `URLSession` decoded on the
 main actor, search that fetches on every keystroke, `AsyncImage` whose failure phase is ignored, a list
@@ -14,8 +14,8 @@ Findings are written to disk in the toolkit's unified schema; the few mechanical
 the fix-safety protocol. This is never a from-scratch data-layer generator.
 
 This domain is **net-new** (the relevant `.task`/`Sendable` facts live in
-`${CLAUDE_PLUGIN_ROOT}/skills/build-macos-swiftui/references/concurrency.md`); ground every ✅ in
-`swiftui-ctx` consensus + a permalinked macOS-26 example, not a hand-written snippet.
+`${CLAUDE_PLUGIN_ROOT}/skills/build-ios-swiftui/references/concurrency.md`); ground every ✅ in
+`swiftui-ctx` consensus + a permalinked iOS-26 example, not a hand-written snippet.
 
 ## Boundary / seam note (stay in lane)
 
@@ -61,14 +61,14 @@ tell can fire on a missing state; find them by READING the load site the proxy t
 | async-09 | rapid `.task(id:)` writes with no generation/stale-result guard | warn | flag | `lifecycle-and-cancellation.md` |
 | async-10 | load with no `.redacted(.placeholder)` skeleton — **DETECT-only** | adv | flag | `load-states-and-skeletons.md` |
 
-**Nothing here is a hallucination class** — every API is real and floored low (`.task` macOS 12,
-`AsyncImage`/`refreshable`/`searchable` macOS 12, `.redacted` macOS 11). The defects are *omission and
+**Nothing here is a hallucination class** — every API is real and floored low (`.task` iOS 15,
+`AsyncImage`/`refreshable`/`searchable` iOS 15, `.redacted` iOS 14). The defects are *omission and
 lifecycle*, not invented names; carry behavior claims you cannot place as `advisory` (`source: verify
 against Xcode 26 SDK`), never as fact.
 
 ## The real API, at a glance
 
-**Real (all macOS, floored low — confirm exact floors in `floors-master.md`, never restate the table):**
+**Real (all iOS, floored low — confirm exact floors in `floors-master.md`, never restate the table):**
 `task(priority:_:)` and `task(id:priority:_:)`, `refreshable(action:)`, `searchable(text:…)`,
 `AsyncImage(url:)` / `AsyncImage(url:content:placeholder:)` / `AsyncImage(url:transaction:content:)` (the
 `phase` form), `redacted(reason:)` + `RedactionReasons.placeholder`, `unredacted()`, `Task`/`Task(id:)`
@@ -77,15 +77,15 @@ cancellation via `Task.isCancelled` / `Task.checkCancellation()`.
 Floor *values* are the reconciled truth in `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md`;
 the canonical invented-name list is `${CLAUDE_PLUGIN_ROOT}/references/_shared/hallucination-blacklist.md`
 — read, never restate them. The ✅ shapes are not hand-written: get the **consensus shape + a permalinked
-macOS-26 example** from `swiftui-ctx` (VERIFY/FIX below).
+iOS-26 example** from `swiftui-ctx` (VERIFY/FIX below).
 
 ### ✅ Correct (grounded, not a placeholder) — the async-01 lifecycle anchor
 
-`swiftui-ctx lookup task --json` consensus: **`{ }` 70% · `(id)` 29%**, `introduced_macos: 12.0`. The
-top-authority macOS-26 site (`swiftui-ctx file ex_a1cff2419c --smart`) — bind the load to view identity so
+`swiftui-ctx lookup task --json` consensus: **`{ }` 70% · `(id)` 29%**, `introduced_ios: 15.0`. The
+top-authority iOS-26 site (`swiftui-ctx file ex_a1cff2419c --smart`) — bind the load to view identity so
 it auto-cancels on disappear; `.task(id:)` restarts on change:
 ```swift
-// sindresorhus/Gifski — Gifski/Utilities.swift L5590 (min_macos 26)
+// sindresorhus/Gifski — Gifski/Utilities.swift L5590 (min_ios 18)
 content
     .task(id: Tuple3(isActive, options, reason)) {       // restarts when the id changes; cancels on disappear
         activity = isActive ? SSApp.beginActivity(options, reason: reason) : nil
@@ -98,8 +98,8 @@ content
 ## The 8-step audit workflow (execute verbatim)
 
 1. **ORIENT.** `tree` / `find` the SwiftUI sources. Read the **deployment target**
-   (`project.pbxproj` `MACOSX_DEPLOYMENT_TARGET`, or `Package.swift` `platforms:`). Record it — every API
-   here floors at macOS 11–12, so gating rarely fires, but note any target < macOS 12.
+   (`project.pbxproj` `IPHONEOS_DEPLOYMENT_TARGET`, or `Package.swift` `platforms: [.iOS(.v17)]`). Record it — every API
+   here floors at iOS 14–15, so gating rarely fires, but note any target < iOS 15.
 2. **LOCATE.** Run the shared hybrid lint runner:
    `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-lint.sh --skill audit-swiftui-async-data --dir <sources> --json /tmp/async.json --sarif /tmp/async.sarif`.
    It runs this skill's tier-1 grep tells (`lint/grep-tells.tsv`) + tier-2 structural ast-grep rules
@@ -118,11 +118,11 @@ content
 5. **VERIFY.** For anything ≤ ~70% confidence (a floor you can't place, a behavior claim, "is this the
    native shape"), run **both** evidence sources. (a) **Practice** — `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx
    lookup <api> --json` (and `swiftui-ctx deprecated <api>` for a currency claim): read its `consensus`
-   (the canonical shape), `deprecated`+`replacement`, `recommended` permalink, `introduced_macos`, and
+   (the canonical shape), `deprecated`+`replacement`, `recommended` permalink, `introduced_ios`, and
    `co_occurs_with`. For this domain, `swiftui-ctx recipe cached-async-image` gives the consensus AsyncImage
    loader. (b) **Spec** — confirm via **Sosumi**: `curl -sSL https://sosumi.ai/<apple-path>` using
    `references/source-directory.md` for the path and `${CLAUDE_PLUGIN_ROOT}/references/_shared/sosumi-reference.md`
-   for the protocol (never `WebFetch` `developer.apple.com`). Cross-check `introduced_macos` against
+   for the protocol (never `WebFetch` `developer.apple.com`). Cross-check `introduced_ios` against
    `floors-master.md`. The CLI contract is `${CLAUDE_PLUGIN_ROOT}/references/_shared/swiftui-ctx-reference.md`.
    Promote with the citation or discard.
 6. **REPORT.** Write each confirmed finding (output contract below). One finding per file, zero-padded,
@@ -132,7 +132,7 @@ content
    **only `fix_mode: auto`** (async-01 the mechanical `Task{}`-in-`onAppear` → `.task` rewrite when the
    captured state is already `Sendable`/`@MainActor`-safe; everything else `flag-only`), one conventional
    commit per finding citing its `rule_id`, never weaken a check. The ✅ "Correct" is **not a hand-written
-   snippet** — it is the swiftui-ctx **consensus shape** in `## Correct`, backed by a real macOS-26 example
+   snippet** — it is the swiftui-ctx **consensus shape** in `## Correct`, backed by a real iOS-26 example
    fetched with `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx file <recommended.id> --smart` whose GitHub
    permalink (plus the Sosumi `doc:`) goes in `## Source`. Leave `flag-only` findings `open` with that ✅.
 8. **DOUBLE-CHECK.** Re-grep / re-run the runner on each fixed file to confirm the tell no longer matches;
@@ -194,7 +194,7 @@ requirement.* Two runs over the same code produce structurally identical trees.
 |---|---|
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md` | every floor/availability value (the reconciled truth) |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/hallucination-blacklist.md` | the canonical invented-name list |
-| `${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md` | the macOS-arm gating rule (for any availability gate on an async API) |
+| `${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md` | the iOS availability gating rule (for any availability gate on an async API) |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/finding-schema.md` | the unified finding schema + frontmatter keys |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/fix-safety-protocol.md` | the 8-point fix-safety protocol (step 7) |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/sosumi-reference.md` | the Apple-doc spec fetch protocol (step 5 VERIFY) |

@@ -5,7 +5,7 @@
 `swiftui-ctx lookup` (the consensus shape) + a permalinked real example; verify each fix target's floor
 via Sosumi (`references/source-directory.md`) and `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md`.
 
-**As of 2026-06-07 · macOS 26 (Tahoe) · Swift 6.2 toolchain.**
+**As of 2026-06-07 · iOS 26 (Tahoe) · Swift 6.2 toolchain.**
 
 ---
 
@@ -24,20 +24,21 @@ var body: some View {
 // ✅ CORRECT (a) — hoist to a type-scope static let (built once, reused)
 private static let df: DateFormatter = { let f = DateFormatter(); f.dateStyle = .medium; return f }()
 var body: some View { Text(Self.df.string(from: date)) }
-// ✅ CORRECT (b) — let SwiftUI format it: Text(_:format:) (macOS 12.0+ for FormatOutput == String; no formatter object at all)
+// ✅ CORRECT (b) — let SwiftUI format it: Text(_:format:) (iOS 15.0+ for FormatOutput == String; no formatter object at all)
 var body: some View { Text(date, format: .dateTime.month().day()) }
 ```
 
-`Text(_:format:)` is the leaner fix — it requires **macOS 12.0+** for the `FormatOutput == String`
-overload (e.g. `.dateTime.month().day()`) and **macOS 15.0+** for the `FormatOutput == AttributedString`
-overload; confirm the correct floor against your deployment target (`floors-master.md`). The canonical shape +
-a permalinked example: `swiftui-ctx lookup "Text(_:format:)" --json` then `file <recommended.id> --smart`.
+`Text(_:format:)` is the leaner fix — it requires **iOS 15.0+** for the `FormatOutput == String`
+overload (e.g. `.dateTime.month().day()`) and **iOS 15.0+** for the `FormatOutput == AttributedString`
+overload; since the project floor is iOS 17, no gating is required. Confirm the correct floor against
+your deployment target (`floors-master.md`). The canonical shape +
+a permalinked example: `swiftui-ctx lookup "Text(_:format:)" --platform ios --json` then `file <recommended.id> --smart`.
 
 ## vperf-05 — `GeometryReader` wrapping a whole screen / large subtree
 
 `GeometryReader` **greedily takes all offered space** and re-lays-out its subtree on **every size
-change** — constant on a resizable Mac window. It is correct only when you truly need the *measured*
-size of a region; reaching for it to arrange a layout is the smell.
+change** — including every iPhone rotation and iPad multitasking resize. It is correct only when you
+truly need the *measured* size of a region; reaching for it to arrange a layout is the smell.
 
 ```swift
 // ❌ WRONG — GeometryReader wrapping the whole screen just to position children
@@ -45,7 +46,7 @@ GeometryReader { geo in
     VStack { header; content; footer }.frame(width: geo.size.width)   // arrangement, not measurement
 }
 // ✅ CORRECT — use layout primitives; no per-resize subtree re-layout
-VStack { header; content; footer }                 // or: .frame / .alignmentGuide / a Layout / containerRelativeFrame
+VStack { header; content; footer }                 // or: .frame / .alignmentGuide / a Layout (iOS 16+) / containerRelativeFrame (iOS 17+)
 ```
 
 READ the file: a `GeometryReader` whose `geo` value is genuinely *consumed* (e.g. feeding a `Canvas`
@@ -76,6 +77,7 @@ per render).
   https://developer.apple.com/videos/play/wwdc2023/10160/ (accessed 2026-06-07).
 - WWDC21 "Demystify SwiftUI" (session 10022) — identity, lifetime, dependencies:
   https://developer.apple.com/videos/play/wwdc2021/10022/ (accessed 2026-06-07).
-- Apple — `Text(_:format:)`: https://developer.apple.com/documentation/swiftui/text · `Layout`:
-  https://developer.apple.com/documentation/swiftui/layout · `GeometryReader`:
-  https://developer.apple.com/documentation/swiftui/geometryreader (fetch via Sosumi; accessed 2026-06-07).
+- Apple — `Text(_:format:)`: https://developer.apple.com/documentation/swiftui/text · `Layout`
+  (iOS 16.0+): https://developer.apple.com/documentation/swiftui/layout · `containerRelativeFrame`
+  (iOS 17.0+): https://developer.apple.com/documentation/swiftui/view/containerrelativeframe(_:alignment:) ·
+  `GeometryReader`: https://developer.apple.com/documentation/swiftui/geometryreader (fetch via Sosumi; accessed 2026-06-07).

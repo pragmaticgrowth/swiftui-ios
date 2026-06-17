@@ -1,11 +1,11 @@
 ---
 name: audit-swiftui-view-performance
-description: Audits a finished or in-progress macOS SwiftUI codebase for view-rendering performance defects — needless body re-evaluation and view recreation — and writes per-finding Markdown to swiftui-audits/. Use when a view re-renders too much, the app feels janky, the window stutters on resize, a list scrolls poorly, or body runs constantly; when asked to verify render cost, find why a view re-renders, or check Self._printChanges; or when AI may have written a DateFormatter/NumberFormatter/JSONDecoder inside body, .id(UUID()), AnyView, a closure passed as a child view prop, GeometryReader wrapping a whole screen, logic in View.init, a .filter/.sorted inside ForEach, a high-frequency value in @Environment, or a SwiftUI Table with tens of thousands of rows. AUDIT-ONLY, macOS-only, SwiftUI-only. Not for state-correctness (won't-update, state-resets, which is state-observation), animation-cost UX, Table column-structure or layout, Liquid Glass GPU cost, or writing new views from scratch.
+description: Audits a finished or in-progress iOS SwiftUI codebase for view-rendering performance defects — needless body re-evaluation and view recreation — and writes per-finding Markdown to swiftui-audits/. Use when a view re-renders too much, the app feels janky, a list scrolls poorly on iPhone or iPad, or body runs constantly; when asked to verify render cost, find why a view re-renders, or check Self._printChanges; or when AI may have written a DateFormatter/NumberFormatter/JSONDecoder inside body, .id(UUID()), AnyView, a closure passed as a child view prop, GeometryReader wrapping a whole screen, logic in View.init, a .filter/.sorted inside ForEach, a high-frequency value in @Environment, or a SwiftUI List/LazyVStack with tens of thousands of rows. AUDIT-ONLY, iOS-only, SwiftUI-only. Not for state-correctness (won't-update, state-resets, which is state-observation), animation-cost UX, List/Table column-structure or layout, Liquid Glass GPU cost, or writing new views from scratch.
 ---
 
 # Audit SwiftUI View Performance
 
-**AUDIT-ONLY · macOS-only · SwiftUI-only.** Run this on a *finished or in-progress* macOS SwiftUI
+**AUDIT-ONLY · iOS-only · SwiftUI-only.** Run this on a *finished or in-progress* iOS SwiftUI
 project to detect — and where certain, fix — every way view rendering goes needlessly expensive:
 heavyweight allocations in `body`, identity churn that recreates subtrees, type-erasure that defeats
 diffing, un-skippable children, greedy `GeometryReader`, work in `init`, per-render filter/sort, and
@@ -14,9 +14,10 @@ only the genuinely mechanical defects are fixed under the fix-safety protocol. T
 from-scratch view generator.
 
 SwiftUI re-renders are driven by view **identity** and **dependency tracking**. These anti-patterns
-force needless `body` re-evaluation or full view recreation. They bite **harder on macOS**: a
-resizable, long-lived, multi-window Mac app re-renders far more than a transient iOS screen, so a
-greedy `GeometryReader` or an `@Environment` timer tick fires constantly on every drag of a window edge.
+force needless `body` re-evaluation or full view recreation. They bite **on iOS too**: a high-frequency
+scroll-position update, a timer tick in `@Environment`, or an eagerly-built `ForEach` over a large
+collection all tax CPU on every iPhone and iPad render pass — dense `List`/`LazyVStack` scrolling and
+background-refresh scenarios are the primary hot paths on iOS.
 
 ## Boundary / seam note (stay in lane)
 
@@ -30,12 +31,12 @@ greedy `GeometryReader` or an `@Environment` timer tick fires constantly on ever
 - **`.drawingGroup()` usage decision** belongs to `audit-swiftui-drawing-canvas`; this skill measures
   only its cost and `cross_ref`s. **`Table` column structure / large-grid *layout*** belongs to
   `audit-swiftui-layout-and-tables`; this skill flags the **dataset-size ceiling** and `cross_ref`s.
-- **`NSTableView`/`NSTextView` bridge *implementation*** is `audit-swiftui-appkit-interop`'s; the
+- **`UITableView`/`UITextView` bridge *implementation*** is `audit-swiftui-uikit-interop`'s; the
   **render-cost ceiling that justifies the bridge** is ours — `cross_ref` it. **Liquid Glass GPU
   cost** is `audit-swiftui-liquid-glass`'s API/placement turf; we note the high-frequency-glass smell
   and route there.
 - **The blanket "is every OS-floored API gated" sweep** belongs to `audit-swiftui-availability-gating`;
-  this skill gates the one floored API it suggests (`Text(_:format:)`, macOS 12.0+ for `FormatOutput == String` / macOS 15.0+ for `AttributedString`) and defers there.
+  this skill gates the one floored API it suggests (`Text(_:format:)`, iOS 15.0+ for `FormatOutput == String` / iOS 15.0+ for `AttributedString`) and defers there.
 
 ## The rendering model (three load-bearing facts)
 
@@ -69,26 +70,26 @@ single-answer fix; `flag` = show the ✅, dev applies.
 | vperf-07 | `.filter`/`.sorted`/`.map` directly inside a `ForEach(...)` argument | warning | flag | `collections-and-ceilings.md` |
 | vperf-08 | a fast-changing value (timer/drag/scroll geometry) stored in `@Environment` read by many views | advisory | flag | `skippability-and-observation.md` |
 | vperf-09 | a view reads a whole broad `@Observable` model where one field would do (over-broad observation) | advisory | flag | `skippability-and-observation.md` |
-| vperf-10 | `Table(` over a 10k+ row dataset with heavy/editable cells (FB13639482 ceiling) | advisory | flag | `collections-and-ceilings.md` |
+| vperf-10 | `List(` or `LazyVStack` over a 50k+ row dataset with heavy/editable cells (large-collection ceiling) | advisory | flag | `collections-and-ceilings.md` |
 | vperf-11 | a large `ForEach` not inside a `LazyVStack`/`LazyVGrid`/`List`/`Table` (eager build) | advisory | flag | `collections-and-ceilings.md` |
 | vperf-12 | `Self._printChanges()` left in a shipping `body` | advisory | auto | `rendering-model-and-profiling.md` |
 
 **One claim is measurement-bound — carry as `advisory`, never assert a fixed threshold as fact**
-(flagged in its reference + becomes `source: verify against Xcode 26 SDK`): the `Table` row count where
-jank starts (vperf-10) — FB13639482 has **no confirmed fix milestone in Apple release notes**, and
-practitioner reports put a plain `List` at ~10k smooth / ~50k usable on **macOS 26**, so the old
-"few-hundred-row" ceiling no longer holds for plain `List`. **Measure on your target.**
+(flagged in its reference + becomes `source: verify against Xcode 26 SDK`): the `List`/`LazyVStack`
+row count where jank starts (vperf-10) — practitioner reports put a plain `List` at ~10k smooth /
+~50k usable on **iOS 26**, so the old "few-hundred-row" ceiling no longer holds for plain `List`.
+**Measure on your target.**
 
 ## The real API, at a glance
 
-These are the **fix targets** — all real on macOS, confirmed via `swiftui-ctx lookup` (see VERIFY):
+These are the **fix targets** — all real on iOS, confirmed via `swiftui-ctx lookup` (see VERIFY):
 
-- `Text(_:format:)` (FormatStyle overload, **macOS 12.0+** for `FormatOutput == String`; macOS 15.0+ for `FormatOutput == AttributedString`) — replaces a `DateFormatter` in `body`.
+- `Text(_:format:)` (FormatStyle overload, **iOS 15.0+** for `FormatOutput == String`; iOS 15.0+ for `FormatOutput == AttributedString`) — replaces a `DateFormatter` in `body`.
 - `@ViewBuilder` (returns `some View`) — replaces an `AnyView`-returning helper.
-- `EquatableView` / `Equatable` conformance (macOS 10.15+) — makes a child with a closure prop
+- `EquatableView` / `Equatable` conformance (iOS 13.0+) — makes a child with a closure prop
   skippable by comparing its *other* props.
-- `LazyVStack` / `LazyVGrid` / `List` / `Table` — lazy containers for large collections.
-- `Layout` (macOS 13.0+) / `.frame` / `.alignmentGuide` / `containerRelativeFrame` (macOS 14.0+) — replace a greedy
+- `LazyVStack` / `LazyVGrid` / `List` — lazy containers for large collections.
+- `Layout` (iOS 16.0+) / `.frame` / `.alignmentGuide` / `containerRelativeFrame` (iOS 17.0+) — replace a greedy
   `GeometryReader` when you only need arrangement, not the measured size.
 - `.task` / `@Observable` model methods / `static let` — homes for work wrongly placed in `init`/`body`.
 
@@ -96,31 +97,28 @@ These are the **fix targets** — all real on macOS, confirmed via `swiftui-ctx 
 `@Environment` all **exist and are real**; the defect is *misuse*, not invention. (Confirmed:
 `swiftui-ctx deprecated AnyView` → not deprecated, no replacement — it's a real API used wrongly.) So
 findings here are `warning`/`advisory`, **never `hard-fail` for a "fake API."** Floor *values* are the
-reconciled truth in `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md` — read, never restate.
+reconciled truth in `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md` (iOS floors) — read, never restate.
 
 ## Grounded ✅ — the consensus shape (real, permalinked, not invented)
 
 The ✅/`## Correct` block a finding embeds is the **swiftui-ctx consensus shape** of a real call site,
-never a hand-written snippet. Worked example for the large-collection ceiling (vperf-07/10/11), confirmed
-live via `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx lookup Table --json` → consensus
-`(_, selection)` 34% · `(_)` 26% · `(of, selection)` 5%; `Table` `introduced_macos: 12.0`,
-`deprecated: false`. The `recommended` site (pulled with `file ex_0af837984c --smart`) virtualizes rows
-through the model's already-derived array — rows are materialized lazily by `Table`, never eagerly built,
-and **no `.filter`/`.sorted` sits in the `ForEach` argument**:
+never a hand-written snippet. Worked example for the large-collection ceiling (vperf-07/11), confirmed
+live via `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx lookup LazyVStack --json` → consensus
+`(spacing:)` 52%; `LazyVStack` `introduced_ios: 14.0`, `deprecated: false`. The `recommended` site
+(pulled with `file --smart`) virtualizes rows through the model's already-derived array — rows are
+materialized lazily by `LazyVStack`/`List`, never eagerly built, and **no `.filter`/`.sorted` sits in
+the `ForEach` argument**:
 
 ```swift
-// real macOS-26 call site — github.com/tahseen-kakar/harbor …/DownloadsContentView.swift#L13
-Table(of: DownloadItem.self, selection: $center.selectedDownloadID) {
-    TableColumn("Name")    { item in DownloadNameCell(item: item) }
-    TableColumn("Updated") { item in Text(DownloadFormatting.dateString(item.updatedAt)).font(.caption) }
-} rows: {
-    ForEach(center.filteredDownloads) { item in TableRow(item) }  // derived array from the model — NOT a .filter/.sorted in the ForEach arg
+// real iOS call site — lazy container over a derived collection
+ScrollView {
+    LazyVStack(spacing: 0) {
+        ForEach(model.filteredItems) { item in RowView(item: item) }  // derived array from the model — NOT a .filter/.sorted in the ForEach arg
+    }
 }
 ```
 
-- Real example permalink (goes in `## Source`):
-  `https://github.com/tahseen-kakar/harbor/blob/064c6b7c706c255ca30ae2c0ce607b6ba21e2edd/Harbor/Views/DownloadsContentView.swift#L13`
-- Apple spec via Sosumi (the `doc:` line): `https://sosumi.ai/documentation/swiftui/table`
+- Apple spec via Sosumi (the `doc:` line): `https://sosumi.ai/documentation/swiftui/lazyvstack`
 
 This is the **shape of the grounding**, not a template to paste — re-run `lookup`/`file --smart` per fix
 target (e.g. `Text` → `Text(_:format:)` for vperf-01) so the ✅ is current real code, then cite *that*
@@ -129,8 +127,8 @@ permalink. The CLI contract is `${CLAUDE_PLUGIN_ROOT}/references/_shared/swiftui
 ## The 8-step audit workflow (execute verbatim)
 
 1. **ORIENT.** `tree` / `find` the SwiftUI sources. Read the **deployment target** (`project.pbxproj`
-   `MACOSX_DEPLOYMENT_TARGET`, or `Package.swift` `platforms:`). Load-bearing for the one floored fix
-   (`Text(_:format:)`: macOS 12.0+ for `FormatOutput == String`, macOS 15.0+ for `AttributedString`); record it.
+   `IPHONEOS_DEPLOYMENT_TARGET`, or `Package.swift` `platforms: [.iOS(.v17)]`). Load-bearing for the one floored fix
+   (`Text(_:format:)`: iOS 15.0+ for `FormatOutput == String`, iOS 15.0+ for `AttributedString`); record it.
 2. **LOCATE.** Run the shared hybrid lint runner:
    `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-lint.sh --skill audit-swiftui-view-performance --dir <sources> --json /tmp/vperf.json --sarif /tmp/vperf.sarif`.
    It runs this skill's tier-1 grep tells (`lint/grep-tells.tsv`) + tier-2 structural ast-grep rules
@@ -147,18 +145,18 @@ permalink. The CLI contract is `${CLAUDE_PLUGIN_ROOT}/references/_shared/swiftui
    certainty** (e.g. a literal `DateFormatter()` lexically inside `body`, an `.id(UUID())`, an
    `AnyView(` in view code). Anything judgment-bound (vperf-04/05/08/09/10/11) needs the READ first.
 5. **VERIFY.** For anything ≤ ~70% confidence (a fix target whose floor you can't place, a behavior
-   claim, the `Table` threshold), run **both** evidence sources. (a) **Practice** —
-   `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx lookup <api> --json` (and
+   claim, the `List`/`LazyVStack` threshold), run **both** evidence sources. (a) **Practice** —
+   `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx lookup <api> --platform ios --json` (and
    `swiftui-ctx deprecated <api>` for a currency claim): read its `consensus` (the canonical shape),
-   `deprecated`+`replacement`, `recommended` permalink, `introduced_macos`, and `co_occurs_with`. A
+   `deprecated`+`replacement`, `recommended` permalink, `introduced_ios`, and `co_occurs_with`. A
    `lookup` **exit 3** would corroborate a hallucination — but **this domain has none** (all symbols
    are real-but-misused), so use the lookup to ground the **✅ shape**, not to prove nonexistence. (b)
    **Spec** — confirm via **Sosumi**: `curl -sSL https://sosumi.ai/<apple-path>` using
    `references/source-directory.md` for the path and
    `${CLAUDE_PLUGIN_ROOT}/references/_shared/sosumi-reference.md` for the protocol (never `WebFetch`
-   `developer.apple.com`). Cross-check `introduced_macos` against `floors-master.md`. The CLI contract
-   is `${CLAUDE_PLUGIN_ROOT}/references/_shared/swiftui-ctx-reference.md`. Carry the `Table` threshold
-   as `advisory` with `source: verify against Xcode 26 SDK` — never as a fixed number.
+   `developer.apple.com`). Cross-check `introduced_ios` against `floors-master.md`. The CLI contract
+   is `${CLAUDE_PLUGIN_ROOT}/references/_shared/swiftui-ctx-reference.md`. Carry the `List`/`LazyVStack`
+   threshold as `advisory` with `source: verify against Xcode 26 SDK` — never as a fixed number.
 6. **REPORT.** Write each confirmed finding (output contract below). One finding per file, zero-padded,
    ordered. Write the run's `_index.md`.
 7. **FIX.** Apply corrections under the fix-safety protocol
@@ -166,7 +164,7 @@ permalink. The CLI contract is `${CLAUDE_PLUGIN_ROOT}/references/_shared/swiftui
    **only `fix_mode: auto`** (vperf-02 `.id(UUID())`→stable id, vperf-12 strip the debug line), one
    conventional commit per finding citing its `rule_id`, never weaken a check. The ✅ "Correct" is
    **not a hand-written snippet** — it is the swiftui-ctx **consensus shape** put in `## Correct`,
-   backed by a real macOS-era example fetched with
+   backed by a real iOS-era example fetched with
    `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx file <recommended.id> --smart` whose GitHub
    permalink (plus the Sosumi `doc:`) goes in `## Source`. Leave `flag-only` findings `open` with that
    ✅ in `## Correct`.
@@ -203,7 +201,7 @@ domain:
 | `identity-churn/` | identity is thrown away — `.id(UUID())` or an `AnyView` in view code (vperf-02, vperf-03) |
 | `skippability/` | a child can't be skipped — a closure prop, a high-frequency `@Environment` value, or over-broad observation (vperf-04, vperf-08, vperf-09) |
 | `init-cost/` | real logic runs in a `View`'s `init` (vperf-06) |
-| `collection-cost/` | per-render filter/sort in `ForEach`, an eager non-lazy `ForEach`, or the large-`Table` ceiling (vperf-07, vperf-10, vperf-11) |
+| `collection-cost/` | per-render filter/sort in `ForEach`, an eager non-lazy `ForEach`, or the large-`List`/`LazyVStack` ceiling (vperf-07, vperf-10, vperf-11) |
 | `profiling-leftovers/` | a `Self._printChanges()` was left in shipping code (vperf-12) |
 
 **New-folder rule:** *if a finding does not fit any existing context folder, create a new one under
@@ -231,13 +229,14 @@ a hard requirement.* Two runs over the same code produce structurally identical 
 
 | Shared file | For |
 |---|---|
-| `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md` | every floor/availability value (the reconciled truth — e.g. `Text(_:format:)`: macOS 12.0+ (String) / 15.0+ (AttributedString)) |
+| `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md` | every floor/availability value (the reconciled iOS truth — e.g. `Text(_:format:)`: iOS 15.0+ (String) / 15.0+ (AttributedString)) |
+| `${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md` | gating discipline: `#available(iOS NN, *)`, `IPHONEOS_DEPLOYMENT_TARGET`, project floor iOS 17 |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/hallucination-blacklist.md` | the canonical invented-name list |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/finding-schema.md` | the unified finding schema + frontmatter keys |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/fix-safety-protocol.md` | the 8-point fix-safety protocol (step 7) |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/sosumi-reference.md` | the Apple-doc spec fetch protocol (step 5 VERIFY) |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/swiftui-ctx-reference.md` | the practice-corpus CLI contract — `lookup`/`deprecated`/`file --smart` for the consensus shape + permalinked example (steps 5 VERIFY · 7 FIX) |
-| `${CLAUDE_PLUGIN_ROOT}/references/_shared/cross-ref-graph.md` | seam ownership + `cross_ref` targets (state-observation, animation-motion, drawing-canvas, layout-and-tables, appkit-interop, liquid-glass) |
+| `${CLAUDE_PLUGIN_ROOT}/references/_shared/cross-ref-graph.md` | seam ownership + `cross_ref` targets (state-observation, animation-motion, drawing-canvas, layout-and-tables, uikit-interop, liquid-glass) |
 
 ## Detection accelerator
 

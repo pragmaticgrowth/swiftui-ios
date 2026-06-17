@@ -4,7 +4,7 @@ The outward-facing async surfaces. Get every ✅ shape from `swiftui-ctx` (not m
 `bash ${CLAUDE_PLUGIN_ROOT}/scripts/swiftui-ctx lookup AsyncImage --json`,
 `… lookup refreshable --json`, and the cache recipe `… recipe cached-async-image --json`.
 
-**As of:** 2026-06-07 · macOS 26 (Tahoe) · Xcode 26 SDK.
+**As of:** 2026-06-07 · iOS 26 (Tahoe) · Xcode 26 SDK.
 
 ---
 
@@ -23,7 +23,7 @@ a checkable isolation hop. The grep tell `URLSession\.` locates it.
 ✅ **CORRECT** — keep heavy decode OFF the main actor, write with a checkable annotation. The Swift-6
 `@concurrent`/`nonisolated`/`Sendable` correctness is **`concurrency-safety`'s verdict** — emit
 `cross_ref: concurrency-safety`; this skill flags that the decode/isolation is wrong, not the exact Swift-6
-spelling (see `${CLAUDE_PLUGIN_ROOT}/skills/build-macos-swiftui/references/concurrency.md` mistakes 1, 3, 6):
+spelling (see `${CLAUDE_PLUGIN_ROOT}/skills/build-ios-swiftui/references/concurrency.md` mistakes 1, 3, 6):
 ```swift
 .task {
     let (data, _) = try await URLSession.shared.data(from: url)
@@ -49,7 +49,7 @@ async-09:
 .onChange(of: query) { _, q in
     searchTask?.cancel()
     searchTask = Task {
-        try? await Task.sleep(for: .milliseconds(300))        // debounce — macOS 13+ (use nanoseconds: 300_000_000 on macOS 12)
+        try? await Task.sleep(for: .milliseconds(300))        // debounce — iOS 16+ (use nanoseconds: 300_000_000 on iOS 15)
         guard !Task.isCancelled else { return }
         results = await search(q)
     }
@@ -99,7 +99,7 @@ same loader the `.task` uses. Consensus shape `swiftui-ctx lookup refreshable`: 
   `/documentation/swiftui/view/searchable(text:placement:prompt:)`, via Sosumi. Accessed 2026-06-07.
 - Apple — `https://developer.apple.com/documentation/foundation/urlsession/data(from:delegate:)`
   (async data fetch), via Sosumi. Accessed 2026-06-07.
-- swiftui-ctx corpus — `lookup AsyncImage` consensus `(url)` 90% (floor 12); `lookup refreshable` `{ }` 93%
-  (floor 12); `recipe cached-async-image` ("AsyncImage is built-in (no cache); for lists/grids real apps add
+- swiftui-ctx corpus — `lookup AsyncImage` consensus `(url)` 90% (iOS floor 15); `lookup refreshable` `{ }` 93%
+  (iOS floor 15); `recipe cached-async-image` ("AsyncImage is built-in (no cache); for lists/grids real apps add
   a cache"), example `https://github.com/fayazara/bucketdrop/blob/92816bedcd2267022ede0c797d12e593f0997e4b/BucketDrop/SettingsView.swift#L85`.
   Accessed 2026-06-07.
