@@ -2,7 +2,7 @@ import Foundation
 import ArgumentParser
 
 // ============================================================================
-// swiftui-ctx — query real-world SwiftUI usage (1,857 production macOS apps).
+// swiftui-ctx — query real-world SwiftUI usage from shipping iOS & iPadOS apps.
 // The "practice" layer; pair with sosumi.ai (the "spec"/official docs) it links to.
 // Agent contract: --json envelope, stderr-only logs, semantic exit codes, next_actions.
 // ============================================================================
@@ -11,7 +11,7 @@ import ArgumentParser
 struct SwiftUICtx: ParsableCommand {
     static let configuration = CommandConfiguration(
         commandName: "swiftui-ctx",
-        abstract: "Real-world SwiftUI usage from 1,857 production macOS apps — context for AI agents.",
+        abstract: "Real-world SwiftUI usage from shipping iOS & iPadOS apps — context for AI agents.",
         discussion: """
         Every result is ranked by production quality (author authority + stars + modernity) and ends
         with `next_actions` you can run to drill in. Use --json for the machine envelope.
@@ -46,7 +46,7 @@ struct Common: ParsableArguments {
     @Flag(name: .long, help: "Emit the stable JSON envelope on stdout.") var json = false
     @Option(name: .long, help: "Path to the catalog/ directory.") var catalog: String?
     @Option(name: .long, help: "Max results.") var limit: Int = 6
-    @Option(name: .long, help: "Filter by platform: macos|any.") var platform: String = "macos"
+    @Option(name: .long, help: "Filter by platform: ios|macos|cross|any.") var platform: String = "ios"
     @Flag(name: .long, help: "Catalog only; do not fetch live source.") var offline = false
 }
 
@@ -79,9 +79,17 @@ func sosumiDoc(_ dim: String, _ name: String) -> String {
 
 func examplesFiltered(_ entry: [String: Any], platform: String, shape: String?, repo: String?) -> [[String: Any]] {
     var exs = (entry.arr("examples") as? [[String: Any]]) ?? entry.arr("examples").compactMap { $0 as? [String: Any] }
-    if platform == "macos" {
+    switch platform {
+    case "ios":
+        let ios = exs.filter { ["ios","cross_platform"].contains($0.dict("provenance").s("platform") ?? "") }
+        if !ios.isEmpty { exs = ios }
+    case "cross":
+        let cx = exs.filter { ($0.dict("provenance").s("platform")) == "cross_platform" }
+        if !cx.isEmpty { exs = cx }
+    case "macos":
         let mac = exs.filter { ($0.dict("provenance").s("platform")) == "macos" }
-        if !mac.isEmpty { exs = mac }   // fall back to all if none are macOS
+        if !mac.isEmpty { exs = mac }
+    default: break   // "any" → no platform filter
     }
     if let sh = shape { exs = exs.filter { $0.s("shape") == sh } }
     if let rp = repo { exs = exs.filter { ($0.s("repo")?.lowercased()) == rp.lowercased() } }
@@ -100,7 +108,7 @@ func exampleBrief(_ e: [String: Any]) -> [String: Any] {
     return ["id": e.s("id") ?? "", "repo": e.s("repo") ?? "", "permalink": e.s("permalink") ?? "",
             "src": e.s("src") ?? "", "shape": e.s("shape") ?? NSNull(),
             "stars": p.i("stars") ?? 0, "author_authority": p.i("author_authority") ?? 0,
-            "min_macos": p.s("min_macos") ?? NSNull(), "score": p["score"] ?? 0]
+            "min_ios": p.s("min_ios") ?? NSNull(), "score": p["score"] ?? 0]
 }
 
 // ============================================================================
@@ -131,14 +139,16 @@ struct Lookup: ParsableCommand {
             // AppKit/UIKit name (NSWindow…, UIView…) → out of scope; we only index SwiftUI.
             if api.range(of: "^(NS|UI)[A-Z]", options: .regularExpression) != nil {
                 var next: [NextAction] = []
-                if cat.recipe("nsview-bridge") != nil {
-                    next.append(NextAction(cmd: "swiftui-ctx recipe nsview-bridge", why: "wrap an AppKit/UIKit view in SwiftUI"))
+                if api.hasPrefix("UI"), cat.recipe("uiview-bridge") != nil {
+                    next.append(NextAction(cmd: "swiftui-ctx recipe uiview-bridge", why: "wrap a UIKit view in SwiftUI"))
+                } else if cat.recipe("nsview-bridge") != nil {
+                    next.append(NextAction(cmd: "swiftui-ctx recipe nsview-bridge", why: "wrap an AppKit view in SwiftUI"))
                 }
                 next.append(NextAction(cmd: "swiftui-ctx search \(api)", why: "find related SwiftUI APIs"))
                 emit(result: ["api": api, "out_of_scope": "appkit_uikit",
-                              "note": "\(api) looks like an AppKit/UIKit type — swiftui-ctx indexes SwiftUI only"],
+                              "note": "\(api) looks like a UIKit/AppKit type — swiftui-ctx indexes SwiftUI only"],
                      next: next, json: common.json) {
-                    "ℹ️ \(api) looks like an AppKit/UIKit API — swiftui-ctx indexes SwiftUI only.\n  For bridging an AppKit view into SwiftUI, see: swiftui-ctx recipe nsview-bridge"
+                    "ℹ️ \(api) looks like a UIKit/AppKit API — swiftui-ctx indexes SwiftUI only.\n  For bridging a UIKit view into SwiftUI, see: swiftui-ctx recipe uiview-bridge"
                 }
                 return
             }
@@ -181,7 +191,7 @@ struct Lookup: ParsableCommand {
         var result: [String: Any] = [
             "api": api, "kind": dim, "repo_count": entry.i("repo_count") ?? 0,
             "total_uses": entry.i("total_uses") ?? 0,
-            "introduced_macos": av.s("introduced_macos") ?? NSNull(),
+            "introduced_ios": av.s("introduced_ios") ?? NSNull(),
             "deprecated": av["deprecated"] as? Bool ?? false,
             "doc": sosumiDoc(dim, api),
             "consensus": consensus(entry),
@@ -206,7 +216,7 @@ struct Lookup: ParsableCommand {
         emit(result: result, next: next, json: common.json) {
             var s = "# .\(api)  (\(dim))\n"
             s += "used in \(entry.i("repo_count") ?? 0) repos · \(entry.i("total_uses") ?? 0) uses"
-            if let iv = av.s("introduced_macos") { s += " · macOS \(iv)+" }
+            if let iv = av.s("introduced_ios") { s += " · iOS \(iv)+" }
             if av["deprecated"] as? Bool == true { s += "  ⚠️ DEPRECATED → .\(av.s("renamed") ?? "?")" }
             if entry["low_corpus"] as? Bool == true { s += "\n⚠️ low corpus (\(entry.i("repo_count") ?? 0) repos) — cross-check the doc below" }
             s += "\ndoc: \(sosumiDoc(dim, api))\n"
@@ -253,7 +263,7 @@ struct Examples: ParsableCommand {
                                      "limit": common.limit, "platform": common.platform, "examples": pageItems]
         // examples are a curated ≤25/api quality-ranked sample — explain the gap vs lookup's consensus %.
         var note = "examples are a curated, quality-ranked sample (≤25 per API) of \(entry.i("total_uses") ?? 0) total uses; for frequency see `swiftui-ctx lookup \(api)` consensus."
-        if common.platform == "macos" { note += " (macOS only; pass --platform any for iOS/library examples.)" }
+        if common.platform == "ios" { note += " (iOS/iPadOS; pass --platform macos|cross|any to widen.)" }
         result["note"] = note
         var next: [NextAction] = []
         if let f = pageItems.first, let id = f["id"] as? String {
@@ -386,7 +396,7 @@ struct Repo: ParsableCommand {
         emit(result: p, next: [], json: common.json) {
             let counts = p.dict("counts")
             var s = "# \(full)  (\(p.i("stars") ?? 0)★, \(p.s("platform") ?? "?"))\n"
-            s += "author_authority: \(p.i("author_authority") ?? 0) · min macOS: \(p.s("min_macos_inferred") ?? "?") · custom components: \(p.i("custom_components") ?? 0)\n"
+            s += "author_authority: \(p.i("author_authority") ?? 0) · min iOS: \(p.s("min_ios_inferred") ?? "?") · custom components: \(p.i("custom_components") ?? 0)\n"
             s += "unique APIs: " + counts.keys.sorted().map { "\($0)=\(counts.i($0) ?? 0)" }.joined(separator: " ")
             let dep = (p["deprecated_apis_used"] as? [String]) ?? []
             if !dep.isEmpty { s += "\n⚠️ deprecated APIs used: \(dep.joined(separator: ", "))" }

@@ -9,9 +9,9 @@ import ArgumentParser
 
 // ---- bridges — real AppKit/UIKit bridges (bridges.json) ----
 struct Bridges: ParsableCommand {
-    static let configuration = CommandConfiguration(abstract: "Real AppKit/UIKit bridges in production (NSViewRepresentable & friends).")
+    static let configuration = CommandConfiguration(abstract: "UIKit/AppKit bridges in production (UIViewRepresentable & friends).")
     @OptionGroup var common: Common
-    @Argument(help: "Optional filter: a conformance kind (NSViewRepresentable…) or a name substring.") var filter: String?
+    @Argument(help: "Optional filter: a conformance kind (UIViewRepresentable…) or a name substring.") var filter: String?
 
     func run() {
         let cat = loadCatalog(common)
@@ -27,13 +27,14 @@ struct Bridges: ParsableCommand {
         for b in matched { for k in (b["conforms"] as? [String]) ?? [] { byKind[k, default: 0] += 1 } }
         let examples = matched.prefix(common.limit).map { b -> [String: Any] in
             ["name": b.s("name") ?? "", "repo": b.s("repo") ?? "",
-             "conforms": (b["conforms"] as? [String]) ?? [], "permalink": b.s("permalink") ?? ""]
+             "conforms": (b["conforms"] as? [String]) ?? [], "permalink": b.s("permalink") ?? "",
+             "platform": b.s("platform") ?? NSNull()]
         }
         let result: [String: Any] = [
             "count": shard.i("count") ?? all.count, "repos": shard.i("repos") ?? 0,
             "matched": matched.count, "by_kind": byKind, "examples": Array(examples)]
         emit(result: result,
-             next: [NextAction(cmd: "swiftui-ctx recipe nsview-bridge", why: "the canonical bridge template")],
+             next: [NextAction(cmd: "swiftui-ctx recipe uiview-bridge", why: "the canonical bridge template")],
              json: common.json) {
             var s = "# bridges — \(shard.i("count") ?? all.count) total across \(shard.i("repos") ?? 0) repos"
             if f != nil { s += " · \(matched.count) match '\(filter ?? "")'" }
@@ -138,7 +139,7 @@ struct Rankings: ParsableCommand {
         func brief(_ r: [String: Any]) -> [String: Any] {
             ["repo": r.s("repo") ?? "", "stars": r.i("stars") ?? 0, "loc": r.i("loc") ?? 0,
              "total_unique_apis": r.i("total_unique_apis") ?? 0, "custom_components": r.i("custom_components") ?? 0,
-             "min_macos": r.s("min_macos") ?? NSNull()]
+             "min_ios": r.s("min_ios") ?? NSNull()]
         }
         if let dim = dimension {
             guard let key = Self.dims.first(where: { $0.lowercased() == dim.lowercased() }) else {
@@ -150,7 +151,7 @@ struct Rankings: ParsableCommand {
                  next: rows.first.map { [NextAction(cmd: "swiftui-ctx repo \($0["repo"] as? String ?? "")", why: "the top repo's full fingerprint")] } ?? [],
                  json: common.json) {
                 "# rankings: \(key)\n" + rows.enumerated().map { (i, r) in
-                    "  \(i + 1). \(r["repo"] as? String ?? "")  (\(r["stars"] as? Int ?? 0)★, \(r["total_unique_apis"] as? Int ?? 0) APIs, macOS \(r["min_macos"] as? String ?? "?"))"
+                    "  \(i + 1). \(r["repo"] as? String ?? "")  (\(r["stars"] as? Int ?? 0)★, \(r["total_unique_apis"] as? Int ?? 0) APIs, iOS \(r["min_ios"] as? String ?? "?"))"
                 }.joined(separator: "\n")
             }
         } else {
@@ -161,7 +162,7 @@ struct Rankings: ParsableCommand {
                  next: [NextAction(cmd: "swiftui-ctx rankings most_modern_stack", why: "the modernity leaderboard")],
                  json: common.json) {
                 "# rankings — dimensions: \(Self.dims.joined(separator: ", "))\nmost_modern_stack top 5:\n" + modern.map {
-                    "  \($0["repo"] as? String ?? "") (\($0["total_unique_apis"] as? Int ?? 0) APIs, macOS \($0["min_macos"] as? String ?? "?"))"
+                    "  \($0["repo"] as? String ?? "") (\($0["total_unique_apis"] as? Int ?? 0) APIs, iOS \($0["min_ios"] as? String ?? "?"))"
                 }.joined(separator: "\n")
             }
         }
