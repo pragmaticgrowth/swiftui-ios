@@ -43,3 +43,20 @@ Controller repo/branch: /Users/serkan/claude-swiftui-plugin @ swiftui-ios-transf
 # REMAINING: SP3 (29 audit skills — largest), SP4 (write/scaffold skills, commands, hook, agent, eval, README/manifest body).
 - SP2-T1/M (minor): SwiftUICtx NS-path prose hardcodes uiview-bridge wording (cosmetic; NS types absent in iOS catalog)
 - SP2-T2/M (defer to SP3): hallucination-blacklist cell values still say (macOS NN+) for cross-platform APIs — re-floor to iOS when blacklist is wired into iOS audit skills
+
+## SP3 — iOS audit suite (COMPLETE; v0.3.0)
+Spec: docs/superpowers/specs/2026-06-16-swiftui-ios-sp3-audit-suite-design.md · Plan: docs/superpowers/plans/2026-06-16-swiftui-ios-sp3-audit-suite.md
+- 34 domain audit skills + `audit-ios-swiftui-full` orchestrator, built in reviewed batches (A foundation+4 flagship, B universal 10, C retarget 13 w/ rule inversions, D net-new 7, E whole-branch review).
+- Engine reused verbatim (swiftui-lint.sh / audit-gate.sh / audit-scan.py); only audit-signals.tsv + references/_shared/ were retargeted. Inversions captured: Form grouped-by-default, .wheel native, .topBarLeading correct, List-primary, iOS-26 glass.
+- Foundation gaps fixed in-flight: gen_floors.py [:60] truncation (broke VERIFY); missing scripts/swiftui-ctx wrapper.
+- Green: validate-skills 39 OK, audit-selftest 140 rules/25 fixtures, gate runs over all 34, STEER 32/34.
+
+## SP4 — write/scaffold skills + commands + hook + agent + eval + README/manifest (COMPLETE; v0.4.0)
+Plan: docs/superpowers/plans/2026-06-16-swiftui-ios-sp4-skills-commands-hook-agent-eval.md
+- build-ios-swiftui (write skill), ios-app-patterns (recipes), retargeted swiftui-examples/swiftui-modernize, swiftui-ios-reviewer agent, 4 MODEL-FIRST commands, iOS deprecation hook (deprecated-names.txt from catalog), eval/tasks.jsonl (12 iOS tasks), iOS README + manifest.
+- Final whole-plugin review: all scopes PASS (0 Critical, 0 Important).
+
+# ===== PROGRAM COMPLETE ===== macOS swiftui plugin fully ported to this iOS plugin. v0.4.0.
+# Published: github.com/pragmaticgrowth/swiftui-ios (public, tag v0.4.0). macOS reference repo never modified.
+# Full per-batch ledger (every commit + deferred minors) lived in the macOS controller repo at .git/sdd/progress.md
+#   (github.com/serkanhaslak/claude-swiftui-plugin) — this in-repo SDD-PROGRESS.md is the iOS-side summary.
