@@ -3,7 +3,7 @@
 Depth for the scene layer: the right way to host a document app, the iOS-only launch scene, and manual file
 IO that should be the document type's job. Floor values are in
 `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md`; the macOS-arm rule is
-`${CLAUDE_PLUGIN_ROOT}/references/_shared/macos-arm-gating.md`. Verify via Sosumi + `swiftui-ctx`.
+`${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md`. Verify via Sosumi + `swiftui-ctx`.
 
 **As of:** 2026-06-07 · macOS 26 (Tahoe) · Xcode 26 SDK.
 

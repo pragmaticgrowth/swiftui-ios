@@ -3,7 +3,7 @@
 This skill owns the **command-API floors in depth**; the blanket "is every floored API gated" sweep
 belongs to `audit-swiftui-availability-gating` (the net). The cross-cutting gating *rule* (the macOS
 arm, the `*` wildcard, the wrong-arm failure, reading multi-platform strings) is NOT restated here — it
-lives in `${CLAUDE_PLUGIN_ROOT}/references/_shared/macos-arm-gating.md`, and floor *values* are the
+lives in `${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md`, and floor *values* are the
 reconciled truth in `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md`. This file adds which
 command symbols are floored above macOS 11 and the gating application.
 
@@ -42,7 +42,7 @@ The practically-floored ones (the menu-10 grep tell) are **`.singleWindowList`**
 Window("Console", id: "console") { ConsoleView() }
     .commandsReplaced { ConsoleCommands() }       // macOS 13.0+
 
-// ✅ gate on the macOS arm (the rule itself is in _shared/macos-arm-gating.md)
+// ✅ gate on the macOS arm (the rule itself is in _shared/ios-gating.md)
 if #available(macOS 13.0, *) {
     Window("Console", id: "console") { ConsoleView() }
         .commandsReplaced { ConsoleCommands() }
@@ -53,7 +53,7 @@ if #available(macOS 13.0, *) {
 `Commands` set — both are **scene** modifiers (not view modifiers). VERIFY any floor you're unsure of
 against `swiftui-ctx lookup <api>` (`introduced_macos`) cross-checked with the Sosumi `doc:` floor and
 `floors-master.md`. A wrong-arm gate (`#available(iOS …)` guarding a command symbol in a Mac target) is
-the wrong-arm failure in `${CLAUDE_PLUGIN_ROOT}/references/_shared/macos-arm-gating.md` — flag it, gate
+the wrong-arm failure in `${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md` — flag it, gate
 on `macOS`. (SEAM: a *missed* gate this skill doesn't catch is `audit-swiftui-availability-gating`'s
 blanket net — emit `cross_ref: audit-swiftui-availability-gating` on a gating finding.)
 
@@ -69,6 +69,6 @@ blanket net — emit `cross_ref: audit-swiftui-availability-gating` on a gating 
   `/documentation/swiftui/commandgroupplacement` (`.singleWindowList` `macOS 13.0+`). Paths + protocol
   in `source-directory.md` + `${CLAUDE_PLUGIN_ROOT}/references/_shared/sosumi-reference.md`.
 - Floor values: `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md`. Gating rule:
-  `${CLAUDE_PLUGIN_ROOT}/references/_shared/macos-arm-gating.md`.
+  `${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md`.
 - Practice (floor cross-check): `swiftui-ctx lookup <api> --json` `introduced_macos`
   (`${CLAUDE_PLUGIN_ROOT}/references/_shared/swiftui-ctx-reference.md`), accessed 2026-06-07.

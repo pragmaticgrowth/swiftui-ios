@@ -215,7 +215,7 @@ requirement.* Two runs over the same code produce structurally identical trees.
 |---|---|
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md` | every floor/availability value (the reconciled truth — `focusable`/`focused`/`@FocusState` 12.0, `help` 11.0, `formStyle` 13.0, `controlSize` 10.15, `ControlSize.extraLarge` no-op, `WheelPickerStyle` macOS ABSENT) |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/hallucination-blacklist.md` | the canonical invented-name list (cross-check a made-up style/control symbol) |
-| `${CLAUDE_PLUGIN_ROOT}/references/_shared/macos-arm-gating.md` | the macOS-arm gating rule + the `macOS ABSENT`-is-not-a-low-floor trap (cf-07 is replaced, never gated; a macOS-12 focus fix under a lower target needs a gate) |
+| `${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md` | the macOS-arm gating rule + the `macOS ABSENT`-is-not-a-low-floor trap (cf-07 is replaced, never gated; a macOS-12 focus fix under a lower target needs a gate) |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/finding-schema.md` | the unified finding schema + frontmatter keys + context-folder ownership |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/fix-safety-protocol.md` | the 8-point fix-safety protocol (step 7) |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/sosumi-reference.md` | the Apple-doc spec fetch protocol (step 5 VERIFY) |

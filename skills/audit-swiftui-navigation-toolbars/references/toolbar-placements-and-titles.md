@@ -13,7 +13,7 @@ the **swiftui-ctx consensus** (run the `lookup` in step VERIFY), not opinion.
 The nominal replacements for the deprecated iOS placements — `topBarLeading` / `topBarTrailing` — are
 **unavailable on macOS at all**. macOS is **absent** from Apple's platform list for those cases, so
 referencing them on a Mac target is a compile-time *unavailable* error, not just an "iOS-shaped" choice.
-Per `${CLAUDE_PLUGIN_ROOT}/references/_shared/macos-arm-gating.md`: a `macOS ABSENT` symbol is **replaced,
+Per `${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md`: a `macOS ABSENT` symbol is **replaced,
 never wrapped in `#available(macOS …)`**. A `swiftui-ctx lookup` exit-3 on these corroborates that no
 shipping Mac app uses them.
 
@@ -77,7 +77,7 @@ NavigationSplitView { SidebarView() } detail: { DetailView() }
 `ToolbarSpacer(_:placement:)` + `SpacerSizing` (`.fixed` for a single system-standard gap, `.flexible`
 to push items toward opposite ends of a region) are **macOS 26.0+**. Under a deployment target below 26
 they must sit behind `#available(macOS 26, *)` (the macOS arm — see
-`${CLAUDE_PLUGIN_ROOT}/references/_shared/macos-arm-gating.md`). If the project floor is already ≥ 26,
+`${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md`). If the project floor is already ≥ 26,
 nav-11 does not fire — read the floor in ORIENT.
 
 ```swift

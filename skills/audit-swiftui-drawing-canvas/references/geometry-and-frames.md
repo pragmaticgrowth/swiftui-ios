@@ -3,7 +3,7 @@
 The depth behind `GeometryReader`-as-layout, absolute frames vs `containerRelativeFrame`, and the one
 genuine availability concern in this domain — `MeshGradient` (macOS **15.0+**). Floor *values* are not
 restated here; the reconciled truth is `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md` and the
-macOS-arm gating rule is `${CLAUDE_PLUGIN_ROOT}/references/_shared/macos-arm-gating.md`.
+macOS-arm gating rule is `${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md`.
 
 **As of:** 2026-06-07 · macOS 26 (Tahoe) · Xcode 26 SDK.
 
@@ -56,7 +56,7 @@ as invented. It must be gated only when the deployment floor is **below macOS 15
   in a macOS target — the iOS arm never evaluates true on a Mac, so the gradient is dead. Rewrite the
   condition to `#available(macOS 15, *)`. This is the single mechanical auto-fix in the domain; the
   ast-grep rule `draw-12` proves the gate scope wraps `MeshGradient`. Rule + failure shape:
-  `${CLAUDE_PLUGIN_ROOT}/references/_shared/macos-arm-gating.md`.
+  `${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md`.
 
 **✅ correct — swiftui-ctx consensus shape `(width, height, points, colors)` (70% of real call sites;
 `+smoothsColors` 18%; the `+background/+colorSpace` overloads in the long tail), macOS-arm gated:**

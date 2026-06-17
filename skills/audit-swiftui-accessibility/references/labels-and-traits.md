@@ -66,7 +66,7 @@ older runtimes) if used under a lower deployment target:
 | `accessibilityValue(_:isEnabled:)` closure | macOS 15.0 | gate or use the plain form |
 
 This fires **only** when ORIENT read a floor below the form's floor. Gate on the **macOS** arm (never `iOS`)
-per `${CLAUDE_PLUGIN_ROOT}/references/_shared/macos-arm-gating.md`. The blanket "is every floored API gated"
+per `${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md`. The blanket "is every floored API gated"
 sweep is `audit-swiftui-availability-gating`'s; this skill owns only the accessibility-specific forms above.
 
 ## Go-beyond — the coverage map

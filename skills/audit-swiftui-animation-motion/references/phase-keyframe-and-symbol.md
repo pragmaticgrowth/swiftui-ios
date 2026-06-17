@@ -28,7 +28,7 @@ Advisory — whether the motion is better expressed as phases is a judgment, so 
 
 `.symbolEffect(_:options:value:)` / `(_:options:isActive:)` is **macOS 14.0+**. Two defects: (a) it is used
 **ungated** under a < macOS 14 floor → gate `#available(macOS 14, *)` on the macOS arm
-(`${CLAUDE_PLUGIN_ROOT}/references/_shared/macos-arm-gating.md`); (b) an SF Symbol is animated by hand
+(`${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md`); (b) an SF Symbol is animated by hand
 (rotation/opacity `withAnimation`) where a built-in `.symbolEffect` (`.bounce`, `.pulse`, `.variableColor`,
 `.rotate`) is the native, accessibility-aware path.
 

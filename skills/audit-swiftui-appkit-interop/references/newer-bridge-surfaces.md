@@ -6,7 +6,7 @@ four (`NSViewRepresentable`, `NSViewControllerRepresentable`, `NSHostingControll
 instead of hand-rolling Auto Layout glue, hidden toolbars, or `CABasicAnimation`. **Each has a higher
 floor; an ungated use under a lower deployment target is a build break.** Gate with
 `if #available(macOS <floor>, *)` on the **macOS** arm (never `iOS` — see
-`${CLAUDE_PLUGIN_ROOT}/references/_shared/macos-arm-gating.md`).
+`${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md`).
 
 | API | macOS floor | What it bridges |
 |---|---|---|

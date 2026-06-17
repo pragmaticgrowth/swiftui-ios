@@ -150,7 +150,7 @@ Every ✅ replacement carries its own macOS floor (`.foregroundStyle` = 12, `Tab
 `.navigationDestination(for:)` = 13). Using one **below the deployment target** is a build break, not a
 warning. This skill *notes* the gating need on the macOS arm — `if #available(macOS 12.0, *) { … } else {
 … }`, never the iOS arm — and routes the depth to **`audit-swiftui-availability-gating`** (the blanket
-net). The wrong-arm rule is `${CLAUDE_PLUGIN_ROOT}/references/_shared/macos-arm-gating.md`.
+net). The wrong-arm rule is `${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md`.
 
 ## Sources
 

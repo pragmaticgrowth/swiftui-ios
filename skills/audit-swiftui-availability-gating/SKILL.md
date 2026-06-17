@@ -35,7 +35,7 @@ on it: a symbol floored at macOS 14 is only a finding when the target is below 1
 ## The cross-cutting gating rule (point in, never restate)
 
 The macOS-arm rule, the required `*` wildcard, the wrong-arm failure, and how to read a multi-platform
-availability string live in `${CLAUDE_PLUGIN_ROOT}/references/_shared/macos-arm-gating.md` — read it,
+availability string live in `${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md` — read it,
 do not restate it. Floor *values* are the reconciled truth in
 `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md`. **The floors-master table IS this skill's
 floor map** (symbol → macOS floor); the LOCATE lint only finds candidate symbols, and you look each one
@@ -186,7 +186,7 @@ is a hard requirement.* Two runs over the same code produce structurally identic
 | Shared file | For |
 |---|---|
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md` | every floor/availability value — **this skill's floor map**; the reconciled truth |
-| `${CLAUDE_PLUGIN_ROOT}/references/_shared/macos-arm-gating.md` | the macOS-arm gating rule, the `*` wildcard, the wrong-arm failure, reading multi-platform strings |
+| `${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md` | the macOS-arm gating rule, the `*` wildcard, the wrong-arm failure, reading multi-platform strings |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/hallucination-blacklist.md` | the canonical macOS-ABSENT / invented-name list (gate-06) |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/finding-schema.md` | the unified finding schema + frontmatter keys |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/fix-safety-protocol.md` | the 8-point fix-safety protocol (step 7) |

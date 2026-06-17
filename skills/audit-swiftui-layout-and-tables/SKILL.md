@@ -211,7 +211,7 @@ hard requirement.* Two runs over the same code produce structurally identical tr
 |---|---|
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md` | every floor/availability/deprecation value (the reconciled truth — `Table` 12.0, `controlSize` 10.15, `TableColumnForEach` 14.4, the `tableStyle` 26.5 deprecation) |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/hallucination-blacklist.md` | the canonical invented-name list (cross-check a made-up layout/Table symbol) |
-| `${CLAUDE_PLUGIN_ROOT}/references/_shared/macos-arm-gating.md` | the macOS-arm gating rule (a fix that uses a 14.x floor under a lower target needs a gate) |
+| `${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md` | the macOS-arm gating rule (a fix that uses a 14.x floor under a lower target needs a gate) |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/finding-schema.md` | the unified finding schema + frontmatter keys + context-folder ownership |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/fix-safety-protocol.md` | the 8-point fix-safety protocol (step 7) |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/sosumi-reference.md` | the Apple-doc spec fetch protocol (step 5 VERIFY) |

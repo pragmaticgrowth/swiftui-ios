@@ -4,7 +4,7 @@ The depth for the blanket availability sweep. This skill is the toolkit's **net*
 above the project's deployment target must be gated on the macOS arm, at the right floor, with a real
 fallback. The cross-cutting *rule* (the macOS arm, the required `*` wildcard, the wrong-arm failure,
 reading multi-platform strings) is **not** restated here — it lives in
-`${CLAUDE_PLUGIN_ROOT}/references/_shared/macos-arm-gating.md`. Floor *values* are the reconciled truth
+`${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md`. Floor *values* are the reconciled truth
 in `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md` — that table **is** this skill's floor
 map. This file adds the per-defect application and the ❌→✅ rewrites.
 
@@ -57,7 +57,7 @@ if #available(macOS 26.0, *) { controls.glassEffect() }
 ```
 
 Safe to auto-fix because only the arm is wrong; floor and structure are otherwise correct. Per
-`${CLAUDE_PLUGIN_ROOT}/references/_shared/macos-arm-gating.md` §2 this is a gating finding, **not** a
+`${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md` §2 this is a gating finding, **not** a
 hallucination — `Glass.interactive(_:)` and the like are real on macOS 26.0; the arm is the bug.
 
 ---
@@ -68,7 +68,7 @@ A `#available(macOS NN, *)` gate exists but `NN` ≠ the symbol's floor in floor
 
 - **Over-gating** — `NN` higher than the floor needlessly excludes Macs that support the symbol (e.g.
   gating `navigationSubtitle` at `macOS 26` when it is `macOS 11.0+` — the iOS floor is 26 but the Mac
-  floor is 11; reading the iOS arm over-gates the Mac, per macos-arm-gating §3).
+  floor is 11; reading the iOS arm over-gates the Mac, per ios-gating §3).
 - **Under-gating** — `NN` lower than the floor still breaks the build (e.g. `glassEffect` gated at
   `macOS 15`). flag-only: the dev picks whether to raise the gate or change the API.
 
@@ -137,7 +137,7 @@ The `*` covers every *other* platform the code may compile against and is mandat
 ## Sources
 
 - The gating rule, the `*` wildcard, the wrong-arm failure, multi-platform strings:
-  `${CLAUDE_PLUGIN_ROOT}/references/_shared/macos-arm-gating.md` (toolkit-internal, Apple-sourced via
+  `${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md` (toolkit-internal, Apple-sourced via
   Sosumi, access 2026-06-07).
 - Floor values: `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md` (same provenance).
 - Apple — `glassEffect(_:in:)` macOS 26.0+:

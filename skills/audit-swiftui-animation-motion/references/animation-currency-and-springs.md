@@ -56,7 +56,7 @@ withAnimation(.smooth) { isExpanded.toggle() }
 type's 10.15 floor; the WWDC23 provenance is the truth). If the project's deployment target is below
 macOS 14 and a preset is used **ungated**, it is a real availability break — **hard-fail**. Confirm the
 floor in ORIENT, then gate `#available(macOS 14, *)` on the macOS arm
-(`${CLAUDE_PLUGIN_ROOT}/references/_shared/macos-arm-gating.md`). Suppress when the floor is already ≥ 14.
+(`${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md`). Suppress when the floor is already ≥ 14.
 
 > Never trust the rendered 10.15 for spring presets. Carry the floor as the reconciled **macOS 14**.
 

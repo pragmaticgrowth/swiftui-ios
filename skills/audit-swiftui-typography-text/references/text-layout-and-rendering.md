@@ -3,7 +3,7 @@
 Reserving line space, the `TextRenderer` / `textRenderer(_:)` floor split, and replacing hand-rolled label
 rows with `LabeledContent`. Floor *values* live in
 `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md`; the macOS-arm gating rule is
-`${CLAUDE_PLUGIN_ROOT}/references/_shared/macos-arm-gating.md` — read, never restate.
+`${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md` — read, never restate.
 
 **As of:** 2026-06-07 · macOS 26 (Tahoe) · Xcode 26 SDK.
 

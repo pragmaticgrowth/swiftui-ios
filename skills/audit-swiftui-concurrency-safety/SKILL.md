@@ -234,7 +234,7 @@ Two runs over the same code produce structurally identical trees.
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/sosumi-reference.md` | the Apple-doc spec fetch protocol (step 5 VERIFY) |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/swiftui-ctx-reference.md` | the practice-corpus CLI contract — `lookup`/`deprecated`/`file --smart` for the consensus shape + permalinked example (steps 5 VERIFY · 7 FIX) |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/cross-ref-graph.md` | seam ownership + `cross_ref` targets (async-data · swiftdata · sandbox-files · appkit-interop · state-observation) |
-| `${CLAUDE_PLUGIN_ROOT}/references/_shared/macos-arm-gating.md` | the macOS-arm gating rule (for any availability gate on a 6.2 API) |
+| `${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md` | the macOS-arm gating rule (for any availability gate on a 6.2 API) |
 
 ## Detection accelerator
 

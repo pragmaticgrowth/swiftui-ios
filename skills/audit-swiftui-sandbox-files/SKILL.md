@@ -239,7 +239,7 @@ hard requirement.* Two runs over the same code produce structurally identical tr
 |---|---|
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md` | every floor/availability value (the reconciled truth — incl. the `dropDestination` 26.5 deprecation) |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/hallucination-blacklist.md` | the canonical platform-wrong/invented-name list |
-| `${CLAUDE_PLUGIN_ROOT}/references/_shared/macos-arm-gating.md` | the macOS-arm gating rule (the `dropDestination` successor's macOS-26 floor) |
+| `${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md` | the macOS-arm gating rule (the `dropDestination` successor's macOS-26 floor) |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/finding-schema.md` | the unified finding schema + frontmatter keys |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/fix-safety-protocol.md` | the 8-point fix-safety protocol (step 7) |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/sosumi-reference.md` | the Apple-doc spec fetch protocol (step 5 VERIFY) |

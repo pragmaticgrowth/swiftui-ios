@@ -41,7 +41,7 @@ struct SampleData: PreviewModifier {
   (read in ORIENT).
 - `ModelContainer.init(for:configurations:)` (variadic) is macOS 15.0+; `ModelConfiguration` /
   `isStoredInMemoryOnly` are the right knobs — gate on the macOS arm per
-  `${CLAUDE_PLUGIN_ROOT}/references/_shared/macos-arm-gating.md` if the floor is below 15.
+  `${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md` if the floor is below 15.
 
 Because prev-09 is purely a refactor of a *working* preview (not a crash), only raise it when the project
 floor is macOS 15+ and the repeated-container pattern actually recurs across multiple `#Preview`s — a

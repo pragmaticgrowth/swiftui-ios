@@ -14,7 +14,7 @@ gate value you'd read is wrong). The canonical macOS-ABSENT / invented-name list
 A `macOS ABSENT` symbol has no macOS arm in its availability string. Wrapping it in
 `#available(macOS …)` is doubly wrong: the gate cannot summon a symbol the Mac SDK does not ship, and on
 a Mac target the call is a compile error or a no-op. The fix is to **replace** it with the Mac
-equivalent — never to gate it. Per `${CLAUDE_PLUGIN_ROOT}/references/_shared/macos-arm-gating.md` §3,
+equivalent — never to gate it. Per `${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md` §3,
 if macOS is absent from the array the symbol is *platform-wrong*, not under-gated.
 
 | macOS-ABSENT symbol | Mac equivalent |
@@ -61,7 +61,7 @@ before concluding a floor "couldn't be confirmed."
 
 - The macOS-ABSENT / invented-name list + Mac equivalents:
   `${CLAUDE_PLUGIN_ROOT}/references/_shared/hallucination-blacklist.md` and the reading-the-string rule
-  in `${CLAUDE_PLUGIN_ROOT}/references/_shared/macos-arm-gating.md` §3 (toolkit-internal, Apple-sourced
+  in `${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md` §3 (toolkit-internal, Apple-sourced
   via Sosumi, access 2026-06-07).
 - Floor values + the type-property quirk: `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md`.
 - Apple — `pickerStyle(_:)` / `PickerStyle` macOS availability:

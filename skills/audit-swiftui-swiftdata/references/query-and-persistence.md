@@ -3,7 +3,7 @@
 Two persistence-layer defects: trusting an unpersisted relationship-array order, and the new macOS-26
 `@Model` class-inheritance feature that is gated and migration-bound. Floor *values* live in
 `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md`; the macOS-arm gating rule lives in
-`${CLAUDE_PLUGIN_ROOT}/references/_shared/macos-arm-gating.md`. Get the canonical `@Query` ✅ from
+`${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md`. Get the canonical `@Query` ✅ from
 `swiftui-ctx` (bottom of this file).
 
 **As of:** 2026-06-07 · macOS 14+ (inheritance is macOS 26+) · Xcode 26 SDK.
@@ -63,7 +63,7 @@ inheritance clause co-occur, which grep can't express). The grep tell `sd-11` ca
 fails to register every type). Severity **hard-fail**, `fix_mode: flag-only`. **Seam:** the blanket
 "is everything gated" sweep is `audit-swiftui-availability-gating`; this skill owns the
 `@Model`-inheritance gate in depth — defer non-SwiftData gating there, cross-checking the macOS-arm
-rule in `macos-arm-gating.md`.
+rule in `ios-gating.md`.
 
 > `HistoryDescriptor.sortBy` (sorted-history fetches) is also **macOS 26.0+** (member badge:
 > `verify-SDK` in `floors-master.md`); `#Index` / `#Unique` and the base history API are macOS 15.0+.

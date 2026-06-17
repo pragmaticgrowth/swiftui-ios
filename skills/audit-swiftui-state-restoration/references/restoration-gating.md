@@ -32,7 +32,7 @@ WindowGroup { ContentView() }
 ```
 
 The macOS-arm gating rule (and the wrong-arm `#available(iOS …)` failure) is shared:
-`${CLAUDE_PLUGIN_ROOT}/references/_shared/macos-arm-gating.md`.
+`${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md`.
 
 ## sr-11 — focusedSceneValue: two floors (advisory, flag-only)
 

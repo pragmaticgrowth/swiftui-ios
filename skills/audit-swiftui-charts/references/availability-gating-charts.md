@@ -3,7 +3,7 @@
 Swift Charts spans three macOS floors, and AI mis-floors the newer symbols in both directions. The floor
 *values* are the reconciled truth in `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md` — read,
 never restate them here. This file is the **gating logic** for the Charts domain. The macOS-arm rule and
-the wrong-arm failure mode are in `${CLAUDE_PLUGIN_ROOT}/references/_shared/macos-arm-gating.md`.
+the wrong-arm failure mode are in `${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md`.
 
 ---
 
@@ -56,7 +56,7 @@ if #available(macOS 14, *) { Chart(slices) { SectorMark(...) } }
 **Detection.** The tier-2 ast-grep rule `charts-09-wrong-arm-gate.yml` matches an `#available(iOS …)`
 whose body **contains** a `Chart`/`BarMark`/`LineMark`/`SectorMark`/`PointMark` — the gate-scope
 containment grep can't express. `fix_mode: auto`: rewrite the platform arm to `macOS` at the correct floor
-(per macos-arm-gating + floors-master).
+(per ios-gating + floors-master).
 
 ---
 

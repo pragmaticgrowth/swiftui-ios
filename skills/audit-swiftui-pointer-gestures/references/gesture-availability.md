@@ -3,7 +3,7 @@
 This skill owns **pointer-modifier** gating in depth; the blanket "is every floored API gated" sweep is
 `audit-swiftui-availability-gating`'s (cross_ref it when a gate miss is incidental). The *rule* for
 writing a macOS gate, the wrong-arm failure mode, and reading a multi-platform availability string are the
-**single shared copy** in `${CLAUDE_PLUGIN_ROOT}/references/_shared/macos-arm-gating.md` — read it, do not
+**single shared copy** in `${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md` — read it, do not
 restate it here. Floor *values* live in `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md`.
 
 ---
@@ -57,7 +57,7 @@ if #available(macOS 15, *) { handle.pointerStyle(.grabIdle) }
 ```
 
 Full rule (macOS arm, the required `*`, reading a multi-platform string, the `macOS ABSENT` case): the
-shared `${CLAUDE_PLUGIN_ROOT}/references/_shared/macos-arm-gating.md`. Note `pointerStyle` has **no iOS
+shared `${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md`. Note `pointerStyle` has **no iOS
 arm at all** — it is `macOS-only`, so an `iOS`-armed gate around it is always wrong-arm, never a higher-iOS
 over-gate.
 
@@ -82,4 +82,4 @@ over-gate.
 
 Apple availability strings cross-checked against `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md`
 and fetched via Sosumi (access 2026-06-07). The macOS-arm gating *rule* itself is the shared
-`${CLAUDE_PLUGIN_ROOT}/references/_shared/macos-arm-gating.md` — not restated here.
+`${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md` — not restated here.

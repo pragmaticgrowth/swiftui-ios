@@ -159,7 +159,7 @@ not replace the VERIFY/READ step.
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/fix-safety-protocol.md` | step FIX — the 8-point protocol + the guards-first cross-skill order |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/lint-architecture.md` | step LOCATE — the shared runner's engine, JSON/SARIF shape, degradation rails |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md` | any floor/availability value (the reconciled truth) |
-| `${CLAUDE_PLUGIN_ROOT}/references/_shared/macos-arm-gating.md` | any arm-gating question (a macOS-version / wrong-arch availability miss) |
+| `${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md` | any arm-gating question (a macOS-version / wrong-arch availability miss) |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/hallucination-blacklist.md` | any invented-name question (a confabulated API like `@FocusedDocument`, `.glassBackground`) |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/sosumi-reference.md` | step VERIFY — the Apple-doc spec fetch protocol |
 | `${CLAUDE_PLUGIN_ROOT}/references/_shared/swiftui-ctx-reference.md` | step VERIFY — the shipping-corpus practice CLI (consensus shape + permalinked example) |

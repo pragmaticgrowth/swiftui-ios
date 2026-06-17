@@ -1,7 +1,7 @@
 # Shared Reference — Hallucination Blacklist (nonexistent APIs → real replacements)
 
 The canonical list of invented/nonexistent or platform-wrong API names that AI models emit as
-plausible-looking SwiftUI, each with the **real** macOS replacement. A match on any blacklisted
+plausible-looking SwiftUI, each with the **real** iOS/cross-platform replacement. A match on any blacklisted
 name is **always a hard-fail** (it will not compile or is a silent no-op). This is shared *data*:
 `api-currency` owns authoring it, the pre-ship gate's hallucination sweep reads it, and
 `liquid-glass`, `charts`, `pointer-gestures` consume the relevant rows. Do not restate this list
@@ -11,13 +11,13 @@ To confirm a symbol's existence/availability before flagging, fetch the Apple pa
 `${CLAUDE_PLUGIN_ROOT}/references/_shared/sosumi-reference.md`. Floors for the *real* replacements
 live in `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md`.
 
-**As of:** 2026-06-07 · macOS 26 (Tahoe) · Xcode 26 SDK.
+**As of:** 2026-06-16 · iOS 18 / iOS 26 (Tahoe) · Xcode 26 SDK.
 
 ---
 
 ## 1. Liquid Glass — invented modifiers & types
 
-| Hallucinated / wrong | Why it's wrong | Real replacement (macOS) |
+| Hallucinated / wrong | Why it's wrong | Real replacement |
 |---|---|---|
 | `.glassBackground()` | Does not exist. | `.glassEffect(_:in:)` (macOS 26.0+) |
 | `.liquidGlass()` | Does not exist — marketing name, not an API. | `.glassEffect(_:in:)` (macOS 26.0+) |
@@ -30,13 +30,13 @@ live in `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md`.
 
 > **`.interactive()` is NOT iOS-only.** `Glass.interactive(_:)` IS available on macOS 26.0+
 > (pointer-driven). Do not flag it as a hallucination; flag a *wrong-arm gate* if it is gated on
-> `#available(iOS 26, *)` in a macOS path (see `macos-arm-gating.md`).
+> `#available(macOS 26, *)` in an iOS path (see `ios-gating.md`).
 
 ---
 
 ## 2. Focus / document — phantom property wrappers
 
-| Hallucinated / wrong | Why it's wrong | Real replacement (macOS) |
+| Hallucinated / wrong | Why it's wrong | Real replacement |
 |---|---|---|
 | `@FocusedDocument` | **Not a real Apple symbol.** | A custom `FocusedValues` key: `@Entry var focusedDocument: …` (on `FocusedValues`) + `@FocusedValue(\.focusedDocument)`. |
 | `@FocusedBinding` used as a wrapper that does not exist | (`@FocusedBinding` *does* exist) — verify the key exists before flagging. | confirm via Sosumi; real keys come from `FocusedValueKey` / `@Entry` on `FocusedValues`. |
@@ -45,7 +45,7 @@ live in `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md`.
 
 ## 3. Pointer / gesture — stale or invented case names
 
-| Hallucinated / wrong | Why it's wrong | Real replacement (macOS) |
+| Hallucinated / wrong | Why it's wrong | Real replacement |
 |---|---|---|
 | `PointerStyle.grabbing` | Stale/invented case name. | `PointerStyle.grabActive` / `.grabIdle` (macOS 15.0+) |
 | `pointerStyle(.grabbing)` | Same — no `.grabbing` case. | `.pointerStyle(.grabActive)` (macOS 15.0+) |
@@ -56,7 +56,7 @@ live in `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md`.
 
 ## 4. Charts — invented mark/plot names
 
-| Hallucinated / wrong | Why it's wrong | Real replacement (macOS) |
+| Hallucinated / wrong | Why it's wrong | Real replacement |
 |---|---|---|
 | `PieMark` | No such mark — pie/donut is built from sectors. | `SectorMark` (macOS 14.0+) |
 | `DonutMark` | No such mark. | `SectorMark` with `innerRadius:` (macOS 14.0+) |
@@ -67,10 +67,11 @@ live in `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md`.
 
 ## 5. Toolbar / navigation — platform-wrong placements
 
-| Hallucinated / wrong | Why it's wrong | Real replacement (macOS) |
+| Hallucinated / wrong | Why it's wrong | Real replacement |
 |---|---|---|
 | `ToolbarItemPlacement.topBarLeading` / `.topBarTrailing` on a Mac target | **macOS ABSENT — compile error.** iOS-shaped. | `.navigation` / `.primaryAction` (macOS 11.0+) |
 | `.navigationBarTitleDisplayMode(...)` on macOS | No macOS arm. | omit — use `.navigationTitle` / `.navigationSubtitle` |
+| `NSViewRepresentable` in an iOS target | **iOS ABSENT — UIKit bridge, not AppKit.** | `UIViewRepresentable` (iOS 13.0+) |
 
 ---
 

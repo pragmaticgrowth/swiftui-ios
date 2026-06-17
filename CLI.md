@@ -1,12 +1,12 @@
 # swiftui-ctx — CLI contract
 
-Real-world SwiftUI usage from **1,857 production macOS apps**, queryable for AI agents.
+Real-world SwiftUI usage from **319 production iOS apps**, queryable for AI agents.
 The *practice* layer; pair with [sosumi.ai](https://sosumi.ai) (official docs), which every result links to.
 
 ## Build & run
 ```bash
 ( cd swiftui-scan && swift build -c release --product swiftui-ctx )
-swiftui-scan/.build/release/swiftui-ctx <command> [--json] [--catalog <dir>] [--limit N] [--platform macos|any] [--offline]
+swiftui-scan/.build/release/swiftui-ctx <command> [--json] [--catalog <dir>] [--limit N] [--platform ios|macos|cross|any] [--offline]
 ```
 The catalog dir is found via `--catalog`, `$SWIFTUI_CTX_CATALOG`, `./catalog`, or the package-relative `../catalog`.
 
@@ -30,7 +30,7 @@ Shard / specialized:
 - `rankings <dim>` — top repos by dimension: `by_total_unique_apis · by_modifier_breadth · by_custom_components · most_modern_stack`.
 - `insights <section>` — corpus-level data: `modern-stack · deprecated · cooccurrence · external · components · categories`.
 
-Global flags (all commands): `--json` · `--catalog <dir>` · `--limit N` (default 6) · `--platform macos|any` · `--offline` (catalog only, no live fetch).
+Global flags (all commands): `--json` · `--catalog <dir>` · `--limit N` (default 6) · `--platform ios|macos|cross|any` (default ios) · `--offline` (catalog only, no live fetch).
 
 ## Agent contract
 - **stdout** = data only (`--json` for the envelope); **stderr** = logs/errors.
@@ -40,8 +40,8 @@ Global flags (all commands): `--json` · `--catalog <dir>` · `--limit N` (defau
 
 ## Ranking (why an example is "recommended")
 Composite quality score per repo: **author authority** (Σ stars of contributors' own + contributed-to projects)
-+ **repo stars** + **modernity** (newest macOS APIs used / not deprecated) + **recency** + **contributor count**,
-penalized for deprecated-form usage, demo/sample/tutorial repos, and non-macOS platform. Examples are de-duplicated
++ **repo stars** + **modernity** (newest iOS APIs used / not deprecated) + **recency** + **contributor count**,
+penalized for deprecated-form usage, demo/sample/tutorial repos, and non-iOS platform. Examples are de-duplicated
 by argument shape so you see distinct real variations, top-ranked first. (No license/legal signals; no star velocity.)
 
 ## Pipeline (how the catalog is produced)

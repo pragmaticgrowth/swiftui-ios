@@ -56,4 +56,4 @@ same line.
 
 This protocol is internal to the toolkit; it cites no external API. Floor/availability facts the
 fixes act on live in `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md`; gating discipline in
-`${CLAUDE_PLUGIN_ROOT}/references/_shared/macos-arm-gating.md`.
+`${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md`.

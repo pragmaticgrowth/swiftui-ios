@@ -3,7 +3,7 @@
 The glass-specific gating playbook. This skill owns glass gating **in depth**; the blanket "is every
 floored API gated" sweep belongs to `audit-swiftui-availability-gating`. The cross-cutting gating
 *rule* (macOS arm, the `*` wildcard, the wrong-arm failure, reading multi-platform strings) is NOT
-restated here — it lives in `${CLAUDE_PLUGIN_ROOT}/references/_shared/macos-arm-gating.md`, and floor
+restated here — it lives in `${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md`, and floor
 values live in `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md`. This file adds the
 glass-specific application: which symbols are floored, and the pre-26 fallback choice.
 
@@ -24,7 +24,7 @@ call is a **compile error** — and Mac users lag on upgrades, so shipping apps 
 target once in step ORIENT).
 
 `Glass.interactive(_:)` **is available on macOS 26.0** (pointer-driven on the Mac). It is never an
-iOS-only symbol — see `${CLAUDE_PLUGIN_ROOT}/references/_shared/macos-arm-gating.md` §2. This skill
+iOS-only symbol — see `${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md` §2. This skill
 carries **no** rule flagging `.interactive()` as iOS-only.
 
 ---
@@ -54,7 +54,7 @@ if #available(iOS 26.0, *) { controls.glassEffect() }
 if #available(macOS 26.0, *) { controls.glassEffect() }
 ```
 Safe to auto-fix because only the arm is wrong; floor and structure are otherwise correct. Per
-`${CLAUDE_PLUGIN_ROOT}/references/_shared/macos-arm-gating.md`, a wrong-arm gate is a gating finding,
+`${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md`, a wrong-arm gate is a gating finding,
 **not** a hallucination.
 
 ---
@@ -81,7 +81,7 @@ ungated call and shows the branch, but applying it is the dev's call (which fall
 ## Sources
 
 - Floor values + gating rule: `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md` and
-  `${CLAUDE_PLUGIN_ROOT}/references/_shared/macos-arm-gating.md` (toolkit-internal, both Apple-sourced
+  `${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md` (toolkit-internal, both Apple-sourced
   via Sosumi, access 2026-06-07).
 - Apple — `glassEffect(_:in:)` macOS 26.0+:
   `https://developer.apple.com/documentation/swiftui/view/glasseffect(_:in:)` (via Sosumi, accessed

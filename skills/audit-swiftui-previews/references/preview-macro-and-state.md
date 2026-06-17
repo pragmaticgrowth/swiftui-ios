@@ -76,7 +76,7 @@ Verbatim signature: `macro Preview(_ name: String? = nil, traits: PreviewTrait<P
 There is **no** `windowStyle:` `#Preview` overload on macOS: `Preview(_:windowStyle:traits:body:)` is
 **visionOS-only** — a `macOS ABSENT` symbol. On macOS, `#Preview { }` previews a `View`; that is the only
 `#Preview` shape. **Never** wrap it in `#available(macOS …)` (it has no Mac arm — see
-`${CLAUDE_PLUGIN_ROOT}/references/_shared/macos-arm-gating.md` §3); replace it with the plain macro.
+`${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md` §3); replace it with the plain macro.
 `hard-fail` (won't compile on a Mac target), `fix_mode: flag-only`.
 
 ```swift

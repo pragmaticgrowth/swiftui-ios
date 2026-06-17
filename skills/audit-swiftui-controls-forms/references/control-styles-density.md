@@ -94,7 +94,7 @@ Put `.pickerStyle(.menu)` (the most native pop-up) or `.segmented` in `## Correc
 `WheelPickerStyle` / `.pickerStyle(.wheel)` is the iOS spinning-wheel picker — it has **NO macOS arm**.
 Per `${CLAUDE_PLUGIN_ROOT}/references/_shared/floors-master.md` it is **`macOS ABSENT`** (a compile error
 on non-Catalyst macOS), **not** an under-gated symbol. Do **not** wrap it in `#available(macOS …)` — that is
-the "macOS ABSENT is not a low floor" trap in `${CLAUDE_PLUGIN_ROOT}/references/_shared/macos-arm-gating.md`.
+the "macOS ABSENT is not a low floor" trap in `${CLAUDE_PLUGIN_ROOT}/references/_shared/ios-gating.md`.
 **Replace** it with a real Mac picker style.
 
 ```swift
