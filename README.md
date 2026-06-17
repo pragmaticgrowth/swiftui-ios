@@ -111,6 +111,8 @@ skills fire automatically when you describe a task to claude. the commands above
 | `ios-app-patterns` | scaffold a whole feature — tab-bar app, NavigationStack master-detail, sheet + detents flow, uiview bridge, widget, onboarding… |
 | `build-ios-swiftui` | write / review / refactor broadly — @Observable state, native iOS/iPadOS idioms, hig conformance |
 
+`build-ios-swiftui` and `ios-app-patterns` are **design-aware**: they generate with built-in text styles, semantic colors, 44 pt targets, correct Liquid Glass placement, and HIG navigation by default (grounded in the same cited `references/_shared/` design knowledge base the reviewer uses), and can render-and-self-check what they wrote via `swiftui-capture.sh` + `audit-swiftui-design-review`.
+
 ### audit suite (34 skills)
 
 `audit-ios-swiftui-full` is the orchestrator — it routes your codebase through the right subset of auditors automatically, runs them in dependency order, and produces `_SUMMARY.md`.
