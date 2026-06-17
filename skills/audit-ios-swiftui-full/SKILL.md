@@ -57,8 +57,10 @@ appear in **exactly one** wave.
 | **6 · Content & chrome** | `audit-swiftui-controls-forms` → `audit-swiftui-charts` → `audit-swiftui-drawing-canvas` → `audit-swiftui-animation-motion` → `audit-swiftui-liquid-glass` → `audit-swiftui-typography-text` → `audit-swiftui-dynamic-type` → `audit-swiftui-appearance-color` → `audit-swiftui-accessibility` → `audit-swiftui-localization` → `audit-swiftui-haptics` → `audit-swiftui-previews` → `audit-swiftui-view-performance` | Controls, charts, drawing, motion, glass, type, Dynamic Type, color, a11y, loc, haptics, previews, then render cost (`view-performance` reads over-rendering after state settles). Each owns its own gating in depth (guards already caught the misses). |
 | **7 · Boundary & scoring** | `audit-swiftui-uikit-interop` → `audit-swiftui-uikit-overuse` → `audit-swiftui-ios-idiomaticness` | The UIKit seam (HOW the bridge is built ↔ WHETHER it should exist) and the 0-100 iOS-idiom meta-score read the full codebase + the prior findings; **`ios-idiomaticness` re-scores last** for a before/after delta. |
 | **8 · Platform surfaces** | `audit-swiftui-widgets-live-activities` → `audit-swiftui-app-intents` → `audit-swiftui-privacy-permissions` | WidgetKit/ActivityKit, App Intents/Shortcuts, and the privacy-manifest/usage-string surface read the whole app + its `Info.plist`/`.xcprivacy`; they sit outside the main view tree, so they audit last. |
+| **9 · Visual design (pixel-first)** | `audit-swiftui-design-review` | Builds + screenshots the rendered app (light/dark × Dynamic Type) and critiques the pixels against the HIG/Liquid-Glass knowledge base → a 0-100 Design Score. Runs last because it judges the *rendered* result of every prior wave; requires a buildable project and **degrades to code-only** otherwise. This is the visual/design complement to the code audits. |
 
-34 skills total. The seam-ownership that decides who keeps a finding when two waves hit the same
+34 code-audit skills (Waves 0–8) + 1 pixel-first visual reviewer (`audit-swiftui-design-review`, Wave 9,
+the final cross-cutting pass). The seam-ownership that decides who keeps a finding when two waves hit the same
 `file:line` is the single source `${CLAUDE_PLUGIN_ROOT}/references/_shared/cross-ref-graph.md` — the
 **same** file each skill's `cross_ref` emission reads, so the dedup pass and the skills cannot drift.
 
@@ -186,8 +188,9 @@ human-driven full audit (this skill) is required before shipping; it does not re
 - This skill **never contains domain rules or fixes** — if you find yourself describing how to fix a
   `glassEffect`, a missing `updateUIView`, or a detent-less `.sheet`, stop and invoke the owner skill.
 - It does not touch `references/_shared/` or any sibling skill's `references/`/`lint/` — it consumes them.
-- UIKit-only apps, HIG snapshot review, and from-scratch UI are out of scope (route to `build-ios-swiftui`
-  / the HIG review skill respectively).
+- UIKit-only apps and from-scratch UI are out of scope (route to `build-ios-swiftui`). Visual design / HIG /
+  Liquid-Glass review **is** in scope — it runs as Wave 9 via `audit-swiftui-design-review` (invoke that skill
+  directly for a design-only pass).
 
 ## Reference routing (all shared — point in, never restate)
 
