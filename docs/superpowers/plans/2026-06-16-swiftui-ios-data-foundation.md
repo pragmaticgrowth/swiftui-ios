@@ -39,7 +39,7 @@ DST=/Users/serkan/swiftui-ios
 mkdir -p "$DST"
 rsync -a --exclude '.git' --exclude 'catalog' --exclude 'data' --exclude 'repos' \
   --exclude 'sg' --exclude 'sg_std' --exclude 'sdk_catalog.json' --exclude 'symbols_all.tsv' \
-  --exclude 'swiftui-ctx' --exclude '.build' --exclude 'docs' \
+  --exclude '/swiftui-ctx' --exclude '.build' --exclude 'docs' \
   "$SRC"/ "$DST"/
 mkdir -p "$DST/docs/superpowers/specs" "$DST/docs/superpowers/plans"
 cp "$SRC/docs/superpowers/specs/2026-06-16-swiftui-ios-data-foundation-design.md" "$DST/docs/superpowers/specs/"
@@ -270,10 +270,52 @@ for m in SwiftUI SwiftUICore Observation SwiftData Charts WidgetKit ActivityKit 
 for m in Swift Combine Foundation UIKit; do \
   swift symbolgraph-extract -module-name $m -target arm64-apple-ios17.0 -sdk "$SDK" \
     -minimum-access-level public -output-dir sg_std/; done
-# flatten sg/*.symbols.json -> symbols_all.tsv ; build stdlib_method_names.json from sg_std/
+python3 scripts/02a_flatten.py   # sg/*.symbols.json -> symbols_all.tsv ; sg_std/* -> stdlib_method_names.json
 python3 scripts/02_build_sdk_catalog.py
 python3 scripts/02b_availability.py
 ```
+
+- [ ] **Step 1b: Author the flatten helper `scripts/02a_flatten.py`**
+
+`RUN.md` historically elided this step as a prose comment; make it a real, committed script. It converts the symbol graphs into the 5-column TSV (`module, kind, parent, title, access`) that `02_build_sdk_catalog.py` consumes, and the stdlib base-name list `02` subtracts. Create `scripts/02a_flatten.py`:
+
+```python
+#!/usr/bin/env python3
+"""Stage 2a — flatten symbol graphs into symbols_all.tsv (module,kind,parent,title,access)
+for 02_build_sdk_catalog.py, and build stdlib_method_names.json (instance-method base names
+from the stdlib/denylist modules in sg_std/) which 02 subtracts to kill collisions."""
+import json, glob, os
+HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.join(HERE, "..")
+def rows_for(path):
+    d = json.load(open(path)); mod = d.get("module", {}).get("name", "")
+    for s in d.get("symbols", []):
+        kind = s.get("kind", {}).get("identifier", "")
+        pc = s.get("pathComponents", []) or []
+        parent = pc[-2] if len(pc) >= 2 else ""
+        title = s.get("names", {}).get("title", "") or (pc[-1] if pc else "")
+        access = s.get("accessLevel", "")
+        if title:
+            yield "\t".join([mod, kind, parent, title, access])
+def main():
+    out = []
+    for f in sorted(glob.glob(os.path.join(ROOT, "sg", "*.symbols.json"))):
+        out.extend(rows_for(f))
+    open(os.path.join(ROOT, "symbols_all.tsv"), "w").write("\n".join(out) + "\n")
+    print(f"symbols_all.tsv: {len(out)} rows from {len(glob.glob(os.path.join(ROOT,'sg','*.symbols.json')))} graphs")
+    std = set()
+    for f in glob.glob(os.path.join(ROOT, "sg_std", "*.symbols.json")):
+        d = json.load(open(f))
+        for s in d.get("symbols", []):
+            if s.get("kind", {}).get("identifier") == "swift.method":
+                t = s.get("names", {}).get("title", "").split("(")[0]
+                if t.isidentifier(): std.add(t)
+    json.dump(sorted(std), open(os.path.join(ROOT, "stdlib_method_names.json"), "w"))
+    print(f"stdlib_method_names.json: {len(std)} method names")
+if __name__ == "__main__":
+    main()
+```
+
+**Validation note for the implementer:** symbol-graph JSON from `-emit-extension-block-symbols` may represent some members via `relationships` (`memberOf`) rather than `pathComponents`. After running `02`, confirm the dimensions are non-trivial and key modifiers resolve — `python3 -c 'import json;d=json.load(open("sdk_catalog.json"))["dimensions"];print({k:(k in d["modifiers"]) for k in ["padding","frame","foregroundStyle","tabItem","presentationDetents"]})'` should show `padding`/`frame`/`foregroundStyle` `True`. If instance methods are missing because parent resolution failed, fall back to deriving `parent` from the `memberOf` relationship target's `pathComponents` and re-run. Report the approach you used.
 
 - [ ] **Step 2: `02_build_sdk_catalog.py` — modules, label, wrappers**
 
